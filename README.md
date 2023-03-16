@@ -4,14 +4,17 @@
 # Orions-Destiny
 Ein 2D Platformer über ein Wesen, das gegen mächtige Gegner kämpft und an ihnen stärker wird.
 
-# Pflichtenheft
-
-## Beschreibung 
+# Beschreibung 
 Ein 2D-Platformer, in dem man in verschiedenen Leveln gegen Gegner kämpft.
 Nach besiegen dieser Gegner erhält man deren Fähigkeiten und kann diese gegen die nächsten gegner einsetzen.
 Zu Beginn soll man zwischen verschiedenen Characteren wählen, die jeweils ihre eigenen Fähigkeiten haben. 
 
-## Ziele 
+Und als zustätzlich Hardware projekt, bauen wir einen Controller mit einem Esp-32 und Joystick controller, den man dann entweder mit Bluetooth oder per kabel als HID-Device verwenden kann.
+
+Zur Umsetzung verwenden wir die LW**JGL** Bibliothek und wir bauen ein Entity-component system und viel Verrerbung wird verwendet.
+
+
+# Ziele 
 - Entity Component System
 - Ein "spielbares" Spiel 
 - Character mit Fähigkeiten (Skilltree)
@@ -20,5 +23,6 @@ Zu Beginn soll man zwischen verschiedenen Characteren wählen, die jeweils ihre 
 - Fortschritt in JSON datei speichern
 - Animationen für Character und Gegner
 - Level
+
 
 
