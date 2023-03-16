@@ -4,7 +4,7 @@
 # Orions-Destiny
 Ein 2D Platformer über ein Wesen, das gegen mächtige Gegner kämpft und an ihnen stärker wird.
 
-#Pflichtenheft
+# Pflichtenheft
 ---
 ## Beschreibung 
 Ein 2D-Platformer, in dem man in verschiedenen Leveln gegen Gegner kämpft.
