@@ -12,10 +12,13 @@ Nach besiegen dieser Gegner erhält man deren Fähigkeiten und kann diese gegen 
 Zu Beginn soll man zwischen verschiedenen Characteren wählen, die jeweils ihre eigenen Fähigkeiten haben. 
 
 ## Ziele 
-- Ein "spielbares" Spiel
-- Gegner mit Fähigkeiten
-- Character mit Fähigkeiten
-- Character bekommt beim besiegen der Gegner (Boss) ihre Fähigkeiten 
+- Entity Component System
+- Ein "spielbares" Spiel 
+- Character mit Fähigkeiten (Skilltree)
+- Gegner mit Fähigkeiten 
+- Character bekommt beim besiegen der Gegner (Boss) ihre Fähigkeiten
+- Fortschritt in JSON datei speichern
 - Animationen für Character und Gegner
 - Level
+
 
