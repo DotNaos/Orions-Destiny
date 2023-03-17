@@ -21,6 +21,7 @@ public class LevelEditorScene extends Scene{
             changingScene = true;
         }
 
+
         if (changingScene && timeToChangeScene > 0)
         {
             timeToChangeScene -= dt;
