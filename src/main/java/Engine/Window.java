@@ -1,5 +1,6 @@
 package Engine;
 
+import Util.Time;
 import org.lwjgl.Version;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.opengl.GL;
@@ -14,10 +15,12 @@ public class Window {
     int width, height;
     String title;
     private long glfwWindow;
-    private float r, g, b, a;
+    public float r, g, b, a;
     private boolean fadeToBlack;
 
     private static Window window = null;
+
+    private static Scene currentScene;
 
     private Window()
     {
@@ -29,6 +32,27 @@ public class Window {
         this.b = 0.3f;
         this.a = 1.0f;
     }
+
+    public static void changeScene(int newScene)
+    {
+        switch(newScene){
+            case 0:
+                currentScene = new LevelEditorScene();
+                // currentScene.init();
+            break;
+
+            case 1:
+                currentScene = new LevelScene();
+                // currentScene.init();
+                break;
+            default:
+                assert false : "Invalid scene '" + newScene + "'";
+                break;
+
+
+        }
+    }
+
 
     public static Window get()
     {
@@ -103,11 +127,17 @@ public class Window {
         // creates the GLCapabilities instance and makes the OpenGL
         // bindings available for use.
         GL.createCapabilities();
+
+        Window.changeScene(0);
     }
 
     // Called every frame
     public void loop()
     {
+        float beginTime = Time.getTime();
+        float endTime;
+        float dt = -1.0f;
+
         System.out.println("Window is looping!");
         while(!glfwWindowShouldClose(glfwWindow)) {
 
@@ -118,31 +148,19 @@ public class Window {
             glClearColor(r, g, b, a);
             glClear(GL_COLOR_BUFFER_BIT); // clear the framebuffer
 
-            if(fadeToBlack){
-                r = Math.max(r - 0.01f, 0.0f);
-                g = Math.max(g - 0.01f, 0.0f);
-                b = Math.max(b - 0.01f, 0.0f);
-                a = Math.max(a - 0.01f, 0.0f);
-            }
 
-
-            if(MouseListener.isDragging())
+            if(dt >= 0)
             {
-                System.out.println("Dragging!");
-            }
-            if(KeyListener.isKeyPressed(GLFW_KEY_SPACE))
-            {
-                System.out.println("Space is pressed!");
-                fadeToBlack = true;
+                currentScene.update(dt);
             }
 
-
-            if(KeyListener.isKeyPressed(GLFW_KEY_ESCAPE))
-            {
-                glfwSetWindowShouldClose(glfwWindow, true);
-            }
 
             glfwSwapBuffers(glfwWindow); // swap the color buffers
+
+            endTime = Time.getTime();
+            dt = endTime - beginTime;
+            beginTime = endTime;
+
         }
     }
 }
