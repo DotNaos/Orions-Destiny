@@ -5,6 +5,7 @@ import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.opengl.GL;
 
 
+import static org.lwjgl.glfw.Callbacks.glfwFreeCallbacks;
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.system.MemoryUtil.NULL;
@@ -13,6 +14,8 @@ public class Window {
     int width, height;
     String title;
     private long glfwWindow;
+    private float r, g, b, a;
+    private boolean fadeToBlack;
 
     private static Window window = null;
 
@@ -21,6 +24,10 @@ public class Window {
         this.width  = 1920;
         this.height = 1080;
         this.title = "Orions-Destiny";
+        this.r = 1.0f;
+        this.g = 0.1f;
+        this.b = 0.3f;
+        this.a = 1.0f;
     }
 
     public static Window get()
@@ -39,6 +46,15 @@ public class Window {
 
         init();
         loop();
+
+        // Free the memory
+        glfwFreeCallbacks(glfwWindow);
+        glfwDestroyWindow(glfwWindow);
+
+        // Terminate GLFW and free the error callback
+        glfwTerminate();
+        glfwSetErrorCallback(null).free();
+
     }
 
 
@@ -48,7 +64,7 @@ public class Window {
         // error callback
         GLFWErrorCallback.createPrint(System.err).set();
 
-        // Intialize GLFW
+        // Initialize GLFW
         if (!glfwInit()) {
             throw new IllegalStateException("Unable to initialize GLFW");
         }
@@ -64,6 +80,13 @@ public class Window {
         if (glfwWindow == NULL) {
             throw new IllegalStateException("Failed to create the GLFW window");
         }
+
+        // Set up a key callback. It will be called every time a key is pressed, repeated or released.
+        glfwSetCursorPosCallback(glfwWindow, MouseListener::mousePosCallback);
+        glfwSetMouseButtonCallback(glfwWindow, MouseListener::mouseButtonCallback);
+        glfwSetScrollCallback(glfwWindow, MouseListener::mouseScrollCallback);
+        glfwSetKeyCallback(glfwWindow, KeyListener::keyCallback);
+
 
         // Make the OpenGL context current
         glfwMakeContextCurrent(glfwWindow);
@@ -82,6 +105,7 @@ public class Window {
         GL.createCapabilities();
     }
 
+    // Called every frame
     public void loop()
     {
         System.out.println("Window is looping!");
@@ -91,8 +115,32 @@ public class Window {
             // invoked during this call.
             glfwPollEvents();
 
-            glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
+            glClearColor(r, g, b, a);
             glClear(GL_COLOR_BUFFER_BIT); // clear the framebuffer
+
+            if(fadeToBlack){
+                r = Math.max(r - 0.01f, 0.0f);
+                g = Math.max(g - 0.01f, 0.0f);
+                b = Math.max(b - 0.01f, 0.0f);
+                a = Math.max(a - 0.01f, 0.0f);
+            }
+
+
+            if(MouseListener.isDragging())
+            {
+                System.out.println("Dragging!");
+            }
+            if(KeyListener.isKeyPressed(GLFW_KEY_SPACE))
+            {
+                System.out.println("Space is pressed!");
+                fadeToBlack = true;
+            }
+
+
+            if(KeyListener.isKeyPressed(GLFW_KEY_ESCAPE))
+            {
+                glfwSetWindowShouldClose(glfwWindow, true);
+            }
 
             glfwSwapBuffers(glfwWindow); // swap the color buffers
         }
