@@ -1,6 +1,13 @@
 ## Von Oliver, Timon, Domenik
 
 
+# Config
+>JDK-17 wird benötigt in der Run bzw. Build config von IntelliJ
+
+![https://adoptium.net/de/download/]
+![https://github.com/adoptium/temurin17-binaries/releases/tag/jdk-17.0.6%2B10]
+
+
 # Orions-Destiny
 Ein 2D Platformer über ein Wesen, das gegen mächtige Gegner kämpft und an ihnen stärker wird.
 
