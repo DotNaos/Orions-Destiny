@@ -9,6 +9,12 @@
 [Adoptium Github](https://github.com/adoptium/temurin17-binaries/releases/tag/jdk-17.0.6%2B10)
 
 
+# Resourcen
+
+## Assets
+https://codemanu.itch.io/pixelart-effect-pack
+
+
 # Orions-Destiny
 Ein 2D Platformer über ein Wesen, das gegen mächtige Gegner kämpft und an ihnen stärker wird.
 
