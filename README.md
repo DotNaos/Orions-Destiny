@@ -4,8 +4,8 @@
 # Config
 >JDK-17 wird benötigt in der Run bzw. Build config von IntelliJ
 
-![https://adoptium.net/de/download/]
-![https://github.com/adoptium/temurin17-binaries/releases/tag/jdk-17.0.6%2B10]
+https://adoptium.net/de/download/ \\
+https://github.com/adoptium/temurin17-binaries/releases/tag/jdk-17.0.6%2B10
 
 
 # Orions-Destiny
