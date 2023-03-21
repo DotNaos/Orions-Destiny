@@ -1,4 +1,4 @@
-## Von Oliver, Timon, Domenik
+## Von Oliver, Timon, Dominik
 
 
 # Config
