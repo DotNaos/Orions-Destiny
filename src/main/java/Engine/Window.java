@@ -16,7 +16,7 @@ public class Window {
     String title;
     private long glfwWindow;
     public float r, g, b, a;
-    private boolean fadeToBlack;
+    private boolean fadeToBlack = false;
 
     private static Window window = null;
 
@@ -27,10 +27,10 @@ public class Window {
         this.width  = 1920;
         this.height = 1080;
         this.title = "Orions-Destiny";
-        this.r = 1.0f;
-        this.g = 0.1f;
-        this.b = 0.3f;
-        this.a = 1.0f;
+        this.r = 1;
+        this.g = 1;
+        this.b = 1;
+        this.a = 1;
     }
 
     public static void changeScene(int newScene)
