@@ -12,8 +12,7 @@
 # Resourcen
 
 ## Assets
-https://codemanu.itch.io/pixelart-effect-pack
-
+https://itch.io/c/3189578/orions-destiny
 
 # Orions-Destiny
 Ein 2D Platformer über ein Wesen, das gegen mächtige Gegner kämpft und an ihnen stärker wird.
