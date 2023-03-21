@@ -14,6 +14,12 @@
 ## Assets
 https://itch.io/c/3189578/orions-destiny
 
+## Wird benutzt für:
+
+### Character & Gegner
+https://itch.io/queue/c/3189578/orions-destiny?game_id=990745
+
+
 # Orions-Destiny
 Ein 2D Platformer über ein Wesen, das gegen mächtige Gegner kämpft und an ihnen stärker wird.
 
