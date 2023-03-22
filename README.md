@@ -12,8 +12,29 @@
 # Resourcen
 
 ## Assets
-https://codemanu.itch.io/pixelart-effect-pack
+https://itch.io/c/3189578/orions-destiny
 
+## Wird benutzt für:
+
+### Character & Gegner
+[Eventuell Spieler](https://itch.io/queue/c/3189578/orions-destiny?game_id=361179)  
+[Gegner](https://itch.io/queue/c/3189578/orions-destiny?game_id=990745)
+[Gegner](https://itch.io/queue/c/3189578/orions-destiny?game_id=255239)
+[Gegner](https://itch.io/queue/c/3189578/orions-destiny?game_id=732804)
+
+###Charakter & Gegner Skills
+[Ice Type Skills](https://itch.io/queue/c/3189578/orions-destiny?game_id=1233586)
+[Fire Type Skills](https://itch.io/queue/c/3189578/orions-destiny?game_id=969947)
+[Magic Skills](https://itch.io/queue/c/3189578/orions-destiny?game_id=499886)
+[Skill Icon](https://itch.io/queue/c/3189578/orions-destiny?game_id=772403)
+
+###Backgrounds
+[Tilesets](https://itch.io/queue/c/3189578/orions-destiny?game_id=337080)
+[Backgrounds](https://itch.io/queue/c/3189578/orions-destiny?game_id=184484)
+
+###GUI
+[GUI elements](https://itch.io/queue/c/3189578/orions-destiny?game_id=757342)
+[GUI elements](https://itch.io/queue/c/3189578/orions-destiny?game_id=1629668)
 
 # Orions-Destiny
 Ein 2D Platformer über ein Wesen, das gegen mächtige Gegner kämpft und an ihnen stärker wird.
@@ -37,6 +58,13 @@ Zur Umsetzung verwenden wir die LW**JGL** Bibliothek und wir bauen ein Entity-co
 - Fortschritt in JSON datei speichern
 - Animationen für Character und Gegner
 - Level
+
+# User Story
+![grafik](https://user-images.githubusercontent.com/79258047/226625825-14e26f06-71fb-47b9-b52e-5d93a0f6364b.png)
+![grafik](https://user-images.githubusercontent.com/79258047/226625949-6dcb7c97-48f6-419c-b5b5-af6e246aa880.png)
+![grafik](https://user-images.githubusercontent.com/79258047/226626025-03d32ef9-5b78-437b-af2b-747a9015296c.png)
+
+
 
 <img width="397" alt="image" src="https://user-images.githubusercontent.com/78213692/225554883-04532fe8-b3bc-4577-be70-a8abc9c4a5a8.png">
 
