@@ -3,6 +3,7 @@ package Engine;
 
 import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.GL20;
+import renderer.Shader;
 
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
@@ -56,6 +57,7 @@ public class LevelEditorScene extends Scene{
     };
 
     private int vaoID, vboID, eboID;
+    private Shader defaultShader;
 
     public LevelEditorScene()
     {
@@ -65,54 +67,11 @@ public class LevelEditorScene extends Scene{
     @Override
     public void init()
     {
-        // ==================== Compile and link shaders ==================== //
+        defaultShader = new Shader("assets/shaders/default.glsl");
+        defaultShader.compile();
 
-        // First load and compile the vertex shader
-        vertexID = glCreateShader(GL_VERTEX_SHADER);
 
-        // Pass the shader source to the GPU
-        glShaderSource(vertexID, vertexShaderSrc);
-        glCompileShader(vertexID);
 
-        // Check if the shader compiled successfully
-        int success = glGetShaderi(vertexID, GL_COMPILE_STATUS);
-        if (success == GL_FALSE)
-        {
-            int len = glGetShaderi(vertexID, GL_INFO_LOG_LENGTH);
-            System.out.println("ERROR: '" + glGetShaderInfoLog(vertexID, len) + "'");
-            assert false : "";
-        }
-
-        // First load and compile the vertex shader
-        fragmentID = glCreateShader(GL_FRAGMENT_SHADER);
-
-        // Pass the shader source to the GPU
-        glShaderSource(fragmentID, fragmentShaderSrc);
-        glCompileShader(fragmentID);
-
-        // Check if the shader compiled successfully
-        success = glGetShaderi(fragmentID, GL_COMPILE_STATUS);
-        if (success == GL_FALSE)
-        {
-            int len = glGetShaderi(fragmentID, GL_INFO_LOG_LENGTH);
-            System.out.println("ERROR: '" + glGetShaderInfoLog(fragmentID, len) + "'");
-            assert false : "";
-        }
-
-        // Link shaders and check for errors
-        shaderProgram = glCreateProgram();
-        glAttachShader(shaderProgram, vertexID);
-        glAttachShader(shaderProgram, fragmentID);
-        glLinkProgram(shaderProgram);
-
-        // check for linking errors
-        success = glGetProgrami(shaderProgram, GL_LINK_STATUS);
-        if (success == GL_FALSE)
-        {
-            int len = glGetProgrami(shaderProgram, GL_INFO_LOG_LENGTH);
-            System.out.println("ERROR: '" + glGetProgramInfoLog(shaderProgram, len) + "'");
-            assert false : "";
-        }
 
         // ==================== Create VAO, VBO, and EBO ==================== //
 
@@ -151,8 +110,8 @@ public class LevelEditorScene extends Scene{
 
     @Override
     public void update(float dt) {
-        // Bind shader program
-        glUseProgram(shaderProgram);
+        defaultShader.use();
+
         // Bind the VAO
         glBindVertexArray(vaoID);
 
@@ -168,7 +127,7 @@ public class LevelEditorScene extends Scene{
 
         glBindVertexArray(0);
 
-        glUseProgram(0);
+        defaultShader.detach();
     }
 
 
