@@ -25,6 +25,5 @@ out vec4 color;
 
 void main()
 {
-
-    color =  fColor;
+    color =  sin(uTime) * fColor;
 }
