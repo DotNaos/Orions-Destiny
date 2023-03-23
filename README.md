@@ -22,17 +22,17 @@ https://itch.io/c/3189578/orions-destiny
 [Gegner](https://itch.io/queue/c/3189578/orions-destiny?game_id=255239)
 [Gegner](https://itch.io/queue/c/3189578/orions-destiny?game_id=732804)
 
-###Charakter & Gegner Skills
+### Charakter & Gegner Skills
 [Ice Type Skills](https://itch.io/queue/c/3189578/orions-destiny?game_id=1233586)
 [Fire Type Skills](https://itch.io/queue/c/3189578/orions-destiny?game_id=969947)
 [Magic Skills](https://itch.io/queue/c/3189578/orions-destiny?game_id=499886)
 [Skill Icon](https://itch.io/queue/c/3189578/orions-destiny?game_id=772403)
 
-###Backgrounds
+### Backgrounds
 [Tilesets](https://itch.io/queue/c/3189578/orions-destiny?game_id=337080)
 [Backgrounds](https://itch.io/queue/c/3189578/orions-destiny?game_id=184484)
 
-###GUI
+### GUI
 [GUI elements](https://itch.io/queue/c/3189578/orions-destiny?game_id=757342)
 [GUI elements](https://itch.io/queue/c/3189578/orions-destiny?game_id=1629668)
 
