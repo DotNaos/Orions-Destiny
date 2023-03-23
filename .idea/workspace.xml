@@ -4,18 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="787a90ad-2c32-4237-9403-4ac402e3150a" name="Changes" comment="Shader Datei loading">
+    <list default="true" id="787a90ad-2c32-4237-9403-4ac402e3150a" name="Changes" comment="Camera zur hälfte">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-    </list>
-    <list id="25a488fd-f17c-453d-94a6-413269d6c7ff" name="Changes by schue" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Engine/Camera.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/shaders/default.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/shaders/default.glsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/Camera.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Engine/LevelEditorScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/LevelEditorScene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/Scene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/renderer/Shader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/renderer/Shader.java" afterDir="false" />
     </list>
+    <list id="25a488fd-f17c-453d-94a6-413269d6c7ff" name="Changes by schue" comment="Changes by schue" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,6 +31,12 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Dev" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -65,7 +68,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/Projects/Java/Orions-Destiny",
+    "last_opened_file_path": "C:/Users/schue/Downloads/MarioYoutube",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -87,6 +90,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -105,7 +112,8 @@
       <workItem from="1679375081128" duration="2147000" />
       <workItem from="1679489515119" duration="7671000" />
       <workItem from="1679558289366" duration="642000" />
-      <workItem from="1679558985465" duration="2050000" />
+      <workItem from="1679558985465" duration="4242000" />
+      <workItem from="1679579827221" duration="4751000" />
     </task>
     <task id="LOCAL-00001" summary="Project Creation">
       <created>1679058907028</created>
@@ -170,7 +178,35 @@
       <option name="project" value="LOCAL" />
       <updated>1679508262636</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Changes by schue">
+      <created>1679565033966</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1679565033966</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Camera zur hälfte">
+      <created>1679565059002</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1679565059002</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Camera zur hälfte">
+      <created>1679583691986</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1679583691986</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Camera zur hälfte">
+      <created>1679583879968</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1679583879968</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -181,7 +217,39 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/Dominik" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/Dev" />
+                </option>
+              </RecentGroup>
+            </list>
           </value>
         </entry>
       </map>
@@ -195,7 +263,9 @@
     <MESSAGE value="Mitten im Shader" />
     <MESSAGE value="Output mit Shader" />
     <MESSAGE value="Shader Datei loading" />
-    <option name="LAST_COMMIT_MESSAGE" value="Shader Datei loading" />
+    <MESSAGE value="Changes by schue" />
+    <MESSAGE value="Camera zur hälfte" />
+    <option name="LAST_COMMIT_MESSAGE" value="Camera zur hälfte" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -15,96 +15,81 @@ import static org.lwjgl.opengl.GL20.glGetProgramInfoLog;
 public class Shader {
 
     private int shaderProgramID;
+
     private String vertexSource;
     private String fragmentSource;
     private String filepath;
-    public Shader(String filepath)
-    {
+
+    public Shader(String filepath) {
         this.filepath = filepath;
         try {
             String source = new String(Files.readAllBytes(Paths.get(filepath)));
-            // Search for #type
             String[] splitString = source.split("(#type)( )+([a-zA-Z]+)");
 
-            // Find the first pattern after #type
+            // Find the first pattern after #type 'pattern'
             int index = source.indexOf("#type") + 6;
             int eol = source.indexOf("\r\n", index);
             String firstPattern = source.substring(index, eol).trim();
 
-            // Find the second pattern after #type
-            index = source.indexOf("#type", eol)  + 6;
+            // Find the second pattern after #type 'pattern'
+            index = source.indexOf("#type", eol) + 6;
             eol = source.indexOf("\r\n", index);
             String secondPattern = source.substring(index, eol).trim();
 
-            if(firstPattern.equals("vertex"))
-            {
+            if (firstPattern.equals("vertex")) {
                 vertexSource = splitString[1];
-            }
-            else if(firstPattern.equals("fragment"))
-            {
+            } else if (firstPattern.equals("fragment")) {
                 fragmentSource = splitString[1];
-            }
-            else
-            {
-                throw new IOException("Unexpected token: '" + firstPattern + "' in shader file: " + filepath);
+            } else {
+                throw new IOException("Unexpected token '" + firstPattern + "'");
             }
 
-            if(secondPattern.equals("vertex"))
-            {
+            if (secondPattern.equals("vertex")) {
                 vertexSource = splitString[2];
-            }
-            else if(secondPattern.equals("fragment"))
-            {
+            } else if (secondPattern.equals("fragment")) {
                 fragmentSource = splitString[2];
+            } else {
+                throw new IOException("Unexpected token '" + secondPattern + "'");
             }
-            else
-            {
-                throw new IOException("Unexpected token: '" + secondPattern + "' in shader file: " + filepath);
-            }
-
-            System.out.println("Vertex Shader: " + vertexSource);
-            System.out.println("Fragment Shader: " + fragmentSource);
-
-        } catch (IOException e) {
+        } catch(IOException e) {
             e.printStackTrace();
-            assert false : "Could not read shader file! " + filepath;
+            assert false : "Error: Could not open file for shader: '" + filepath + "'";
         }
     }
 
-    public void compile()
-    {
-        // ==================== Compile and link shaders ==================== //
-
+    public void compile() {
+        // ============================================================
+        // Compile and link shaders
+        // ============================================================
         int vertexID, fragmentID;
+
         // First load and compile the vertex shader
         vertexID = glCreateShader(GL_VERTEX_SHADER);
-
         // Pass the shader source to the GPU
         glShaderSource(vertexID, vertexSource);
         glCompileShader(vertexID);
 
-        // Check if the shader compiled successfully
+        // Check for errors in compilation
         int success = glGetShaderi(vertexID, GL_COMPILE_STATUS);
-        if (success == GL_FALSE)
-        {
+        if (success == GL_FALSE) {
             int len = glGetShaderi(vertexID, GL_INFO_LOG_LENGTH);
-            System.out.println("ERROR: '" + glGetShaderInfoLog(vertexID, len) + "'");
+            System.out.println("ERROR: '" + filepath + "'\n\tVertex shader compilation failed.");
+            System.out.println(glGetShaderInfoLog(vertexID, len));
             assert false : "";
         }
 
         // First load and compile the vertex shader
         fragmentID = glCreateShader(GL_FRAGMENT_SHADER);
-
         // Pass the shader source to the GPU
         glShaderSource(fragmentID, fragmentSource);
         glCompileShader(fragmentID);
 
-        // Check if the shader compiled successfully
+        // Check for errors in compilation
         success = glGetShaderi(fragmentID, GL_COMPILE_STATUS);
-        if (success == GL_FALSE)
-        {
+        if (success == GL_FALSE) {
             int len = glGetShaderi(fragmentID, GL_INFO_LOG_LENGTH);
-            System.out.println("ERROR: '" + glGetShaderInfoLog(fragmentID, len) + "'");
+            System.out.println("ERROR: '" + filepath + "'\n\tFragment shader compilation failed.");
+            System.out.println(glGetShaderInfoLog(fragmentID, len));
             assert false : "";
         }
 
@@ -114,32 +99,26 @@ public class Shader {
         glAttachShader(shaderProgramID, fragmentID);
         glLinkProgram(shaderProgramID);
 
-        // check for linking errors
+        // Check for linking errors
         success = glGetProgrami(shaderProgramID, GL_LINK_STATUS);
-        if (success == GL_FALSE)
-        {
+        if (success == GL_FALSE) {
             int len = glGetProgrami(shaderProgramID, GL_INFO_LOG_LENGTH);
-            System.out.println("ERROR: '" + glGetProgramInfoLog(shaderProgramID, len) + "'");
+            System.out.println("ERROR: '" + filepath + "'\n\tLinking of shaders failed.");
+            System.out.println(glGetProgramInfoLog(shaderProgramID, len));
             assert false : "";
         }
-
-
     }
 
-    public void use()
-    {
+    public void use() {
         // Bind shader program
         glUseProgram(shaderProgramID);
     }
 
-    public void detach()
-    {
-        // Unbind shader program
+    public void detach() {
         glUseProgram(0);
     }
 
-    public void uploadMat4f(String varName, Matrix4f mat4)
-    {
+    public void uploadMat4f(String varName, Matrix4f mat4) {
         int varLocation = glGetUniformLocation(shaderProgramID, varName);
         FloatBuffer matBuffer = BufferUtils.createFloatBuffer(16);
         mat4.get(matBuffer);

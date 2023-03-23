@@ -1,6 +1,5 @@
 package Engine;
 
-
 import org.joml.Vector2f;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.GL20;
@@ -9,35 +8,13 @@ import renderer.Shader;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 
+import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL20.*;
 import static org.lwjgl.opengl.GL30.*;
 
-public class LevelEditorScene extends Scene{
+public class LevelEditorScene extends Scene {
 
-    private String vertexShaderSrc = "#version 330 core\n" +
-            "\n" +
-            "layout(location = 0) in vec3 aPos;\n" +
-            "layout(location = 1) in vec4 aColor;\n" +
-            "\n" +
-            "out vec4 fColor;\n" +
-            "\n" +
-            "void main()\n" +
-            "{\n" +
-            "    fColor = aColor;\n" +
-            "    gl_Position = vec4(aPos, 1.0);\n" +
-            "}";
-
-    private String fragmentShaderSrc = "#version 330 core\n" +
-            "\n" +
-            "in vec4 fColor;\n" +
-            "\n" +
-            "out vec4 color;\n" +
-            "\n" +
-            "void main()\n" +
-            "{\n" +
-            "    color = fColor;\n" +
-            "}";
-    private int vertexID, fragmentID, shaderProgram; // Shader stuff
+    private int vertexID, fragmentID, shaderProgram;
 
     private float[] vertexArray = {
             // position               // color
@@ -58,38 +35,35 @@ public class LevelEditorScene extends Scene{
     };
 
     private int vaoID, vboID, eboID;
+
     private Shader defaultShader;
 
-    public LevelEditorScene()
-    {
-
+    public LevelEditorScene() {
 
     }
 
     @Override
-    public void init()
-    {
+    public void init() {
         this.camera = new Camera(new Vector2f(-200, -300));
         defaultShader = new Shader("assets/shaders/default.glsl");
         defaultShader.compile();
 
-
-        // ==================== Create VAO, VBO, and EBO ==================== //
-
-        // Create VAO
+        // ============================================================
+        // Generate VAO, VBO, and EBO buffer objects, and send to GPU
+        // ============================================================
         vaoID = glGenVertexArrays();
         glBindVertexArray(vaoID);
 
-        // create a float buffer of the vertecies
+        // Create a float buffer of vertices
         FloatBuffer vertexBuffer = BufferUtils.createFloatBuffer(vertexArray.length);
         vertexBuffer.put(vertexArray).flip();
 
-        // Create the VBO upload the vertex buffer
+        // Create VBO upload the vertex buffer
         vboID = glGenBuffers();
         glBindBuffer(GL_ARRAY_BUFFER, vboID);
         glBufferData(GL_ARRAY_BUFFER, vertexBuffer, GL_STATIC_DRAW);
 
-        // Create the indicies and upload
+        // Create the indices and upload
         IntBuffer elementBuffer = BufferUtils.createIntBuffer(elementArray.length);
         elementBuffer.put(elementArray).flip();
 
@@ -109,12 +83,18 @@ public class LevelEditorScene extends Scene{
         glEnableVertexAttribArray(1);
     }
 
+    private KeyListener keyListener = KeyListener.get();
+    private float moveSpeed = 200.0f;
+    private int cameraPos = 0;
     @Override
     public void update(float dt) {
-        defaultShader.use();
-        defaultShader.uploadMat4f("uProjektion", camera.getViewMatrix());
+        camera.position.x -= dt * 50.0f;
+        camera.position.y -= dt * 20.0f;
 
-        // Bind the VAO
+        defaultShader.use();
+        defaultShader.uploadMat4f("uProjection", camera.getProjectionMatrix());
+        defaultShader.uploadMat4f("uView", camera.getViewMatrix());
+        // Bind the VAO that we're using
         glBindVertexArray(vaoID);
 
         // Enable the vertex attribute pointers
@@ -131,6 +111,4 @@ public class LevelEditorScene extends Scene{
 
         defaultShader.detach();
     }
-
-
 }
