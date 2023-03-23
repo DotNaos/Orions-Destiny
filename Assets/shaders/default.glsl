@@ -7,7 +7,6 @@ layout(location = 1) in vec4 aColor;
 uniform mat4 uProjection;
 uniform mat4 uView;
 
-
 out vec4 fColor;
 
 void main()
