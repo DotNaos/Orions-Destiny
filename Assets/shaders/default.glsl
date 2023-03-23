@@ -25,6 +25,6 @@ out vec4 color;
 
 void main()
 {
-    float avg = (fColor.r + fColor.g + fColor.b) / 3.0;
-    color = avg * vec4(1.0, 1.0, 1.0, 1.0);
+    float noise = fract(sin(dot(fColor.xy, vec2(12.9898, 78.233))) * 43758.5453);
+    color = noise * fColor;
 }
