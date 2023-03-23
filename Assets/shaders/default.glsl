@@ -25,5 +25,6 @@ out vec4 color;
 
 void main()
 {
-    color =  sin(uTime) * fColor;
+    float avg = (fColor.r + fColor.g + fColor.b) / 3.0;
+    color = avg * vec4(1.0, 1.0, 1.0, 1.0);
 }
