@@ -4,10 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="787a90ad-2c32-4237-9403-4ac402e3150a" name="Changes" comment="Output mit Shader">
-      <change afterPath="$PROJECT_DIR$/src/main/java/renderer/Shader.java" afterDir="false" />
+    <list default="true" id="787a90ad-2c32-4237-9403-4ac402e3150a" name="Changes" comment="Shader Datei loading">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
+    <list id="25a488fd-f17c-453d-94a6-413269d6c7ff" name="Changes by schue" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Engine/Camera.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/shaders/default.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/shaders/default.glsl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Engine/LevelEditorScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/LevelEditorScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/Scene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/renderer/Shader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/renderer/Shader.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +71,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.Code With Me",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -96,7 +103,9 @@
       <workItem from="1679066886617" duration="114000" />
       <workItem from="1679067012339" duration="12016000" />
       <workItem from="1679375081128" duration="2147000" />
-      <workItem from="1679489515119" duration="4359000" />
+      <workItem from="1679489515119" duration="7671000" />
+      <workItem from="1679558289366" duration="642000" />
+      <workItem from="1679558985465" duration="2050000" />
     </task>
     <task id="LOCAL-00001" summary="Project Creation">
       <created>1679058907028</created>
@@ -154,7 +163,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679377143502</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Shader Datei loading">
+      <created>1679508262635</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1679508262636</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -178,6 +194,11 @@
     <MESSAGE value="DeltaTime und Scenes" />
     <MESSAGE value="Mitten im Shader" />
     <MESSAGE value="Output mit Shader" />
-    <option name="LAST_COMMIT_MESSAGE" value="Output mit Shader" />
+    <MESSAGE value="Shader Datei loading" />
+    <option name="LAST_COMMIT_MESSAGE" value="Shader Datei loading" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
