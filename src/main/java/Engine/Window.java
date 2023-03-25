@@ -1,6 +1,5 @@
 package Engine;
 
-import Util.Time;
 import org.lwjgl.Version;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.opengl.GL;
@@ -27,10 +26,14 @@ public class Window {
         this.width  = 1920;
         this.height = 1080;
         this.title = "Orions-Destiny";
-        this.r = 1;
-        this.g = 1;
-        this.b = 1;
-        this.a = 1;
+
+        // Dark mode background - Dark grey
+        this.r = 0.15f;
+        this.g = 0.15f;
+        this.b = 0.15f;
+        this.a = 1.0f;
+
+
     }
 
     public static void changeScene(int newScene)
@@ -75,6 +78,9 @@ public class Window {
     public void run()
     {
         System.out.println("Window is running! Version: " + Version.getVersion());
+
+
+
 
         init();
         loop();
@@ -142,7 +148,7 @@ public class Window {
     // Called every frame
     public void loop()
     {
-        float beginTime = Time.getTime();
+        float beginTime = (float)glfwGetTime();
         float endTime;
         float dt = -1.0f;
 
@@ -165,7 +171,7 @@ public class Window {
 
             glfwSwapBuffers(glfwWindow); // swap the color buffers
 
-            endTime = Time.getTime();
+            endTime = (float)glfwGetTime();
             dt = endTime - beginTime;
             beginTime = endTime;
 
