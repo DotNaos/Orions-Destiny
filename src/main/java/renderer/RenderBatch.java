@@ -1,5 +1,6 @@
 package renderer;
 
+import Util.AssetPool;
 import components.SpriteRenderer;
 import Engine.Window;
 import org.joml.Vector4f;
@@ -34,8 +35,9 @@ public class RenderBatch {
     private Shader shader;
 
     public RenderBatch(int maxBatchSize) {
-        shader = new Shader("assets/shaders/default.glsl");
-        shader.compile();
+        System.out.println("Creating RenderBatch with max size: " + maxBatchSize);
+
+        shader = AssetPool.getShader("assets/shaders/default.glsl");
         this.sprites = new SpriteRenderer[maxBatchSize];
         this.maxBatchSize = maxBatchSize;
 
