@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Orions-Destiny.main:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="787a90ad-2c32-4237-9403-4ac402e3150a" name="Changes" comment="Transparente Bilder und zIndex added">
-      <change afterPath="$PROJECT_DIR$/Assets/images/blendImage1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/images/blendImage2.png" afterDir="false" />
+    <list default="true" id="787a90ad-2c32-4237-9403-4ac402e3150a" name="Changes" comment="ImGUI integration">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Engine/ImGuiLayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/GameObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Engine/LevelEditorScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/LevelEditorScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/MouseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/MouseListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/Window.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/components/SpriteRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/SpriteRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/renderer/RenderBatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/renderer/RenderBatch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/renderer/Renderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/renderer/Renderer.java" afterDir="false" />
     </list>
     <list id="25a488fd-f17c-453d-94a6-413269d6c7ff" name="Changes by schue" comment="Changes by schue" />
     <option name="SHOW_DIALOG" value="false" />
@@ -83,23 +85,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/Projects/Java/Orions-Destiny/Assets/images",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "settings.editor.splitter.proportion": "0.30120483",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Projects/Java/Orions-Destiny/Assets/images&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.splitter.proportion&quot;: &quot;0.30120483&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="Engine" />
@@ -155,6 +157,7 @@
       <workItem from="1679668325979" duration="3474000" />
       <workItem from="1679722140819" duration="23435000" />
       <workItem from="1679817462432" duration="3368000" />
+      <workItem from="1679823976681" duration="3238000" />
     </task>
     <task id="LOCAL-00001" summary="Project Creation">
       <created>1679058907028</created>
@@ -410,7 +413,8 @@
     <MESSAGE value="SpriteSheets laden" />
     <MESSAGE value="Sprites animieren und aktualisieren mit dirty flags" />
     <MESSAGE value="Transparente Bilder und zIndex added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Transparente Bilder und zIndex added" />
+    <MESSAGE value="ImGUI integration" />
+    <option name="LAST_COMMIT_MESSAGE" value="ImGUI integration" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

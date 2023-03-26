@@ -6,9 +6,7 @@ import components.Sprite;
 import components.SpriteRenderer;
 import components.Spritesheet;
 import org.joml.Vector2f;
-import org.joml.Vector4f;
 
-import static org.lwjgl.glfw.GLFW.*;
 
 public class LevelEditorScene extends Scene {
 
