@@ -50,6 +50,15 @@ public class GameObject {
     }
 
     public void addComponent (Component c) {
+        // check if component already exists, if so overwrite it
+        for (int i = 0; i < components.size(); i++) {
+            Component existingComponent = components.get(i);
+            if (existingComponent.getClass().equals(c.getClass())) {
+                components.set(i, c);
+                c.gameObject = this;
+                return;
+            }
+        }
         this.components.add(c);
         c.gameObject = this;
     }
