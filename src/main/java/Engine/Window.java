@@ -28,9 +28,9 @@ public class Window {
         this.title = "Orions-Destiny";
 
         // Dark mode background - Dark grey
-        this.r = 0.15f;
-        this.g = 0.15f;
-        this.b = 0.15f;
+        this.r = 0.9f;
+        this.g = 0.9f;
+        this.b = 0.9f;
         this.a = 1.0f;
 
 
@@ -141,6 +141,9 @@ public class Window {
         // creates the GLCapabilities instance and makes the OpenGL
         // bindings available for use.
         GL.createCapabilities();
+
+        glEnable(GL_BLEND);
+        glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
 
         Window.changeScene(0);
     }

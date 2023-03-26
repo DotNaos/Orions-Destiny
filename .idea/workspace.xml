@@ -4,15 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="787a90ad-2c32-4237-9403-4ac402e3150a" name="Changes" comment="SpriteSheets laden">
+    <list default="true" id="787a90ad-2c32-4237-9403-4ac402e3150a" name="Changes" comment="Transparente Bilder und zIndex added">
+      <change afterPath="$PROJECT_DIR$/Assets/images/blendImage1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/images/blendImage2.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/shaders/default.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/shaders/default.glsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/GameObject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Engine/LevelEditorScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/LevelEditorScene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Transform.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/Transform.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/components/Sprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/Sprite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/Window.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/components/SpriteRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/SpriteRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/components/Spritesheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/Spritesheet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/renderer/RenderBatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/renderer/RenderBatch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/renderer/Renderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/renderer/Renderer.java" afterDir="false" />
     </list>
     <list id="25a488fd-f17c-453d-94a6-413269d6c7ff" name="Changes by schue" comment="Changes by schue" />
     <option name="SHOW_DIALOG" value="false" />
@@ -94,7 +95,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "settings.editor.splitter.proportion": "0.30120483",
     "vue.rearranger.settings.migration": "true"
   }
@@ -152,7 +153,8 @@
       <workItem from="1679635545820" duration="50000" />
       <workItem from="1679635608915" duration="804000" />
       <workItem from="1679668325979" duration="3474000" />
-      <workItem from="1679722140819" duration="22760000" />
+      <workItem from="1679722140819" duration="23435000" />
+      <workItem from="1679817462432" duration="3368000" />
     </task>
     <task id="LOCAL-00001" summary="Project Creation">
       <created>1679058907028</created>
@@ -329,7 +331,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679748313233</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Sprites animieren und aktualisieren mit dirty flags">
+      <created>1679766251457</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1679766251457</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -399,7 +408,9 @@
     <MESSAGE value="Assets laden verbessert" />
     <MESSAGE value="Mehrere Bilder laden" />
     <MESSAGE value="SpriteSheets laden" />
-    <option name="LAST_COMMIT_MESSAGE" value="SpriteSheets laden" />
+    <MESSAGE value="Sprites animieren und aktualisieren mit dirty flags" />
+    <MESSAGE value="Transparente Bilder und zIndex added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Transparente Bilder und zIndex added" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
