@@ -9,13 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="787a90ad-2c32-4237-9403-4ac402e3150a" name="Changes" comment="GSON, speichern von Objekten">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Engine/ComponentDeserializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Engine/GameObjectDeserializer.java" afterDir="false" />
+    <list default="true" id="787a90ad-2c32-4237-9403-4ac402e3150a" name="Changes" comment="Laden von JSON datei">
+      <change afterPath="$PROJECT_DIR$/src/main/java/components/Rigidbody.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Component.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/Component.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Engine/LevelEditorScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/LevelEditorScene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/Scene.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/Window.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/SpriteRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/SpriteRenderer.java" afterDir="false" />
     </list>
     <list id="25a488fd-f17c-453d-94a6-413269d6c7ff" name="Changes by schue" comment="Changes by schue" />
     <option name="SHOW_DIALOG" value="false" />
@@ -158,7 +158,7 @@
       <workItem from="1679668325979" duration="3474000" />
       <workItem from="1679722140819" duration="23435000" />
       <workItem from="1679817462432" duration="3368000" />
-      <workItem from="1679823976681" duration="11940000" />
+      <workItem from="1679823976681" duration="13958000" />
     </task>
     <task id="LOCAL-00001" summary="Project Creation">
       <created>1679058907028</created>
@@ -370,7 +370,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679836693068</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Laden von JSON datei">
+      <created>1679838450522</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1679838450522</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -420,7 +427,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Window funktioniert" />
     <MESSAGE value="Listener für Maus und Tastatur" />
     <MESSAGE value="DeltaTime und Scenes" />
     <MESSAGE value="Mitten im Shader" />
@@ -445,7 +451,8 @@
     <MESSAGE value="Temporäre Lösung: &#10;             Auskommentieren&#10;             &#10;'glfwWindowHint(GLFW_MAXIMIZED, GLFW_TRUE);'" />
     <MESSAGE value="Custom Font und ImGUI integration mit Color Picker" />
     <MESSAGE value="GSON, speichern von Objekten" />
-    <option name="LAST_COMMIT_MESSAGE" value="GSON, speichern von Objekten" />
+    <MESSAGE value="Laden von JSON datei" />
+    <option name="LAST_COMMIT_MESSAGE" value="Laden von JSON datei" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
