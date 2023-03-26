@@ -29,6 +29,8 @@ public class LevelEditorScene extends Scene {
 
         // Camera center
         this.camera = new Camera(new Vector2f(-350, -100));
+        if (levelLoaded) return;
+
 
 
         sprites = AssetPool.getSpritesheet("assets/images/Walk.png");
@@ -53,7 +55,11 @@ public class LevelEditorScene extends Scene {
         obj2.addComponent(obj2SpriteRenderer);
         this.addGameObjectToScene(obj2);
 
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        Gson gson = new GsonBuilder()
+                .setPrettyPrinting()
+                .registerTypeAdapter(Component.class, new ComponentDeserializer())
+                .registerTypeAdapter(GameObject.class, new GameObjectDeserializer())
+                .create();
         String serialized = gson.toJson(obj1);
         System.out.println(serialized);
         GameObject obj = gson.fromJson(serialized, GameObject.class);
