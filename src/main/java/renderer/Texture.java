@@ -10,6 +10,8 @@ import static org.lwjgl.stb.STBImage.*;
 
 public class Texture {
     private String filepath;
+
+
     private int texID;
     private int width, height;
 
@@ -73,6 +75,15 @@ public class Texture {
     }
     public int getHeight() {
         return this.height;
+    }
+
+
+    public int getTexID() {
+        return texID;
+    }
+
+    public void setTexID(int texID) {
+        this.texID = texID;
     }
 
 }
