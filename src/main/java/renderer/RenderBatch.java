@@ -1,6 +1,6 @@
 package renderer;
 
-import Util.AssetPool;
+import util.AssetPool;
 import components.SpriteRenderer;
 import Engine.Window;
 import org.joml.Vector2f;
