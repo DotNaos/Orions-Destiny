@@ -57,7 +57,7 @@ public class LevelEditorScene extends Scene {
     private void loadResources() {
         AssetPool.getShader("assets/shaders/default.glsl");
 
-        // TODO: FIX TEXTURE SAVE SYSTEM TO USE PATH INSTEAD OF ID
+
         AssetPool.addSpritesheet("assets/images/spritesheets/blocks.png",
                 new Spritesheet(AssetPool.getTexture("assets/images/spritesheets/blocks.png"),
                         16, 16, 81, 0));
