@@ -86,4 +86,13 @@ public class Texture {
         this.texID = texID;
     }
 
+    public int getPixel(int x, int y) {
+        int[] pixels = new int[width * height];
+        glBindTexture(GL_TEXTURE_2D, texID);
+        glGetTexImage(GL_TEXTURE_2D, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
+        glBindTexture(GL_TEXTURE_2D, 0);
+        return pixels[x + y * width];
+    }
+
+
 }
