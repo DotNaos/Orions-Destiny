@@ -20,7 +20,7 @@ public class LevelEditorScene extends Scene {
     private Spritesheet sprites;
     SpriteRenderer obj1Sprite;
 
-    MouseControls mouseControls = new MouseControls();
+    GameObject levelEditorStuff = new GameObject("LevelEditor", new Transform(new Vector2f()), 0);
 
     public LevelEditorScene() {
 
@@ -28,6 +28,9 @@ public class LevelEditorScene extends Scene {
 
     @Override
     public void init() {
+        levelEditorStuff.addComponent(new MouseControls());
+        levelEditorStuff.addComponent(new GridLines());
+
         loadResources();
         this.camera = new Camera(new Vector2f(-250, 0));
         sprites = AssetPool.getSpritesheet("assets/images/spritesheets/blocks.png");
@@ -65,22 +68,15 @@ public class LevelEditorScene extends Scene {
 
         AssetPool.addSpritesheet("assets/images/spritesheets/blocks.png",
                 new Spritesheet(AssetPool.getTexture("assets/images/spritesheets/blocks.png"),
-                        16, 16, 0, false, 30));
+                        16, 16, 0, false, 1000));
         AssetPool.getTexture("assets/images/blendImage2.png");
     }
 
-    float t = 0.0f;
+
     @Override
     public void update(float dt) {
-        mouseControls.update(dt);
+        levelEditorStuff.update(dt);
 
-        Vector2f position = new Vector2f(100 + t*10, 100 + ((float)Math.sin(t) * 20)).mul(4);
-        t += 0.01f;
-        // RGB color interpolation
-        Vector3f color = new Vector3f(0.5f + 0.5f * (float)Math.sin(t), 0.5f + 0.5f * (float)Math.sin(t + 2.0944f), 0.5f + 0.5f * (float)Math.sin(t + 4.1888f));
-
-
-        DebugDraw.addLine2D(new Vector2f(0 + position.x - 500, position.y), position, color, 200);
 
         for (GameObject go : this.gameObjects) {
             go.update(dt);
@@ -109,9 +105,9 @@ public class LevelEditorScene extends Scene {
             Vector2f[] texCoords = sprite.getTexCoords();
 
             ImGui.pushID(i);
-            if (ImGui.imageButton(id, spriteWidth, spriteHeight, texCoords[0].x, texCoords[0].y, texCoords[2].x, texCoords[2].y)) {
-                GameObject object = Prefabs.generateSpriteObject(sprite, spriteWidth, spriteHeight);
-                mouseControls.pickupObject(object);
+            if (ImGui.imageButton(id, spriteWidth, spriteHeight, texCoords[2].x, texCoords[0].y, texCoords[0].x, texCoords[2].y)) {
+                GameObject object = Prefabs.generateSpriteObject(sprite, 32, 32);
+                levelEditorStuff.getComponent(MouseControls.class).pickupObject(object);
             }
             ImGui.popID();
 
