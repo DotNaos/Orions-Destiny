@@ -3,15 +3,11 @@ package scenes;
 import components.*;
 import imgui.ImGui;
 import imgui.ImVec2;
-import Engine.Camera;
-import Engine.GameObject;
-import Engine.Prefabs;
-import Engine.Transform;
+import Burst.Camera;
+import Burst.GameObject;
+import Burst.Prefabs;
+import Burst.Transform;
 import org.joml.Vector2f;
-import org.joml.Vector3f;
-import org.joml.Vector4f;
-import renderer.DebugDraw;
-import scenes.Scene;
 import util.AssetPool;
 
 public class LevelEditorScene extends Scene {

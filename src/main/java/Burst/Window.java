@@ -1,4 +1,4 @@
-package Engine;
+package Burst;
 
 import org.lwjgl.Version;
 import org.lwjgl.glfw.GLFWErrorCallback;

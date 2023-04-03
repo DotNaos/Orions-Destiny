@@ -1,6 +1,6 @@
 package renderer;
 
-import Engine.Window;
+import Burst.Window;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
 import util.AssetPool;

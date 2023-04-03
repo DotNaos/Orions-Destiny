@@ -1,6 +1,6 @@
 package renderer;
 
-import Engine.GameObject;
+import Burst.GameObject;
 import components.SpriteRenderer;
 
 import java.util.ArrayList;

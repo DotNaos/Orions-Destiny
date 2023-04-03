@@ -1,4 +1,4 @@
-package Engine;
+package Burst;
 
 import com.google.gson.*;
 import components.Component;

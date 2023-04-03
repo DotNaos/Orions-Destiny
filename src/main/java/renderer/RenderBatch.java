@@ -2,7 +2,7 @@ package renderer;
 
 import util.AssetPool;
 import components.SpriteRenderer;
-import Engine.Window;
+import Burst.Window;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
 

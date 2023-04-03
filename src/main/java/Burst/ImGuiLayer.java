@@ -1,4 +1,4 @@
-package Engine;
+package Burst;
 
 import imgui.*;
 import imgui.callbacks.ImStrConsumer;

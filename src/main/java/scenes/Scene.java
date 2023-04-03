@@ -1,8 +1,8 @@
 package scenes;
 
-import Engine.Camera;
-import Engine.GameObject;
-import Engine.GameObjectDeserializer;
+import Burst.Camera;
+import Burst.GameObject;
+import Burst.GameObjectDeserializer;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import components.Component;

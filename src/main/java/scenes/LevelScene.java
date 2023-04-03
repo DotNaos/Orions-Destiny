@@ -1,7 +1,6 @@
 package scenes;
 
-import Engine.Window;
-import scenes.Scene;
+import Burst.Window;
 
 public class LevelScene extends Scene
 {

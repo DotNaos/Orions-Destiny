@@ -1,11 +1,8 @@
 package components;
 
-import Engine.GameObject;
-import Engine.MouseListener;
-import Engine.Window;
-import org.joml.Vector2f;
-import org.joml.Vector3f;
-import renderer.DebugDraw;
+import Burst.GameObject;
+import Burst.MouseListener;
+import Burst.Window;
 import util.Settings;
 
 import static org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT;

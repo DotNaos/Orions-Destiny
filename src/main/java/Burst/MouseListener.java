@@ -1,4 +1,4 @@
-package Engine;
+package Burst;
 
 import org.joml.Vector4f;
 

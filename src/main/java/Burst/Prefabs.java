@@ -1,4 +1,4 @@
-package Engine;
+package Burst;
 
 import components.Sprite;
 import components.SpriteRenderer;

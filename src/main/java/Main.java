@@ -1,4 +1,4 @@
-import Engine.Window;
+import Burst.Window;
 
 public class Main {
 

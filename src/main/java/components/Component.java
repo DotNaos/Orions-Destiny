@@ -1,6 +1,6 @@
 package components;
 
-import Engine.GameObject;
+import Burst.GameObject;
 import imgui.ImGui;
 import org.joml.Vector3f;
 import org.joml.Vector4f;
