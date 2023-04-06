@@ -5,6 +5,7 @@ import physics2D.primitives.AABB;
 import physics2D.primitives.Box2D;
 import physics2D.primitives.Circle;
 import renderer.Line2D;
+import util.BMath;
 
 
 public class IntersectionDetector2D {
@@ -46,7 +47,19 @@ public class IntersectionDetector2D {
 
     public static boolean pointInBox2D(Vector2f point, Box2D box)
     {
-        return false;
+        // Translate the point into local space
+        Vector2f pointLocalBox = new Vector2f(point);
+        BMath.rotate(pointLocalBox,
+                box.getRigidbody().getRotation(),
+                box.getRigidbody().getPosition()
+        );
+
+        Vector2f min = box.getMin();
+        Vector2f max = box.getMax();
+
+        // Check if point is in Box
+        return pointLocalBox.x <= max.x && min.x <= pointLocalBox.x &&
+                pointLocalBox.y <= max.y && min.y <= pointLocalBox.y;
     }
 
 

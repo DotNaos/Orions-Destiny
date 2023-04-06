@@ -8,6 +8,7 @@ import Burst.GameObject;
 import Burst.Prefabs;
 import Burst.Transform;
 import org.joml.Vector2f;
+import renderer.DebugDraw;
 import util.AssetPool;
 
 public class LevelEditorScene extends Scene {
@@ -68,11 +69,13 @@ public class LevelEditorScene extends Scene {
         AssetPool.getTexture("assets/images/blendImage2.png");
     }
 
-
+    float t = 0.0f;
     @Override
     public void update(float dt) {
         levelEditorStuff.update(dt);
 
+        DebugDraw.drawRainbow2(t);
+        t += dt * 0.5f;
 
         for (GameObject go : this.gameObjects) {
             go.update(dt);
