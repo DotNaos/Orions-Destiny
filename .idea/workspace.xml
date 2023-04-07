@@ -9,11 +9,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="787a90ad-2c32-4237-9403-4ac402e3150a" name="Changes" comment="Point on Line, in Box, in Circle">
-      <change afterPath="$PROJECT_DIR$/src/main/java/util/BMath.java" afterDir="false" />
+    <list default="true" id="787a90ad-2c32-4237-9403-4ac402e3150a" name="Changes" comment="Point Rotation und check if point in Oriented Box">
+      <change afterPath="$PROJECT_DIR$/src/test/java/physics2d/CollisionDetectorTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/renderer/DebugDraw.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/renderer/DebugDraw.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scenes/LevelEditorScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scenes/LevelEditorScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/physics2D/primitives/AABB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/physics2d/primitives/AABB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/physics2D/primitives/Box2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/physics2d/primitives/Box2D.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/physics2D/primitives/Circle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/physics2d/primitives/Circle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/physics2D/primitives/Collider2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/physics2d/primitives/Collider2D.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/physics2D/rigidbody/IntersectionDetector2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/physics2d/rigidbody/IntersectionDetector2D.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/physics2D/rigidbody/Rigidbody2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/physics2d/rigidbody/Rigidbody2D.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/renderer/RenderBatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/renderer/RenderBatch.java" afterDir="false" />
     </list>
     <list id="25a488fd-f17c-453d-94a6-413269d6c7ff" name="Changes by schue" comment="Changes by schue" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,6 +36,9 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand>
@@ -86,25 +96,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/schue/Downloads/Orions-Destiny-1ad33f4a105f040d68d1963a91ee15276cbecd74&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;settings.editor.splitter.proportion&quot;: &quot;0.30120483&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/schue/Downloads/Orions-Destiny-1ad33f4a105f040d68d1963a91ee15276cbecd74",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
+    "settings.editor.splitter.proportion": "0.30120483",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="Engine" />
@@ -118,19 +128,131 @@
       <recent name="D:\Projects\Java\Orions-Destiny\Assets\fonts" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" activateToolWindowBeforeRun="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Orions-Destiny.main" />
-      <option name="PROGRAM_PARAMETERS" value="-ea" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="RunConfigurationTask" enabled="true" run_configuration_name="CollisionDetectorTests" run_configuration_type="JUnit" />
+      </method>
+    </configuration>
+    <configuration name="CollisionDetectorTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;physics2d.CollisionDetectorTests&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <ForceTestExec>true</ForceTestExec>
+      <method v="2" />
+    </configuration>
+    <configuration name="Orions-Destiny [:Main.main()]" type="GradleRunConfiguration" factoryName="Gradle" editBeforeRun="true" activateToolWindowBeforeRun="false">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":Main.main()" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <ForceTestExec>false</ForceTestExec>
+      <method v="2">
+        <option name="RunConfigurationTask" enabled="true" run_configuration_name="CollisionDetectorTests" run_configuration_type="JUnit" />
+      </method>
+    </configuration>
+    <configuration name="Orions-Destiny [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="dependencies" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <ForceTestExec>false</ForceTestExec>
+      <method v="2" />
+    </configuration>
+    <configuration name="CollisionDetectorTests" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <module name="Orions-Destiny.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="physics2d.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="physics2d" />
+      <option name="MAIN_CLASS_NAME" value="physics2d.CollisionDetectorTests" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="CollisionDetectorTests.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Orions-Destiny.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="physics2d.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="physics2d" />
+      <option name="MAIN_CLASS_NAME" value="physics2d.CollisionDetectorTests" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Gradle.Orions-Destiny [:Main.main()]" />
+      <item itemvalue="Gradle.CollisionDetectorTests" />
+      <item itemvalue="Gradle.Orions-Destiny [dependencies]" />
+      <item itemvalue="JUnit.CollisionDetectorTests" />
+      <item itemvalue="JUnit.CollisionDetectorTests.test" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.Main" />
+        <item itemvalue="Gradle.CollisionDetectorTests" />
+        <item itemvalue="JUnit.CollisionDetectorTests.test" />
+        <item itemvalue="Gradle.Orions-Destiny [dependencies]" />
       </list>
     </recent_temporary>
   </component>
@@ -176,7 +298,8 @@
       <workItem from="1680618880610" duration="15000" />
       <workItem from="1680618908032" duration="1899000" />
       <workItem from="1680688274848" duration="702000" />
-      <workItem from="1680798665574" duration="1652000" />
+      <workItem from="1680798665574" duration="3304000" />
+      <workItem from="1680878850220" duration="3193000" />
     </task>
     <task id="LOCAL-00001" summary="Project Creation">
       <created>1679058907028</created>
@@ -458,7 +581,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680532801353</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Point Rotation und check if point in Oriented Box">
+      <created>1680800944449</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1680800944449</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -508,7 +638,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Shader Spaß" />
     <MESSAGE value="Atmen Effekt Shader" />
     <MESSAGE value="Schwarz weiß Shader" />
     <MESSAGE value="Noise Shader" />
@@ -533,7 +662,8 @@
     <MESSAGE value="snap to grid" />
     <MESSAGE value="Primitives for Physics" />
     <MESSAGE value="Point on Line, in Box, in Circle" />
-    <option name="LAST_COMMIT_MESSAGE" value="Point on Line, in Box, in Circle" />
+    <MESSAGE value="Point Rotation und check if point in Oriented Box" />
+    <option name="LAST_COMMIT_MESSAGE" value="Point Rotation und check if point in Oriented Box" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

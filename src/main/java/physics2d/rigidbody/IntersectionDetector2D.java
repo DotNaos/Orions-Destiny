@@ -1,9 +1,9 @@
-package physics2D.rigidbody;
+package physics2d.rigidbody;
 
 import org.joml.Vector2f;
-import physics2D.primitives.AABB;
-import physics2D.primitives.Box2D;
-import physics2D.primitives.Circle;
+import physics2d.primitives.AABB;
+import physics2d.primitives.Box2D;
+import physics2d.primitives.Circle;
 import renderer.Line2D;
 import util.BMath;
 
@@ -17,7 +17,13 @@ public class IntersectionDetector2D {
     {
         float dy = line.getEnd().y - line.getStart().y;
         float dx = line.getEnd().x - line.getStart().x;
+        if (dx == 0f)
+        {
+            return BMath.compare(point.x, line.getStart().x) && point.y <= Math.max(line.getStart().y, line.getEnd().y) && point.y >= Math.min(line.getStart().y, line.getEnd().y);
+        }
+
         float m = dy / dx;
+        System.out.println("m: " + m);
 
         float b = line.getEnd().y - (m * line.getEnd().x);
 
@@ -69,5 +75,26 @@ public class IntersectionDetector2D {
     // ========================================
     // Line vs. Primitive Tests
     // ========================================
+
+    public static boolean lineInCircle(Line2D line, Circle circle)
+    {
+        if (pointInCircle(line.getStart(), circle) || pointInCircle(line.getEnd(), circle)) return true;
+
+        Vector2f ab = new Vector2f(line.getEnd()).sub(line.getStart());
+
+        // Project point (circle center) onto line
+        // parameterized position t
+        Vector2f circleCenter = circle.getCenter();
+        Vector2f centerToLineStart = new Vector2f(circleCenter).sub(line.getStart());
+        float t = centerToLineStart.dot(ab) / ab.dot(ab);
+
+        if (t < 0.0f || t > 1.0f) return false;
+
+        // Find the closest point to the line segment
+        Vector2f closestPoint = new Vector2f(line.getStart()).add(ab.mul(t));
+
+        return pointInCircle(closestPoint, circle);
+
+    }
 
 }

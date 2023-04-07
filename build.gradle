@@ -27,6 +27,10 @@ project.ext.lwjglNatives = "natives-windows"
 project.ext.imguiVersion = '1.76-0.9'
 
 dependencies {
+    // JUnit
+    testImplementation('junit:junit:4.13.1')
+
+
     // GSON
     implementation 'com.google.code.gson:gson:2.10.1'
 

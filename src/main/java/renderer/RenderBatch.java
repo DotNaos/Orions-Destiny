@@ -47,7 +47,7 @@ public class RenderBatch implements Comparable<RenderBatch> {
 
     public RenderBatch(int maxBatchSize, int zIndex) {
 
-        System.out.println("Creating RenderBatch with max size: " + maxBatchSize);
+//        System.out.println("Creating RenderBatch with max size: " + maxBatchSize);
         this.zIndex = zIndex;
         shader = AssetPool.getShader("assets/shaders/default.glsl");
         this.sprites = new SpriteRenderer[maxBatchSize];
