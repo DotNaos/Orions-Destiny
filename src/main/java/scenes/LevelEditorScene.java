@@ -35,7 +35,10 @@ public class LevelEditorScene extends Scene {
 
 
         if (levelLoaded) {
-            this.activeGameObject = gameObjects.get(0);
+            if (gameObjects.size() > 0)
+            {
+                this.activeGameObject = gameObjects.get(0);
+            }
             return;
         }
 
@@ -68,6 +71,15 @@ public class LevelEditorScene extends Scene {
                 new Spritesheet(AssetPool.getTexture("assets/images/spritesheets/blocks.png"),
                         16, 16, 0, false, 1000));
         AssetPool.getTexture("assets/images/blendImage2.png");
+
+        for (GameObject g : gameObjects) {
+            if (g.getComponent(SpriteRenderer.class) != null) {
+                SpriteRenderer spr = g.getComponent(SpriteRenderer.class);
+                if (spr.getTexture() != null) {
+                    spr.setTexture(AssetPool.getTexture(spr.getTexture().getFilepath()));
+                }
+            }
+        }
     }
 
     float t = 0.0f;
@@ -75,7 +87,7 @@ public class LevelEditorScene extends Scene {
     public void update(float dt) {
         levelEditorStuff.update(dt);
 
-        DebugDraw.drawRainbow2(t);
+//        DebugDraw.drawRainbow2(t);
 //        DebugDraw.addBox2D(new Vector2f(200, 200), new Vector2f((int) Math.abs(256 * Math.sin(t)), (int) Math.abs(128 * Math.cos(t))), (float) (360 * Math.tan(t)), new Vector3f(0, 1, 0), 1);
 //        DebugDraw.addCircle(new Vector2f(200, 200), (int)(((Math.sin(t * 2) + 1) / 2)* 4 * 100), new Vector3f(1, 0, 0), 1);
 

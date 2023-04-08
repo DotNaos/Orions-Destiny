@@ -159,7 +159,7 @@ public class Window {
                 DebugDraw.draw();
                 currentScene.update(dt);
             }
-//            this.framebuffer.unbind();
+            this.framebuffer.unbind();
 
             this.imguiLayer.update(dt, currentScene);
             glfwSwapBuffers(glfwWindow);
