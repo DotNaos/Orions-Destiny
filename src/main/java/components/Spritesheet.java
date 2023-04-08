@@ -36,11 +36,9 @@ public class Spritesheet {
             {
                 if (isTransparent(currentX, currentY, spriteWidth, spriteHeight)) {
                     // Skip creating this sprite if the area is fully transparent
-                    currentX += spriteWidth + spacing;
-                    if (currentX >= texture.getWidth()) {
-                        currentX = 0;
-                        currentY -= spriteHeight + spacing;
-                    }
+                    // dont check the rest of the row if the first sprite is transparent
+                    currentX = 0;
+                    currentY -= spriteHeight + spacing;
                     continue;
                 }
             }
