@@ -53,4 +53,8 @@ public class Line2D
     public int getLifetime() {
         return lifetime;
     }
+
+    public float lengthSquared() {
+        return new Vector2f(this.to).sub(this.from).lengthSquared();
+    }
 }

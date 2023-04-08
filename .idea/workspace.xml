@@ -9,18 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="787a90ad-2c32-4237-9403-4ac402e3150a" name="Changes" comment="Point Rotation und check if point in Oriented Box">
-      <change afterPath="$PROJECT_DIR$/src/test/java/physics2d/CollisionDetectorTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+    <list default="true" id="787a90ad-2c32-4237-9403-4ac402e3150a" name="Changes" comment="Line with Circle Intersection detection and Test with JUnit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/physics2D/primitives/AABB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/physics2d/primitives/AABB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/physics2D/primitives/Box2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/physics2d/primitives/Box2D.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/physics2D/primitives/Circle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/physics2d/primitives/Circle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/physics2D/primitives/Collider2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/physics2d/primitives/Collider2D.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/physics2D/rigidbody/IntersectionDetector2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/physics2d/rigidbody/IntersectionDetector2D.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/physics2D/rigidbody/Rigidbody2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/physics2d/rigidbody/Rigidbody2D.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/renderer/RenderBatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/renderer/RenderBatch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/physics2d/rigidbody/IntersectionDetector2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/physics2d/rigidbody/IntersectionDetector2D.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/renderer/Line2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/renderer/Line2D.java" afterDir="false" />
     </list>
     <list id="25a488fd-f17c-453d-94a6-413269d6c7ff" name="Changes by schue" comment="Changes by schue" />
     <option name="SHOW_DIALOG" value="false" />
@@ -96,25 +88,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/schue/Downloads/Orions-Destiny-1ad33f4a105f040d68d1963a91ee15276cbecd74",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
-    "settings.editor.splitter.proportion": "0.30120483",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/schue/Downloads/Orions-Destiny-1ad33f4a105f040d68d1963a91ee15276cbecd74&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;terminal&quot;,
+    &quot;settings.editor.splitter.proportion&quot;: &quot;0.30120483&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="Engine" />
@@ -299,7 +291,8 @@
       <workItem from="1680618908032" duration="1899000" />
       <workItem from="1680688274848" duration="702000" />
       <workItem from="1680798665574" duration="3304000" />
-      <workItem from="1680878850220" duration="3193000" />
+      <workItem from="1680878850220" duration="6286000" />
+      <workItem from="1680944076420" duration="1884000" />
     </task>
     <task id="LOCAL-00001" summary="Project Creation">
       <created>1679058907028</created>
@@ -588,7 +581,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680800944449</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="Line with Circle Intersection detection and Test with JUnit">
+      <created>1680882959756</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1680882959756</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -638,7 +638,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Atmen Effekt Shader" />
     <MESSAGE value="Schwarz weiß Shader" />
     <MESSAGE value="Noise Shader" />
     <MESSAGE value="Texture loading" />
@@ -663,7 +662,8 @@
     <MESSAGE value="Primitives for Physics" />
     <MESSAGE value="Point on Line, in Box, in Circle" />
     <MESSAGE value="Point Rotation und check if point in Oriented Box" />
-    <option name="LAST_COMMIT_MESSAGE" value="Point Rotation und check if point in Oriented Box" />
+    <MESSAGE value="Line with Circle Intersection detection and Test with JUnit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Line with Circle Intersection detection and Test with JUnit" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
