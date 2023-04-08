@@ -49,6 +49,6 @@ public class Sprite {
     }
 
     public int getTexId() {
-        return this.texture == null ? -1 : this.texture.getTexID();
+        return this.texture == null ? -1 : this.texture.getId();
     }
 }

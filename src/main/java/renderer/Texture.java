@@ -10,30 +10,30 @@ import static org.lwjgl.stb.STBImage.*;
 
 public class Texture {
     private String filepath;
-
-
     private int texID;
     private int width, height;
 
+    //    public Texture(String filepath) {
+//
+//    }
     public Texture() {
-        this.texID = -1;
-        this.width = -1;
-        this.height = -1;
+        texID = -1;
+        width = -1;
+        height = -1;
     }
 
-    public Texture (int width, int height)
-    {
+    public Texture(int width, int height) {
         this.filepath = "Generated";
 
         // Generate texture on GPU
         texID = glGenTextures();
         glBindTexture(GL_TEXTURE_2D, texID);
 
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, 0);
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height,
+                0, GL_RGB, GL_UNSIGNED_BYTE, 0);
     }
 
-    public void init(String filepath)
-    {
+    public void init(String filepath) {
         this.filepath = filepath;
 
         // Generate texture on GPU
@@ -66,7 +66,7 @@ public class Texture {
                 glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width.get(0), height.get(0),
                         0, GL_RGBA, GL_UNSIGNED_BYTE, image);
             } else {
-                assert false : "Error: (Texture) Unknown number of channesl '" + channels.get(0) + "'";
+                assert false : "Error: (Texture) Unknown number of channels '" + channels.get(0) + "'";
             }
         } else {
             assert false : "Error: (Texture) Could not load image '" + filepath + "'";
@@ -86,43 +86,26 @@ public class Texture {
     public int getWidth() {
         return this.width;
     }
+
+    public String getFilepath() {
+        return this.filepath;
+    }
+
     public int getHeight() {
         return this.height;
     }
 
-
-    public int getTexID() {
+    public int getId() {
         return texID;
-    }
-
-    public void setTexID(int texID) {
-        this.texID = texID;
-    }
-
-    public String getFilepath() {
-        return filepath;
     }
 
     @Override
     public boolean equals(Object o) {
         if (o == null) return false;
         if (!(o instanceof Texture)) return false;
-
-        Texture oTex = (Texture) o;
-
-        return  oTex.getWidth() == this.width &&
-                oTex.getHeight() == this.height &&
-                oTex.getTexID() == this.texID &&
+        Texture oTex = (Texture)o;
+        return oTex.getWidth() == this.width && oTex.getHeight() == this.height &&
+                oTex.getId() == this.texID &&
                 oTex.getFilepath().equals(this.filepath);
     }
-
-    public int getPixel(int x, int y) {
-        int[] pixels = new int[width * height];
-        glBindTexture(GL_TEXTURE_2D, texID);
-        glGetTexImage(GL_TEXTURE_2D, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
-        glBindTexture(GL_TEXTURE_2D, 0);
-        return pixels[x + y * width];
-    }
-
-
 }

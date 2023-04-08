@@ -81,18 +81,18 @@ public class Spritesheet {
 
     private boolean isTransparent(int startX, int startY, int width, int height) {
         // Iterate through the pixels in the specified area of the texture
-        for (int y = startY; y < startY + height; y++) {
-            for (int x = startX; x < startX + width; x++) {
-                // Get the color of the current pixel
-                int pixel = texture.getPixel(x, y);
-
-                // Check if the alpha value is 0 (fully transparent)
-                if ((pixel >> 24) == 0) {
-                    // Return true if the area is fully transparent
-                    return true;
-                }
-            }
-        }
+//        for (int y = startY; y < startY + height; y++) {
+//            for (int x = startX; x < startX + width; x++) {
+//                // Get the color of the current pixel
+//                int pixel = texture.getPixel(x, y);
+//
+//                // Check if the alpha value is 0 (fully transparent)
+//                if ((pixel >> 24) == 0) {
+//                    // Return true if the area is fully transparent
+//                    return true;
+//                }
+//            }
+//        }
 
         // Return false if the area is not fully transparent
         return false;

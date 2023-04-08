@@ -11,7 +11,7 @@ public class Framebuffer {
     }
 
     public int getTextureID() {
-        return texture.getTexID();
+        return texture.getId();
     }
 
     public void bind()
@@ -32,7 +32,7 @@ public class Framebuffer {
 
         // Create texture to render to, and attach it to framebuffer
         this.texture = new Texture(width, height);
-        glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, this.texture.getTexID(), 0);
+        glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, this.texture.getId(), 0);
 
         // Create renderbuffer store the depth info
         int rboID = glGenRenderbuffers();

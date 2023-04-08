@@ -153,13 +153,13 @@ public class Window {
             glClear(GL_COLOR_BUFFER_BIT);
 
 
-            this.framebuffer.bind();
+//            this.framebuffer.bind();
             if (dt >= 0) {
 
                 DebugDraw.draw();
                 currentScene.update(dt);
             }
-            this.framebuffer.unbind();
+//            this.framebuffer.unbind();
 
             this.imguiLayer.update(dt, currentScene);
             glfwSwapBuffers(glfwWindow);

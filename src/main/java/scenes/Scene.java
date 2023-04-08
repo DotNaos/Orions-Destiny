@@ -130,6 +130,5 @@ public abstract class Scene {
             Component.init(maxCompId);
             this.levelLoaded = true;
         }
-
     }
 }

@@ -8,6 +8,7 @@ import Burst.GameObject;
 import Burst.Prefabs;
 import Burst.Transform;
 import org.joml.Vector2f;
+import org.joml.Vector3f;
 import renderer.DebugDraw;
 import util.AssetPool;
 
@@ -75,6 +76,9 @@ public class LevelEditorScene extends Scene {
         levelEditorStuff.update(dt);
 
         DebugDraw.drawRainbow2(t);
+//        DebugDraw.addBox2D(new Vector2f(200, 200), new Vector2f((int) Math.abs(256 * Math.sin(t)), (int) Math.abs(128 * Math.cos(t))), (float) (360 * Math.tan(t)), new Vector3f(0, 1, 0), 1);
+//        DebugDraw.addCircle(new Vector2f(200, 200), (int)(((Math.sin(t * 2) + 1) / 2)* 4 * 100), new Vector3f(1, 0, 0), 1);
+
         t += dt * 0.5f;
 
         for (GameObject go : this.gameObjects) {
