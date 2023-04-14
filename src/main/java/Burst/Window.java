@@ -9,6 +9,8 @@ import scenes.LevelEditorScene;
 import scenes.LevelScene;
 import scenes.Scene;
 
+import java.awt.*;
+
 import static org.lwjgl.glfw.Callbacks.glfwFreeCallbacks;
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL11.*;
@@ -133,6 +135,7 @@ public class Window {
         this.imguiLayer.initImGui();
 
         this.framebuffer = new Framebuffer(this.width, this.height);
+        glViewport(0, 0, this.width, this.height);
 
         Window.changeScene(0);
     }
@@ -149,11 +152,13 @@ public class Window {
 
             DebugDraw.beginFrame();
 
+            this.framebuffer.bind();
+
             glClearColor(r, g, b, a);
             glClear(GL_COLOR_BUFFER_BIT);
 
 
-//            this.framebuffer.bind();
+
             if (dt >= 0) {
 
                 DebugDraw.draw();
@@ -186,5 +191,13 @@ public class Window {
 
     public static void setHeight(int newHeight) {
         get().height = newHeight;
+    }
+
+    public static Framebuffer getFramebuffer() {
+        return get().framebuffer;
+    }
+
+    public static float getTargetAspectRatio() {
+        return 16.0f / 9.0f;
     }
 }
