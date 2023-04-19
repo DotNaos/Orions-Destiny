@@ -5,6 +5,7 @@ import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.opengl.GL;
 import renderer.DebugDraw;
 import renderer.Framebuffer;
+import renderer.PickingTexture;
 import scenes.LevelEditorScene;
 import scenes.LevelScene;
 import scenes.Scene;
@@ -22,6 +23,7 @@ public class Window {
     private long glfwWindow;
     private ImGuiLayer imguiLayer;
     private Framebuffer framebuffer;
+    private PickingTexture pickingTexture;
 
     public float r, g, b, a;
     private boolean fadeToBlack = false;
@@ -135,6 +137,8 @@ public class Window {
         this.imguiLayer.initImGui();
 
         this.framebuffer = new Framebuffer(this.width, this.height);
+        this.pickingTexture = new PickingTexture(this.width, this.height);
+
         glViewport(0, 0, this.width, this.height);
 
         Window.changeScene(0);
@@ -150,6 +154,18 @@ public class Window {
             // Poll events
             glfwPollEvents();
 
+            // Render pass 1. Render to picking texture
+            glDisable(GL_BLEND);
+            pickingTexture.enableWriting();
+
+            glViewport(0, 0, this.width, this.height);
+            glClearColor(0, 0, 0, 0);
+            glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+            Renderer.bindShader(pickingTexture);
+
+            // Render pass 2. Render actual game
+
             DebugDraw.beginFrame();
 
             this.framebuffer.bind();
@@ -163,6 +179,7 @@ public class Window {
 
                 DebugDraw.draw();
                 currentScene.update(dt);
+                currentScene.render();
             }
             this.framebuffer.unbind();
 
