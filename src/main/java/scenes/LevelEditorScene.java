@@ -21,7 +21,6 @@ public class LevelEditorScene extends Scene {
     GameObject levelEditorStuff = new GameObject("LevelEditor", new Transform(new Vector2f()), 0);
 
     public LevelEditorScene() {
-
     }
 
     @Override

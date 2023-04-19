@@ -2,6 +2,7 @@ package renderer;
 
 import org.lwjgl.BufferUtils;
 
+
 import java.nio.ByteBuffer;
 import java.nio.IntBuffer;
 
@@ -10,6 +11,7 @@ import static org.lwjgl.stb.STBImage.*;
 
 public class Texture {
     private String filepath;
+
     private transient int texID;
     private int width, height;
 

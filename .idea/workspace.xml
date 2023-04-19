@@ -9,12 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="787a90ad-2c32-4237-9403-4ac402e3150a" name="Changes" comment="ImGUI docking">
-      <change afterPath="$PROJECT_DIR$/src/main/java/editor/GameViewWindow.java" afterDir="false" />
+    <list default="true" id="787a90ad-2c32-4237-9403-4ac402e3150a" name="Changes" comment="Viewport">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/ImGuiLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/ImGuiLayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Window.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/renderer/Texture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/renderer/Texture.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/scenes/LevelEditorScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scenes/LevelEditorScene.java" afterDir="false" />
     </list>
     <list id="25a488fd-f17c-453d-94a6-413269d6c7ff" name="Changes by schue" comment="Changes by schue" />
     <option name="SHOW_DIALOG" value="false" />
@@ -301,7 +300,12 @@
       <workItem from="1680878850220" duration="6286000" />
       <workItem from="1680944076420" duration="15304000" />
       <workItem from="1681110685501" duration="2362000" />
-      <workItem from="1681464076646" duration="815000" />
+      <workItem from="1681464076646" duration="3840000" />
+      <workItem from="1681557032236" duration="1705000" />
+      <workItem from="1681561515497" duration="2581000" />
+      <workItem from="1681749515438" duration="201000" />
+      <workItem from="1681752683636" duration="43000" />
+      <workItem from="1681885641387" duration="641000" />
     </task>
     <task id="LOCAL-00001" summary="Project Creation">
       <created>1679058907028</created>
@@ -625,7 +629,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680970961935</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="Viewport">
+      <created>1681465069801</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1681465069801</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -675,7 +686,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Batch Rendering, mehr FPS juhu" />
     <MESSAGE value="Assets laden verbessert" />
     <MESSAGE value="Mehrere Bilder laden" />
     <MESSAGE value="SpriteSheets laden" />
@@ -700,7 +710,8 @@
     <MESSAGE value="Framebuffer" />
     <MESSAGE value="Draw Rectangle and Circle" />
     <MESSAGE value="ImGUI docking" />
-    <option name="LAST_COMMIT_MESSAGE" value="ImGUI docking" />
+    <MESSAGE value="Viewport" />
+    <option name="LAST_COMMIT_MESSAGE" value="Viewport" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
