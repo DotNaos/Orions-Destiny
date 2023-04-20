@@ -3,12 +3,11 @@ package Burst;
 import org.lwjgl.Version;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.opengl.GL;
-import renderer.DebugDraw;
-import renderer.Framebuffer;
-import renderer.PickingTexture;
+import renderer.*;
 import scenes.LevelEditorScene;
 import scenes.LevelScene;
 import scenes.Scene;
+import util.AssetPool;
 
 import java.awt.*;
 
@@ -149,6 +148,8 @@ public class Window {
         float endTime;
         float dt = -1.0f;
 
+        Shader defaultShader = AssetPool.getShader("assets/shaders/default.glsl");
+        Shader pickingShader = AssetPool.getShader("assets/shaders/pickingShader.glsl");
 
         while (!glfwWindowShouldClose(glfwWindow)) {
             // Poll events
@@ -159,10 +160,20 @@ public class Window {
             pickingTexture.enableWriting();
 
             glViewport(0, 0, this.width, this.height);
-            glClearColor(0, 0, 0, 0);
+            glClearColor(0.0f, 0, 0, 0);
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-            Renderer.bindShader(pickingTexture);
+            Renderer.bindShader(pickingShader);
+            currentScene.render();
+
+            if (MouseListener.mouseButtonDown(GLFW_MOUSE_BUTTON_LEFT)) {
+                int x = (int)MouseListener.getScreenX();
+                int y = (int)MouseListener.getScreenY();
+                System.out.println(pickingTexture.readPixel(x, y));
+            }
+
+            pickingTexture.disableWriting();
+            glEnable(GL_BLEND);
 
             // Render pass 2. Render actual game
 
@@ -178,6 +189,7 @@ public class Window {
             if (dt >= 0) {
 
                 DebugDraw.draw();
+                Renderer.bindShader(defaultShader);
                 currentScene.update(dt);
                 currentScene.render();
             }
