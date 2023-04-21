@@ -44,7 +44,6 @@ public class RenderBatch implements Comparable<RenderBatch> {
     private List<Texture> textures;
     private int vaoID, vboID;
     private int maxBatchSize;
-
     private int zIndex;
 
     public RenderBatch(int maxBatchSize, int zIndex) {
@@ -166,7 +165,7 @@ public class RenderBatch implements Comparable<RenderBatch> {
         int texId = 0;
         if (sprite.getTexture() != null) {
             for (int i = 0; i < textures.size(); i++) {
-                if (textures.get(i) == sprite.getTexture()) {
+                if (textures.get(i).equals(sprite.getTexture())) {
                     texId = i + 1;
                     break;
                 }
@@ -203,7 +202,7 @@ public class RenderBatch implements Comparable<RenderBatch> {
             vertices[offset + 8] = texId;
 
             // Load entity id
-            vertices[offset + 9] = sprite.gameObject.getUID();
+            vertices[offset + 9] = sprite.gameObject.getUID() + 1;
 
             offset += VERTEX_SIZE;
         }

@@ -9,8 +9,6 @@ import scenes.LevelScene;
 import scenes.Scene;
 import util.AssetPool;
 
-import java.awt.*;
-
 import static org.lwjgl.glfw.Callbacks.glfwFreeCallbacks;
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL11.*;
@@ -98,7 +96,7 @@ public class Window {
         glfwDefaultWindowHints();
         glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE);
         glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
-//        glfwWindowHint(GLFW_MAXIMIZED, GLFW_TRUE);
+        glfwWindowHint(GLFW_MAXIMIZED, GLFW_TRUE);
 
         // Create the window
         glfwWindow = glfwCreateWindow(this.width, this.height, this.title, NULL, NULL);
@@ -160,7 +158,7 @@ public class Window {
             pickingTexture.enableWriting();
 
             glViewport(0, 0, this.width, this.height);
-            glClearColor(0.0f, 0, 0, 0);
+            glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
             Renderer.bindShader(pickingShader);
@@ -176,18 +174,13 @@ public class Window {
             glEnable(GL_BLEND);
 
             // Render pass 2. Render actual game
-
             DebugDraw.beginFrame();
 
             this.framebuffer.bind();
-
             glClearColor(r, g, b, a);
             glClear(GL_COLOR_BUFFER_BIT);
 
-
-
             if (dt >= 0) {
-
                 DebugDraw.draw();
                 Renderer.bindShader(defaultShader);
                 currentScene.update(dt);

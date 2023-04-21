@@ -1,9 +1,10 @@
 package renderer;
 
-import Burst.GameObject;
 import components.SpriteRenderer;
+import Burst.GameObject;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -12,31 +13,23 @@ public class Renderer {
     private List<RenderBatch> batches;
     private static Shader currentShader;
 
-    public Renderer()
-    {
+    public Renderer() {
         this.batches = new ArrayList<>();
     }
 
-    public void add(GameObject go)
-    {
+    public void add(GameObject go) {
         SpriteRenderer spr = go.getComponent(SpriteRenderer.class);
-        if (spr != null)
-        {
+        if (spr != null) {
             add(spr);
         }
     }
 
-
-    private void add(SpriteRenderer sprite)
-    {
+    private void add(SpriteRenderer sprite) {
         boolean added = false;
-        for (RenderBatch batch : batches)
-        {
-            if (batch.hasRoom() && batch.zIndex() == sprite.gameObject.zIndex())
-            {
+        for (RenderBatch batch : batches) {
+            if (batch.hasRoom() && batch.zIndex() == sprite.gameObject.zIndex()) {
                 Texture tex = sprite.getTexture();
-                if (tex == null || (batch.hasTexture(tex) || batch.hasTextureRoom()))
-                {
+                if (tex == null || (batch.hasTexture(tex) || batch.hasTextureRoom())) {
                     batch.addSprite(sprite);
                     added = true;
                     break;
@@ -44,8 +37,7 @@ public class Renderer {
             }
         }
 
-        if (!added)
-        {
+        if (!added) {
             RenderBatch newBatch = new RenderBatch(MAX_BATCH_SIZE, sprite.gameObject.zIndex());
             newBatch.start();
             batches.add(newBatch);
@@ -54,21 +46,17 @@ public class Renderer {
         }
     }
 
-    public static void bindShader(Shader shader)
-    {
+    public static void bindShader(Shader shader) {
         currentShader = shader;
     }
 
-    public static Shader getBoundShader()
-    {
+    public static Shader getBoundShader() {
         return currentShader;
     }
 
-    public void render()
-    {
+    public void render() {
         currentShader.use();
-        for (RenderBatch batch : batches)
-        {
+        for (RenderBatch batch : batches) {
             batch.render();
         }
     }
