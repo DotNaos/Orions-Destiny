@@ -131,7 +131,9 @@ public class MouseListener {
 
     public static float getOrthoY() {
         float currentY = getY() - get().gameViewportPos.y;
-        currentY = -((currentY / get().gameViewportSize.y) * 2.0f - 1.0f);
+        currentY = -((currentY / get().gameViewportSize.y) * 2.0f
+                - 1.0f
+        );
         Vector4f tmp = new Vector4f(0, currentY, 0, 1);
 
         Camera camera = Window.getScene().camera();
