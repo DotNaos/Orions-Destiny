@@ -11,6 +11,8 @@ import imgui.type.ImBoolean;
 import renderer.PickingTexture;
 import scenes.Scene;
 
+import java.util.PropertyResourceBundle;
+
 import static org.lwjgl.glfw.GLFW.*;
 
 public class ImGuiLayer {
@@ -26,17 +28,14 @@ public class ImGuiLayer {
     private GameViewWindow gameViewWindow;
     private PropertiesWindow propertiesWindow;
 
-
     public ImGuiLayer(long glfwWindow, PickingTexture pickingTexture) {
         this.glfwWindow = glfwWindow;
         this.gameViewWindow = new GameViewWindow();
-        this.propertiesWindow = new PropertiesWindow( pickingTexture );
+        this.propertiesWindow = new PropertiesWindow(pickingTexture);
     }
 
     // Initialize Dear ImGui.
     public void initImGui() {
-
-
         // IMPORTANT!!
         // This line is critical for Dear ImGui to work.
         ImGui.createContext();
@@ -47,7 +46,7 @@ public class ImGuiLayer {
 
         io.setIniFilename("imgui.ini"); // We don't want to save .ini file
         io.setConfigFlags(ImGuiConfigFlags.NavEnableKeyboard); // Navigation with keyboard
-        io.setConfigFlags(ImGuiConfigFlags.DockingEnable); // Docking
+        io.setConfigFlags(ImGuiConfigFlags.DockingEnable);
         io.setBackendFlags(ImGuiBackendFlags.HasMouseCursors); // Mouse cursors to display while resizing windows etc.
         io.setBackendPlatformName("imgui_java_impl_glfw");
 
@@ -105,8 +104,7 @@ public class ImGuiLayer {
             io.setKeyAlt(io.getKeysDown(GLFW_KEY_LEFT_ALT) || io.getKeysDown(GLFW_KEY_RIGHT_ALT));
             io.setKeySuper(io.getKeysDown(GLFW_KEY_LEFT_SUPER) || io.getKeysDown(GLFW_KEY_RIGHT_SUPER));
 
-            if (!io.getWantCaptureKeyboard())
-            {
+            if (!io.getWantCaptureKeyboard()) {
                 KeyListener.keyCallback(w, key, scancode, action, mods);
             }
         });
@@ -132,8 +130,7 @@ public class ImGuiLayer {
                 ImGui.setWindowFocus(null);
             }
 
-            if (!io.getWantCaptureMouse() || gameViewWindow.getWantCaptureMouse())
-            {
+            if (!io.getWantCaptureMouse() || gameViewWindow.getWantCaptureMouse()) {
                 MouseListener.mouseButtonCallback(w, button, action, mods);
             }
         });
@@ -171,14 +168,11 @@ public class ImGuiLayer {
         final ImFontConfig fontConfig = new ImFontConfig(); // Natively allocated object, should be explicitly destroyed
 
         // Glyphs could be added per-font as well as per config used globally like here
-        fontConfig.setGlyphRanges(fontAtlas.getGlyphRangesCyrillic());
-
+        fontConfig.setGlyphRanges(fontAtlas.getGlyphRangesDefault());
 
         // Fonts merge example
         fontConfig.setPixelSnapH(true);
-        fontAtlas.addFontFromFileTTF("assets/fonts/Inter.ttf", 18, fontConfig);
-
-
+        fontAtlas.addFontFromFileTTF("assets/fonts/Inter.ttf", 20, fontConfig);
 
         fontConfig.destroy(); // After all fonts were added we don't need this config more
 
@@ -197,7 +191,7 @@ public class ImGuiLayer {
 
         // Any Dear ImGui code SHOULD go between ImGui.newFrame()/ImGui.render() methods
         ImGui.newFrame();
-        setupDockSpace();
+        setupDockspace();
         currentScene.imgui();
         ImGui.showDemoWindow();
         gameViewWindow.imgui();
@@ -209,8 +203,6 @@ public class ImGuiLayer {
         endFrame();
     }
 
-
-
     private void startFrame(final float deltaTime) {
         // Get window properties and mouse position
         float[] winWidth = {Window.getWidth()};
@@ -218,16 +210,13 @@ public class ImGuiLayer {
         double[] mousePosX = {0};
         double[] mousePosY = {0};
         glfwGetCursorPos(glfwWindow, mousePosX, mousePosY);
-        // Print mouse position
-
 
         // We SHOULD call those methods to update Dear ImGui state for the current frame
         final ImGuiIO io = ImGui.getIO();
         io.setDisplaySize(winWidth[0], winHeight[0]);
-        io.setDisplayFramebufferScale(1, 1);
+        io.setDisplayFramebufferScale(1f, 1f);
         io.setMousePos((float) mousePosX[0], (float) mousePosY[0]);
         io.setDeltaTime(deltaTime);
-
 
         // Update the mouse cursor
         final int imguiCursor = ImGui.getMouseCursor();
@@ -247,24 +236,25 @@ public class ImGuiLayer {
         ImGui.destroyContext();
     }
 
-    private void setupDockSpace() {
+    private void setupDockspace() {
         int windowFlags = ImGuiWindowFlags.MenuBar | ImGuiWindowFlags.NoDocking;
 
-        ImGui.setNextWindowPos(0, 0, ImGuiCond.Always);
-        ImGui.setNextWindowSize(Window.getWidth(), Window.getHeight(), ImGuiCond.Always);
+        ImGui.setNextWindowPos(0.0f, 0.0f, ImGuiCond.Always);
+        ImGui.setNextWindowSize(Window.getWidth(), Window.getHeight());
         ImGui.pushStyleVar(ImGuiStyleVar.WindowRounding, 0.0f);
         ImGui.pushStyleVar(ImGuiStyleVar.WindowBorderSize, 0.0f);
+        windowFlags |= ImGuiWindowFlags.NoTitleBar | ImGuiWindowFlags.NoCollapse |
+                ImGuiWindowFlags.NoResize | ImGuiWindowFlags.NoMove |
+                ImGuiWindowFlags.NoBringToFrontOnFocus | ImGuiWindowFlags.NoNavFocus;
 
-        windowFlags |= ImGuiWindowFlags.NoTitleBar | ImGuiWindowFlags.NoCollapse
-                    | ImGuiWindowFlags.NoResize    | ImGuiWindowFlags.NoMove
-                    | ImGuiWindowFlags.NoBringToFrontOnFocus | ImGuiWindowFlags.NoNavFocus;
-        ImGui.begin("DockSpace Demo", new ImBoolean(true), windowFlags);
+        ImGui.begin("Dockspace Demo", new ImBoolean(true), windowFlags);
         ImGui.popStyleVar(2);
 
         // Dockspace
         ImGui.dockSpace(ImGui.getID("Dockspace"));
+    }
 
-
-
+    public PropertiesWindow getPropertiesWindow() {
+        return this.propertiesWindow;
     }
 }
