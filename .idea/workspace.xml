@@ -9,20 +9,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="787a90ad-2c32-4237-9403-4ac402e3150a" name="Changes" comment="Switch to laptop">
-      <change afterPath="$PROJECT_DIR$/Assets/images/gizmo-invert.png" afterDir="false" />
+    <list default="true" id="787a90ad-2c32-4237-9403-4ac402e3150a" name="Changes" comment="FIX: 16bit color not supported, need to use 32bit">
+      <change afterPath="$PROJECT_DIR$/src/main/java/editor/BImGui.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/images/gizmos-invert.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/images/gizmos-invert_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/images/gizmos.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/gizmos.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/images/gizmos_2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/GameObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Window.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/GameObjectDeserializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/GameObjectDeserializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Prefabs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Prefabs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Transform.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Transform.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/components/Component.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/Component.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/components/Gizmo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/Gizmo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/components/GizmoSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/GizmoSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/components/ScaleGizmo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/ScaleGizmo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/components/TranslateGizmo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/TranslateGizmo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/SpriteRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/SpriteRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/renderer/Renderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/renderer/Renderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/scenes/LevelEditorScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scenes/LevelEditorScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/scenes/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scenes/Scene.java" afterDir="false" />
     </list>
     <list id="25a488fd-f17c-453d-94a6-413269d6c7ff" name="Changes by schue" comment="Changes by schue" />
     <option name="SHOW_DIALOG" value="false" />
@@ -325,14 +324,7 @@
       <workItem from="1682090448527" duration="973000" />
       <workItem from="1682145300048" duration="11215000" />
       <workItem from="1682164069636" duration="1932000" />
-      <workItem from="1682409617049" duration="3898000" />
-    </task>
-    <task id="LOCAL-00005" summary="DeltaTime und Scenes">
-      <created>1679078056691</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1679078056691</updated>
+      <workItem from="1682409617049" duration="8144000" />
     </task>
     <task id="LOCAL-00006" summary="DeltaTime und Scenes">
       <created>1679078076279</created>
@@ -670,7 +662,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682411024174</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="FIX: 16bit color not supported, need to use 32bit">
+      <created>1682433893880</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1682433893880</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -720,7 +719,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Temporäre Lösung: &#10;             Auskommentieren&#10;             &#10;'glfwWindowHint(GLFW_MAXIMIZED, GLFW_TRUE);'" />
     <MESSAGE value="Custom Font und ImGUI integration mit Color Picker" />
     <MESSAGE value="GSON, speichern von Objekten" />
     <MESSAGE value="Laden von JSON datei" />
@@ -745,7 +743,8 @@
     <MESSAGE value="Viewport Camera movement" />
     <MESSAGE value="Gizmos" />
     <MESSAGE value="Switch to laptop" />
-    <option name="LAST_COMMIT_MESSAGE" value="Switch to laptop" />
+    <MESSAGE value="FIX: 16bit color not supported, need to use 32bit" />
+    <option name="LAST_COMMIT_MESSAGE" value="FIX: 16bit color not supported, need to use 32bit" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

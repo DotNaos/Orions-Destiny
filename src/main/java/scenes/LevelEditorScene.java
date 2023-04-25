@@ -5,15 +5,13 @@ import components.*;
 import imgui.ImGui;
 import imgui.ImVec2;
 import org.joml.Vector2f;
-import org.joml.Vector3f;
-import renderer.DebugDraw;
 import util.AssetPool;
 
 public class LevelEditorScene extends Scene {
 
     private Spritesheet sprites;
 
-    GameObject levelEditorStuff = new GameObject("LevelEditor", new Transform(new Vector2f()), 0);
+    GameObject levelEditorStuff = this.createGameObject("LevelEditor");
 
     Transform obj1, obj2;
 
