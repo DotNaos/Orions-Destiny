@@ -222,7 +222,7 @@ public class Window {
         return 16.0f / 9.0f;
     }
 
-    public static ImGuiLayer getImGuiLayer() {
+    public static ImGuiLayer getImguiLayer() {
         return get().imguiLayer;
     }
 

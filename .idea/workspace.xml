@@ -9,14 +9,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="787a90ad-2c32-4237-9403-4ac402e3150a" name="Changes" comment="Gizmos">
-      <change afterPath="$PROJECT_DIR$/src/main/java/components/Gizmo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/components/NonPickable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/components/ScaleGizmo.java" afterDir="false" />
+    <list default="true" id="787a90ad-2c32-4237-9403-4ac402e3150a" name="Changes" comment="Switch to laptop">
+      <change afterPath="$PROJECT_DIR$/Assets/images/gizmo-invert.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/MouseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/MouseListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/gizmos-invert.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/gizmos-invert_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/gizmos.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/gizmos.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/gizmos_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/GameObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Window.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/Component.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/Component.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/Gizmo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/Gizmo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/GizmoSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/GizmoSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/ScaleGizmo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/ScaleGizmo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/components/TranslateGizmo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/TranslateGizmo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/editor/PropertiesWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/editor/PropertiesWindow.java" afterDir="false" />
     </list>
     <list id="25a488fd-f17c-453d-94a6-413269d6c7ff" name="Changes by schue" comment="Changes by schue" />
     <option name="SHOW_DIALOG" value="false" />
@@ -97,32 +103,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Projects/Java/Orions-Destiny/Assets/images/gizmos&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;settings.editor.splitter.proportion&quot;: &quot;0.30120483&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "D:/Projects/Java/Orions-Destiny/Assets/images",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.splitter.proportion": "0.30120483",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="Engine" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Projects\Java\Orions-Destiny\Assets\images\gizmos" />
       <recent name="D:\Projects\Java\Orions-Destiny\Assets\images" />
+      <recent name="D:\Projects\Java\Orions-Destiny\Assets\images\gizmos" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Projects\Java\Orions-Destiny\Assets\images" />
@@ -319,14 +325,7 @@
       <workItem from="1682090448527" duration="973000" />
       <workItem from="1682145300048" duration="11215000" />
       <workItem from="1682164069636" duration="1932000" />
-      <workItem from="1682409617049" duration="1226000" />
-    </task>
-    <task id="LOCAL-00004" summary="Listener für Maus und Tastatur">
-      <created>1679076116910</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1679076116910</updated>
+      <workItem from="1682409617049" duration="3898000" />
     </task>
     <task id="LOCAL-00005" summary="DeltaTime und Scenes">
       <created>1679078056691</created>
@@ -664,7 +663,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682155411554</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="Switch to laptop">
+      <created>1682411024173</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1682411024174</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -714,7 +720,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="ImGUI integration" />
     <MESSAGE value="Temporäre Lösung: &#10;             Auskommentieren&#10;             &#10;'glfwWindowHint(GLFW_MAXIMIZED, GLFW_TRUE);'" />
     <MESSAGE value="Custom Font und ImGUI integration mit Color Picker" />
     <MESSAGE value="GSON, speichern von Objekten" />
@@ -739,7 +744,8 @@
     <MESSAGE value="Properties Window" />
     <MESSAGE value="Viewport Camera movement" />
     <MESSAGE value="Gizmos" />
-    <option name="LAST_COMMIT_MESSAGE" value="Gizmos" />
+    <MESSAGE value="Switch to laptop" />
+    <option name="LAST_COMMIT_MESSAGE" value="Switch to laptop" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

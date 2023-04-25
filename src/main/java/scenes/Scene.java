@@ -53,7 +53,7 @@ public abstract class Scene {
     }
     public GameObject getGameObject(int gameObjectId) {
         Optional<GameObject> result = this.gameObjects.stream()
-                .filter(gameObject -> gameObject.getUID() == gameObjectId).findFirst();
+                .filter(gameObject -> gameObject.getUid() == gameObjectId).findFirst();
         return result.orElse(null);
     }
 
@@ -117,12 +117,12 @@ public abstract class Scene {
                 this.addGameObjectToScene(go);
 
                 for (Component c : go.getAllComponents()) {
-                    if (c.getUID() > maxCompId) {
-                        maxCompId = c.getUID();
+                    if (c.getUid() > maxCompId) {
+                        maxCompId = c.getUid();
                     }
                 }
-                if (go.getUID() > maxGoId) {
-                    maxGoId = go.getUID();
+                if (go.getUid() > maxGoId) {
+                    maxGoId = go.getUid();
                 }
             }
 

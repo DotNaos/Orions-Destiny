@@ -8,6 +8,7 @@ import java.util.List;
 public class GameObject {
     private static int ID_COUNTER = 0;
     private int uid = -1;
+
     private String name;
     private List<Component> components;
     public Transform transform;
@@ -16,9 +17,9 @@ public class GameObject {
 
     public GameObject(String name, Transform transform, int zIndex) {
         this.name = name;
+        this.zIndex = zIndex;
         this.components = new ArrayList<>();
         this.transform = transform;
-        this.zIndex = zIndex;
 
         this.uid = ID_COUNTER++;
     }
@@ -30,7 +31,7 @@ public class GameObject {
                     return componentClass.cast(c);
                 } catch (ClassCastException e) {
                     e.printStackTrace();
-                    assert false : "Error: Could not cast component: '" + c.getClass().getName() + "' to '" + componentClass.getName() + "'";
+                    assert false : "Error: Casting component.";
                 }
             }
         }
@@ -38,8 +39,8 @@ public class GameObject {
         return null;
     }
 
-    public <T extends Component> void removeComponent (Class<T> componentClass) {
-        for (int i = 0; i < components.size(); i++) {
+    public <T extends Component> void removeComponent(Class<T> componentClass) {
+        for (int i=0; i < components.size(); i++) {
             Component c = components.get(i);
             if (componentClass.isAssignableFrom(c.getClass())) {
                 components.remove(i);
@@ -48,38 +49,27 @@ public class GameObject {
         }
     }
 
-    public void addComponent (Component c) {
-        // check if component already exists, if so overwrite it
-        for (int i = 0; i < components.size(); i++) {
-            Component existingComponent = components.get(i);
-            if (existingComponent.getClass().equals(c.getClass())) {
-                components.set(i, c);
-                c.gameObject = this;
-                return;
-            }
-        }
-
-        c.generateUID();
+    public void addComponent(Component c) {
+        c.generateId();
         this.components.add(c);
         c.gameObject = this;
     }
 
-    // TODO: Maybe optimize this?
     public void update(float dt) {
-        for (int i = 0; i < components.size(); i++) {
+        for (int i=0; i < components.size(); i++) {
             components.get(i).update(dt);
         }
     }
 
-    public void start()
-    {
-        for (int i = 0; i < components.size(); i++) {
+    public void start() {
+        for (int i=0; i < components.size(); i++) {
             components.get(i).start();
         }
     }
+
     public void imgui() {
-        for (Component component : components) {
-            component.imgui();
+        for (Component c : components) {
+            c.imgui();
         }
     }
 
@@ -91,7 +81,7 @@ public class GameObject {
         ID_COUNTER = maxId;
     }
 
-    public int getUID() {
+    public int getUid() {
         return this.uid;
     }
 

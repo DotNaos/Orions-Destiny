@@ -1,11 +1,9 @@
 package components;
 
-
-import Burst.MouseListener;
 import editor.PropertiesWindow;
+import Burst.MouseListener;
 
-public class TranslateGizmo extends Gizmo{
-
+public class TranslateGizmo extends Gizmo {
 
     public TranslateGizmo(Sprite arrowSprite, PropertiesWindow propertiesWindow) {
         super(arrowSprite, propertiesWindow);
@@ -13,15 +11,14 @@ public class TranslateGizmo extends Gizmo{
 
     @Override
     public void update(float dt) {
-        if (this.activeGameObject != null) {
-            if (xAxisActive && !yAxisActive)
-            {
-                this.activeGameObject.transform.position.x -= MouseListener.getWorldDx();
-            } else if (yAxisActive)
-            {
-                this.activeGameObject.transform.position.y -= MouseListener.getWorldDy();
+        if (activeGameObject != null) {
+            if (xAxisActive && !yAxisActive) {
+                activeGameObject.transform.position.x -= MouseListener.getWorldDx();
+            } else if (yAxisActive) {
+                activeGameObject.transform.position.y -= MouseListener.getWorldDy();
             }
         }
+
         super.update(dt);
     }
 }
