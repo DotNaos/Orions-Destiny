@@ -32,8 +32,8 @@ public class LevelEditorScene extends Scene {
         levelEditorStuff.addComponent(new MouseControls());
         levelEditorStuff.addComponent(new GridLines());
         levelEditorStuff.addComponent(new EditorCamera(this.camera));
-        levelEditorStuff.addComponent(new TranslateGizmo(gizmos.getSprite(1),
-                Window.getImGuiLayer().getPropertiesWindow()));
+        levelEditorStuff.addComponent(new GizmoSystem(gizmos));
+
         levelEditorStuff.start();
 
     }
@@ -46,7 +46,7 @@ public class LevelEditorScene extends Scene {
                         16, 16, 81, 0));
         AssetPool.addSpritesheet("assets/images/gizmos.png",
                 new Spritesheet(AssetPool.getTexture("assets/images/gizmos.png"),
-                        24, 48, 2, 0));
+                        24, 48, 3, 0));
         AssetPool.getTexture("assets/images/blendImage2.png");
 
         for (GameObject g : gameObjects) {
@@ -71,9 +71,9 @@ public class LevelEditorScene extends Scene {
         }
 
 
-        //        DebugDraw.drawRainbow2(t);
-        //        DebugDraw.addBox2D(new Vector2f(200, 200), new Vector2f((int) Math.abs(256 * Math.sin(t)), (int) Math.abs(128 * Math.cos(t))), (float) (360 * Math.tan(t)), new Vector3f(0, 1, 0), 1);
-        //        DebugDraw.addCircle(new Vector2f(200, 200), (int)(((Math.sin(t * 2) + 1) / 2)* 4 * 100), new Vector3f(1, 0, 0), 1);
+//                DebugDraw.drawRainbow2(t);
+//                DebugDraw.addBox2D(new Vector2f(200, 200), new Vector2f((int) Math.abs(256 * Math.sin(t)), (int) Math.abs(128 * Math.cos(t))), (float) (360 * Math.tan(t)), new Vector3f(0, 1, 0), 1);
+//                DebugDraw.addCircle(new Vector2f(200, 200), (int)(((Math.sin(t * 2) + 1) / 2)* 4 * 100), new Vector3f(1, 0, 0), 1);
 
         t += dt * 0.5f;
     }
