@@ -35,7 +35,6 @@ public class LevelEditorScene extends Scene {
         levelEditorStuff.start();
 
     }
-
     private void loadResources() {
         AssetPool.getShader("assets/shaders/default.glsl");
 
