@@ -9,12 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="787a90ad-2c32-4237-9403-4ac402e3150a" name="Changes" comment="Force Generators">
-      <change afterPath="$PROJECT_DIR$/src/main/java/physics2d/PhysicsSystem2D.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/physics2d/forces/Gravity2D.java" afterDir="false" />
+    <list default="true" id="787a90ad-2c32-4237-9403-4ac402e3150a" name="Changes" comment="Gravity">
+      <change afterPath="$PROJECT_DIR$/src/main/java/physics2d/rigidbody/CollisionManifold.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/physics2d/rigidbody/Collisions.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/physics2d/rigidbody/Rigidbody2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/physics2d/rigidbody/Rigidbody2D.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scenes/LevelEditorScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scenes/LevelEditorScene.java" afterDir="false" />
     </list>
     <list id="25a488fd-f17c-453d-94a6-413269d6c7ff" name="Changes by schue" comment="Changes by schue" />
     <option name="SHOW_DIALOG" value="false" />
@@ -324,14 +322,7 @@
       <workItem from="1682409617049" duration="14274000" />
       <workItem from="1682480553772" duration="736000" />
       <workItem from="1682481607558" duration="371000" />
-      <workItem from="1682512052789" duration="4859000" />
-    </task>
-    <task id="LOCAL-00011" summary="Camera zur hälfte">
-      <created>1679565059002</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1679565059002</updated>
+      <workItem from="1682512052789" duration="6541000" />
     </task>
     <task id="LOCAL-00012" summary="Camera zur hälfte">
       <created>1679583691986</created>
@@ -669,7 +660,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682515242094</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="Gravity">
+      <created>1682517553804</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1682517553804</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -719,7 +717,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Drag n Drop Level Editor" />
     <MESSAGE value="Fix" />
     <MESSAGE value="DebugDraw und Spritesheet fix" />
     <MESSAGE value="snap to grid" />
@@ -744,7 +741,8 @@
     <MESSAGE value="Raycast Box" />
     <MESSAGE value="Circle Collision" />
     <MESSAGE value="Force Generators" />
-    <option name="LAST_COMMIT_MESSAGE" value="Force Generators" />
+    <MESSAGE value="Gravity" />
+    <option name="LAST_COMMIT_MESSAGE" value="Gravity" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
