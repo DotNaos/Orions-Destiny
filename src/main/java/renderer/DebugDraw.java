@@ -100,7 +100,7 @@ public class DebugDraw {
         glEnableVertexAttribArray(1);
 
         // Draw the batch
-        glDrawArrays(GL_LINES, 0, lines.size() * 6 * 2);
+        glDrawArrays(GL_LINES, 0, lines.size() * 2);
 
         // Disable Location
         glDisableVertexAttribArray(0);
@@ -192,26 +192,4 @@ public class DebugDraw {
 
         addLine2D(points[points.length - 1], points[0], color, lifetime);
     }
-
-
-    public static void drawRainbow(float t)
-    {
-        Vector2f position = new Vector2f(100 + t*10, 100 + ((float)Math.sin(t) * 20)).mul(4);
-        // RGB color interpolation
-        Vector3f color = new Vector3f(0.5f + 0.5f * (float)Math.sin(t), 0.5f + 0.5f * (float)Math.sin(t + 2.0944f), 0.5f + 0.5f * (float)Math.sin(t + 4.1888f));
-
-
-        DebugDraw.addLine2D(new Vector2f(0 + position.x - 500, position.y), position, color, 200);
-    }
-
-    public static void drawRainbow2(float t) {
-        Vector2f position = new Vector2f(400, 400);
-        Vector3f color = new Vector3f(0.5f + 0.5f * (float)Math.sin(t), 0.5f + 0.5f * (float)Math.sin(t + 2.0944f), 0.5f + 0.5f * (float)Math.sin(t + 4.1888f));
-        DebugDraw.addLine2D(
-                new Vector2f(position.x, position.y),
-                new Vector2f( (float) (position.x  + 100 * Math.pow(Math.cos(t), 3)),
-                        (float) (position.y + 100 * Math.sin(t))),
-                color, 200);
-    }
 }
-

@@ -1,59 +1,50 @@
 package Burst;
 
-import org.joml.Vector2f;
-import org.joml.Vector3f;
-import org.joml.Vector4f;
+import observers.Observer;
+import observers.ObserverHandler;
+import observers.events.Event;
+import observers.events.EventType;
 import org.lwjgl.Version;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.opengl.GL;
 import renderer.*;
-import scenes.LevelEditorScene;
-import scenes.LevelScene;
+import scenes.LevelEditorInitializer;
 import scenes.Scene;
+import scenes.SceneInitializer;
 import util.AssetPool;
+
+import java.util.logging.Level;
 
 import static org.lwjgl.glfw.Callbacks.glfwFreeCallbacks;
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.system.MemoryUtil.NULL;
 
-public class Window {
+public class Window implements Observer {
     private int width, height;
     private String title;
     private long glfwWindow;
     private ImGuiLayer imguiLayer;
     private Framebuffer framebuffer;
     private PickingTexture pickingTexture;
-
-    public float r, g, b, a;
-    private boolean fadeToBlack = false;
+    private boolean debugDrawPhysics = false;
 
     private static Window window = null;
-
     private static Scene currentScene;
 
     private Window() {
         this.width = 1920;
         this.height = 1080;
         this.title = "Orion's Destiny";
-        r = 1;
-        b = 1;
-        g = 1;
-        a = 1;
+        ObserverHandler.addObserver(this);
     }
 
-    public static void changeScene(int newScene) {
-        switch (newScene) {
-            case 0:
-                currentScene = new LevelEditorScene();
-                break;
-            case 1:
-                currentScene = new LevelScene();
-                break;
-            default:
-                assert false : "Unknown scene '" + newScene + "'";
-                break;
+    public static void changeScene(SceneInitializer sceneInitializer, boolean playPhysics) {
+        if (currentScene != null) {
+            currentScene.destroy();
         }
+        getImguiLayer().getPropertiesWindow().setActiveGameObject(null);
+        currentScene = new Scene(sceneInitializer, playPhysics);
         currentScene.load();
         currentScene.init();
         currentScene.start();
@@ -138,10 +129,10 @@ public class Window {
         this.pickingTexture = new PickingTexture(this.width, this.height);
         glViewport(0, 0, this.width, this.height);
 
-        this.imguiLayer = new ImGuiLayer(glfwWindow, this.pickingTexture);
+        this.imguiLayer = new ImGuiLayer(glfwWindow, pickingTexture);
         this.imguiLayer.initImGui();
 
-        Window.changeScene(0);
+        Window.changeScene(new LevelEditorInitializer(), false);
     }
 
     public void loop() {
@@ -167,7 +158,6 @@ public class Window {
             Renderer.bindShader(pickingShader);
             currentScene.render();
 
-
             pickingTexture.disableWriting();
             glEnable(GL_BLEND);
 
@@ -175,7 +165,7 @@ public class Window {
             DebugDraw.beginFrame();
 
             this.framebuffer.bind();
-            glClearColor(r, g, b, a);
+            glClearColor(1, 1, 1, 1);
             glClear(GL_COLOR_BUFFER_BIT);
 
             if (dt >= 0) {
@@ -183,6 +173,10 @@ public class Window {
                 Renderer.bindShader(defaultShader);
                 currentScene.update(dt);
                 currentScene.render();
+
+                if (debugDrawPhysics) {
+                    currentScene.debugDrawPhysics();
+                }
             }
             this.framebuffer.unbind();
 
@@ -194,8 +188,22 @@ public class Window {
             dt = endTime - beginTime;
             beginTime = endTime;
         }
+    }
 
-        currentScene.saveExit();
+    @Override
+    public void onNotify(GameObject obj, Event event) {
+        if (event.type == EventType.GameEngineStartPlay) {
+            currentScene.save();
+            Window.changeScene(new LevelEditorInitializer(), true);
+        } else if (event.type == EventType.GameEngineStopPlay) {
+            Window.changeScene(new LevelEditorInitializer(), false);
+        } else if (event.type == EventType.TogglePhysicsDebugDraw) {
+            this.debugDrawPhysics = !this.debugDrawPhysics;
+        } else if (event.type == EventType.SaveLevel) {
+            currentScene.save();
+        } else if (event.type == EventType.LoadLevel) {
+            Window.changeScene(new LevelEditorInitializer(), true);
+        }
     }
 
     public static int getWidth() {
@@ -225,6 +233,4 @@ public class Window {
     public static ImGuiLayer getImguiLayer() {
         return get().imguiLayer;
     }
-
-
 }

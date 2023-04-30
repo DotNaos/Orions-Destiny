@@ -23,8 +23,7 @@ public class PhysicsSystem2D {
     private float fixedUpdate;
     private int impulseIterations = 6;
 
-    public PhysicsSystem2D(float fixedUpdateDt, Vector2f gravity)
-    {
+    public PhysicsSystem2D(float fixedUpdateDt, Vector2f gravity) {
         this.forceRegistry = new ForceRegistry();
         this.gravity = new Gravity2D(gravity);
 
@@ -33,25 +32,22 @@ public class PhysicsSystem2D {
         this.bodies2 = new ArrayList<>();
         this.collisions = new ArrayList<>();
 
-
         this.fixedUpdate = fixedUpdateDt;
     }
 
-    public void update(float dt)
-    {
+    public void update(float dt) {
         fixedUpdate();
     }
 
-    public void fixedUpdate()
-    {
+    public void fixedUpdate() {
         bodies1.clear();
         bodies2.clear();
         collisions.clear();
 
         // Find any collisions
         int size = rigidbodies.size();
-        for (int i = 0; i < size; i++) {
-            for (int j = i; j < size; j++) {
+        for (int i=0; i < size; i++) {
+            for (int j=i; j < size; j++) {
                 if (i == j) continue;
 
                 CollisionManifold result = new CollisionManifold();
@@ -77,10 +73,10 @@ public class PhysicsSystem2D {
 
         // Resolve collisions via iterative impulse resolution
         // iterate a certain amount of times to get an approximate solution
-        for (int k = 0; k < impulseIterations; k++) {
-            for (int i=0; i< collisions.size(); i++) {
+        for (int k=0; k < impulseIterations; k++) {
+            for (int i=0; i < collisions.size(); i++) {
                 int jSize = collisions.get(i).getContactPoints().size();
-                for (int j = 0; j < jSize; j++) {
+                for (int j=0; j < jSize; j++) {
                     Rigidbody2D r1 = bodies1.get(i);
                     Rigidbody2D r2 = bodies2.get(i);
                     applyImpulse(r1, r2, collisions.get(i));
@@ -88,44 +84,46 @@ public class PhysicsSystem2D {
             }
         }
 
-        // Update the velocities of all rigid-bodies
-        for (int i = 0; i < rigidbodies.size(); i++)
-        {
+        // Update the velocities of all rigidbodies
+        for (int i=0; i < rigidbodies.size(); i++) {
             rigidbodies.get(i).physicsUpdate(fixedUpdate);
         }
+
+        // Apply linear projection
     }
 
-    private void applyImpulse(Rigidbody2D a, Rigidbody2D b, CollisionManifold m)
-    {
+    private void applyImpulse(Rigidbody2D a, Rigidbody2D b, CollisionManifold m) {
         // Linear velocity
-        float invMassA = a.getInverseMass();
-        float invMassB = b.getInverseMass();
-        float invMassSum = invMassA + invMassB;
-        if (invMassSum == 0.0f) return;
+        float invMass1 = a.getInverseMass();
+        float invMass2 = b.getInverseMass();
+        float invMassSum = invMass1 + invMass2;
+        if (invMassSum == 0f) {
+            return;
+        }
 
         // Relative velocity
         Vector2f relativeVel = new Vector2f(b.getVelocity()).sub(a.getVelocity());
         Vector2f relativeNormal = new Vector2f(m.getNormal()).normalize();
         // Moving away from each other? Do nothing
-        if (relativeVel.dot(relativeNormal) > 0.0f) return;
+        if (relativeVel.dot(relativeNormal) > 0.0f) {
+            return;
+        }
 
         float e = Math.min(a.getCor(), b.getCor());
         float numerator = (-(1.0f + e) * relativeVel.dot(relativeNormal));
         float j = numerator / invMassSum;
-        if (m.getContactPoints().size() > 0 && j != 0.0f)
-        {
+        if (m.getContactPoints().size() > 0 && j != 0.0f) {
             j /= (float)m.getContactPoints().size();
         }
 
         Vector2f impulse = new Vector2f(relativeNormal).mul(j);
         a.setVelocity(
-                new Vector2f(a.getVelocity()).add(new Vector2f(impulse).mul(invMassA).mul(-1f)));
+                new Vector2f(a.getVelocity()).add(new Vector2f(impulse).mul(invMass1).mul(-1f)));
         b.setVelocity(
-                new Vector2f(b.getVelocity()).add(new Vector2f(impulse).mul(invMassB).mul(1f)));
+                new Vector2f(b.getVelocity()).add(new Vector2f(impulse).mul(invMass2).mul(1f)));
     }
 
-    public void addRigidbody(Rigidbody2D body, boolean addGravity)
-    {
+    public void addRigidbody(Rigidbody2D body, boolean addGravity) {
         this.rigidbodies.add(body);
         if (addGravity)
             this.forceRegistry.add(body, gravity);

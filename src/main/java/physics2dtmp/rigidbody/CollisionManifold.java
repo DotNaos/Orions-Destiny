@@ -11,8 +11,7 @@ public class CollisionManifold {
     private List<Vector2f> contactPoints;
     private float depth;
 
-    public CollisionManifold()
-    {
+    public CollisionManifold() {
         normal = new Vector2f();
         depth = 0.0f;
         isColliding = false;
@@ -22,11 +21,10 @@ public class CollisionManifold {
         this.normal = normal;
         this.contactPoints = new ArrayList<>();
         this.depth = depth;
-        this.isColliding = true;
+        isColliding = true;
     }
 
-    public void addContactPoint(Vector2f contact)
-    {
+    public void addContactPoint(Vector2f contact) {
         this.contactPoints.add(contact);
     }
 

@@ -29,6 +29,7 @@ public class SpriteRenderer extends Component {
 
     @Override
     public void start() {
+        this.isDirty = true;
         this.lastTransform = gameObject.transform.copy();
     }
 
@@ -42,8 +43,7 @@ public class SpriteRenderer extends Component {
 
     @Override
     public void imgui() {
-
-        if (BImGui.colorPicker4("Color Picker", this.color)) {
+        if (BImGui.colorPicker4("Color Pickier", this.color)) {
             this.isDirty = true;
         }
     }
@@ -76,12 +76,15 @@ public class SpriteRenderer extends Component {
         return this.isDirty;
     }
 
+    public void setDirty() {
+        this.isDirty = true;
+    }
+
     public void setClean() {
         this.isDirty = false;
     }
 
     public void setTexture(Texture texture) {
         this.sprite.setTexture(texture);
-        this.isDirty = true;
     }
 }

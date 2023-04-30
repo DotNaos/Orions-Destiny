@@ -14,9 +14,11 @@ public class Transform extends Component {
     public Transform() {
         init(new Vector2f(), new Vector2f());
     }
+
     public Transform(Vector2f position) {
-        init(position,  new Vector2f());
+        init(position, new Vector2f());
     }
+
     public Transform(Vector2f position, Vector2f scale) {
         init(position, scale);
     }
@@ -24,30 +26,37 @@ public class Transform extends Component {
     public void init(Vector2f position, Vector2f scale) {
         this.position = position;
         this.scale = scale;
+        this.rotation = 0;
         this.zIndex = 0;
     }
+
+    public Transform copy() {
+        Transform copy = new Transform(new Vector2f(this.position), new Vector2f(this.scale));
+        copy.rotation = this.rotation;
+        return copy;
+    }
+
     @Override
     public void imgui() {
-        BImGui.drawVec2Control("Position: ", this.position);
-        BImGui.drawVec2Control("Scale: ", this.scale, 32.0f);
-        BImGui.dragFloat("Rotation: ", this.rotation);
-        BImGui.dragInt("Z Index: ", this.zIndex);
+        BImGui.drawVec2Control("Position", this.position);
+        BImGui.drawVec2Control("Scale", this.scale, 32.0f);
+        this.rotation = BImGui.dragFloat("Rotation", this.rotation);
+        this.zIndex = BImGui.dragInt("Z-Index", this.zIndex);
     }
 
-    public Transform copy(){
-        return new Transform(new Vector2f(this.position), new Vector2f(this.scale));
-    }
-
-    public void copy(Transform to){
+    public void copy(Transform to) {
         to.position.set(this.position);
         to.scale.set(this.scale);
+        to.rotation = this.rotation;
     }
+
     @Override
     public boolean equals(Object o) {
         if (o == null) return false;
-        if(!(o instanceof Transform)) return false;
+        if (!(o instanceof Transform)) return false;
 
-        Transform t = (Transform) o;
-        return t.position.equals(this.position) && t.scale.equals(this.scale) && t.rotation == this.rotation && t.zIndex == this.zIndex;
+        Transform t = (Transform)o;
+        return t.position.equals(this.position) && t.scale.equals(this.scale) &&
+                t.rotation == this.rotation && t.zIndex == this.zIndex;
     }
 }

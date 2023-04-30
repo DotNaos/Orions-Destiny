@@ -3,8 +3,7 @@ package components;
 import Burst.KeyListener;
 import Burst.Window;
 
-import static org.lwjgl.glfw.GLFW.GLFW_KEY_E;
-import static org.lwjgl.glfw.GLFW.GLFW_KEY_R;
+import static org.lwjgl.glfw.GLFW.*;
 
 public class GizmoSystem extends Component {
     private Spritesheet gizmos;
