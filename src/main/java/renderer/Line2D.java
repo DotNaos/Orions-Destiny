@@ -3,29 +3,25 @@ package renderer;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
 
-public class Line2D
-{
+public class Line2D {
     private Vector2f from;
     private Vector2f to;
     private Vector3f color;
     private int lifetime;
 
-    public Line2D(Vector2f from, Vector2f to)
-    {
+    public Line2D(Vector2f from, Vector2f to) {
         this.from = from;
         this.to = to;
     }
 
-    public Line2D(Vector2f from, Vector2f to, Vector3f color, int lifetime)
-    {
+    public Line2D(Vector2f from, Vector2f to, Vector3f color, int lifetime) {
         this.from = from;
         this.to = to;
         this.color = color;
         this.lifetime = lifetime;
     }
 
-    public int beginFrame()
-    {
+    public int beginFrame() {
         this.lifetime--;
         return this.lifetime;
     }
@@ -38,10 +34,6 @@ public class Line2D
         return to;
     }
 
-    public Vector3f getColor() {
-        return color;
-    }
-
     public Vector2f getStart() {
         return this.from;
     }
@@ -50,11 +42,11 @@ public class Line2D
         return this.to;
     }
 
-    public int getLifetime() {
-        return lifetime;
+    public Vector3f getColor() {
+        return color;
     }
 
     public float lengthSquared() {
-        return new Vector2f(this.to).sub(this.from).lengthSquared();
+        return new Vector2f(to).sub(from).lengthSquared();
     }
 }

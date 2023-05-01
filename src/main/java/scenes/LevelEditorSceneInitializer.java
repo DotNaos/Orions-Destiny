@@ -3,32 +3,31 @@ package scenes;
 import components.*;
 import imgui.ImGui;
 import imgui.ImVec2;
-import Burst.GameObject;
-import Burst.Prefabs;
+import Burst.*;
 import org.joml.Vector2f;
-import scenes.Scene;
-import scenes.SceneInitializer;
 import util.AssetPool;
 
-public class LevelEditorInitializer extends SceneInitializer {
+public class LevelEditorSceneInitializer extends SceneInitializer {
+
     private Spritesheet sprites;
     private GameObject levelEditorStuff;
+
+    public LevelEditorSceneInitializer() {
+
+    }
 
     @Override
     public void init(Scene scene) {
         sprites = AssetPool.getSpritesheet("assets/images/spritesheets/blocks.png");
-
         Spritesheet gizmos = AssetPool.getSpritesheet("assets/images/gizmos.png");
 
-        levelEditorStuff = new GameObject("Level Editor Stuff");
+        levelEditorStuff = scene.createGameObject("LevelEditor");
         levelEditorStuff.setNoSerialize();
         levelEditorStuff.addComponent(new MouseControls());
         levelEditorStuff.addComponent(new GridLines());
         levelEditorStuff.addComponent(new EditorCamera(scene.camera()));
         levelEditorStuff.addComponent(new GizmoSystem(gizmos));
         scene.addGameObjectToScene(levelEditorStuff);
-
-        //levelEditorStuff.start();
     }
 
     @Override

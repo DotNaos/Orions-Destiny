@@ -3,6 +3,7 @@ package renderer;
 import org.joml.*;
 import org.lwjgl.BufferUtils;
 
+import javax.print.DocFlavor;
 import java.io.IOException;
 import java.nio.FloatBuffer;
 import java.nio.file.Files;
@@ -10,7 +11,7 @@ import java.nio.file.Paths;
 
 import static org.lwjgl.opengl.GL11.GL_FALSE;
 import static org.lwjgl.opengl.GL20.*;
-import static org.lwjgl.opengl.GL20.glGetProgramInfoLog;
+import static org.lwjgl.opengl.GL20.glGetShaderInfoLog;
 
 public class Shader {
 
@@ -116,7 +117,6 @@ public class Shader {
             glUseProgram(shaderProgramID);
             beingUsed = true;
         }
-
     }
 
     public void detach() {
@@ -158,16 +158,16 @@ public class Shader {
         glUniform2f(varLocation, vec.x, vec.y);
     }
 
-    public void uploadFloat(String varName, float value) {
+    public void uploadFloat(String varName, float val) {
         int varLocation = glGetUniformLocation(shaderProgramID, varName);
         use();
-        glUniform1f(varLocation, value);
+        glUniform1f(varLocation, val);
     }
 
-    public void uploadInt(String varName, int value) {
+    public void uploadInt(String varName, int val) {
         int varLocation = glGetUniformLocation(shaderProgramID, varName);
         use();
-        glUniform1i(varLocation, value);
+        glUniform1i(varLocation, val);
     }
 
     public void uploadTexture(String varName, int slot) {

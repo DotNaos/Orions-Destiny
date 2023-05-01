@@ -4,11 +4,9 @@ import components.NonPickable;
 import imgui.ImGui;
 import Burst.GameObject;
 import Burst.MouseListener;
-import Burst.Window;
 import physics2d.components.Box2DCollider;
 import physics2d.components.CircleCollider;
 import physics2d.components.Rigidbody2D;
-import physics2dtmp.primitives.Box2D;
 import renderer.PickingTexture;
 import scenes.Scene;
 
@@ -22,7 +20,6 @@ public class PropertiesWindow {
 
     public PropertiesWindow(PickingTexture pickingTexture) {
         this.pickingTexture = pickingTexture;
-        this.activeGameObject = null;
     }
 
     public void update(float dt, Scene currentScene) {
@@ -45,6 +42,7 @@ public class PropertiesWindow {
     public void imgui() {
         if (activeGameObject != null) {
             ImGui.begin("Properties");
+
             if (ImGui.beginPopupContextWindow("ComponentAdder")) {
                 if (ImGui.menuItem("Add Rigidbody")) {
                     if (activeGameObject.getComponent(Rigidbody2D.class) == null) {
@@ -53,19 +51,22 @@ public class PropertiesWindow {
                 }
 
                 if (ImGui.menuItem("Add Box Collider")) {
-                    if (activeGameObject.getComponent(Box2DCollider.class) == null && activeGameObject.getComponent(CircleCollider.class) == null) {
+                    if (activeGameObject.getComponent(Box2DCollider.class) == null &&
+                            activeGameObject.getComponent(CircleCollider.class) == null) {
                         activeGameObject.addComponent(new Box2DCollider());
                     }
                 }
 
                 if (ImGui.menuItem("Add Circle Collider")) {
-                    if (activeGameObject.getComponent(Box2DCollider.class) == null && activeGameObject.getComponent(CircleCollider.class) == null) {
+                    if (activeGameObject.getComponent(CircleCollider.class) == null &&
+                            activeGameObject.getComponent(Box2DCollider.class) == null) {
                         activeGameObject.addComponent(new CircleCollider());
                     }
                 }
 
                 ImGui.endPopup();
             }
+
             activeGameObject.imgui();
             ImGui.end();
         }

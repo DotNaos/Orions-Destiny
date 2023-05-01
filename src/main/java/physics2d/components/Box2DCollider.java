@@ -1,6 +1,6 @@
 package physics2d.components;
 
-import editor.BImGui;
+import components.Component;
 import org.joml.Vector2f;
 import renderer.DebugDraw;
 
@@ -12,20 +12,17 @@ public class Box2DCollider extends Collider {
         return halfSize;
     }
 
+    public void setHalfSize(Vector2f halfSize) {
+        this.halfSize = halfSize;
+    }
+
     public Vector2f getOrigin() {
         return this.origin;
     }
 
     @Override
-    public void update(float dt) {
-        Vector2f center = new Vector2f(this.gameObject.transform.position).add(offset.x, offset.y);
+    public void editorUpdate(float dt) {
+        Vector2f center = new Vector2f(this.gameObject.transform.position).add(this.offset);
         DebugDraw.addBox2D(center, this.halfSize, this.gameObject.transform.rotation);
-    }
-
-    @Override
-    public void imgui() {
-        BImGui.drawVec2Control("Half Size", halfSize);
-        BImGui.drawVec2Control("Origin", origin);
-        BImGui.drawVec2Control("Offset", offset);
     }
 }

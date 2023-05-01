@@ -25,6 +25,10 @@ public abstract class Component {
 
     }
 
+    public void editorUpdate(float dt) {
+
+    }
+
     public void imgui() {
         try {
             Field[] fields = this.getClass().getDeclaredFields();
@@ -70,7 +74,7 @@ public abstract class Component {
                     String[] enumValues = getEnumValues(type);
                     String enumType = ((Enum)value).name();
                     ImInt index = new ImInt(indexOf(enumType, enumValues));
-                    if (ImGui.combo("Enum", index, enumValues, enumValues.length)) {
+                    if (ImGui.combo(field.getName(), index, enumValues, enumValues.length)) {
                         field.set(this, type.getEnumConstants()[index.get()]);
                     }
                 }
@@ -91,13 +95,28 @@ public abstract class Component {
         }
     }
 
-    public void generateId(boolean forceToGenerate) {
-        if (forceToGenerate) {
-            this.uid = -1;
-            this.generateId();
-        } else {
-            this.generateId();
+    private <T extends Enum<T>> String[] getEnumValues(Class<T> enumType) {
+        String[] enumValues = new String[enumType.getEnumConstants().length];
+        int i = 0;
+        for (T enumIntegerValue : enumType.getEnumConstants()) {
+            enumValues[i] = enumIntegerValue.name();
+            i++;
         }
+        return enumValues;
+    }
+
+    private int indexOf(String str, String[] arr) {
+        for (int i=0; i < arr.length; i++) {
+            if (str.equals(arr[i])) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
+    public void destroy() {
+
     }
 
     public int getUid() {
@@ -106,29 +125,5 @@ public abstract class Component {
 
     public static void init(int maxId) {
         ID_COUNTER = maxId;
-    }
-
-    private <T extends Enum<T>> String[] getEnumValues(Class<T> enumType) {
-        String[] enumValues = new String[enumType.getEnumConstants().length];
-        int i = 0;
-        for (T c : enumType.getEnumConstants()) {
-            enumValues[i] = c.name();
-            i++;
-        }
-        return enumValues;
-    }
-
-    public void destroy() {
-
-    }
-
-    private int indexOf(String obj, String[] arr) {
-        for (int i=0; i < arr.length; i++) {
-            if (obj.equals(arr[i])) {
-                return i;
-            }
-        }
-
-        return -1;
     }
 }

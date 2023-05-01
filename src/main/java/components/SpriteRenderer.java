@@ -29,7 +29,6 @@ public class SpriteRenderer extends Component {
 
     @Override
     public void start() {
-        this.isDirty = true;
         this.lastTransform = gameObject.transform.copy();
     }
 
@@ -42,10 +41,22 @@ public class SpriteRenderer extends Component {
     }
 
     @Override
+    public void editorUpdate(float dt) {
+        if (!this.lastTransform.equals(this.gameObject.transform)) {
+            this.gameObject.transform.copy(this.lastTransform);
+            isDirty = true;
+        }
+    }
+
+    @Override
     public void imgui() {
         if (BImGui.colorPicker4("Color Pickier", this.color)) {
             this.isDirty = true;
         }
+    }
+
+    public void setDirty() {
+        this.isDirty = true;
     }
 
     public Vector4f getColor() {
@@ -74,10 +85,6 @@ public class SpriteRenderer extends Component {
 
     public boolean isDirty() {
         return this.isDirty;
-    }
-
-    public void setDirty() {
-        this.isDirty = true;
     }
 
     public void setClean() {

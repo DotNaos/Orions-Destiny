@@ -48,7 +48,11 @@ public class RenderBatch implements Comparable<RenderBatch> {
     private int maxBatchSize;
     private int zIndex;
 
-    public RenderBatch(int maxBatchSize, int zIndex) {
+    private Renderer renderer;
+
+    public RenderBatch(int maxBatchSize, int zIndex, Renderer renderer) {
+        this.renderer = renderer;
+
         this.zIndex = zIndex;
         this.sprites = new SpriteRenderer[maxBatchSize];
         this.maxBatchSize = maxBatchSize;
@@ -99,7 +103,6 @@ public class RenderBatch implements Comparable<RenderBatch> {
         int index = this.numSprites;
         this.sprites[index] = spr;
         this.numSprites++;
-        spr.setDirty();
 
         if (spr.getTexture() != null) {
             if (!textures.contains(spr.getTexture())) {
@@ -115,21 +118,6 @@ public class RenderBatch implements Comparable<RenderBatch> {
         }
     }
 
-    public boolean destroyIfExists(GameObject go) {
-        SpriteRenderer sprite = go.getComponent(SpriteRenderer.class);
-        for (int i=0; i < numSprites; i++) {
-            if (sprites[i] == sprite) {
-                for (int j=i; j < numSprites - 1; j++) {
-                    sprites[j] = sprites[j + 1];
-                    sprites[j].setDirty();
-                }
-                numSprites--;
-                return true;
-            }
-        }
-        return false;
-    }
-
     public void render() {
         boolean rebufferData = false;
         for (int i=0; i < numSprites; i++) {
@@ -138,6 +126,13 @@ public class RenderBatch implements Comparable<RenderBatch> {
                 loadVertexProperties(i);
                 spr.setClean();
                 rebufferData = true;
+            }
+
+            // TODO: get better solution for this
+            if (spr.gameObject.transform.zIndex != this.zIndex) {
+                destroyIfExists(spr.gameObject);
+                renderer.add(spr.gameObject);
+                i--;
             }
         }
         if (rebufferData) {
@@ -169,6 +164,22 @@ public class RenderBatch implements Comparable<RenderBatch> {
             textures.get(i).unbind();
         }
         shader.detach();
+    }
+
+    public boolean destroyIfExists(GameObject go) {
+        SpriteRenderer sprite = go.getComponent(SpriteRenderer.class);
+        for (int i=0; i < numSprites; i++) {
+            if (sprites[i] == sprite) {
+                for (int j=i; j < numSprites - 1; j++) {
+                    sprites[j] = sprites[j + 1];
+                    sprites[j].setDirty();
+                }
+                numSprites--;
+                return true;
+            }
+        }
+
+        return false;
     }
 
     private void loadVertexProperties(int index) {

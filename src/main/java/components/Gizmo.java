@@ -2,20 +2,16 @@ package components;
 
 import editor.PropertiesWindow;
 import Burst.*;
-import observers.Observer;
-import observers.ObserverHandler;
-import observers.events.Event;
-import observers.events.EventType;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
 
 import static org.lwjgl.glfw.GLFW.*;
 
 public class Gizmo extends Component {
-    private Vector4f xAxisColor = new Vector4f(1, 0.3f, 0.3f, 1);
-    private Vector4f xAxisColorHover = new Vector4f(0.5f, 0, 0, 1);
-    private Vector4f yAxisColor = new Vector4f(0.3f, 1, 0.3f, 1);
-    private Vector4f yAxisColorHover = new Vector4f(0, 0.5f, 0, 1);
+    private Vector4f xAxisColor = new Vector4f(1, 0, 0, 1);
+    private Vector4f xAxisColorHover =  new Vector4f(0.5f, 0, 0, 1);
+    private Vector4f yAxisColor = new Vector4f(0, 1, 0, 1);
+    private Vector4f yAxisColorHover =  new Vector4f(0, 0.5f, 0, 1);
 
     private GameObject xAxisObject;
     private GameObject yAxisObject;
@@ -37,8 +33,8 @@ public class Gizmo extends Component {
     private PropertiesWindow propertiesWindow;
 
     public Gizmo(Sprite arrowSprite, PropertiesWindow propertiesWindow) {
-        this.xAxisObject = Prefabs.generateSpriteObject(arrowSprite, 0.2f, 0.6f);
-        this.yAxisObject = Prefabs.generateSpriteObject(arrowSprite, 0.2f, 0.6f);
+        this.xAxisObject = Prefabs.generateSpriteObject(arrowSprite, gizmoWidth, gizmoHeight);
+        this.yAxisObject = Prefabs.generateSpriteObject(arrowSprite, gizmoWidth, gizmoHeight);
         this.xAxisSprite = this.xAxisObject.getComponent(SpriteRenderer.class);
         this.yAxisSprite = this.yAxisObject.getComponent(SpriteRenderer.class);
         this.propertiesWindow = propertiesWindow;
@@ -62,15 +58,25 @@ public class Gizmo extends Component {
 
     @Override
     public void update(float dt) {
+        if (using) {
+            this.setInactive();
+        }
+    }
+
+    @Override
+    public void editorUpdate(float dt) {
         if (!using) return;
 
         this.activeGameObject = this.propertiesWindow.getActiveGameObject();
         if (this.activeGameObject != null) {
             this.setActive();
-            if (KeyListener.isKeyPressed(GLFW_KEY_LEFT_CONTROL) && KeyListener.keyBeginPress(GLFW_KEY_D)) {
+
+            // TODO: move this into it's own keyEditorBinding component class
+            if (KeyListener.isKeyPressed(GLFW_KEY_LEFT_CONTROL) &&
+                    KeyListener.keyBeginPress(GLFW_KEY_D)) {
                 GameObject newObj = this.activeGameObject.copy();
                 Window.getScene().addGameObjectToScene(newObj);
-                newObj.transform.position.add(new Vector2f(0.25f, 0f));
+                newObj.transform.position.add(0.1f, 0.1f);
                 this.propertiesWindow.setActiveGameObject(newObj);
                 return;
             } else if (KeyListener.keyBeginPress(GLFW_KEY_DELETE)) {
@@ -120,8 +126,8 @@ public class Gizmo extends Component {
     private boolean checkXHoverState() {
         Vector2f mousePos = new Vector2f(MouseListener.getOrthoX(), MouseListener.getOrthoY());
         if (mousePos.x <= xAxisObject.transform.position.x + (gizmoHeight / 2.0f) &&
-                mousePos.x >= xAxisObject.transform.position.x - (gizmoHeight / 2.0f) &&
-                mousePos.y >= xAxisObject.transform.position.y - (gizmoWidth / 2.0f) &&
+                mousePos.x >= xAxisObject.transform.position.x - (gizmoWidth / 2.0f) &&
+                mousePos.y >= xAxisObject.transform.position.y - (gizmoHeight / 2.0f) &&
                 mousePos.y <= xAxisObject.transform.position.y + (gizmoWidth / 2.0f)) {
             xAxisSprite.setColor(xAxisColorHover);
             return true;

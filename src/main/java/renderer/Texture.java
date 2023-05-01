@@ -2,7 +2,6 @@ package renderer;
 
 import org.lwjgl.BufferUtils;
 
-
 import java.nio.ByteBuffer;
 import java.nio.IntBuffer;
 
@@ -11,10 +10,8 @@ import static org.lwjgl.stb.STBImage.*;
 
 public class Texture {
     private String filepath;
-
     private transient int texID;
     private int width, height;
-
 
     public Texture() {
         texID = -1;
@@ -69,7 +66,7 @@ public class Texture {
                 glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width.get(0), height.get(0),
                         0, GL_RGBA, GL_UNSIGNED_BYTE, image);
             } else {
-                assert false : "Error: (Texture) Unknown number of channels '" + channels.get(0) + "'";
+                assert false : "Error: (Texture) Unknown number of channesl '" + channels.get(0) + "'";
             }
         } else {
             assert false : "Error: (Texture) Could not load image '" + filepath + "'";

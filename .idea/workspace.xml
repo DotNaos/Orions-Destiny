@@ -9,61 +9,58 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="787a90ad-2c32-4237-9403-4ac402e3150a" name="Changes" comment="Refactor, Event-handler, Box2D integration, Start-Stop Editor">
-      <change afterPath="$PROJECT_DIR$/imgui.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/editor/MenuBar.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/observers/Observer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/observers/ObserverHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/observers/events/Event.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/observers/events/EventType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/physics2d/DebugDrawB2D.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/physics2d/components/Collider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/scenes/LevelEditorInitializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/scenes/SceneInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="787a90ad-2c32-4237-9403-4ac402e3150a" name="Changes" comment="Blablabla">
+      <change afterPath="$PROJECT_DIR$/src/main/java/editor/SceneHeirarchyWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imgui.ini" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Camera.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/GameObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/GameObjectDeserializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/GameObjectDeserializer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/ImGuiLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/ImGuiLayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/KeyListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/KeyListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/MouseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/MouseListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Prefabs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Prefabs.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Transform.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Transform.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Window.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/components/Component.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/Component.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/ComponentDeserializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/ComponentDeserializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/EditorCamera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/EditorCamera.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/FontRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/FontRenderer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/components/Gizmo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/Gizmo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/components/GizmoSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/GizmoSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/components/GridLines.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/GridLines.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/MouseControls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/MouseControls.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/ScaleGizmo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/ScaleGizmo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/Sprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/Sprite.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/components/SpriteRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/SpriteRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/TranslateGizmo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/TranslateGizmo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/editor/GameViewWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/editor/GameViewWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/editor/MenuBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/editor/MenuBar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/editor/PropertiesWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/editor/PropertiesWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/observers/ObserverHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/observers/EventSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/observers/events/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/observers/events/Event.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/observers/events/EventType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/observers/events/EventType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/physics2d/DebugDrawB2D.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/physics2d/Physics2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/physics2d/Physics2D.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/physics2d/components/Box2DCollider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/physics2d/components/Box2DCollider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/physics2d/components/CircleCollider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/physics2d/components/CircleCollider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/physics2d/components/Rigidbody2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/physics2d/components/Rigidbody2D.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/physics2d/enums/BodyType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/physics2d/enums/BodyType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/physics2dtmp/PhysicsSystem2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/physics2dtmp/PhysicsSystem2D.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/physics2dtmp/forces/ForceGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/physics2dtmp/forces/ForceGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/physics2dtmp/forces/ForceRegistration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/physics2dtmp/forces/ForceRegistration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/physics2dtmp/forces/ForceRegistry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/physics2dtmp/forces/ForceRegistry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/physics2dtmp/forces/Gravity2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/physics2dtmp/forces/Gravity2D.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/physics2dtmp/primitives/AABB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/physics2dtmp/primitives/AABB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/physics2dtmp/primitives/Box2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/physics2dtmp/primitives/Box2D.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/physics2dtmp/primitives/Circle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/physics2dtmp/primitives/Circle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/physics2dtmp/primitives/Collider2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/physics2dtmp/primitives/Collider2D.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/physics2dtmp/primitives/Ray2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/physics2dtmp/primitives/Ray2D.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/physics2dtmp/primitives/RaycastResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/physics2dtmp/primitives/RaycastResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/physics2dtmp/rigidbody/CollisionManifold.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/physics2dtmp/rigidbody/CollisionManifold.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/physics2dtmp/rigidbody/Collisions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/physics2dtmp/rigidbody/Collisions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/physics2dtmp/rigidbody/Rigidbody2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/physics2dtmp/rigidbody/Rigidbody2D.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/renderer/DebugDraw.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/renderer/DebugDraw.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/renderer/Framebuffer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/renderer/Framebuffer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/renderer/Line2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/renderer/Line2D.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/renderer/PickingTexture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/renderer/PickingTexture.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/renderer/RenderBatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/renderer/RenderBatch.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/renderer/Renderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/renderer/Renderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scenes/LevelEditorScene.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scenes/LevelScene.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/renderer/Shader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/renderer/Shader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/renderer/Texture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/renderer/Texture.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/scenes/LevelEditorInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scenes/LevelEditorSceneInitializer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/scenes/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scenes/Scene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/scenes/SceneInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scenes/SceneInitializer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/util/AssetPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/AssetPool.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/util/BMath.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/BMath.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/util/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/Settings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/physics2dtmp/CollisionDetectorTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/physics2dtmp/CollisionDetectorTests.java" afterDir="false" />
     </list>
     <list id="25a488fd-f17c-453d-94a6-413269d6c7ff" name="Changes by schue" comment="Changes by schue" />
     <option name="SHOW_DIALOG" value="false" />
@@ -149,28 +146,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Projects/Java/Orions-Destiny/Assets/images&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
-    &quot;settings.editor.splitter.proportion&quot;: &quot;0.30120483&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "TODO_SCOPE": "All Places",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "D:/Projects/Java/Orions-Destiny/Assets/images",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "settings.editor.splitter.proportion": "0.30120483",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="Engine" />
@@ -382,21 +380,9 @@
       <workItem from="1682618918737" duration="1830000" />
       <workItem from="1682621532001" duration="115000" />
       <workItem from="1682622160054" duration="120000" />
-      <workItem from="1682840503792" duration="8556000" />
-    </task>
-    <task id="LOCAL-00015" summary="Camera fertig">
-      <created>1679588254121</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1679588254121</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Shader Spaß">
-      <created>1679589991403</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1679589991403</updated>
+      <workItem from="1682840503792" duration="9211000" />
+      <workItem from="1682929826837" duration="2803000" />
+      <workItem from="1682938365187" duration="6982000" />
     </task>
     <task id="LOCAL-00017" summary="Atmen Effekt Shader">
       <created>1679590033068</created>
@@ -727,7 +713,21 @@
       <option name="project" value="LOCAL" />
       <updated>1682621162567</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="Refactor, Event-handler, Box2D integration, Start-Stop Editor">
+      <created>1682879599199</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1682879599199</updated>
+    </task>
+    <task id="LOCAL-00065" summary="Blablabla">
+      <created>1682938738613</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1682938738613</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -777,7 +777,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Point on Line, in Box, in Circle" />
     <MESSAGE value="Point Rotation und check if point in Oriented Box" />
     <MESSAGE value="Line with Circle Intersection detection and Test with JUnit" />
     <MESSAGE value="Line intersection with Box" />
@@ -802,7 +801,8 @@
     <MESSAGE value="PHYSIK FERTIG ENDLICH" />
     <MESSAGE value="Physik engine in Müll, jetzt wird Box2D verwendet" />
     <MESSAGE value="Refactor, Event-handler, Box2D integration, Start-Stop Editor" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor, Event-handler, Box2D integration, Start-Stop Editor" />
+    <MESSAGE value="Blablabla" />
+    <option name="LAST_COMMIT_MESSAGE" value="Blablabla" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

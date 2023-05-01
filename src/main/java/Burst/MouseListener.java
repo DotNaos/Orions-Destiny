@@ -14,7 +14,7 @@ public class MouseListener {
     private boolean mouseButtonPressed[] = new boolean[9];
     private boolean isDragging;
 
-    private int mouseButtonsDown = 0;
+    private int mouseButtonDown = 0;
 
     private Vector2f gameViewportPos = new Vector2f();
     private Vector2f gameViewportSize = new Vector2f();
@@ -37,7 +37,7 @@ public class MouseListener {
     }
 
     public static void mousePosCallback(long window, double xpos, double ypos) {
-        if (get().mouseButtonsDown > 0) {
+        if (get().mouseButtonDown > 0) {
             get().isDragging = true;
         }
 
@@ -53,15 +53,14 @@ public class MouseListener {
 
     public static void mouseButtonCallback(long window, int button, int action, int mods) {
         if (action == GLFW_PRESS) {
-            get().mouseButtonsDown++;
-
-
+            get().mouseButtonDown++;
 
             if (button < get().mouseButtonPressed.length) {
                 get().mouseButtonPressed[button] = true;
             }
         } else if (action == GLFW_RELEASE) {
-            get().mouseButtonsDown--;
+            get().mouseButtonDown--;
+
             if (button < get().mouseButtonPressed.length) {
                 get().mouseButtonPressed[button] = false;
                 get().isDragging = false;
@@ -129,14 +128,18 @@ public class MouseListener {
 
     public static float getScreenX() {
         float currentX = getX() - get().gameViewportPos.x;
-        currentX = (currentX / get().gameViewportSize.x) * Window.getWidth();
+        currentX = (currentX / get().gameViewportSize.x) * 1920.0f;
         return currentX;
     }
 
     public static float getScreenY() {
         float currentY = getY() - get().gameViewportPos.y;
-        currentY = Window.getHeight() - ((currentY / get().gameViewportSize.y) * Window.getHeight());
+        currentY = 1080.0f - ((currentY / get().gameViewportSize.y) * 1080.0f);
         return currentY;
+    }
+
+    public static float getOrthoX() {
+        return (float)get().worldX;
     }
 
     private static void calcOrthoX() {
@@ -152,15 +155,13 @@ public class MouseListener {
         get().worldX = tmp.x;
     }
 
-    public static float getOrthoX() {
-        return (float) get().worldX;
+    public static float getOrthoY() {
+        return (float)get().worldY;
     }
 
     private static void calcOrthoY() {
         float currentY = getY() - get().gameViewportPos.y;
-        currentY = -((currentY / get().gameViewportSize.y) * 2.0f
-                - 1.0f
-        );
+        currentY = -((currentY / get().gameViewportSize.y) * 2.0f - 1.0f);
         Vector4f tmp = new Vector4f(0, currentY, 0, 1);
 
         Camera camera = Window.getScene().camera();
@@ -169,10 +170,6 @@ public class MouseListener {
         tmp.mul(viewProjection);
 
         get().worldY = tmp.y;
-    }
-
-    public static float getOrthoY() {
-        return (float) get().worldY;
     }
 
     public static void setGameViewportPos(Vector2f gameViewportPos) {
