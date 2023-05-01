@@ -1,5 +1,6 @@
 package renderer;
 
+import Burst.Camera;
 import Burst.Window;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
@@ -16,7 +17,7 @@ import static org.lwjgl.opengl.GL30.glBindVertexArray;
 import static org.lwjgl.opengl.GL30.glGenVertexArrays;
 
 public class DebugDraw {
-    private static int MAX_LINES = 500;
+    private static int MAX_LINES = 5000;
 
     private static List<Line2D> lines = new ArrayList<>();
     // 6 floats per vertex, 2 vertices per line
@@ -87,7 +88,7 @@ public class DebugDraw {
         }
 
         glBindBuffer(GL_ARRAY_BUFFER, vboID);
-        glBufferSubData(GL_ARRAY_BUFFER, 0, Arrays.copyOfRange(vertexArray, 0, lines.size() * 6 * 2));
+        glBufferData(GL_ARRAY_BUFFER, vertexArray, GL_DYNAMIC_DRAW);
 
         // Use our shader
         shader.use();
@@ -100,7 +101,7 @@ public class DebugDraw {
         glEnableVertexAttribArray(1);
 
         // Draw the batch
-        glDrawArrays(GL_LINES, 0, lines.size() * 6 * 2);
+        glDrawArrays(GL_LINES, 0, lines.size());
 
         // Disable Location
         glDisableVertexAttribArray(0);
@@ -124,7 +125,17 @@ public class DebugDraw {
     }
 
     public static void addLine2D(Vector2f from, Vector2f to, Vector3f color, int lifetime) {
-        if (lines.size() >= MAX_LINES) return;
+        Camera camera = Window.getScene().camera();
+        Vector2f cameraLeft = new Vector2f(camera.position).add(new Vector2f(-2.0f, -2.0f));
+        Vector2f cameraRight = new Vector2f(camera.position).
+                add(new Vector2f(camera.getProjectionSize()).mul(camera.getZoom())).
+                add(new Vector2f(4.0f, 4.0f));
+        boolean lineInView =
+                ((from.x >= cameraLeft.x && from.x <= cameraRight.x) && (from.y >= cameraLeft.y && from.y <= cameraRight.y)) ||
+                ((to.x >= cameraLeft.x && to.x <= cameraRight.x) && (to.y >= cameraLeft.y && to.y <= cameraRight.y));
+        if (lines.size() >= MAX_LINES || !lineInView) {
+            return;
+        }
         DebugDraw.lines.add(new Line2D(from, to, color, lifetime));
     }
 
@@ -146,8 +157,8 @@ public class DebugDraw {
         Vector2f max = new Vector2f(center).add(new Vector2f(dimensions).mul(0.5f));
 
         Vector2f[] vertices = {
-                new Vector2f(min.x, min.y), new Vector2f(min.x, max.y),
-                new Vector2f(max.x, max.y), new Vector2f(max.x, min.y)
+              new Vector2f(min.x, min.y), new Vector2f(min.x, max.y),
+              new Vector2f(max.x, max.y), new Vector2f(max.x, min.y)
         };
 
         if (rotation != 0.0f) {

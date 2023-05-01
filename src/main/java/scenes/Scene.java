@@ -5,12 +5,11 @@ import com.google.gson.GsonBuilder;
 import components.Component;
 import components.ComponentDeserializer;
 import imgui.ImGui;
-import Burst.Camera;
-import Burst.GameObject;
-import Burst.GameObjectDeserializer;
-import Burst.Transform;
+import Burst.*;
 import org.joml.Vector2f;
+import org.joml.Vector3f;
 import physics2d.Physics2D;
+import renderer.DebugDraw;
 import renderer.Renderer;
 
 import java.io.FileWriter;
@@ -27,6 +26,7 @@ public class Scene {
     private Camera camera;
     private boolean isRunning;
     private List<GameObject> gameObjects;
+    private List<GameObject> pendingObjects;
     private Physics2D physics2D;
 
     private SceneInitializer sceneInitializer;
@@ -36,11 +36,16 @@ public class Scene {
         this.physics2D = new Physics2D();
         this.renderer = new Renderer();
         this.gameObjects = new ArrayList<>();
+        this.pendingObjects = new ArrayList<>();
         this.isRunning = false;
     }
 
+    public Physics2D getPhysics() {
+        return this.physics2D;
+    }
+
     public void init() {
-        this.camera = new Camera(new Vector2f(-250, 0));
+        this.camera = new Camera(new Vector2f(0, 0));
         this.sceneInitializer.loadResources(this);
         this.sceneInitializer.init(this);
     }
@@ -59,10 +64,7 @@ public class Scene {
         if (!isRunning) {
             gameObjects.add(go);
         } else {
-            gameObjects.add(go);
-            go.start();
-            this.renderer.add(go);
-            this.physics2D.add(go);
+            pendingObjects.add(go);
         }
     }
 
@@ -70,6 +72,16 @@ public class Scene {
         for (GameObject go : gameObjects) {
             go.destroy();
         }
+    }
+
+    public <T extends Component> GameObject getGameObjectWith(Class<T> clazz) {
+        for (GameObject go : gameObjects) {
+            if (go.getComponent(clazz) != null) {
+                return go;
+            }
+        }
+
+        return null;
     }
 
     public List<GameObject> getGameObjects() {
@@ -86,6 +98,12 @@ public class Scene {
     public void editorUpdate(float dt) {
         this.camera.adjustProjection();
 
+
+        DebugDraw.addBox2D(new Vector2f(MouseListener.getWorldX(), MouseListener.getWorldY()), new Vector2f(50, 50), 0, new Vector3f(1, 0, 0));
+        DebugDraw.addBox2D(new Vector2f(MouseListener.getScreenX(), MouseListener.getScreenY()), new Vector2f(50, 50), 0, new Vector3f(1, 0, 0));
+
+
+
         for (int i=0; i < gameObjects.size(); i++) {
             GameObject go = gameObjects.get(i);
             go.editorUpdate(dt);
@@ -97,6 +115,21 @@ public class Scene {
                 i--;
             }
         }
+
+        for (GameObject go : pendingObjects) {
+            gameObjects.add(go);
+            go.start();
+            this.renderer.add(go);
+            this.physics2D.add(go);
+        }
+        pendingObjects.clear();
+    }
+
+    public GameObject getGameObject(String gameObjectName) {
+        Optional<GameObject> result = this.gameObjects.stream()
+                .filter(gameObject -> gameObject.name.equals(gameObjectName))
+                .findFirst();
+        return result.orElse(null);
     }
 
     public void update(float dt) {
@@ -114,6 +147,14 @@ public class Scene {
                 i--;
             }
         }
+
+        for (GameObject go : pendingObjects) {
+            gameObjects.add(go);
+            go.start();
+            this.renderer.add(go);
+            this.physics2D.add(go);
+        }
+        pendingObjects.clear();
     }
 
     public void render() {
@@ -140,10 +181,11 @@ public class Scene {
                 .setPrettyPrinting()
                 .registerTypeAdapter(Component.class, new ComponentDeserializer())
                 .registerTypeAdapter(GameObject.class, new GameObjectDeserializer())
+                .enableComplexMapKeySerialization()
                 .create();
 
         try {
-            FileWriter writer = new FileWriter("level.json");
+            FileWriter writer = new FileWriter("level.txt");
             List<GameObject> objsToSerialize = new ArrayList<>();
             for (GameObject obj : this.gameObjects) {
                 if (obj.doSerialization()) {
@@ -162,11 +204,12 @@ public class Scene {
                 .setPrettyPrinting()
                 .registerTypeAdapter(Component.class, new ComponentDeserializer())
                 .registerTypeAdapter(GameObject.class, new GameObjectDeserializer())
+                .enableComplexMapKeySerialization()
                 .create();
 
         String inFile = "";
         try {
-            inFile = new String(Files.readAllBytes(Paths.get("level.json")));
+            inFile = new String(Files.readAllBytes(Paths.get("level.txt")));
         } catch (IOException e) {
             e.printStackTrace();
         }

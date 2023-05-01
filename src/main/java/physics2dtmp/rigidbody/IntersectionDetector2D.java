@@ -366,8 +366,8 @@ public class IntersectionDetector2D {
         Vector2f max = rect.getMax();
 
         Vector2f vertices[] = {
-                new Vector2f(min.x, min.y), new Vector2f(min.x, max.y),
-                new Vector2f(max.x, min.y), new Vector2f(max.x, max.y)
+            new Vector2f(min.x, min.y), new Vector2f(min.x, max.y),
+            new Vector2f(max.x, min.y), new Vector2f(max.x, max.y)
         };
 
         result.x = axis.dot(vertices[0]);
