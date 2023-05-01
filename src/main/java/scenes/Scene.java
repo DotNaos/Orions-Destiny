@@ -119,7 +119,7 @@ public class Scene {
                 .create();
 
         try {
-            FileWriter writer = new FileWriter("level.txt");
+            FileWriter writer = new FileWriter("level.json");
             List<GameObject> objsToSerialize = new ArrayList<>();
             for (GameObject obj : this.gameObjects) {
                 if (obj.doSerialization()) {
@@ -142,7 +142,7 @@ public class Scene {
 
         String inFile = "";
         try {
-            inFile = new String(Files.readAllBytes(Paths.get("level.txt")));
+            inFile = new String(Files.readAllBytes(Paths.get("level.json")));
         } catch (IOException e) {
             e.printStackTrace();
         }

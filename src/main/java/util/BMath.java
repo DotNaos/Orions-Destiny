@@ -8,8 +8,8 @@ public class BMath {
         float x = vec.x - origin.x;
         float y = vec.y - origin.y;
 
-        float cos = (float)Math.cos(Math.toRadians(angleDeg));
-        float sin = (float)Math.sin(Math.toRadians(angleDeg));
+        float cos = (float) Math.cos(Math.toRadians(angleDeg));
+        float sin = (float) Math.sin(Math.toRadians(angleDeg));
 
         float xPrime = (x * cos) - (y * sin);
         float yPrime = (x * sin) + (y * cos);
