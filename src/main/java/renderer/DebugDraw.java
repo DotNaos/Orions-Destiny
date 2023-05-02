@@ -4,11 +4,10 @@ import Burst.Camera;
 import Burst.Window;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
-import util.AssetPool;
+import util.AssetManager;
 import util.BMath;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static org.lwjgl.opengl.GL15.*;
@@ -22,7 +21,7 @@ public class DebugDraw {
     private static List<Line2D> lines = new ArrayList<>();
     // 6 floats per vertex, 2 vertices per line
     private static float[] vertexArray = new float[MAX_LINES * 6 * 2];
-    private static Shader shader = AssetPool.getShader("assets/shaders/debugLine2D.glsl");
+    private static Shader shader = AssetManager.getShader("assets/shaders/debugLine2D.glsl");
 
     private static int vaoID;
     private static int vboID;

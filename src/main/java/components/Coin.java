@@ -3,7 +3,7 @@ package components;
 import Burst.GameObject;
 import org.jbox2d.dynamics.contacts.Contact;
 import org.joml.Vector2f;
-import util.AssetPool;
+import util.AssetManager;
 
 public class Coin extends Component {
     private Vector2f topY;
@@ -30,7 +30,7 @@ public class Coin extends Component {
     @Override
     public void preSolve(GameObject obj, Contact contact, Vector2f contactNormal) {
         if (obj.getComponent(PlayerController.class) != null) {
-            AssetPool.getSound("assets/sounds/coin.ogg").play();
+            AssetManager.getSound("assets/sounds/coin.ogg").play();
             playAnim = true;
             contact.setEnabled(false);
         }

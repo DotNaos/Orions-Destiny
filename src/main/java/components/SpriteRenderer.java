@@ -1,12 +1,11 @@
 package components;
 
 import editor.BImGui;
-import imgui.ImGui;
 import Burst.Transform;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
 import renderer.Texture;
-import util.AssetPool;
+import util.AssetManager;
 
 public class SpriteRenderer extends Component {
 
@@ -19,7 +18,7 @@ public class SpriteRenderer extends Component {
     @Override
     public void start() {
         if (this.sprite.getTexture() != null) {
-            this.sprite.setTexture(AssetPool.getTexture(this.sprite.getTexture().getFilepath()));
+            this.sprite.setTexture(AssetManager.getTexture(this.sprite.getTexture().getFilepath()));
         }
         this.lastTransform = gameObject.transform.copy();
     }

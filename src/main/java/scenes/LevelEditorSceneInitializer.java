@@ -8,7 +8,7 @@ import org.joml.Vector2f;
 import physics2d.components.Box2DCollider;
 import physics2d.components.Rigidbody2D;
 import physics2d.enums.BodyType;
-import util.AssetPool;
+import util.AssetManager;
 
 import java.io.File;
 import java.util.Collection;
@@ -24,8 +24,8 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
 
     @Override
     public void init(Scene scene) {
-        sprites = AssetPool.getSpritesheet("assets/images/spritesheets/blocks.png");
-        Spritesheet gizmos = AssetPool.getSpritesheet("assets/images/gizmos.png");
+        sprites = AssetManager.getSpritesheet("assets/images/spritesheets/blocks.png");
+        Spritesheet gizmos = AssetManager.getSpritesheet("assets/images/gizmos.png");
 
         levelEditorStuff = scene.createGameObject("LevelEditor");
         levelEditorStuff.setNoSerialize();
@@ -40,32 +40,32 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
     @Override
     public void loadResources(Scene scene) {
 
-        AssetPool.searchDirectory("assets/images/spritesheets", "png");
-        AssetPool.getShader("assets/shaders/default.glsl");
+        AssetManager.searchDirectory("assets/images/spritesheets", "png");
+        AssetManager.getShader("assets/shaders/default.glsl");
 
-        AssetPool.addSpritesheet("assets/images/spritesheets/blocks.png",
-                new Spritesheet(AssetPool.getTexture("assets/images/spritesheets/blocks.png"),
+        AssetManager.addSpritesheet("assets/images/spritesheets/blocks.png",
+                new Spritesheet(AssetManager.getTexture("assets/images/spritesheets/blocks.png"),
                         16, 16, 81, 0));
-        AssetPool.addSpritesheet("assets/images/spritesheet.png",
-                new Spritesheet(AssetPool.getTexture("assets/images/spritesheet.png"),
+        AssetManager.addSpritesheet("assets/images/spritesheet.png",
+                new Spritesheet(AssetManager.getTexture("assets/images/spritesheet.png"),
                         16, 16, 26, 0));
-        AssetPool.addSpritesheet("assets/images/turtle.png",
-                new Spritesheet(AssetPool.getTexture("assets/images/turtle.png"),
+        AssetManager.addSpritesheet("assets/images/turtle.png",
+                new Spritesheet(AssetManager.getTexture("assets/images/turtle.png"),
                         16, 24, 4, 0));
-        AssetPool.addSpritesheet("assets/images/bigSpritesheet.png",
-                new Spritesheet(AssetPool.getTexture("assets/images/bigSpritesheet.png"),
+        AssetManager.addSpritesheet("assets/images/bigSpritesheet.png",
+                new Spritesheet(AssetManager.getTexture("assets/images/bigSpritesheet.png"),
                         16, 32, 42, 0));
-        AssetPool.addSpritesheet("assets/images/pipes.png",
-                new Spritesheet(AssetPool.getTexture("assets/images/pipes.png"),
+        AssetManager.addSpritesheet("assets/images/pipes.png",
+                new Spritesheet(AssetManager.getTexture("assets/images/pipes.png"),
                         32, 32, 4, 0));
-        AssetPool.addSpritesheet("assets/images/items.png",
-                new Spritesheet(AssetPool.getTexture("assets/images/items.png"),
+        AssetManager.addSpritesheet("assets/images/items.png",
+                new Spritesheet(AssetManager.getTexture("assets/images/items.png"),
                         16, 16, 43, 0));
 
 
 
-        AssetPool.addSpritesheet("assets/images/gizmos.png",
-                new Spritesheet(AssetPool.getTexture("assets/images/gizmos.png"),
+        AssetManager.addSpritesheet("assets/images/gizmos.png",
+                new Spritesheet(AssetManager.getTexture("assets/images/gizmos.png"),
                         24, 48, 3, 0));
 
 //
@@ -91,7 +91,7 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
             if (g.getComponent(SpriteRenderer.class) != null) {
                 SpriteRenderer spr = g.getComponent(SpriteRenderer.class);
                 if (spr.getTexture() != null) {
-                    spr.setTexture(AssetPool.getTexture(spr.getTexture().getFilepath()));
+                    spr.setTexture(AssetManager.getTexture(spr.getTexture().getFilepath()));
                 }
             }
 
@@ -200,7 +200,7 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
 
             if (ImGui.beginTabItem("Prefabs")) {
                 int uid = 0;
-                Spritesheet playerSprites = AssetPool.getSpritesheet("assets/images/spritesheet.png");
+                Spritesheet playerSprites = AssetManager.getSpritesheet("assets/images/spritesheet.png");
                 Sprite sprite = playerSprites.getSprite(0);
                 float spriteWidth = sprite.getWidth() * 4;
                 float spriteHeight = sprite.getHeight() * 4;
@@ -215,7 +215,7 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
                 ImGui.popID();
                 ImGui.sameLine();
 
-                Spritesheet items = AssetPool.getSpritesheet("assets/images/items.png");
+                Spritesheet items = AssetManager.getSpritesheet("assets/images/items.png");
                 sprite = items.getSprite(0);
                 id = sprite.getTexId();
                 texCoords = sprite.getTexCoords();
@@ -249,7 +249,7 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
                 ImGui.popID();
                 ImGui.sameLine();
 
-                Spritesheet turtle = AssetPool.getSpritesheet("assets/images/turtle.png");
+                Spritesheet turtle = AssetManager.getSpritesheet("assets/images/turtle.png");
                 sprite = turtle.getSprite(0);
                 id = sprite.getTexId();
                 texCoords = sprite.getTexCoords();
@@ -283,7 +283,7 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
                 ImGui.popID();
                 ImGui.sameLine();
 
-                Spritesheet pipes = AssetPool.getSpritesheet("assets/images/pipes.png");
+                Spritesheet pipes = AssetManager.getSpritesheet("assets/images/pipes.png");
                 sprite = pipes.getSprite(0);
                 id = sprite.getTexId();
                 texCoords = sprite.getTexCoords();
@@ -331,7 +331,7 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
             }
 
             if (ImGui.beginTabItem("Sounds")) {
-                Collection<Sound> sounds = AssetPool.getAllSounds();
+                Collection<Sound> sounds = AssetManager.getAllSounds();
                 for (Sound sound : sounds) {
                     File tmp = new File(sound.getFilepath());
                     if (ImGui.button(tmp.getName())) {

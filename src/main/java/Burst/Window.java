@@ -1,10 +1,8 @@
 package Burst;
 
-import editor.GameViewWindow;
 import observers.EventSystem;
 import observers.Observer;
 import observers.events.Event;
-import observers.events.EventType;
 import org.joml.Vector4f;
 import org.lwjgl.Version;
 import org.lwjgl.glfw.GLFWErrorCallback;
@@ -19,7 +17,7 @@ import scenes.LevelEditorSceneInitializer;
 import scenes.LevelSceneInitializer;
 import scenes.Scene;
 import scenes.SceneInitializer;
-import util.AssetPool;
+import util.AssetManager;
 
 import static org.lwjgl.glfw.Callbacks.glfwFreeCallbacks;
 import static org.lwjgl.glfw.GLFW.*;
@@ -173,8 +171,8 @@ public class Window implements Observer {
         float endTime;
         float dt = -1.0f;
 
-        Shader defaultShader = AssetPool.getShader("assets/shaders/default.glsl");
-        Shader pickingShader = AssetPool.getShader("assets/shaders/pickingShader.glsl");
+        Shader defaultShader = AssetManager.getShader("assets/shaders/default.glsl");
+        Shader pickingShader = AssetManager.getShader("assets/shaders/pickingShader.glsl");
 
         while (!glfwWindowShouldClose(glfwWindow)) {
             // Poll events

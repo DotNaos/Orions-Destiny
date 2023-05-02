@@ -3,7 +3,7 @@ package components;
 import Burst.GameObject;
 import org.jbox2d.dynamics.contacts.Contact;
 import org.joml.Vector2f;
-import util.AssetPool;
+import util.AssetManager;
 
 public abstract class Block extends Component {
     private transient boolean bopGoingUp = true;
@@ -46,7 +46,7 @@ public abstract class Block extends Component {
         PlayerController playerController = obj.getComponent(PlayerController.class);
         if (active && playerController != null && contactNormal.y < -0.8f) {
             doBopAnimation = true;
-            AssetPool.getSound("assets/sounds/bump.ogg").play();
+            AssetManager.getSound("assets/sounds/bump.ogg").play();
             playerHit(playerController);
         }
     }

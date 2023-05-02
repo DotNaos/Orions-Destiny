@@ -6,7 +6,7 @@ import Burst.KeyListener;
 import Burst.Window;
 import org.jbox2d.dynamics.contacts.Contact;
 import org.joml.Vector2f;
-import util.AssetPool;
+import util.AssetManager;
 
 import static org.lwjgl.glfw.GLFW.*;
 
@@ -74,7 +74,7 @@ public class Pipe extends Component {
                 collidingPlayer.setPosition(
                         getPlayerPosition(connectingPipe)
                 );
-                AssetPool.getSound("assets/sounds/pipe.ogg").play();
+                AssetManager.getSound("assets/sounds/pipe.ogg").play();
             }
         }
     }

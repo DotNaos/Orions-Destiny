@@ -7,7 +7,7 @@ import org.jbox2d.dynamics.contacts.Contact;
 import org.joml.Vector2f;
 import physics2d.Physics2D;
 import physics2d.components.Rigidbody2D;
-import util.AssetPool;
+import util.AssetManager;
 
 public class GoombaAI extends Component {
 
@@ -117,7 +117,7 @@ public class GoombaAI extends Component {
         this.stateMachine.trigger("squashMe");
         this.rb.setIsSensor();
         if (playSound) {
-            AssetPool.getSound("assets/sounds/bump.ogg").play();
+            AssetManager.getSound("assets/sounds/bump.ogg").play();
         }
     }
 }

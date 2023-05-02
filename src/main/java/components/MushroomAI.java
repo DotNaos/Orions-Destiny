@@ -4,7 +4,7 @@ import Burst.GameObject;
 import org.jbox2d.dynamics.contacts.Contact;
 import org.joml.Vector2f;
 import physics2d.components.Rigidbody2D;
-import util.AssetPool;
+import util.AssetManager;
 
 public class MushroomAI extends Component {
     private transient boolean goingRight = true;
@@ -16,7 +16,7 @@ public class MushroomAI extends Component {
     @Override
     public void start() {
         this.rb = gameObject.getComponent(Rigidbody2D.class);
-        AssetPool.getSound("assets/sounds/powerup_appears.ogg").play();
+        AssetManager.getSound("assets/sounds/powerup_appears.ogg").play();
     }
 
     @Override
@@ -37,7 +37,7 @@ public class MushroomAI extends Component {
                 if (playerController.isSmall()) {
                     playerController.powerup();
                 } else {
-                    AssetPool.getSound("assets/sounds/coin.ogg").play();
+                    AssetManager.getSound("assets/sounds/coin.ogg").play();
                 }
                 this.gameObject.destroy();
                 hitPlayer = true;

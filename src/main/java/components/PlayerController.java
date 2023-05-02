@@ -6,17 +6,14 @@ import Burst.Prefabs;
 import Burst.Window;
 import org.jbox2d.dynamics.contacts.Contact;
 import org.joml.Vector2f;
-import org.joml.Vector3f;
 import org.joml.Vector4f;
 import physics2d.Physics2D;
-import physics2d.RaycastInfo;
 import physics2d.components.PillboxCollider;
 import physics2d.components.Rigidbody2D;
 import physics2d.enums.BodyType;
-import renderer.DebugDraw;
 import scenes.LevelEditorSceneInitializer;
 import scenes.LevelSceneInitializer;
-import util.AssetPool;
+import util.AssetManager;
 
 import static org.lwjgl.glfw.GLFW.*;
 
@@ -84,8 +81,8 @@ public class PlayerController extends Component {
                     gameObject.transform.position.x += dt;
                     stateMachine.trigger("startRunning");
                 }
-                if (!AssetPool.getSound("assets/sounds/stage_clear.ogg").isPlaying()) {
-                    AssetPool.getSound("assets/sounds/stage_clear.ogg").play();
+                if (!AssetManager.getSound("assets/sounds/stage_clear.ogg").isPlaying()) {
+                    AssetManager.getSound("assets/sounds/stage_clear.ogg").play();
                 }
                 timeToCastle -= dt;
                 walkTime -= dt;
@@ -182,7 +179,7 @@ public class PlayerController extends Component {
         checkOnGround();
         if (KeyListener.isKeyPressed(GLFW_KEY_SPACE) && (jumpTime > 0 || onGround || groundDebounce > 0)) {
             if ((onGround || groundDebounce > 0) && jumpTime == 0) {
-                AssetPool.getSound("assets/sounds/jump-small.ogg").play();
+                AssetManager.getSound("assets/sounds/jump-small.ogg").play();
                 jumpTime = 28;
                 this.velocity.y = jumpImpulse;
             } else if (jumpTime > 0) {
@@ -236,7 +233,7 @@ public class PlayerController extends Component {
     public void powerup() {
         if (playerState == PlayerState.Small) {
             playerState = PlayerState.Big;
-            AssetPool.getSound("assets/sounds/powerup.ogg").play();
+            AssetManager.getSound("assets/sounds/powerup.ogg").play();
             gameObject.transform.scale.y = 0.42f;
             PillboxCollider pb = gameObject.getComponent(PillboxCollider.class);
             if (pb != null) {
@@ -246,7 +243,7 @@ public class PlayerController extends Component {
             }
         } else if (playerState == PlayerState.Big) {
             playerState = PlayerState.Fire;
-            AssetPool.getSound("assets/sounds/powerup.ogg").play();
+            AssetManager.getSound("assets/sounds/powerup.ogg").play();
         }
 
         stateMachine.trigger("powerup");
@@ -261,8 +258,8 @@ public class PlayerController extends Component {
             rb.setIsSensor();
             rb.setBodyType(BodyType.Static);
             gameObject.transform.position.x = flagpole.transform.position.x;
-            AssetPool.getSound("assets/sounds/main-theme-overworld.ogg").stop();
-            AssetPool.getSound("assets/sounds/flagpole.ogg").play();
+            AssetManager.getSound("assets/sounds/main-theme-overworld.ogg").stop();
+            AssetManager.getSound("assets/sounds/flagpole.ogg").play();
         }
     }
 
@@ -306,8 +303,8 @@ public class PlayerController extends Component {
             this.rb.setVelocity(new Vector2f());
             this.isDead = true;
             this.rb.setIsSensor();
-            AssetPool.getSound("assets/sounds/main-theme-overworld.ogg").stop();
-            AssetPool.getSound("assets/sounds/mario_die.ogg").play();
+            AssetManager.getSound("assets/sounds/main-theme-overworld.ogg").stop();
+            AssetManager.getSound("assets/sounds/mario_die.ogg").play();
             deadMaxHeight = this.gameObject.transform.position.y + 0.3f;
             this.rb.setBodyType(BodyType.Static);
             if (gameObject.transform.position.y > 0) {
@@ -323,11 +320,11 @@ public class PlayerController extends Component {
                 pb.setHeight(0.25f);
             }
             hurtInvincibilityTimeLeft = hurtInvincibilityTime;
-            AssetPool.getSound("assets/sounds/pipe.ogg").play();
+            AssetManager.getSound("assets/sounds/pipe.ogg").play();
         } else if (playerState == PlayerState.Fire) {
             this.playerState = PlayerState.Big;
             hurtInvincibilityTimeLeft = hurtInvincibilityTime;
-            AssetPool.getSound("assets/sounds/pipe.ogg").play();
+            AssetManager.getSound("assets/sounds/pipe.ogg").play();
         }
     }
 

@@ -6,7 +6,7 @@ import components.Component;
 import components.ComponentDeserializer;
 import components.SpriteRenderer;
 import imgui.ImGui;
-import util.AssetPool;
+import util.AssetManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -108,7 +108,7 @@ public class GameObject {
 
         SpriteRenderer sprite = obj.getComponent(SpriteRenderer.class);
         if (sprite != null && sprite.getTexture() != null) {
-            sprite.setTexture(AssetPool.getTexture(sprite.getTexture().getFilepath()));
+            sprite.setTexture(AssetManager.getTexture(sprite.getTexture().getFilepath()));
         }
 
         return obj;

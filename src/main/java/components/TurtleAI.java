@@ -7,7 +7,7 @@ import org.jbox2d.dynamics.contacts.Contact;
 import org.joml.Vector2f;
 import physics2d.Physics2D;
 import physics2d.components.Rigidbody2D;
-import util.AssetPool;
+import util.AssetManager;
 
 public class TurtleAI extends Component {
     private transient boolean goingRight = false;
@@ -84,7 +84,7 @@ public class TurtleAI extends Component {
         this.rb.setAngularVelocity(0.0f);
         this.rb.setGravityScale(0.0f);
         this.stateMachine.trigger("squashMe");
-        AssetPool.getSound("assets/sounds/bump.ogg").play();
+        AssetManager.getSound("assets/sounds/bump.ogg").play();
     }
 
     @Override
@@ -93,7 +93,7 @@ public class TurtleAI extends Component {
         if (isDead && isMoving && goomba != null) {
             goomba.stomp();
             contact.setEnabled(false);
-            AssetPool.getSound("assets/sounds/kick.ogg").play();
+            AssetManager.getSound("assets/sounds/kick.ogg").play();
         }
 
         PlayerController playerController = obj.getComponent(PlayerController.class);
@@ -127,7 +127,7 @@ public class TurtleAI extends Component {
         } else if (Math.abs(contactNormal.y) < 0.1f && !obj.isDead() && obj.getComponent(MushroomAI.class) == null) {
             goingRight = contactNormal.x < 0;
             if (isMoving && isDead) {
-                AssetPool.getSound("assets/sounds/bump.ogg").play();
+                AssetManager.getSound("assets/sounds/bump.ogg").play();
             }
         }
 
