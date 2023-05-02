@@ -40,33 +40,12 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
     @Override
     public void loadResources(Scene scene) {
 
-        AssetManager.searchDirectory("assets/images/spritesheets", "png");
-        AssetManager.getShader("assets/shaders/default.glsl");
-
-        AssetManager.addSpritesheet("assets/images/spritesheets/blocks.png",
-                new Spritesheet(AssetManager.getTexture("assets/images/spritesheets/blocks.png"),
-                        16, 16, 81, 0));
-        AssetManager.addSpritesheet("assets/images/spritesheet.png",
-                new Spritesheet(AssetManager.getTexture("assets/images/spritesheet.png"),
-                        16, 16, 26, 0));
-        AssetManager.addSpritesheet("assets/images/turtle.png",
-                new Spritesheet(AssetManager.getTexture("assets/images/turtle.png"),
-                        16, 24, 4, 0));
-        AssetManager.addSpritesheet("assets/images/bigSpritesheet.png",
-                new Spritesheet(AssetManager.getTexture("assets/images/bigSpritesheet.png"),
-                        16, 32, 42, 0));
-        AssetManager.addSpritesheet("assets/images/pipes.png",
-                new Spritesheet(AssetManager.getTexture("assets/images/pipes.png"),
-                        32, 32, 4, 0));
-        AssetManager.addSpritesheet("assets/images/items.png",
-                new Spritesheet(AssetManager.getTexture("assets/images/items.png"),
-                        16, 16, 43, 0));
+        AssetManager.loadAllResources();
 
 
 
-        AssetManager.addSpritesheet("assets/images/gizmos.png",
-                new Spritesheet(AssetManager.getTexture("assets/images/gizmos.png"),
-                        24, 48, 3, 0));
+
+
 
 //
 //        AssetPool.addSound("assets/sounds/main-theme-overworld.ogg", true);

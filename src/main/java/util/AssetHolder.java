@@ -3,17 +3,17 @@ package util;
 public class AssetHolder {
 
     // Shaders
-        public static String SHADERS = "Assets/shaders/";
+        public static final String SHADERS = "Assets/shaders/";
 
     // Images
-        public static String SPRITESHEETS = "Assets/images/spritesheets/";
-        public static String TEXTURES = "Assets/images/textures/";
+        public static final String SPRITESHEETS = "Assets/images/spritesheets/";
+        public static final String TEXTURES = "Assets/images/textures/";
 
-        public static String DEBUGTEXTURES = "Assets/images/debug/";
+        public static final String DEBUGTEXTURES = "Assets/images/debug/";
 
     // Fonts
-        public static String FONTS = "Assets/fonts/";
+        public static final String FONTS = "Assets/fonts/";
 
     // Audio
-        public static String SOUNDS = "Assets/sounds/";
+        public static final String SOUNDS = "Assets/sounds/";
 }

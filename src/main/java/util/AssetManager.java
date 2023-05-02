@@ -17,28 +17,58 @@ public class AssetManager {
     private static Map<String, Sound> sounds = new HashMap<>();
 
 
+
+
+    public static void loadAllResources()
+    {
+        // Add all spritesheets
+//        String[] spritesheets = searchDirectory(AssetHolder.SPRITESHEETS, "png");
+//        for (String spritesheet : spritesheets) {
+//            addSpritesheet(spritesheet, new Spritesheet(getTexture(spritesheet), 16, 16, 16, 0));
+//        }
+
+        addSpritesheet("assets/images/spritesheets/blocks.png",
+                new Spritesheet(AssetManager.getTexture("assets/images/spritesheets/blocks.png"),
+                        16, 16, 81, 0));
+        addSpritesheet("assets/images/spritesheet.png",
+                new Spritesheet(AssetManager.getTexture("assets/images/spritesheet.png"),
+                        16, 16, 26, 0));
+        addSpritesheet("assets/images/turtle.png",
+                new Spritesheet(AssetManager.getTexture("assets/images/turtle.png"),
+                        16, 24, 4, 0));
+        addSpritesheet("assets/images/spritesheets/bigSpritesheet.png",
+                new Spritesheet(getTexture("assets/images/spritesheets/bigSpritesheet.png"),
+                        16, 32, 42, 0));
+        addSpritesheet("assets/images/pipes.png",
+                new Spritesheet(getTexture("assets/images/pipes.png"),
+                        32, 32, 4, 0));
+        addSpritesheet("assets/images/items.png",
+                new Spritesheet(getTexture("assets/images/items.png"),
+                        16, 16, 43, 0));
+        addSpritesheet("assets/images/gizmos.png",
+                new Spritesheet(getTexture("assets/images/gizmos.png"),
+                        24, 48, 3, 0));
+
+        // Shader
+            getShader("assets/shaders/default.glsl");
+
+    }
+
     /**
      *
      * @param relativePath the path in the project directory
      * @param fileType the file type to search for eg. "png"
      * @return the count of found files
      */
-    public static int searchDirectory(String relativePath, String fileType)
+    public static String[] searchDirectory(String relativePath, String fileType)
     {
         // search for files in the given directory
-        int count = 0;
-
-            File[] files = new File(relativePath).listFiles((dir, name) -> name.toLowerCase().endsWith("." + fileType));
-            if (files != null) {
-                for (File file : files) {
-                    if (file.isFile()) {
-                        count++;
-                        System.out.println(file.getAbsolutePath());
-                    }
-                }
-            }
-
-        return count;
+        String[] files = new File(relativePath).list((dir, name) -> name.toLowerCase().endsWith("." + fileType));
+        for (int i = 0; i < files.length; i++) {
+            files[i] = relativePath + "/" + files[i];
+            System.out.println(files[i]);
+        }
+        return files;
     }
 
 

@@ -9,30 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="787a90ad-2c32-4237-9403-4ac402e3150a" name="Changes" comment="AssetPool Javadoc and Search for files">
-      <change afterPath="$PROJECT_DIR$/src/main/java/util/AssetHolder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/images/bigSpritesheet.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/bigSpritesheet.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/GameObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Prefabs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Prefabs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Window.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/components/AnimationState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/AnimationState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/components/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/Block.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/components/BlockCoin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/BlockCoin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/components/BreakableBrick.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/BreakableBrick.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/components/Coin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/Coin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/components/Flagpole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/Flagpole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/components/Flower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/Flower.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/components/GoombaAI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/GoombaAI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/components/MushroomAI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/MushroomAI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/components/Pipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/Pipe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/components/PlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/PlayerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/components/SpriteRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/SpriteRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/components/TurtleAI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/TurtleAI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/renderer/DebugDraw.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/renderer/DebugDraw.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/renderer/RenderBatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/renderer/RenderBatch.java" afterDir="false" />
+    <list default="true" id="787a90ad-2c32-4237-9403-4ac402e3150a" name="Changes" comment="AssetHolder für die Directories der Assets">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/scenes/LevelEditorSceneInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scenes/LevelEditorSceneInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scenes/LevelSceneInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scenes/LevelSceneInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/util/AssetPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/AssetManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/util/AssetHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/AssetHolder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/util/AssetManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/AssetManager.java" afterDir="false" />
     </list>
     <list id="25a488fd-f17c-453d-94a6-413269d6c7ff" name="Changes by schue" comment="Changes by schue" />
     <option name="SHOW_DIALOG" value="false" />
@@ -355,14 +336,7 @@
       <workItem from="1682956651753" duration="646000" />
       <workItem from="1682958492265" duration="1093000" />
       <workItem from="1683008973937" duration="6173000" />
-      <workItem from="1683015319184" duration="1948000" />
-    </task>
-    <task id="LOCAL-00021" summary="Entity Component (System) Aufbau">
-      <created>1679685415573</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1679685415573</updated>
+      <workItem from="1683015319184" duration="4286000" />
     </task>
     <task id="LOCAL-00022" summary="Batch Rendering, mehr FPS juhu">
       <created>1679733666942</created>
@@ -700,7 +674,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683016677146</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="AssetHolder für die Directories der Assets">
+      <created>1683017617146</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1683017617146</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -750,7 +731,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Framebuffer" />
     <MESSAGE value="Draw Rectangle and Circle" />
     <MESSAGE value="ImGUI docking" />
     <MESSAGE value="Viewport" />
@@ -775,7 +755,8 @@
     <MESSAGE value="Engine Fertig, !!!!!VIELE BUGS!!!!" />
     <MESSAGE value="Asset fixes" />
     <MESSAGE value="AssetPool Javadoc and Search for files" />
-    <option name="LAST_COMMIT_MESSAGE" value="AssetPool Javadoc and Search for files" />
+    <MESSAGE value="AssetHolder für die Directories der Assets" />
+    <option name="LAST_COMMIT_MESSAGE" value="AssetHolder für die Directories der Assets" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
