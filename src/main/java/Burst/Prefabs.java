@@ -249,7 +249,7 @@ public class Prefabs {
     }
 
     public static GameObject generateBlockCoin() {
-        Spritesheet items = AssetManager.getSpritesheet("assets/images/items.png");
+        Spritesheet items = AssetHolder.ITEMS_SPRITESHEET;
         GameObject coin = generateSpriteObject(items.getSprite(7), 0.25f, 0.25f);
 
         AnimationState coinFlip = new AnimationState();
@@ -272,7 +272,7 @@ public class Prefabs {
     }
 
     public static GameObject generateCoin() {
-        Spritesheet items = AssetManager.getSpritesheet("assets/images/items.png");
+        Spritesheet items = AssetHolder.ITEMS_SPRITESHEET;
         GameObject coin = generateSpriteObject(items.getSprite(7), 0.25f, 0.25f);
 
         AnimationState coinFlip = new AnimationState();
@@ -300,7 +300,7 @@ public class Prefabs {
     }
 
     public static GameObject generateGoomba() {
-        Spritesheet sprites = AssetManager.getSpritesheet("assets/images/spritesheet.png");
+        Spritesheet sprites = AssetHolder.PLAYER_SPRITESHEET;
         GameObject goomba = generateSpriteObject(sprites.getSprite(14), 0.25f, 0.25f);
 
         AnimationState walk = new AnimationState();
@@ -337,7 +337,7 @@ public class Prefabs {
     }
 
     public static GameObject generateTurtle() {
-        Spritesheet turtleSprites = AssetManager.getSpritesheet("assets/images/turtle.png");
+        Spritesheet turtleSprites = AssetHolder.TURTLE_SPRITESHEET;
         GameObject turtle = generateSpriteObject(turtleSprites.getSprite(0), 0.25f, 0.35f);
 
         AnimationState walk = new AnimationState();
@@ -375,7 +375,7 @@ public class Prefabs {
     }
 
     public static GameObject generateFireball(Vector2f position) {
-        Spritesheet items = AssetManager.getSpritesheet("assets/images/items.png");
+        Spritesheet items = AssetHolder.ITEMS_SPRITESHEET;
         GameObject fireball = generateSpriteObject(items.getSprite(32), 0.18f, 0.18f);
         fireball.transform.position = position;
 
@@ -394,7 +394,7 @@ public class Prefabs {
     }
 
     public static GameObject generateFlagtop() {
-        Spritesheet items = AssetManager.getSpritesheet("assets/images/items.png");
+        Spritesheet items = AssetHolder.ITEMS_SPRITESHEET;
         GameObject flagtop = generateSpriteObject(items.getSprite(6), 0.25f, 0.25f);
 
         Rigidbody2D rb = new Rigidbody2D();
@@ -413,7 +413,7 @@ public class Prefabs {
     }
 
     public static GameObject generateFlagPole() {
-        Spritesheet items = AssetManager.getSpritesheet("assets/images/items.png");
+        Spritesheet items = AssetHolder.ITEMS_SPRITESHEET;
         GameObject flagtop = generateSpriteObject(items.getSprite(33), 0.25f, 0.25f);
 
         Rigidbody2D rb = new Rigidbody2D();
@@ -432,7 +432,7 @@ public class Prefabs {
     }
 
     public static GameObject generateMushroom() {
-        Spritesheet items = AssetManager.getSpritesheet("assets/images/items.png");
+        Spritesheet items = AssetHolder.ITEMS_SPRITESHEET;
         GameObject mushroom = generateSpriteObject(items.getSprite(10), 0.25f, 0.25f);
 
         Rigidbody2D rb = new Rigidbody2D();
@@ -450,7 +450,7 @@ public class Prefabs {
     }
 
     public static GameObject generateFlower() {
-        Spritesheet items = AssetManager.getSpritesheet("assets/images/items.png");
+        Spritesheet items = AssetHolder.ITEMS_SPRITESHEET;
         GameObject flower = generateSpriteObject(items.getSprite(20), 0.25f, 0.25f);
 
         Rigidbody2D rb = new Rigidbody2D();
@@ -468,7 +468,7 @@ public class Prefabs {
     }
 
     public static GameObject generatePipe(Direction direction) {
-        Spritesheet pipes = AssetManager.getSpritesheet("assets/images/pipes.png");
+        Spritesheet pipes = AssetHolder.PIPES_SPRITESHEET;
         int index = direction == Direction.Down ? 0 :
                     direction == Direction.Up ? 1 :
                     direction == Direction.Right ? 2 :

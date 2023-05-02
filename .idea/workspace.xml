@@ -9,17 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="787a90ad-2c32-4237-9403-4ac402e3150a" name="Changes" comment="Ordner">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/ImGuiLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/ImGuiLayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/renderer/DebugDraw.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/renderer/DebugDraw.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scenes/LevelEditorSceneInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scenes/LevelEditorSceneInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scenes/LevelSceneInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scenes/LevelSceneInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scenes/SceneInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scenes/SceneInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/util/AssetHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/AssetHolder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/util/AssetManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/AssetManager.java" afterDir="false" />
-    </list>
+    <list default="true" id="787a90ad-2c32-4237-9403-4ac402e3150a" name="Changes" comment="Für Dominik" />
     <list id="25a488fd-f17c-453d-94a6-413269d6c7ff" name="Changes by schue" comment="Changes by schue" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -343,13 +333,6 @@
       <workItem from="1682958492265" duration="1093000" />
       <workItem from="1683008973937" duration="6173000" />
       <workItem from="1683015319184" duration="7179000" />
-    </task>
-    <task id="LOCAL-00025" summary="SpriteSheets laden">
-      <created>1679748313233</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1679748313233</updated>
     </task>
     <task id="LOCAL-00026" summary="Sprites animieren und aktualisieren mit dirty flags">
       <created>1679766251457</created>
@@ -687,7 +670,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683024932137</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="Für Dominik">
+      <created>1683032198138</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1683032198138</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -737,7 +727,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Viewport" />
     <MESSAGE value="Viewport coordinates" />
     <MESSAGE value="switch to pc" />
     <MESSAGE value="Properties Window" />
@@ -762,7 +751,8 @@
     <MESSAGE value="AssetHolder für die Directories der Assets" />
     <MESSAGE value="Optimieren" />
     <MESSAGE value="Ordner" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ordner" />
+    <MESSAGE value="Für Dominik" />
+    <option name="LAST_COMMIT_MESSAGE" value="Für Dominik" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
