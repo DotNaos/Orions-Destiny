@@ -27,32 +27,52 @@ public class AssetManager {
 //            addSpritesheet(spritesheet, new Spritesheet(getTexture(spritesheet), 16, 16, 16, 0));
 //        }
 
-        addSpritesheet("assets/images/spritesheets/blocks.png",
-                new Spritesheet(AssetManager.getTexture("assets/images/spritesheets/blocks.png"),
-                        16, 16, 81, 0));
-        addSpritesheet("assets/images/spritesheet.png",
-                new Spritesheet(AssetManager.getTexture("assets/images/spritesheet.png"),
-                        16, 16, 26, 0));
-        addSpritesheet("assets/images/turtle.png",
-                new Spritesheet(AssetManager.getTexture("assets/images/turtle.png"),
-                        16, 24, 4, 0));
-        addSpritesheet("assets/images/spritesheets/bigSpritesheet.png",
-                new Spritesheet(getTexture("assets/images/spritesheets/bigSpritesheet.png"),
-                        16, 32, 42, 0));
-        addSpritesheet("assets/images/pipes.png",
-                new Spritesheet(getTexture("assets/images/pipes.png"),
-                        32, 32, 4, 0));
-        addSpritesheet("assets/images/items.png",
-                new Spritesheet(getTexture("assets/images/items.png"),
-                        16, 16, 43, 0));
-        addSpritesheet("assets/images/gizmos.png",
-                new Spritesheet(getTexture("assets/images/gizmos.png"),
-                        24, 48, 3, 0));
+        // ===================== Shader =======================
+            getShader(AssetHolder.SHADER_DEFAULT);
 
-        // Shader
-            getShader("assets/shaders/default.glsl");
+        // =================== Spritesheets ===================
+            addSpritesheet(AssetHolder.BLOCKS,AssetHolder.BLOCKS_SPRITESHEET);
+
+            addSpritesheet(AssetHolder.PLAYER, AssetHolder.PLAYER_SPRITESHEET);
+
+            addSpritesheet(AssetHolder.BIG_PLAYER, AssetHolder.BIG_PLAYER_SPRITESHEET);
+
+            addSpritesheet(AssetHolder.TURTLE, AssetHolder.TURTLE_SPRITESHEET);
+
+
+            addSpritesheet(AssetHolder.PIPES, AssetHolder.PIPES_SPRITESHEET);
+
+
+            addSpritesheet(AssetHolder.ITEMS, AssetHolder.ITEMS_SPRITESHEET);
+
+
+            addSpritesheet(AssetHolder.GIZMOS, AssetHolder.GIZMOS_SPRITESHEET);
+
+
+
+
+        // =================== Sounds ===================
+                //        AssetManager.addSound("assets/sounds/main-theme-overworld.ogg", true);
+                //        AssetManager.addSound("assets/sounds/flagpole.ogg", false);
+                //        AssetManager.addSound("assets/sounds/break_block.ogg", false);
+                //        AssetManager.addSound("assets/sounds/bump.ogg", false);
+                //        AssetManager.addSound("assets/sounds/coin.ogg", false);
+                //        AssetManager.addSound("assets/sounds/gameover.ogg", false);
+                //        AssetManager.addSound("assets/sounds/jump-small.ogg", false);
+                //        AssetManager.addSound("assets/sounds/mario_die.ogg", false);
+                //        AssetManager.addSound("assets/sounds/pipe.ogg", false);
+                //        AssetManager.addSound("assets/sounds/powerup.ogg", false);
+                //        AssetManager.addSound("assets/sounds/powerup_appears.ogg", false);
+                //        AssetManager.addSound("assets/sounds/stage_clear.ogg", false);
+                //        AssetManager.addSound("assets/sounds/stomp.ogg", false);
+                //        AssetManager.addSound("assets/sounds/kick.ogg", false);
+                //        AssetManager.addSound("assets/sounds/invincible.ogg", false);
+                //
+                //        AssetManager.getSound(("assets/sounds/main-theme-overworld.ogg")).play();
 
     }
+
+
 
     /**
      *
@@ -60,6 +80,7 @@ public class AssetManager {
      * @param fileType the file type to search for eg. "png"
      * @return the count of found files
      */
+
     public static String[] searchDirectory(String relativePath, String fileType)
     {
         // search for files in the given directory
@@ -71,8 +92,6 @@ public class AssetManager {
         return files;
     }
 
-
-    // Generate Javadoc for this method
 
     /**
      * @param resourceName the path in the project directory

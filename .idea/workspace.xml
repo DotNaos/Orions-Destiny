@@ -10,8 +10,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="787a90ad-2c32-4237-9403-4ac402e3150a" name="Changes" comment="Ordner">
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Prefabs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Prefabs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/ImGuiLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/ImGuiLayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/renderer/DebugDraw.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/renderer/DebugDraw.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/scenes/LevelEditorSceneInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scenes/LevelEditorSceneInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/scenes/LevelSceneInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scenes/LevelSceneInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/scenes/SceneInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scenes/SceneInitializer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/util/AssetHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/AssetHolder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/util/AssetManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/AssetManager.java" afterDir="false" />
     </list>
     <list id="25a488fd-f17c-453d-94a6-413269d6c7ff" name="Changes by schue" comment="Changes by schue" />
     <option name="SHOW_DIALOG" value="false" />

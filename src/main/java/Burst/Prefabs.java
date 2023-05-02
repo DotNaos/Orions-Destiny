@@ -213,7 +213,7 @@ public class Prefabs {
     }
 
     public static GameObject generateQuestionBlock() {
-        Spritesheet playerSprites = AssetManager.getSpritesheet("assets/images/items.png");
+        Spritesheet playerSprites = AssetHolder.PLAYER_SPRITESHEET;
         GameObject questionBlock = generateSpriteObject(playerSprites.getSprite(0), 0.25f, 0.25f);
 
         AnimationState flicker = new AnimationState();

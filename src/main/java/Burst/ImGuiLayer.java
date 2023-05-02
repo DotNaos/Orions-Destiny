@@ -15,6 +15,7 @@ import imgui.glfw.ImGuiImplGlfw;
 import imgui.type.ImBoolean;
 import renderer.PickingTexture;
 import scenes.Scene;
+import util.AssetHolder;
 
 import java.io.File;
 
@@ -144,7 +145,7 @@ public class ImGuiLayer {
         // Read: https://raw.githubusercontent.com/ocornut/imgui/master/docs/FONTS.txt
 
 
-        if (new File("Assets/fonts/Inter.ttf").isFile())
+        if (new File(AssetHolder.FONT_INTER).isFile())
         {
             final ImFontAtlas fontAtlas = io.getFonts();
             final ImFontConfig fontConfig = new ImFontConfig(); // Natively allocated object, should be explicitly destroyed
@@ -154,7 +155,7 @@ public class ImGuiLayer {
 
             // Fonts merge example
             fontConfig.setPixelSnapH(true);
-            fontAtlas.addFontFromFileTTF("Assets/fonts/Inter.ttf", 18, fontConfig);
+            fontAtlas.addFontFromFileTTF(AssetHolder.FONT_INTER, 18, fontConfig);
             fontConfig.destroy(); // After all fonts were added we don't need this config more
         } else if (new File("C:/Windows/Fonts/segoeui.ttf").isFile()) {
             final ImFontAtlas fontAtlas = io.getFonts();

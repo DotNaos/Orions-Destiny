@@ -8,6 +8,7 @@ import org.joml.Vector2f;
 import physics2d.components.Box2DCollider;
 import physics2d.components.Rigidbody2D;
 import physics2d.enums.BodyType;
+import util.AssetHolder;
 import util.AssetManager;
 
 import java.io.File;
@@ -18,14 +19,11 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
     private Spritesheet sprites;
     private GameObject levelEditorStuff;
 
-    public LevelEditorSceneInitializer( Scene scene) {
-        super(scene);
-    }
 
     @Override
     public void init(Scene scene) {
-        sprites = AssetManager.getSpritesheet("assets/images/spritesheets/blocks.png");
-        Spritesheet gizmos = AssetManager.getSpritesheet("assets/images/gizmos.png");
+        sprites = AssetManager.getSpritesheet(AssetHolder.BLOCKS);
+        Spritesheet gizmos = AssetManager.getSpritesheet(AssetHolder.GIZMOS);
 
         levelEditorStuff = scene.createGameObject("LevelEditor");
         levelEditorStuff.setNoSerialize();
@@ -37,47 +35,6 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
         scene.addGameObjectToScene(levelEditorStuff);
     }
 
-    @Override
-    public void loadResources(Scene scene) {
-
-        AssetManager.loadAllResources();
-
-
-
-
-//
-//        AssetPool.addSound("assets/sounds/main-theme-overworld.ogg", true);
-//        AssetPool.addSound("assets/sounds/flagpole.ogg", false);
-//        AssetPool.addSound("assets/sounds/break_block.ogg", false);
-//        AssetPool.addSound("assets/sounds/bump.ogg", false);
-//        AssetPool.addSound("assets/sounds/coin.ogg", false);
-//        AssetPool.addSound("assets/sounds/gameover.ogg", false);
-//        AssetPool.addSound("assets/sounds/jump-small.ogg", false);
-//        AssetPool.addSound("assets/sounds/mario_die.ogg", false);
-//        AssetPool.addSound("assets/sounds/pipe.ogg", false);
-//        AssetPool.addSound("assets/sounds/powerup.ogg", false);
-//        AssetPool.addSound("assets/sounds/powerup_appears.ogg", false);
-//        AssetPool.addSound("assets/sounds/stage_clear.ogg", false);
-//        AssetPool.addSound("assets/sounds/stomp.ogg", false);
-//        AssetPool.addSound("assets/sounds/kick.ogg", false);
-//        AssetPool.addSound("assets/sounds/invincible.ogg", false);
-//
-//        AssetPool.getSound(("assets/sounds/main-theme-overworld.ogg")).stop();
-
-        for (GameObject g : scene.getGameObjects()) {
-            if (g.getComponent(SpriteRenderer.class) != null) {
-                SpriteRenderer spr = g.getComponent(SpriteRenderer.class);
-                if (spr.getTexture() != null) {
-                    spr.setTexture(AssetManager.getTexture(spr.getTexture().getFilepath()));
-                }
-            }
-
-            if (g.getComponent(StateMachine.class) != null) {
-                StateMachine stateMachine = g.getComponent(StateMachine.class);
-                stateMachine.refreshTextures();
-            }
-        }
-    }
 
     @Override
     public void imgui() {
@@ -177,7 +134,7 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
 
             if (ImGui.beginTabItem("Prefabs")) {
                 int uid = 0;
-                Spritesheet playerSprites = AssetManager.getSpritesheet("assets/images/spritesheet.png");
+                Spritesheet playerSprites = AssetManager.getSpritesheet(AssetHolder.PLAYER);
                 Sprite sprite = playerSprites.getSprite(0);
                 float spriteWidth = sprite.getWidth() * 4;
                 float spriteHeight = sprite.getHeight() * 4;
@@ -192,7 +149,7 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
                 ImGui.popID();
                 ImGui.sameLine();
 
-                Spritesheet items = AssetManager.getSpritesheet("assets/images/items.png");
+                Spritesheet items = AssetManager.getSpritesheet(AssetHolder.ITEMS);
                 sprite = items.getSprite(0);
                 id = sprite.getTexId();
                 texCoords = sprite.getTexCoords();
@@ -226,7 +183,7 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
                 ImGui.popID();
                 ImGui.sameLine();
 
-                Spritesheet turtle = AssetManager.getSpritesheet("assets/images/turtle.png");
+                Spritesheet turtle = AssetManager.getSpritesheet(AssetHolder.TURTLE);
                 sprite = turtle.getSprite(0);
                 id = sprite.getTexId();
                 texCoords = sprite.getTexCoords();
@@ -260,7 +217,7 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
                 ImGui.popID();
                 ImGui.sameLine();
 
-                Spritesheet pipes = AssetManager.getSpritesheet("assets/images/pipes.png");
+                Spritesheet pipes = AssetManager.getSpritesheet(AssetHolder.PIPES);
                 sprite = pipes.getSprite(0);
                 id = sprite.getTexId();
                 texCoords = sprite.getTexCoords();
