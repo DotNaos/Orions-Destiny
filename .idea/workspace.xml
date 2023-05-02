@@ -9,11 +9,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="787a90ad-2c32-4237-9403-4ac402e3150a" name="Changes" comment="AssetHolder für die Directories der Assets">
+    <list default="true" id="787a90ad-2c32-4237-9403-4ac402e3150a" name="Changes" comment="Optimieren">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scenes/LevelEditorSceneInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scenes/LevelEditorSceneInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/util/AssetHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/AssetHolder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/util/AssetManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/AssetManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/blendImage1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/debug/blendImage1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/blendImage2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/debug/blendImage2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/gizmo-invert.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/gizmo-invert.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/gizmos.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/gizmos.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/items.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/items.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/pipes.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheet.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/spritesheet.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/testImage.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/debug/testImage.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/testImage2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/debug/testImage2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/turtle.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/turtle.png" afterDir="false" />
     </list>
     <list id="25a488fd-f17c-453d-94a6-413269d6c7ff" name="Changes by schue" comment="Changes by schue" />
     <option name="SHOW_DIALOG" value="false" />
@@ -127,6 +134,7 @@
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\schue\Documents\Dev\Java\Orions-Destiny\Assets\images\spritesheets" />
+      <recent name="C:\Users\schue\Documents\Dev\Java\Orions-Destiny\Assets\images\debug" />
       <recent name="D:\Projects\Java\Orions-Destiny\Assets\images" />
       <recent name="D:\Projects\Java\Orions-Destiny\Assets\images\spritesheets" />
       <recent name="D:\Projects\Java\Orions-Destiny\Assets\fonts" />
@@ -336,14 +344,7 @@
       <workItem from="1682956651753" duration="646000" />
       <workItem from="1682958492265" duration="1093000" />
       <workItem from="1683008973937" duration="6173000" />
-      <workItem from="1683015319184" duration="4286000" />
-    </task>
-    <task id="LOCAL-00022" summary="Batch Rendering, mehr FPS juhu">
-      <created>1679733666942</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1679733666942</updated>
+      <workItem from="1683015319184" duration="5745000" />
     </task>
     <task id="LOCAL-00023" summary="Assets laden verbessert">
       <created>1679734691051</created>
@@ -681,7 +682,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683017617146</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="Optimieren">
+      <created>1683020466173</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1683020466173</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -731,7 +739,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Draw Rectangle and Circle" />
     <MESSAGE value="ImGUI docking" />
     <MESSAGE value="Viewport" />
     <MESSAGE value="Viewport coordinates" />
@@ -756,7 +763,8 @@
     <MESSAGE value="Asset fixes" />
     <MESSAGE value="AssetPool Javadoc and Search for files" />
     <MESSAGE value="AssetHolder für die Directories der Assets" />
-    <option name="LAST_COMMIT_MESSAGE" value="AssetHolder für die Directories der Assets" />
+    <MESSAGE value="Optimieren" />
+    <option name="LAST_COMMIT_MESSAGE" value="Optimieren" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
