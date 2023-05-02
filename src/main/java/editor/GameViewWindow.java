@@ -16,7 +16,7 @@ public class GameViewWindow {
     private boolean windowIsHovered;
 
     public void imgui() {
-        ImGui.begin("Game Viewport", ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoScrollWithMouse
+        ImGui.begin("Viewport", ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoScrollWithMouse
                         | ImGuiWindowFlags.MenuBar);
 
         ImGui.beginMenuBar();
