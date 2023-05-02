@@ -16,6 +16,38 @@ public class AssetPool {
     private static Map<String, Spritesheet> spritesheets = new HashMap<>();
     private static Map<String, Sound> sounds = new HashMap<>();
 
+
+    /**
+     *
+     * @param relativePath the path in the project directory
+     * @param fileType the file type to search for eg. "png"
+     * @return the count of found files
+     */
+    public static int searchDirectory(String relativePath, String fileType)
+    {
+        // search for files in the given directory
+        int count = 0;
+
+            File[] files = new File(relativePath).listFiles((dir, name) -> name.toLowerCase().endsWith("." + fileType));
+            if (files != null) {
+                for (File file : files) {
+                    if (file.isFile()) {
+                        count++;
+                        System.out.println(file.getAbsolutePath());
+                    }
+                }
+            }
+
+        return count;
+    }
+
+
+    // Generate Javadoc for this method
+
+    /**
+     * @param resourceName the path in the project directory
+     * @return Shader if already there, otherwise a new Shader is created and returned
+     */
     public static Shader getShader(String resourceName) {
         File file = new File(resourceName);
         if (AssetPool.shaders.containsKey(file.getAbsolutePath())) {
@@ -28,6 +60,13 @@ public class AssetPool {
         }
     }
 
+
+    // Generate Javadoc for this method
+
+    /**
+     * @param resourceName the path in the project directory
+     * @return Texture if already there, otherwise a new Texture is created and returned
+     */
     public static Texture getTexture(String resourceName) {
         File file = new File(resourceName);
         if (AssetPool.textures.containsKey(file.getAbsolutePath())) {
@@ -40,6 +79,10 @@ public class AssetPool {
         }
     }
 
+    /**
+     * @param resourceName the path in the project directory
+     * @param spritesheet the Spritesheet to be added
+     */
     public static void addSpritesheet(String resourceName, Spritesheet spritesheet) {
         File file = new File(resourceName);
         if (!AssetPool.spritesheets.containsKey(file.getAbsolutePath())) {
@@ -47,6 +90,10 @@ public class AssetPool {
         }
     }
 
+    /**
+     * @param resourceName the path in the project directory
+     * @return Spritesheet if already there, otherwise null
+     */
     public static Spritesheet getSpritesheet(String resourceName) {
         File file = new File(resourceName);
         if (!AssetPool.spritesheets.containsKey(file.getAbsolutePath())) {
@@ -54,11 +101,19 @@ public class AssetPool {
         }
         return AssetPool.spritesheets.getOrDefault(file.getAbsolutePath(), null);
     }
-    
+
+    /**
+     * @return Collection of all Sounds
+     */
     public static Collection<Sound> getAllSounds() {
         return sounds.values();
     }
 
+    /**
+     * @param soundFile the path in the project directory
+     * @return Sound if already there, otherwise null
+     * @throws Exception if sound file not added
+     */
     public static Sound getSound(String soundFile) {
         File file = new File(soundFile);
         if (sounds.containsKey(file.getAbsolutePath())) {
@@ -70,6 +125,11 @@ public class AssetPool {
         return null;
     }
 
+    /**
+     * @param soundFile the path in the project directory
+     * @param loops whether the sound should loop
+     * @return Sound if already there, otherwise a new Sound is created and returned
+     */
     public static Sound addSound(String soundFile, boolean loops) {
         File file = new File(soundFile);
         if (sounds.containsKey(file.getAbsolutePath())) {
