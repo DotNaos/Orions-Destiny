@@ -7,12 +7,16 @@ import physics2d.components.CircleCollider;
 import physics2d.components.PillboxCollider;
 import physics2d.components.Rigidbody2D;
 import physics2d.enums.BodyType;
+import util.AssetHolder;
 import util.AssetManager;
 
 public class Prefabs {
 
     public static GameObject generateSpriteObject(Sprite sprite, float sizeX, float sizeY) {
-        GameObject block = Window.getScene().createGameObject("Sprite_Object_Gen");
+        GameObject block = Window.getScene().createGameObject("Generated_Num: " +
+                // Add the GameObject id to the name to make it unique
+                Window.getScene().getGameObjects().size()
+                );
         block.transform.scale.x = sizeX;
         block.transform.scale.y = sizeY;
         SpriteRenderer renderer = new SpriteRenderer();
@@ -23,8 +27,8 @@ public class Prefabs {
     }
 
     public static GameObject generateMario() {
-        Spritesheet playerSprites = AssetManager.getSpritesheet("assets/images/spritesheet.png");
-        Spritesheet bigPlayerSprites = AssetManager.getSpritesheet("assets/images/bigSpritesheet.png");
+        Spritesheet playerSprites = AssetManager.getSpritesheet(AssetHolder.PLAYER);
+        Spritesheet bigPlayerSprites = AssetManager.getSpritesheet(AssetHolder.BIG_PLAYER);
         GameObject mario = generateSpriteObject(playerSprites.getSprite(0), 0.25f, 0.25f);
 
         // Little mario animations

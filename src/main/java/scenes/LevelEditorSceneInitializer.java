@@ -18,8 +18,8 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
     private Spritesheet sprites;
     private GameObject levelEditorStuff;
 
-    public LevelEditorSceneInitializer() {
-
+    public LevelEditorSceneInitializer( Scene scene) {
+        super(scene);
     }
 
     @Override
@@ -41,8 +41,6 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
     public void loadResources(Scene scene) {
 
         AssetManager.loadAllResources();
-
-
 
 
 
