@@ -40,7 +40,7 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
     @Override
     public void loadResources(Scene scene) {
 
-        AssetPool.searchDirectory("assets/images/spritesheets", );
+        AssetPool.searchDirectory("assets/images/spritesheets", "png");
         AssetPool.getShader("assets/shaders/default.glsl");
 
         AssetPool.addSpritesheet("assets/images/spritesheets/blocks.png",
