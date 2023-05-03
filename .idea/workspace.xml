@@ -11,9 +11,38 @@
   <component name="ChangeListManager">
     <list default="true" id="787a90ad-2c32-4237-9403-4ac402e3150a" name="Changes" comment="Sounds aus">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/ImGuiLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/ImGuiLayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/MouseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/MouseListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/editor/GameViewWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/editor/GameViewWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/renderer/Renderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/renderer/Renderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Transform.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Transform.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/Component.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/Component.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/Gizmo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/Gizmo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/KeyControls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/KeyControls.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/MouseControls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/MouseControls.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/ScaleGizmo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/ScaleGizmo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/SpriteRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/SpriteRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/TranslateGizmo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/TranslateGizmo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/editor/BImGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/editor/BImGui.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/editor/GameViewWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/editor/GameViewWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/editor/MenuBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/editor/MenuBar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/editor/PropertiesWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/editor/PropertiesWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/editor/SceneHierarchyWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/editor/SceneHierarchyWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/physics2dtmp/PhysicsSystem2D.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/physics2dtmp/forces/ForceGenerator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/physics2dtmp/forces/ForceRegistration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/physics2dtmp/forces/ForceRegistry.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/physics2dtmp/forces/Gravity2D.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/physics2dtmp/primitives/AABB.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/physics2dtmp/primitives/Box2D.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/physics2dtmp/primitives/Circle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/physics2dtmp/primitives/Collider2D.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/physics2dtmp/primitives/Ray2D.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/physics2dtmp/primitives/RaycastResult.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/physics2dtmp/rigidbody/CollisionManifold.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/physics2dtmp/rigidbody/Collisions.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/physics2dtmp/rigidbody/IntersectionDetector2D.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/physics2dtmp/rigidbody/Rigidbody2D.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/scenes/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scenes/Scene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/physics2dtmp/CollisionDetectorTests.java" beforeDir="false" />
     </list>
     <list id="25a488fd-f17c-453d-94a6-413269d6c7ff" name="Changes by schue" comment="Changes by schue" />
     <option name="SHOW_DIALOG" value="false" />
@@ -94,29 +123,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;TODO_SCOPE&quot;: &quot;All Places&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/schue/Documents/Dev/Java/Orions-Destiny&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
-    &quot;settings.editor.splitter.proportion&quot;: &quot;0.30120483&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "TODO_SCOPE": "All Places",
+    "WebServerToolWindowFactoryState": "false",
+    "deletionFromPopupRequiresConfirmation": "false",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/schue/Documents/Dev/Java/Orions-Destiny",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "settings.editor.splitter.proportion": "0.30120483",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="Engine" />
@@ -139,7 +169,6 @@
       <module name="Orions-Destiny.main" />
       <method v="2">
         <option name="Make" enabled="true" />
-        <option name="RunConfigurationTask" enabled="true" run_configuration_name="CollisionDetectorTests" run_configuration_type="JUnit" />
       </method>
     </configuration>
     <configuration name="CollisionDetectorTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -186,9 +215,7 @@
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
       <ForceTestExec>false</ForceTestExec>
-      <method v="2">
-        <option name="RunConfigurationTask" enabled="true" run_configuration_name="CollisionDetectorTests" run_configuration_type="JUnit" />
-      </method>
+      <method v="2" />
     </configuration>
     <configuration name="Orions-Destiny [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -212,52 +239,17 @@
       <ForceTestExec>false</ForceTestExec>
       <method v="2" />
     </configuration>
-    <configuration name="CollisionDetectorTests" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
-      <module name="Orions-Destiny.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="physics2dtmp.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="physics2d" />
-      <option name="MAIN_CLASS_NAME" value="physics2dtmp.CollisionDetectorTests" />
-      <option name="METHOD_NAME" value="" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CollisionDetectorTests.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Orions-Destiny.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="physics2dtmp.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="physics2d" />
-      <option name="MAIN_CLASS_NAME" value="physics2dtmp.CollisionDetectorTests" />
-      <option name="METHOD_NAME" value="test" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="Gradle.Orions-Destiny [:Main.main()]" />
       <item itemvalue="Gradle.CollisionDetectorTests" />
       <item itemvalue="Gradle.Orions-Destiny [dependencies]" />
-      <item itemvalue="JUnit.CollisionDetectorTests" />
-      <item itemvalue="JUnit.CollisionDetectorTests.test" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.Orions-Destiny [dependencies]" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Gradle.CollisionDetectorTests" />
-        <item itemvalue="JUnit.CollisionDetectorTests.test" />
       </list>
     </recent_temporary>
   </component>
@@ -338,6 +330,7 @@
       <workItem from="1682958492265" duration="1093000" />
       <workItem from="1683008973937" duration="6173000" />
       <workItem from="1683015319184" duration="7179000" />
+      <workItem from="1683122686887" duration="1792000" />
     </task>
     <task id="LOCAL-00029" summary="Custom Font und ImGUI integration mit Color Picker">
       <created>1679832695005</created>

@@ -1,4 +1,4 @@
-package editor;
+package Burst.editor;
 
 import imgui.ImGui;
 import imgui.flag.ImGuiCol;

@@ -1,7 +1,7 @@
 package Burst;
 
 import components.Component;
-import editor.BImGui;
+import Burst.editor.BImGui;
 import org.joml.Vector2f;
 
 public class Transform extends Component {

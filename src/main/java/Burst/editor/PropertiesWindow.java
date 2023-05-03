@@ -1,4 +1,4 @@
-package editor;
+package Burst.editor;
 
 import components.NonPickable;
 import components.SpriteRenderer;

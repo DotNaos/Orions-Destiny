@@ -1,6 +1,6 @@
 package components;
 
-import editor.PropertiesWindow;
+import Burst.editor.PropertiesWindow;
 import Burst.GameObject;
 import Burst.KeyListener;
 import Burst.Window;

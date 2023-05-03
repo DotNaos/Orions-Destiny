@@ -1,9 +1,9 @@
 package Burst;
 
-import editor.GameViewWindow;
-import editor.MenuBar;
-import editor.PropertiesWindow;
-import editor.SceneHierarchyWindow;
+import Burst.editor.GameViewWindow;
+import Burst.editor.MenuBar;
+import Burst.editor.PropertiesWindow;
+import Burst.editor.SceneHierarchyWindow;
 import imgui.*;
 import imgui.callback.ImStrConsumer;
 import imgui.callback.ImStrSupplier;

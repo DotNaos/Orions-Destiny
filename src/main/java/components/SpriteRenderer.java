@@ -1,6 +1,6 @@
 package components;
 
-import editor.BImGui;
+import Burst.editor.BImGui;
 import Burst.Transform;
 import org.joml.Vector2f;
 import org.joml.Vector4f;

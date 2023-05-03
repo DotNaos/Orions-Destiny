@@ -1,6 +1,6 @@
 package components;
 
-import editor.PropertiesWindow;
+import Burst.editor.PropertiesWindow;
 import Burst.MouseListener;
 
 public class ScaleGizmo extends Gizmo {

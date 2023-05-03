@@ -1,6 +1,6 @@
 package components;
 
-import editor.PropertiesWindow;
+import Burst.editor.PropertiesWindow;
 import Burst.*;
 import org.joml.Vector2f;
 import org.joml.Vector4f;

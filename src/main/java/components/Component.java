@@ -1,6 +1,6 @@
 package components;
 
-import editor.BImGui;
+import Burst.editor.BImGui;
 import imgui.ImGui;
 import imgui.type.ImInt;
 import Burst.GameObject;

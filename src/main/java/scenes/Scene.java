@@ -15,6 +15,7 @@ import renderer.Renderer;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.NoSuchFileException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
@@ -210,8 +211,30 @@ public class Scene {
         String inFile = "";
         try {
             inFile = new String(Files.readAllBytes(Paths.get("level.json")));
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException e)
+        {
+            if (e instanceof NoSuchFileException) {
+                System.out.println(
+                        """ 
+                                \n
+                                ---------------------------
+                                !!!!No level file found!!!!
+                                ---------------------------
+                                \n
+                         """
+                );
+
+            } else {
+                System.out.println(
+                        """
+                                \n
+                                ---------------------------
+                                !!!!Error loading level!!!!
+                                ---------------------------
+                                \n
+                         """
+                );
+            }
         }
 
         if (!inFile.equals("")) {
