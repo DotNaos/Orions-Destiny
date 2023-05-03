@@ -43,8 +43,6 @@ public class GameViewWindow {
         MouseListener.setGameViewportPos(new Vector2f(windowPos.x + 10, windowPos.y));
         MouseListener.setGameViewportSize(new Vector2f(windowSize.x, windowSize.y));
 
-
-
         ImGui.end();
     }
 

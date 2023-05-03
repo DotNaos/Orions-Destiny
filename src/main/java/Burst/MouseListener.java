@@ -73,12 +73,6 @@ public class MouseListener {
         get().xPos = xpos;
         get().yPos = ypos;
 
-        DebugDraw.addBox2D(
-                new Vector2f((float)get().xPos, (float)get().yPos),
-                new Vector2f(0.1f, 0.1f),
-                0.0f,
-                new Vector3f(1, 0, 0)
-        );
     }
 
     public static void mouseButtonCallback(long window, int button, int action, int mods) {
@@ -155,8 +149,8 @@ public class MouseListener {
         Matrix4f inverseProjection = new Matrix4f(camera.getInverseProjection());
         tmp.mul(inverseView.mul(inverseProjection));
 
-//        tmp.x -= 1920 - getGameViewportSize().x;
-        System.out.println(tmp.x + " " + tmp.y);
+
+
         DebugDraw.addBox2D(
                 new Vector2f(tmp.x, tmp.y),
                 new Vector2f(0.1f, 0.1f),
