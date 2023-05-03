@@ -63,7 +63,7 @@ public class AssetHolder {
     //========================  Asset Spritesheets  =====================
     //===================================================================
     public static final Spritesheet PLAYER_SPRITESHEET = new Spritesheet(AssetManager.getTexture(PLAYER), 16, 16, 26, 0);
-    public static final Spritesheet BLOCKS_SPRITESHEET = new Spritesheet(AssetManager.getTexture(AssetHolder.BLOCKS), 32, 32, 81, 0);
+    public static final Spritesheet BLOCKS_SPRITESHEET = new Spritesheet(AssetManager.getTexture(AssetHolder.BLOCKS), 16, 16, 81, 0);
     public static final Spritesheet TURTLE_SPRITESHEET = new Spritesheet(AssetManager.getTexture(AssetHolder.TURTLE), 16, 24, 4, 0);
     public static final Spritesheet BIG_PLAYER_SPRITESHEET = new Spritesheet(AssetManager.getTexture(AssetHolder.BIG_PLAYER), 16, 32, 42, 0);
     public static final Spritesheet PIPES_SPRITESHEET = new Spritesheet(AssetManager.getTexture(AssetHolder.PIPES), 32, 32, 4, 0);

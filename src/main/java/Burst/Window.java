@@ -17,6 +17,7 @@ import scenes.LevelEditorSceneInitializer;
 import scenes.LevelSceneInitializer;
 import scenes.Scene;
 import scenes.SceneInitializer;
+import util.AssetHolder;
 import util.AssetManager;
 
 import static org.lwjgl.glfw.Callbacks.glfwFreeCallbacks;
@@ -171,8 +172,8 @@ public class Window implements Observer {
         float endTime;
         float dt = -1.0f;
 
-        Shader defaultShader = AssetManager.getShader("assets/shaders/default.glsl");
-        Shader pickingShader = AssetManager.getShader("assets/shaders/pickingShader.glsl");
+        Shader defaultShader = AssetManager.getShader(AssetHolder.SHADER_DEFAULT);
+        Shader pickingShader = AssetManager.getShader(AssetHolder.SHADER_PICKING);
 
         while (!glfwWindowShouldClose(glfwWindow)) {
             // Poll events

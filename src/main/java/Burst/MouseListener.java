@@ -206,5 +206,10 @@ public class MouseListener {
         get().gameViewportSize.set(gameViewportSize);
     }
 
+    // get GameViewportSize
+    public static Vector2f getGameViewportSize() {
+        return get().gameViewportSize;
+    }
+
 
 }
