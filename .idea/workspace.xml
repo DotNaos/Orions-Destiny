@@ -9,18 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="787a90ad-2c32-4237-9403-4ac402e3150a" name="Changes" comment="GameViewPortSize">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/MouseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/MouseListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/components/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/Block.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/components/BlockCoin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/BlockCoin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/components/BreakableBrick.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/BreakableBrick.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/components/Coin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/Coin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/components/Flower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/Flower.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/components/GoombaAI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/GoombaAI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/components/MushroomAI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/MushroomAI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/components/Pipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/Pipe.java" afterDir="false" />
+    <list default="true" id="787a90ad-2c32-4237-9403-4ac402e3150a" name="Changes" comment="SOunds auskommentiert">
       <change beforePath="$PROJECT_DIR$/src/main/java/components/PlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/PlayerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/TurtleAI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/TurtleAI.java" afterDir="false" />
     </list>
     <list id="25a488fd-f17c-453d-94a6-413269d6c7ff" name="Changes by schue" comment="Changes by schue" />
     <option name="SHOW_DIALOG" value="false" />
@@ -345,13 +336,6 @@
       <workItem from="1682958492265" duration="1093000" />
       <workItem from="1683008973937" duration="6173000" />
       <workItem from="1683015319184" duration="7179000" />
-    </task>
-    <task id="LOCAL-00027" summary="ImGUI integration">
-      <created>1679829206137</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1679829206137</updated>
     </task>
     <task id="LOCAL-00028" summary="Temporäre Lösung: &#10;             Auskommentieren&#10;             &#10;'glfwWindowHint(GLFW_MAXIMIZED, GLFW_TRUE);'">
       <created>1679829834406</created>
@@ -689,7 +673,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683095701960</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="SOunds auskommentiert">
+      <created>1683097129116</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1683097129116</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -739,7 +730,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="switch to pc" />
     <MESSAGE value="Properties Window" />
     <MESSAGE value="Viewport Camera movement" />
     <MESSAGE value="Gizmos" />
@@ -764,7 +754,8 @@
     <MESSAGE value="Ordner" />
     <MESSAGE value="Für Dominik" />
     <MESSAGE value="GameViewPortSize" />
-    <option name="LAST_COMMIT_MESSAGE" value="GameViewPortSize" />
+    <MESSAGE value="SOunds auskommentiert" />
+    <option name="LAST_COMMIT_MESSAGE" value="SOunds auskommentiert" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

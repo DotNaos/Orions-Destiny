@@ -303,8 +303,8 @@ public class PlayerController extends Component {
             this.rb.setVelocity(new Vector2f());
             this.isDead = true;
             this.rb.setIsSensor();
-            AssetManager.getSound("assets/sounds/main-theme-overworld.ogg").stop();
-            AssetManager.getSound("assets/sounds/mario_die.ogg").play();
+//            AssetManager.getSound("assets/sounds/main-theme-overworld.ogg").stop();
+//            AssetManager.getSound("assets/sounds/mario_die.ogg").play();
             deadMaxHeight = this.gameObject.transform.position.y + 0.3f;
             this.rb.setBodyType(BodyType.Static);
             if (gameObject.transform.position.y > 0) {
@@ -320,11 +320,11 @@ public class PlayerController extends Component {
                 pb.setHeight(0.25f);
             }
             hurtInvincibilityTimeLeft = hurtInvincibilityTime;
-            AssetManager.getSound("assets/sounds/pipe.ogg").play();
+//            AssetManager.getSound("assets/sounds/pipe.ogg").play();
         } else if (playerState == PlayerState.Fire) {
             this.playerState = PlayerState.Big;
             hurtInvincibilityTimeLeft = hurtInvincibilityTime;
-            AssetManager.getSound("assets/sounds/pipe.ogg").play();
+//            AssetManager.getSound("assets/sounds/pipe.ogg").play();
         }
     }
 
