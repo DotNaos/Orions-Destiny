@@ -1,5 +1,6 @@
 package Burst;
 
+import editor.GameViewWindow;
 import org.joml.Matrix4f;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
@@ -153,6 +154,15 @@ public class MouseListener {
         Matrix4f inverseView = new Matrix4f(camera.getInverseView());
         Matrix4f inverseProjection = new Matrix4f(camera.getInverseProjection());
         tmp.mul(inverseView.mul(inverseProjection));
+
+//        tmp.x -= 1920 - getGameViewportSize().x;
+        System.out.println(tmp.x + " " + tmp.y);
+        DebugDraw.addBox2D(
+                new Vector2f(tmp.x, tmp.y),
+                new Vector2f(0.1f, 0.1f),
+                0.0f,
+                new Vector3f(1, 0, 0));
+
         return new Vector2f(tmp.x, tmp.y);
     }
 

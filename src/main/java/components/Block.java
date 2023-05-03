@@ -46,7 +46,7 @@ public abstract class Block extends Component {
         PlayerController playerController = obj.getComponent(PlayerController.class);
         if (active && playerController != null && contactNormal.y < -0.8f) {
             doBopAnimation = true;
-            AssetManager.getSound("assets/sounds/bump.ogg").play();
+//            AssetManager.getSound("assets/sounds/bump.ogg").play();
             playerHit(playerController);
         }
     }

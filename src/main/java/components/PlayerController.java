@@ -81,9 +81,9 @@ public class PlayerController extends Component {
                     gameObject.transform.position.x += dt;
                     stateMachine.trigger("startRunning");
                 }
-                if (!AssetManager.getSound("assets/sounds/stage_clear.ogg").isPlaying()) {
-                    AssetManager.getSound("assets/sounds/stage_clear.ogg").play();
-                }
+//                if (!AssetManager.getSound("assets/sounds/stage_clear.ogg").isPlaying()) {
+//                    AssetManager.getSound("assets/sounds/stage_clear.ogg").play();
+//                }
                 timeToCastle -= dt;
                 walkTime -= dt;
 
@@ -179,7 +179,7 @@ public class PlayerController extends Component {
         checkOnGround();
         if (KeyListener.isKeyPressed(GLFW_KEY_SPACE) && (jumpTime > 0 || onGround || groundDebounce > 0)) {
             if ((onGround || groundDebounce > 0) && jumpTime == 0) {
-                AssetManager.getSound("assets/sounds/jump-small.ogg").play();
+//                AssetManager.getSound("assets/sounds/jump-small.ogg").play();
                 jumpTime = 28;
                 this.velocity.y = jumpImpulse;
             } else if (jumpTime > 0) {
@@ -233,7 +233,7 @@ public class PlayerController extends Component {
     public void powerup() {
         if (playerState == PlayerState.Small) {
             playerState = PlayerState.Big;
-            AssetManager.getSound("assets/sounds/powerup.ogg").play();
+//            AssetManager.getSound("assets/sounds/powerup.ogg").play();
             gameObject.transform.scale.y = 0.42f;
             PillboxCollider pb = gameObject.getComponent(PillboxCollider.class);
             if (pb != null) {
@@ -243,7 +243,7 @@ public class PlayerController extends Component {
             }
         } else if (playerState == PlayerState.Big) {
             playerState = PlayerState.Fire;
-            AssetManager.getSound("assets/sounds/powerup.ogg").play();
+//            AssetManager.getSound("assets/sounds/powerup.ogg").play();
         }
 
         stateMachine.trigger("powerup");
@@ -258,8 +258,8 @@ public class PlayerController extends Component {
             rb.setIsSensor();
             rb.setBodyType(BodyType.Static);
             gameObject.transform.position.x = flagpole.transform.position.x;
-            AssetManager.getSound("assets/sounds/main-theme-overworld.ogg").stop();
-            AssetManager.getSound("assets/sounds/flagpole.ogg").play();
+//            AssetManager.getSound("assets/sounds/main-theme-overworld.ogg").stop();
+//            AssetManager.getSound("assets/sounds/flagpole.ogg").play();
         }
     }
 

@@ -16,7 +16,7 @@ public class MushroomAI extends Component {
     @Override
     public void start() {
         this.rb = gameObject.getComponent(Rigidbody2D.class);
-        AssetManager.getSound("assets/sounds/powerup_appears.ogg").play();
+//        AssetManager.getSound("assets/sounds/powerup_appears.ogg").play();
     }
 
     @Override
@@ -37,7 +37,7 @@ public class MushroomAI extends Component {
                 if (playerController.isSmall()) {
                     playerController.powerup();
                 } else {
-                    AssetManager.getSound("assets/sounds/coin.ogg").play();
+//                    AssetManager.getSound("assets/sounds/coin.ogg").play();
                 }
                 this.gameObject.destroy();
                 hitPlayer = true;

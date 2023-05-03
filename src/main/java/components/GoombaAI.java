@@ -117,7 +117,7 @@ public class GoombaAI extends Component {
         this.stateMachine.trigger("squashMe");
         this.rb.setIsSensor();
         if (playSound) {
-            AssetManager.getSound("assets/sounds/bump.ogg").play();
+//            AssetManager.getSound("assets/sounds/bump.ogg").play();
         }
     }
 }

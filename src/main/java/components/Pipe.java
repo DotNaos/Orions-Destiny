@@ -74,7 +74,7 @@ public class Pipe extends Component {
                 collidingPlayer.setPosition(
                         getPlayerPosition(connectingPipe)
                 );
-                AssetManager.getSound("assets/sounds/pipe.ogg").play();
+//                AssetManager.getSound("assets/sounds/pipe.ogg").play();
             }
         }
     }
