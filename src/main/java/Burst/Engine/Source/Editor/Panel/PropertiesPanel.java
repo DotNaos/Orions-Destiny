@@ -1,6 +1,7 @@
-package Burst.Engine.Source.Editor.UI.Panel;
+package Burst.Engine.Source.Editor.Panel;
 
 import Burst.Engine.Source.Core.Graphics.Sprite.SpriteRenderer;
+import Burst.Engine.Source.Core.UI.ImGuiPanel;
 import imgui.ImGui;
 import Burst.Engine.Source.Core.GameObject;
 import org.joml.Vector4f;
@@ -12,7 +13,7 @@ import Burst.Engine.Source.Core.Graphics.Render.PickingTexture;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PropertiesPanel {
+public class PropertiesPanel extends ImGuiPanel {
     private List<GameObject> activeGameObjects;
     private List<Vector4f> activeGameObjectsOgColor;
     private GameObject activeGameObject = null;
@@ -24,6 +25,7 @@ public class PropertiesPanel {
         this.activeGameObjectsOgColor = new ArrayList<>();
     }
 
+    @Override
     public void imgui() {
         if (activeGameObjects.size() == 1 && activeGameObjects.get(0) != null) {
             activeGameObject = activeGameObjects.get(0);

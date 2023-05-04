@@ -1,4 +1,4 @@
-package Burst.Engine.Source.Editor;
+package Burst.Engine.Source.Core.UI;
 
 import imgui.ImGui;
 import imgui.flag.ImGuiCol;
@@ -8,6 +8,9 @@ import org.joml.Vector2f;
 import org.joml.Vector3f;
 import org.joml.Vector4f;
 
+/**
+ * This class has various methods to draw ImGui controls.
+ */
 public class BImGui {
 
     private static float defaultColumnWidth = 220.0f;

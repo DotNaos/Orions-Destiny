@@ -3,7 +3,7 @@ package Burst.Engine.Source.Core.Graphics.Render.Components;
 import Burst.Engine.Config.Constants.GridLines_Config;
 import Burst.Engine.Source.Core.Graphics.Debug.DebugDraw;
 import Burst.Engine.Source.Core.Camera;
-import Burst.Engine.Source.Editor.UI.Window;
+import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Core.Component;
 import org.joml.Vector2f;
 import org.joml.Vector3f;

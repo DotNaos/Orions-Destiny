@@ -3,9 +3,9 @@ package Burst.Engine.Source.Core.Graphics.Input.Components;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Runtime.Animation.StateMachine;
 import Burst.Engine.Source.Core.Graphics.Input.KeyListener;
-import Burst.Engine.Source.Editor.UI.Panel.PropertiesPanel;
+import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
 import Burst.Engine.Source.Core.GameObject;
-import Burst.Engine.Source.Editor.UI.Window;
+import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Config.Constants.GridLines_Config;
 
 import java.util.ArrayList;
@@ -21,7 +21,7 @@ public class KeyControls extends Component {
     public void editorUpdate(float dt) {
         debounce -= dt;
 
-        PropertiesPanel propertiesPanel = Window.getImguiLayer().getPropertiesWindow();
+        PropertiesPanel propertiesPanel = Window.getScene().getSceneInitializer().getPanel(PropertiesPanel.class);
         GameObject activeGameObject = propertiesPanel.getActiveGameObject();
         List<GameObject> activeGameObjects = propertiesPanel.getActiveGameObjects();
         float multiplier = KeyListener.isKeyPressed(GLFW_KEY_LEFT_SHIFT) ? 0.1f : 1.0f;

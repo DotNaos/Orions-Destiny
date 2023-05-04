@@ -3,7 +3,7 @@ package Orion.blocks;
 import Burst.Engine.Source.Editor.Direction;
 import Burst.Engine.Source.Core.GameObject;
 import Burst.Engine.Source.Core.Graphics.Input.KeyListener;
-import Burst.Engine.Source.Editor.UI.Window;
+import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Runtime.Actor.PlayerController;
 import org.jbox2d.dynamics.contacts.Contact;

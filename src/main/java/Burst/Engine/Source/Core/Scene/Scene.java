@@ -8,6 +8,7 @@ import Burst.Engine.Source.Core.Physics.Components.Transform;
 import Burst.Engine.Source.Core.Camera;
 import Burst.Engine.Source.Core.GameObject;
 import Burst.Engine.Source.Core.Saving.GameObjectDeserializer;
+import Burst.Engine.Source.Core.UI.ImGuiPanel;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import Burst.Engine.Source.Core.Saving.ComponentDeserializer;
@@ -28,7 +29,7 @@ public class Scene {
 
     private Renderer renderer;
     private Camera camera;
-    private boolean isRunning;
+    private boolean isRunning = false;
     private List<GameObject> gameObjects;
     private List<GameObject> pendingObjects;
     private Physics2D physics2D;
@@ -41,7 +42,9 @@ public class Scene {
         this.renderer = new Renderer();
         this.gameObjects = new ArrayList<>();
         this.pendingObjects = new ArrayList<>();
-        this.isRunning = false;
+    }
+    public Scene(){
+
     }
 
     public Physics2D getPhysics() {
@@ -260,4 +263,9 @@ public class Scene {
             Component.init(maxCompId);
         }
     }
+
+    public SceneInitializer getSceneInitializer() {
+        return this.sceneInitializer;
+    }
+
 }

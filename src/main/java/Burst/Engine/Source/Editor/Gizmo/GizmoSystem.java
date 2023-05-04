@@ -1,9 +1,11 @@
 package Burst.Engine.Source.Editor.Gizmo;
 
 import Burst.Engine.Source.Core.Graphics.Input.KeyListener;
-import Burst.Engine.Source.Editor.UI.Window;
+import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Core.Graphics.Sprite.Spritesheet;
 import Burst.Engine.Source.Core.Component;
+import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
+import Burst.Engine.Source.Editor.Panel.ViewportPanel;
 
 import static org.lwjgl.glfw.GLFW.GLFW_KEY_E;
 import static org.lwjgl.glfw.GLFW.GLFW_KEY_R;
@@ -19,9 +21,9 @@ public class GizmoSystem extends Component {
     @Override
     public void start() {
         gameObject.addComponent(new TranslateGizmo(gizmos.getSprite(1),
-                Window.getImguiLayer().getPropertiesWindow()));
+                Window.getScene().getSceneInitializer().getPanel(PropertiesPanel.class)));
         gameObject.addComponent(new ScaleGizmo(gizmos.getSprite(2),
-                Window.getImguiLayer().getPropertiesWindow()));
+                Window.getScene().getSceneInitializer().getPanel(PropertiesPanel.class)));
     }
 
     @Override

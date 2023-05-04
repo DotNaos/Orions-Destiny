@@ -1,20 +1,22 @@
-package Burst.Engine.Source.Editor.UI.Panel;
+package Burst.Engine.Source.Editor.Panel;
 
 import Burst.Engine.Source.Core.Observer.*;
 import Burst.Engine.Source.Core.Observer.Events.Event;
 import Burst.Engine.Source.Core.Observer.Events.EventType;
+import Burst.Engine.Source.Core.UI.ImGuiPanel;
 import imgui.ImGui;
 import imgui.ImVec2;
 import imgui.flag.ImGuiWindowFlags;
 import Burst.Engine.Source.Core.Graphics.Input.MouseListener;
-import Burst.Engine.Source.Editor.UI.Window;
+import Burst.Engine.Source.Core.UI.Window;
 import org.joml.Vector2f;
 
-public class ViewportPanel {
+public class ViewportPanel extends ImGuiPanel {
 
     private boolean isPlaying = false;
     private boolean windowIsHovered;
 
+    @Override
     public void imgui() {
         ImGui.begin("Viewport", ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoScrollWithMouse
                         | ImGuiWindowFlags.MenuBar);

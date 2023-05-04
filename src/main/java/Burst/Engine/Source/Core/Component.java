@@ -1,7 +1,7 @@
 package Burst.Engine.Source.Core;
 
 import Burst.Engine.Source.Core.util.AssetManager;
-import Burst.Engine.Source.Editor.BImGui;
+import Burst.Engine.Source.Core.UI.BImGui;
 import imgui.ImGui;
 import imgui.type.ImInt;
 import org.jbox2d.dynamics.contacts.Contact;

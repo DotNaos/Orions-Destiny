@@ -6,7 +6,7 @@ import Burst.Engine.Source.Core.Physics.Components.Transform;
 import Burst.Engine.Source.Core.Physics.Components.Rigidbody2D;
 import Orion.blocks.Ground;
 import Burst.Engine.Source.Core.GameObject;
-import Burst.Engine.Source.Editor.UI.Window;
+import Burst.Engine.Source.Core.UI.Window;
 import org.jbox2d.collision.shapes.CircleShape;
 import org.jbox2d.collision.shapes.PolygonShape;
 import org.jbox2d.common.Vec2;

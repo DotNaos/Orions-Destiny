@@ -1,6 +1,6 @@
 package Burst.Engine.Source;
 
-import Burst.Engine.Source.Editor.UI.Window;
+import Burst.Engine.Source.Core.UI.Window;
 
 public class Main {
     public static void main(String[] args) {

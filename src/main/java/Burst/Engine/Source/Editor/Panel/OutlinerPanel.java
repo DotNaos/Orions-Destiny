@@ -1,17 +1,18 @@
-package Burst.Engine.Source.Editor.UI.Panel;
+package Burst.Engine.Source.Editor.Panel;
 
+import Burst.Engine.Source.Core.UI.ImGuiPanel;
 import imgui.ImGui;
-import imgui.flag.ImGuiCol;
 import imgui.flag.ImGuiTreeNodeFlags;
 import Burst.Engine.Source.Core.GameObject;
-import Burst.Engine.Source.Editor.UI.Window;
+import Burst.Engine.Source.Core.UI.Window;
 
 import java.util.List;
 
-public class OutlinerPanel {
+public class OutlinerPanel extends ImGuiPanel {
 
     private static String payloadDragDropType = "Outliner";
 
+    @Override
     public void imgui() {
         ImGui.begin("Outliner");
 

@@ -1,7 +1,7 @@
 package Burst.Engine.Source.Runtime;
 
 import Burst.Engine.Source.Core.GameObject;
-import Burst.Engine.Source.Editor.UI.Window;
+import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Core.Camera;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Runtime.Actor.PlayerController;

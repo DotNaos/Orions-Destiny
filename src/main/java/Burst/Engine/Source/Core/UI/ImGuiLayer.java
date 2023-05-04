@@ -1,12 +1,10 @@
-package Burst.Engine.Source.Editor.UI;
+package Burst.Engine.Source.Core.UI;
 
 import Burst.Engine.Source.Core.Graphics.Render.PickingTexture;
 import Burst.Engine.Source.Core.Graphics.Input.KeyListener;
 import Burst.Engine.Source.Core.Graphics.Input.MouseListener;
-import Burst.Engine.Source.Editor.UI.Panel.ViewportPanel;
-import Burst.Engine.Source.Editor.UI.widgets.MenuBar;
-import Burst.Engine.Source.Editor.UI.Panel.PropertiesPanel;
-import Burst.Engine.Source.Editor.UI.Panel.OutlinerPanel;
+import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
+import Burst.Engine.Source.Editor.Panel.ViewportPanel;
 import imgui.*;
 import imgui.callback.ImStrConsumer;
 import imgui.callback.ImStrSupplier;
@@ -35,22 +33,12 @@ public class ImGuiLayer {
     private final ImGuiImplGl3 imGuiGl3 = new ImGuiImplGl3();
     private final ImGuiImplGlfw imGuiGlfw = new ImGuiImplGlfw();
 
-    private ViewportPanel viewportPanel;
-    private PropertiesPanel propertiesPanel;
-    private MenuBar menuBar;
-    private OutlinerPanel sceneHeirarchyWindow;
 
-    public ImGuiLayer(long glfwWindow, PickingTexture pickingTexture) {
+
+    public ImGuiLayer(long glfwWindow) {
         this.glfwWindow = glfwWindow;
-        this.viewportPanel = new ViewportPanel();
-        this.propertiesPanel = new PropertiesPanel(pickingTexture);
-        this.menuBar = new MenuBar();
-        this.sceneHeirarchyWindow = new OutlinerPanel();
     }
 
-    public ViewportPanel getGameViewWindow() {
-        return this.viewportPanel;
-    }
 
     // Initialize Dear ImGui.
     public void initImGui() {
@@ -108,8 +96,8 @@ public class ImGuiLayer {
                 ImGui.setWindowFocus(null);
             }
 
-
-            if (viewportPanel.getWantCaptureMouse()) {
+            Window.getScene().getSceneInitializer().mouseListener();
+            if (Window.getScene().getSceneInitializer().getPanel(ViewportPanel.class).getWantCaptureMouse()) {
                 MouseListener.mouseButtonCallback(w, button, action, mods);
             }
         });
@@ -117,7 +105,7 @@ public class ImGuiLayer {
         glfwSetScrollCallback(glfwWindow, (w, xOffset, yOffset) -> {
             io.setMouseWheelH(io.getMouseWheelH() + (float) xOffset);
             io.setMouseWheel(io.getMouseWheel() + (float) yOffset);
-            if (!io.getWantCaptureMouse() || viewportPanel.getWantCaptureMouse()) {
+            if (!io.getWantCaptureMouse() || Window.getScene().getSceneInitializer().getPanel(ViewportPanel.class).getWantCaptureMouse()) {
                 MouseListener.mouseScrollCallback(w, xOffset, yOffset);
             } else {
                 MouseListener.clear();
@@ -201,10 +189,6 @@ public class ImGuiLayer {
         setupDockspace();
         currentScene.imgui();
         ImGui.showDemoWindow();
-        viewportPanel.imgui();
-        propertiesPanel.imgui();
-        sceneHeirarchyWindow.imgui();
-
         endFrame();
     }
 
@@ -263,12 +247,9 @@ public class ImGuiLayer {
         // Dockspace
         ImGui.dockSpace(ImGui.getID("Dockspace"));
 
-        menuBar.imgui();
+
 
         ImGui.end();
     }
 
-    public PropertiesPanel getPropertiesWindow() {
-        return this.propertiesPanel;
-    }
 }

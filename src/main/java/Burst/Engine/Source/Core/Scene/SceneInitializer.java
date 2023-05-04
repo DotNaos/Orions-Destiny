@@ -2,14 +2,22 @@ package Burst.Engine.Source.Core.Scene;
 
 import Burst.Engine.Source.Core.Graphics.Sprite.SpriteRenderer;
 import Burst.Engine.Source.Core.GameObject;
+import Burst.Engine.Source.Core.UI.ImGuiPanel;
+import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
 import Burst.Engine.Source.Runtime.Animation.StateMachine;
 import Burst.Engine.Source.Core.util.AssetManager;
 
-public class SceneInitializer {
+import java.util.ArrayList;
+import java.util.List;
+
+public abstract class SceneInitializer {
+    protected List<ImGuiPanel> panels = new ArrayList<>();
+
 
     public void init(Scene scene) {
-        
+
     }
+
 
     public void loadResources(Scene scene) {
         AssetManager.loadAllResources();
@@ -31,6 +39,21 @@ public class SceneInitializer {
     }
 
     public void imgui() {
-        
+        for (ImGuiPanel panel : panels) {
+            panel.imgui();
+        }
+    }
+
+    public <T extends ImGuiPanel> T getPanel(Class<T> type) {
+        for (ImGuiPanel panel : panels) {
+            if (panel.getClass() == type) {
+                return (T) panel;
+            }
+        }
+        return null;
+    }
+
+    public void mouseListener(){
+
     }
 }

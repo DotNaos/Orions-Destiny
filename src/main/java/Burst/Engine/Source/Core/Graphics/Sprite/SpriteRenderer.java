@@ -1,7 +1,7 @@
 package Burst.Engine.Source.Core.Graphics.Sprite;
 
 import Burst.Engine.Source.Core.Graphics.Render.Texture;
-import Burst.Engine.Source.Editor.BImGui;
+import Burst.Engine.Source.Core.UI.BImGui;
 import Burst.Engine.Source.Core.Physics.Components.Transform;
 import Burst.Engine.Source.Core.Component;
 import org.joml.Vector2f;

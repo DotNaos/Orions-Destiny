@@ -3,7 +3,7 @@ package Burst.Engine.Source.Runtime.Actor;
 import Burst.Engine.Source.Core.GameObject;
 import Burst.Engine.Source.Core.Graphics.Input.KeyListener;
 import Burst.Engine.Source.Core.util.Prefabs;
-import Burst.Engine.Source.Editor.UI.Window;
+import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Runtime.Animation.StateMachine;
 import Orion.blocks.Ground;
@@ -16,8 +16,8 @@ import Burst.Engine.Source.Core.Physics.Physics2D;
 import Burst.Engine.Source.Core.Physics.Components.PillboxCollider;
 import Burst.Engine.Source.Core.Physics.Components.Rigidbody2D;
 import Burst.Engine.Source.Core.Physics.Enums.BodyType;
-import Burst.Engine.Source.Editor.LevelEditorSceneInitializer;
-import Burst.Engine.Source.Runtime.LevelSceneInitializer;
+import Burst.Engine.Source.Core.Scene.LevelEditorSceneInitializer;
+import Burst.Engine.Source.Core.Scene.LevelSceneInitializer;
 
 import static org.lwjgl.glfw.GLFW.*;
 

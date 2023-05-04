@@ -1,6 +1,6 @@
 package Burst.Engine.Source.Editor.Gizmo;
 
-import Burst.Engine.Source.Editor.UI.Panel.PropertiesPanel;
+import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
 import Burst.Engine.Source.Core.Graphics.Input.MouseListener;
 import Burst.Engine.Source.Core.Graphics.Sprite.Sprite;
 

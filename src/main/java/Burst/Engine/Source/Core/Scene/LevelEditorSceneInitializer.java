@@ -1,7 +1,7 @@
-package Burst.Engine.Source.Editor;
+package Burst.Engine.Source.Core.Scene;
 
-import Burst.Engine.Source.Core.Scene.Scene;
-import Burst.Engine.Source.Core.Scene.SceneInitializer;
+import Burst.Engine.Source.Core.Graphics.Input.MouseListener;
+import Burst.Engine.Source.Core.Graphics.Render.PickingTexture;
 import Burst.Engine.Source.Core.Graphics.Render.Components.GridLines;
 import Burst.Engine.Source.Core.Graphics.Sprite.Sprite;
 import Burst.Engine.Source.Core.Graphics.Sprite.Spritesheet;
@@ -10,8 +10,15 @@ import Burst.Engine.Source.Core.Physics.Components.Box2DCollider;
 import Burst.Engine.Source.Core.Physics.Components.Rigidbody2D;
 import Burst.Engine.Source.Core.Physics.Enums.BodyType;
 import Burst.Engine.Source.Core.GameObject;
+import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Core.util.Prefabs;
 import Burst.Engine.Source.Core.Audio.Sound;
+import Burst.Engine.Source.Editor.Direction;
+import Burst.Engine.Source.Editor.EditorCamera;
+import Burst.Engine.Source.Editor.Panel.MenuBar;
+import Burst.Engine.Source.Editor.Panel.OutlinerPanel;
+import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
+import Burst.Engine.Source.Editor.Panel.ViewportPanel;
 import Orion.blocks.BreakableBrick;
 import Orion.blocks.Ground;
 import Burst.Engine.Source.Editor.Gizmo.GizmoSystem;
@@ -22,6 +29,7 @@ import org.joml.Vector2f;
 import Orion.res.Assets;
 import Burst.Engine.Source.Core.util.AssetManager;
 
+
 import java.io.File;
 import java.util.Collection;
 
@@ -31,8 +39,20 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
     private GameObject levelEditorStuff;
 
 
+
+    private PickingTexture pickingTexture;
+
+
     @Override
     public void init(Scene scene) {
+        this.panels.add(new ViewportPanel());
+        this.panels.add(new OutlinerPanel());
+        this.pickingTexture = new PickingTexture(Window.getWidth(), Window.getHeight());
+        this.panels.add(new PropertiesPanel(this.pickingTexture));
+        this.panels.add(new MenuBar());
+
+
+
         sprites = AssetManager.getSpritesheet(Assets.BLOCKS);
         Spritesheet gizmos = AssetManager.getSpritesheet(Assets.GIZMOS);
 
@@ -49,6 +69,7 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
 
     @Override
     public void imgui() {
+        super.imgui();
         ImGui.begin("Settings");
         levelEditorStuff.imgui();
         ImGui.end();
@@ -299,4 +320,17 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
 
         ImGui.end();
     }
+
+    public PickingTexture getPickingTexture() {
+        return pickingTexture;
+    }
+
+    @Override
+    public void mouseListener()
+    {
+        if (!this.getPanel(ViewportPanel.class).getWantCaptureMouse()) {
+             MouseListener.clear();
+        }
+    }
+
 }

@@ -1,4 +1,4 @@
-package Burst.Engine.Source.Editor.UI;
+package Burst.Engine.Source.Core.UI;
 
 import Burst.Engine.Config.ShaderConfig;
 import Burst.Engine.Source.Core.Graphics.Render.Framebuffer;
@@ -12,6 +12,9 @@ import Burst.Engine.Source.Core.Graphics.Input.MouseListener;
 import Burst.Engine.Source.Core.Observer.EventSystem;
 import Burst.Engine.Source.Core.Observer.Observer;
 import Burst.Engine.Source.Core.Observer.Events.Event;
+import Burst.Engine.Source.Core.Scene.StartMenuSceneInitializer;
+import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
+import Burst.Engine.Source.Editor.Panel.ViewportPanel;
 import org.joml.Vector4f;
 import org.lwjgl.Version;
 import org.lwjgl.glfw.GLFWErrorCallback;
@@ -21,11 +24,13 @@ import org.lwjgl.openal.ALCCapabilities;
 import org.lwjgl.openal.ALCapabilities;
 import org.lwjgl.opengl.GL;
 import Burst.Engine.Source.Core.Physics.Physics2D;
-import Burst.Engine.Source.Editor.LevelEditorSceneInitializer;
-import Burst.Engine.Source.Runtime.LevelSceneInitializer;
+import Burst.Engine.Source.Core.Scene.LevelEditorSceneInitializer;
+import Burst.Engine.Source.Core.Scene.LevelSceneInitializer;
 import Burst.Engine.Source.Core.Scene.Scene;
 import Burst.Engine.Source.Core.Scene.SceneInitializer;
 import Burst.Engine.Source.Core.util.AssetManager;
+
+import java.util.Objects;
 
 import static org.lwjgl.glfw.Callbacks.glfwFreeCallbacks;
 import static org.lwjgl.glfw.GLFW.*;
@@ -35,7 +40,7 @@ import static org.lwjgl.system.MemoryUtil.NULL;
 
 public class Window implements Observer {
     private int width, height;
-    private String title;
+    private final String title;
     private long glfwWindow;
     private ImGuiLayer imguiLayer;
     private Framebuffer framebuffer;
@@ -48,6 +53,12 @@ public class Window implements Observer {
     private long audioDevice;
 
     private static Scene currentScene;
+    private static final SceneInitializer[] scenes = {
+            new StartMenuSceneInitializer(),
+            new LevelSceneInitializer(),
+            new LevelEditorSceneInitializer()
+    };
+
 
     private Window() {
         this.width = 1920;
@@ -60,12 +71,11 @@ public class Window implements Observer {
         if (currentScene != null) {
             currentScene.destroy();
         }
-
-        getImguiLayer().getPropertiesWindow().setActiveGameObject(null);
         currentScene = new Scene(sceneInitializer);
         currentScene.load();
         currentScene.init();
         currentScene.start();
+
     }
 
     public static Window get() {
@@ -83,7 +93,7 @@ public class Window implements Observer {
     }
 
     public void run() {
-        System.out.println("Hello LWJGL " + Version.getVersion() + "!");
+        System.out.println("LWJGL Version: " + Version.getVersion() + "!");
 
         init();
         loop();
@@ -98,7 +108,7 @@ public class Window implements Observer {
 
         // Terminate GLFW and the free the error callback
         glfwTerminate();
-        glfwSetErrorCallback(null).free();
+        Objects.requireNonNull(glfwSetErrorCallback(null)).free();
     }
 
     public void init() {
@@ -150,9 +160,7 @@ public class Window implements Observer {
         ALCCapabilities alcCapabilities = ALC.createCapabilities(audioDevice);
         ALCapabilities alCapabilities = AL.createCapabilities(alcCapabilities);
 
-        if (!alCapabilities.OpenAL10) {
-            assert false : "Audio library not supported.";
-        }
+        assert alCapabilities.OpenAL10 : "Audio library not supported.";
 
         // This line is critical for LWJGL's interoperation with GLFW's
         // OpenGL context, or any context that is managed externally.
@@ -164,14 +172,14 @@ public class Window implements Observer {
         glEnable(GL_BLEND);
         glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
 
-        this.framebuffer = new Framebuffer(1920, 1080);
-        this.pickingTexture = new PickingTexture(1920, 1080);
+        this.framebuffer = new Framebuffer(Window.getWidth(), Window.getHeight());
+        this.pickingTexture = new PickingTexture(Window.getWidth(), Window.getHeight());
         glViewport(0, 0, Window.getWidth(), Window.getHeight());
 
-        this.imguiLayer = new ImGuiLayer(glfwWindow, pickingTexture);
+        this.imguiLayer = new ImGuiLayer(glfwWindow);
         this.imguiLayer.initImGui();
 
-        Window.changeScene(new LevelEditorSceneInitializer());
+        Window.changeScene(scenes[0]);
     }
 
     public void loop() {
@@ -263,21 +271,17 @@ public class Window implements Observer {
     @Override
     public void onNotify(GameObject object, Event event) {
         switch (event.type) {
-            case GameEngineStartPlay:
+            case GameEngineStartPlay -> {
                 this.runtimePlaying = true;
                 currentScene.save();
                 Window.changeScene(new LevelSceneInitializer());
-                break;
-            case GameEngineStopPlay:
+            }
+            case GameEngineStopPlay -> {
                 this.runtimePlaying = false;
                 Window.changeScene(new LevelEditorSceneInitializer());
-                break;
-            case LoadLevel:
-                Window.changeScene(new LevelEditorSceneInitializer());
-                break;
-            case SaveLevel:
-                currentScene.save();
-                break;
+            }
+            case LoadLevel -> Window.changeScene(new LevelEditorSceneInitializer());
+            case SaveLevel -> currentScene.save();
         }
     }
 }

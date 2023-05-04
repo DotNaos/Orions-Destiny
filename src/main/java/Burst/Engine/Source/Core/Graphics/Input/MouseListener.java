@@ -2,10 +2,11 @@ package Burst.Engine.Source.Core.Graphics.Input;
 
 import Burst.Engine.Source.Core.Graphics.Debug.DebugDraw;
 import Burst.Engine.Source.Core.Camera;
-import Burst.Engine.Source.Editor.UI.Window;
+import Burst.Engine.Source.Core.UI.Window;
+import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
+import Burst.Engine.Source.Editor.Panel.ViewportPanel;
 import org.joml.Matrix4f;
 import org.joml.Vector2f;
-import org.joml.Vector3f;
 import org.joml.Vector4f;
 
 import java.util.Arrays;
@@ -62,9 +63,9 @@ public class MouseListener {
     }
 
     public static void mousePosCallback(long window, double xpos, double ypos) {
-        if (!Window.getImguiLayer().getGameViewWindow().getWantCaptureMouse()) {
-            clear();
-        }
+        Window.getScene().getSceneInitializer().mouseListener();
+
+
         if (get().mouseButtonDown > 0) {
             get().isDragging = true;
         }
