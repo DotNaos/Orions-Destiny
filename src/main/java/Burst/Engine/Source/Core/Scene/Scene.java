@@ -6,11 +6,11 @@ import Burst.Engine.Source.Core.Graphics.Debug.DebugDraw;
 import Burst.Engine.Source.Core.Graphics.Input.MouseListener;
 import Burst.Engine.Source.Core.Physics.Components.Transform;
 import Burst.Engine.Source.Core.Camera;
-import Burst.Engine.Source.Runtime.Actor.GameObject;
-import Burst.Engine.Source.Runtime.Actor.GameObjectDeserializer;
+import Burst.Engine.Source.Core.GameObject;
+import Burst.Engine.Source.Core.Saving.GameObjectDeserializer;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import Burst.Engine.Source.Editor.ComponentDeserializer;
+import Burst.Engine.Source.Core.Saving.ComponentDeserializer;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
 import Burst.Engine.Source.Core.Physics.Physics2D;
@@ -102,9 +102,6 @@ public class Scene {
     public void editorUpdate(float dt) {
         this.camera.adjustProjection();
 
-
-        DebugDraw.addBox2D(new Vector2f(MouseListener.getWorldX(), MouseListener.getWorldY()), new Vector2f(50, 50), 0, new Vector3f(1, 0, 0));
-        DebugDraw.addBox2D(new Vector2f(MouseListener.getScreenX(), MouseListener.getScreenY()), new Vector2f(50, 50), 0, new Vector3f(1, 0, 0));
 
 
 

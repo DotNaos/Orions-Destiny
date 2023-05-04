@@ -1,9 +1,9 @@
 package Burst.Engine.Source.Core;
 
+import Burst.Engine.Source.Core.util.AssetManager;
 import Burst.Engine.Source.Editor.BImGui;
 import imgui.ImGui;
 import imgui.type.ImInt;
-import Burst.Engine.Source.Runtime.Actor.GameObject;
 import org.jbox2d.dynamics.contacts.Contact;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
@@ -18,7 +18,11 @@ public abstract class Component {
 
     public transient GameObject gameObject = null;
 
+    protected transient String filePath = null;
+
     public void start() {
+        // get the filepath of this component
+        this.filePath = AssetManager.getFilePath(this);
 
     }
 

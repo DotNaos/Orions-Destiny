@@ -1,12 +1,16 @@
 package Burst.Engine.Source.Core.util;
 
 import Burst.Engine.Config.ShaderConfig;
+import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.Graphics.Sprite.Spritesheet;
 import Burst.Engine.Source.Core.Graphics.Render.Shader;
 import Burst.Engine.Source.Core.Graphics.Render.Texture;
+import Burst.Engine.Source.Core.Audio.Sound;
 import Orion.res.Assets;
 
 import java.io.File;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -191,5 +195,21 @@ public class AssetManager {
             AssetManager.sounds.put(file.getAbsolutePath(), sound);
             return sound;
         }
+    }
+
+    public static String getFilePath(Component component) {
+        // get the path of the component file
+        String path = component.getClass().getProtectionDomain().getCodeSource().getLocation().getPath();
+        try {
+            path = URLDecoder.decode(path, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            if (e.equals(UnsupportedEncodingException.class)) {
+                System.out.println("UnsupportedEncodingException");
+            }
+            else {
+                System.out.println("Could not decode path");
+            }
+        }
+        return path;
     }
 }

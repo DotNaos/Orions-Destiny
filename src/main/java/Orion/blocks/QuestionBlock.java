@@ -1,6 +1,6 @@
 package Orion.blocks;
 
-import Burst.Engine.Source.Runtime.Actor.GameObject;
+import Burst.Engine.Source.Core.GameObject;
 import Burst.Engine.Source.Core.util.Prefabs;
 import Burst.Engine.Source.Editor.UI.Window;
 import Burst.Engine.Source.Runtime.Animation.StateMachine;

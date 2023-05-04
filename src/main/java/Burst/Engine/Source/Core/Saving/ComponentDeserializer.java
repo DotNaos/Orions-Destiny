@@ -1,4 +1,4 @@
-package Burst.Engine.Source.Editor;
+package Burst.Engine.Source.Core.Saving;
 
 import Burst.Engine.Source.Core.Component;
 import com.google.gson.*;

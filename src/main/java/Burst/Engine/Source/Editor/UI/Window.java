@@ -6,7 +6,7 @@ import Burst.Engine.Source.Core.Graphics.Render.PickingTexture;
 import Burst.Engine.Source.Core.Graphics.Render.Renderer;
 import Burst.Engine.Source.Core.Graphics.Render.Shader;
 import Burst.Engine.Source.Core.Graphics.Debug.DebugDraw;
-import Burst.Engine.Source.Runtime.Actor.GameObject;
+import Burst.Engine.Source.Core.GameObject;
 import Burst.Engine.Source.Core.Graphics.Input.KeyListener;
 import Burst.Engine.Source.Core.Graphics.Input.MouseListener;
 import Burst.Engine.Source.Core.Observer.EventSystem;
@@ -25,7 +25,6 @@ import Burst.Engine.Source.Editor.LevelEditorSceneInitializer;
 import Burst.Engine.Source.Runtime.LevelSceneInitializer;
 import Burst.Engine.Source.Core.Scene.Scene;
 import Burst.Engine.Source.Core.Scene.SceneInitializer;
-import Orion.res.Assets;
 import Burst.Engine.Source.Core.util.AssetManager;
 
 import static org.lwjgl.glfw.Callbacks.glfwFreeCallbacks;
@@ -167,7 +166,7 @@ public class Window implements Observer {
 
         this.framebuffer = new Framebuffer(1920, 1080);
         this.pickingTexture = new PickingTexture(1920, 1080);
-        glViewport(0, 0, 1920, 1080);
+        glViewport(0, 0, Window.getWidth(), Window.getHeight());
 
         this.imguiLayer = new ImGuiLayer(glfwWindow, pickingTexture);
         this.imguiLayer.initImGui();
@@ -191,7 +190,7 @@ public class Window implements Observer {
             glDisable(GL_BLEND);
             pickingTexture.enableWriting();
 
-            glViewport(0, 0, 1920, 1080);
+            glViewport(0, 0, Window.getWidth(), Window.getHeight());
             glClearColor(0, 0, 0, 0);
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 

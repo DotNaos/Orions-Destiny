@@ -3,7 +3,7 @@ package Burst.Engine.Source.Editor.UI.Panel;
 import imgui.ImGui;
 import imgui.flag.ImGuiCol;
 import imgui.flag.ImGuiTreeNodeFlags;
-import Burst.Engine.Source.Runtime.Actor.GameObject;
+import Burst.Engine.Source.Core.GameObject;
 import Burst.Engine.Source.Editor.UI.Window;
 
 import java.util.List;

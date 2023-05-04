@@ -1,10 +1,10 @@
-package Burst.Engine.Source.Runtime.Actor;
+package Burst.Engine.Source.Core;
 
 import Burst.Engine.Source.Core.Physics.Components.Transform;
+import Burst.Engine.Source.Core.Saving.ComponentDeserializer;
+import Burst.Engine.Source.Core.Saving.GameObjectDeserializer;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import Burst.Engine.Source.Core.Component;
-import Burst.Engine.Source.Editor.ComponentDeserializer;
 import Burst.Engine.Source.Core.Graphics.Sprite.SpriteRenderer;
 import imgui.ImGui;
 import Burst.Engine.Source.Core.util.AssetManager;

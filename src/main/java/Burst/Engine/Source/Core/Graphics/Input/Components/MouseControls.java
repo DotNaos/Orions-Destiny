@@ -7,7 +7,8 @@ import Burst.Engine.Source.Core.Graphics.Debug.DebugDraw;
 import Burst.Engine.Source.Core.Graphics.Sprite.SpriteRenderer;
 import Burst.Engine.Source.Core.Graphics.Input.KeyListener;
 import Burst.Engine.Source.Editor.UI.Panel.PropertiesPanel;
-import Burst.Engine.Source.Runtime.Actor.GameObject;
+import Burst.Engine.Source.Core.GameObject;
+import Burst.Engine.Source.Editor.UI.Panel.ViewportPanel;
 import Burst.Engine.Source.Editor.UI.Window;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Runtime.Animation.StateMachine;
@@ -96,6 +97,7 @@ public class MouseControls extends Component {
             if (!boxSelectSet) {
                 Window.getImguiLayer().getPropertiesWindow().clearSelected();
                 boxSelectStart = MouseListener.getScreen();
+//                System.out.println("Box Select Start: " + boxSelectStart);
                 boxSelectSet = true;
             }
             boxSelectEnd = MouseListener.getScreen();

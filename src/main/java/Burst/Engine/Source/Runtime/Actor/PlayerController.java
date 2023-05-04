@@ -1,5 +1,6 @@
 package Burst.Engine.Source.Runtime.Actor;
 
+import Burst.Engine.Source.Core.GameObject;
 import Burst.Engine.Source.Core.Graphics.Input.KeyListener;
 import Burst.Engine.Source.Core.util.Prefabs;
 import Burst.Engine.Source.Editor.UI.Window;

@@ -1,7 +1,7 @@
 package Burst.Engine.Source.Core.Scene;
 
 import Burst.Engine.Source.Core.Graphics.Sprite.SpriteRenderer;
-import Burst.Engine.Source.Runtime.Actor.GameObject;
+import Burst.Engine.Source.Core.GameObject;
 import Burst.Engine.Source.Runtime.Animation.StateMachine;
 import Burst.Engine.Source.Core.util.AssetManager;
 

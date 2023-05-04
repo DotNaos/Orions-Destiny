@@ -1,7 +1,7 @@
 package Burst.Engine.Source.Core.Graphics.Render;
 
 import Burst.Engine.Source.Core.Graphics.Sprite.SpriteRenderer;
-import Burst.Engine.Source.Runtime.Actor.GameObject;
+import Burst.Engine.Source.Core.GameObject;
 import Burst.Engine.Source.Editor.UI.Window;
 import org.joml.Matrix4f;
 import org.joml.Vector2f;

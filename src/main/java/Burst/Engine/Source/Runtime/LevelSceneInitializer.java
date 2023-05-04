@@ -3,8 +3,7 @@ package Burst.Engine.Source.Runtime;
 import Burst.Engine.Source.Core.Graphics.Sprite.Spritesheet;
 import Burst.Engine.Source.Core.Scene.Scene;
 import Burst.Engine.Source.Core.Scene.SceneInitializer;
-import Burst.Engine.Source.Runtime.GameCamera;
-import Burst.Engine.Source.Runtime.Actor.GameObject;
+import Burst.Engine.Source.Core.GameObject;
 import Orion.res.Assets;
 import Burst.Engine.Source.Core.util.AssetManager;
 

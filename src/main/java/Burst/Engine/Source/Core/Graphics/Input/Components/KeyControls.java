@@ -4,7 +4,7 @@ import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Runtime.Animation.StateMachine;
 import Burst.Engine.Source.Core.Graphics.Input.KeyListener;
 import Burst.Engine.Source.Editor.UI.Panel.PropertiesPanel;
-import Burst.Engine.Source.Runtime.Actor.GameObject;
+import Burst.Engine.Source.Core.GameObject;
 import Burst.Engine.Source.Editor.UI.Window;
 import Burst.Engine.Config.Constants.GridLines_Config;
 

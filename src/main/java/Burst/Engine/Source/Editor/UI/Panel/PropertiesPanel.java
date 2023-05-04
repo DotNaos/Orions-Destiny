@@ -2,7 +2,7 @@ package Burst.Engine.Source.Editor.UI.Panel;
 
 import Burst.Engine.Source.Core.Graphics.Sprite.SpriteRenderer;
 import imgui.ImGui;
-import Burst.Engine.Source.Runtime.Actor.GameObject;
+import Burst.Engine.Source.Core.GameObject;
 import org.joml.Vector4f;
 import Burst.Engine.Source.Core.Physics.Components.Box2DCollider;
 import Burst.Engine.Source.Core.Physics.Components.CircleCollider;

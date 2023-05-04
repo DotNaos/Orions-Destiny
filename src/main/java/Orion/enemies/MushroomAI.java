@@ -1,6 +1,6 @@
 package Orion.enemies;
 
-import Burst.Engine.Source.Runtime.Actor.GameObject;
+import Burst.Engine.Source.Core.GameObject;
 import Burst.Engine.Source.Core.Component;
 import Orion.blocks.Ground;
 import Burst.Engine.Source.Runtime.Actor.PlayerController;

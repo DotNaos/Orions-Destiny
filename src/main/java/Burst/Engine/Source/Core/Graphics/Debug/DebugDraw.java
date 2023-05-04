@@ -9,6 +9,7 @@ import org.joml.Vector3f;
 import Orion.res.Assets;
 import Burst.Engine.Source.Core.util.AssetManager;
 import Burst.Engine.Source.Core.util.BMath;
+import org.joml.Vector4f;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -74,7 +75,7 @@ public class DebugDraw {
         for (Line2D line : lines) {
             for (int i=0; i < 2; i++) {
                 Vector2f position = i == 0 ? line.getFrom() : line.getTo();
-                Vector3f color = line.getColor();
+                Vector3f color = new Vector3f(line.getColor().x, line.getColor().y, line.getColor().z);
 
                 // Load position
                 vertexArray[index] = position.x;
@@ -126,7 +127,12 @@ public class DebugDraw {
         addLine2D(from, to, color, 1);
     }
 
-    public static void addLine2D(Vector2f from, Vector2f to, Vector3f color, int lifetime) {
+    public static void addLine2D(Vector2f from, Vector2f to, Vector3f color, int lifetime)
+    {
+        addLine2D(from, to, new Vector4f(color, 1.0f), lifetime);
+    }
+
+    public static void addLine2D(Vector2f from, Vector2f to, Vector4f color, int lifetime) {
         Camera camera = Window.getScene().camera();
         Vector2f cameraLeft = new Vector2f(camera.position).add(new Vector2f(-2.0f, -2.0f));
         Vector2f cameraRight = new Vector2f(camera.position).
@@ -152,9 +158,17 @@ public class DebugDraw {
     public static void addBox2D(Vector2f center, Vector2f dimensions, float rotation, Vector3f color) {
         addBox2D(center, dimensions, rotation, color, 1);
     }
+    public static void addBox2D(Vector2f center, Vector2f dimensions, float rotation, Vector4f color) {
+        addBox2D(center, dimensions, rotation, color, 1);
+    }
 
     public static void addBox2D(Vector2f center, Vector2f dimensions, float rotation,
                                 Vector3f color, int lifetime) {
+        addBox2D(center, dimensions, rotation, new Vector4f(color.x, color.y, color.z, 1), 1);
+    }
+
+    public static void addBox2D(Vector2f center, Vector2f dimensions, float rotation,
+                                Vector4f color, int lifetime) {
         Vector2f min = new Vector2f(center).sub(new Vector2f(dimensions).mul(0.5f));
         Vector2f max = new Vector2f(center).add(new Vector2f(dimensions).mul(0.5f));
 

@@ -2,7 +2,7 @@ package Burst.Engine.Source.Core.util;
 
 import Burst.Engine.Source.Editor.Direction;
 import Burst.Engine.Source.Editor.UI.Window;
-import Burst.Engine.Source.Runtime.Actor.GameObject;
+import Burst.Engine.Source.Core.GameObject;
 import Orion.abilities.Fireball;
 import Burst.Engine.Source.Runtime.Animation.AnimationState;
 import Burst.Engine.Source.Runtime.Animation.StateMachine;
