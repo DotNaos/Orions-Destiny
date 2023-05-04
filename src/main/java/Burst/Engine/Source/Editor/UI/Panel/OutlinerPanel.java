@@ -28,13 +28,6 @@ public class OutlinerPanel {
             }
             index++;
         }
-        // Push color variables
-        ImGui.pushStyleColor(ImGuiCol.TitleBg, (float) 255 / 20, (float) 255 / 20, (float) 255 / 20, 1.0f);
-        ImGui.pushStyleColor(ImGuiCol.WindowBg, (float) 255 / 100, (float) 255 / 100, (float) 255 / 100, 1.0f);
-
-        // Pop color variables
-        ImGui.popStyleColor(2);
-
         ImGui.end();
     }
 

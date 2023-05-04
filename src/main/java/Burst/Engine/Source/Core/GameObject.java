@@ -142,4 +142,5 @@ public class GameObject {
     public boolean doSerialization() {
         return this.doSerialization;
     }
+
 }

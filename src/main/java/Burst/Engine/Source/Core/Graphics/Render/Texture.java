@@ -121,7 +121,7 @@ public class Texture {
 
 
     public int readPixel(int x, int y) {
-        glBindFramebuffer(GL_READ_FRAMEBUFFER, fbo);
+//        glBindFramebuffer(GL_READ_FRAMEBUFFER, fbo);
         glReadBuffer(GL_COLOR_ATTACHMENT0);
 
         float pixels[] = new float[3];
@@ -131,7 +131,7 @@ public class Texture {
     }
 
     public float[] readPixels(Vector2i start, Vector2i end) {
-        glBindFramebuffer(GL_READ_FRAMEBUFFER, fbo);
+//        glBindFramebuffer(GL_READ_FRAMEBUFFER, fbo);
         glReadBuffer(GL_COLOR_ATTACHMENT0);
 
         Vector2i size = new Vector2i(end).sub(start).absolute();

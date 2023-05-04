@@ -10,6 +10,7 @@ import Burst.Engine.Source.Editor.UI.Panel.OutlinerPanel;
 import imgui.*;
 import imgui.callback.ImStrConsumer;
 import imgui.callback.ImStrSupplier;
+import imgui.flag.ImGuiCol;
 import imgui.flag.ImGuiConfigFlags;
 import imgui.flag.ImGuiStyleVar;
 import imgui.flag.ImGuiWindowFlags;
@@ -210,6 +211,12 @@ public class ImGuiLayer {
     private void startFrame(final float deltaTime) {
         imGuiGlfw.newFrame();
         ImGui.newFrame();
+        // Push color variables
+        ImGui.pushStyleColor(ImGuiCol.TitleBg, (float) 255 / 20, (float) 255 / 20, (float) 255 / 20, 1.0f);
+        ImGui.pushStyleColor(ImGuiCol.WindowBg, (float) 255 / 100, (float) 255 / 100, (float) 255 / 100, 1.0f);
+
+        // Pop color variables
+        ImGui.popStyleColor(2);
     }
 
     private void endFrame() {
