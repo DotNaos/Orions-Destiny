@@ -12,7 +12,7 @@ import Burst.Engine.Source.Core.Graphics.Input.MouseListener;
 import Burst.Engine.Source.Core.Observer.EventSystem;
 import Burst.Engine.Source.Core.Observer.Observer;
 import Burst.Engine.Source.Core.Observer.Events.Event;
-import Burst.Engine.Source.Core.Scene.StartMenuSceneInitializer;
+import Burst.Engine.Source.Core.Scene.*;
 import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
 import Burst.Engine.Source.Editor.Panel.ViewportPanel;
 import org.joml.Vector4f;
@@ -24,10 +24,6 @@ import org.lwjgl.openal.ALCCapabilities;
 import org.lwjgl.openal.ALCapabilities;
 import org.lwjgl.opengl.GL;
 import Burst.Engine.Source.Core.Physics.Physics2D;
-import Burst.Engine.Source.Core.Scene.LevelEditorSceneInitializer;
-import Burst.Engine.Source.Core.Scene.LevelSceneInitializer;
-import Burst.Engine.Source.Core.Scene.Scene;
-import Burst.Engine.Source.Core.Scene.SceneInitializer;
 import Burst.Engine.Source.Core.util.AssetManager;
 
 import java.util.Objects;
@@ -52,7 +48,7 @@ public class Window implements Observer {
     private long audioContext;
     private long audioDevice;
 
-    private static Scene currentScene;
+    private static GameScene currentScene;
     private static final SceneInitializer[] scenes = {
             new StartMenuSceneInitializer(),
             new LevelSceneInitializer(),
@@ -68,10 +64,12 @@ public class Window implements Observer {
     }
 
     public static void changeScene(SceneInitializer sceneInitializer) {
+
+
         if (currentScene != null) {
             currentScene.destroy();
         }
-        currentScene = new Scene(sceneInitializer);
+        currentScene = new GameScene(sceneInitializer);
         currentScene.load();
         currentScene.init();
         currentScene.start();
@@ -88,7 +86,7 @@ public class Window implements Observer {
 
     public static Physics2D getPhysics() { return currentScene.getPhysics(); }
 
-    public static Scene getScene() {
+    public static GameScene getScene() {
         return currentScene;
     }
 

@@ -14,12 +14,12 @@ public abstract class SceneInitializer {
     protected List<ImGuiPanel> panels = new ArrayList<>();
 
 
-    public void init(Scene scene) {
+    public void init(GameScene scene) {
 
     }
 
 
-    public void loadResources(Scene scene) {
+    public void loadResources(GameScene scene) {
         AssetManager.loadAllResources();
 
 

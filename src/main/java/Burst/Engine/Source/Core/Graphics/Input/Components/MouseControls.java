@@ -1,6 +1,7 @@
 package Burst.Engine.Source.Core.Graphics.Input.Components;
 
 import Burst.Engine.Source.Core.Graphics.Input.MouseListener;
+import Burst.Engine.Source.Core.Scene.GameScene;
 import Burst.Engine.Source.Editor.NonPickable;
 import Burst.Engine.Source.Core.Graphics.Render.PickingTexture;
 import Burst.Engine.Source.Core.Graphics.Debug.DebugDraw;
@@ -57,7 +58,7 @@ public class MouseControls extends Component {
         debounce -= dt;
         PropertiesPanel propertiesPanel =  Window.getScene().getSceneInitializer().getPanel(PropertiesPanel.class);
         PickingTexture pickingTexture = propertiesPanel.getPickingTexture();
-        Scene currentScene = Window.getScene();
+        GameScene currentScene = Window.getScene();
 
         if (holdingObject != null) {
             float x = MouseListener.getWorldX();

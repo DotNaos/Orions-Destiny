@@ -11,7 +11,7 @@ import Burst.Engine.Source.Core.util.AssetManager;
 public class LevelSceneInitializer extends SceneInitializer {
 
     @Override
-    public void init(Scene scene) {
+    public void init(GameScene scene) {
         Spritesheet sprites = AssetManager.getSpritesheet(Assets.BLOCKS);
 
         GameObject cameraObject = scene.createGameObject("GameCamera");

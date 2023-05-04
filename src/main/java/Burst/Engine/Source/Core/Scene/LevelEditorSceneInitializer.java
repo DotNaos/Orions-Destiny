@@ -44,7 +44,7 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
 
 
     @Override
-    public void init(Scene scene) {
+    public void init(GameScene scene) {
         this.panels.add(new ViewportPanel());
         this.panels.add(new OutlinerPanel());
         this.pickingTexture = new PickingTexture(Window.getWidth(), Window.getHeight());
