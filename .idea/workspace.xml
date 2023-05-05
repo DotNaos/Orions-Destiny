@@ -10,17 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="787a90ad-2c32-4237-9403-4ac402e3150a" name="Changes" comment="Zwischenspeichern in StartMenu">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/GameScene.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Graphics/Input/Components/MouseControls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Graphics/Input/Components/MouseControls.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/LevelEditorSceneInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/LevelEditorSceneInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/LevelSceneInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/LevelSceneInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/Scene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/SceneInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/SceneInitializer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/StartMenuSceneInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/StartMenuSceneInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/ImGuiLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/ImGuiLayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/Window.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/Menu.java" afterDir="false" />
     </list>
     <list id="25a488fd-f17c-453d-94a6-413269d6c7ff" name="Changes by schue" comment="Changes by schue" />
     <option name="SHOW_DIALOG" value="false" />
@@ -312,6 +304,8 @@
       <workItem from="1683122686887" duration="8480000" />
       <workItem from="1683135871687" duration="3284000" />
       <workItem from="1683142813884" duration="17740000" />
+      <workItem from="1683279994213" duration="757000" />
+      <workItem from="1683280773645" duration="4266000" />
     </task>
     <task id="LOCAL-00032" summary="Variablen im Fenster">
       <created>1679840508427</created>
