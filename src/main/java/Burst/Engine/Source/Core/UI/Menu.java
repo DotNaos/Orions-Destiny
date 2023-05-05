@@ -10,10 +10,9 @@ public class Menu {
     private float currentY;
     private Vector2f itemSize;
     private int columns = 2;
-    private int currentColumn = 0;
 
     private int rows = 2;
-    private int currentRow = 0;
+
 
 
     private float spacing;
@@ -59,9 +58,6 @@ public class Menu {
 
     public void nextRow()
     {
-        currentColumn = 0;
-        currentRow++;
-
         float spacingSumX = this.spacing * (this.columns-1);
         float itemSumX = this.itemSize.x * this.columns;
         currentY -= -itemSize.y - spacing;
@@ -73,7 +69,6 @@ public class Menu {
     public void nextColumn()
     {
         currentX -= -itemSize.x - spacing;
-        currentColumn++;
         ImGui.sameLine();
         ImGui.setCursorPosX(currentX);
     }

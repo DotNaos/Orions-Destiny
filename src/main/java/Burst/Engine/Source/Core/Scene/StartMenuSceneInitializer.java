@@ -45,8 +45,6 @@ public class StartMenuSceneInitializer extends SceneInitializer {
             ImGui.pushStyleVar(ImGuiStyleVar.FrameBorderSize, 1);
 
             float buttonSpacing = 20;
-            float currentX = 0;
-            float currentY = 0;
 
             Vector2f alignment = new Vector2f(100 / 50, 100 / 50);
             Vector2f buttonSize = new Vector2f(400, 100);
@@ -55,7 +53,7 @@ public class StartMenuSceneInitializer extends SceneInitializer {
             Vector2f margin = new Vector2f(0, 200);
 
 
-//                        Texture texture = new Texture(512, 512);
+//             Texture texture = new Texture(512, 512);
 //            texture.init(Assets.TEXTURES + "testImage.png");
 //            ImGui.setCursorPosX((float) Window.getWidth() / 2);
 //            ImGui.imageButton(texture.getId(), 256, 256, 0, 1, 1, 0);

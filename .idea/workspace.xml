@@ -9,7 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="787a90ad-2c32-4237-9403-4ac402e3150a" name="Changes" comment="Zwischenspeichern in StartMenu">
+    <list default="true" id="787a90ad-2c32-4237-9403-4ac402e3150a" name="Changes" comment="Menu Creator Klasse für ButtonGUIs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/StartMenuSceneInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/StartMenuSceneInitializer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/Menu.java" afterDir="false" />
@@ -305,14 +305,7 @@
       <workItem from="1683135871687" duration="3284000" />
       <workItem from="1683142813884" duration="17740000" />
       <workItem from="1683279994213" duration="757000" />
-      <workItem from="1683280773645" duration="4266000" />
-    </task>
-    <task id="LOCAL-00032" summary="Variablen im Fenster">
-      <created>1679840508427</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1679840508427</updated>
+      <workItem from="1683280773645" duration="5777000" />
     </task>
     <task id="LOCAL-00033" summary="Dev test">
       <created>1680278195598</created>
@@ -650,7 +643,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683217655608</updated>
     </task>
-    <option name="localTasksCounter" value="81" />
+    <task id="LOCAL-00081" summary="Menu Creator Klasse für ButtonGUIs">
+      <created>1683285473550</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1683285473550</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -700,7 +700,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="FIX: 16bit color not supported, need to use 32bit" />
     <MESSAGE value="Properties" />
     <MESSAGE value="Raycast circles" />
     <MESSAGE value="Raycast Box" />
@@ -725,7 +724,8 @@
     <MESSAGE value="PHYSICS2D TEMP REMOVED - Refactor" />
     <MESSAGE value="Serialize fix" />
     <MESSAGE value="Zwischenspeichern in StartMenu" />
-    <option name="LAST_COMMIT_MESSAGE" value="Zwischenspeichern in StartMenu" />
+    <MESSAGE value="Menu Creator Klasse für ButtonGUIs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Menu Creator Klasse für ButtonGUIs" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
