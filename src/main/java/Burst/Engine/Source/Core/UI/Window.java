@@ -51,6 +51,7 @@ public class Window implements Observer {
             new LevelSceneInitializer(),
             new LevelEditorSceneInitializer()
     };
+    private PickingTexture pickingTexture;
 
 
     private Window() {
@@ -195,8 +196,8 @@ public class Window implements Observer {
         float endTime;
         float dt = -1.0f;
 
-        Shader defaultShader = AssetManager.getShader(ShaderConfig.SHADER_DEFAULT);
-        Shader pickingShader = AssetManager.getShader(ShaderConfig.SHADER_PICKING);
+        Shader defaultShader = AssetManager.getAssetFromType(ShaderConfig.SHADER_DEFAULT, Shader.class);
+        Shader pickingShader = AssetManager.getAssetFromType(ShaderConfig.SHADER_PICKING, Shader.class);
 
         while (!glfwWindowShouldClose(glfwWindow)) {
             // Poll events

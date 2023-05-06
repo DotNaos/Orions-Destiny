@@ -1,7 +1,13 @@
 package Orion.res;
 
+import Burst.Engine.Config.ProjectConfig;
+
+import Burst.Engine.Source.Core.Assets.Graphics.Shader;
 import Burst.Engine.Source.Core.Assets.Graphics.Spritesheet;
 import Burst.Engine.Source.Core.Assets.AssetManager;
+import Burst.Engine.Source.Core.Assets.Graphics.Texture;
+
+import java.util.List;
 
 public class Assets {
 
@@ -28,6 +34,7 @@ public class Assets {
     // Maps
         public static final String MAPS = "Assets/maps/";
 
+
     //============================================================
     //========================  Asset Names  =====================
     //============================================================
@@ -36,7 +43,7 @@ public class Assets {
 
 
     //===================================================================
-
+    // SpriteSheets
     public static final String PLAYER =  SPRITESHEETS + "spritesheet.png";
     public static final String BIG_PLAYER =  SPRITESHEETS + "bigSpritesheet.png";
     public static final String TURTLE =  SPRITESHEETS + "turtle.png";
@@ -50,19 +57,25 @@ public class Assets {
     public static final String PIPES =  SPRITESHEETS +  "pipes.png";
 
     //===================================================================
-
+    // Fonts
     public static final String FONT_INTER = FONTS + "inter.ttf";
+
+
+
 
 
     //===================================================================
     //========================  Asset Spritesheets  =====================
     //===================================================================
-    public static final Spritesheet PLAYER_SPRITESHEET = new Spritesheet(AssetManager.getTexture(PLAYER), 16, 16, 0);
-    public static final Spritesheet BLOCKS_SPRITESHEET = new Spritesheet(AssetManager.getTexture(BLOCKS), 16, 16, 0);
-    public static final Spritesheet TURTLE_SPRITESHEET = new Spritesheet(AssetManager.getTexture(TURTLE), 16, 24, 0);
-    public static final Spritesheet BIG_PLAYER_SPRITESHEET = new Spritesheet(AssetManager.getTexture(BIG_PLAYER), 16, 32, 0);
-    public static final Spritesheet PIPES_SPRITESHEET = new Spritesheet(AssetManager.getTexture(PIPES), 32, 32, 0);
-    public static final Spritesheet ITEMS_SPRITESHEET = new Spritesheet(AssetManager.getTexture(ITEMS), 16, 16, 0);
-    public static final Spritesheet GIZMOS_SPRITESHEET = new Spritesheet(AssetManager.getTexture(GIZMOS), 24, 48, 0);
+    public static final Spritesheet PLAYER_SPRITESHEET = new Spritesheet((Texture) AssetManager.getAssetFromType(PLAYER, Texture.class), 16, 16, 0);
+    public static final Spritesheet BLOCKS_SPRITESHEET = new Spritesheet((Texture) AssetManager.getAssetFromType(BLOCKS, Texture.class), 16, 16, 0);
+    public static final Spritesheet TURTLE_SPRITESHEET = new Spritesheet((Texture) AssetManager.getAssetFromType(TURTLE, Texture.class), 16, 24, 0);
+    public static final Spritesheet BIG_PLAYER_SPRITESHEET = new Spritesheet((Texture) AssetManager.getAssetFromType(BIG_PLAYER, Texture.class), 16, 32, 0);
+    public static final Spritesheet PIPES_SPRITESHEET = new Spritesheet((Texture) AssetManager.getAssetFromType(PIPES, Texture.class), 32, 32, 0);
+    public static final Spritesheet ITEMS_SPRITESHEET = new Spritesheet((Texture) AssetManager.getAssetFromType(ITEMS, Texture.class), 16, 16, 0);
+    public static final Spritesheet GIZMOS_SPRITESHEET = new Spritesheet((Texture) AssetManager.getAssetFromType(GIZMOS, Texture.class), 24, 48, 0);
+
+    public static final List<Spritesheet> SPRITESHEETS_LIST = List.of(PLAYER_SPRITESHEET, BLOCKS_SPRITESHEET, TURTLE_SPRITESHEET, BIG_PLAYER_SPRITESHEET, PIPES_SPRITESHEET, ITEMS_SPRITESHEET, GIZMOS_SPRITESHEET);
+
 
 }

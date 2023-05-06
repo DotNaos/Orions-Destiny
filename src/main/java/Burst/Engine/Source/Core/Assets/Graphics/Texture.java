@@ -1,5 +1,6 @@
 package Burst.Engine.Source.Core.Assets.Graphics;
 
+import Burst.Engine.Source.Core.Assets.Asset;
 import org.joml.Vector2i;
 import org.lwjgl.BufferUtils;
 
@@ -11,19 +12,23 @@ import static org.lwjgl.opengl.GL11C.GL_UNSIGNED_BYTE;
 import static org.lwjgl.opengl.GL30.GL_COLOR_ATTACHMENT0;
 import static org.lwjgl.stb.STBImage.*;
 
-public class Texture {
-    private String filepath;
+public class Texture extends Asset {
     private transient int texID;
     private int width, height;
+    public Texture(String filepath) {
+        super(filepath);
+        init();
+    }
 
     public Texture() {
+        super("");
         texID = -1;
         width = -1;
         height = -1;
     }
 
     public Texture(int width, int height) {
-        this.filepath = "Generated";
+        super("Generated");
 
         // Generate texture on GPU
         texID = glGenTextures();
@@ -35,15 +40,9 @@ public class Texture {
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height,
                 0, GL_RGB, GL_UNSIGNED_BYTE, 0);
 
-
-
-
-
     }
 
-    public void init(String filepath) {
-        this.filepath = filepath;
-
+    public void init() {
         // Generate texture on GPU
         texID = glGenTextures();
         glBindTexture(GL_TEXTURE_2D, texID);

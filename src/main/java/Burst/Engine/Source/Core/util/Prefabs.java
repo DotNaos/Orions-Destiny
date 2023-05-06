@@ -40,8 +40,8 @@ public class Prefabs {
     }
 
     public static Actor generateMario() {
-        Spritesheet playerSprites = AssetManager.getSpritesheet(Assets.PLAYER);
-        Spritesheet bigPlayerSprites = AssetManager.getSpritesheet(Assets.BIG_PLAYER);
+        Spritesheet playerSprites = AssetManager.getAssetFromType(Assets.PLAYER, Spritesheet.class);
+        Spritesheet bigPlayerSprites = AssetManager.getAssetFromType(Assets.BIG_PLAYER, Spritesheet.class);
         Actor mario = generateSpriteObject(playerSprites.getSprite(0), 0.25f, 0.25f);
 
         // Little mario animations

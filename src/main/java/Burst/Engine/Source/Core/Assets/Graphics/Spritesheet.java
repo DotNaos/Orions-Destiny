@@ -1,18 +1,20 @@
 package Burst.Engine.Source.Core.Assets.Graphics;
 
+import Burst.Engine.Source.Core.Assets.Asset;
+
 import org.joml.Vector2f;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Spritesheet {
+public class Spritesheet extends Asset {
 
     private Texture texture;
     private List<Sprite> sprites;
 
     public Spritesheet(Texture texture, int spriteWidth, int spriteHeight, int spacing) {
+        super(texture.getFilepath());
         this.sprites = new ArrayList<>();
-
         this.texture = texture;
 
         int rows = texture.getWidth() / (spriteWidth + spacing);

@@ -1,5 +1,6 @@
 package Burst.Engine.Source.Core.Scene;
 
+import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Burst.Engine.Source.Core.Graphics.Render.SpriteRenderer;
 import Burst.Engine.Source.Core.Actor;
 import Burst.Engine.Source.Runtime.Animation.StateMachine;
@@ -17,14 +18,14 @@ public abstract class SceneInitializer {
 
 
     public void loadResources(Game scene) {
-        AssetManager.loadAllResources();
+        AssetManager.loadAllAssets();
 
 
         for (Actor g : scene.getGameObjects()) {
             if (g.getComponent(SpriteRenderer.class) != null) {
                 SpriteRenderer spr = g.getComponent(SpriteRenderer.class);
                 if (spr.getTexture() != null) {
-                    spr.setTexture(AssetManager.getTexture(spr.getTexture().getFilepath()));
+                    spr.setTexture(AssetManager.getAssetFromType(spr.getTexture().getFilepath(), Texture.class));
                 }
             }
 

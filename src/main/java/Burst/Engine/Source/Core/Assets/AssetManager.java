@@ -2,95 +2,227 @@ package Burst.Engine.Source.Core.Assets;
 
 import Burst.Engine.Config.ShaderConfig;
 import Burst.Engine.Source.Core.Assets.Audio.Sound;
-import Burst.Engine.Source.Core.Assets.Graphics.Shader;
-import Burst.Engine.Source.Core.Assets.Graphics.Spritesheet;
-import Burst.Engine.Source.Core.Assets.Graphics.Texture;
+import Burst.Engine.Source.Core.Assets.Graphics.*;
 import Burst.Engine.Source.Core.Component;
+import Burst.Engine.Source.Core.util.DebugMessage;
 import Orion.res.Assets;
 
 import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
-import java.util.Collection;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+
 public class AssetManager {
-    private static Map<String, Shader> shaders = new HashMap<>();
-    private static Map<String, Texture> textures = new HashMap<>();
     private static Map<String, Spritesheet> spritesheets = new HashMap<>();
+    private static Map<String, Sprite> sprites = new HashMap<>();
+    private static Map<String, Texture> textures = new HashMap<>();
+
+    private static Map<String, Shader> shaders = new HashMap<>();
     private static Map<String, Sound> sounds = new HashMap<>();
 
 
+    private static Map<String, Font> fonts = new HashMap<>();
+    private static Map<String, LevelMap> maps = new HashMap<>();
+    private static Map<String, Background> backgrounds = new HashMap<>();
+    private static Map<String, UI_Assets> UIs = new HashMap<>();
 
+    public static void loadAllAssets() {
+        System.out.println("Loading Assets from ...");
 
-    public static void loadAllResources()
-    {
-        // Add all spritesheets
-//        String[] spritesheets = searchDirectory(Assets.SPRITESHEETS, "png");
-//        for (String spritesheet : spritesheets) {
-//            addSpritesheet(spritesheet, new Spritesheet(getTexture(spritesheet), 16, 16, 16, 0));
-//        }
-
-        // ===================== Shader =======================
-
-        System.out.println("Loading Shaders..." + ShaderConfig.SHADER_DEFAULT);
-            getShader(ShaderConfig.SHADER_DEFAULT);
 
         // =================== Spritesheets ===================
-            addSpritesheet(Assets.BLOCKS,Assets.BLOCKS_SPRITESHEET);
+        loadAllAssetOfType(Spritesheet.class);
+        System.out.println("Loaded " + spritesheets.size() + " spritesheets");
 
-            addSpritesheet(Assets.PLAYER, Assets.PLAYER_SPRITESHEET);
-
-            addSpritesheet(Assets.BIG_PLAYER, Assets.BIG_PLAYER_SPRITESHEET);
-
-            addSpritesheet(Assets.TURTLE, Assets.TURTLE_SPRITESHEET);
-
-
-            addSpritesheet(Assets.PIPES, Assets.PIPES_SPRITESHEET);
-
-
-            addSpritesheet(Assets.ITEMS, Assets.ITEMS_SPRITESHEET);
-
-
-            addSpritesheet(Assets.GIZMOS, Assets.GIZMOS_SPRITESHEET);
-
-
+        // ===================== Shader =======================
+        loadAllAssetOfType(Shader.class);
+        System.out.println("Loaded " + shaders.size() + " shaders");
 
 
         // =================== Sounds ===================
-                //        AssetManager.addSound("assets/sounds/main-theme-overworld.ogg", true);
-                //        AssetManager.addSound("assets/sounds/flagpole.ogg", false);
-                //        AssetManager.addSound("assets/sounds/break_block.ogg", false);
-                //        AssetManager.addSound("assets/sounds/bump.ogg", false);
-                //        AssetManager.addSound("assets/sounds/coin.ogg", false);
-                //        AssetManager.addSound("assets/sounds/gameover.ogg", false);
-                //        AssetManager.addSound("assets/sounds/jump-small.ogg", false);
-                //        AssetManager.addSound("assets/sounds/mario_die.ogg", false);
-                //        AssetManager.addSound("assets/sounds/pipe.ogg", false);
-                //        AssetManager.addSound("assets/sounds/powerup.ogg", false);
-                //        AssetManager.addSound("assets/sounds/powerup_appears.ogg", false);
-                //        AssetManager.addSound("assets/sounds/stage_clear.ogg", false);
-                //        AssetManager.addSound("assets/sounds/stomp.ogg", false);
-                //        AssetManager.addSound("assets/sounds/kick.ogg", false);
-                //        AssetManager.addSound("assets/sounds/invincible.ogg", false);
-                //
-                //        AssetManager.getSound(("assets/sounds/main-theme-overworld.ogg")).play();
+        loadAllAssetOfType(Sound.class);
+        System.out.println("Loaded " + sounds.size() + " sounds");
+        // set overworld sound to loop
+        ((Sound) getAssetFromType(Sound.class, "assets/sounds/main-theme-overworld.ogg")).init(true);
+        ((Sound) AssetManager.getAssetFromType(("assets/sounds/main-theme-overworld.ogg"), Sound.class)).play();
 
     }
 
 
-
-
     /**
+     * Searches the directory (specified in Assets) for the assets and add them to the map of assets
      *
-     * @param relativePath the path in the project directory
-     * @param fileType the file type to search for eg. "png"
-     * @return the count of found files
+     * @param assetType The type of asset to load
+     * @return The number of assets loaded
      */
+    public static int loadAllAssetOfType(Class<? extends Asset> assetType) {
+        int count = 0;
+        String assetDir;
 
-    public static String[] searchDirectory(String relativePath, String fileType)
-    {
+
+        if (assetType.equals(Spritesheet.class)) {
+            assetDir = Assets.SPRITESHEETS;
+
+            // search for all spritesheets in the directory
+            String[] foundfiles = searchDirectory(assetDir, "png");
+
+            // save the list of  in a variable
+            List<Spritesheet> assetList = Assets.SPRITESHEETS_LIST;
+
+            // Add all spritesheets to the map
+            for (Spritesheet spritesheet : assetList) {
+                spritesheets.put(spritesheet.getFilepath(), spritesheet);
+                count++;
+            }
+
+            return count;
+        } else if (assetType.equals(Sprite.class) || assetType.equals(Texture.class)) {
+            DebugMessage.printError(assetType.toString() + "Are not Files to load");
+            return count;
+        } else if (assetType.equals(Shader.class)) {
+            assetDir = ShaderConfig.SHADER_PATH;
+            String[] foundfiles = searchDirectory(assetDir, "glsl");
+
+            // Add all assetPaths to the map
+            for (String assetPath : foundfiles) {
+                shaders.put(assetPath, new Shader(assetPath));
+                count++;
+            }
+            return count;
+        } else if (assetType.equals(Sound.class)) {
+            assetDir = Assets.SOUNDS;
+            String[] foundfiles = searchDirectory(assetDir, "ogg");
+
+            // Add all assetPaths to the map
+            for (String assetPath : foundfiles) {
+                sounds.put(assetPath, new Sound(assetPath));
+                count++;
+            }
+            return count;
+        } else if (assetType.equals(Font.class)) {
+            assetDir = Assets.FONTS;
+            String[] foundfiles = searchDirectory(assetDir, "ttf");
+
+            // Add all assetPaths to the map
+            for (String assetPath : foundfiles) {
+                fonts.put(assetPath, new Font(assetPath));
+                count++;
+            }
+            return count;
+        } else if (assetType.equals(LevelMap.class)) {
+            assetDir = Assets.MAPS;
+            String[] foundfiles = searchDirectory(assetDir, "tmx");
+
+            // Add all assetPaths to the map
+            for (String assetPath : foundfiles) {
+                maps.put(assetPath, new LevelMap(assetPath));
+                count++;
+            }
+            return count;
+        } else if (assetType.equals(Background.class)) {
+            assetDir = Assets.BACKGROUNDS;
+            String[] foundfiles = searchDirectory(assetDir, "png");
+
+            // Add all assetPaths to the map
+            for (String assetPath : foundfiles) {
+                backgrounds.put(assetPath, new Background(assetPath));
+                count++;
+            }
+            return count;
+        } else if (assetType.equals(UI_Assets.class)) {
+            assetDir = Assets.UI;
+            String[] foundfiles = searchDirectory(assetDir, "png");
+
+            // Add all assetPaths to the map
+            for (String assetPath : foundfiles) {
+                UIs.put(assetPath, new UI_Assets(assetPath));
+                count++;
+            }
+            return count;
+        }
+        DebugMessage.printNotFound("Did not found: " + assetType.toString());
+        return -1;
+
+    }
+
+    public static List<? extends Asset> getAllAssetsFromType(Class<? extends Asset> assetType) {
+
+        if (assetType.equals(Spritesheet.class)) {
+            return new ArrayList<>(spritesheets.values());
+        } else if (assetType.equals(Sprite.class)) {
+            return new ArrayList<>(sprites.values());
+        } else if (assetType.equals(Texture.class)) {
+            return new ArrayList<>(textures.values());
+        } else if (assetType.equals(Shader.class)) {
+            return new ArrayList<>(shaders.values());
+        } else if (assetType.equals(Sound.class)) {
+            return new ArrayList<>(sounds.values());
+        } else if (assetType.equals(Font.class)) {
+            return new ArrayList<>(fonts.values());
+        } else if (assetType.equals(LevelMap.class)) {
+            return new ArrayList<>(maps.values());
+        } else if (assetType.equals(Background.class)) {
+            return new ArrayList<>(backgrounds.values());
+        } else if (assetType.equals(UI_Assets.class)) {
+            return new ArrayList<>(UIs.values());
+        }
+        DebugMessage.printNotFound("Did not found: " + assetType.toString());
+        return null;
+    }
+
+    public static <T extends Asset> T getAssetFromType(Class<T> assetType, String resourceName) {
+        if (assetType.equals(Spritesheet.class)) {
+            return (T) AssetManager.spritesheets.getOrDefault(resourceName, null);
+        } else if (assetType.equals(Sprite.class)) {
+            return (T) AssetManager.sprites.getOrDefault(resourceName, null);
+        } else if (assetType.equals(Texture.class)) {
+            if (AssetManager.textures.containsKey(resourceName)) {
+                return (T) AssetManager.textures.get(resourceName);
+            } else {
+                // Create a new texture and add it to the map
+                Texture texture = new Texture(resourceName);
+                texture.init();
+                AssetManager.textures.put(resourceName, texture);
+                return (T) texture;
+            }
+        } else if (assetType.equals(Shader.class)) {
+            if (AssetManager.shaders.containsKey(resourceName)) {
+                return (T) AssetManager.shaders.get(resourceName);
+            } else {
+                // Create a new shader and add it to the map
+                Shader shader = new Shader(resourceName);
+                shader.compile();
+                AssetManager.shaders.put(resourceName, shader);
+                return (T) shader;
+            }
+        } else if (assetType.equals(Sound.class)) {
+            return (T) AssetManager.sounds.getOrDefault(resourceName, null);
+        } else if (assetType.equals(Font.class)) {
+            DebugMessage.printNotFound(assetType.toString() + "IS NOT IMPLEMENTED YET");
+            return (T) AssetManager.fonts.getOrDefault(resourceName, null);
+        } else if (assetType.equals(LevelMap.class)) {
+            DebugMessage.printNotFound(assetType.toString() + "IS NOT IMPLEMENTED YET");
+            return (T) AssetManager.maps.getOrDefault(resourceName, null);
+        } else if (assetType.equals(Background.class)) {
+            DebugMessage.printNotFound(assetType.toString() + "IS NOT IMPLEMENTED YET");
+            return (T) AssetManager.backgrounds.getOrDefault(resourceName, null);
+        } else if (assetType.equals(UI_Assets.class)) {
+            DebugMessage.printNotFound(assetType.toString() + "IS NOT IMPLEMENTED YET");
+            return (T) AssetManager.UIs.getOrDefault(resourceName, null);
+        }
+        DebugMessage.printNotFound("Did not found: " + assetType.toString());
+        return null;
+    }
+
+    public static <T extends Asset> T getAssetFromType(String resourceName, Class<T> assetType) {
+        return getAssetFromType(assetType, resourceName);
+    }
+
+    public static String[] searchDirectory(String relativePath, String fileType) {
         // search for files in the given directory
         String[] files = new File(relativePath).list((dir, name) -> name.toLowerCase().endsWith("." + fileType));
         for (int i = 0; i < files.length; i++) {
@@ -100,102 +232,37 @@ public class AssetManager {
         return files;
     }
 
-
-    /**
-     * @param resourceName the path in the project directory
-     * @return Shader if already there, otherwise a new Shader is created and returned
-     */
-    public static Shader getShader(String resourceName) {
-        File file = new File(resourceName);
-        if (AssetManager.shaders.containsKey(file.getAbsolutePath())) {
-            return AssetManager.shaders.get(file.getAbsolutePath());
+    public static List<String> printAllAssetsFromType(Class<? extends Asset> assetType) {
+        List<String> keys = new ArrayList<>();
+        if (assetType.equals(Spritesheet.class)) {
+            keys = new ArrayList<>(spritesheets.keySet());
+        } else if (assetType.equals(Sprite.class)) {
+            keys = new ArrayList<>(sprites.keySet());
+        } else if (assetType.equals(Texture.class)) {
+            keys = new ArrayList<>(textures.keySet());
+        } else if (assetType.equals(Shader.class)) {
+            keys = new ArrayList<>(shaders.keySet());
+        } else if (assetType.equals(Sound.class)) {
+            keys = new ArrayList<>(sounds.keySet());
+        } else if (assetType.equals(Font.class)) {
+            keys = new ArrayList<>(fonts.keySet());
+        } else if (assetType.equals(LevelMap.class)) {
+            keys = new ArrayList<>(maps.keySet());
+        } else if (assetType.equals(Background.class)) {
+            keys = new ArrayList<>(backgrounds.keySet());
+        } else if (assetType.equals(UI_Assets.class)) {
+            keys = new ArrayList<>(UIs.keySet());
         } else {
-            Shader shader = new Shader(resourceName);
-            shader.compile();
-            AssetManager.shaders.put(file.getAbsolutePath(), shader);
-            return shader;
-        }
-    }
-
-
-
-    /**
-     * @param resourceName the path in the project directory
-     * @return Texture if already there, otherwise a new Texture is created and returned
-     */
-    public static Texture getTexture(String resourceName) {
-        File file = new File(resourceName);
-        if (AssetManager.textures.containsKey(file.getAbsolutePath())) {
-            return AssetManager.textures.get(file.getAbsolutePath());
-        } else {
-            Texture texture = new Texture();
-            texture.init(resourceName);
-            AssetManager.textures.put(file.getAbsolutePath(), texture);
-            return texture;
-        }
-    }
-
-    /**
-     * @param resourceName the path in the project directory
-     * @param spritesheet the Spritesheet to be added
-     */
-    public static void addSpritesheet(String resourceName, Spritesheet spritesheet) {
-        File file = new File(resourceName);
-        if (!AssetManager.spritesheets.containsKey(file.getAbsolutePath())) {
-            AssetManager.spritesheets.put(file.getAbsolutePath(), spritesheet);
-        }
-    }
-
-    /**
-     * @param resourceName the path in the project directory
-     * @return Spritesheet if already there, otherwise null
-     */
-    public static Spritesheet getSpritesheet(String resourceName) {
-        File file = new File(resourceName);
-        if (!AssetManager.spritesheets.containsKey(file.getAbsolutePath())) {
-            assert false : "Error: Tried to access spritesheet '" + resourceName + "' and it has not been added to asset pool.";
-        }
-        return AssetManager.spritesheets.getOrDefault(file.getAbsolutePath(), null);
-    }
-
-    /**
-     * @return Collection of all Sounds
-     */
-    public static Collection<Sound> getAllSounds() {
-        return sounds.values();
-    }
-
-    /**
-     * @param soundFile the path in the project directory
-     * @return Sound if already there, otherwise null
-     * @throws Exception if sound file not added
-     */
-    public static Sound getSound(String soundFile) {
-        File file = new File(soundFile);
-        if (sounds.containsKey(file.getAbsolutePath())) {
-            return sounds.get(file.getAbsolutePath());
-        } else {
-            assert false : "Sound file not added '" + soundFile + "'";
+            DebugMessage.printNotFound("Did not found: " + assetType.toString());
+            return null;
         }
 
-        return null;
+        for (String key : keys) {
+            System.out.println(key);
+        }
+        return keys;
     }
 
-    /**
-     * @param soundFile the path in the project directory
-     * @param loops whether the sound should loop
-     * @return Sound if already there, otherwise a new Sound is created and returned
-     */
-    public static Sound addSound(String soundFile, boolean loops) {
-        File file = new File(soundFile);
-        if (sounds.containsKey(file.getAbsolutePath())) {
-            return sounds.get(file.getAbsolutePath());
-        } else {
-            Sound sound = new Sound(file.getAbsolutePath(), loops);
-            AssetManager.sounds.put(file.getAbsolutePath(), sound);
-            return sound;
-        }
-    }
 
     public static String getFilePath(Component component) {
         // get the path of the component file
@@ -205,8 +272,7 @@ public class AssetManager {
         } catch (UnsupportedEncodingException e) {
             if (e.equals(UnsupportedEncodingException.class)) {
                 System.out.println("UnsupportedEncodingException");
-            }
-            else {
+            } else {
                 System.out.println("Could not decode path");
             }
         }

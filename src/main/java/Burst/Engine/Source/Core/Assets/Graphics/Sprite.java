@@ -1,12 +1,20 @@
 package Burst.Engine.Source.Core.Assets.Graphics;
 
+import Burst.Engine.Source.Core.Assets.Asset;
+
 import org.joml.Vector2f;
 
-public class Sprite {
+public class Sprite extends Asset {
 
     private float width, height;
 
     private Texture texture = null;
+
+    public Sprite() {
+        super("");
+        this.width = 0;
+        this.height = 0;
+    }
     private Vector2f[] texCoords = {
                 new Vector2f(1, 1),
                 new Vector2f(1, 0),

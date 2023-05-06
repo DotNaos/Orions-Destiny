@@ -7,6 +7,7 @@ import Burst.Engine.Source.Core.Physics.Physics2D;
 import Burst.Engine.Source.Core.Saving.ComponentDeserializer;
 import Burst.Engine.Source.Core.Saving.GameObjectDeserializer;
 import Burst.Engine.Source.Core.UI.Window;
+import Burst.Engine.Source.Core.util.DebugMessage;
 import Burst.Engine.Source.Editor.Panel.MenuBar;
 import Burst.Engine.Source.Editor.Panel.ViewportPanel;
 import com.google.gson.Gson;
@@ -177,26 +178,9 @@ public class Game extends Scene{
         } catch (IOException e)
         {
             if (e instanceof NoSuchFileException) {
-                System.out.println(
-                        """ 
-                                \n
-                                ---------------------------
-                                !!!!No level file found!!!!
-                                ---------------------------
-                                \n
-                         """
-                );
-
+                DebugMessage.printNotFound("Level Not Found");
             } else {
-                System.out.println(
-                        """
-                                \n
-                                ---------------------------
-                                !!!!Error loading level!!!!
-                                ---------------------------
-                                \n
-                         """
-                );
+                DebugMessage.printError("Error Loading Level");
             }
         }
 

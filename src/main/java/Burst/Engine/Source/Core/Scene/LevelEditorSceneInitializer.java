@@ -28,6 +28,7 @@ import Burst.Engine.Source.Core.Assets.AssetManager;
 
 import java.io.File;
 import java.util.Collection;
+import java.util.List;
 
 public class LevelEditorSceneInitializer extends SceneInitializer {
 
@@ -46,8 +47,8 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
         scene.panels.add(new PropertiesPanel(this.pickingTexture));
 
 
-        sprites = AssetManager.getSpritesheet(Assets.BLOCKS);
-        Spritesheet gizmos = AssetManager.getSpritesheet(Assets.GIZMOS);
+        sprites = AssetManager.getAssetFromType(Assets.BLOCKS, Spritesheet.class);
+        Spritesheet gizmos = AssetManager.getAssetFromType(Assets.GIZMOS, Spritesheet.class);
 
         levelEditorStuff = scene.spawnActor("LevelEditor");
         levelEditorStuff.setNoSerialize();
@@ -158,7 +159,7 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
 
             if (ImGui.beginTabItem("Prefabs")) {
                 int uid = 0;
-                Spritesheet playerSprites = AssetManager.getSpritesheet(Assets.PLAYER);
+                Spritesheet playerSprites = AssetManager.getAssetFromType(Assets.PLAYER, Spritesheet.class);
                 Sprite sprite = playerSprites.getSprite(0);
                 float spriteWidth = sprite.getWidth() * 4;
                 float spriteHeight = sprite.getHeight() * 4;
@@ -173,7 +174,7 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
                 ImGui.popID();
                 ImGui.sameLine();
 
-                Spritesheet items = AssetManager.getSpritesheet(Assets.ITEMS);
+                Spritesheet items = AssetManager.getAssetFromType(Assets.ITEMS, Spritesheet.class);
                 sprite = items.getSprite(0);
                 id = sprite.getTexId();
                 texCoords = sprite.getTexCoords();
@@ -207,7 +208,7 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
                 ImGui.popID();
                 ImGui.sameLine();
 
-                Spritesheet turtle = AssetManager.getSpritesheet(Assets.TURTLE);
+                Spritesheet turtle = AssetManager.getAssetFromType(Assets.TURTLE, Spritesheet.class);
                 sprite = turtle.getSprite(0);
                 id = sprite.getTexId();
                 texCoords = sprite.getTexCoords();
@@ -241,7 +242,7 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
                 ImGui.popID();
                 ImGui.sameLine();
 
-                Spritesheet pipes = AssetManager.getSpritesheet(Assets.PIPES);
+                Spritesheet pipes = AssetManager.getAssetFromType(Assets.PIPES, Spritesheet.class);
                 sprite = pipes.getSprite(0);
                 id = sprite.getTexId();
                 texCoords = sprite.getTexCoords();
@@ -289,7 +290,7 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
             }
 
             if (ImGui.beginTabItem("Sounds")) {
-                Collection<Sound> sounds = AssetManager.getAllSounds();
+                List<Sound> sounds = (List<Sound>) AssetManager.getAllAssetsFromType(Sound.class);
                 for (Sound sound : sounds) {
                     File tmp = new File(sound.getFilepath());
                     if (ImGui.button(tmp.getName())) {

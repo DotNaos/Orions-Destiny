@@ -2,6 +2,7 @@ package Burst.Engine.Source.Runtime.Animation;
 
 import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
 import Burst.Engine.Source.Core.Assets.AssetManager;
+import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +19,7 @@ public class AnimationState {
 
     public void refreshTextures() {
         for (Frame frame : animationFrames) {
-            frame.sprite.setTexture(AssetManager.getTexture(frame.sprite.getTexture().getFilepath()));
+            frame.sprite.setTexture(AssetManager.getAssetFromType(frame.sprite.getTexture().getFilepath(), Texture.class));
         }
     }
 

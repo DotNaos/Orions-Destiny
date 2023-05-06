@@ -1,5 +1,6 @@
 package Burst.Engine.Source.Core.Assets.Graphics;
 
+import Burst.Engine.Source.Core.Assets.Asset;
 import org.joml.*;
 import org.lwjgl.BufferUtils;
 
@@ -12,17 +13,17 @@ import static org.lwjgl.opengl.GL11.GL_FALSE;
 import static org.lwjgl.opengl.GL20.*;
 import static org.lwjgl.opengl.GL20.glGetShaderInfoLog;
 
-public class Shader {
+public class Shader extends Asset {
 
     private int shaderProgramID;
     private boolean beingUsed = false;
 
     private String vertexSource;
     private String fragmentSource;
-    private String filepath;
+
 
     public Shader(String filepath) {
-        this.filepath = filepath;
+        super(filepath);
         try {
             String source = new String(Files.readAllBytes(Paths.get(filepath)));
             String[] splitString = source.split("(#type)( )+([a-zA-Z]+)");

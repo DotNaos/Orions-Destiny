@@ -1,6 +1,7 @@
 package Burst.Engine.Source.Core.Graphics.Debug;
 
 import Burst.Engine.Config.ShaderConfig;
+
 import Burst.Engine.Source.Core.Assets.Graphics.Shader;
 import Burst.Engine.Source.Core.Camera;
 import Burst.Engine.Source.Core.UI.Window;
@@ -24,7 +25,7 @@ public class DebugDraw {
     private static List<Line2D> lines = new ArrayList<>();
     // 6 floats per vertex, 2 vertices per line
     private static float[] vertexArray = new float[MAX_LINES * 6 * 2];
-    private static Shader shader = AssetManager.getShader(ShaderConfig.SHADER_DEBUG);
+    private static Shader shader = (Shader) AssetManager.getAssetFromType(ShaderConfig.SHADER_DEBUG, Shader.class);
 
     private static int vaoID;
     private static int vboID;

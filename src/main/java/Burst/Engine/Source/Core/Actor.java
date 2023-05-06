@@ -1,5 +1,7 @@
 package Burst.Engine.Source.Core;
 
+
+import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Burst.Engine.Source.Core.Physics.Components.Transform;
 import Burst.Engine.Source.Core.Saving.ComponentDeserializer;
 import Burst.Engine.Source.Core.Saving.GameObjectDeserializer;
@@ -109,7 +111,7 @@ public class Actor {
 
         SpriteRenderer sprite = obj.getComponent(SpriteRenderer.class);
         if (sprite != null && sprite.getTexture() != null) {
-            sprite.setTexture(AssetManager.getTexture(sprite.getTexture().getFilepath()));
+            sprite.setTexture((Texture) AssetManager.getAssetFromType(sprite.getTexture().getFilepath(), Texture.class));
         }
 
         return obj;

@@ -1,5 +1,7 @@
 package Burst.Engine.Source.Core.Assets.Audio;
 
+import Burst.Engine.Source.Core.Assets.Asset;
+
 import java.nio.IntBuffer;
 import java.nio.ShortBuffer;
 
@@ -8,16 +10,18 @@ import static org.lwjgl.stb.STBVorbis.stb_vorbis_decode_filename;
 import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.libc.LibCStdlib.free;
 
-public class Sound {
+public class Sound extends Asset {
     private int bufferId;
     private int sourceId;
-    private String filepath;
 
     private boolean isPlaying = false;
 
-    public Sound(String filepath, boolean loops) {
-        this.filepath = filepath;
+    public Sound(String filepath) {
+        super(filepath);
+    }
 
+    public void init(boolean loops)
+    {
         // Allocate space to store the return information from stb
         stackPush();
         IntBuffer channelsBuffer = stackMallocInt(1);
@@ -88,9 +92,6 @@ public class Sound {
         }
     }
 
-    public String getFilepath() {
-        return this.filepath;
-    }
 
     public boolean isPlaying() {
         int state = alGetSourcei(sourceId, AL_SOURCE_STATE);

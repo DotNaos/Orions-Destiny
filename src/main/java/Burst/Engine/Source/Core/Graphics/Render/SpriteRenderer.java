@@ -1,5 +1,6 @@
 package Burst.Engine.Source.Core.Graphics.Render;
 
+
 import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
 import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Burst.Engine.Source.Core.UI.BImGui;
@@ -20,7 +21,7 @@ public class SpriteRenderer extends Component {
     @Override
     public void start() {
         if (this.sprite.getTexture() != null) {
-            this.sprite.setTexture(AssetManager.getTexture(this.sprite.getTexture().getFilepath()));
+            this.sprite.setTexture(AssetManager.getAssetFromType(this.sprite.getTexture().getFilepath(), Texture.class));
         }
         this.lastTransform = actor.transform.copy();
     }

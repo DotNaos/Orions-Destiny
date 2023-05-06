@@ -10,7 +10,7 @@ public class LevelSceneInitializer extends SceneInitializer {
 
     @Override
     public void init(Game scene) {
-        Spritesheet sprites = AssetManager.getSpritesheet(Assets.BLOCKS);
+        Spritesheet sprites = AssetManager.getAssetFromType(Assets.BLOCKS, Spritesheet.class);
 
         Actor cameraObject = scene.spawnActor("GameCamera");
         cameraObject.addComponent(new GameCamera(scene.getCamera()));

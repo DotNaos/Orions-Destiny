@@ -6,7 +6,16 @@ package Burst.Engine.Source.Core.Assets;
  *
  */
 public class Asset {
-    protected String resourcePath;
-    protected assetType resourceType;
+    protected String filepath;
+
+    public Asset(String filepath) {
+        this.filepath = "";
+    }
+
+    public String getFilepath() {
+        return this.filepath;
+    }
+
+
 
 }
