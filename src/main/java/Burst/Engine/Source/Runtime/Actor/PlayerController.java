@@ -177,7 +177,7 @@ public class PlayerController extends Component {
             Actor fireball = Prefabs.generateFireball(position);
             fireball.getComponent(Fireball.class).goingRight =
                     this.actor.transform.scale.x > 0;
-            Window.getGameScene().addActor(fireball);
+            Window.getScene().getGame().addActor(fireball);
         }
 
         checkOnGround();

@@ -25,8 +25,8 @@ public class Pipe extends Component {
 
     @Override
     public void start() {
-        assert Window.getGameScene() != null;
-        connectingPipe = Window.getGameScene().getGameObject(connectingPipeName);
+        
+        connectingPipe = Window.getScene().getGame().getGameObject(connectingPipeName);
     }
 
     @Override

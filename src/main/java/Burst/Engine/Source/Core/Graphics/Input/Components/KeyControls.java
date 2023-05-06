@@ -29,8 +29,8 @@ public class KeyControls extends Component {
         if (KeyListener.isKeyPressed(GLFW_KEY_LEFT_CONTROL) &&
                 KeyListener.keyBeginPress(GLFW_KEY_D) && activeActor != null) {
             Actor newObj = activeActor.copy();
-            assert Window.getGameScene() != null;
-            Window.getGameScene().addActor(newObj);
+            assert Window.getScene().getGame() != null;
+            Window.getScene().getGame().addActor(newObj);
             newObj.transform.position.add(GridLines_Config.GRID_WIDTH, 0.0f);
             propertiesPanel.setActiveGameObject(newObj);
             if (newObj.getComponent(StateMachine.class) != null) {
@@ -42,8 +42,8 @@ public class KeyControls extends Component {
             propertiesPanel.clearSelected();
             for (Actor go : actors) {
                 Actor copy = go.copy();
-                assert Window.getGameScene() != null;
-                Window.getGameScene().addActor(copy);
+                assert Window.getScene().getGame() != null;
+                Window.getScene().getGame().addActor(copy);
                 propertiesPanel.addActiveGameObject(copy);
                 if (copy.getComponent(StateMachine.class) != null) {
                     copy.getComponent(StateMachine.class).refreshTextures();

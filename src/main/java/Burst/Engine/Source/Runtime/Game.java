@@ -1,11 +1,14 @@
-package Burst.Engine.Source.Core.Scene;
+package Burst.Engine.Source.Runtime;
 
 import Burst.Engine.Source.Core.Actor;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.Graphics.Input.MouseListener;
+import Burst.Engine.Source.Core.Graphics.Render.ViewportRenderer;
 import Burst.Engine.Source.Core.Physics.Physics2D;
 import Burst.Engine.Source.Core.Saving.ComponentDeserializer;
 import Burst.Engine.Source.Core.Saving.GameObjectDeserializer;
+import Burst.Engine.Source.Core.Scene.Scene;
+import Burst.Engine.Source.Core.Scene.SceneInitializer;
 import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Core.util.DebugMessage;
 import Burst.Engine.Source.Editor.Panel.MenuBar;
@@ -23,25 +26,23 @@ import java.util.List;
 import java.util.Optional;
 
 
-public class Game extends Scene{
-    private boolean isRunning = false;
+public class Game{
     private List<Actor> actors;
     private List<Actor> pendingObjects;
     private Physics2D physics2D;
 
-    public Game(SceneInitializer sceneInitializer) {
-        super(sceneInitializer);
+    public Game() {
         this.physics2D = new Physics2D();
         this.actors = new ArrayList<>();
         this.pendingObjects = new ArrayList<>();
 
         loadLevel();
 
-        panels.add(new ViewportPanel());
-        panels.add(new MenuBar());
+        Window.getScene().addPanel(new ViewportPanel());
+        Window.getScene().addPanel(new MenuBar());
 
-        this.sceneInitializer.loadResources(this);
-        this.sceneInitializer.init(this);
+        Window.getScene().getSceneInitializer().loadResources(this);
+        Window.getScene().getSceneInitializer().init(this);
         start();
     }
 
@@ -53,11 +54,11 @@ public class Game extends Scene{
         for (int i = 0; i < actors.size(); i++) {
             Actor go = actors.get(i);
             go.start();
-            this.viewportRenderer.add(go);
+            Window.getScene().getViewportRenderer().add(go);
             this.physics2D.add(go);
         }
-        isRunning = true;
     }
+
 
     public void destroy() {
         for (Actor go : actors) {
@@ -72,7 +73,7 @@ public class Game extends Scene{
         }
 
 
-        this.camera.adjustProjection();
+        Window.getScene().getCamera().adjustProjection();
         this.physics2D.update(dt);
 
         for (int i = 0; i < actors.size(); i++) {
@@ -81,7 +82,7 @@ public class Game extends Scene{
 
             if (go.isDead()) {
                 actors.remove(i);
-                this.viewportRenderer.destroyGameObject(go);
+                Window.getScene().getViewportRenderer().destroyGameObject(go);
                 this.physics2D.destroyGameObject(go);
                 i--;
             }
@@ -90,17 +91,14 @@ public class Game extends Scene{
         for (Actor go : pendingObjects) {
             actors.add(go);
             go.start();
-            this.viewportRenderer.add(go);
+            Window.getScene().getViewportRenderer().add(go);
             this.physics2D.add(go);
         }
         pendingObjects.clear();
     }
 
     public void updateEditor(float dt) {
-        this.camera.adjustProjection();
-
-
-
+        Window.getScene().getCamera().adjustProjection();
 
         for (int i = 0; i < actors.size(); i++) {
             Actor go = actors.get(i);
@@ -108,7 +106,7 @@ public class Game extends Scene{
 
             if (go.isDead()) {
                 actors.remove(i);
-                this.viewportRenderer.destroyGameObject(go);
+                Window.getScene().getViewportRenderer().destroyGameObject(go);
                 this.physics2D.destroyGameObject(go);
                 i--;
             }
@@ -117,7 +115,7 @@ public class Game extends Scene{
         for (Actor go : pendingObjects) {
             actors.add(go);
             go.start();
-            this.viewportRenderer.add(go);
+            Window.getScene().getViewportRenderer().add(go);
             this.physics2D.add(go);
         }
         pendingObjects.clear();
@@ -125,7 +123,7 @@ public class Game extends Scene{
 
 
     public void addActor(Actor go) {
-        if (!isRunning) {
+        if (Window.getScene().isPaused()) {
             actors.add(go);
         } else {
             pendingObjects.add(go);
@@ -219,16 +217,16 @@ public class Game extends Scene{
      * @param action
      * @param mods
      */
-    @Override
+
     public void mouseButtonCallback(long window, int button, int action, int mods) {
-        if (!this.getPanel(ViewportPanel.class).getWantCaptureMouse()) return;
+        if (!Window.getScene().getPanel(ViewportPanel.class).getWantCaptureMouse()) return;
 
         MouseListener.mouseButtonCallback(window, button, action, mods);
     }
 
-    @Override
+
     public void mousePositionCallback(long window, double xpos, double ypos) {
-        if (this.getPanel(ViewportPanel.class).getWantCaptureMouse()) return;
+        if (Window.getScene().getPanel(ViewportPanel.class).getWantCaptureMouse()) return;
 
         MouseListener.clear();
 

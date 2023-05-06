@@ -5,6 +5,7 @@ import Burst.Engine.Source.Core.Graphics.Render.SpriteRenderer;
 import Burst.Engine.Source.Core.Actor;
 import Burst.Engine.Source.Runtime.Animation.StateMachine;
 import Burst.Engine.Source.Core.Assets.AssetManager;
+import Burst.Engine.Source.Runtime.Game;
 
 public abstract class SceneInitializer {
 
@@ -19,7 +20,6 @@ public abstract class SceneInitializer {
 
     public void loadResources(Game scene) {
         AssetManager.loadAllAssets();
-
 
         for (Actor g : scene.getGameObjects()) {
             if (g.getComponent(SpriteRenderer.class) != null) {

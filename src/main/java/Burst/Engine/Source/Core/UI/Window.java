@@ -13,6 +13,7 @@ import Burst.Engine.Source.Core.Observer.EventSystem;
 import Burst.Engine.Source.Core.Observer.Observer;
 import Burst.Engine.Source.Core.Observer.Events.Event;
 import Burst.Engine.Source.Core.Scene.*;
+import Burst.Engine.Source.Runtime.Game;
 import org.joml.Vector4f;
 import org.lwjgl.Version;
 import org.lwjgl.glfw.GLFWErrorCallback;
@@ -68,8 +69,6 @@ public class Window implements Observer {
         }
         currentScene = new Scene(sceneInitializer);
         currentScene.init();
-
-
     }
 
     public static Window get() {
@@ -81,21 +80,13 @@ public class Window implements Observer {
     }
 
     public static Physics2D getPhysics() {
-        assert getGameScene() != null;
-        return getGameScene().getPhysics(); }
+        return currentScene.getGame().getPhysics();
+    }
 
     public static Scene getScene() {
         return currentScene;
     }
 
-    public static Game getGameScene() {
-        if (currentScene != null)
-            if (currentScene instanceof Game) {
-                return (Game) currentScene;
-            }
-
-        return null;
-    }
 
     public static boolean isIsPlaying() {
         return isPlaying;
@@ -278,8 +269,7 @@ public class Window implements Observer {
         switch (event.type) {
             case GameEngineStartPlay -> {
                 isPlaying = true;
-                assert getGameScene() != null;
-                getGameScene().saveLevel();
+                currentScene.getGame().saveLevel();
                 Window.changeScene(new LevelSceneInitializer());
             }
             case GameEngineStopPlay -> {
@@ -288,8 +278,8 @@ public class Window implements Observer {
             }
             case LoadLevel -> Window.changeScene(new LevelEditorSceneInitializer());
             case SaveLevel -> {
-                assert getGameScene() != null;
-                getGameScene().saveLevel();
+                assert currentScene.getGame() != null;
+                currentScene.getGame().saveLevel();
             }
         }
     }

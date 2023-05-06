@@ -28,8 +28,8 @@ import Orion.res.Assets;
 public class Prefabs {
 
     public static Actor generateSpriteObject(Sprite sprite, float sizeX, float sizeY) {
-        assert Window.getGameScene() != null;
-        Actor block = Window.getGameScene().spawnActor("Generated_Num: " + Window.getGameScene().getActors().size());
+        
+        Actor block = Window.getScene().getGame().spawnActor("Generated_Num: " + Window.getScene().getGame().getActors().size());
         block.transform.scale.x = sizeX;
         block.transform.scale.y = sizeY;
         SpriteRenderer renderer = new SpriteRenderer();

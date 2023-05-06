@@ -49,9 +49,9 @@ public class Gizmo extends Component {
         this.xAxisObject.addComponent(new NonPickable());
         this.yAxisObject.addComponent(new NonPickable());
 
-        assert Window.getGameScene() != null;
-        Window.getGameScene().addActor(this.xAxisObject);
-        Window.getGameScene().addActor(this.yAxisObject);
+        
+        Window.getScene().getGame().addActor(this.xAxisObject);
+        Window.getScene().getGame().addActor(this.yAxisObject);
     }
 
     @Override

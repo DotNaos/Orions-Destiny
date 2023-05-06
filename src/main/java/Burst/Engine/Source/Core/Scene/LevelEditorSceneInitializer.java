@@ -9,12 +9,14 @@ import Burst.Engine.Source.Core.Physics.Components.Box2DCollider;
 import Burst.Engine.Source.Core.Physics.Components.Rigidbody2D;
 import Burst.Engine.Source.Core.Physics.Enums.BodyType;
 import Burst.Engine.Source.Core.Actor;
+import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Core.util.Prefabs;
 import Burst.Engine.Source.Core.Assets.Audio.Sound;
 import Burst.Engine.Source.Editor.Direction;
 import Burst.Engine.Source.Editor.EditorCamera;
 import Burst.Engine.Source.Editor.Panel.OutlinerPanel;
 import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
+import Burst.Engine.Source.Runtime.Game;
 import Orion.blocks.BreakableBrick;
 import Orion.blocks.Ground;
 import Burst.Engine.Source.Editor.Gizmo.GizmoSystem;
@@ -27,7 +29,6 @@ import Burst.Engine.Source.Core.Assets.AssetManager;
 
 
 import java.io.File;
-import java.util.Collection;
 import java.util.List;
 
 public class LevelEditorSceneInitializer extends SceneInitializer {
@@ -41,23 +42,23 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
 
 
     @Override
-    public void init(Game scene) {
-        scene.panels.add(new OutlinerPanel());
+    public void init(Game game) {
+        Window.getScene().addPanel(new OutlinerPanel());
         pickingTexture = new PickingTexture();
-        scene.panels.add(new PropertiesPanel(this.pickingTexture));
+        Window.getScene().addPanel(new PropertiesPanel(this.pickingTexture));
 
 
         sprites = AssetManager.getAssetFromType(Assets.BLOCKS, Spritesheet.class);
         Spritesheet gizmos = AssetManager.getAssetFromType(Assets.GIZMOS, Spritesheet.class);
 
-        levelEditorStuff = scene.spawnActor("LevelEditor");
+        levelEditorStuff = game.spawnActor("LevelEditor");
         levelEditorStuff.setNoSerialize();
         levelEditorStuff.addComponent(new MouseControls());
         levelEditorStuff.addComponent(new KeyControls());
         levelEditorStuff.addComponent(new GridLines());
-        levelEditorStuff.addComponent(new EditorCamera(scene.getCamera()));
+        levelEditorStuff.addComponent(new EditorCamera(Window.getScene().getCamera()));
         levelEditorStuff.addComponent(new GizmoSystem(gizmos));
-        scene.addActor(levelEditorStuff);
+        game.addActor(levelEditorStuff);
     }
 
 

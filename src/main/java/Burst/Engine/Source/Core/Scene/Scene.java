@@ -3,19 +3,21 @@ package Burst.Engine.Source.Core.Scene;
 import Burst.Engine.Source.Core.Camera;
 import Burst.Engine.Source.Core.Graphics.Render.ViewportRenderer;
 import Burst.Engine.Source.Core.UI.ImGuiPanel;
+import Burst.Engine.Source.Editor.Panel.ViewportPanel;
+import Burst.Engine.Source.Runtime.Game;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Scene {
-    protected SceneInitializer sceneInitializer;
-    protected List<ImGuiPanel> panels = new ArrayList<>();
-    protected Camera camera;
-    protected final ViewportRenderer viewportRenderer;
-
+    private SceneInitializer sceneInitializer;
+    private List<ImGuiPanel> panels = new ArrayList<>();
+    private Camera camera;
+    private final ViewportRenderer viewportRenderer;
+    private boolean isPaused = false;
+    private Scenes openScene = Scenes.NONE;
     private Editor editor;
     private Game game;
-
 
     public Scene(SceneInitializer sceneInitializer) {
         this.camera = new Camera();
@@ -73,5 +75,25 @@ public class Scene {
     }
     public SceneInitializer getSceneInitializer() {
         return this.sceneInitializer;
+    }
+
+    public ViewportRenderer getViewportRenderer() {
+        return this.viewportRenderer;
+    }
+
+    public Game getGame() {
+        return this.game;
+    }
+
+    public <T extends ImGuiPanel> void addPanel(T panel) {
+        this.panels.add(panel);
+    }
+
+    public boolean isPaused() {
+        return isPaused;
+    }
+
+    public boolean isRunning() {
+        return !isPaused;
     }
 }

@@ -51,23 +51,23 @@ public class QuestionBlock extends Block {
         Actor coin = Prefabs.generateBlockCoin();
         coin.transform.position.set(this.actor.transform.position);
         coin.transform.position.y += 0.25f;
-        assert Window.getGameScene() != null;
-        Window.getGameScene().addActor(coin);
+
+        Window.getScene().getGame().addActor(coin);
     }
 
     private void spawnMushroom() {
         Actor mushroom = Prefabs.generateMushroom();
         mushroom.transform.position.set(actor.transform.position);
         mushroom.transform.position.y += 0.25f;
-        assert Window.getGameScene() != null;
-        Window.getGameScene().addActor(mushroom);
+
+        Window.getScene().getGame().addActor(mushroom);
     }
 
     private void spawnFlower() {
         Actor flower = Prefabs.generateFlower();
         flower.transform.position.set(actor.transform.position);
         flower.transform.position.y += 0.25f;
-        assert Window.getGameScene() != null;
-        Window.getGameScene().addActor(flower);
+        
+        Window.getScene().getGame().addActor(flower);
     }
 }

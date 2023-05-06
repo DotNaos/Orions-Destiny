@@ -24,8 +24,8 @@ public class GameCamera extends Component {
 
     @Override
     public void start() {
-        assert Window.getGameScene() != null;
-        this.player = Window.getGameScene().getActorWith(PlayerController.class);
+        
+        this.player = Window.getScene().getGame().getActorWith(PlayerController.class);
         this.gameCamera.clearColor.set(skyColor);
         this.undergroundYLevel = this.gameCamera.position.y -
                 this.gameCamera.getProjectionSize().y - this.cameraBuffer;
