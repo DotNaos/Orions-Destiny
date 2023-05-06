@@ -1,8 +1,9 @@
 package Burst.Engine.Source.Core.util;
 
+import Burst.Engine.Source.Core.Assets.AssetManager;
 import Burst.Engine.Source.Editor.Direction;
 import Burst.Engine.Source.Core.UI.Window;
-import Burst.Engine.Source.Core.GameObject;
+import Burst.Engine.Source.Core.Actor;
 import Orion.abilities.Fireball;
 import Burst.Engine.Source.Runtime.Animation.AnimationState;
 import Burst.Engine.Source.Runtime.Animation.StateMachine;
@@ -12,9 +13,9 @@ import Orion.enemies.TurtleAI;
 import Orion.items.Coin;
 import Orion.items.Flower;
 import Burst.Engine.Source.Runtime.Actor.PlayerController;
-import Burst.Engine.Source.Core.Graphics.Sprite.Sprite;
-import Burst.Engine.Source.Core.Graphics.Sprite.SpriteRenderer;
-import Burst.Engine.Source.Core.Graphics.Sprite.Spritesheet;
+import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
+import Burst.Engine.Source.Core.Graphics.Render.SpriteRenderer;
+import Burst.Engine.Source.Core.Assets.Graphics.Spritesheet;
 import Orion.blocks.*;
 import org.joml.Vector2f;
 import Burst.Engine.Source.Core.Physics.Components.Box2DCollider;
@@ -26,11 +27,9 @@ import Orion.res.Assets;
 
 public class Prefabs {
 
-    public static GameObject generateSpriteObject(Sprite sprite, float sizeX, float sizeY) {
-        GameObject block = Window.getScene().createGameObject("Generated_Num: " +
-                // Add the GameObject id to the name to make it unique
-                Window.getScene().getGameObjects().size()
-                );
+    public static Actor generateSpriteObject(Sprite sprite, float sizeX, float sizeY) {
+        assert Window.getGameScene() != null;
+        Actor block = Window.getGameScene().spawnActor("Generated_Num: " + Window.getGameScene().getActors().size());
         block.transform.scale.x = sizeX;
         block.transform.scale.y = sizeY;
         SpriteRenderer renderer = new SpriteRenderer();
@@ -40,10 +39,10 @@ public class Prefabs {
         return block;
     }
 
-    public static GameObject generateMario() {
+    public static Actor generateMario() {
         Spritesheet playerSprites = AssetManager.getSpritesheet(Assets.PLAYER);
         Spritesheet bigPlayerSprites = AssetManager.getSpritesheet(Assets.BIG_PLAYER);
-        GameObject mario = generateSpriteObject(playerSprites.getSprite(0), 0.25f, 0.25f);
+        Actor mario = generateSpriteObject(playerSprites.getSprite(0), 0.25f, 0.25f);
 
         // Little mario animations
         AnimationState run = new AnimationState();
@@ -226,9 +225,9 @@ public class Prefabs {
         return mario;
     }
 
-    public static GameObject generateQuestionBlock() {
+    public static Actor generateQuestionBlock() {
         Spritesheet playerSprites = Assets.PLAYER_SPRITESHEET;
-        GameObject questionBlock = generateSpriteObject(playerSprites.getSprite(0), 0.25f, 0.25f);
+        Actor questionBlock = generateSpriteObject(playerSprites.getSprite(0), 0.25f, 0.25f);
 
         AnimationState flicker = new AnimationState();
         flicker.title = "Question";
@@ -262,9 +261,9 @@ public class Prefabs {
         return questionBlock;
     }
 
-    public static GameObject generateBlockCoin() {
+    public static Actor generateBlockCoin() {
         Spritesheet items = Assets.ITEMS_SPRITESHEET;
-        GameObject coin = generateSpriteObject(items.getSprite(7), 0.25f, 0.25f);
+        Actor coin = generateSpriteObject(items.getSprite(7), 0.25f, 0.25f);
 
         AnimationState coinFlip = new AnimationState();
         coinFlip.title = "CoinFlip";
@@ -285,9 +284,9 @@ public class Prefabs {
         return coin;
     }
 
-    public static GameObject generateCoin() {
+    public static Actor generateCoin() {
         Spritesheet items = Assets.ITEMS_SPRITESHEET;
-        GameObject coin = generateSpriteObject(items.getSprite(7), 0.25f, 0.25f);
+        Actor coin = generateSpriteObject(items.getSprite(7), 0.25f, 0.25f);
 
         AnimationState coinFlip = new AnimationState();
         coinFlip.title = "CoinFlip";
@@ -313,9 +312,9 @@ public class Prefabs {
         return coin;
     }
 
-    public static GameObject generateGoomba() {
+    public static Actor generateGoomba() {
         Spritesheet sprites = Assets.PLAYER_SPRITESHEET;
-        GameObject goomba = generateSpriteObject(sprites.getSprite(14), 0.25f, 0.25f);
+        Actor goomba = generateSpriteObject(sprites.getSprite(14), 0.25f, 0.25f);
 
         AnimationState walk = new AnimationState();
         walk.title = "Walk";
@@ -350,9 +349,9 @@ public class Prefabs {
         return goomba;
     }
 
-    public static GameObject generateTurtle() {
+    public static Actor generateTurtle() {
         Spritesheet turtleSprites = Assets.TURTLE_SPRITESHEET;
-        GameObject turtle = generateSpriteObject(turtleSprites.getSprite(0), 0.25f, 0.35f);
+        Actor turtle = generateSpriteObject(turtleSprites.getSprite(0), 0.25f, 0.35f);
 
         AnimationState walk = new AnimationState();
         walk.title = "Walk";
@@ -388,9 +387,9 @@ public class Prefabs {
         return turtle;
     }
 
-    public static GameObject generateFireball(Vector2f position) {
+    public static Actor generateFireball(Vector2f position) {
         Spritesheet items = Assets.ITEMS_SPRITESHEET;
-        GameObject fireball = generateSpriteObject(items.getSprite(32), 0.18f, 0.18f);
+        Actor fireball = generateSpriteObject(items.getSprite(32), 0.18f, 0.18f);
         fireball.transform.position = position;
 
         Rigidbody2D rb = new Rigidbody2D();
@@ -407,9 +406,9 @@ public class Prefabs {
         return fireball;
     }
 
-    public static GameObject generateFlagtop() {
+    public static Actor generateFlagtop() {
         Spritesheet items = Assets.ITEMS_SPRITESHEET;
-        GameObject flagtop = generateSpriteObject(items.getSprite(6), 0.25f, 0.25f);
+        Actor flagtop = generateSpriteObject(items.getSprite(6), 0.25f, 0.25f);
 
         Rigidbody2D rb = new Rigidbody2D();
         rb.setBodyType(BodyType.Dynamic);
@@ -426,9 +425,9 @@ public class Prefabs {
         return flagtop;
     }
 
-    public static GameObject generateFlagPole() {
+    public static Actor generateFlagPole() {
         Spritesheet items = Assets.ITEMS_SPRITESHEET;
-        GameObject flagtop = generateSpriteObject(items.getSprite(33), 0.25f, 0.25f);
+        Actor flagtop = generateSpriteObject(items.getSprite(33), 0.25f, 0.25f);
 
         Rigidbody2D rb = new Rigidbody2D();
         rb.setBodyType(BodyType.Dynamic);
@@ -445,9 +444,9 @@ public class Prefabs {
         return flagtop;
     }
 
-    public static GameObject generateMushroom() {
+    public static Actor generateMushroom() {
         Spritesheet items = Assets.ITEMS_SPRITESHEET;
-        GameObject mushroom = generateSpriteObject(items.getSprite(10), 0.25f, 0.25f);
+        Actor mushroom = generateSpriteObject(items.getSprite(10), 0.25f, 0.25f);
 
         Rigidbody2D rb = new Rigidbody2D();
         rb.setBodyType(BodyType.Dynamic);
@@ -463,9 +462,9 @@ public class Prefabs {
         return mushroom;
     }
 
-    public static GameObject generateFlower() {
+    public static Actor generateFlower() {
         Spritesheet items = Assets.ITEMS_SPRITESHEET;
-        GameObject flower = generateSpriteObject(items.getSprite(20), 0.25f, 0.25f);
+        Actor flower = generateSpriteObject(items.getSprite(20), 0.25f, 0.25f);
 
         Rigidbody2D rb = new Rigidbody2D();
         rb.setBodyType(BodyType.Static);
@@ -481,14 +480,14 @@ public class Prefabs {
         return flower;
     }
 
-    public static GameObject generatePipe(Direction direction) {
+    public static Actor generatePipe(Direction direction) {
         Spritesheet pipes = Assets.PIPES_SPRITESHEET;
         int index = direction == Direction.Down ? 0 :
                     direction == Direction.Up ? 1 :
                     direction == Direction.Right ? 2 :
                     direction == Direction.Left ? 3 : -1;
         assert index != -1 : "Invalid pipe direction.";
-        GameObject pipe = generateSpriteObject(pipes.getSprite(index), 0.5f, 0.5f);
+        Actor pipe = generateSpriteObject(pipes.getSprite(index), 0.5f, 0.5f);
 
         Rigidbody2D rb = new Rigidbody2D();
         rb.setBodyType(BodyType.Static);

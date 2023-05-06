@@ -3,7 +3,7 @@ package Burst.Engine.Source.Editor.Panel;
 import Burst.Engine.Source.Core.UI.ImGuiPanel;
 import imgui.ImGui;
 import imgui.flag.ImGuiTreeNodeFlags;
-import Burst.Engine.Source.Core.GameObject;
+import Burst.Engine.Source.Core.Actor;
 import Burst.Engine.Source.Core.UI.Window;
 
 import java.util.List;
@@ -16,9 +16,10 @@ public class OutlinerPanel extends ImGuiPanel {
     public void imgui() {
         ImGui.begin("Outliner");
 
-        List<GameObject> gameObjects = Window.getScene().getGameObjects();
+        assert Window.getGameScene() != null;
+        List<Actor> actors = Window.getGameScene().getActors();
         int index = 0;
-        for (GameObject obj : gameObjects) {
+        for (Actor obj : actors) {
             if (!obj.doSerialization()) {
                 continue;
             }
@@ -32,7 +33,7 @@ public class OutlinerPanel extends ImGuiPanel {
         ImGui.end();
     }
 
-    private boolean doTreeNode(GameObject obj, int index) {
+    private boolean doTreeNode(Actor obj, int index) {
         ImGui.pushID(index);
         boolean treeNodeOpen = ImGui.treeNodeEx(
                 obj.name,
@@ -53,8 +54,8 @@ public class OutlinerPanel extends ImGuiPanel {
         if (ImGui.beginDragDropTarget()) {
             Object payloadObj = ImGui.acceptDragDropPayloadObject(payloadDragDropType);
             if (payloadObj != null) {
-                if (payloadObj.getClass().isAssignableFrom(GameObject.class)) {
-                    GameObject playerGameObj = (GameObject)payloadObj;
+                if (payloadObj.getClass().isAssignableFrom(Actor.class)) {
+                    Actor playerGameObj = (Actor)payloadObj;
                     System.out.println("Payload accepted '" + playerGameObj.name + "'");
                 }
             }

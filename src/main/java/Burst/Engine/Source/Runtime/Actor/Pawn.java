@@ -1,36 +1,11 @@
 package Burst.Engine.Source.Runtime.Actor;
 
-public class Pawn extends Actor{
+import Burst.Engine.Source.Core.Actor;
 
-    /**
-     *
-     */
-    @Override
-    public void init() {
+public class Pawn extends Actor {
 
-    }
 
-    /**
-     * @param dt
-     */
-    @Override
-    public void update(float dt) {
-
-    }
-
-    /**
-     *
-     */
-    @Override
-    public void render() {
-
-    }
-
-    /**
-     *
-     */
-    @Override
-    public void destroy() {
-
+    public Pawn(String name) {
+        super(name);
     }
 }

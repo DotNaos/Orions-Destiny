@@ -1,9 +1,9 @@
 package Burst.Engine.Source.Editor.Panel;
 
-import Burst.Engine.Source.Core.Graphics.Sprite.SpriteRenderer;
+import Burst.Engine.Source.Core.Graphics.Render.SpriteRenderer;
 import Burst.Engine.Source.Core.UI.ImGuiPanel;
 import imgui.ImGui;
-import Burst.Engine.Source.Core.GameObject;
+import Burst.Engine.Source.Core.Actor;
 import org.joml.Vector4f;
 import Burst.Engine.Source.Core.Physics.Components.Box2DCollider;
 import Burst.Engine.Source.Core.Physics.Components.CircleCollider;
@@ -14,65 +14,65 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PropertiesPanel extends ImGuiPanel {
-    private List<GameObject> activeGameObjects;
+    private List<Actor> activeActors;
     private List<Vector4f> activeGameObjectsOgColor;
-    private GameObject activeGameObject = null;
+    private Actor activeActor = null;
     private PickingTexture pickingTexture;
 
     public PropertiesPanel(PickingTexture pickingTexture) {
-        this.activeGameObjects = new ArrayList<>();
+        this.activeActors = new ArrayList<>();
         this.pickingTexture = pickingTexture;
         this.activeGameObjectsOgColor = new ArrayList<>();
     }
 
     @Override
     public void imgui() {
-        if (activeGameObjects.size() == 1 && activeGameObjects.get(0) != null) {
-            activeGameObject = activeGameObjects.get(0);
+        if (activeActors.size() == 1 && activeActors.get(0) != null) {
+            activeActor = activeActors.get(0);
             ImGui.begin("Properties");
 
             if (ImGui.beginPopupContextWindow("ComponentAdder")) {
                 if (ImGui.menuItem("Add Rigidbody")) {
-                    if (activeGameObject.getComponent(Rigidbody2D.class) == null) {
-                        activeGameObject.addComponent(new Rigidbody2D());
+                    if (activeActor.getComponent(Rigidbody2D.class) == null) {
+                        activeActor.addComponent(new Rigidbody2D());
                     }
                 }
 
                 if (ImGui.menuItem("Add Box Collider")) {
-                    if (activeGameObject.getComponent(Box2DCollider.class) == null &&
-                            activeGameObject.getComponent(CircleCollider.class) == null) {
-                        activeGameObject.addComponent(new Box2DCollider());
+                    if (activeActor.getComponent(Box2DCollider.class) == null &&
+                            activeActor.getComponent(CircleCollider.class) == null) {
+                        activeActor.addComponent(new Box2DCollider());
                     }
                 }
 
                 if (ImGui.menuItem("Add Circle Collider")) {
-                    if (activeGameObject.getComponent(CircleCollider.class) == null &&
-                            activeGameObject.getComponent(Box2DCollider.class) == null) {
-                        activeGameObject.addComponent(new CircleCollider());
+                    if (activeActor.getComponent(CircleCollider.class) == null &&
+                            activeActor.getComponent(Box2DCollider.class) == null) {
+                        activeActor.addComponent(new CircleCollider());
                     }
                 }
 
                 ImGui.endPopup();
             }
 
-            activeGameObject.imgui();
+            activeActor.imgui();
             ImGui.end();
         }
     }
 
-    public GameObject getActiveGameObject() {
-        return activeGameObjects.size() == 1 ? this.activeGameObjects.get(0) :
+    public Actor getActiveGameObject() {
+        return activeActors.size() == 1 ? this.activeActors.get(0) :
                 null;
     }
 
-    public List<GameObject> getActiveGameObjects() {
-        return this.activeGameObjects;
+    public List<Actor> getActiveGameObjects() {
+        return this.activeActors;
     }
 
     public void clearSelected() {
         if (activeGameObjectsOgColor.size() > 0) {
             int i = 0;
-            for (GameObject go : activeGameObjects) {
+            for (Actor go : activeActors) {
                 SpriteRenderer spr = go.getComponent(SpriteRenderer.class);
                 if (spr != null) {
                     spr.setColor(activeGameObjectsOgColor.get(i));
@@ -80,18 +80,18 @@ public class PropertiesPanel extends ImGuiPanel {
                 i++;
             }
         }
-        this.activeGameObjects.clear();
+        this.activeActors.clear();
         this.activeGameObjectsOgColor.clear();
     }
 
-    public void setActiveGameObject(GameObject go) {
+    public void setActiveGameObject(Actor go) {
         if (go != null) {
             clearSelected();
-            this.activeGameObjects.add(go);
+            this.activeActors.add(go);
         }
     }
 
-    public void addActiveGameObject(GameObject go) {
+    public void addActiveGameObject(Actor go) {
         SpriteRenderer spr = go.getComponent(SpriteRenderer.class);
         if (spr != null ) {
             this.activeGameObjectsOgColor.add(new Vector4f(spr.getColor()));
@@ -99,7 +99,7 @@ public class PropertiesPanel extends ImGuiPanel {
         } else {
             this.activeGameObjectsOgColor.add(new Vector4f());
         }
-        this.activeGameObjects.add(go);
+        this.activeActors.add(go);
     }
 
     public PickingTexture getPickingTexture() {

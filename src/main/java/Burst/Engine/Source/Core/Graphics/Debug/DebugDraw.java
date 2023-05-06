@@ -1,12 +1,12 @@
 package Burst.Engine.Source.Core.Graphics.Debug;
 
 import Burst.Engine.Config.ShaderConfig;
-import Burst.Engine.Source.Core.Graphics.Render.Shader;
+import Burst.Engine.Source.Core.Assets.Graphics.Shader;
 import Burst.Engine.Source.Core.Camera;
 import Burst.Engine.Source.Core.UI.Window;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
-import Burst.Engine.Source.Core.util.AssetManager;
+import Burst.Engine.Source.Core.Assets.AssetManager;
 import Burst.Engine.Source.Core.util.BMath;
 import org.joml.Vector4f;
 
@@ -94,8 +94,8 @@ public class DebugDraw {
 
         // Use our shader
         shader.use();
-        shader.uploadMat4f("uProjection", Window.getScene().camera().getProjectionMatrix());
-        shader.uploadMat4f("uView", Window.getScene().camera().getViewMatrix());
+        shader.uploadMat4f("uProjection", Window.getScene().getCamera().getProjectionMatrix());
+        shader.uploadMat4f("uView", Window.getScene().getCamera().getViewMatrix());
 
         // Bind the vao
         glBindVertexArray(vaoID);
@@ -132,7 +132,7 @@ public class DebugDraw {
     }
 
     public static void addLine2D(Vector2f from, Vector2f to, Vector4f color, int lifetime) {
-        Camera camera = Window.getScene().camera();
+        Camera camera = Window.getScene().getCamera();
         Vector2f cameraLeft = new Vector2f(camera.position).add(new Vector2f(-2.0f, -2.0f));
         Vector2f cameraRight = new Vector2f(camera.position).
                 add(new Vector2f(camera.getProjectionSize()).mul(camera.getZoom())).

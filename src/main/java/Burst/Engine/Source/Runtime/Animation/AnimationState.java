@@ -1,7 +1,7 @@
 package Burst.Engine.Source.Runtime.Animation;
 
-import Burst.Engine.Source.Core.Graphics.Sprite.Sprite;
-import Burst.Engine.Source.Core.util.AssetManager;
+import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
+import Burst.Engine.Source.Core.Assets.AssetManager;
 
 import java.util.ArrayList;
 import java.util.List;

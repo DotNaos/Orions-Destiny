@@ -1,24 +1,20 @@
 package Burst.Engine.Source.Core.Scene;
 
-import Burst.Engine.Source.Core.Graphics.Input.MouseListener;
 import Burst.Engine.Source.Core.Graphics.Render.PickingTexture;
 import Burst.Engine.Source.Core.Graphics.Render.Components.GridLines;
-import Burst.Engine.Source.Core.Graphics.Sprite.Sprite;
-import Burst.Engine.Source.Core.Graphics.Sprite.Spritesheet;
+import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
+import Burst.Engine.Source.Core.Assets.Graphics.Spritesheet;
 import Burst.Engine.Source.Core.Graphics.Input.Components.MouseControls;
 import Burst.Engine.Source.Core.Physics.Components.Box2DCollider;
 import Burst.Engine.Source.Core.Physics.Components.Rigidbody2D;
 import Burst.Engine.Source.Core.Physics.Enums.BodyType;
-import Burst.Engine.Source.Core.GameObject;
-import Burst.Engine.Source.Core.UI.Window;
+import Burst.Engine.Source.Core.Actor;
 import Burst.Engine.Source.Core.util.Prefabs;
-import Burst.Engine.Source.Core.Audio.Sound;
+import Burst.Engine.Source.Core.Assets.Audio.Sound;
 import Burst.Engine.Source.Editor.Direction;
 import Burst.Engine.Source.Editor.EditorCamera;
-import Burst.Engine.Source.Editor.Panel.MenuBar;
 import Burst.Engine.Source.Editor.Panel.OutlinerPanel;
 import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
-import Burst.Engine.Source.Editor.Panel.ViewportPanel;
 import Orion.blocks.BreakableBrick;
 import Orion.blocks.Ground;
 import Burst.Engine.Source.Editor.Gizmo.GizmoSystem;
@@ -27,7 +23,7 @@ import imgui.ImGui;
 import imgui.ImVec2;
 import org.joml.Vector2f;
 import Orion.res.Assets;
-import Burst.Engine.Source.Core.util.AssetManager;
+import Burst.Engine.Source.Core.Assets.AssetManager;
 
 
 import java.io.File;
@@ -36,7 +32,7 @@ import java.util.Collection;
 public class LevelEditorSceneInitializer extends SceneInitializer {
 
     private Spritesheet sprites;
-    private GameObject levelEditorStuff;
+    private Actor levelEditorStuff;
 
 
 
@@ -44,32 +40,28 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
 
 
     @Override
-    public void init(GameScene scene) {
-        this.panels.add(new ViewportPanel());
-        this.panels.add(new OutlinerPanel());
-        this.pickingTexture = new PickingTexture(Window.getWidth(), Window.getHeight());
-        this.panels.add(new PropertiesPanel(this.pickingTexture));
-        this.panels.add(new MenuBar());
-
+    public void init(Game scene) {
+        scene.panels.add(new OutlinerPanel());
+        pickingTexture = new PickingTexture();
+        scene.panels.add(new PropertiesPanel(this.pickingTexture));
 
 
         sprites = AssetManager.getSpritesheet(Assets.BLOCKS);
         Spritesheet gizmos = AssetManager.getSpritesheet(Assets.GIZMOS);
 
-        levelEditorStuff = scene.createGameObject("LevelEditor");
+        levelEditorStuff = scene.spawnActor("LevelEditor");
         levelEditorStuff.setNoSerialize();
         levelEditorStuff.addComponent(new MouseControls());
         levelEditorStuff.addComponent(new KeyControls());
         levelEditorStuff.addComponent(new GridLines());
-        levelEditorStuff.addComponent(new EditorCamera(scene.camera()));
+        levelEditorStuff.addComponent(new EditorCamera(scene.getCamera()));
         levelEditorStuff.addComponent(new GizmoSystem(gizmos));
-        scene.addGameObjectToScene(levelEditorStuff);
+        scene.addActor(levelEditorStuff);
     }
 
 
     @Override
     public void imgui() {
-        super.imgui();
         ImGui.begin("Settings");
         levelEditorStuff.imgui();
         ImGui.end();
@@ -99,7 +91,7 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
 
                     ImGui.pushID(i);
                     if (ImGui.imageButton(id, spriteWidth, spriteHeight, texCoords[2].x, texCoords[0].y, texCoords[0].x, texCoords[2].y)) {
-                        GameObject object = Prefabs.generateSpriteObject(sprite, 0.25f, 0.25f);
+                        Actor object = Prefabs.generateSpriteObject(sprite, 0.25f, 0.25f);
                         Rigidbody2D rb = new Rigidbody2D();
                         rb.setBodyType(BodyType.Static);
                         object.addComponent(rb);
@@ -147,7 +139,7 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
 
                     ImGui.pushID(i);
                     if (ImGui.imageButton(id, spriteWidth, spriteHeight, texCoords[2].x, texCoords[0].y, texCoords[0].x, texCoords[2].y)) {
-                        GameObject object = Prefabs.generateSpriteObject(sprite, 0.25f, 0.25f);
+                        Actor object = Prefabs.generateSpriteObject(sprite, 0.25f, 0.25f);
                         levelEditorStuff.getComponent(MouseControls.class).pickupObject(object);
                     }
                     ImGui.popID();
@@ -175,7 +167,7 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
 
                 ImGui.pushID(uid++);
                 if (ImGui.imageButton(id, spriteWidth, spriteHeight, texCoords[2].x, texCoords[0].y, texCoords[0].x, texCoords[2].y)) {
-                    GameObject object = Prefabs.generateMario();
+                    Actor object = Prefabs.generateMario();
                     levelEditorStuff.getComponent(MouseControls.class).pickupObject(object);
                 }
                 ImGui.popID();
@@ -187,7 +179,7 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
                 texCoords = sprite.getTexCoords();
                 ImGui.pushID(uid++);
                 if (ImGui.imageButton(id, spriteWidth, spriteHeight, texCoords[2].x, texCoords[0].y, texCoords[0].x, texCoords[2].y)) {
-                    GameObject object = Prefabs.generateQuestionBlock();
+                    Actor object = Prefabs.generateQuestionBlock();
                     levelEditorStuff.getComponent(MouseControls.class).pickupObject(object);
                 }
                 ImGui.popID();
@@ -198,7 +190,7 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
                 texCoords = sprite.getTexCoords();
                 ImGui.pushID(uid++);
                 if (ImGui.imageButton(id, spriteWidth, spriteHeight, texCoords[2].x, texCoords[0].y, texCoords[0].x, texCoords[2].y)) {
-                    GameObject object = Prefabs.generateCoin();
+                    Actor object = Prefabs.generateCoin();
                     levelEditorStuff.getComponent(MouseControls.class).pickupObject(object);
                 }
                 ImGui.popID();
@@ -209,7 +201,7 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
                 texCoords = sprite.getTexCoords();
                 ImGui.pushID(uid++);
                 if (ImGui.imageButton(id, spriteWidth, spriteHeight, texCoords[2].x, texCoords[0].y, texCoords[0].x, texCoords[2].y)) {
-                    GameObject object = Prefabs.generateGoomba();
+                    Actor object = Prefabs.generateGoomba();
                     levelEditorStuff.getComponent(MouseControls.class).pickupObject(object);
                 }
                 ImGui.popID();
@@ -221,7 +213,7 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
                 texCoords = sprite.getTexCoords();
                 ImGui.pushID(uid++);
                 if (ImGui.imageButton(id, spriteWidth, spriteHeight, texCoords[2].x, texCoords[0].y, texCoords[0].x, texCoords[2].y)) {
-                    GameObject object = Prefabs.generateTurtle();
+                    Actor object = Prefabs.generateTurtle();
                     levelEditorStuff.getComponent(MouseControls.class).pickupObject(object);
                 }
                 ImGui.popID();
@@ -232,7 +224,7 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
                 texCoords = sprite.getTexCoords();
                 ImGui.pushID(uid++);
                 if (ImGui.imageButton(id, spriteWidth, spriteHeight, texCoords[2].x, texCoords[0].y, texCoords[0].x, texCoords[2].y)) {
-                    GameObject object = Prefabs.generateFlagtop();
+                    Actor object = Prefabs.generateFlagtop();
                     levelEditorStuff.getComponent(MouseControls.class).pickupObject(object);
                 }
                 ImGui.popID();
@@ -243,7 +235,7 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
                 texCoords = sprite.getTexCoords();
                 ImGui.pushID(uid++);
                 if (ImGui.imageButton(id, spriteWidth, spriteHeight, texCoords[2].x, texCoords[0].y, texCoords[0].x, texCoords[2].y)) {
-                    GameObject object = Prefabs.generateFlagPole();
+                    Actor object = Prefabs.generateFlagPole();
                     levelEditorStuff.getComponent(MouseControls.class).pickupObject(object);
                 }
                 ImGui.popID();
@@ -255,7 +247,7 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
                 texCoords = sprite.getTexCoords();
                 ImGui.pushID(uid++);
                 if (ImGui.imageButton(id, spriteWidth, spriteHeight, texCoords[2].x, texCoords[0].y, texCoords[0].x, texCoords[2].y)) {
-                    GameObject object = Prefabs.generatePipe(Direction.Down);
+                    Actor object = Prefabs.generatePipe(Direction.Down);
                     levelEditorStuff.getComponent(MouseControls.class).pickupObject(object);
                 }
                 ImGui.popID();
@@ -266,7 +258,7 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
                 texCoords = sprite.getTexCoords();
                 ImGui.pushID(uid++);
                 if (ImGui.imageButton(id, spriteWidth, spriteHeight, texCoords[2].x, texCoords[0].y, texCoords[0].x, texCoords[2].y)) {
-                    GameObject object = Prefabs.generatePipe(Direction.Up);
+                    Actor object = Prefabs.generatePipe(Direction.Up);
                     levelEditorStuff.getComponent(MouseControls.class).pickupObject(object);
                 }
                 ImGui.popID();
@@ -277,7 +269,7 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
                 texCoords = sprite.getTexCoords();
                 ImGui.pushID(uid++);
                 if (ImGui.imageButton(id, spriteWidth, spriteHeight, texCoords[2].x, texCoords[0].y, texCoords[0].x, texCoords[2].y)) {
-                    GameObject object = Prefabs.generatePipe(Direction.Right);
+                    Actor object = Prefabs.generatePipe(Direction.Right);
                     levelEditorStuff.getComponent(MouseControls.class).pickupObject(object);
                 }
                 ImGui.popID();
@@ -288,7 +280,7 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
                 texCoords = sprite.getTexCoords();
                 ImGui.pushID(uid++);
                 if (ImGui.imageButton(id, spriteWidth, spriteHeight, texCoords[2].x, texCoords[0].y, texCoords[0].x, texCoords[2].y)) {
-                    GameObject object = Prefabs.generatePipe(Direction.Left);
+                    Actor object = Prefabs.generatePipe(Direction.Left);
                     levelEditorStuff.getComponent(MouseControls.class).pickupObject(object);
                 }
                 ImGui.popID();
@@ -325,12 +317,6 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
         return pickingTexture;
     }
 
-    @Override
-    public void mouseListener()
-    {
-        if (!this.getPanel(ViewportPanel.class).getWantCaptureMouse()) {
-             MouseListener.clear();
-        }
-    }
+
 
 }

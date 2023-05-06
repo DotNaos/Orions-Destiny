@@ -3,12 +3,12 @@ package Burst.Engine.Source.Editor.Gizmo;
 import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
 import Burst.Engine.Source.Core.util.Prefabs;
 import Burst.Engine.Source.Core.UI.Window;
-import Burst.Engine.Source.Core.GameObject;
+import Burst.Engine.Source.Core.Actor;
 import Burst.Engine.Source.Core.Graphics.Input.MouseListener;
-import Burst.Engine.Source.Core.Graphics.Sprite.SpriteRenderer;
+import Burst.Engine.Source.Core.Graphics.Render.SpriteRenderer;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Editor.NonPickable;
-import Burst.Engine.Source.Core.Graphics.Sprite.Sprite;
+import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
 
@@ -20,11 +20,11 @@ public class Gizmo extends Component {
     private Vector4f yAxisColor = new Vector4f(0, 1, 0, 1);
     private Vector4f yAxisColorHover = new Vector4f(0, 0.5f, 0, 1);
 
-    private GameObject xAxisObject;
-    private GameObject yAxisObject;
+    private Actor xAxisObject;
+    private Actor yAxisObject;
     private SpriteRenderer xAxisSprite;
     private SpriteRenderer yAxisSprite;
-    protected GameObject activeGameObject = null;
+    protected Actor activeActor = null;
 
     private Vector2f xAxisOffset = new Vector2f(24f / 80f, -6f / 80f);
     private Vector2f yAxisOffset = new Vector2f(-7f / 80f, 21f / 80f);
@@ -49,8 +49,9 @@ public class Gizmo extends Component {
         this.xAxisObject.addComponent(new NonPickable());
         this.yAxisObject.addComponent(new NonPickable());
 
-        Window.getScene().addGameObjectToScene(this.xAxisObject);
-        Window.getScene().addGameObjectToScene(this.yAxisObject);
+        assert Window.getGameScene() != null;
+        Window.getGameScene().addActor(this.xAxisObject);
+        Window.getGameScene().addActor(this.yAxisObject);
     }
 
     @Override
@@ -73,11 +74,11 @@ public class Gizmo extends Component {
     }
 
     @Override
-    public void editorUpdate(float dt) {
+    public void updateEditor(float dt) {
         if (!using) return;
 
-        this.activeGameObject = this.propertiesPanel.getActiveGameObject();
-        if (this.activeGameObject != null) {
+        this.activeActor = this.propertiesPanel.getActiveGameObject();
+        if (this.activeActor != null) {
             this.setActive();
         } else {
             this.setInactive();
@@ -98,9 +99,9 @@ public class Gizmo extends Component {
             yAxisActive = false;
         }
 
-        if (this.activeGameObject != null) {
-            this.xAxisObject.transform.position.set(this.activeGameObject.transform.position);
-            this.yAxisObject.transform.position.set(this.activeGameObject.transform.position);
+        if (this.activeActor != null) {
+            this.xAxisObject.transform.position.set(this.activeActor.transform.position);
+            this.yAxisObject.transform.position.set(this.activeActor.transform.position);
             this.xAxisObject.transform.position.add(this.xAxisOffset);
             this.yAxisObject.transform.position.add(this.yAxisOffset);
         }
@@ -112,7 +113,7 @@ public class Gizmo extends Component {
     }
 
     private void setInactive() {
-        this.activeGameObject = null;
+        this.activeActor = null;
         this.xAxisSprite.setColor(new Vector4f(0, 0, 0, 0));
         this.yAxisSprite.setColor(new Vector4f(0, 0, 0, 0));
     }

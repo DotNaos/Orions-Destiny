@@ -1,9 +1,7 @@
 package Burst.Engine.Source.Core.Scene;
 
-import Burst.Engine.Source.Core.Graphics.Render.Texture;
 import Burst.Engine.Source.Core.UI.Menu;
 import Burst.Engine.Source.Core.UI.Window;
-import Orion.res.Assets;
 import imgui.ImGui;
 import imgui.flag.ImGuiCol;
 import imgui.flag.ImGuiStyleVar;
@@ -16,12 +14,13 @@ public class StartMenuSceneInitializer extends SceneInitializer {
         // button colors
         private final int BUTTON_COLOR = 0xA0;
         private final int BUTTON_HOVER_COLOR = 0x80;
+
+        private final int BUTTON_ACTIVE_COLOR = 0x60;
         
 
         @Override
         public void imgui()
         {
-            super.imgui();
             // Window centered in the glfw window
             ImGui.begin("StartMenu",
                      ImGuiWindowFlags.NoTitleBar |
@@ -32,17 +31,19 @@ public class StartMenuSceneInitializer extends SceneInitializer {
                                     ImGuiWindowFlags.NoScrollWithMouse
             );
 
-//            Dock the window into the main viewport
+            // Window Position
             ImGui.setWindowPos(0, 0);
             ImGui.setWindowSize(Window.getWidth(), Window.getHeight());
-            ImGui.pushStyleColor(ImGuiCol.Button, BUTTON_COLOR);
-            ImGui.pushStyleColor(ImGuiCol.ButtonHovered,  255);
-            ImGui.pushStyleColor(ImGuiCol.ButtonActive, 255);
 
+            // Bordereinstellungen
             ImGui.pushStyleVar(ImGuiStyleVar.FrameRounding, 10);
-
-            // BOrdereinstellungen
             ImGui.pushStyleVar(ImGuiStyleVar.FrameBorderSize, 1);
+
+            // Button Colors
+            ImGui.pushStyleColor(ImGuiCol.Button, BUTTON_COLOR);
+            ImGui.pushStyleColor(ImGuiCol.ButtonHovered,  BUTTON_HOVER_COLOR);
+            ImGui.pushStyleColor(ImGuiCol.ButtonActive, BUTTON_ACTIVE_COLOR);
+
 
             float buttonSpacing = 20;
 
@@ -75,7 +76,6 @@ public class StartMenuSceneInitializer extends SceneInitializer {
             if (ImGui.button("Settings", buttonSize.x, buttonSize.y)) {
                 Window.changeScene(new SettingsSceneInitializer());
             }
-
 
 
 

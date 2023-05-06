@@ -1,7 +1,7 @@
 package Burst.Engine.Source.Runtime.Animation;
 
 import Burst.Engine.Source.Core.Component;
-import Burst.Engine.Source.Core.Graphics.Sprite.SpriteRenderer;
+import Burst.Engine.Source.Core.Graphics.Render.SpriteRenderer;
 import imgui.ImGui;
 import imgui.type.ImString;
 
@@ -108,7 +108,7 @@ public class StateMachine extends Component {
     public void update(float dt) {
         if (currentState != null) {
             currentState.update(dt);
-            SpriteRenderer sprite = gameObject.getComponent(SpriteRenderer.class);
+            SpriteRenderer sprite = actor.getComponent(SpriteRenderer.class);
             if (sprite != null) {
                 sprite.setSprite(currentState.getCurrentSprite());
                 sprite.setTexture(currentState.getCurrentSprite().getTexture());
@@ -117,10 +117,10 @@ public class StateMachine extends Component {
     }
 
     @Override
-    public void editorUpdate(float dt) {
+    public void updateEditor(float dt) {
         if (currentState != null) {
             currentState.update(dt);
-            SpriteRenderer sprite = gameObject.getComponent(SpriteRenderer.class);
+            SpriteRenderer sprite = actor.getComponent(SpriteRenderer.class);
             if (sprite != null) {
                 sprite.setSprite(currentState.getCurrentSprite());
                 sprite.setTexture(currentState.getCurrentSprite().getTexture());

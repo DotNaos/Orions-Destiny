@@ -1,5 +1,6 @@
 package Burst.Engine.Source.Core.Graphics.Render;
 
+import Burst.Engine.Source.Core.UI.Window;
 import org.joml.Vector2i;
 
 import static org.lwjgl.opengl.GL11.GL_TEXTURE_2D;
@@ -13,6 +14,13 @@ public class PickingTexture {
 
     public PickingTexture(int width, int height) {
         if (!init(width, height)) {
+            assert false : "Error initializing picking texture";
+        }
+    }
+
+    public PickingTexture()
+    {
+        if (!init(Window.getWidth(), Window.getHeight())) {
             assert false : "Error initializing picking texture";
         }
     }

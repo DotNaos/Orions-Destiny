@@ -1,7 +1,7 @@
 package Orion.enemies;
 
 import Burst.Engine.Source.Core.Camera;
-import Burst.Engine.Source.Core.GameObject;
+import Burst.Engine.Source.Core.Actor;
 import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Core.Component;
 import Orion.abilities.Fireball;
@@ -27,27 +27,27 @@ public class TurtleAI extends Component {
 
     @Override
     public void start() {
-        this.stateMachine = this.gameObject.getComponent(StateMachine.class);
-        this.rb = gameObject.getComponent(Rigidbody2D.class);
+        this.stateMachine = this.actor.getComponent(StateMachine.class);
+        this.rb = actor.getComponent(Rigidbody2D.class);
         this.acceleration.y = Window.getPhysics().getGravity().y * 0.7f;
     }
 
     @Override
     public void update(float dt) {
         movingDebounce -= dt;
-        Camera camera = Window.getScene().camera();
-        if (this.gameObject.transform.position.x >
+        Camera camera = Window.getScene().getCamera();
+        if (this.actor.transform.position.x >
                 camera.position.x + camera.getProjectionSize().x * camera.getZoom()) {
             return;
         }
 
         if (!isDead || isMoving) {
             if (goingRight) {
-                gameObject.transform.scale.x = -0.25f;
+                actor.transform.scale.x = -0.25f;
                 velocity.x = walkSpeed;
                 acceleration.x = 0;
             } else {
-                gameObject.transform.scale.x = 0.25f;
+                actor.transform.scale.x = 0.25f;
                 velocity.x = -walkSpeed;
                 acceleration.x = 0;
             }
@@ -66,17 +66,17 @@ public class TurtleAI extends Component {
         this.velocity.y = Math.max(Math.min(this.velocity.y, this.terminalVelocity.y), -terminalVelocity.y);
         this.rb.setVelocity(velocity);
 
-        if (this.gameObject.transform.position.x <
-                Window.getScene().camera().position.x - 0.5f) {// ||
+        if (this.actor.transform.position.x <
+                Window.getScene().getCamera().position.x - 0.5f) {// ||
                 //this.gameObject.transform.position.y < 0.0f) {
-            this.gameObject.destroy();
+            this.actor.destroy();
         }
     }
 
     public void checkOnGround() {
         float innerPlayerWidth = 0.25f * 0.7f;
         float yVal = -0.2f;
-        onGround = Physics2D.checkOnGround(this.gameObject, innerPlayerWidth, yVal);
+        onGround = Physics2D.checkOnGround(this.actor, innerPlayerWidth, yVal);
     }
 
     public void stomp() {
@@ -91,7 +91,7 @@ public class TurtleAI extends Component {
     }
 
     @Override
-    public void preSolve(GameObject obj, Contact contact, Vector2f contactNormal) {
+    public void preSolve(Actor obj, Contact contact, Vector2f contactNormal) {
         GoombaAI goomba = obj.getComponent(GoombaAI.class);
         if (isDead && isMoving && goomba != null) {
             goomba.stomp();

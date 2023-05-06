@@ -1,21 +1,20 @@
 package Burst.Engine.Source.Core.Graphics.Input.Components;
 
 import Burst.Engine.Source.Core.Graphics.Input.MouseListener;
-import Burst.Engine.Source.Core.Scene.GameScene;
+import Burst.Engine.Source.Core.Scene.Game;
 import Burst.Engine.Source.Editor.NonPickable;
 import Burst.Engine.Source.Core.Graphics.Render.PickingTexture;
 import Burst.Engine.Source.Core.Graphics.Debug.DebugDraw;
-import Burst.Engine.Source.Core.Graphics.Sprite.SpriteRenderer;
+import Burst.Engine.Source.Core.Graphics.Render.SpriteRenderer;
 import Burst.Engine.Source.Core.Graphics.Input.KeyListener;
 import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
-import Burst.Engine.Source.Core.GameObject;
+import Burst.Engine.Source.Core.Actor;
 import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Runtime.Animation.StateMachine;
 import org.joml.Vector2f;
 import org.joml.Vector2i;
 import org.joml.Vector4f;
-import Burst.Engine.Source.Core.Scene.Scene;
 import Burst.Engine.Config.Constants.GridLines_Config;
 
 import java.util.HashSet;
@@ -25,7 +24,7 @@ import static org.lwjgl.glfw.GLFW.GLFW_KEY_ESCAPE;
 import static org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT;
 
 public class MouseControls extends Component {
-    GameObject holdingObject = null;
+    Actor holdingObject = null;
     private float debounceTime = 0.2f;
     private float debounce = debounceTime;
 
@@ -33,32 +32,35 @@ public class MouseControls extends Component {
     private Vector2f boxSelectStart = new Vector2f();
     private Vector2f boxSelectEnd = new Vector2f();
 
-    public void pickupObject(GameObject go) {
+    public void pickupObject(Actor go) {
         if (this.holdingObject != null) {
             this.holdingObject.destroy();
         }
         this.holdingObject = go;
         this.holdingObject.getComponent(SpriteRenderer.class).setColor(new Vector4f(0.8f, 0.8f, 0.8f, 0.5f));
         this.holdingObject.addComponent(new NonPickable());
-        Window.getScene().addGameObjectToScene(go);
+        assert Window.getGameScene() != null;
+        Window.getGameScene().addActor(go);
     }
 
     public void place() {
-        GameObject newObj = holdingObject.copy();
+        Actor newObj = holdingObject.copy();
         if (newObj.getComponent(StateMachine.class) != null) {
             newObj.getComponent(StateMachine.class).refreshTextures();
         }
         newObj.getComponent(SpriteRenderer.class).setColor(new Vector4f(1, 1, 1, 1));
         newObj.removeComponent(NonPickable.class);
-        Window.getScene().addGameObjectToScene(newObj);
+        assert Window.getGameScene() != null;
+        Window.getGameScene().addActor(newObj);
     }
 
     @Override
-    public void editorUpdate(float dt) {
+    public void updateEditor(float dt) {
         debounce -= dt;
-        PropertiesPanel propertiesPanel =  Window.getScene().getSceneInitializer().getPanel(PropertiesPanel.class);
+        PropertiesPanel propertiesPanel =  Window.getScene().getPanel(PropertiesPanel.class);
         PickingTexture pickingTexture = propertiesPanel.getPickingTexture();
-        GameScene currentScene = Window.getScene();
+        Game currentScene = Window.getGameScene();
+        assert currentScene != null;
 
         if (holdingObject != null) {
             float x = MouseListener.getWorldX();
@@ -87,7 +89,8 @@ public class MouseControls extends Component {
             int x = (int)MouseListener.getScreenX();
             int y = (int)MouseListener.getScreenY();
             int gameObjectId = pickingTexture.readPixel(x, y);
-            GameObject pickedObj = currentScene.getGameObject(gameObjectId);
+
+            Actor pickedObj = currentScene.getGameObject(gameObjectId);
             if (pickedObj != null && pickedObj.getComponent(NonPickable.class) == null) {
                 propertiesPanel.setActiveGameObject(pickedObj);
             } else if (pickedObj == null && !MouseListener.isDragging()) {
@@ -140,7 +143,7 @@ public class MouseControls extends Component {
             }
 
             for (Integer gameObjectId : uniqueGameObjectIds) {
-                GameObject pickedObj = Window.getScene().getGameObject(gameObjectId);
+                Actor pickedObj = currentScene.getGameObject(gameObjectId);
                 if (pickedObj != null && pickedObj.getComponent(NonPickable.class) == null) {
                     propertiesPanel.addActiveGameObject(pickedObj);
                 }
@@ -149,7 +152,7 @@ public class MouseControls extends Component {
     }
 
     private boolean blockInSquare(float x, float y) {
-        PropertiesPanel propertiesPanel = Window.getScene().getSceneInitializer().getPanel(PropertiesPanel.class);
+        PropertiesPanel propertiesPanel = Window.getScene().getPanel(PropertiesPanel.class);
         Vector2f start = new Vector2f(x, y);
         Vector2f end = new Vector2f(start).add(new Vector2f(GridLines_Config.GRID_WIDTH, GridLines_Config.GRID_HEIGHT));
         Vector2f startScreenf = MouseListener.worldToScreen(start);
@@ -160,7 +163,8 @@ public class MouseControls extends Component {
 
         for (int i = 0; i < gameObjectIds.length; i++) {
             if (gameObjectIds[i] >= 0) {
-                GameObject pickedObj = Window.getScene().getGameObject((int)gameObjectIds[i]);
+                assert Window.getGameScene() != null;
+                Actor pickedObj = Window.getGameScene().getGameObject((int)gameObjectIds[i]);
                 if (pickedObj.getComponent(NonPickable.class) == null) {
                     return true;
                 }

@@ -1,6 +1,6 @@
 package Burst.Engine.Source.Runtime;
 
-import Burst.Engine.Source.Core.GameObject;
+import Burst.Engine.Source.Core.Actor;
 import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Core.Camera;
 import Burst.Engine.Source.Core.Component;
@@ -8,7 +8,7 @@ import Burst.Engine.Source.Runtime.Actor.PlayerController;
 import org.joml.Vector4f;
 
 public class GameCamera extends Component {
-    private transient GameObject player;
+    private transient Actor player;
     private transient Camera gameCamera;
     private transient float highestX = Float.MIN_VALUE;
     private transient float undergroundYLevel = 0.0f;
@@ -24,7 +24,8 @@ public class GameCamera extends Component {
 
     @Override
     public void start() {
-        this.player = Window.getScene().getGameObjectWith(PlayerController.class);
+        assert Window.getGameScene() != null;
+        this.player = Window.getGameScene().getActorWith(PlayerController.class);
         this.gameCamera.clearColor.set(skyColor);
         this.undergroundYLevel = this.gameCamera.position.y -
                 this.gameCamera.getProjectionSize().y - this.cameraBuffer;

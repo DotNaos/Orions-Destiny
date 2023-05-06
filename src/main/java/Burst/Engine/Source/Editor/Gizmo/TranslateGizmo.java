@@ -2,7 +2,7 @@ package Burst.Engine.Source.Editor.Gizmo;
 
 import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
 import Burst.Engine.Source.Core.Graphics.Input.MouseListener;
-import Burst.Engine.Source.Core.Graphics.Sprite.Sprite;
+import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
 
 public class TranslateGizmo extends Gizmo {
 
@@ -11,15 +11,15 @@ public class TranslateGizmo extends Gizmo {
     }
 
     @Override
-    public void editorUpdate(float dt) {
-        if (activeGameObject != null) {
+    public void updateEditor(float dt) {
+        if (activeActor != null) {
             if (xAxisActive && !yAxisActive) {
-                activeGameObject.transform.position.x -= MouseListener.getWorldDx();
+                activeActor.transform.position.x -= MouseListener.getWorldDx();
             } else if (yAxisActive) {
-                activeGameObject.transform.position.y -= MouseListener.getWorldDy();
+                activeActor.transform.position.y -= MouseListener.getWorldDy();
             }
         }
 
-        super.editorUpdate(dt);
+        super.updateEditor(dt);
     }
 }

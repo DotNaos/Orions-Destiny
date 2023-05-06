@@ -1,6 +1,6 @@
 package Burst.Engine.Source.Core;
 
-import Burst.Engine.Source.Core.util.AssetManager;
+import Burst.Engine.Source.Core.Assets.AssetManager;
 import Burst.Engine.Source.Core.UI.BImGui;
 import imgui.ImGui;
 import imgui.type.ImInt;
@@ -16,7 +16,7 @@ public abstract class Component {
     private static int ID_COUNTER = 0;
     private int uid = -1;
 
-    public transient GameObject gameObject = null;
+    public transient Actor actor = null;
 
     protected transient String filePath = null;
 
@@ -30,23 +30,23 @@ public abstract class Component {
 
     }
 
-    public void editorUpdate(float dt) {
+    public void updateEditor(float dt) {
 
     }
 
-    public void beginCollision(GameObject collidingObject, Contact contact, Vector2f hitNormal) {
+    public void beginCollision(Actor collidingObject, Contact contact, Vector2f hitNormal) {
 
     }
 
-    public void endCollision(GameObject collidingObject, Contact contact, Vector2f hitNormal) {
+    public void endCollision(Actor collidingObject, Contact contact, Vector2f hitNormal) {
 
     }
 
-    public void preSolve(GameObject collidingObject, Contact contact, Vector2f hitNormal) {
+    public void preSolve(Actor collidingObject, Contact contact, Vector2f hitNormal) {
 
     }
 
-    public void postSolve(GameObject collidingObject, Contact contact, Vector2f hitNormal) {
+    public void postSolve(Actor collidingObject, Contact contact, Vector2f hitNormal) {
 
     }
 

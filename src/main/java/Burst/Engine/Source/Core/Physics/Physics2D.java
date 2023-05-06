@@ -5,7 +5,7 @@ import Burst.Engine.Source.Core.Physics.Components.CircleCollider;
 import Burst.Engine.Source.Core.Physics.Components.Transform;
 import Burst.Engine.Source.Core.Physics.Components.Rigidbody2D;
 import Orion.blocks.Ground;
-import Burst.Engine.Source.Core.GameObject;
+import Burst.Engine.Source.Core.Actor;
 import Burst.Engine.Source.Core.UI.Window;
 import org.jbox2d.collision.shapes.CircleShape;
 import org.jbox2d.collision.shapes.PolygonShape;
@@ -31,7 +31,7 @@ public class Physics2D {
         return new Vector2f(world.getGravity().x, world.getGravity().y);
     }
 
-    public void add(GameObject go) {
+    public void add(Actor go) {
         Rigidbody2D rb = go.getComponent(Rigidbody2D.class);
         if (rb != null && rb.getRawBody() == null) {
             Transform transform = go.transform;
@@ -45,7 +45,7 @@ public class Physics2D {
             bodyDef.bullet = rb.isContinuousCollision();
             bodyDef.gravityScale = rb.gravityScale;
             bodyDef.angularVelocity = rb.angularVelocity;
-            bodyDef.userData = rb.gameObject;
+            bodyDef.userData = rb.actor;
 
             switch (rb.getBodyType()) {
                 case Kinematic: bodyDef.type = BodyType.KINEMATIC; break;
@@ -75,7 +75,7 @@ public class Physics2D {
         }
     }
 
-    public void destroyGameObject(GameObject go) {
+    public void destroyGameObject(Actor go) {
         Rigidbody2D rb = go.getComponent(Rigidbody2D.class);
         if (rb != null) {
             if (rb.getRawBody() != null) {
@@ -176,7 +176,7 @@ public class Physics2D {
         fixtureDef.shape = shape;
         fixtureDef.density = 1.0f;
         fixtureDef.friction = rb.getFriction();
-        fixtureDef.userData = boxCollider.gameObject;
+        fixtureDef.userData = boxCollider.actor;
         fixtureDef.isSensor = rb.isSensor();
         body.createFixture(fixtureDef);
     }
@@ -193,12 +193,12 @@ public class Physics2D {
         fixtureDef.shape = shape;
         fixtureDef.density = 1.0f;
         fixtureDef.friction = rb.getFriction();
-        fixtureDef.userData = circleCollider.gameObject;
+        fixtureDef.userData = circleCollider.actor;
         fixtureDef.isSensor = rb.isSensor();
         body.createFixture(fixtureDef);
     }
 
-    public RaycastInfo raycast(GameObject requestingObject, Vector2f point1, Vector2f point2) {
+    public RaycastInfo raycast(Actor requestingObject, Vector2f point1, Vector2f point2) {
         RaycastInfo callback = new RaycastInfo(requestingObject);
         world.raycast(callback, new Vec2(point1.x, point1.y),
                 new Vec2(point2.x, point2.y));
@@ -220,18 +220,18 @@ public class Physics2D {
     }
 
     public static boolean checkOnGround(
-            GameObject gameObject,
+            Actor actor,
             float innerPlayerWidth,
             float height) {
-        Vector2f raycastBegin = new Vector2f(gameObject.transform.position);
+        Vector2f raycastBegin = new Vector2f(actor.transform.position);
         raycastBegin.sub(innerPlayerWidth / 2.0f, 0.0f);
         Vector2f raycastEnd = new Vector2f(raycastBegin).add(0.0f, height);
 
-        RaycastInfo info = Window.getPhysics().raycast(gameObject, raycastBegin, raycastEnd);
+        RaycastInfo info = Window.getPhysics().raycast(actor, raycastBegin, raycastEnd);
 
         Vector2f raycast2Begin = new Vector2f(raycastBegin).add(innerPlayerWidth, 0.0f);
         Vector2f raycast2End = new Vector2f(raycastEnd).add(innerPlayerWidth, 0.0f);
-        RaycastInfo info2 = Window.getPhysics().raycast(gameObject, raycast2Begin, raycast2End);
+        RaycastInfo info2 = Window.getPhysics().raycast(actor, raycast2Begin, raycast2End);
 
         return (info.hit && info.hitObject != null && info.hitObject.getComponent(Ground.class) != null) ||
                 (info2.hit && info2.hitObject != null && info2.hitObject.getComponent(Ground.class) != null);

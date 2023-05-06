@@ -28,8 +28,8 @@ public class Box2DCollider extends Component {
     }
 
     @Override
-    public void editorUpdate(float dt) {
-        Vector2f center = new Vector2f(this.gameObject.transform.position).add(this.offset);
-        DebugDraw.addBox2D(center, this.halfSize, this.gameObject.transform.rotation);
+    public void updateEditor(float dt) {
+        Vector2f center = new Vector2f(this.actor.transform.position).add(this.offset);
+        DebugDraw.addBox2D(center, this.halfSize, this.actor.transform.rotation);
     }
 }

@@ -16,6 +16,11 @@ public class Camera {
 
     private float zoom = 1.0f;
 
+    public Camera()
+    {
+        new Camera (new Vector2f(0, 0));
+    }
+
     public Camera(Vector2f position) {
         this.position = position;
         this.projectionMatrix = new Matrix4f();

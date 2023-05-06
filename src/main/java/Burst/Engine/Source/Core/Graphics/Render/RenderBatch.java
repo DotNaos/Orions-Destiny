@@ -1,7 +1,8 @@
 package Burst.Engine.Source.Core.Graphics.Render;
 
-import Burst.Engine.Source.Core.Graphics.Sprite.SpriteRenderer;
-import Burst.Engine.Source.Core.GameObject;
+import Burst.Engine.Source.Core.Actor;
+import Burst.Engine.Source.Core.Assets.Graphics.Shader;
+import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Burst.Engine.Source.Core.UI.Window;
 import org.joml.Matrix4f;
 import org.joml.Vector2f;
@@ -47,10 +48,10 @@ public class RenderBatch implements Comparable<RenderBatch> {
     private int maxBatchSize;
     private int zIndex;
 
-    private Renderer renderer;
+    private ViewportRenderer viewportRenderer;
 
-    public RenderBatch(int maxBatchSize, int zIndex, Renderer renderer) {
-        this.renderer = renderer;
+    public RenderBatch(int maxBatchSize, int zIndex, ViewportRenderer viewportRenderer) {
+        this.viewportRenderer = viewportRenderer;
 
         this.zIndex = zIndex;
         this.sprites = new SpriteRenderer[maxBatchSize];
@@ -123,8 +124,8 @@ public class RenderBatch implements Comparable<RenderBatch> {
             SpriteRenderer spr = sprites[i];
             if (spr.isDirty()) {
                 if (!hasTexture(spr.getTexture())) {
-                    this.renderer.destroyGameObject(spr.gameObject);
-                    this.renderer.add(spr.gameObject);
+                    this.viewportRenderer.destroyGameObject(spr.actor);
+                    this.viewportRenderer.add(spr.actor);
                 } else {
                     loadVertexProperties(i);
                     spr.setClean();
@@ -133,9 +134,9 @@ public class RenderBatch implements Comparable<RenderBatch> {
             }
 
             // TODO: get better solution for this
-            if (spr.gameObject.transform.zIndex != this.zIndex) {
-                destroyIfExists(spr.gameObject);
-                renderer.add(spr.gameObject);
+            if (spr.actor.transform.zIndex != this.zIndex) {
+                destroyIfExists(spr.actor);
+                viewportRenderer.add(spr.actor);
                 i--;
             }
         }
@@ -145,9 +146,9 @@ public class RenderBatch implements Comparable<RenderBatch> {
         }
 
         // Use shader
-        Shader shader = Renderer.getBoundShader();
-        shader.uploadMat4f("uProjection", Window.getScene().camera().getProjectionMatrix());
-        shader.uploadMat4f("uView", Window.getScene().camera().getViewMatrix());
+        Shader shader = ViewportRenderer.getBoundShader();
+        shader.uploadMat4f("uProjection", Window.getScene().getCamera().getProjectionMatrix());
+        shader.uploadMat4f("uView", Window.getScene().getCamera().getViewMatrix());
         for (int i=0; i < textures.size(); i++) {
             glActiveTexture(GL_TEXTURE0 + i + 1);
             textures.get(i).bind();
@@ -170,7 +171,7 @@ public class RenderBatch implements Comparable<RenderBatch> {
         shader.detach();
     }
 
-    public boolean destroyIfExists(GameObject go) {
+    public boolean destroyIfExists(Actor go) {
         SpriteRenderer sprite = go.getComponent(SpriteRenderer.class);
         for (int i=0; i < numSprites; i++) {
             if (sprites[i] == sprite) {
@@ -205,15 +206,15 @@ public class RenderBatch implements Comparable<RenderBatch> {
             }
         }
 
-        boolean isRotated = sprite.gameObject.transform.rotation != 0.0f;
+        boolean isRotated = sprite.actor.transform.rotation != 0.0f;
         Matrix4f transformMatrix = new Matrix4f().identity();
         if (isRotated) {
-            transformMatrix.translate(sprite.gameObject.transform.position.x,
-                                        sprite.gameObject.transform.position.y, 0f);
-            transformMatrix.rotate((float)Math.toRadians(sprite.gameObject.transform.rotation),
+            transformMatrix.translate(sprite.actor.transform.position.x,
+                                        sprite.actor.transform.position.y, 0f);
+            transformMatrix.rotate((float)Math.toRadians(sprite.actor.transform.rotation),
                     0, 0, 1);
-            transformMatrix.scale(sprite.gameObject.transform.scale.x,
-                    sprite.gameObject.transform.scale.y, 1);
+            transformMatrix.scale(sprite.actor.transform.scale.x,
+                    sprite.actor.transform.scale.y, 1);
         }
 
         // Add vertices with the appropriate properties
@@ -228,8 +229,8 @@ public class RenderBatch implements Comparable<RenderBatch> {
                 yAdd = 0.5f;
             }
 
-            Vector4f currentPos = new Vector4f(sprite.gameObject.transform.position.x + (xAdd * sprite.gameObject.transform.scale.x),
-                    sprite.gameObject.transform.position.y + (yAdd * sprite.gameObject.transform.scale.y),
+            Vector4f currentPos = new Vector4f(sprite.actor.transform.position.x + (xAdd * sprite.actor.transform.scale.x),
+                    sprite.actor.transform.position.y + (yAdd * sprite.actor.transform.scale.y),
                     0, 1);
             if (isRotated) {
                 currentPos = new Vector4f(xAdd, yAdd, 0, 1).mul(transformMatrix);
@@ -253,7 +254,7 @@ public class RenderBatch implements Comparable<RenderBatch> {
             vertices[offset + 8] = texId;
 
             // Load entity id
-            vertices[offset + 9] = sprite.gameObject.getUid() + 1;
+            vertices[offset + 9] = sprite.actor.getUid() + 1;
 
             offset += VERTEX_SIZE;
         }

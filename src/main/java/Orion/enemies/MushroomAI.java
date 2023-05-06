@@ -1,6 +1,6 @@
 package Orion.enemies;
 
-import Burst.Engine.Source.Core.GameObject;
+import Burst.Engine.Source.Core.Actor;
 import Burst.Engine.Source.Core.Component;
 import Orion.blocks.Ground;
 import Burst.Engine.Source.Runtime.Actor.PlayerController;
@@ -17,7 +17,7 @@ public class MushroomAI extends Component {
 
     @Override
     public void start() {
-        this.rb = gameObject.getComponent(Rigidbody2D.class);
+        this.rb = actor.getComponent(Rigidbody2D.class);
 //        AssetManager.getSound("assets/sounds/powerup_appears.ogg").play();
     }
 
@@ -31,7 +31,7 @@ public class MushroomAI extends Component {
     }
     
     @Override 
-    public void preSolve(GameObject obj, Contact contact, Vector2f contactNormal) {
+    public void preSolve(Actor obj, Contact contact, Vector2f contactNormal) {
         PlayerController playerController = obj.getComponent(PlayerController.class);
         if (playerController != null) {
             contact.setEnabled(false);
@@ -41,7 +41,7 @@ public class MushroomAI extends Component {
                 } else {
 //                    AssetManager.getSound("assets/sounds/coin.ogg").play();
                 }
-                this.gameObject.destroy();
+                this.actor.destroy();
                 hitPlayer = true;
             }
         } else if (obj.getComponent(Ground.class) == null) {

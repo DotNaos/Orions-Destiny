@@ -3,8 +3,6 @@ package Burst.Engine.Source.Core.Graphics.Input;
 import Burst.Engine.Source.Core.Graphics.Debug.DebugDraw;
 import Burst.Engine.Source.Core.Camera;
 import Burst.Engine.Source.Core.UI.Window;
-import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
-import Burst.Engine.Source.Editor.Panel.ViewportPanel;
 import org.joml.Matrix4f;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
@@ -63,8 +61,7 @@ public class MouseListener {
     }
 
     public static void mousePosCallback(long window, double xpos, double ypos) {
-        Window.getScene().getSceneInitializer().mouseListener();
-
+        Window.getScene().mousePositionCallback(window, xpos, ypos);
 
         if (get().mouseButtonDown > 0) {
             get().isDragging = true;
@@ -150,7 +147,7 @@ public class MouseListener {
         float currentY = (getY() - get().gameViewportPos.y);
         currentY = (2.0f * (1.0f - (currentY / get().gameViewportSize.y))) - 1;
 
-        Camera camera = Window.getScene().camera();
+        Camera camera = Window.getScene().getCamera();
         Vector4f tmp = new Vector4f(currentX, currentY, 0, 1);
         Matrix4f inverseView = new Matrix4f(camera.getInverseView());
         Matrix4f inverseProjection = new Matrix4f(camera.getInverseProjection());
@@ -165,7 +162,7 @@ public class MouseListener {
                 screenCoords.y / Window.getHeight()
         );
         normalizedScreenCords.mul(2.0f).sub(new Vector2f(1.0f, 1.0f));
-        Camera camera = Window.getScene().camera();
+        Camera camera = Window.getScene().getCamera();
         Vector4f tmp = new Vector4f(normalizedScreenCords.x, normalizedScreenCords.y,
                 0, 1);
         Matrix4f inverseView = new Matrix4f(camera.getInverseView());
@@ -183,7 +180,7 @@ public class MouseListener {
     }
 
     public static Vector2f worldToScreen(Vector2f worldCoords) {
-        Camera camera = Window.getScene().camera();
+        Camera camera = Window.getScene().getCamera();
         Vector4f ndcSpacePos = new Vector4f(worldCoords.x, worldCoords.y, 0, 1);
         Matrix4f view = new Matrix4f(camera.getViewMatrix());
         Matrix4f projection = new Matrix4f(camera.getProjectionMatrix());

@@ -1,6 +1,6 @@
 package Burst.Engine.Source.Runtime.Animation;
 
-import Burst.Engine.Source.Core.Graphics.Sprite.Sprite;
+import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
 
 class Frame {
     public Sprite sprite;

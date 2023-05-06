@@ -1,23 +1,21 @@
 package Burst.Engine.Source.Core.Scene;
 
-import Burst.Engine.Source.Core.Graphics.Sprite.Spritesheet;
-import Burst.Engine.Source.Core.Scene.Scene;
-import Burst.Engine.Source.Core.Scene.SceneInitializer;
-import Burst.Engine.Source.Core.GameObject;
+import Burst.Engine.Source.Core.Assets.Graphics.Spritesheet;
+import Burst.Engine.Source.Core.Actor;
 import Burst.Engine.Source.Runtime.GameCamera;
 import Orion.res.Assets;
-import Burst.Engine.Source.Core.util.AssetManager;
+import Burst.Engine.Source.Core.Assets.AssetManager;
 
 public class LevelSceneInitializer extends SceneInitializer {
 
     @Override
-    public void init(GameScene scene) {
+    public void init(Game scene) {
         Spritesheet sprites = AssetManager.getSpritesheet(Assets.BLOCKS);
 
-        GameObject cameraObject = scene.createGameObject("GameCamera");
-        cameraObject.addComponent(new GameCamera(scene.camera()));
+        Actor cameraObject = scene.spawnActor("GameCamera");
+        cameraObject.addComponent(new GameCamera(scene.getCamera()));
         cameraObject.start();
-        scene.addGameObjectToScene(cameraObject);
+        scene.addActor(cameraObject);
     }
 
 

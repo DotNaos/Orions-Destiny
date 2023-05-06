@@ -1,4 +1,4 @@
-package Burst.Engine.Source.Core.Audio;
+package Burst.Engine.Source.Core.Assets.Audio;
 
 import java.nio.IntBuffer;
 import java.nio.ShortBuffer;

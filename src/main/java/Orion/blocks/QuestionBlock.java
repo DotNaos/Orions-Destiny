@@ -1,6 +1,6 @@
 package Orion.blocks;
 
-import Burst.Engine.Source.Core.GameObject;
+import Burst.Engine.Source.Core.Actor;
 import Burst.Engine.Source.Core.util.Prefabs;
 import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Runtime.Animation.StateMachine;
@@ -29,7 +29,7 @@ public class QuestionBlock extends Block {
                 break;
         }
 
-        StateMachine stateMachine = gameObject.getComponent(StateMachine.class);
+        StateMachine stateMachine = actor.getComponent(StateMachine.class);
         if (stateMachine != null) {
             stateMachine.trigger("setInactive");
             this.setInactive();
@@ -48,23 +48,26 @@ public class QuestionBlock extends Block {
     }
 
     private void doCoin(PlayerController playerController) {
-        GameObject coin = Prefabs.generateBlockCoin();
-        coin.transform.position.set(this.gameObject.transform.position);
+        Actor coin = Prefabs.generateBlockCoin();
+        coin.transform.position.set(this.actor.transform.position);
         coin.transform.position.y += 0.25f;
-        Window.getScene().addGameObjectToScene(coin);
+        assert Window.getGameScene() != null;
+        Window.getGameScene().addActor(coin);
     }
 
     private void spawnMushroom() {
-        GameObject mushroom = Prefabs.generateMushroom();
-        mushroom.transform.position.set(gameObject.transform.position);
+        Actor mushroom = Prefabs.generateMushroom();
+        mushroom.transform.position.set(actor.transform.position);
         mushroom.transform.position.y += 0.25f;
-        Window.getScene().addGameObjectToScene(mushroom);
+        assert Window.getGameScene() != null;
+        Window.getGameScene().addActor(mushroom);
     }
 
     private void spawnFlower() {
-        GameObject flower = Prefabs.generateFlower();
-        flower.transform.position.set(gameObject.transform.position);
+        Actor flower = Prefabs.generateFlower();
+        flower.transform.position.set(actor.transform.position);
         flower.transform.position.y += 0.25f;
-        Window.getScene().addGameObjectToScene(flower);
+        assert Window.getGameScene() != null;
+        Window.getGameScene().addActor(flower);
     }
 }

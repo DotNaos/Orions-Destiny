@@ -1,13 +1,6 @@
-package Burst.Engine.Source.Core.Graphics.Sprite;
+package Burst.Engine.Source.Core.Assets.Graphics;
 
-import Burst.Engine.Source.Core.Graphics.Render.Texture;
 import org.joml.Vector2f;
-import org.lwjgl.BufferUtils;
-
-import java.nio.IntBuffer;
-
-import static org.lwjgl.opengl.GL11.*;
-import static org.lwjgl.opengl.GL11C.GL_UNSIGNED_BYTE;
 
 public class Sprite {
 

@@ -1,4 +1,4 @@
-package Burst.Engine.Source.Core.Graphics.Render;
+package Burst.Engine.Source.Core.Assets.Graphics;
 
 import org.joml.*;
 import org.lwjgl.BufferUtils;

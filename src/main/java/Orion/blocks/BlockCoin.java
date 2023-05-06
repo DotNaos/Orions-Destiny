@@ -9,17 +9,17 @@ public class BlockCoin extends Component {
 
      @Override
     public void start() {
-         topY = new Vector2f(this.gameObject.transform.position.y).add(0, 0.5f);
+         topY = new Vector2f(this.actor.transform.position.y).add(0, 0.5f);
 //         AssetManager.getSound("assets/sounds/coin.ogg").play();
      }
 
      @Override
     public void update(float dt) {
-         if (this.gameObject.transform.position.y < topY.y) {
-             this.gameObject.transform.position.y += dt * coinSpeed;
-             this.gameObject.transform.scale.x -= (0.5f * dt) % -1.0f;
+         if (this.actor.transform.position.y < topY.y) {
+             this.actor.transform.position.y += dt * coinSpeed;
+             this.actor.transform.scale.x -= (0.5f * dt) % -1.0f;
          } else {
-             gameObject.destroy();
+             actor.destroy();
          }
      }
 }

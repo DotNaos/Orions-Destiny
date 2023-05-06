@@ -1,15 +1,13 @@
-package Burst.Engine.Source.Core.Graphics.Render;
+package Burst.Engine.Source.Core.Assets.Graphics;
 
 import org.joml.Vector2i;
 import org.lwjgl.BufferUtils;
-import org.lwjgl.opengl.GL;
 
 import java.nio.ByteBuffer;
 import java.nio.IntBuffer;
 
 import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.opengl.GL11C.GL_UNSIGNED_BYTE;
-import static org.lwjgl.opengl.GL30.*;
 import static org.lwjgl.opengl.GL30.GL_COLOR_ATTACHMENT0;
 import static org.lwjgl.stb.STBImage.*;
 

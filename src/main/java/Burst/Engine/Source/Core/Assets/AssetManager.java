@@ -1,11 +1,11 @@
-package Burst.Engine.Source.Core.util;
+package Burst.Engine.Source.Core.Assets;
 
 import Burst.Engine.Config.ShaderConfig;
+import Burst.Engine.Source.Core.Assets.Audio.Sound;
+import Burst.Engine.Source.Core.Assets.Graphics.Shader;
+import Burst.Engine.Source.Core.Assets.Graphics.Spritesheet;
+import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Burst.Engine.Source.Core.Component;
-import Burst.Engine.Source.Core.Graphics.Sprite.Spritesheet;
-import Burst.Engine.Source.Core.Graphics.Render.Shader;
-import Burst.Engine.Source.Core.Graphics.Render.Texture;
-import Burst.Engine.Source.Core.Audio.Sound;
 import Orion.res.Assets;
 
 import java.io.File;
@@ -81,6 +81,7 @@ public class AssetManager {
 
 
 
+
     /**
      *
      * @param relativePath the path in the project directory
@@ -117,7 +118,6 @@ public class AssetManager {
     }
 
 
-    // Generate Javadoc for this method
 
     /**
      * @param resourceName the path in the project directory

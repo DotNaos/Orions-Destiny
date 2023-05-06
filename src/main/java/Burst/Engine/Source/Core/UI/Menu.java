@@ -3,8 +3,6 @@ package Burst.Engine.Source.Core.UI;
 import imgui.ImGui;
 import org.joml.Vector2f;
 
-import java.awt.*;
-
 public class Menu {
     private float currentX;
     private float currentY;

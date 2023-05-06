@@ -1,6 +1,6 @@
 package Orion.abilities;
 
-import Burst.Engine.Source.Core.GameObject;
+import Burst.Engine.Source.Core.Actor;
 import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Runtime.Actor.PlayerController;
@@ -27,7 +27,7 @@ public class Fireball extends Component {
 
     @Override
     public void start() {
-        this.rb = this.gameObject.getComponent(Rigidbody2D.class);
+        this.rb = this.actor.getComponent(Rigidbody2D.class);
         this.acceleration.y = Window.getPhysics().getGravity().y * 0.7f;
         fireballCount++;
     }
@@ -62,18 +62,18 @@ public class Fireball extends Component {
     public void checkOnGround() {
         float innerPlayerWidth = 0.25f * 0.7f;
         float yVal = -0.09f;
-        onGround = Physics2D.checkOnGround(this.gameObject, innerPlayerWidth, yVal);
+        onGround = Physics2D.checkOnGround(this.actor, innerPlayerWidth, yVal);
     }
 
     @Override
-    public void beginCollision(GameObject obj, Contact contact, Vector2f contactNormal) {
+    public void beginCollision(Actor obj, Contact contact, Vector2f contactNormal) {
         if (Math.abs(contactNormal.x) > 0.8f) {
             this.goingRight = contactNormal.x < 0;
         }
     }
 
     @Override
-    public void preSolve(GameObject obj, Contact contact, Vector2f contactNormal) {
+    public void preSolve(Actor obj, Contact contact, Vector2f contactNormal) {
         if (obj.getComponent(PlayerController.class) != null ||
             obj.getComponent(Fireball.class) != null) {
             contact.setEnabled(false);
@@ -82,6 +82,6 @@ public class Fireball extends Component {
 
     public void disappear() {
         fireballCount--;
-        this.gameObject.destroy();
+        this.actor.destroy();
     }
 }

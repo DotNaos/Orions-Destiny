@@ -1,6 +1,5 @@
-package Burst.Engine.Source.Core.Graphics.Sprite;
+package Burst.Engine.Source.Core.Assets.Graphics;
 
-import Burst.Engine.Source.Core.Graphics.Render.Texture;
 import org.joml.Vector2f;
 
 import java.util.ArrayList;

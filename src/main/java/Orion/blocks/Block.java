@@ -1,6 +1,6 @@
 package Orion.blocks;
 
-import Burst.Engine.Source.Core.GameObject;
+import Burst.Engine.Source.Core.Actor;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Runtime.Actor.PlayerController;
 import org.jbox2d.dynamics.contacts.Contact;
@@ -17,7 +17,7 @@ public abstract class Block extends Component {
 
     @Override
     public void start() {
-        this.bopStart = new Vector2f(this.gameObject.transform.position);
+        this.bopStart = new Vector2f(this.actor.transform.position);
         this.topBopLocation = new Vector2f(bopStart).add(0.0f, 0.02f);
     }
 
@@ -25,16 +25,16 @@ public abstract class Block extends Component {
     public void update(float dt) {
         if (doBopAnimation) {
             if (bopGoingUp) {
-                if (this.gameObject.transform.position.y < topBopLocation.y) {
-                    this.gameObject.transform.position.y += bopSpeed * dt;
+                if (this.actor.transform.position.y < topBopLocation.y) {
+                    this.actor.transform.position.y += bopSpeed * dt;
                 } else {
                     bopGoingUp = false;
                 }
             } else {
-                if (this.gameObject.transform.position.y > bopStart.y) {
-                    this.gameObject.transform.position.y -= bopSpeed * dt;
+                if (this.actor.transform.position.y > bopStart.y) {
+                    this.actor.transform.position.y -= bopSpeed * dt;
                 } else {
-                    this.gameObject.transform.position.y = this.bopStart.y;
+                    this.actor.transform.position.y = this.bopStart.y;
                     bopGoingUp = true;
                     doBopAnimation = false;
                 }
@@ -43,7 +43,7 @@ public abstract class Block extends Component {
     }
 
     @Override
-    public void beginCollision(GameObject obj, Contact contact, Vector2f contactNormal) {
+    public void beginCollision(Actor obj, Contact contact, Vector2f contactNormal) {
         PlayerController playerController = obj.getComponent(PlayerController.class);
         if (active && playerController != null && contactNormal.y < -0.8f) {
             doBopAnimation = true;

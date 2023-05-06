@@ -5,28 +5,28 @@ import Burst.Engine.Source.Core.Saving.ComponentDeserializer;
 import Burst.Engine.Source.Core.Saving.GameObjectDeserializer;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import Burst.Engine.Source.Core.Graphics.Sprite.SpriteRenderer;
+import Burst.Engine.Source.Core.Graphics.Render.SpriteRenderer;
 import imgui.ImGui;
-import Burst.Engine.Source.Core.util.AssetManager;
+import Burst.Engine.Source.Core.Assets.AssetManager;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class GameObject {
-    private static int ID_COUNTER = 0;
-    private int uid = -1;
+public class Actor {
+    private long ID = -1;
+    private static int ActorCounter = 0;
 
     public String name;
     private List<Component> components;
-    public transient Transform transform;
+    public  transient Transform transform;
     private boolean doSerialization = true;
     private boolean isDead = false;
 
-    public GameObject(String name) {
+    public Actor(String name) {
         this.name = name;
         this.components = new ArrayList<>();
 
-        this.uid = ID_COUNTER++;
+        this.ID = ActorCounter++;
     }
 
     public <T extends Component> T getComponent(Class<T> componentClass) {
@@ -57,7 +57,7 @@ public class GameObject {
     public void addComponent(Component c) {
         c.generateId();
         this.components.add(c);
-        c.gameObject = this;
+        c.actor = this;
     }
 
     public void update(float dt) {
@@ -66,9 +66,9 @@ public class GameObject {
         }
     }
 
-    public void editorUpdate(float dt) {
+    public void updateEditor(float dt) {
         for (int i=0; i < components.size(); i++) {
-            components.get(i).editorUpdate(dt);
+            components.get(i).updateEditor(dt);
         }
     }
 
@@ -92,15 +92,15 @@ public class GameObject {
         }
     }
 
-    public GameObject copy() {
+    public Actor copy() {
         // TODO: come up with cleaner solution
         Gson gson = new GsonBuilder()
                 .registerTypeAdapter(Component.class, new ComponentDeserializer())
-                .registerTypeAdapter(GameObject.class, new GameObjectDeserializer())
+                .registerTypeAdapter(Actor.class, new GameObjectDeserializer())
                 .enableComplexMapKeySerialization()
                 .create();
         String objAsJson = gson.toJson(this);
-        GameObject obj = gson.fromJson(objAsJson, GameObject.class);
+        Actor obj = gson.fromJson(objAsJson, Actor.class);
 
         obj.generateUid();
         for (Component c : obj.getAllComponents()) {
@@ -120,11 +120,11 @@ public class GameObject {
     }
 
     public static void init(int maxId) {
-        ID_COUNTER = maxId;
+        ActorCounter = maxId;
     }
 
-    public int getUid() {
-        return this.uid;
+    public long getUid() {
+        return this.ID;
     }
 
     public List<Component> getAllComponents() {
@@ -136,7 +136,7 @@ public class GameObject {
     }
 
     public void generateUid() {
-        this.uid = ID_COUNTER++;
+        this.ID = ActorCounter++;
     }
 
     public boolean doSerialization() {

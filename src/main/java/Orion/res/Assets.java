@@ -1,7 +1,7 @@
 package Orion.res;
 
-import Burst.Engine.Source.Core.Graphics.Sprite.Spritesheet;
-import Burst.Engine.Source.Core.util.AssetManager;
+import Burst.Engine.Source.Core.Assets.Graphics.Spritesheet;
+import Burst.Engine.Source.Core.Assets.AssetManager;
 
 public class Assets {
 

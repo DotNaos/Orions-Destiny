@@ -15,15 +15,15 @@ public class PillboxCollider extends Component {
 
     @Override
     public void start() {
-        this.bottomCircle.gameObject = this.gameObject;
-        this.box.gameObject = this.gameObject;
+        this.bottomCircle.actor = this.actor;
+        this.box.actor = this.actor;
         recalculateColliders();
     }
 
     @Override
-    public void editorUpdate(float dt) {
-        bottomCircle.editorUpdate(dt);
-        box.editorUpdate(dt);
+    public void updateEditor(float dt) {
+        bottomCircle.updateEditor(dt);
+        box.updateEditor(dt);
         recalculateColliders();
 
         if (resetFixtureNextFrame) {
@@ -57,8 +57,8 @@ public class PillboxCollider extends Component {
         }
         resetFixtureNextFrame = false;
 
-        if (gameObject != null) {
-            Rigidbody2D rb = gameObject.getComponent(Rigidbody2D.class);
+        if (actor != null) {
+            Rigidbody2D rb = actor.getComponent(Rigidbody2D.class);
             if (rb != null) {
                 Window.getPhysics().resetPillboxCollider(rb, this);
             }

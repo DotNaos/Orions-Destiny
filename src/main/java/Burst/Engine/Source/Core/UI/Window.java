@@ -3,18 +3,16 @@ package Burst.Engine.Source.Core.UI;
 import Burst.Engine.Config.ShaderConfig;
 import Burst.Engine.Source.Core.Graphics.Render.Framebuffer;
 import Burst.Engine.Source.Core.Graphics.Render.PickingTexture;
-import Burst.Engine.Source.Core.Graphics.Render.Renderer;
-import Burst.Engine.Source.Core.Graphics.Render.Shader;
+import Burst.Engine.Source.Core.Graphics.Render.ViewportRenderer;
+import Burst.Engine.Source.Core.Assets.Graphics.Shader;
 import Burst.Engine.Source.Core.Graphics.Debug.DebugDraw;
-import Burst.Engine.Source.Core.GameObject;
+import Burst.Engine.Source.Core.Actor;
 import Burst.Engine.Source.Core.Graphics.Input.KeyListener;
 import Burst.Engine.Source.Core.Graphics.Input.MouseListener;
 import Burst.Engine.Source.Core.Observer.EventSystem;
 import Burst.Engine.Source.Core.Observer.Observer;
 import Burst.Engine.Source.Core.Observer.Events.Event;
 import Burst.Engine.Source.Core.Scene.*;
-import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
-import Burst.Engine.Source.Editor.Panel.ViewportPanel;
 import org.joml.Vector4f;
 import org.lwjgl.Version;
 import org.lwjgl.glfw.GLFWErrorCallback;
@@ -24,7 +22,7 @@ import org.lwjgl.openal.ALCCapabilities;
 import org.lwjgl.openal.ALCapabilities;
 import org.lwjgl.opengl.GL;
 import Burst.Engine.Source.Core.Physics.Physics2D;
-import Burst.Engine.Source.Core.util.AssetManager;
+import Burst.Engine.Source.Core.Assets.AssetManager;
 
 import java.util.Objects;
 
@@ -40,15 +38,14 @@ public class Window implements Observer {
     private long glfwWindow;
     private ImGuiLayer imguiLayer;
     private Framebuffer framebuffer;
-    private PickingTexture pickingTexture;
-    private boolean runtimePlaying = false;
+    private static boolean isPlaying = false;
 
     private static Window window = null;
 
     private long audioContext;
     private long audioDevice;
 
-    private static GameScene currentScene;
+    private static Scene currentScene;
     private static final SceneInitializer[] scenes = {
             new StartMenuSceneInitializer(),
             new LevelSceneInitializer(),
@@ -65,14 +62,12 @@ public class Window implements Observer {
 
     public static void changeScene(SceneInitializer sceneInitializer) {
 
-
         if (currentScene != null) {
             currentScene.destroy();
         }
-        currentScene = new GameScene(sceneInitializer);
-        currentScene.load();
+        currentScene = new Scene(sceneInitializer);
         currentScene.init();
-        currentScene.start();
+
 
     }
 
@@ -84,10 +79,25 @@ public class Window implements Observer {
         return Window.window;
     }
 
-    public static Physics2D getPhysics() { return currentScene.getPhysics(); }
+    public static Physics2D getPhysics() {
+        assert getGameScene() != null;
+        return getGameScene().getPhysics(); }
 
-    public static GameScene getScene() {
+    public static Scene getScene() {
         return currentScene;
+    }
+
+    public static Game getGameScene() {
+        if (currentScene != null)
+            if (currentScene instanceof Game) {
+                return (Game) currentScene;
+            }
+
+        return null;
+    }
+
+    public static boolean isIsPlaying() {
+        return isPlaying;
     }
 
     public void run() {
@@ -200,7 +210,7 @@ public class Window implements Observer {
             glClearColor(0, 0, 0, 0);
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-            Renderer.bindShader(pickingShader);
+            ViewportRenderer.bindShader(pickingShader);
             currentScene.render();
 
             pickingTexture.disableWriting();
@@ -210,17 +220,13 @@ public class Window implements Observer {
             DebugDraw.beginFrame();
 
             this.framebuffer.bind();
-            Vector4f clearColor = currentScene.camera().clearColor;
+            Vector4f clearColor = currentScene.getCamera().clearColor;
             glClearColor(clearColor.x, clearColor.y, clearColor.z, clearColor.w);
             glClear(GL_COLOR_BUFFER_BIT);
 
             if (dt >= 0) {
-                Renderer.bindShader(defaultShader);
-                if (runtimePlaying) {
-                    currentScene.update(dt);
-                } else {
-                    currentScene.editorUpdate(dt);
-                }
+                ViewportRenderer.bindShader(defaultShader);
+                currentScene.update(dt);
                 currentScene.render();
                 DebugDraw.draw();
             }
@@ -267,19 +273,23 @@ public class Window implements Observer {
     }
 
     @Override
-    public void onNotify(GameObject object, Event event) {
+    public void onNotify(Actor object, Event event) {
         switch (event.type) {
             case GameEngineStartPlay -> {
-                this.runtimePlaying = true;
-                currentScene.save();
+                isPlaying = true;
+                assert getGameScene() != null;
+                getGameScene().saveLevel();
                 Window.changeScene(new LevelSceneInitializer());
             }
             case GameEngineStopPlay -> {
-                this.runtimePlaying = false;
+                isPlaying = false;
                 Window.changeScene(new LevelEditorSceneInitializer());
             }
             case LoadLevel -> Window.changeScene(new LevelEditorSceneInitializer());
-            case SaveLevel -> currentScene.save();
+            case SaveLevel -> {
+                assert getGameScene() != null;
+                getGameScene().saveLevel();
+            }
         }
     }
 }

@@ -1,7 +1,7 @@
 package Orion.enemies;
 
 import Burst.Engine.Source.Core.Camera;
-import Burst.Engine.Source.Core.GameObject;
+import Burst.Engine.Source.Core.Actor;
 import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Runtime.Animation.StateMachine;
@@ -27,15 +27,15 @@ public class GoombaAI extends Component {
 
     @Override
     public void start() {
-        this.stateMachine = gameObject.getComponent(StateMachine.class);
-        this.rb = gameObject.getComponent(Rigidbody2D.class);
+        this.stateMachine = actor.getComponent(StateMachine.class);
+        this.rb = actor.getComponent(Rigidbody2D.class);
         this.acceleration.y = Window.getPhysics().getGravity().y * 0.7f;
     }
 
     @Override
     public void update(float dt) {
-        Camera camera = Window.getScene().camera();
-        if (this.gameObject.transform.position.x >
+        Camera camera = Window.getScene().getCamera();
+        if (this.actor.transform.position.x >
                 camera.position.x + camera.getProjectionSize().x * camera.getZoom()) {
             return;
         }
@@ -43,7 +43,7 @@ public class GoombaAI extends Component {
         if (isDead) {
             timeToKill -= dt;
             if (timeToKill <= 0) {
-                this.gameObject.destroy();
+                this.actor.destroy();
             }
             this.rb.setVelocity(new Vector2f());
             return;
@@ -66,19 +66,19 @@ public class GoombaAI extends Component {
         this.velocity.y += this.acceleration.y * dt;
         this.velocity.y = Math.max(Math.min(this.velocity.y, this.terminalVelocity.y), -terminalVelocity.y);
         this.rb.setVelocity(velocity);
-        if (this.gameObject.transform.position.x < Window.getScene().camera().position.x - 0.5f) {
-            this.gameObject.destroy();
+        if (this.actor.transform.position.x < Window.getScene().getCamera().position.x - 0.5f) {
+            this.actor.destroy();
         }
     }
 
     public void checkOnGround() {
         float innerPlayerWidth = 0.25f * 0.7f;
         float yVal = -0.14f;
-        onGround = Physics2D.checkOnGround(this.gameObject, innerPlayerWidth, yVal);
+        onGround = Physics2D.checkOnGround(this.actor, innerPlayerWidth, yVal);
     }
 
     @Override
-    public void preSolve(GameObject obj, Contact contact, Vector2f contactNormal) {
+    public void preSolve(Actor obj, Contact contact, Vector2f contactNormal) {
         if (isDead) {
             return;
         }

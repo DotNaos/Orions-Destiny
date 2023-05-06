@@ -1,5 +1,7 @@
 package Burst.Engine.Source.Core.Graphics.Render;
 
+import Burst.Engine.Source.Core.Assets.Graphics.Texture;
+
 import static org.lwjgl.opengl.GL30.*;
 
 public class Framebuffer {

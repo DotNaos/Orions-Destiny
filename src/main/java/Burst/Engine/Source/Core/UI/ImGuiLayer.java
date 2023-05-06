@@ -1,10 +1,7 @@
 package Burst.Engine.Source.Core.UI;
 
-import Burst.Engine.Source.Core.Graphics.Render.PickingTexture;
 import Burst.Engine.Source.Core.Graphics.Input.KeyListener;
 import Burst.Engine.Source.Core.Graphics.Input.MouseListener;
-import Burst.Engine.Source.Core.Scene.GameScene;
-import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
 import Burst.Engine.Source.Editor.Panel.ViewportPanel;
 import imgui.*;
 import imgui.callback.ImStrConsumer;
@@ -74,12 +71,15 @@ public class ImGuiLayer {
             if (!io.getWantCaptureKeyboard()) {
                 KeyListener.keyCallback(w, key, scancode, action, mods);
             }
+
+            Window.getScene().keyCallback(w, key, scancode, action, mods);
         });
 
         glfwSetCharCallback(glfwWindow, (w, c) -> {
             if (c != GLFW_KEY_DELETE) {
                 io.addInputCharacter(c);
             }
+            Window.getScene().charCallback(w, c);
         });
 
         glfwSetMouseButtonCallback(glfwWindow, (w, button, action, mods) -> {
@@ -97,20 +97,18 @@ public class ImGuiLayer {
                 ImGui.setWindowFocus(null);
             }
 
-            Window.getScene().getSceneInitializer().mouseListener();
-            if (Window.getScene().getSceneInitializer().getPanel(ViewportPanel.class).getWantCaptureMouse()) {
-                MouseListener.mouseButtonCallback(w, button, action, mods);
-            }
+            Window.getScene().mouseButtonCallback(w, button, action, mods);
         });
 
         glfwSetScrollCallback(glfwWindow, (w, xOffset, yOffset) -> {
             io.setMouseWheelH(io.getMouseWheelH() + (float) xOffset);
             io.setMouseWheel(io.getMouseWheel() + (float) yOffset);
-            if (!io.getWantCaptureMouse() || Window.getScene().getSceneInitializer().getPanel(ViewportPanel.class).getWantCaptureMouse()) {
+            if (!io.getWantCaptureMouse() || Window.getScene().getPanel(ViewportPanel.class).getWantCaptureMouse()) {
                 MouseListener.mouseScrollCallback(w, xOffset, yOffset);
             } else {
                 MouseListener.clear();
             }
+            Window.getScene().scrollCallback(w, xOffset, yOffset);
         });
 
         io.setSetClipboardTextFn(new ImStrConsumer() {
@@ -183,7 +181,7 @@ public class ImGuiLayer {
         imGuiGl3.init("#version 330 core");
     }
 
-    public void update(float dt, GameScene currentScene) {
+    public void update(float dt, Scene currentScene) {
         startFrame(dt);
 
         // Any Dear ImGui code SHOULD go between ImGui.newFrame()/ImGui.render() methods

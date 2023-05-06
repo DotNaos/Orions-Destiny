@@ -1,7 +1,7 @@
 package Orion.blocks;
 
 import Burst.Engine.Source.Editor.Direction;
-import Burst.Engine.Source.Core.GameObject;
+import Burst.Engine.Source.Core.Actor;
 import Burst.Engine.Source.Core.Graphics.Input.KeyListener;
 import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Core.Component;
@@ -15,7 +15,7 @@ public class Pipe extends Component {
     private Direction direction;
     private String connectingPipeName = "";
     private boolean isEntrance = false;
-    private transient GameObject connectingPipe = null;
+    private transient Actor connectingPipe = null;
     private transient float entranceVectorTolerance = 0.6f;
     private transient PlayerController collidingPlayer = null;
 
@@ -25,7 +25,8 @@ public class Pipe extends Component {
 
     @Override
     public void start() {
-        connectingPipe = Window.getScene().getGameObject(connectingPipeName);
+        assert Window.getGameScene() != null;
+        connectingPipe = Window.getGameScene().getGameObject(connectingPipeName);
     }
 
     @Override
@@ -85,14 +86,14 @@ public class Pipe extends Component {
             return false;
         }
 
-        Vector2f min = new Vector2f(gameObject.transform.position).
-                sub(new Vector2f(gameObject.transform.scale).mul(0.5f));
-        Vector2f max = new Vector2f(gameObject.transform.position).
-                add(new Vector2f(gameObject.transform.scale).mul(0.5f));
-        Vector2f playerMax = new Vector2f(collidingPlayer.gameObject.transform.position).
-                add(new Vector2f(collidingPlayer.gameObject.transform.scale).mul(0.5f));
-        Vector2f playerMin = new Vector2f(collidingPlayer.gameObject.transform.position).
-                sub(new Vector2f(collidingPlayer.gameObject.transform.scale).mul(0.5f));
+        Vector2f min = new Vector2f(actor.transform.position).
+                sub(new Vector2f(actor.transform.scale).mul(0.5f));
+        Vector2f max = new Vector2f(actor.transform.position).
+                add(new Vector2f(actor.transform.scale).mul(0.5f));
+        Vector2f playerMax = new Vector2f(collidingPlayer.actor.transform.position).
+                add(new Vector2f(collidingPlayer.actor.transform.scale).mul(0.5f));
+        Vector2f playerMin = new Vector2f(collidingPlayer.actor.transform.position).
+                sub(new Vector2f(collidingPlayer.actor.transform.scale).mul(0.5f));
 
         switch (direction) {
             case Up:
@@ -118,7 +119,7 @@ public class Pipe extends Component {
     }
 
     @Override
-    public void beginCollision(GameObject collidingObject, Contact contact, Vector2f contactNormal) {
+    public void beginCollision(Actor collidingObject, Contact contact, Vector2f contactNormal) {
         PlayerController playerController = collidingObject.getComponent(PlayerController.class);
         if (playerController != null) {
             collidingPlayer = playerController;
@@ -126,14 +127,14 @@ public class Pipe extends Component {
     }
 
     @Override
-    public void endCollision(GameObject collidingObject, Contact contact, Vector2f contactNormal) {
+    public void endCollision(Actor collidingObject, Contact contact, Vector2f contactNormal) {
         PlayerController playerController = collidingObject.getComponent(PlayerController.class);
         if (playerController != null) {
             collidingPlayer = null;
         }
     }
 
-    private Vector2f getPlayerPosition(GameObject pipe) {
+    private Vector2f getPlayerPosition(Actor pipe) {
         Pipe pipeComponent = pipe.getComponent(Pipe.class);
         switch (pipeComponent.direction) {
             case Up:
