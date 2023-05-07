@@ -25,7 +25,7 @@ import java.util.Optional;
 
 public class Game{
     protected List<Actor> actors;
-    protected List<Actor> pendinactorbjects;
+    protected List<Actor> pendingActors;
     protected Physics2D physics2D;
     protected Scene scene;
 
@@ -37,7 +37,7 @@ public class Game{
     {
         this.physics2D = new Physics2D();
         this.actors = new ArrayList<>();
-        this.pendinactorbjects = new ArrayList<>();
+        this.pendingActors = new ArrayList<>();
 
 
         System.out.println("\n" + scene.getOpenScene());
@@ -84,13 +84,13 @@ public class Game{
             }
         }
 
-        for (Actor actor : pendinactorbjects) {
+        for (Actor actor : pendingActors) {
             actors.add(actor);
             actor.start();
             scene.getViewportRenderer().add(actor);
             this.physics2D.add(actor);
         }
-        pendinactorbjects.clear();
+        pendingActors.clear();
     }
 
 
@@ -100,7 +100,7 @@ public class Game{
         if (scene.isPaused()) {
             actors.add(actor);
         } else {
-            pendinactorbjects.add(actor);
+            pendingActors.add(actor);
         }
     }
 

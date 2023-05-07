@@ -69,13 +69,13 @@ public class Editor extends Game {
             }
         }
 
-        for (Actor actor : pendinactorbjects) {
+        for (Actor actor : pendingActors) {
             actors.add(actor);
             actor.start();
             scene.getViewportRenderer().add(actor);
             this.physics2D.add(actor);
         }
-        pendinactorbjects.clear();
+        pendingActors.clear();
     }
 
     @Override
