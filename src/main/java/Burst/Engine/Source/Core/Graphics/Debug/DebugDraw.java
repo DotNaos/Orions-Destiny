@@ -3,7 +3,7 @@ package Burst.Engine.Source.Core.Graphics.Debug;
 import Burst.Engine.Config.ShaderConfig;
 
 import Burst.Engine.Source.Core.Assets.Graphics.Shader;
-import Burst.Engine.Source.Core.Camera;
+import Burst.Engine.Source.Core.Viewport;
 import Burst.Engine.Source.Core.UI.Window;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
@@ -133,10 +133,10 @@ public class DebugDraw {
     }
 
     public static void addLine2D(Vector2f from, Vector2f to, Vector4f color, int lifetime) {
-        Camera camera = Window.getScene().getCamera();
-        Vector2f cameraLeft = new Vector2f(camera.position).add(new Vector2f(-2.0f, -2.0f));
-        Vector2f cameraRight = new Vector2f(camera.position).
-                add(new Vector2f(camera.getProjectionSize()).mul(camera.getZoom())).
+        Viewport viewport = Window.getScene().getCamera();
+        Vector2f cameraLeft = new Vector2f(viewport.position).add(new Vector2f(-2.0f, -2.0f));
+        Vector2f cameraRight = new Vector2f(viewport.position).
+                add(new Vector2f(viewport.getProjectionSize()).mul(viewport.getZoom())).
                 add(new Vector2f(4.0f, 4.0f));
         boolean lineInView =
                 ((from.x >= cameraLeft.x && from.x <= cameraRight.x) && (from.y >= cameraLeft.y && from.y <= cameraRight.y)) ||

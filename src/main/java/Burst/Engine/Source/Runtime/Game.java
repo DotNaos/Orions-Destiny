@@ -27,9 +27,9 @@ import java.util.Optional;
 
 
 public class Game{
-    private List<Actor> actors;
-    private List<Actor> pendingObjects;
-    private Physics2D physics2D;
+    protected List<Actor> actors;
+    protected List<Actor> pendingObjects;
+    protected Physics2D physics2D;
 
     public Game() {
         this.physics2D = new Physics2D();
@@ -67,12 +67,6 @@ public class Game{
     }
     
     public void update(float dt) {
-        if (!Window.isIsPlaying()) {
-            updateEditor(dt);
-            return;
-        }
-
-
         Window.getScene().getCamera().adjustProjection();
         this.physics2D.update(dt);
 
@@ -97,29 +91,7 @@ public class Game{
         pendingObjects.clear();
     }
 
-    public void updateEditor(float dt) {
-        Window.getScene().getCamera().adjustProjection();
 
-        for (int i = 0; i < actors.size(); i++) {
-            Actor go = actors.get(i);
-            go.updateEditor(dt);
-
-            if (go.isDead()) {
-                actors.remove(i);
-                Window.getScene().getViewportRenderer().destroyGameObject(go);
-                this.physics2D.destroyGameObject(go);
-                i--;
-            }
-        }
-
-        for (Actor go : pendingObjects) {
-            actors.add(go);
-            go.start();
-            Window.getScene().getViewportRenderer().add(go);
-            this.physics2D.add(go);
-        }
-        pendingObjects.clear();
-    }
 
 
     public void addActor(Actor go) {
@@ -267,7 +239,6 @@ public class Game{
                 .findFirst();
         return result.orElse(null);
     }
-
 
     public List<Actor> getActors() {
         return actors;

@@ -31,7 +31,7 @@ import Burst.Engine.Source.Core.Assets.AssetManager;
 import java.io.File;
 import java.util.List;
 
-public class LevelEditorSceneInitializer extends SceneInitializer {
+public class EditorSceneInitializer extends SceneInitializer {
 
     private Spritesheet sprites;
     private Actor levelEditorStuff;

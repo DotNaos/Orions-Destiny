@@ -16,27 +16,18 @@ import Burst.Engine.Source.Core.Physics.Physics2D;
 import Burst.Engine.Source.Core.Physics.Components.PillboxCollider;
 import Burst.Engine.Source.Core.Physics.Components.Rigidbody2D;
 import Burst.Engine.Source.Core.Physics.Enums.BodyType;
-import Burst.Engine.Source.Core.Scene.LevelEditorSceneInitializer;
-import Burst.Engine.Source.Core.Scene.LevelSceneInitializer;
+import Burst.Engine.Source.Core.Scene.EditorSceneInitializer;
+import Burst.Engine.Source.Core.Scene.GameInitializer;
 
 import static org.lwjgl.glfw.GLFW.*;
 
 public class PlayerController extends Component {
-
-    private enum PlayerState {
-        Small,
-        Big,
-        Fire,
-        Invincible
-    }
 
     public float walkSpeed = 1.9f;
     public float jumpBoost = 1.0f;
     public float jumpImpulse = 3.0f;
     public float slowDownForce = 0.05f;
     public Vector2f terminalVelocity = new Vector2f(2.1f, 3.1f);
-
-    private PlayerState playerState = PlayerState.Small;
     public transient boolean onGround = false;
     private transient float groundDebounce = 0.0f;
     private transient float groundDebounceTime = 0.1f;
@@ -59,7 +50,6 @@ public class PlayerController extends Component {
     private transient SpriteRenderer spr;
 
     private transient boolean playWinAnimation = false;
-    private transient float timeToCastle = 4.5f;
     private transient float walkTime = 2.2f;
 
     @Override
@@ -72,68 +62,7 @@ public class PlayerController extends Component {
 
     @Override
     public void update(float dt) {
-        if (playWinAnimation) {
-            checkOnGround();
-            if (!onGround) {
-                actor.transform.scale.x = -0.25f;
-                actor.transform.position.y -= dt;
-                stateMachine.trigger("stopRunning");
-                stateMachine.trigger("stopJumping");
-            } else {
-                if (this.walkTime > 0) {
-                    actor.transform.scale.x = 0.25f;
-                    actor.transform.position.x += dt;
-                    stateMachine.trigger("startRunning");
-                }
-//                if (!AssetManager.getSound("assets/sounds/stage_clear.ogg").isPlaying()) {
-//                    AssetManager.getSound("assets/sounds/stage_clear.ogg").play();
-//                }
-                timeToCastle -= dt;
-                walkTime -= dt;
 
-                if (timeToCastle <= 0) {
-                    Window.changeScene(new LevelEditorSceneInitializer());
-                }
-            }
-
-            return;
-        }
-
-        if (isDead) {
-            if (this.actor.transform.position.y < deadMaxHeight && deadGoingUp) {
-                this.actor.transform.position.y += dt * walkSpeed / 2.0f;
-            } else if (this.actor.transform.position.y >= deadMaxHeight && deadGoingUp) {
-                deadGoingUp = false;
-            } else if (!deadGoingUp && actor.transform.position.y > deadMinHeight) {
-                this.rb.setBodyType(BodyType.Kinematic);
-                this.acceleration.y = Window.getPhysics().getGravity().y * 0.7f;
-                this.velocity.y += this.acceleration.y * dt;
-                this.velocity.y = Math.max(Math.min(this.velocity.y, this.terminalVelocity.y), -this.terminalVelocity.y);
-                this.rb.setVelocity(this.velocity);
-                this.rb.setAngularVelocity(0);
-            } else if (!deadGoingUp && actor.transform.position.y <= deadMinHeight) {
-                Window.changeScene(new LevelSceneInitializer());
-            }
-            return;
-        }
-
-        if (hurtInvincibilityTimeLeft > 0) {
-            hurtInvincibilityTimeLeft -= dt;
-            blinkTime -= dt;
-
-            if (blinkTime <= 0) {
-                blinkTime = 0.2f;
-                if (spr.getColor().w == 1) {
-                    spr.setColor(new Vector4f(1, 1, 1, 0));
-                } else {
-                    spr.setColor(new Vector4f(1, 1, 1, 1));
-                }
-            } else {
-                if (spr.getColor().w == 0) {
-                    spr.setColor(new Vector4f(1, 1, 1, 1));
-                }
-            }
-        }
 
         if (KeyListener.isKeyPressed(GLFW_KEY_RIGHT) || KeyListener.isKeyPressed(GLFW_KEY_D)) {
             this.actor.transform.scale.x = playerWidth;
@@ -168,8 +97,7 @@ public class PlayerController extends Component {
             }
         }
 
-        if (KeyListener.keyBeginPress(GLFW_KEY_E) && playerState == PlayerState.Fire &&
-                Fireball.canSpawn()) {
+        if (KeyListener.keyBeginPress(GLFW_KEY_E)) {
             Vector2f position = new Vector2f(this.actor.transform.position)
                     .add(this.actor.transform.scale.x > 0
                     ? new Vector2f(0.26f, 0)
@@ -180,7 +108,6 @@ public class PlayerController extends Component {
             Window.getScene().getGame().addActor(fireball);
         }
 
-        checkOnGround();
         if (KeyListener.isKeyPressed(GLFW_KEY_SPACE) && (jumpTime > 0 || onGround || groundDebounce > 0)) {
             if ((onGround || groundDebounce > 0) && jumpTime == 0) {
 //                AssetManager.getSound("assets/sounds/jump-small.ogg").play();
@@ -223,10 +150,9 @@ public class PlayerController extends Component {
         }
     }
 
-    public void checkOnGround() {
-        float innerPlayerWidth = this.playerWidth * 0.6f;
-        float yVal = playerState == PlayerState.Small ? -0.14f : -0.24f;
-        onGround = Physics2D.checkOnGround(this.actor, innerPlayerWidth, yVal);
+    public void move(Vector2f amount) {
+        this.actor.transform.position.add(amount);
+        this.rb.setPosition(this.actor.transform.position);
     }
 
     public void setPosition(Vector2f newPos) {
@@ -234,38 +160,7 @@ public class PlayerController extends Component {
         this.rb.setPosition(newPos);
     }
 
-    public void powerup() {
-        if (playerState == PlayerState.Small) {
-            playerState = PlayerState.Big;
-//            AssetManager.getSound("assets/sounds/powerup.ogg").play();
-            actor.transform.scale.y = 0.42f;
-            PillboxCollider pb = actor.getComponent(PillboxCollider.class);
-            if (pb != null) {
-                jumpBoost *= bigJumpBoostFactor;
-                walkSpeed *= bigJumpBoostFactor;
-                pb.setHeight(0.42f);
-            }
-        } else if (playerState == PlayerState.Big) {
-            playerState = PlayerState.Fire;
-//            AssetManager.getSound("assets/sounds/powerup.ogg").play();
-        }
 
-        stateMachine.trigger("powerup");
-    }
-
-    public void playWinAnimation(Actor flagpole) {
-        if (!playWinAnimation) {
-            playWinAnimation = true;
-            velocity.set(0.0f, 0.0f);
-            acceleration.set(0.0f, 0.0f);
-            rb.setVelocity(velocity);
-            rb.setIsSensor();
-            rb.setBodyType(BodyType.Static);
-            actor.transform.position.x = flagpole.transform.position.x;
-//            AssetManager.getSound("assets/sounds/main-theme-overworld.ogg").stop();
-//            AssetManager.getSound("assets/sounds/flagpole.ogg").play();
-        }
-    }
 
     @Override
     public void beginCollision(Actor collidingObject, Contact contact, Vector2f contactNormal) {
@@ -282,61 +177,4 @@ public class PlayerController extends Component {
         }
     }
 
-    public void enemyBounce() {
-        this.enemyBounce = 8;
-    }
-
-    public boolean isDead() {
-        return this.isDead;
-    }
-
-    public boolean isHurtInvincible() {
-        return this.hurtInvincibilityTimeLeft > 0 || playWinAnimation;
-    }
-
-    public boolean isInvincible() {
-        return this.playerState == PlayerState.Invincible ||
-                this.hurtInvincibilityTimeLeft > 0 || playWinAnimation;
-    }
-
-    public void die() {
-        this.stateMachine.trigger("die");
-        if (this.playerState == PlayerState.Small) {
-            this.velocity.set(0, 0);
-            this.acceleration.set(0, 0);
-            this.rb.setVelocity(new Vector2f());
-            this.isDead = true;
-            this.rb.setIsSensor();
-//            AssetManager.getSound("assets/sounds/main-theme-overworld.ogg").stop();
-//            AssetManager.getSound("assets/sounds/mario_die.ogg").play();
-            deadMaxHeight = this.actor.transform.position.y + 0.3f;
-            this.rb.setBodyType(BodyType.Static);
-            if (actor.transform.position.y > 0) {
-                deadMinHeight = -0.25f;
-            }
-        } else if (this.playerState == PlayerState.Big) {
-            this.playerState = PlayerState.Small;
-            actor.transform.scale.y = 0.25f;
-            PillboxCollider pb = actor.getComponent(PillboxCollider.class);
-            if (pb != null) {
-                jumpBoost /= bigJumpBoostFactor;
-                walkSpeed /= bigJumpBoostFactor;
-                pb.setHeight(0.25f);
-            }
-            hurtInvincibilityTimeLeft = hurtInvincibilityTime;
-//            AssetManager.getSound("assets/sounds/pipe.ogg").play();
-        } else if (playerState == PlayerState.Fire) {
-            this.playerState = PlayerState.Big;
-            hurtInvincibilityTimeLeft = hurtInvincibilityTime;
-//            AssetManager.getSound("assets/sounds/pipe.ogg").play();
-        }
-    }
-
-    public boolean hasWon() {
-        return false;
-    }
-
-    public boolean isSmall() {
-        return this.playerState == PlayerState.Small;
-    }
 }

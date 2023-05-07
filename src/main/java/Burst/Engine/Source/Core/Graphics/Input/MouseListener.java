@@ -1,7 +1,7 @@
 package Burst.Engine.Source.Core.Graphics.Input;
 
 import Burst.Engine.Source.Core.Graphics.Debug.DebugDraw;
-import Burst.Engine.Source.Core.Camera;
+import Burst.Engine.Source.Core.Viewport;
 import Burst.Engine.Source.Core.UI.Window;
 import org.joml.Matrix4f;
 import org.joml.Vector2f;
@@ -147,10 +147,10 @@ public class MouseListener {
         float currentY = (getY() - get().gameViewportPos.y);
         currentY = (2.0f * (1.0f - (currentY / get().gameViewportSize.y))) - 1;
 
-        Camera camera = Window.getScene().getCamera();
+        Viewport viewport = Window.getScene().getCamera();
         Vector4f tmp = new Vector4f(currentX, currentY, 0, 1);
-        Matrix4f inverseView = new Matrix4f(camera.getInverseView());
-        Matrix4f inverseProjection = new Matrix4f(camera.getInverseProjection());
+        Matrix4f inverseView = new Matrix4f(viewport.getInverseView());
+        Matrix4f inverseProjection = new Matrix4f(viewport.getInverseProjection());
         tmp.mul(inverseView.mul(inverseProjection));
 
         return new Vector2f(tmp.x, tmp.y);
@@ -162,11 +162,11 @@ public class MouseListener {
                 screenCoords.y / Window.getHeight()
         );
         normalizedScreenCords.mul(2.0f).sub(new Vector2f(1.0f, 1.0f));
-        Camera camera = Window.getScene().getCamera();
+        Viewport viewport = Window.getScene().getCamera();
         Vector4f tmp = new Vector4f(normalizedScreenCords.x, normalizedScreenCords.y,
                 0, 1);
-        Matrix4f inverseView = new Matrix4f(camera.getInverseView());
-        Matrix4f inverseProjection = new Matrix4f(camera.getInverseProjection());
+        Matrix4f inverseView = new Matrix4f(viewport.getInverseView());
+        Matrix4f inverseProjection = new Matrix4f(viewport.getInverseProjection());
         tmp.mul(inverseView.mul(inverseProjection));
 
 
@@ -180,10 +180,10 @@ public class MouseListener {
     }
 
     public static Vector2f worldToScreen(Vector2f worldCoords) {
-        Camera camera = Window.getScene().getCamera();
+        Viewport viewport = Window.getScene().getCamera();
         Vector4f ndcSpacePos = new Vector4f(worldCoords.x, worldCoords.y, 0, 1);
-        Matrix4f view = new Matrix4f(camera.getViewMatrix());
-        Matrix4f projection = new Matrix4f(camera.getProjectionMatrix());
+        Matrix4f view = new Matrix4f(viewport.getViewMatrix());
+        Matrix4f projection = new Matrix4f(viewport.getProjectionMatrix());
         ndcSpacePos.mul(projection.mul(view));
         Vector2f windowSpace = new Vector2f(ndcSpacePos.x, ndcSpacePos.y).mul(1.0f / ndcSpacePos.w);
         windowSpace.add(new Vector2f(1.0f, 1.0f)).mul(0.5f);

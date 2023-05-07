@@ -1,6 +1,6 @@
 package Orion.enemies;
 
-import Burst.Engine.Source.Core.Camera;
+import Burst.Engine.Source.Core.Viewport;
 import Burst.Engine.Source.Core.Actor;
 import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Core.Component;
@@ -35,9 +35,9 @@ public class TurtleAI extends Component {
     @Override
     public void update(float dt) {
         movingDebounce -= dt;
-        Camera camera = Window.getScene().getCamera();
+        Viewport viewport = Window.getScene().getCamera();
         if (this.actor.transform.position.x >
-                camera.position.x + camera.getProjectionSize().x * camera.getZoom()) {
+                viewport.position.x + viewport.getProjectionSize().x * viewport.getZoom()) {
             return;
         }
 

@@ -62,13 +62,13 @@ public class StartMenuSceneInitializer extends SceneInitializer {
 
             Menu buttonMenu = new Menu(2, 2, buttonSize, alignment, buttonSpacing, margin);
             if (ImGui.button("Editor", buttonSize.x, buttonSize.y)) {
-                Window.changeScene(new LevelEditorSceneInitializer());
+                Window.changeScene(new EditorSceneInitializer());
             }
 
 
             buttonMenu.nextColumn();
             if (ImGui.button("Play", buttonSize.x, buttonSize.y)) {
-                Window.changeScene(new LevelSceneInitializer());
+                Window.changeScene(new GameInitializer());
             }
 
   

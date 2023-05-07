@@ -2,7 +2,7 @@ package Burst.Engine.Source.Core.Graphics.Render.Components;
 
 import Burst.Engine.Config.Constants.GridLines_Config;
 import Burst.Engine.Source.Core.Graphics.Debug.DebugDraw;
-import Burst.Engine.Source.Core.Camera;
+import Burst.Engine.Source.Core.Viewport;
 import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Core.Component;
 import org.joml.Vector2f;
@@ -12,18 +12,18 @@ public class GridLines extends Component {
 
     @Override
     public void updateEditor(float dt) {
-        Camera camera = Window.getScene().getCamera();
-        Vector2f cameraPos = camera.position;
-        Vector2f projectionSize = camera.getProjectionSize();
+        Viewport viewport = Window.getScene().getCamera();
+        Vector2f cameraPos = viewport.position;
+        Vector2f projectionSize = viewport.getProjectionSize();
 
         float firstX = ((int)Math.floor(cameraPos.x / GridLines_Config.GRID_WIDTH)) * GridLines_Config.GRID_HEIGHT;
         float firstY = ((int)Math.floor(cameraPos.y / GridLines_Config.GRID_HEIGHT)) * GridLines_Config.GRID_HEIGHT;
 
-        int numVtLines = (int)(projectionSize.x * camera.getZoom() / GridLines_Config.GRID_WIDTH) + 2;
-        int numHzLines = (int)(projectionSize.y * camera.getZoom() / GridLines_Config.GRID_HEIGHT) + 2;
+        int numVtLines = (int)(projectionSize.x * viewport.getZoom() / GridLines_Config.GRID_WIDTH) + 2;
+        int numHzLines = (int)(projectionSize.y * viewport.getZoom() / GridLines_Config.GRID_HEIGHT) + 2;
 
-        float width = (int)(projectionSize.x * camera.getZoom()) + (5 * GridLines_Config.GRID_WIDTH);
-        float height = (int)(projectionSize.y * camera.getZoom()) + (5 * GridLines_Config.GRID_HEIGHT);
+        float width = (int)(projectionSize.x * viewport.getZoom()) + (5 * GridLines_Config.GRID_WIDTH);
+        float height = (int)(projectionSize.y * viewport.getZoom()) + (5 * GridLines_Config.GRID_HEIGHT);
 
         int maxLines = Math.max(numVtLines, numHzLines);
         Vector3f color = new Vector3f(0.2f, 0.2f, 0.2f);

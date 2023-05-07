@@ -7,16 +7,12 @@ import Burst.Engine.Source.Runtime.Animation.StateMachine;
 import Burst.Engine.Source.Core.Assets.AssetManager;
 import Burst.Engine.Source.Runtime.Game;
 
-public abstract class SceneInitializer {
+public class SceneInitializer {
 
 
-    public void init(Game scene) {
-
-    }
+    public void init(Game scene) {}
 
     public void imgui() {}
-    public void render() {}
-
 
     public void loadResources(Game scene) {
         AssetManager.loadAllAssets();

@@ -9,25 +9,41 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="787a90ad-2c32-4237-9403-4ac402e3150a" name="Changes" comment="Asset Types und zentraler Getter für alle Assets mit Template">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/Scenes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Editor.java" afterDir="false" />
+    <list default="true" id="787a90ad-2c32-4237-9403-4ac402e3150a" name="Changes" comment="Game und Editor nicht mehr eigenständige Szene">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Runtime/Level.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ability.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/PassiveAbility.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/SkillTree.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/SpecialAbility.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/UltimateAbility.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Orion/characters/Apex.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Orion/characters/Aura.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Orion/characters/Genesis.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Orion/characters/Helix.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Orion/characters/PlayerCharacter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Orion/characters/Solaris.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Graphics/Input/Components/KeyControls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Graphics/Input/Components/KeyControls.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Graphics/Input/Components/MouseControls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Graphics/Input/Components/MouseControls.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Runtime/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/LevelEditorSceneInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/LevelEditorSceneInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/LevelSceneInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/LevelSceneInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ideas/Characters.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/ideas/Characters.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ideas/Prolog.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/ideas/Prolog.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/AssetManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/AssetManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Viewport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Graphics/Debug/DebugDraw.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Graphics/Debug/DebugDraw.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Graphics/Input/MouseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Graphics/Input/MouseListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Graphics/Render/Components/GridLines.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Graphics/Render/Components/GridLines.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/Editor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/Editor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/LevelEditorSceneInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/EditorSceneInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/LevelSceneInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/GameInitializer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/Scene.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/SceneInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/SceneInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/StartMenuSceneInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/StartMenuSceneInitializer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/Window.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/util/Prefabs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/util/Prefabs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Gizmo/Gizmo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Gizmo/Gizmo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Panel/OutlinerPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Panel/OutlinerPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/EditorCamera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/EditorCamera.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Runtime/Actor/PlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Runtime/Actor/PlayerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Runtime/GameCamera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Runtime/GameCamera.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/blocks/Pipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/blocks/Pipe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/blocks/QuestionBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/blocks/QuestionBlock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Runtime/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Runtime/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Runtime/GameCamera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Runtime/Camera.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/Fireball.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/enemies/GoombaAI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/enemies/GoombaAI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/enemies/TurtleAI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/enemies/TurtleAI.java" afterDir="false" />
     </list>
     <list id="25a488fd-f17c-453d-94a6-413269d6c7ff" name="Changes by schue" comment="Changes by schue" />
     <option name="SHOW_DIALOG" value="false" />
@@ -64,8 +80,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -144,11 +160,11 @@
       <recent name="D:\Projects\Java\Orions-Destiny\Assets\images\gizmos" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Projects\Java\Orions-Destiny\src\main\java\Orion" />
       <recent name="D:\Projects\Java\Orions-Destiny\src\main\java\Burst\Engine\Source\core" />
       <recent name="D:\Projects\Java\Orions-Destiny\src\main\java\Burst\Engine\Shaders" />
       <recent name="C:\Users\schue\Documents\Dev\Java\Orions-Destiny\Assets\images\textures" />
       <recent name="C:\Users\schue\Documents\Dev\Java\Orions-Destiny\Assets\images\spritesheets" />
-      <recent name="C:\Users\schue\Documents\Dev\Java\Orions-Destiny\Assets\images\debug" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
@@ -323,14 +339,8 @@
       <workItem from="1683142813884" duration="17740000" />
       <workItem from="1683279994213" duration="757000" />
       <workItem from="1683280773645" duration="5777000" />
-      <workItem from="1683363528519" duration="24186000" />
-    </task>
-    <task id="LOCAL-00035" summary="Drag n Drop Level Editor">
-      <created>1680287877518</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1680287877518</updated>
+      <workItem from="1683363528519" duration="24735000" />
+      <workItem from="1683435059695" duration="12710000" />
     </task>
     <task id="LOCAL-00036" summary="Fix">
       <created>1680288052871</created>
@@ -668,7 +678,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683386389600</updated>
     </task>
-    <option name="localTasksCounter" value="84" />
+    <task id="LOCAL-00084" summary="Game und Editor nicht mehr eigenständige Szene">
+      <created>1683388438415</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1683388438415</updated>
+    </task>
+    <option name="localTasksCounter" value="85" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -718,7 +735,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Circle Collision" />
     <MESSAGE value="Force Generators" />
     <MESSAGE value="Gravity" />
     <MESSAGE value="CollisionManifolds" />
@@ -743,7 +759,8 @@
     <MESSAGE value="Scenes und Assets verbessert" />
     <MESSAGE value="Asset Types und zentraler Getter für alle Assets" />
     <MESSAGE value="Asset Types und zentraler Getter für alle Assets mit Template" />
-    <option name="LAST_COMMIT_MESSAGE" value="Asset Types und zentraler Getter für alle Assets mit Template" />
+    <MESSAGE value="Game und Editor nicht mehr eigenständige Szene" />
+    <option name="LAST_COMMIT_MESSAGE" value="Game und Editor nicht mehr eigenständige Szene" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

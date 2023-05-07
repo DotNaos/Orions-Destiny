@@ -5,7 +5,7 @@ import org.joml.Vector2f;
 import org.joml.Vector3f;
 import org.joml.Vector4f;
 
-public class Camera {
+public class Viewport {
     private Matrix4f projectionMatrix, viewMatrix, inverseProjection, inverseView;
     public Vector2f position;
 
@@ -16,12 +16,12 @@ public class Camera {
 
     private float zoom = 1.0f;
 
-    public Camera()
+    public Viewport()
     {
-        new Camera (new Vector2f(0, 0));
+        new Viewport(new Vector2f(0, 0));
     }
 
-    public Camera(Vector2f position) {
+    public Viewport(Vector2f position) {
         this.position = position;
         this.projectionMatrix = new Matrix4f();
         this.viewMatrix = new Matrix4f();

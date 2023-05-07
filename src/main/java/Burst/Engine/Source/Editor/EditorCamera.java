@@ -1,6 +1,6 @@
 package Burst.Engine.Source.Editor;
 
-import Burst.Engine.Source.Core.Camera;
+import Burst.Engine.Source.Core.Viewport;
 import Burst.Engine.Source.Core.Graphics.Input.KeyListener;
 import Burst.Engine.Source.Core.Graphics.Input.MouseListener;
 import Burst.Engine.Source.Core.Component;
@@ -12,15 +12,15 @@ import static org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_MIDDLE;
 public class EditorCamera extends Component {
 
     private float dragDebounce = 0.032f;
-    private Camera levelEditorCamera;
+    private Viewport levelEditorViewport;
     private Vector2f clickOrigin;
     private boolean reset = false;
     private float lerpTime = 0.0f;
     private float dragSensitivity = 30.0f;
     private float scrollSensitivity = 0.1f;
 
-    public EditorCamera(Camera levelEditorCamera) {
-        this.levelEditorCamera = levelEditorCamera;
+    public EditorCamera(Viewport levelEditorViewport) {
+        this.levelEditorViewport = levelEditorViewport;
         this.clickOrigin = new Vector2f();
     }
 
@@ -33,7 +33,7 @@ public class EditorCamera extends Component {
         } else if (MouseListener.mouseButtonDown(GLFW_MOUSE_BUTTON_MIDDLE)) {
             Vector2f mousePos = new Vector2f(MouseListener.getWorldX(), MouseListener.getWorldY());
             Vector2f delta = new Vector2f(mousePos).sub(this.clickOrigin);
-            levelEditorCamera.position.sub(delta.mul(dt).mul(dragSensitivity));
+            levelEditorViewport.position.sub(delta.mul(dt).mul(dragSensitivity));
             this.clickOrigin.lerp(mousePos, dt);
         }
 
@@ -43,9 +43,9 @@ public class EditorCamera extends Component {
 
         if (MouseListener.getScrollY() != 0.0f) {
             float addValue = (float)Math.pow(Math.abs(MouseListener.getScrollY() * scrollSensitivity),
-                    1 / levelEditorCamera.getZoom());
+                    1 / levelEditorViewport.getZoom());
             addValue *= -Math.signum(MouseListener.getScrollY());
-            levelEditorCamera.addZoom(addValue);
+            levelEditorViewport.addZoom(addValue);
         }
 
         if (KeyListener.isKeyPressed(GLFW_KEY_KP_DECIMAL)) {
@@ -53,15 +53,15 @@ public class EditorCamera extends Component {
         }
 
         if (reset) {
-            levelEditorCamera.position.lerp(new Vector2f(), lerpTime);
-            levelEditorCamera.setZoom(this.levelEditorCamera.getZoom() +
-                    ((1.0f - levelEditorCamera.getZoom()) * lerpTime));
+            levelEditorViewport.position.lerp(new Vector2f(), lerpTime);
+            levelEditorViewport.setZoom(this.levelEditorViewport.getZoom() +
+                    ((1.0f - levelEditorViewport.getZoom()) * lerpTime));
             this.lerpTime += 0.1f * dt;
-            if (Math.abs(levelEditorCamera.position.x) <= 5.0f &&
-                    Math.abs(levelEditorCamera.position.y) <= 5.0f) {
+            if (Math.abs(levelEditorViewport.position.x) <= 5.0f &&
+                    Math.abs(levelEditorViewport.position.y) <= 5.0f) {
                 this.lerpTime = 0.0f;
-                levelEditorCamera.position.set(0f, 0f);
-                this.levelEditorCamera.setZoom(1.0f);
+                levelEditorViewport.position.set(0f, 0f);
+                this.levelEditorViewport.setZoom(1.0f);
                 reset = false;
             }
         }

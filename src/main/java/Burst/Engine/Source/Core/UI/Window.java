@@ -13,7 +13,6 @@ import Burst.Engine.Source.Core.Observer.EventSystem;
 import Burst.Engine.Source.Core.Observer.Observer;
 import Burst.Engine.Source.Core.Observer.Events.Event;
 import Burst.Engine.Source.Core.Scene.*;
-import Burst.Engine.Source.Runtime.Game;
 import org.joml.Vector4f;
 import org.lwjgl.Version;
 import org.lwjgl.glfw.GLFWErrorCallback;
@@ -49,8 +48,8 @@ public class Window implements Observer {
     private static Scene currentScene;
     private static final SceneInitializer[] scenes = {
             new StartMenuSceneInitializer(),
-            new LevelSceneInitializer(),
-            new LevelEditorSceneInitializer()
+            new GameInitializer(),
+            new EditorSceneInitializer()
     };
     private PickingTexture pickingTexture;
 
@@ -68,7 +67,6 @@ public class Window implements Observer {
             currentScene.destroy();
         }
         currentScene = new Scene(sceneInitializer);
-        currentScene.init();
     }
 
     public static Window get() {
@@ -270,13 +268,13 @@ public class Window implements Observer {
             case GameEngineStartPlay -> {
                 isPlaying = true;
                 currentScene.getGame().saveLevel();
-                Window.changeScene(new LevelSceneInitializer());
+                Window.changeScene(new GameInitializer());
             }
             case GameEngineStopPlay -> {
                 isPlaying = false;
-                Window.changeScene(new LevelEditorSceneInitializer());
+                Window.changeScene(new EditorSceneInitializer());
             }
-            case LoadLevel -> Window.changeScene(new LevelEditorSceneInitializer());
+            case LoadLevel -> Window.changeScene(new EditorSceneInitializer());
             case SaveLevel -> {
                 assert currentScene.getGame() != null;
                 currentScene.getGame().saveLevel();
