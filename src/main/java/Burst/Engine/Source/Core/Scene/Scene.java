@@ -70,10 +70,6 @@ public class Scene {
                 this.editor.update(dt);
             }
         }
-
-        for (ImGuiPanel panel : panels) {
-            panel.imgui();
-        }
     }
 
     public <T extends ImGuiPanel> T getPanel(Class<T> type) {
@@ -89,6 +85,7 @@ public class Scene {
         for (ImGuiPanel panel : panels) {
             panel.imgui();
         }
+        this.sceneInitializer.imgui();
     }
 
     public void render() {

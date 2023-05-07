@@ -9,17 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="787a90ad-2c32-4237-9403-4ac402e3150a" name="Changes" comment="Fixed Errors von letztem Commit + Paar Dateien entfernt">
+    <list default="true" id="787a90ad-2c32-4237-9403-4ac402e3150a" name="Changes" comment="Debuggen start von ALLEM">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/EditorInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/EditorInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/GameInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/GameInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/MenuInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/MenuInitializer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/Scene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/SceneInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/SceneInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/SettingsMenuInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/SettingsMenuInitializer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/StartMenuInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/StartMenuInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/Window.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Runtime/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Runtime/Game.java" afterDir="false" />
     </list>
     <list id="25a488fd-f17c-453d-94a6-413269d6c7ff" name="Changes by schue" comment="Changes by schue" />
     <option name="SHOW_DIALOG" value="false" />
@@ -317,14 +310,7 @@
       <workItem from="1683279994213" duration="757000" />
       <workItem from="1683280773645" duration="5777000" />
       <workItem from="1683363528519" duration="24735000" />
-      <workItem from="1683435059695" duration="16376000" />
-    </task>
-    <task id="LOCAL-00038" summary="snap to grid">
-      <created>1680347576686</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1680347576686</updated>
+      <workItem from="1683435059695" duration="17532000" />
     </task>
     <task id="LOCAL-00039" summary="Primitives for Physics">
       <created>1680530576518</created>
@@ -662,7 +648,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683467763155</updated>
     </task>
-    <option name="localTasksCounter" value="87" />
+    <task id="LOCAL-00087" summary="Debuggen start von ALLEM">
+      <created>1683469951875</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1683469951875</updated>
+    </task>
+    <option name="localTasksCounter" value="88" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -712,7 +705,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="CollisionManifolds" />
     <MESSAGE value="PHYSIK FERTIG ENDLICH" />
     <MESSAGE value="Physik engine in Müll, jetzt wird Box2D verwendet" />
     <MESSAGE value="Refactor, Event-handler, Box2D integration, Start-Stop Editor" />
@@ -737,18 +729,8 @@
     <MESSAGE value="Game und Editor nicht mehr eigenständige Szene" />
     <MESSAGE value="Playercharacter und VIEL refactoring der GameScene, EditorScene.&#10;Scene kann jetzt auch im Menu verwendet werden" />
     <MESSAGE value="Fixed Errors von letztem Commit + Paar Dateien entfernt" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed Errors von letztem Commit + Paar Dateien entfernt" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/StartMenuInitializer.java</url>
-          <line>90</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Debuggen start von ALLEM" />
+    <option name="LAST_COMMIT_MESSAGE" value="Debuggen start von ALLEM" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

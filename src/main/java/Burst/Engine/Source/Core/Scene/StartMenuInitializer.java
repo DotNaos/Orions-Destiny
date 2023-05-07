@@ -19,7 +19,6 @@ public class StartMenuInitializer extends MenuInitializer {
 
     public StartMenuInitializer(Scene scene) {
         super(scene);
-        imgui();
     }
 
 
