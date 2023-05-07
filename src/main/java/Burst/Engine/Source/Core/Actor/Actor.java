@@ -5,10 +5,10 @@ import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.Physics.Components.Transform;
 import Burst.Engine.Source.Core.Saving.ComponentDeserializer;
-import Burst.Engine.Source.Core.Saving.GameObjectDeserializer;
+import Burst.Engine.Source.Core.Saving.ActorDeserializer;
+import Burst.Engine.Source.Core.Graphics.Render.SpriteRenderer;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import Burst.Engine.Source.Core.Graphics.Render.SpriteRenderer;
 import imgui.ImGui;
 import Burst.Engine.Source.Core.Assets.AssetManager;
 
@@ -100,7 +100,7 @@ public class Actor {
         // TODO: come up with cleaner solution
         Gson gson = new GsonBuilder()
                 .registerTypeAdapter(Component.class, new ComponentDeserializer())
-                .registerTypeAdapter(Actor.class, new GameObjectDeserializer())
+                .registerTypeAdapter(Actor.class, new ActorDeserializer())
                 .enableComplexMapKeySerialization()
                 .create();
         String objAsJson = gson.toJson(this);

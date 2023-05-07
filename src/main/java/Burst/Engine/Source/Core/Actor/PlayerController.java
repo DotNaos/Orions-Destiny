@@ -92,10 +92,10 @@ public class PlayerController extends Component {
 
 
     @Override
-    public void beginCollision(Actor collidingObject, Contact contact, Vector2f contactNormal) {
+    public void beginCollision(Actor collidinactorbject, Contact contact, Vector2f contactNormal) {
         if (isDead) return;
 
-        if (collidingObject.getComponent(Ground.class) != null) {
+        if (collidinactorbject.getComponent(Ground.class) != null) {
             if (Math.abs(contactNormal.x) > 0.8f) {
                 this.velocity.x = 0;
             } else if (contactNormal.y > 0.8f) {

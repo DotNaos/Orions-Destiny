@@ -72,8 +72,8 @@ public class PropertiesPanel extends ImGuiPanel {
     public void clearSelected() {
         if (activeGameObjectsOgColor.size() > 0) {
             int i = 0;
-            for (Actor go : activeActors) {
-                SpriteRenderer spr = go.getComponent(SpriteRenderer.class);
+            for (Actor actor : activeActors) {
+                SpriteRenderer spr = actor.getComponent(SpriteRenderer.class);
                 if (spr != null) {
                     spr.setColor(activeGameObjectsOgColor.get(i));
                 }
@@ -84,22 +84,22 @@ public class PropertiesPanel extends ImGuiPanel {
         this.activeGameObjectsOgColor.clear();
     }
 
-    public void setActiveGameObject(Actor go) {
-        if (go != null) {
+    public void setActiveGameObject(Actor actor) {
+        if (actor != null) {
             clearSelected();
-            this.activeActors.add(go);
+            this.activeActors.add(actor);
         }
     }
 
-    public void addActiveGameObject(Actor go) {
-        SpriteRenderer spr = go.getComponent(SpriteRenderer.class);
+    public void addActiveGameObject(Actor actor) {
+        SpriteRenderer spr = actor.getComponent(SpriteRenderer.class);
         if (spr != null ) {
             this.activeGameObjectsOgColor.add(new Vector4f(spr.getColor()));
             spr.setColor(new Vector4f(0.8f, 0.8f, 0.0f, 0.8f));
         } else {
             this.activeGameObjectsOgColor.add(new Vector4f());
         }
-        this.activeActors.add(go);
+        this.activeActors.add(actor);
     }
 
     public PickingTexture getPickingTexture() {

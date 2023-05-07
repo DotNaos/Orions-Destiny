@@ -4,8 +4,9 @@ import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.Graphics.Input.MouseListener;
 import Burst.Engine.Source.Core.Physics.Physics2D;
+import Burst.Engine.Source.Core.Saving.ActorDeserializer;
 import Burst.Engine.Source.Core.Saving.ComponentDeserializer;
-import Burst.Engine.Source.Core.Saving.GameObjectDeserializer;
+
 import Burst.Engine.Source.Core.Scene.Scene;
 import Burst.Engine.Source.Core.util.DebugMessage;
 import Burst.Engine.Source.Editor.Panel.ViewportPanel;
@@ -24,7 +25,7 @@ import java.util.Optional;
 
 public class Game{
     protected List<Actor> actors;
-    protected List<Actor> pendingObjects;
+    protected List<Actor> pendinactorbjects;
     protected Physics2D physics2D;
     protected Scene scene;
 
@@ -36,7 +37,7 @@ public class Game{
     {
         this.physics2D = new Physics2D();
         this.actors = new ArrayList<>();
-        this.pendingObjects = new ArrayList<>();
+        this.pendinactorbjects = new ArrayList<>();
 
 
         System.out.println("\n" + scene.getOpenScene());
@@ -53,17 +54,17 @@ public class Game{
     //====================================================================================================
     
     public void start() {
-        for (Actor go : actors) {
-            go.start();
-            scene.getViewportRenderer().add(go);
-            this.physics2D.add(go);
+        for (Actor actor : actors) {
+            actor.start();
+            scene.getViewportRenderer().add(actor);
+            this.physics2D.add(actor);
         }
     }
 
 
     public void destroy() {
-        for (Actor go : actors) {
-            go.destroy();
+        for (Actor actor : actors) {
+            actor.destroy();
         }
     }
     
@@ -71,35 +72,35 @@ public class Game{
         scene.getCamera().adjustProjection();
         this.physics2D.update(dt);
 
-        for (int i = 0; i < actors.size(); i++) {
-            Actor go = actors.get(i);
-            go.update(dt);
+        for (int i=0; i < actors.size(); i++) {
+            Actor actor = actors.get(i);
+            actor.update(dt);
 
-            if (go.isDead()) {
+            if (actor.isDead()) {
                 actors.remove(i);
-                scene.getViewportRenderer().destroyGameObject(go);
-                this.physics2D.destroyGameObject(go);
+                scene.getViewportRenderer().destroyActor(actor);
+                this.physics2D.destroyActor(actor);
                 i--;
             }
         }
 
-        for (Actor go : pendingObjects) {
-            actors.add(go);
-            go.start();
-            scene.getViewportRenderer().add(go);
-            this.physics2D.add(go);
+        for (Actor actor : pendinactorbjects) {
+            actors.add(actor);
+            actor.start();
+            scene.getViewportRenderer().add(actor);
+            this.physics2D.add(actor);
         }
-        pendingObjects.clear();
+        pendinactorbjects.clear();
     }
 
 
 
 
-    public void addActor(Actor go) {
+    public void addActor(Actor actor) {
         if (scene.isPaused()) {
-            actors.add(go);
+            actors.add(actor);
         } else {
-            pendingObjects.add(go);
+            pendinactorbjects.add(actor);
         }
     }
 
@@ -113,10 +114,11 @@ public class Game{
     //====================================================================================================
     
     public void saveLevel() {
+
         Gson gson = new GsonBuilder()
                 .setPrettyPrinting()
                 .registerTypeAdapter(Component.class, new ComponentDeserializer())
-                .registerTypeAdapter(Actor.class, new GameObjectDeserializer())
+                .registerTypeAdapter(Actor.class, new ActorDeserializer())
                 .enableComplexMapKeySerialization()
                 .create();
 
@@ -139,7 +141,7 @@ public class Game{
         Gson gson = new GsonBuilder()
                 .setPrettyPrinting()
                 .registerTypeAdapter(Component.class, new ComponentDeserializer())
-                .registerTypeAdapter(Actor.class, new GameObjectDeserializer())
+                .registerTypeAdapter(Actor.class, new ActorDeserializer())
                 .enableComplexMapKeySerialization()
                 .create();
 
@@ -156,7 +158,7 @@ public class Game{
         }
 
         if (!inFile.equals("")) {
-            long maxGoId = -1;
+            long maxactorId = -1;
             long maxCompId = -1;
             Actor[] objs = gson.fromJson(inFile, Actor[].class);
             for (int i=0; i < objs.length; i++) {
@@ -167,14 +169,14 @@ public class Game{
                         maxCompId = c.getUid();
                     }
                 }
-                if (objs[i].getUid() > maxGoId) {
-                    maxGoId = objs[i].getUid();
+                if (objs[i].getUid() > maxactorId) {
+                    maxactorId = objs[i].getUid();
                 }
             }
 
-            maxGoId++;
+            maxactorId++;
             maxCompId++;
-            Actor.init((int) maxGoId);
+            Actor.init((int) maxactorId);
             Component.init((int) maxCompId);
         }
     }
@@ -213,30 +215,30 @@ public class Game{
         return this.physics2D;
     }
 
-    public <T extends Component> Actor getActorWith(Class<T> gameObjectClass) {
-        for (Actor go : actors) {
-            if (go.getComponent(gameObjectClass) != null) {
-                return go;
+    public <T extends Component> Actor getActorWith(Class<T> ActorClass) {
+        for (Actor actor : actors) {
+            if (actor.getComponent(ActorClass) != null) {
+                return actor;
             }
         }
 
         return null;
     }
 
-    public List<Actor> getGameObjects() {
+    public List<Actor> getactors() {
         return this.actors;
     }
 
-    public Actor getGameObject(int gameObjectId) {
+    public Actor getActor(int ActorId) {
         Optional<Actor> result = this.actors.stream()
-                .filter(gameObject -> gameObject.getUid() == gameObjectId)
+                .filter(Actor -> Actor.getUid() == ActorId)
                 .findFirst();
         return result.orElse(null);
     }
 
-    public Actor getGameObject(String gameObjectName) {
+    public Actor getActor(String ActorName) {
         Optional<Actor> result = this.actors.stream()
-                .filter(gameObject -> gameObject.name.equals(gameObjectName))
+                .filter(Actor -> Actor.name.equals(ActorName))
                 .findFirst();
         return result.orElse(null);
     }
@@ -246,8 +248,8 @@ public class Game{
     }
 
     public void imgui() {
-        for (Actor go : actors) {
-            go.imgui();
+        for (Actor actor : actors) {
+            actor.imgui();
         }
     }
 }

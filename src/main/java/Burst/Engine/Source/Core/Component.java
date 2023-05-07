@@ -35,19 +35,19 @@ public abstract class Component {
 
     }
 
-    public void beginCollision(Actor collidingObject, Contact contact, Vector2f hitNormal) {
+    public void beginCollision(Actor collidinactorbject, Contact contact, Vector2f hitNormal) {
 
     }
 
-    public void endCollision(Actor collidingObject, Contact contact, Vector2f hitNormal) {
+    public void endCollision(Actor collidinactorbject, Contact contact, Vector2f hitNormal) {
 
     }
 
-    public void preSolve(Actor collidingObject, Contact contact, Vector2f hitNormal) {
+    public void preSolve(Actor collidinactorbject, Contact contact, Vector2f hitNormal) {
 
     }
 
-    public void postSolve(Actor collidingObject, Contact contact, Vector2f hitNormal) {
+    public void postSolve(Actor collidinactorbject, Contact contact, Vector2f hitNormal) {
 
     }
 

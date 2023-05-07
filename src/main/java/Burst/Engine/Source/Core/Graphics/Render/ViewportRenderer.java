@@ -17,8 +17,8 @@ public class ViewportRenderer extends Renderer{
         this.batches = new ArrayList<>();
     }
 
-    public void add(Actor go) {
-        SpriteRenderer spr = go.getComponent(SpriteRenderer.class);
+    public void add(Actor actor) {
+        SpriteRenderer spr = actor.getComponent(SpriteRenderer.class);
         if (spr != null) {
             add(spr);
         }
@@ -47,10 +47,10 @@ public class ViewportRenderer extends Renderer{
         }
     }
 
-    public void destroyGameObject(Actor go) {
-        if (go.getComponent(SpriteRenderer.class) == null) return;
+    public void destroyActor(Actor actor) {
+        if (actor.getComponent(SpriteRenderer.class) == null) return;
         for (RenderBatch batch : batches) {
-            if (batch.destroyIfExists(go)) {
+            if (batch.destroyIfExists(actor)) {
                 return;
             }
         }

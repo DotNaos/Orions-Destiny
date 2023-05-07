@@ -13,7 +13,7 @@ public class RaycastInfo implements RayCastCallback {
     public float fraction;
     public boolean hit;
     public Actor hitObject;
-    private Actor requestingObject;
+    private Actor requestinactorbject;
 
     public RaycastInfo(Actor obj) {
         fixture = null;
@@ -22,12 +22,12 @@ public class RaycastInfo implements RayCastCallback {
         fraction = 0.0f;
         hit = false;
         hitObject = null;
-        this.requestingObject = obj;
+        this.requestinactorbject = obj;
     }
 
     @Override
     public float reportFixture(Fixture fixture, Vec2 point, Vec2 normal, float fraction) {
-        if (fixture.m_userData == requestingObject) {
+        if (fixture.m_userData == requestinactorbject) {
             return 1;
         }
         this.fixture = fixture;

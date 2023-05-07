@@ -20,7 +20,7 @@
 >Flight: The ability to fly using the power of fire. Power: Solaris has the power of fire, which allows him to create, control, and manipulate flames. 
 
 ## Description: 
->Solaris is a bright and energetic character, radiating heat and light wherever he goes. His powers give him the ability to control fire, and he uses his skills to bring warmth and light to the world around him. Despite his warm nature, Solaris is a force to be reckoned with, and he is not to be trifled with.
+>Solaris is a bright and energetic character, radiating heat and light wherever he actores. His powers give him the ability to control fire, and he uses his skills to bring warmth and light to the world around him. Despite his warm nature, Solaris is a force to be reckoned with, and he is not to be trifled with.
 
 # 3.  Genesis: 
 ---
@@ -48,7 +48,7 @@
 >Power: Aura has the power of energy, which allows her to create, control, and manipulate energy in all forms. 
 
 ## Description: 
->Aura is a charismatic and confident character, radiating energy wherever she goes. Her powers give her the ability to control and manipulate energy in all forms, and she uses her skills to protect and defend those she cares about. Despite her seemingly carefree nature, Aura is a formidable force, and her powers are not to be underestimated.
+>Aura is a charismatic and confident character, radiating energy wherever she actores. Her powers give her the ability to control and manipulate energy in all forms, and she uses her skills to protect and defend those she cares about. Despite her seemingly carefree nature, Aura is a formidable force, and her powers are not to be underestimated.
 
 
 # 5. Helix: 

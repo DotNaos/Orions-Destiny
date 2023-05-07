@@ -124,7 +124,7 @@ public class RenderBatch implements Comparable<RenderBatch> {
             SpriteRenderer spr = sprites[i];
             if (spr.isDirty()) {
                 if (!hasTexture(spr.getTexture())) {
-                    this.viewportRenderer.destroyGameObject(spr.actor);
+                    this.viewportRenderer.destroyActor(spr.actor);
                     this.viewportRenderer.add(spr.actor);
                 } else {
                     loadVertexProperties(i);
@@ -171,8 +171,8 @@ public class RenderBatch implements Comparable<RenderBatch> {
         shader.detach();
     }
 
-    public boolean destroyIfExists(Actor go) {
-        SpriteRenderer sprite = go.getComponent(SpriteRenderer.class);
+    public boolean destroyIfExists(Actor actor) {
+        SpriteRenderer sprite = actor.getComponent(SpriteRenderer.class);
         for (int i=0; i < numSprites; i++) {
             if (sprites[i] == sprite) {
                 for (int j=i; j < numSprites - 1; j++) {

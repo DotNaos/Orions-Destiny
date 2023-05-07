@@ -7,7 +7,7 @@ import org.jbox2d.dynamics.contacts.Contact;
 import org.joml.Vector2f;
 
 public abstract class Block extends Component {
-    private transient boolean bopGoingUp = true;
+    private transient boolean bopactoringUp = true;
     private transient boolean doBopAnimation = false;
     private transient Vector2f bopStart;
     private transient Vector2f topBopLocation;
@@ -24,18 +24,18 @@ public abstract class Block extends Component {
     @Override
     public void update(float dt) {
         if (doBopAnimation) {
-            if (bopGoingUp) {
+            if (bopactoringUp) {
                 if (this.actor.transform.position.y < topBopLocation.y) {
                     this.actor.transform.position.y += bopSpeed * dt;
                 } else {
-                    bopGoingUp = false;
+                    bopactoringUp = false;
                 }
             } else {
                 if (this.actor.transform.position.y > bopStart.y) {
                     this.actor.transform.position.y -= bopSpeed * dt;
                 } else {
                     this.actor.transform.position.y = this.bopStart.y;
-                    bopGoingUp = true;
+                    bopactoringUp = true;
                     doBopAnimation = false;
                 }
             }

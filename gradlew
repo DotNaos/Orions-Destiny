@@ -12,7 +12,7 @@
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
+# See the License for the specific language actorverning permissions and
 # limitations under the License.
 #
 
@@ -215,7 +215,7 @@ fi
 #
 # With -n1 it outputs one arg per line, with the quotes and backslashes removed.
 #
-# In Bash we could simply go:
+# In Bash we could simply actor:
 #
 #   readarray ARGS < <( xargs -n1 <<<"$var" ) &&
 #   set -- "${ARGS[@]}" "$@"

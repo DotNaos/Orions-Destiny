@@ -16,7 +16,6 @@ import Burst.Engine.Source.Editor.EditorCamera;
 import Burst.Engine.Source.Editor.Gizmo.GizmoSystem;
 import Burst.Engine.Source.Editor.Panel.OutlinerPanel;
 import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
-import Burst.Engine.Source.Core.Game.Game;
 import Orion.res.Assets;
 import imgui.ImGui;
 import imgui.ImVec2;
@@ -56,27 +55,27 @@ public class Editor extends Game {
 
     @Override
     public void update(float dt) {
-        Window.getScene().getCamera().adjustProjection();
+        scene.getCamera().adjustProjection();
 
-        for (int i = 0; i < actors.size(); i++) {
-            Actor go = actors.get(i);
-            go.updateEditor(dt);
+        for (int i=0; i < actors.size(); i++) {
+            Actor actor = actors.get(i);
+            actor.update(dt);
 
-            if (go.isDead()) {
+            if (actor.isDead()) {
                 actors.remove(i);
-                Window.getScene().getViewportRenderer().destroyGameObject(go);
-                this.physics2D.destroyGameObject(go);
+                scene.getViewportRenderer().destroyActor(actor);
+                this.physics2D.destroyActor(actor);
                 i--;
             }
         }
 
-        for (Actor go : pendingObjects) {
-            actors.add(go);
-            go.start();
-            Window.getScene().getViewportRenderer().add(go);
-            this.physics2D.add(go);
+        for (Actor actor : pendinactorbjects) {
+            actors.add(actor);
+            actor.start();
+            scene.getViewportRenderer().add(actor);
+            this.physics2D.add(actor);
         }
-        pendingObjects.clear();
+        pendinactorbjects.clear();
     }
 
     @Override

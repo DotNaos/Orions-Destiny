@@ -147,7 +147,7 @@ public class ImGuiLayer {
             fontConfig.setPixelSnapH(true);
             fontAtlas.addFontFromFileTTF(Assets.FONT_INTER, 18, fontConfig);
             fontConfig.destroy(); // After all fonts were added we don't need this config more
-        } else if (new File("C:/Windows/Fonts/segoeui.ttf").isFile()) {
+        } else if (new File("C:/Windows/Fonts/seactoreui.ttf").isFile()) {
             final ImFontAtlas fontAtlas = io.getFonts();
             final ImFontConfig fontConfig = new ImFontConfig(); // Natively allocated object, should be explicitly destroyed
 
@@ -156,7 +156,7 @@ public class ImGuiLayer {
 
             // Fonts merge example
             fontConfig.setPixelSnapH(true);
-            fontAtlas.addFontFromFileTTF("C:/Windows/Fonts/segoeui.ttf", 32, fontConfig);
+            fontAtlas.addFontFromFileTTF("C:/Windows/Fonts/seactoreui.ttf", 32, fontConfig);
             fontConfig.destroy(); // After all fonts were added we don't need this config more
         } else if (new File("C:/Windows/Fonts/Cour.ttf").isFile()) {
             // Fallback font
@@ -184,7 +184,7 @@ public class ImGuiLayer {
     public void update(float dt, Scene currentScene) {
         startFrame(dt);
 
-        // Any Dear ImGui code SHOULD go between ImGui.newFrame()/ImGui.render() methods
+        // Any Dear ImGui code SHOULD actor between ImGui.newFrame()/ImGui.render() methods
         setupDockspace();
         currentScene.imgui();
         ImGui.showDemoWindow();

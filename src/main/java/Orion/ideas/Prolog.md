@@ -16,7 +16,7 @@ Nach vielen Kämpfen und Abenteuern findest du schließlich alle Teile deiner Kr
 ![[Story.mp3]]
 As the origin of the universe, you awaken on a strange world. You have no memories of the past and feel weak and helpless. You quickly realize that you have lost a large part of your power in the big bang. To regain your full strength, you must find your lost parts.
 
-On your journey through the world, you will encounter countless creatures formed from the excess energy. These creatures have only one goal: to drain the last power from you. You must fight against them to progress and find your parts.
+On your journey through the world, you will encounter countless creatures formed from the excess energy. These creatures have only one actoral: to drain the last power from you. You must fight against them to progress and find your parts.
 
 You will also meet other beings who can help make your journey easier. They give you tips, hints, and sometimes even powerful weapons to fight against the creatures. But you must not trust them completely. Some of them have their own agendas and could lead you astray.
 

@@ -40,8 +40,8 @@ public class KeyControls extends Component {
                 KeyListener.keyBeginPress(GLFW_KEY_D) && activeActors.size() > 1) {
             List<Actor> actors = new ArrayList<>(activeActors);
             propertiesPanel.clearSelected();
-            for (Actor go : actors) {
-                Actor copy = go.copy();
+            for (Actor actor : actors) {
+                Actor copy = actor.copy();
                 assert Window.getScene().getGame() != null;
                 Window.getScene().getGame().addActor(copy);
                 propertiesPanel.addActiveGameObject(copy);
@@ -50,39 +50,39 @@ public class KeyControls extends Component {
                 }
             }
         } else if (KeyListener.keyBeginPress(GLFW_KEY_DELETE)) {
-            for (Actor go : activeActors) {
-                go.destroy();
+            for (Actor actor : activeActors) {
+                actor.destroy();
             }
             propertiesPanel.clearSelected();
         } else if (KeyListener.isKeyPressed(GLFW_KEY_PAGE_DOWN) && debounce < 0) {
             debounce = debounceTime;
-            for (Actor go : activeActors) {
-                go.transform.zIndex--;
+            for (Actor actor : activeActors) {
+                actor.transform.zIndex--;
             }
         } else if (KeyListener.isKeyPressed(GLFW_KEY_PAGE_UP) && debounce < 0) {
             debounce = debounceTime;
-            for (Actor go : activeActors) {
-                go.transform.zIndex++;
+            for (Actor actor : activeActors) {
+                actor.transform.zIndex++;
             }
         } else if (KeyListener.isKeyPressed(GLFW_KEY_UP) && debounce < 0) {
             debounce = debounceTime;
-            for (Actor go : activeActors) {
-                go.transform.position.y += GridLines_Config.GRID_HEIGHT * multiplier;
+            for (Actor actor : activeActors) {
+                actor.transform.position.y += GridLines_Config.GRID_HEIGHT * multiplier;
             }
         } else if (KeyListener.isKeyPressed(GLFW_KEY_LEFT) && debounce < 0) {
             debounce = debounceTime;
-            for (Actor go : activeActors) {
-                go.transform.position.x -= GridLines_Config.GRID_HEIGHT * multiplier;
+            for (Actor actor : activeActors) {
+                actor.transform.position.x -= GridLines_Config.GRID_HEIGHT * multiplier;
             }
         } else if (KeyListener.isKeyPressed(GLFW_KEY_RIGHT) && debounce < 0) {
             debounce = debounceTime;
-            for (Actor go : activeActors) {
-                go.transform.position.x += GridLines_Config.GRID_HEIGHT * multiplier;
+            for (Actor actor : activeActors) {
+                actor.transform.position.x += GridLines_Config.GRID_HEIGHT * multiplier;
             }
         } else if (KeyListener.isKeyPressed(GLFW_KEY_DOWN) && debounce < 0) {
             debounce = debounceTime;
-            for (Actor go : activeActors) {
-                go.transform.position.y -= GridLines_Config.GRID_HEIGHT * multiplier;
+            for (Actor actor : activeActors) {
+                actor.transform.position.y -= GridLines_Config.GRID_HEIGHT * multiplier;
             }
         }
     }

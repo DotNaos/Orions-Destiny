@@ -31,10 +31,10 @@ public class Physics2D {
         return new Vector2f(world.getGravity().x, world.getGravity().y);
     }
 
-    public void add(Actor go) {
-        Rigidbody2D rb = go.getComponent(Rigidbody2D.class);
+    public void add(Actor actor) {
+        Rigidbody2D rb = actor.getComponent(Rigidbody2D.class);
         if (rb != null && rb.getRawBody() == null) {
-            Transform transform = go.transform;
+            Transform transform = actor.transform;
 
             BodyDef bodyDef = new BodyDef();
             bodyDef.angle = (float)Math.toRadians(transform.rotation);
@@ -61,22 +61,22 @@ public class Physics2D {
             Box2DCollider boxCollider;
             PillboxCollider pillboxCollider;
 
-            if ((circleCollider = go.getComponent(CircleCollider.class)) != null) {
+            if ((circleCollider = actor.getComponent(CircleCollider.class)) != null) {
                 addCircleCollider(rb, circleCollider);
             }
 
-            if ((boxCollider = go.getComponent(Box2DCollider.class)) != null) {
+            if ((boxCollider = actor.getComponent(Box2DCollider.class)) != null) {
                 addBox2DCollider(rb, boxCollider);
             }
 
-            if ((pillboxCollider = go.getComponent(PillboxCollider.class)) != null) {
+            if ((pillboxCollider = actor.getComponent(PillboxCollider.class)) != null) {
                 addPillboxCollider(rb, pillboxCollider);
             }
         }
     }
 
-    public void destroyGameObject(Actor go) {
-        Rigidbody2D rb = go.getComponent(Rigidbody2D.class);
+    public void destroyActor(Actor actor) {
+        Rigidbody2D rb = actor.getComponent(Rigidbody2D.class);
         if (rb != null) {
             if (rb.getRawBody() != null) {
                 world.destroyBody(rb.getRawBody());
@@ -198,8 +198,8 @@ public class Physics2D {
         body.createFixture(fixtureDef);
     }
 
-    public RaycastInfo raycast(Actor requestingObject, Vector2f point1, Vector2f point2) {
-        RaycastInfo callback = new RaycastInfo(requestingObject);
+    public RaycastInfo raycast(Actor requestinactorbject, Vector2f point1, Vector2f point2) {
+        RaycastInfo callback = new RaycastInfo(requestinactorbject);
         world.raycast(callback, new Vec2(point1.x, point1.y),
                 new Vec2(point2.x, point2.y));
         return callback;
