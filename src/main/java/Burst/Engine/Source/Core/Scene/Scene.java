@@ -1,11 +1,12 @@
 package Burst.Engine.Source.Core.Scene;
 
-import Burst.Engine.Source.Core.Viewport;
+import Burst.Engine.Source.Core.Game.Editor;
+import Burst.Engine.Source.Core.Scene.Initializer.*;
+import Burst.Engine.Source.Core.UI.Viewport;
 import Burst.Engine.Source.Core.Graphics.Render.ViewportRenderer;
 import Burst.Engine.Source.Core.UI.ImGuiPanel;
 import Burst.Engine.Source.Core.util.DebugMessage;
-import Burst.Engine.Source.Runtime.Game;
-import imgui.ImGui;
+import Burst.Engine.Source.Core.Game.Game;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -127,6 +128,9 @@ public class Scene {
     }
 
     public Game getGame() {
+        if (this.game == null) {
+            return this.editor;
+        }
         return this.game;
     }
     public Editor getEditor() {

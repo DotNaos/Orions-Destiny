@@ -6,7 +6,7 @@ import Burst.Engine.Source.Core.Graphics.Render.PickingTexture;
 import Burst.Engine.Source.Core.Graphics.Render.ViewportRenderer;
 import Burst.Engine.Source.Core.Assets.Graphics.Shader;
 import Burst.Engine.Source.Core.Graphics.Debug.DebugDraw;
-import Burst.Engine.Source.Core.Actor;
+import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Graphics.Input.KeyListener;
 import Burst.Engine.Source.Core.Graphics.Input.MouseListener;
 import Burst.Engine.Source.Core.Observer.EventSystem;

@@ -1,4 +1,4 @@
-package Burst.Engine.Source.Editor.Panel;
+package Burst.Engine.Source.Editor.Panel.Widgets;
 
 import Burst.Engine.Source.Core.Observer.EventSystem;
 import Burst.Engine.Source.Core.Observer.Events.Event;
@@ -7,9 +7,8 @@ import Burst.Engine.Source.Core.UI.ImGuiPanel;
 import imgui.ImGui;
 
 
-public class MenuBar extends ImGuiPanel {
+public class MenuBar {
 
-    @Override
     public void imgui() {
         ImGui.beginMenuBar();
 

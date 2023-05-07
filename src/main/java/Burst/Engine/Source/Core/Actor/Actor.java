@@ -1,7 +1,8 @@
-package Burst.Engine.Source.Core;
+package Burst.Engine.Source.Core.Actor;
 
 
 import Burst.Engine.Source.Core.Assets.Graphics.Texture;
+import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.Physics.Components.Transform;
 import Burst.Engine.Source.Core.Saving.ComponentDeserializer;
 import Burst.Engine.Source.Core.Saving.GameObjectDeserializer;
@@ -20,14 +21,15 @@ public class Actor {
 
     public String name;
     private List<Component> components;
-    public  transient Transform transform;
+
+    public transient Transform transform;
     private boolean doSerialization = true;
     private boolean isDead = false;
 
     public Actor(String name) {
         this.name = name;
         this.components = new ArrayList<>();
-
+        this.transform = new Transform(this);
         this.ID = ActorCounter++;
     }
 

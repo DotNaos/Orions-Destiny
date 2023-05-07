@@ -1,7 +1,7 @@
 package Burst.Engine.Source.Core.Physics;
 
 import Burst.Engine.Source.Core.Component;
-import Burst.Engine.Source.Core.Actor;
+import Burst.Engine.Source.Core.Actor.Actor;
 import org.jbox2d.callbacks.ContactImpulse;
 import org.jbox2d.callbacks.ContactListener;
 import org.jbox2d.collision.Manifold;

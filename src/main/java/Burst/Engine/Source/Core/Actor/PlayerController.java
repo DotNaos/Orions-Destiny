@@ -1,13 +1,9 @@
-package Burst.Engine.Source.Runtime.Actor;
+package Burst.Engine.Source.Core.Actor;
 
-import Burst.Engine.Source.Core.Actor;
 import Burst.Engine.Source.Core.Component;
+import Burst.Engine.Source.Core.Game.Animation.StateMachine;
 import Burst.Engine.Source.Core.Graphics.Input.KeyListener;
-import Burst.Engine.Source.Core.Graphics.Render.SpriteRenderer;
 import Burst.Engine.Source.Core.Physics.Components.Rigidbody2D;
-import Burst.Engine.Source.Core.UI.Window;
-import Burst.Engine.Source.Core.util.Prefabs;
-import Burst.Engine.Source.Runtime.Animation.StateMachine;
 import Orion.blocks.Ground;
 import org.jbox2d.dynamics.contacts.Contact;
 import org.joml.Vector2f;

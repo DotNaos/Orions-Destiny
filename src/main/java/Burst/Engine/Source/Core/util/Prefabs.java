@@ -1,6 +1,6 @@
 package Burst.Engine.Source.Core.util;
 
-import Burst.Engine.Source.Core.Actor;
+import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
 import Burst.Engine.Source.Core.Graphics.Render.SpriteRenderer;
 import Burst.Engine.Source.Core.UI.Window;

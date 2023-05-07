@@ -1,6 +1,6 @@
 package Burst.Engine.Source.Editor;
 
-import Burst.Engine.Source.Core.Viewport;
+import Burst.Engine.Source.Core.UI.Viewport;
 import Burst.Engine.Source.Core.Graphics.Input.KeyListener;
 import Burst.Engine.Source.Core.Graphics.Input.MouseListener;
 import Burst.Engine.Source.Core.Component;

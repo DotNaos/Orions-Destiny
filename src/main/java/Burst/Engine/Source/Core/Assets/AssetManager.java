@@ -31,24 +31,24 @@ public class AssetManager {
 
     public static void loadAllAssets() {
         DebugMessage.noDebug = true;
-        DebugMessage.printHeader("Loading Assets");
+        DebugMessage.header("Loading Assets");
         System.out.println("Loading Assets from: " + Assets.class.getProtectionDomain().getCodeSource().getLocation().getPath() + "\n");
 
         // =================== Spritesheets ===================
-        DebugMessage.printHeader("Spritesheets");
+        DebugMessage.header("Spritesheets");
         loadAllAssetOfType(Spritesheet.class);
-        DebugMessage.printLoadSuccess("Loaded " + spritesheets.size() + " spritesheets");
+        DebugMessage.loadSuccess("Loaded " + spritesheets.size() + " spritesheets");
 
         // ===================== Shader =======================
-        DebugMessage.printHeader("Shaders");
+        DebugMessage.header("Shaders");
         loadAllAssetOfType(Shader.class);
-        DebugMessage.printLoadSuccess("Loaded " + shaders.size() + " shaders");
+        DebugMessage.loadSuccess("Loaded " + shaders.size() + " shaders");
 
 
         // =================== Sounds ===================
-        DebugMessage.printHeader("Sounds");
+        DebugMessage.header("Sounds");
         loadAllAssetOfType(Sound.class);
-        DebugMessage.printLoadSuccess("Loaded " + sounds.size() + " sounds");
+        DebugMessage.loadSuccess("Loaded " + sounds.size() + " sounds");
 
         DebugMessage.noDebug = false;
         // set overworld sound to loop
@@ -83,7 +83,7 @@ public class AssetManager {
 
             return count;
         } else if (assetType.equals(Sprite.class) || assetType.equals(Texture.class)) {
-            DebugMessage.printError(assetType.toString() + "Are not Files to load");
+            DebugMessage.error(assetType.toString() + "Are not Files to load");
             return count;
         } else if (assetType.equals(Shader.class)) {
             assetDir = ShaderConfig.SHADER_PATH;
@@ -146,7 +146,7 @@ public class AssetManager {
             }
             return count;
         }
-        DebugMessage.printNotFound("Did not found: " + assetType);
+        DebugMessage.notFound("Did not found: " + assetType);
         return -1;
 
     }
@@ -172,7 +172,7 @@ public class AssetManager {
         } else if (assetType.equals(UI_Assets.class)) {
             return new ArrayList<>(UIs.values());
         }
-        DebugMessage.printNotFound("Did not found: " + assetType.toString());
+        DebugMessage.notFound("Did not found: " + assetType.toString());
         return null;
     }
 
@@ -180,7 +180,7 @@ public class AssetManager {
         System.out.println("Loading ressource: " + resourceName);
         File file = new File(resourceName);
         if (!file.exists()) {
-            DebugMessage.printNotFound("Did not found: " + resourceName);
+            DebugMessage.notFound("Did not found: " + resourceName);
             return null;
         }
         else {
@@ -227,19 +227,19 @@ public class AssetManager {
         } else if (assetType.equals(Sound.class)) {
             return assetType.cast( AssetManager.sounds.getOrDefault(resourceName, null));
         } else if (assetType.equals(Font.class)) {
-            DebugMessage.printNotFound(assetType + "IS NOT IMPLEMENTED YET");
+            DebugMessage.notFound(assetType + "IS NOT IMPLEMENTED YET");
             return assetType.cast( AssetManager.fonts.getOrDefault(resourceName, null));
         } else if (assetType.equals(LevelMap.class)) {
-            DebugMessage.printNotFound(assetType + "IS NOT IMPLEMENTED YET");
+            DebugMessage.notFound(assetType + "IS NOT IMPLEMENTED YET");
             return assetType.cast( AssetManager.maps.getOrDefault(resourceName, null));
         } else if (assetType.equals(Background.class)) {
-            DebugMessage.printNotFound(assetType + "IS NOT IMPLEMENTED YET");
+            DebugMessage.notFound(assetType + "IS NOT IMPLEMENTED YET");
             return assetType.cast( AssetManager.backgrounds.getOrDefault(resourceName, null));
         } else if (assetType.equals(UI_Assets.class)) {
-            DebugMessage.printNotFound(assetType + "IS NOT IMPLEMENTED YET");
+            DebugMessage.notFound(assetType + "IS NOT IMPLEMENTED YET");
             return assetType.cast( AssetManager.UIs.getOrDefault(resourceName, null));
         }
-        DebugMessage.printNotFound("Did not found: " + assetType);
+        DebugMessage.notFound("Did not found: " + assetType);
         return null;
     }
 
@@ -278,7 +278,7 @@ public class AssetManager {
         } else if (assetType.equals(UI_Assets.class)) {
             keys = new ArrayList<>(UIs.keySet());
         } else {
-            DebugMessage.printNotFound("Did not found: " + assetType);
+            DebugMessage.notFound("Did not found: " + assetType);
             return null;
         }
 

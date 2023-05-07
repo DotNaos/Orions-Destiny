@@ -1,7 +1,6 @@
 package Burst.Engine.Source.Core.Physics.Components;
 
-import Burst.Engine.Source.Core.Actor;
-import Burst.Engine.Source.Core.Component;
+import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.UI.BImGui;
 import org.joml.Vector2f;
 

@@ -1,6 +1,6 @@
 package Burst.Engine.Source.Core.Graphics.Render;
 
-import Burst.Engine.Source.Core.Actor;
+import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Assets.Graphics.Shader;
 import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 

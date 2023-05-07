@@ -7,12 +7,12 @@ public class DebugMessage {
 
     public static boolean noDebug = false;
 
-    public static void printNotFound(String message) {
+    public static void notFound(String message) {
         leftChar = '?';
         DebugPrint(message);
     }
 
-    public static void printError(String message) {
+    public static void error(String message) {
         leftChar = '!';
         DebugPrint(message);
     }
@@ -22,18 +22,18 @@ public class DebugMessage {
         DebugPrint(message);
     }
 
-    public static void printLoadSuccess(String message) {
+    public static void loadSuccess(String message) {
         leftChar = '+';
         DebugPrint(message);
     }
 
-    public static void printLoadFail(String message) {
+    public static void loadFail(String message) {
         leftChar = '\\';
         rightChar = '/';
         DebugPrint(message);
     }
 
-    public static void printHeader(String header)
+    public static void header(String header)
     {
         if (noDebug) return;
         int headerLength = 50;

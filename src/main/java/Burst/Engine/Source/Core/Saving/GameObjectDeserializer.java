@@ -1,7 +1,6 @@
 package Burst.Engine.Source.Core.Saving;
 
-import Burst.Engine.Source.Core.Actor;
-import Burst.Engine.Source.Core.Physics.Components.Transform;
+import Burst.Engine.Source.Core.Actor.Actor;
 import com.google.gson.*;
 import Burst.Engine.Source.Core.Component;
 

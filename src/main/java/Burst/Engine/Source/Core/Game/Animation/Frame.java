@@ -1,4 +1,4 @@
-package Burst.Engine.Source.Runtime.Animation;
+package Burst.Engine.Source.Core.Game.Animation;
 
 import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
 

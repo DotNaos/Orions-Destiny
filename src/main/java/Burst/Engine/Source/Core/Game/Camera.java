@@ -1,9 +1,9 @@
-package Burst.Engine.Source.Runtime;
+package Burst.Engine.Source.Core.Game;
 
-import Burst.Engine.Source.Core.Actor;
+import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.UI.Window;
-import Burst.Engine.Source.Core.Viewport;
-import Burst.Engine.Source.Runtime.Actor.PlayerController;
+import Burst.Engine.Source.Core.UI.Viewport;
+import Burst.Engine.Source.Core.Actor.PlayerController;
 import org.joml.Vector4f;
 
 public class Camera extends Actor {

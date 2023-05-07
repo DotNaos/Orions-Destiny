@@ -3,7 +3,7 @@ package Burst.Engine.Source.Core.Graphics.Debug;
 import Burst.Engine.Config.ShaderConfig;
 
 import Burst.Engine.Source.Core.Assets.Graphics.Shader;
-import Burst.Engine.Source.Core.Viewport;
+import Burst.Engine.Source.Core.UI.Viewport;
 import Burst.Engine.Source.Core.UI.Window;
 import org.joml.Vector2f;
 import org.joml.Vector3f;

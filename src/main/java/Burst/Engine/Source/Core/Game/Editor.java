@@ -1,68 +1,87 @@
-package Burst.Engine.Source.Core.Scene;
+package Burst.Engine.Source.Core.Game;
 
-import Burst.Engine.Source.Core.Graphics.Render.PickingTexture;
-import Burst.Engine.Source.Core.Graphics.Render.Components.GridLines;
+import Burst.Engine.Source.Core.Actor.Actor;
+import Burst.Engine.Source.Core.Assets.AssetManager;
+import Burst.Engine.Source.Core.Assets.Audio.Sound;
 import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
 import Burst.Engine.Source.Core.Assets.Graphics.Spritesheet;
+import Burst.Engine.Source.Core.Graphics.Input.Components.KeyControls;
 import Burst.Engine.Source.Core.Graphics.Input.Components.MouseControls;
-import Burst.Engine.Source.Core.Physics.Components.Box2DCollider;
-import Burst.Engine.Source.Core.Physics.Components.Rigidbody2D;
-import Burst.Engine.Source.Core.Physics.Enums.BodyType;
-import Burst.Engine.Source.Core.Actor;
+import Burst.Engine.Source.Core.Graphics.Render.Components.GridLines;
+import Burst.Engine.Source.Core.Graphics.Render.PickingTexture;
+import Burst.Engine.Source.Core.Scene.Scene;
 import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Core.util.Prefabs;
-import Burst.Engine.Source.Core.Assets.Audio.Sound;
-import Burst.Engine.Source.Editor.Direction;
 import Burst.Engine.Source.Editor.EditorCamera;
+import Burst.Engine.Source.Editor.Gizmo.GizmoSystem;
 import Burst.Engine.Source.Editor.Panel.OutlinerPanel;
 import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
-import Burst.Engine.Source.Runtime.Actor.Pawn;
-import Burst.Engine.Source.Runtime.Game;
-import Orion.blocks.Ground;
-import Burst.Engine.Source.Editor.Gizmo.GizmoSystem;
-import Burst.Engine.Source.Core.Graphics.Input.Components.KeyControls;
+import Burst.Engine.Source.Core.Game.Game;
+import Orion.res.Assets;
 import imgui.ImGui;
 import imgui.ImVec2;
 import org.joml.Vector2f;
-import Orion.res.Assets;
-import Burst.Engine.Source.Core.Assets.AssetManager;
-
 
 import java.io.File;
 import java.util.List;
 
-public class EditorInitializer extends SceneInitializer {
-
+public class Editor extends Game {
     private Spritesheet sprites;
     private Actor levelEditorStuff;
     private PickingTexture pickingTexture;
 
-    public EditorInitializer(Scene scene) {
+    public Editor(Scene scene) {
         super(scene);
     }
 
-
-    @Override
-    public void init() {
+    public void init()
+    {
+        super.init();
+        scene.addPanel(new OutlinerPanel());
         scene.addPanel(new OutlinerPanel());
         pickingTexture = new PickingTexture();
         scene.addPanel(new PropertiesPanel(this.pickingTexture));
         sprites = AssetManager.getAssetFromType(Assets.BLOCKS, Spritesheet.class);
         Spritesheet gizmos = AssetManager.getAssetFromType(Assets.GIZMOS, Spritesheet.class);
 
-        levelEditorStuff = scene.getGame().spawnActor("LevelEditor");
+        levelEditorStuff = spawnActor("LevelEditor");
         levelEditorStuff.setNoSerialize();
         levelEditorStuff.addComponent(new MouseControls());
         levelEditorStuff.addComponent(new KeyControls());
         levelEditorStuff.addComponent(new GridLines());
         levelEditorStuff.addComponent(new EditorCamera(Window.getScene().getCamera()));
         levelEditorStuff.addComponent(new GizmoSystem(gizmos));
-        scene.getGame().addActor(levelEditorStuff);
+        addActor(levelEditorStuff);
     }
 
+    @Override
+    public void update(float dt) {
+        Window.getScene().getCamera().adjustProjection();
+
+        for (int i = 0; i < actors.size(); i++) {
+            Actor go = actors.get(i);
+            go.updateEditor(dt);
+
+            if (go.isDead()) {
+                actors.remove(i);
+                Window.getScene().getViewportRenderer().destroyGameObject(go);
+                this.physics2D.destroyGameObject(go);
+                i--;
+            }
+        }
+
+        for (Actor go : pendingObjects) {
+            actors.add(go);
+            go.start();
+            Window.getScene().getViewportRenderer().add(go);
+            this.physics2D.add(go);
+        }
+        pendingObjects.clear();
+    }
 
     @Override
     public void imgui() {
+        super.imgui();
         ImGui.begin("Settings");
         levelEditorStuff.imgui();
         ImGui.end();
@@ -135,11 +154,4 @@ public class EditorInitializer extends SceneInitializer {
 
         ImGui.end();
     }
-
-    public PickingTexture getPickingTexture() {
-        return pickingTexture;
-    }
-
-
-
 }

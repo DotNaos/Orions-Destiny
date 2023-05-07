@@ -1,15 +1,13 @@
-package Burst.Engine.Source.Runtime;
+package Burst.Engine.Source.Core.Game;
 
-import Burst.Engine.Source.Core.Actor;
+import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.Graphics.Input.MouseListener;
 import Burst.Engine.Source.Core.Physics.Physics2D;
 import Burst.Engine.Source.Core.Saving.ComponentDeserializer;
 import Burst.Engine.Source.Core.Saving.GameObjectDeserializer;
 import Burst.Engine.Source.Core.Scene.Scene;
-import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Core.util.DebugMessage;
-import Burst.Engine.Source.Editor.Panel.MenuBar;
 import Burst.Engine.Source.Editor.Panel.ViewportPanel;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -28,10 +26,10 @@ public class Game{
     protected List<Actor> actors;
     protected List<Actor> pendingObjects;
     protected Physics2D physics2D;
-    protected Scene currentScene;
+    protected Scene scene;
 
     public Game(Scene scene) {
-        this.currentScene = scene;
+        this.scene = scene;
     }
 
     public void init()
@@ -41,13 +39,12 @@ public class Game{
         this.pendingObjects = new ArrayList<>();
 
 
-        System.out.println("\n" + currentScene.getOpenScene());
-        currentScene.addPanel(new ViewportPanel());
-        currentScene.addPanel(new MenuBar());
+        System.out.println("\n" + scene.getOpenScene());
+        scene.addPanel(new ViewportPanel());
 
         loadLevel();
 
-        currentScene.getSceneInitializer().loadResources(this);
+        scene.getSceneInitializer().loadResources(this);
         start();
     }
 
@@ -58,7 +55,7 @@ public class Game{
     public void start() {
         for (Actor go : actors) {
             go.start();
-            currentScene.getViewportRenderer().add(go);
+            scene.getViewportRenderer().add(go);
             this.physics2D.add(go);
         }
     }
@@ -71,7 +68,7 @@ public class Game{
     }
     
     public void update(float dt) {
-        currentScene.getCamera().adjustProjection();
+        scene.getCamera().adjustProjection();
         this.physics2D.update(dt);
 
         for (int i = 0; i < actors.size(); i++) {
@@ -80,7 +77,7 @@ public class Game{
 
             if (go.isDead()) {
                 actors.remove(i);
-                currentScene.getViewportRenderer().destroyGameObject(go);
+                scene.getViewportRenderer().destroyGameObject(go);
                 this.physics2D.destroyGameObject(go);
                 i--;
             }
@@ -89,7 +86,7 @@ public class Game{
         for (Actor go : pendingObjects) {
             actors.add(go);
             go.start();
-            currentScene.getViewportRenderer().add(go);
+            scene.getViewportRenderer().add(go);
             this.physics2D.add(go);
         }
         pendingObjects.clear();
@@ -99,7 +96,7 @@ public class Game{
 
 
     public void addActor(Actor go) {
-        if (currentScene.isPaused()) {
+        if (scene.isPaused()) {
             actors.add(go);
         } else {
             pendingObjects.add(go);
@@ -152,9 +149,9 @@ public class Game{
         } catch (IOException e)
         {
             if (e instanceof NoSuchFileException) {
-                DebugMessage.printNotFound("Level Not Found");
+                DebugMessage.notFound("Level Not Found");
             } else {
-                DebugMessage.printError("Error Loading Level");
+                DebugMessage.error("Error Loading Level");
             }
         }
 
@@ -195,14 +192,14 @@ public class Game{
      */
 
     public void mouseButtonCallback(long window, int button, int action, int mods) {
-        if (!currentScene.getPanel(ViewportPanel.class).getWantCaptureMouse()) return;
+        if (!scene.getPanel(ViewportPanel.class).getWantCaptureMouse()) return;
 
         MouseListener.mouseButtonCallback(window, button, action, mods);
     }
 
 
     public void mousePositionCallback(long window, double xpos, double ypos) {
-        if (currentScene.getPanel(ViewportPanel.class).getWantCaptureMouse()) return;
+        if (scene.getPanel(ViewportPanel.class).getWantCaptureMouse()) return;
 
         MouseListener.clear();
 

@@ -1,10 +1,10 @@
 package Burst.Engine.Source.Core.Graphics.Input.Components;
 
 import Burst.Engine.Source.Core.Component;
-import Burst.Engine.Source.Runtime.Animation.StateMachine;
+import Burst.Engine.Source.Core.Game.Animation.StateMachine;
 import Burst.Engine.Source.Core.Graphics.Input.KeyListener;
 import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
-import Burst.Engine.Source.Core.Actor;
+import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Config.Constants.GridLines_Config;
 

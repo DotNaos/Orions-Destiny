@@ -1,6 +1,4 @@
-package Burst.Engine.Source.Runtime.Actor;
-
-import Burst.Engine.Source.Core.Actor;
+package Burst.Engine.Source.Core.Actor;
 
 public class Pawn extends Actor {
 

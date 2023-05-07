@@ -1,7 +1,7 @@
 package Burst.Engine.Source.Core.Graphics.Input;
 
 import Burst.Engine.Source.Core.Graphics.Debug.DebugDraw;
-import Burst.Engine.Source.Core.Viewport;
+import Burst.Engine.Source.Core.UI.Viewport;
 import Burst.Engine.Source.Core.UI.Window;
 import org.joml.Matrix4f;
 import org.joml.Vector2f;

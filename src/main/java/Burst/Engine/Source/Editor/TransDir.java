@@ -1,6 +1,6 @@
 package Burst.Engine.Source.Editor;
 
-public enum Direction {
+public enum TransDir {
     Up,
     Down,
     Left,

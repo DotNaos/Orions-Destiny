@@ -1,17 +1,17 @@
 package Burst.Engine.Source.Core.Graphics.Input.Components;
 
 import Burst.Engine.Source.Core.Graphics.Input.MouseListener;
-import Burst.Engine.Source.Runtime.Game;
+import Burst.Engine.Source.Core.Game.Game;
 import Burst.Engine.Source.Editor.NonPickable;
 import Burst.Engine.Source.Core.Graphics.Render.PickingTexture;
 import Burst.Engine.Source.Core.Graphics.Debug.DebugDraw;
 import Burst.Engine.Source.Core.Graphics.Render.SpriteRenderer;
 import Burst.Engine.Source.Core.Graphics.Input.KeyListener;
 import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
-import Burst.Engine.Source.Core.Actor;
+import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Core.Component;
-import Burst.Engine.Source.Runtime.Animation.StateMachine;
+import Burst.Engine.Source.Core.Game.Animation.StateMachine;
 import org.joml.Vector2f;
 import org.joml.Vector2i;
 import org.joml.Vector4f;

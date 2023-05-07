@@ -1,4 +1,4 @@
-package Burst.Engine.Source.Runtime.Actor;
+package Burst.Engine.Source.Core.Actor;
 
 public class Player extends Pawn{
     public Player(String name) {

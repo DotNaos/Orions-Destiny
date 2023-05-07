@@ -1,8 +1,8 @@
 package Orion.blocks;
 
-import Burst.Engine.Source.Core.Actor;
+import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Component;
-import Burst.Engine.Source.Runtime.Actor.PlayerController;
+import Burst.Engine.Source.Core.Actor.PlayerController;
 import org.jbox2d.dynamics.contacts.Contact;
 import org.joml.Vector2f;
 

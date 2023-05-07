@@ -1,5 +1,7 @@
-package Burst.Engine.Source.Core.Scene;
+package Burst.Engine.Source.Core.Scene.Initializer;
 
+import Burst.Engine.Source.Core.Scene.Scene;
+import Burst.Engine.Source.Core.Scene.SceneType;
 import Burst.Engine.Source.Core.UI.Menu;
 import Burst.Engine.Source.Core.UI.Window;
 import imgui.ImGui;
