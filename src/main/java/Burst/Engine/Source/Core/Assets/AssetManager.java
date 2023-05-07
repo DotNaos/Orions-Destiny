@@ -28,21 +28,25 @@ public class AssetManager {
     private static Map<String, UI_Assets> UIs = new HashMap<>();
 
     public static void loadAllAssets() {
-        System.out.println("Loading Assets from ...");
+        DebugMessage.printHeader("Loading Assets");
+        System.out.println("Loading Assets from: " + Assets.class.getProtectionDomain().getCodeSource().getLocation().getPath() + "\n");
 
 
         // =================== Spritesheets ===================
+        DebugMessage.printHeader("Spritesheets");
         loadAllAssetOfType(Spritesheet.class);
-        System.out.println("Loaded " + spritesheets.size() + " spritesheets");
+        DebugMessage.printLoadSuccess("Loaded " + spritesheets.size() + " spritesheets");
 
         // ===================== Shader =======================
+        DebugMessage.printHeader("Shaders");
         loadAllAssetOfType(Shader.class);
-        System.out.println("Loaded " + shaders.size() + " shaders");
+        DebugMessage.printLoadSuccess("Loaded " + shaders.size() + " shaders");
 
 
         // =================== Sounds ===================
+        DebugMessage.printHeader("Sounds");
         loadAllAssetOfType(Sound.class);
-        System.out.println("Loaded " + sounds.size() + " sounds");
+        DebugMessage.printLoadSuccess("Loaded " + sounds.size() + " sounds");
         // set overworld sound to loop
 //        getAssetFromType(Sound.class, "assets/sounds/main-theme-overworld.ogg").init(true);
 //        AssetManager.getAssetFromType(("assets/sounds/main-theme-overworld.ogg"), Sound.class).play();
@@ -176,7 +180,7 @@ public class AssetManager {
             return null;
         }
         else {
-            System.out.println("Found ressource: " + resourceName);
+            System.out.print("Found ressource: ");
             resourceName = file.getAbsolutePath();
         }
 

@@ -9,12 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="787a90ad-2c32-4237-9403-4ac402e3150a" name="Changes" comment="Fix für ImGUI">
+    <list default="true" id="787a90ad-2c32-4237-9403-4ac402e3150a" name="Changes" comment="Texture FIX">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/Asset.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/Asset.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/AssetManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/AssetManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/Graphics/Texture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/Graphics/Texture.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Viewport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Viewport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/util/DebugMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/util/DebugMessage.java" afterDir="false" />
     </list>
     <list id="25a488fd-f17c-453d-94a6-413269d6c7ff" name="Changes by schue" comment="Changes by schue" />
     <option name="SHOW_DIALOG" value="false" />
@@ -312,14 +310,7 @@
       <workItem from="1683279994213" duration="757000" />
       <workItem from="1683280773645" duration="5777000" />
       <workItem from="1683363528519" duration="24735000" />
-      <workItem from="1683435059695" duration="19362000" />
-    </task>
-    <task id="LOCAL-00040" summary="Point on Line, in Box, in Circle">
-      <created>1680532801353</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1680532801353</updated>
+      <workItem from="1683435059695" duration="21484000" />
     </task>
     <task id="LOCAL-00041" summary="Point Rotation und check if point in Oriented Box">
       <created>1680800944449</created>
@@ -657,7 +648,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683471171432</updated>
     </task>
-    <option name="localTasksCounter" value="89" />
+    <task id="LOCAL-00089" summary="Texture FIX">
+      <created>1683472959597</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1683472959598</updated>
+    </task>
+    <option name="localTasksCounter" value="90" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -707,7 +705,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Physik engine in Müll, jetzt wird Box2D verwendet" />
     <MESSAGE value="Refactor, Event-handler, Box2D integration, Start-Stop Editor" />
     <MESSAGE value="Blablabla" />
     <MESSAGE value="Engine Fertig, !!!!!VIELE BUGS!!!!" />
@@ -732,7 +729,8 @@
     <MESSAGE value="Fixed Errors von letztem Commit + Paar Dateien entfernt" />
     <MESSAGE value="Debuggen start von ALLEM" />
     <MESSAGE value="Fix für ImGUI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix für ImGUI" />
+    <MESSAGE value="Texture FIX" />
+    <option name="LAST_COMMIT_MESSAGE" value="Texture FIX" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
