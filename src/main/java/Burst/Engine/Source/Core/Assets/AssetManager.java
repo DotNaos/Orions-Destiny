@@ -44,8 +44,8 @@ public class AssetManager {
         loadAllAssetOfType(Sound.class);
         System.out.println("Loaded " + sounds.size() + " sounds");
         // set overworld sound to loop
-        getAssetFromType(Sound.class, "assets/sounds/main-theme-overworld.ogg").init(true);
-        AssetManager.getAssetFromType(("assets/sounds/main-theme-overworld.ogg"), Sound.class).play();
+//        getAssetFromType(Sound.class, "assets/sounds/main-theme-overworld.ogg").init(true);
+//        AssetManager.getAssetFromType(("assets/sounds/main-theme-overworld.ogg"), Sound.class).play();
 
     }
 
@@ -169,6 +169,18 @@ public class AssetManager {
     }
 
     public static <T extends Asset> T getAssetFromType(Class<T> assetType, String resourceName) {
+        System.out.println("Loading ressource: " + resourceName);
+        File file = new File(resourceName);
+        if (!file.exists()) {
+            DebugMessage.printNotFound("Did not found: " + resourceName);
+            return null;
+        }
+        else {
+            System.out.println("Found ressource: " + resourceName);
+            resourceName = file.getAbsolutePath();
+        }
+
+
         if (assetType.equals(Spritesheet.class)) {
             
             return assetType.cast(AssetManager.spritesheets.getOrDefault(resourceName, null));
@@ -184,8 +196,9 @@ public class AssetManager {
                 
             } else {
                 // Create a new texture and add it to the map
+
+
                 Texture texture = new Texture(resourceName);
-                texture.init();
                 AssetManager.textures.put(resourceName, texture);
                 
                 return assetType.cast(texture);

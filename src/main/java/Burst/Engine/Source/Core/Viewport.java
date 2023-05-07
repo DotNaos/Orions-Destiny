@@ -18,7 +18,12 @@ public class Viewport {
 
     public Viewport()
     {
-        new Viewport(new Vector2f(0, 0));
+        this.position = new Vector2f();
+        this.projectionMatrix = new Matrix4f();
+        this.viewMatrix = new Matrix4f();
+        this.inverseProjection = new Matrix4f();
+        this.inverseView = new Matrix4f();
+        adjustProjection();
     }
 
     public Viewport(Vector2f position) {

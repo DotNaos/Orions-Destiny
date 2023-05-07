@@ -9,8 +9,11 @@ public class Asset {
     protected String filepath;
 
     public Asset(String filepath) {
-        this.filepath = "";
+        this.filepath = filepath;
+        init();
     }
+
+    protected void init() {}
 
     public String getFilepath() {
         return this.filepath;

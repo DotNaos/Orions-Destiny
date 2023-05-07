@@ -17,7 +17,6 @@ public class Texture extends Asset {
     private int width, height;
     public Texture(String filepath) {
         super(filepath);
-        init();
     }
 
     public Texture() {
@@ -42,6 +41,7 @@ public class Texture extends Asset {
 
     }
 
+    @Override
     public void init() {
         // Generate texture on GPU
         texID = glGenTextures();
@@ -73,10 +73,11 @@ public class Texture extends Asset {
                 glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width.get(0), height.get(0),
                         0, GL_RGBA, GL_UNSIGNED_BYTE, image);
             } else {
-                assert false : "Error: (Texture) Unknown number of channesl '" + channels.get(0) + "'";
+                assert false : "Error: (Texture) Unknown number of channels '" + channels.get(0) + "'";
             }
         } else {
             assert false : "Error: (Texture) Could not load image '" + filepath + "'";
+            return;
         }
 
         stbi_image_free(image);
