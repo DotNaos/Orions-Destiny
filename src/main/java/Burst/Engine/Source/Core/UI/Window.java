@@ -44,13 +44,7 @@ public class Window implements Observer {
 
     private long audioContext;
     private long audioDevice;
-
     private static Scene currentScene;
-    private static final SceneInitializer[] scenes = {
-            new StartMenuSceneInitializer(),
-            new GameInitializer(),
-            new EditorSceneInitializer()
-    };
     private PickingTexture pickingTexture;
 
 
@@ -61,12 +55,12 @@ public class Window implements Observer {
         EventSystem.addObserver(this);
     }
 
-    public static void changeScene(SceneInitializer sceneInitializer) {
+    public static void changeScene(SceneType sceneType) {
 
         if (currentScene != null) {
             currentScene.destroy();
         }
-        currentScene = new Scene(sceneInitializer);
+        currentScene = new Scene(sceneType);
     }
 
     public static Window get() {
@@ -177,7 +171,7 @@ public class Window implements Observer {
         this.imguiLayer = new ImGuiLayer(glfwWindow);
         this.imguiLayer.initImGui();
 
-        Window.changeScene(scenes[0]);
+        Window.changeScene(SceneType.START_MENU);
     }
 
     public void loop() {
@@ -268,13 +262,15 @@ public class Window implements Observer {
             case GameEngineStartPlay -> {
                 isPlaying = true;
                 currentScene.getGame().saveLevel();
-                Window.changeScene(new GameInitializer());
+                Window.changeScene(SceneType.GAME);
             }
             case GameEngineStopPlay -> {
                 isPlaying = false;
-                Window.changeScene(new EditorSceneInitializer());
+                Window.changeScene(SceneType.EDITOR);
             }
-            case LoadLevel -> Window.changeScene(new EditorSceneInitializer());
+            case LoadLevel -> {
+                Window.changeScene(SceneType.GAME);
+            }
             case SaveLevel -> {
                 assert currentScene.getGame() != null;
                 currentScene.getGame().saveLevel();

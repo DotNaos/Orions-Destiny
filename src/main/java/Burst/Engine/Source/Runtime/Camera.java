@@ -29,7 +29,6 @@ public class Camera extends Actor {
     @Override
     public void update(float dt) {
         if (player == null) return;
-        if (player.getComponent(PlayerController.class).levelIsComplete()) return;
 
         viewport.position.x = player.transform.position.x;
 

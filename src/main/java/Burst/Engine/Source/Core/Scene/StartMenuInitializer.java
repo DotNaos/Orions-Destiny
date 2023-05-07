@@ -9,7 +9,7 @@ import imgui.flag.ImGuiWindowFlags;
 import org.joml.Vector2f;
 
 
-public class StartMenuSceneInitializer extends SceneInitializer {
+public class StartMenuInitializer extends MenuInitializer {
     
         // button colors
         private final int BUTTON_COLOR = 0xA0;
@@ -62,19 +62,19 @@ public class StartMenuSceneInitializer extends SceneInitializer {
 
             Menu buttonMenu = new Menu(2, 2, buttonSize, alignment, buttonSpacing, margin);
             if (ImGui.button("Editor", buttonSize.x, buttonSize.y)) {
-                Window.changeScene(new EditorSceneInitializer());
+                Window.changeScene(SceneType.EDITOR);
             }
 
 
             buttonMenu.nextColumn();
             if (ImGui.button("Play", buttonSize.x, buttonSize.y)) {
-                Window.changeScene(new GameInitializer());
+                Window.changeScene(SceneType.GAME);
             }
 
   
             buttonMenu.nextRow();
             if (ImGui.button("Settings", buttonSize.x, buttonSize.y)) {
-                Window.changeScene(new SettingsSceneInitializer());
+                Window.changeScene(SceneType.SETTINGS_MENU);
             }
 
 

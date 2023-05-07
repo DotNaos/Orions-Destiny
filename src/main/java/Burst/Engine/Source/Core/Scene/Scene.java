@@ -14,14 +14,14 @@ public class Scene {
     private Viewport viewport;
     private final ViewportRenderer viewportRenderer;
     private boolean isPaused = false;
-    private Scenes openScene = Scenes.NONE;
+    private SceneType openScene = SceneType.NONE;
     private Editor editor;
     private Game game;
 
-    public Scene(Scenes scene) {
+    public Scene(SceneType sceneType) {
         this.viewport = new Viewport();
         this.viewportRenderer = new ViewportRenderer();
-        this.openScene = scene;
+        this.openScene = sceneType;
         switch (openScene)
         {
             case GAME -> {
@@ -32,6 +32,22 @@ public class Scene {
             case EDITOR -> {
                 this.editor = new Editor();
                 this.sceneInitializer = new EditorInitializer();
+            }
+
+            case MENU -> {
+                this.sceneInitializer = new MenuInitializer();
+            }
+
+            case START_MENU -> {
+                this.sceneInitializer = new StartMenuInitializer();
+            }
+
+            case SETTINGS_MENU -> {
+                this.sceneInitializer = new SettingsMenuInitializer();
+            }
+
+            default -> {
+                this.sceneInitializer = new SceneInitializer();
             }
         }
     }

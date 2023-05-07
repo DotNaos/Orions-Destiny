@@ -12,12 +12,7 @@ public class GameInitializer extends SceneInitializer {
 
     @Override
     public void init(Game game) {
-        Spritesheet sprites = AssetManager.getAssetFromType(Assets.BLOCKS, Spritesheet.class);
 
-        Actor cameraObject = game.spawnActor("GameCamera");
-        cameraObject.addComponent(new Camera(Window.getScene().getCamera()));
-        cameraObject.start();
-        game.addActor(cameraObject);
     }
 
 
