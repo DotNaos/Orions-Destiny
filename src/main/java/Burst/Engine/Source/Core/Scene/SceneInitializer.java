@@ -9,8 +9,13 @@ import Burst.Engine.Source.Runtime.Game;
 
 public class SceneInitializer {
 
+    protected Scene scene;
 
-    public void init(Game scene) {}
+    public SceneInitializer(Scene scene) {
+        this.scene = scene;
+    }
+
+    protected void init() {}
 
     public void imgui() {}
 

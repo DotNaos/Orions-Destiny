@@ -9,31 +9,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="787a90ad-2c32-4237-9403-4ac402e3150a" name="Changes" comment="Playercharacter und VIEL refactoring der GameScene, EditorScene.&#10;Scene kann jetzt auch im Menu verwendet werden">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/MenuInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/EditorSceneInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/EditorInitializer.java" afterDir="false" />
+    <list default="true" id="787a90ad-2c32-4237-9403-4ac402e3150a" name="Changes" comment="Fixed Errors von letztem Commit + Paar Dateien entfernt">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/EditorInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/EditorInitializer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/GameInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/GameInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/MenuInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/MenuInitializer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/Scene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/Scenes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/SceneType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/SettingsSceneInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/SettingsMenuInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/StartMenuSceneInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/StartMenuInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/SceneInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/SceneInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/SettingsMenuInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/SettingsMenuInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/StartMenuInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/StartMenuInitializer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/Window.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/util/Prefabs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/util/Prefabs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Runtime/Actor/PlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Runtime/Actor/PlayerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Runtime/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Runtime/Camera.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/PassiveAbility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/PassiveAbility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/SpecialAbility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/SpecialAbility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/UltimateAbility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/UltimateAbility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/blocks/BlockCoin.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/blocks/BreakableBrick.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/blocks/Flagpole.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/blocks/Pipe.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/blocks/QuestionBlock.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/enemies/GoombaAI.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/enemies/MushroomAI.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/enemies/TurtleAI.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/items/Coin.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/items/Flower.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Runtime/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Runtime/Game.java" afterDir="false" />
     </list>
     <list id="25a488fd-f17c-453d-94a6-413269d6c7ff" name="Changes by schue" comment="Changes by schue" />
     <option name="SHOW_DIALOG" value="false" />
@@ -331,14 +317,7 @@
       <workItem from="1683279994213" duration="757000" />
       <workItem from="1683280773645" duration="5777000" />
       <workItem from="1683363528519" duration="24735000" />
-      <workItem from="1683435059695" duration="14208000" />
-    </task>
-    <task id="LOCAL-00037" summary="DebugDraw und Spritesheet fix">
-      <created>1680342881466</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1680342881466</updated>
+      <workItem from="1683435059695" duration="16376000" />
     </task>
     <task id="LOCAL-00038" summary="snap to grid">
       <created>1680347576686</created>
@@ -676,7 +655,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683466307318</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="Fixed Errors von letztem Commit + Paar Dateien entfernt">
+      <created>1683467763155</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1683467763155</updated>
+    </task>
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -726,7 +712,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Gravity" />
     <MESSAGE value="CollisionManifolds" />
     <MESSAGE value="PHYSIK FERTIG ENDLICH" />
     <MESSAGE value="Physik engine in Müll, jetzt wird Box2D verwendet" />
@@ -751,7 +736,19 @@
     <MESSAGE value="Asset Types und zentraler Getter für alle Assets mit Template" />
     <MESSAGE value="Game und Editor nicht mehr eigenständige Szene" />
     <MESSAGE value="Playercharacter und VIEL refactoring der GameScene, EditorScene.&#10;Scene kann jetzt auch im Menu verwendet werden" />
-    <option name="LAST_COMMIT_MESSAGE" value="Playercharacter und VIEL refactoring der GameScene, EditorScene.&#10;Scene kann jetzt auch im Menu verwendet werden" />
+    <MESSAGE value="Fixed Errors von letztem Commit + Paar Dateien entfernt" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed Errors von letztem Commit + Paar Dateien entfernt" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/StartMenuInitializer.java</url>
+          <line>90</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

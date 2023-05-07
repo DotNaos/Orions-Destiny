@@ -56,10 +56,6 @@ public class Window implements Observer {
     }
 
     public static void changeScene(SceneType sceneType) {
-
-        if (currentScene != null) {
-            currentScene.destroy();
-        }
         currentScene = new Scene(sceneType);
     }
 

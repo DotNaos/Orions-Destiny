@@ -42,7 +42,6 @@ public class Game{
         Window.getScene().addPanel(new MenuBar());
 
         Window.getScene().getSceneInitializer().loadResources(this);
-        Window.getScene().getSceneInitializer().init(this);
         start();
     }
 

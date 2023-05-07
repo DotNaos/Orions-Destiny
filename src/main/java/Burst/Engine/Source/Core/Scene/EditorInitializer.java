@@ -35,30 +35,29 @@ public class EditorInitializer extends SceneInitializer {
 
     private Spritesheet sprites;
     private Actor levelEditorStuff;
-
-
-
     private PickingTexture pickingTexture;
+
+    public EditorInitializer(Scene scene) {
+        super(scene);
+    }
 
 
     @Override
-    public void init(Game game) {
-        Window.getScene().addPanel(new OutlinerPanel());
+    public void init() {
+        scene.addPanel(new OutlinerPanel());
         pickingTexture = new PickingTexture();
-        Window.getScene().addPanel(new PropertiesPanel(this.pickingTexture));
-
-
+        scene.addPanel(new PropertiesPanel(this.pickingTexture));
         sprites = AssetManager.getAssetFromType(Assets.BLOCKS, Spritesheet.class);
         Spritesheet gizmos = AssetManager.getAssetFromType(Assets.GIZMOS, Spritesheet.class);
 
-        levelEditorStuff = game.spawnActor("LevelEditor");
+        levelEditorStuff = scene.getGame().spawnActor("LevelEditor");
         levelEditorStuff.setNoSerialize();
         levelEditorStuff.addComponent(new MouseControls());
         levelEditorStuff.addComponent(new KeyControls());
         levelEditorStuff.addComponent(new GridLines());
         levelEditorStuff.addComponent(new EditorCamera(Window.getScene().getCamera()));
         levelEditorStuff.addComponent(new GizmoSystem(gizmos));
-        game.addActor(levelEditorStuff);
+        scene.getGame().addActor(levelEditorStuff);
     }
 
 

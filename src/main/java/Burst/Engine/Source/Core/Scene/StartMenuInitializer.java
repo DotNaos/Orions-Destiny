@@ -16,9 +16,14 @@ public class StartMenuInitializer extends MenuInitializer {
         private final int BUTTON_HOVER_COLOR = 0x80;
 
         private final int BUTTON_ACTIVE_COLOR = 0x60;
-        
 
-        @Override
+    public StartMenuInitializer(Scene scene) {
+        super(scene);
+        imgui();
+    }
+
+
+    @Override
         public void imgui()
         {
             // Window centered in the glfw window
@@ -82,6 +87,7 @@ public class StartMenuInitializer extends MenuInitializer {
             ImGui.popStyleColor(3);
             ImGui.popStyleVar(2);
             ImGui.end();
+
         }
 
     }

@@ -10,16 +10,13 @@ import Burst.Engine.Source.Core.Assets.AssetManager;
 
 public class GameInitializer extends SceneInitializer {
 
-    @Override
-    public void init(Game game) {
-
+    public GameInitializer(Scene scene) {
+        super(scene);
     }
-
 
     @Override
     public void imgui() {
         super.imgui();
     }
-
 
 }

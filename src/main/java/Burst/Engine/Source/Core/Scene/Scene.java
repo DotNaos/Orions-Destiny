@@ -26,30 +26,32 @@ public class Scene {
         {
             case GAME -> {
                 this.game = new Game();
-                this.sceneInitializer = new GameInitializer();
+                this.sceneInitializer = new GameInitializer(this);
             }
 
             case EDITOR -> {
                 this.editor = new Editor();
-                this.sceneInitializer = new EditorInitializer();
+                this.sceneInitializer = new EditorInitializer(this);
             }
 
             case MENU -> {
-                this.sceneInitializer = new MenuInitializer();
+                this.sceneInitializer = new MenuInitializer(this);
             }
 
             case START_MENU -> {
-                this.sceneInitializer = new StartMenuInitializer();
+                this.sceneInitializer = new StartMenuInitializer(this);
             }
 
             case SETTINGS_MENU -> {
-                this.sceneInitializer = new SettingsMenuInitializer();
+                this.sceneInitializer = new SettingsMenuInitializer(this);
             }
 
             default -> {
-                this.sceneInitializer = new SceneInitializer();
+                this.sceneInitializer = new SceneInitializer(this);
             }
         }
+
+        this.sceneInitializer.init();
     }
 
 
@@ -67,6 +69,10 @@ public class Scene {
                 this.viewportRenderer.render();
                 this.editor.update(dt);
             }
+        }
+
+        for (ImGuiPanel panel : panels) {
+            panel.imgui();
         }
     }
 
