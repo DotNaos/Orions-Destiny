@@ -3,7 +3,9 @@ package Burst.Engine.Source.Core.Scene;
 import Burst.Engine.Source.Core.Viewport;
 import Burst.Engine.Source.Core.Graphics.Render.ViewportRenderer;
 import Burst.Engine.Source.Core.UI.ImGuiPanel;
+import Burst.Engine.Source.Core.util.DebugMessage;
 import Burst.Engine.Source.Runtime.Game;
+import imgui.ImGui;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,13 +27,15 @@ public class Scene {
         switch (openScene)
         {
             case GAME -> {
-                this.game = new Game();
+                this.game = new Game(this);
                 this.sceneInitializer = new GameInitializer(this);
+                this.game.init();
             }
 
             case EDITOR -> {
-                this.editor = new Editor();
+                this.editor = new Editor(this);
                 this.sceneInitializer = new EditorInitializer(this);
+                this.editor.init();
             }
 
             case MENU -> {
@@ -114,6 +118,10 @@ public class Scene {
         return this.sceneInitializer;
     }
 
+    public SceneType getOpenScene() {
+        return this.openScene;
+    }
+
     public ViewportRenderer getViewportRenderer() {
         return this.viewportRenderer;
     }
@@ -125,7 +133,8 @@ public class Scene {
         return this.editor;
     }
 
-    public <T extends ImGuiPanel> void addPanel(T panel) {
+    public void addPanel(ImGuiPanel panel) {
+        DebugMessage.info("Adding panel: " + panel.getClass().getSimpleName());
         this.panels.add(panel);
     }
 

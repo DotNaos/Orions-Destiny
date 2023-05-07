@@ -9,6 +9,7 @@ import imgui.ImGui;
 
 public class MenuBar extends ImGuiPanel {
 
+    @Override
     public void imgui() {
         ImGui.beginMenuBar();
 

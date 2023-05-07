@@ -5,6 +5,15 @@ import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Runtime.Game;
 
 public class Editor extends Game {
+    public Editor(Scene scene) {
+        super(scene);
+    }
+
+    public void init()
+    {
+
+    }
+
     @Override
     public void update(float dt) {
         Window.getScene().getCamera().adjustProjection();

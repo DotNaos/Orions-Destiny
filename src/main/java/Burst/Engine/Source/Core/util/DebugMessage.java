@@ -5,39 +5,37 @@ public class DebugMessage {
     private static char leftChar = '#';
     private static char rightChar = '#';
 
+    public static boolean noDebug = false;
+
     public static void printNotFound(String message) {
         leftChar = '?';
         DebugPrint(message);
-        reset();
     }
 
     public static void printError(String message) {
         leftChar = '!';
         DebugPrint(message);
-        reset();
     }
 
     public static void printWarning(String message) {
         leftChar = '~';
         DebugPrint(message);
-        reset();
     }
 
     public static void printLoadSuccess(String message) {
         leftChar = '+';
         DebugPrint(message);
-        reset();
     }
 
     public static void printLoadFail(String message) {
         leftChar = '\\';
         rightChar = '/';
         DebugPrint(message);
-        reset();
     }
 
     public static void printHeader(String header)
     {
+        if (noDebug) return;
         int headerLength = 50;
         StringBuilder tempSeperator = new StringBuilder();
         System.out.println("\n\n\n" + header);
@@ -48,6 +46,7 @@ public class DebugMessage {
 
     public static void DebugPrint(String message)
     {
+        if (noDebug) return;
         rightChar = leftChar == '#' ? '#' : leftChar;
 
         StringBuilder tempTopBottom = new StringBuilder();
@@ -64,10 +63,16 @@ public class DebugMessage {
                 "\n\\" + tempTopBottom + "/" +
                 "\n"
         );
+        reset();
     }
 
     private static void reset()
     {
         leftChar = rightChar = '#';
+    }
+
+    public static void info(String s) {
+        leftChar = 'i';
+        DebugPrint(s);
     }
 }

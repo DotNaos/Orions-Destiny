@@ -27,10 +27,12 @@ public class AssetManager {
     private static Map<String, Background> backgrounds = new HashMap<>();
     private static Map<String, UI_Assets> UIs = new HashMap<>();
 
+
+
     public static void loadAllAssets() {
+        DebugMessage.noDebug = true;
         DebugMessage.printHeader("Loading Assets");
         System.out.println("Loading Assets from: " + Assets.class.getProtectionDomain().getCodeSource().getLocation().getPath() + "\n");
-
 
         // =================== Spritesheets ===================
         DebugMessage.printHeader("Spritesheets");
@@ -47,6 +49,8 @@ public class AssetManager {
         DebugMessage.printHeader("Sounds");
         loadAllAssetOfType(Sound.class);
         DebugMessage.printLoadSuccess("Loaded " + sounds.size() + " sounds");
+
+        DebugMessage.noDebug = false;
         // set overworld sound to loop
 //        getAssetFromType(Sound.class, "assets/sounds/main-theme-overworld.ogg").init(true);
 //        AssetManager.getAssetFromType(("assets/sounds/main-theme-overworld.ogg"), Sound.class).play();

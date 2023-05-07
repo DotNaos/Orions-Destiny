@@ -3,12 +3,10 @@ package Burst.Engine.Source.Runtime;
 import Burst.Engine.Source.Core.Actor;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.Graphics.Input.MouseListener;
-import Burst.Engine.Source.Core.Graphics.Render.ViewportRenderer;
 import Burst.Engine.Source.Core.Physics.Physics2D;
 import Burst.Engine.Source.Core.Saving.ComponentDeserializer;
 import Burst.Engine.Source.Core.Saving.GameObjectDeserializer;
 import Burst.Engine.Source.Core.Scene.Scene;
-import Burst.Engine.Source.Core.Scene.SceneInitializer;
 import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Core.util.DebugMessage;
 import Burst.Engine.Source.Editor.Panel.MenuBar;
@@ -30,18 +28,26 @@ public class Game{
     protected List<Actor> actors;
     protected List<Actor> pendingObjects;
     protected Physics2D physics2D;
+    protected Scene currentScene;
 
-    public Game() {
+    public Game(Scene scene) {
+        this.currentScene = scene;
+    }
+
+    public void init()
+    {
         this.physics2D = new Physics2D();
         this.actors = new ArrayList<>();
         this.pendingObjects = new ArrayList<>();
 
+
+        System.out.println("\n" + currentScene.getOpenScene());
+        currentScene.addPanel(new ViewportPanel());
+        currentScene.addPanel(new MenuBar());
+
         loadLevel();
 
-        Window.getScene().addPanel(new ViewportPanel());
-        Window.getScene().addPanel(new MenuBar());
-
-        Window.getScene().getSceneInitializer().loadResources(this);
+        currentScene.getSceneInitializer().loadResources(this);
         start();
     }
 
@@ -50,10 +56,9 @@ public class Game{
     //====================================================================================================
     
     public void start() {
-        for (int i = 0; i < actors.size(); i++) {
-            Actor go = actors.get(i);
+        for (Actor go : actors) {
             go.start();
-            Window.getScene().getViewportRenderer().add(go);
+            currentScene.getViewportRenderer().add(go);
             this.physics2D.add(go);
         }
     }
@@ -66,7 +71,7 @@ public class Game{
     }
     
     public void update(float dt) {
-        Window.getScene().getCamera().adjustProjection();
+        currentScene.getCamera().adjustProjection();
         this.physics2D.update(dt);
 
         for (int i = 0; i < actors.size(); i++) {
@@ -75,7 +80,7 @@ public class Game{
 
             if (go.isDead()) {
                 actors.remove(i);
-                Window.getScene().getViewportRenderer().destroyGameObject(go);
+                currentScene.getViewportRenderer().destroyGameObject(go);
                 this.physics2D.destroyGameObject(go);
                 i--;
             }
@@ -84,7 +89,7 @@ public class Game{
         for (Actor go : pendingObjects) {
             actors.add(go);
             go.start();
-            Window.getScene().getViewportRenderer().add(go);
+            currentScene.getViewportRenderer().add(go);
             this.physics2D.add(go);
         }
         pendingObjects.clear();
@@ -94,7 +99,7 @@ public class Game{
 
 
     public void addActor(Actor go) {
-        if (Window.getScene().isPaused()) {
+        if (currentScene.isPaused()) {
             actors.add(go);
         } else {
             pendingObjects.add(go);
@@ -190,14 +195,14 @@ public class Game{
      */
 
     public void mouseButtonCallback(long window, int button, int action, int mods) {
-        if (!Window.getScene().getPanel(ViewportPanel.class).getWantCaptureMouse()) return;
+        if (!currentScene.getPanel(ViewportPanel.class).getWantCaptureMouse()) return;
 
         MouseListener.mouseButtonCallback(window, button, action, mods);
     }
 
 
     public void mousePositionCallback(long window, double xpos, double ypos) {
-        if (Window.getScene().getPanel(ViewportPanel.class).getWantCaptureMouse()) return;
+        if (currentScene.getPanel(ViewportPanel.class).getWantCaptureMouse()) return;
 
         MouseListener.clear();
 
@@ -241,5 +246,11 @@ public class Game{
 
     public List<Actor> getActors() {
         return actors;
+    }
+
+    public void imgui() {
+        for (Actor go : actors) {
+            go.imgui();
+        }
     }
 }
