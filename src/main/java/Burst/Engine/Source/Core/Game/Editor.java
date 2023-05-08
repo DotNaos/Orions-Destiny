@@ -83,10 +83,8 @@ public class Editor extends Game {
                 ImGui.getStyle().getItemSpacing(itemSpacing);
 
                 float windowX2 = windowPos.x + windowSize.x;
-                for (int i = 34; i < 61; i++) {
-                    if (i >= 35 && i < 38) continue;
-                    if (i >= 42 && i < 45) continue;
-
+                DebugMessage.info("Spritesheet has ... sprites: " + sprites.getCount());
+                for (int i = 0; i < sprites.getSprites().size(); i++) {
                     Sprite sprite = sprites.getSprite(i);
                     float spriteWidth = sprite.getWidth() * 4;
                     float spriteHeight = sprite.getHeight() * 4;
@@ -112,27 +110,13 @@ public class Editor extends Game {
                 ImGui.endTabItem();
             }
 
-            if (ImGui.beginTabItem("Sounds")) {
-                List<Sound> sounds = (List<Sound>) AssetManager.getAllAssetsFromType(Sound.class);
-                for (Sound sound : sounds) {
-                    File tmp = new File(sound.getFilepath());
-                    if (ImGui.button(tmp.getName())) {
-                        if (!sound.isPlaying()) {
-                            sound.play();
-                        } else {
-                            sound.stop();
-                        }
-                    }
 
-                    if (ImGui.getContentRegionAvailX() > 100) {
-                        ImGui.sameLine();
-                    }
-                }
 
                 ImGui.endTabItem();
             }
-            ImGui.endTabBar();
-        }
+
+        ImGui.endTabBar();
+
 
         ImGui.end();
     }

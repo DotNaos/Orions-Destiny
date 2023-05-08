@@ -2,6 +2,7 @@ package Burst.Engine.Source.Core.Assets.Graphics;
 
 import Burst.Engine.Source.Core.Assets.Asset;
 
+import Burst.Engine.Source.Core.util.DebugMessage;
 import org.joml.Vector2f;
 
 import java.util.ArrayList;
@@ -11,6 +12,9 @@ public class Spritesheet extends Asset {
 
     private Texture texture;
     private List<Sprite> sprites;
+    private SpriteSheetUsage usage;
+    private int spriteCount = 0;
+    private static int MAX_SPRITES = 50;
 
     public Spritesheet(Texture texture, int spriteWidth, int spriteHeight, int spacing) {
         super(texture.getFilepath());
@@ -19,12 +23,15 @@ public class Spritesheet extends Asset {
 
         int rows = texture.getWidth() / (spriteWidth + spacing);
         int cols = texture.getHeight() / (spriteHeight + spacing);
-        int numSprites = rows * cols;
         int currentX = 0;
         int currentY = texture.getHeight() - spriteHeight;
         for (int row=0; row < rows; row++) {
             for (int col = 0; col < cols; col++)
             {
+                if (this.spriteCount >= MAX_SPRITES) {
+                    DebugMessage.printWarning("Spritesheet has reached maximum number of sprites: " + MAX_SPRITES);
+                    return;
+                }
                 float topY = (currentY + spriteHeight) / (float)texture.getHeight();
                 float rightX = (currentX + spriteWidth) / (float)texture.getWidth();
                 float leftX = currentX / (float)texture.getWidth();
@@ -55,8 +62,11 @@ public class Spritesheet extends Asset {
                     currentX = 0;
                     currentY -= spriteHeight + spacing;
                 }
+                this.spriteCount++;
             }
         }
+
+
     }
 
     public Sprite getSprite(int index) {
@@ -67,5 +77,9 @@ public class Spritesheet extends Asset {
 
     public int size() {
         return sprites.size();
+    }
+
+    public int getCount() {
+        return this.spriteCount;
     }
 }
