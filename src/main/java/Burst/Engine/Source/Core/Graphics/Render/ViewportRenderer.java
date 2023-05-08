@@ -67,8 +67,7 @@ public class ViewportRenderer extends Renderer{
     @Override
     public void render() {
         currentShader.use();
-        for (int i = 0; i < batches.size(); i++) {
-            RenderBatch batch = batches.get(i);
+        for (RenderBatch batch : batches) {
             batch.render();
         }
     }

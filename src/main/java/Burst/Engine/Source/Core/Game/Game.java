@@ -1,6 +1,7 @@
 package Burst.Engine.Source.Core.Game;
 
 import Burst.Engine.Source.Core.Actor.Actor;
+import Burst.Engine.Source.Core.Assets.Graphics.Background;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.Graphics.Input.MouseListener;
 import Burst.Engine.Source.Core.Physics.Physics2D;
@@ -25,9 +26,10 @@ import java.util.Optional;
 
 public class Game{
     protected List<Actor> actors;
-    protected List<Actor> pendingActors;
+    protected List<Actor> actorsToAdd;
     protected Physics2D physics2D;
     protected Scene scene;
+    protected Background background;
 
     public Game(Scene scene) {
         this.scene = scene;
@@ -37,14 +39,12 @@ public class Game{
     {
         this.physics2D = new Physics2D();
         this.actors = new ArrayList<>();
-        this.pendingActors = new ArrayList<>();
-
+        this.actorsToAdd = new ArrayList<>();
 
         System.out.println("\n" + scene.getOpenScene());
         scene.addPanel(new ViewportPanel());
 
         loadLevel();
-
         scene.getSceneInitializer().loadResources(this);
         start();
     }
@@ -72,25 +72,10 @@ public class Game{
         scene.getCamera().adjustProjection();
         this.physics2D.update(dt);
 
-        for (int i=0; i < actors.size(); i++) {
-            Actor actor = actors.get(i);
+        for (Actor actor : actors) {
             actor.update(dt);
-
-            if (actor.isDead()) {
-                actors.remove(i);
-                scene.getViewportRenderer().destroyActor(actor);
-                this.physics2D.destroyActor(actor);
-                i--;
-            }
+            scene.getViewportRenderer().render();
         }
-
-        for (Actor actor : pendingActors) {
-            actors.add(actor);
-            actor.start();
-            scene.getViewportRenderer().add(actor);
-            this.physics2D.add(actor);
-        }
-        pendingActors.clear();
     }
 
 
@@ -100,7 +85,7 @@ public class Game{
         if (scene.isPaused()) {
             actors.add(actor);
         } else {
-            pendingActors.add(actor);
+            actorsToAdd.add(actor);
         }
     }
 

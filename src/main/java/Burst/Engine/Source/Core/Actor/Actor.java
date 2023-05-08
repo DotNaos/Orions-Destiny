@@ -7,6 +7,7 @@ import Burst.Engine.Source.Core.Physics.Components.Transform;
 import Burst.Engine.Source.Core.Saving.ComponentDeserializer;
 import Burst.Engine.Source.Core.Saving.ActorDeserializer;
 import Burst.Engine.Source.Core.Graphics.Render.SpriteRenderer;
+import Burst.Engine.Source.Core.util.Prefabs;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import imgui.ImGui;
@@ -30,7 +31,7 @@ public class Actor {
         this.name = name;
         this.components = new ArrayList<>();
         this.transform = new Transform(this);
-        this.ID = ActorCounter++;
+        this.ID = Prefabs.generateUniqueID();
     }
 
     public <T extends Component> T getComponent(Class<T> componentClass) {

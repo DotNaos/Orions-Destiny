@@ -56,26 +56,8 @@ public class Editor extends Game {
     @Override
     public void update(float dt) {
         scene.getCamera().adjustProjection();
+        super.update(dt);
 
-        for (int i=0; i < actors.size(); i++) {
-            Actor actor = actors.get(i);
-            actor.update(dt);
-
-            if (actor.isDead()) {
-                actors.remove(i);
-                scene.getViewportRenderer().destroyActor(actor);
-                this.physics2D.destroyActor(actor);
-                i--;
-            }
-        }
-
-        for (Actor actor : pendingActors) {
-            actors.add(actor);
-            actor.start();
-            scene.getViewportRenderer().add(actor);
-            this.physics2D.add(actor);
-        }
-        pendingActors.clear();
     }
 
     @Override

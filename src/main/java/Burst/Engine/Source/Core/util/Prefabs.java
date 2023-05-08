@@ -19,4 +19,7 @@ public class Prefabs {
         return block;
     }
 
+    public static long generateUniqueID() {
+        return System.nanoTime();
+    }
 }
