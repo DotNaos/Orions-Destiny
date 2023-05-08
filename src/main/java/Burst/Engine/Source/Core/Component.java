@@ -15,7 +15,6 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
 public abstract class Component {
-    private static int ID_COUNTER = 0;
     private long uid = -1;
 
     public transient Actor actor = null;
@@ -150,7 +149,4 @@ public abstract class Component {
         return this.uid;
     }
 
-    public static void init(int maxId) {
-        ID_COUNTER = maxId;
-    }
 }

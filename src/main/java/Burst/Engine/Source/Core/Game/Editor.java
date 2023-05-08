@@ -11,6 +11,7 @@ import Burst.Engine.Source.Core.Graphics.Render.Components.GridLines;
 import Burst.Engine.Source.Core.Graphics.Render.PickingTexture;
 import Burst.Engine.Source.Core.Scene.Scene;
 import Burst.Engine.Source.Core.UI.Window;
+import Burst.Engine.Source.Core.util.DebugMessage;
 import Burst.Engine.Source.Core.util.Prefabs;
 import Burst.Engine.Source.Editor.EditorCamera;
 import Burst.Engine.Source.Editor.Gizmo.GizmoSystem;
@@ -44,7 +45,7 @@ public class Editor extends Game {
         Spritesheet gizmos = AssetManager.getAssetFromType(Assets.GIZMOS, Spritesheet.class);
 
         levelEditorStuff = spawnActor("LevelEditor");
-        levelEditorStuff.setNoSerialize();
+        levelEditorStuff.serializedActor = false;
         levelEditorStuff.addComponent(new MouseControls());
         levelEditorStuff.addComponent(new KeyControls());
         levelEditorStuff.addComponent(new GridLines());
@@ -58,6 +59,10 @@ public class Editor extends Game {
         scene.getCamera().adjustProjection();
         super.update(dt);
 
+        for (Actor actor : actors) {
+            DebugMessage.info(actor.name);
+            actor.update(dt);
+        }
     }
 
     @Override
@@ -68,11 +73,7 @@ public class Editor extends Game {
         ImGui.end();
 
         ImGui.begin("Content Drawer");
-
         if (ImGui.beginTabBar("WindowTabBar")) {
-
-
-
             if (ImGui.beginTabItem("Decoration Blocks")) {
                 ImVec2 windowPos = new ImVec2();
                 ImGui.getWindowPos(windowPos);

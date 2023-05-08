@@ -91,6 +91,14 @@ public class Scene {
             panel.imgui();
         }
         this.sceneInitializer.imgui();
+
+        if (this.game != null && this.openScene == SceneType.GAME) {
+            this.game.imgui();
+        }
+
+        if (this.editor != null && this.openScene == SceneType.EDITOR) {
+            this.editor.imgui();
+        }
     }
 
     public void render() {

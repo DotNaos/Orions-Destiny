@@ -3,6 +3,7 @@ package Burst.Engine.Source.Core.Game;
 import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Assets.Graphics.Background;
 import Burst.Engine.Source.Core.Component;
+import Burst.Engine.Source.Core.Graphics.Debug.DebugDraw;
 import Burst.Engine.Source.Core.Graphics.Input.MouseListener;
 import Burst.Engine.Source.Core.Physics.Physics2D;
 import Burst.Engine.Source.Core.Saving.ActorDeserializer;
@@ -50,7 +51,9 @@ public class Game{
     }
 
     //====================================================================================================
-    // Scene States
+    // |=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
+    // |--------------------------------------[ Game Loop ]----------------------------------------------|
+    // |=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
     //====================================================================================================
     
     public void start() {
@@ -71,6 +74,7 @@ public class Game{
     public void update(float dt) {
         scene.getCamera().adjustProjection();
         this.physics2D.update(dt);
+
 
         for (Actor actor : actors) {
             actor.update(dt);
@@ -94,8 +98,11 @@ public class Game{
         return new Actor(name);
     }
 
+
     //====================================================================================================
-    // Serialization
+    // |=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
+    // |--------------------------------------[ Saving and Loading ]-------------------------------------|
+    // |=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
     //====================================================================================================
     
     public void saveLevel() {
@@ -111,7 +118,7 @@ public class Game{
             FileWriter writer = new FileWriter("level.json");
             List<Actor> objsToSerialize = new ArrayList<>();
             for (Actor obj : this.actors) {
-                if (obj.doSerialization()) {
+                if (obj.serializedActor) {
                     objsToSerialize.add(obj);
                 }
             }
@@ -143,32 +150,18 @@ public class Game{
         }
 
         if (!inFile.equals("")) {
-            long maxactorId = -1;
-            long maxCompId = -1;
             Actor[] objs = gson.fromJson(inFile, Actor[].class);
-            for (int i=0; i < objs.length; i++) {
-                addActor(objs[i]);
-
-                for (Component c : objs[i].getAllComponents()) {
-                    if (c.getUid() > maxCompId) {
-                        maxCompId = c.getUid();
-                    }
-                }
-                if (objs[i].getUid() > maxactorId) {
-                    maxactorId = objs[i].getUid();
-                }
+            for (Actor obj : objs) {
+                addActor(obj);
             }
-
-            maxactorId++;
-            maxCompId++;
-            Actor.init((int) maxactorId);
-            Component.init((int) maxCompId);
         }
     }
     
     
     //====================================================================================================
-    // All Mouse and Keyboard callbacks
+    // |=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
+    // |--------------------------------------[ Input Callbacks ]----------------------------------------|
+    // |=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
     //====================================================================================================
 
     /**
@@ -180,7 +173,6 @@ public class Game{
 
     public void mouseButtonCallback(long window, int button, int action, int mods) {
         if (!scene.getPanel(ViewportPanel.class).getWantCaptureMouse()) return;
-
         MouseListener.mouseButtonCallback(window, button, action, mods);
     }
 
@@ -194,7 +186,9 @@ public class Game{
 
 
     //====================================================================================================
-    // All getters and setters
+    // |=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
+    // |--------------------------------------[ Getters and Setters ]------------------------------------|
+    // |=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
     //====================================================================================================
     public Physics2D getPhysics() {
         return this.physics2D;
@@ -216,7 +210,7 @@ public class Game{
 
     public Actor getActor(int ActorId) {
         Optional<Actor> result = this.actors.stream()
-                .filter(Actor -> Actor.getUid() == ActorId)
+                .filter(Actor -> Actor.getID() == ActorId)
                 .findFirst();
         return result.orElse(null);
     }
@@ -231,6 +225,12 @@ public class Game{
     public List<Actor> getActors() {
         return actors;
     }
+
+    //====================================================================================================
+    // |=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
+    // |--------------------------------------[ ImGui ]--------------------------------------------------|
+    // |=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
+    //====================================================================================================
 
     public void imgui() {
         for (Actor actor : actors) {

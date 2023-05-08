@@ -18,8 +18,12 @@ public class ViewportPanel extends ImGuiPanel {
 
     @Override
     public void imgui() {
-        ImGui.begin("Viewport", ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoScrollWithMouse
-                        | ImGuiWindowFlags.MenuBar);
+        ImGui.begin("Viewport",
+                 ImGuiWindowFlags.NoScrollbar |
+                                ImGuiWindowFlags.NoScrollWithMouse |
+                                ImGuiWindowFlags.MenuBar |
+                                ImGuiWindowFlags.NoTitleBar
+        );
 
         ImGui.beginMenuBar();
         if (ImGui.menuItem("Play", "", isPlaying, !isPlaying)) {

@@ -4,8 +4,11 @@ import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
 import Burst.Engine.Source.Core.Graphics.Render.SpriteRenderer;
 import Burst.Engine.Source.Core.UI.Window;
+import java.util.concurrent.atomic.AtomicLong;
 
 public class Prefabs {
+    private static final AtomicLong counter = new AtomicLong();
+
 
     public static Actor generateSpriteObject(Sprite sprite, float sizeX, float sizeY) {
         
@@ -19,7 +22,7 @@ public class Prefabs {
         return block;
     }
 
-    public static long generateUniqueID() {
-        return System.nanoTime();
-    }
+        public static long generateUniqueID() {
+            return counter.incrementAndGet();
+        }
 }

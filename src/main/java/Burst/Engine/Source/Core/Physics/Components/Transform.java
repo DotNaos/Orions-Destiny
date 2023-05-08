@@ -44,11 +44,11 @@ public class Transform {
         this.zIndex = BImGui.dragInt("Z-Index", this.zIndex);
     }
 
-    public void copy(Transform to) {
-        to.position.set(this.position);
-        to.scale.set(this.scale);
-        to.rotation = this.rotation;
-        to.zIndex = this.zIndex;
+    public void copy(Transform from) {
+        this.position.set(from.position);
+        this.scale.set(from.scale);
+        this.rotation = from.rotation;
+        this.zIndex = from.zIndex;
     }
 
     public boolean equals(Object o) {

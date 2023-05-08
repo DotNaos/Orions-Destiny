@@ -20,7 +20,7 @@ public class OutlinerPanel extends ImGuiPanel {
         List<Actor> actors = Window.getScene().getGame().getActors();
         int index = 0;
         for (Actor obj : actors) {
-            if (!obj.doSerialization()) {
+            if (!obj.serializedActor) {
                 continue;
             }
 
