@@ -3,7 +3,6 @@ package Burst.Engine.Source.Core.Game;
 import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Assets.Graphics.Background;
 import Burst.Engine.Source.Core.Component;
-import Burst.Engine.Source.Core.Graphics.Debug.DebugDraw;
 import Burst.Engine.Source.Core.Graphics.Input.MouseListener;
 import Burst.Engine.Source.Core.Physics.Physics2D;
 import Burst.Engine.Source.Core.Saving.ActorDeserializer;
@@ -72,7 +71,7 @@ public class Game{
     }
     
     public void update(float dt) {
-        scene.getCamera().adjustProjection();
+        scene.getViewport().adjustProjection();
         this.physics2D.update(dt);
 
 

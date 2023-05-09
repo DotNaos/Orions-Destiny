@@ -120,7 +120,7 @@ public class Scene {
     //====================================================================================================
     // All getters and setters
     //====================================================================================================
-    public Viewport getCamera() {
+    public Viewport getViewport() {
         return this.viewport;
     }
     public SceneInitializer getSceneInitializer() {

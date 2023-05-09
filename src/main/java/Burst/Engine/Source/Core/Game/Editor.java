@@ -2,7 +2,6 @@ package Burst.Engine.Source.Core.Game;
 
 import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Assets.AssetManager;
-import Burst.Engine.Source.Core.Assets.Audio.Sound;
 import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
 import Burst.Engine.Source.Core.Assets.Graphics.Spritesheet;
 import Burst.Engine.Source.Core.Graphics.Input.Components.KeyControls;
@@ -22,13 +21,10 @@ import imgui.ImGui;
 import imgui.ImVec2;
 import org.joml.Vector2f;
 
-import java.io.File;
-import java.util.List;
-
 public class Editor extends Game {
-    private Spritesheet sprites;
     private Actor levelEditorStuff;
     private PickingTexture pickingTexture;
+    private GridLines gridLines;
 
     public Editor(Scene scene) {
         super(scene);
@@ -37,28 +33,34 @@ public class Editor extends Game {
     public void init()
     {
         super.init();
-        scene.addPanel(new OutlinerPanel());
-        scene.addPanel(new OutlinerPanel());
-        pickingTexture = new PickingTexture();
-        scene.addPanel(new PropertiesPanel(this.pickingTexture));
-        sprites = AssetManager.getAssetFromType(Assets.BLOCKS, Spritesheet.class);
-        Spritesheet gizmos = AssetManager.getAssetFromType(Assets.GIZMOS, Spritesheet.class);
 
-        levelEditorStuff = spawnActor("LevelEditor");
-        levelEditorStuff.serializedActor = false;
-        levelEditorStuff.addComponent(new MouseControls());
-        levelEditorStuff.addComponent(new KeyControls());
-        levelEditorStuff.addComponent(new GridLines());
-        levelEditorStuff.addComponent(new EditorCamera(Window.getScene().getCamera()));
-        levelEditorStuff.addComponent(new GizmoSystem(gizmos));
-        addActor(levelEditorStuff);
+        // Variables
+            pickingTexture = new PickingTexture();
+            gridLines = new GridLines();
+
+        // Panels
+            scene.addPanel(new OutlinerPanel());
+            scene.addPanel(new OutlinerPanel());
+            scene.addPanel(new PropertiesPanel(this.pickingTexture));
+
+        // Gizmos
+            Spritesheet gizmos = AssetManager.getAssetFromType(Assets.GIZMOS, Spritesheet.class);
+
+        // Level Editor Stuff
+            levelEditorStuff = spawnActor("LevelEditor");
+            levelEditorStuff.serializedActor = false;
+            levelEditorStuff.addComponent(new MouseControls());
+            levelEditorStuff.addComponent(new KeyControls());
+            levelEditorStuff.addComponent(new EditorCamera(Window.getScene().getViewport()));
+            levelEditorStuff.addComponent(new GizmoSystem(gizmos));
+            addActor(levelEditorStuff);
     }
 
     @Override
     public void update(float dt) {
-        scene.getCamera().adjustProjection();
+        scene.getViewport().adjustProjection();
+        gridLines.update(dt);
         super.update(dt);
-
         for (Actor actor : actors) {
             DebugMessage.info(actor.name);
             actor.update(dt);
@@ -68,13 +70,15 @@ public class Editor extends Game {
     @Override
     public void imgui() {
         super.imgui();
+
+        Spritesheet sprites = AssetManager.getAssetFromType(Assets.BLOCKS, Spritesheet.class);
         ImGui.begin("Settings");
         levelEditorStuff.imgui();
         ImGui.end();
 
         ImGui.begin("Content Drawer");
         if (ImGui.beginTabBar("WindowTabBar")) {
-            if (ImGui.beginTabItem("Decoration Blocks")) {
+            if (ImGui.beginTabItem("Building Blocks")) {
                 ImVec2 windowPos = new ImVec2();
                 ImGui.getWindowPos(windowPos);
                 ImVec2 windowSize = new ImVec2();
@@ -92,10 +96,9 @@ public class Editor extends Game {
 
                     ImGui.pushID(i);
                     if (ImGui.imageButton(id, spriteWidth, spriteHeight, texCoords[2].x, texCoords[0].y, texCoords[0].x, texCoords[2].y)) {
-//                        Actor object = Prefabs.generateSpriteObject(sprite, 0.25f, 0.25f);
-//                        levelEditorStuff.getComponent(MouseControls.class).pickupObject(object);
+                        Actor actor = Prefabs.generateSpriteObject(sprite, 1.0f, 1.0f);
+                        levelEditorStuff.getComponent(MouseControls.class).pickupObject(actor);
 
-                        DebugMessage.info("Clicked on sprite: " + i);
                     }
                     ImGui.popID();
 

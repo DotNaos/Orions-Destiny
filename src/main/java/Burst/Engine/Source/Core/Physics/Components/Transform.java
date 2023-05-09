@@ -8,6 +8,7 @@ public class Transform {
 
     public Vector2f position = new Vector2f();
     public Vector2f scale = new Vector2f(1.0f, 1.0f);
+    public Vector2f size = new Vector2f(32.0f, 32.0f);
     public float rotation = 0.0f;
     public int zIndex = 0;
     private Actor actor = null;
@@ -39,7 +40,7 @@ public class Transform {
     public void imgui() {
         actor.name = BImGui.inputText("Name: ", actor.name);
         BImGui.drawVec2Control("Position", this.position);
-        BImGui.drawVec2Control("Scale", this.scale, 32.0f);
+        BImGui.drawVec2Control("Scale", this.scale, 1.0f);
         this.rotation = BImGui.dragFloat("Rotation", this.rotation);
         this.zIndex = BImGui.dragInt("Z-Index", this.zIndex);
     }

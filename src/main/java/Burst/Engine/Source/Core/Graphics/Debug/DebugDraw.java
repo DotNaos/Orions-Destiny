@@ -95,8 +95,8 @@ public class DebugDraw {
 
         // Use our shader
         shader.use();
-        shader.uploadMat4f("uProjection", Window.getScene().getCamera().getProjectionMatrix());
-        shader.uploadMat4f("uView", Window.getScene().getCamera().getViewMatrix());
+        shader.uploadMat4f("uProjection", Window.getScene().getViewport().getProjectionMatrix());
+        shader.uploadMat4f("uView", Window.getScene().getViewport().getViewMatrix());
 
         // Bind the vao
         glBindVertexArray(vaoID);
@@ -133,7 +133,7 @@ public class DebugDraw {
     }
 
     public static void addLine2D(Vector2f from, Vector2f to, Vector4f color, int lifetime) {
-        Viewport viewport = Window.getScene().getCamera();
+        Viewport viewport = Window.getScene().getViewport();
         Vector2f cameraLeft = new Vector2f(viewport.position).add(new Vector2f(-2.0f, -2.0f));
         Vector2f cameraRight = new Vector2f(viewport.position).
                 add(new Vector2f(viewport.getProjectionSize()).mul(viewport.getZoom())).

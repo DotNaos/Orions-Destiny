@@ -200,7 +200,7 @@ public class Window implements Observer {
             DebugDraw.beginFrame();
 
             this.framebuffer.bind();
-            Vector4f clearColor = currentScene.getCamera().clearColor;
+            Vector4f clearColor = currentScene.getViewport().clearColor;
             glClearColor(clearColor.x, clearColor.y, clearColor.z, clearColor.w);
             glClear(GL_COLOR_BUFFER_BIT);
 

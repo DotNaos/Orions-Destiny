@@ -22,7 +22,10 @@ public class Prefabs {
         return block;
     }
 
-        public static long generateUniqueID() {
+    public static long generateUniqueID() {
             return counter.incrementAndGet();
         }
+    public static long generateHashID(String filepath) {
+        return filepath.hashCode();
+    }
 }

@@ -8,16 +8,15 @@ import Burst.Engine.Source.Core.Component;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
 
-public class GridLines extends Component {
+public class GridLines{
 
-    @Override
-    public void updateEditor(float dt) {
-        Viewport viewport = Window.getScene().getCamera();
-        Vector2f cameraPos = viewport.position;
+    public void update(float dt) {
+        Viewport viewport = Window.getScene().getViewport();
+        Vector2f viewportPos = viewport.position;
         Vector2f projectionSize = viewport.getProjectionSize();
 
-        float firstX = ((int)Math.floor(cameraPos.x / GridLines_Config.GRID_WIDTH)) * GridLines_Config.GRID_HEIGHT;
-        float firstY = ((int)Math.floor(cameraPos.y / GridLines_Config.GRID_HEIGHT)) * GridLines_Config.GRID_HEIGHT;
+        float firstX = ((int)Math.floor(viewportPos.x / GridLines_Config.GRID_WIDTH)) * GridLines_Config.GRID_HEIGHT;
+        float firstY = ((int)Math.floor(viewportPos.y / GridLines_Config.GRID_HEIGHT)) * GridLines_Config.GRID_HEIGHT;
 
         int numVtLines = (int)(projectionSize.x * viewport.getZoom() / GridLines_Config.GRID_WIDTH) + 2;
         int numHzLines = (int)(projectionSize.y * viewport.getZoom() / GridLines_Config.GRID_HEIGHT) + 2;
