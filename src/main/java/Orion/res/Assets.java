@@ -67,13 +67,25 @@ public class Assets {
     //===================================================================
     //========================  Asset Spritesheets  =====================
     //===================================================================
-    public static final Spritesheet PLAYER_SPRITESHEET = new Spritesheet((Texture) AssetManager.getAssetFromType(PLAYER, Texture.class), 16, 16, 0);
-    public static final Spritesheet BLOCKS_SPRITESHEET = new Spritesheet((Texture) AssetManager.getAssetFromType(BLOCKS, Texture.class), 16, 16, 0);
-    public static final Spritesheet TURTLE_SPRITESHEET = new Spritesheet((Texture) AssetManager.getAssetFromType(TURTLE, Texture.class), 16, 24, 0);
-    public static final Spritesheet BIG_PLAYER_SPRITESHEET = new Spritesheet((Texture) AssetManager.getAssetFromType(BIG_PLAYER, Texture.class), 16, 32, 0);
-    public static final Spritesheet PIPES_SPRITESHEET = new Spritesheet((Texture) AssetManager.getAssetFromType(PIPES, Texture.class), 32, 32, 0);
-    public static final Spritesheet ITEMS_SPRITESHEET = new Spritesheet((Texture) AssetManager.getAssetFromType(ITEMS, Texture.class), 16, 16, 0);
-    public static final Spritesheet GIZMOS_SPRITESHEET = new Spritesheet((Texture) AssetManager.getAssetFromType(GIZMOS, Texture.class), 24, 48, 0);
+    public static final Spritesheet PLAYER_SPRITESHEET = new Spritesheet(AssetManager.getAssetFromType(PLAYER, Texture.class), 16, 16, 0);
+    public static final Spritesheet BLOCKS_SPRITESHEET = new Spritesheet(AssetManager.getAssetFromType(BLOCKS, Texture.class), 16, 16, 0,
+            new int[] {
+                    16,
+                    16,
+                    4,
+                    13,
+                    10,
+                    9,
+                    7,
+                    9, 14, 17, 18, 5, 21, 8, 3, 0, 7, 20,
+                    15, 29, 32, 30, 32, 16, 16, 8, 5, 0, 0, 15, 15, 15
+            }
+            );
+    public static final Spritesheet TURTLE_SPRITESHEET = new Spritesheet(AssetManager.getAssetFromType(TURTLE, Texture.class), 16, 24, 0);
+    public static final Spritesheet BIG_PLAYER_SPRITESHEET = new Spritesheet(AssetManager.getAssetFromType(BIG_PLAYER, Texture.class), 16, 32, 0);
+    public static final Spritesheet PIPES_SPRITESHEET = new Spritesheet(AssetManager.getAssetFromType(PIPES, Texture.class), 32, 32, 0);
+    public static final Spritesheet ITEMS_SPRITESHEET = new Spritesheet(AssetManager.getAssetFromType(ITEMS, Texture.class), 16, 16, 0);
+    public static final Spritesheet GIZMOS_SPRITESHEET = new Spritesheet(AssetManager.getAssetFromType(GIZMOS, Texture.class), 24, 48, 0);
 
     public static final List<Spritesheet> SPRITESHEETS_LIST = List.of(PLAYER_SPRITESHEET, BLOCKS_SPRITESHEET, TURTLE_SPRITESHEET, BIG_PLAYER_SPRITESHEET, PIPES_SPRITESHEET, ITEMS_SPRITESHEET, GIZMOS_SPRITESHEET);
 
