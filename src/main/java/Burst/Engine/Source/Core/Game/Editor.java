@@ -76,5 +76,9 @@ public class Editor extends Game {
         levelEditorStuff.imgui();
         ImGui.end();
 
+
+
+        ImGui.showDemoWindow();
+
     }
 }

@@ -1,5 +1,6 @@
 package Burst.Engine.Source.Core.UI;
 
+import Burst.Engine.Config.ImGuiStyleConfig;
 import Burst.Engine.Source.Core.Graphics.Input.KeyListener;
 import Burst.Engine.Source.Core.Graphics.Input.MouseListener;
 import Burst.Engine.Source.Editor.Panel.ViewportPanel;
@@ -183,11 +184,12 @@ public class ImGuiLayer {
 
     public void update(float dt, Scene currentScene) {
         startFrame(dt);
+        ImGuiStyleConfig.style();
 
         // Any Dear ImGui code SHOULD actor between ImGui.newFrame()/ImGui.render() methods
         setupDockspace();
         currentScene.imgui();
-        ImGui.showDemoWindow();
+
         endFrame();
     }
 
