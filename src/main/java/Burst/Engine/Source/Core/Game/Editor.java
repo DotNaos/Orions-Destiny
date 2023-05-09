@@ -12,6 +12,7 @@ import Burst.Engine.Source.Core.Scene.Scene;
 import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Core.util.DebugMessage;
 import Burst.Engine.Source.Core.util.Prefabs;
+import Burst.Engine.Source.Editor.ContentDrawer;
 import Burst.Engine.Source.Editor.EditorCamera;
 import Burst.Engine.Source.Editor.Gizmo.GizmoSystem;
 import Burst.Engine.Source.Editor.Panel.OutlinerPanel;
@@ -40,8 +41,8 @@ public class Editor extends Game {
 
         // Panels
             scene.addPanel(new OutlinerPanel());
-            scene.addPanel(new OutlinerPanel());
             scene.addPanel(new PropertiesPanel(this.pickingTexture));
+            scene.addPanel(new ContentDrawer());
 
         // Gizmos
             Spritesheet gizmos = AssetManager.getAssetFromType(Assets.GIZMOS, Spritesheet.class);
@@ -71,52 +72,9 @@ public class Editor extends Game {
     public void imgui() {
         super.imgui();
 
-        Spritesheet sprites = AssetManager.getAssetFromType(Assets.BLOCKS, Spritesheet.class);
         ImGui.begin("Settings");
         levelEditorStuff.imgui();
         ImGui.end();
 
-        ImGui.begin("Content Drawer");
-        if (ImGui.beginTabBar("WindowTabBar")) {
-            if (ImGui.beginTabItem("Building Blocks")) {
-                ImVec2 windowPos = new ImVec2();
-                ImGui.getWindowPos(windowPos);
-                ImVec2 windowSize = new ImVec2();
-                ImGui.getWindowSize(windowSize);
-                ImVec2 itemSpacing = new ImVec2();
-                ImGui.getStyle().getItemSpacing(itemSpacing);
-
-                float windowX2 = windowPos.x + windowSize.x;
-                for (int i = 0; i < sprites.size(); i++) {
-                    Sprite sprite = sprites.getSprite(i);
-                    float spriteWidth = sprite.getWidth() * 4;
-                    float spriteHeight = sprite.getHeight() * 4;
-                    int id = sprite.getTexId();
-                    Vector2f[] texCoords = sprite.getTexCoords();
-
-                    ImGui.pushID(i);
-                    if (ImGui.imageButton(id, spriteWidth, spriteHeight, texCoords[2].x, texCoords[0].y, texCoords[0].x, texCoords[2].y)) {
-                        Actor actor = Prefabs.generateSpriteObject(sprite, 1.0f, 1.0f);
-                        levelEditorStuff.getComponent(MouseControls.class).pickupObject(actor);
-
-                    }
-                    ImGui.popID();
-
-                    ImVec2 lastButtonPos = new ImVec2();
-                    ImGui.getItemRectMax(lastButtonPos);
-                    float lastButtonX2 = lastButtonPos.x;
-                    float nextButtonX2 = lastButtonX2 + itemSpacing.x + spriteWidth;
-                    if (i + 1 < sprites.size() && nextButtonX2 < windowX2) {
-                        ImGui.sameLine();
-                    }
-                }
-            }
-            ImGui.endTabItem();
-            }
-
-        ImGui.endTabBar();
-
-
-        ImGui.end();
     }
 }
