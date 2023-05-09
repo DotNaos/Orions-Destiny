@@ -14,7 +14,8 @@ public class Spritesheet extends Asset {
     private List<Sprite> sprites;
     private SpriteSheetUsage usage;
     private int spriteCount = 0;
-    private static int MAX_SPRITES = 50;
+    private static int MAX_SPRITES = -1;
+    private int[] spritesPerRow;
 
     public Spritesheet(Texture texture, int spriteWidth, int spriteHeight, int spacing) {
         super(texture.getFilepath());
@@ -28,7 +29,7 @@ public class Spritesheet extends Asset {
         for (int row=0; row < rows; row++) {
             for (int col = 0; col < cols; col++)
             {
-                if (this.spriteCount >= MAX_SPRITES) {
+                if (this.spriteCount >= MAX_SPRITES && MAX_SPRITES != -1) {
                     DebugMessage.printWarning("Spritesheet has reached maximum number of sprites: " + MAX_SPRITES);
                     return;
                 }
@@ -72,8 +73,6 @@ public class Spritesheet extends Asset {
     public Sprite getSprite(int index) {
         return this.sprites.get(index);
     }
-
-    public List<Sprite> getSprites() { return this.sprites; }
 
     public int size() {
         return sprites.size();

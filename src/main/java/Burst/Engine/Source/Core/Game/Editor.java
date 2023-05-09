@@ -83,8 +83,7 @@ public class Editor extends Game {
                 ImGui.getStyle().getItemSpacing(itemSpacing);
 
                 float windowX2 = windowPos.x + windowSize.x;
-                DebugMessage.info("Spritesheet has ... sprites: " + sprites.getCount());
-                for (int i = 0; i < sprites.getSprites().size(); i++) {
+                for (int i = 0; i < sprites.size(); i++) {
                     Sprite sprite = sprites.getSprite(i);
                     float spriteWidth = sprite.getWidth() * 4;
                     float spriteHeight = sprite.getHeight() * 4;
@@ -93,8 +92,10 @@ public class Editor extends Game {
 
                     ImGui.pushID(i);
                     if (ImGui.imageButton(id, spriteWidth, spriteHeight, texCoords[2].x, texCoords[0].y, texCoords[0].x, texCoords[2].y)) {
-                        Actor object = Prefabs.generateSpriteObject(sprite, 0.25f, 0.25f);
-                        levelEditorStuff.getComponent(MouseControls.class).pickupObject(object);
+//                        Actor object = Prefabs.generateSpriteObject(sprite, 0.25f, 0.25f);
+//                        levelEditorStuff.getComponent(MouseControls.class).pickupObject(object);
+
+                        DebugMessage.info("Clicked on sprite: " + i);
                     }
                     ImGui.popID();
 
@@ -106,13 +107,8 @@ public class Editor extends Game {
                         ImGui.sameLine();
                     }
                 }
-
-                ImGui.endTabItem();
             }
-
-
-
-                ImGui.endTabItem();
+            ImGui.endTabItem();
             }
 
         ImGui.endTabBar();

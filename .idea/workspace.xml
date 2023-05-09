@@ -9,8 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="787a90ad-2c32-4237-9403-4ac402e3150a" name="Changes" comment="JavaDoc für Actor und wieder Refactoring">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/Graphics/SpriteSheetUsage.java" afterDir="false" />
+    <list default="true" id="787a90ad-2c32-4237-9403-4ac402e3150a" name="Changes" comment="Ende für Heute">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/Graphics/Spritesheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/Graphics/Spritesheet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Game/Editor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Game/Editor.java" afterDir="false" />
@@ -313,13 +312,7 @@
       <workItem from="1683363528519" duration="24735000" />
       <workItem from="1683435059695" duration="28934000" />
       <workItem from="1683527278554" duration="8483000" />
-    </task>
-    <task id="LOCAL-00046" summary="ImGUI docking">
-      <created>1680970961935</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1680970961935</updated>
+      <workItem from="1683610940266" duration="1804000" />
     </task>
     <task id="LOCAL-00047" summary="Viewport">
       <created>1681465069801</created>
@@ -657,7 +650,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683568945205</updated>
     </task>
-    <option name="localTasksCounter" value="95" />
+    <task id="LOCAL-00095" summary="Ende für Heute">
+      <created>1683570969617</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1683570969617</updated>
+    </task>
+    <option name="localTasksCounter" value="96" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -707,7 +707,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="AssetPool Javadoc and Search for files" />
     <MESSAGE value="AssetHolder für die Directories der Assets" />
     <MESSAGE value="Optimieren" />
     <MESSAGE value="Ordner" />
@@ -732,7 +731,8 @@
     <MESSAGE value="Referenz auf Scene erst nach initialisierung von currentscene in Window.&#10;Deshalb nimmt man .init() Methoden" />
     <MESSAGE value="Refactoring und wieder paar Errors gefixt" />
     <MESSAGE value="JavaDoc für Actor und wieder Refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="JavaDoc für Actor und wieder Refactoring" />
+    <MESSAGE value="Ende für Heute" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ende für Heute" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
