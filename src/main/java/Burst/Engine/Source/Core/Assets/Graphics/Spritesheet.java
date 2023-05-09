@@ -20,6 +20,7 @@ public class Spritesheet extends Asset {
 
     public Spritesheet(Texture texture, int spriteWidth, int spriteHeight, int spacing) {
         super(texture.getFilepath());
+        DebugMessage.info("Creating Spritesheet: " + texture.getFilepath());
         this.sprites = new ArrayList<>();
         this.texture = texture;
         this.spriteWidth = spriteWidth;
@@ -56,10 +57,7 @@ public class Spritesheet extends Asset {
                         return;
                     }
 
-                    if (col > this.spritesPerRow[row] && this.spritesPerRow[row] != -1)
-                    {
-                        currentX = 0;
-                    }
+
 
                     float topY = (currentY + spriteHeight) / (float) texture.getHeight();
                     float rightX = (currentX + spriteWidth) / (float) texture.getWidth();
@@ -78,14 +76,10 @@ public class Spritesheet extends Asset {
                     sprite.setWidth(spriteWidth);
                     sprite.setHeight(spriteHeight);
 
-                    boolean noTexture = Sprite.isEmpty(sprite);
-                    // check if the sprite is empty, if so, skip the rest of the row
-                    if (noTexture) {
-                        break;
+                    if (!(col >= this.spritesPerRow[row] && this.spritesPerRow[row] != -1))
+                    {
+                        this.sprites.add(sprite);
                     }
-
-
-                    this.sprites.add(sprite);
 
                     currentX += spriteWidth + spacing;
                     if (currentX >= texture.getWidth()) {
