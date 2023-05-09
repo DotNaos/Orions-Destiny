@@ -45,15 +45,21 @@ public class Spritesheet extends Asset {
     }
 
     private void createSprites(int rows, int cols) {
-            int currentX = 0;
-            int currentY = texture.getHeight() - spriteHeight;
+
+        int currentX = 0;
+        int currentY = texture.getHeight() - spriteHeight;
+
             for (int row=0; row < rows; row++) {
                 for (int col = 0; col < cols; col++) {
                     if (this.spriteCount >= MAX_SPRITES && MAX_SPRITES != -1) {
                         DebugMessage.printWarning("Spritesheet has reached maximum number of sprites: " + MAX_SPRITES);
                         return;
                     }
-                    if (spritesPerRow[row] > col && spritesPerRow[row] != -1) break;
+
+                    if (col > this.spritesPerRow[row] && this.spritesPerRow[row] != -1)
+                    {
+                        currentX = 0;
+                    }
 
                     float topY = (currentY + spriteHeight) / (float) texture.getHeight();
                     float rightX = (currentX + spriteWidth) / (float) texture.getWidth();

@@ -11,8 +11,6 @@ import java.util.List;
 
 public class Assets {
 
-
-
     // Images
         public static final String SPRITESHEETS = "Assets/images/spritesheets/";
         public static final String TEXTURES = "Assets/images/textures/";
