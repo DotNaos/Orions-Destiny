@@ -5,6 +5,7 @@ import Burst.Engine.Source.Core.Assets.AssetManager;
 import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
 import Burst.Engine.Source.Core.Assets.Graphics.Spritesheet;
 import Burst.Engine.Source.Core.Graphics.Input.Components.MouseControls;
+import Burst.Engine.Source.Core.Graphics.Input.MouseListener;
 import Burst.Engine.Source.Core.UI.ImGuiPanel;
 import Burst.Engine.Source.Core.util.Prefabs;
 import Orion.res.Assets;

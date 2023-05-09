@@ -9,8 +9,7 @@ import org.joml.Vector4f;
 
 import java.util.Arrays;
 
-import static org.lwjgl.glfw.GLFW.GLFW_PRESS;
-import static org.lwjgl.glfw.GLFW.GLFW_RELEASE;
+import static org.lwjgl.glfw.GLFW.*;
 
 public class MouseListener {
     private static MouseListener instance;
@@ -139,9 +138,6 @@ public class MouseListener {
     }
 
     public static Vector2f getWorld() {
-
-
-
         float currentX = getX() - get().gameViewportPos.x;
         currentX = (2.0f * (currentX / get().gameViewportSize.x)) - 1.0f;
         float currentY = (getY() - get().gameViewportPos.y);
