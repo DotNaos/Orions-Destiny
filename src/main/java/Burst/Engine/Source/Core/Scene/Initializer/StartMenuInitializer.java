@@ -27,6 +27,8 @@ public class StartMenuInitializer extends MenuInitializer {
     @Override
         public void imgui()
         {
+            ImGui.getStyle().setColor(ImGuiCol.WindowBg, 0x191919);
+
             // Window centered in the glfw window
             ImGui.begin("StartMenu",
                      ImGuiWindowFlags.NoTitleBar |
@@ -40,6 +42,9 @@ public class StartMenuInitializer extends MenuInitializer {
             // Window Position
             ImGui.setWindowPos(0, 0);
             ImGui.setWindowSize(Window.getWidth(), Window.getHeight());
+
+            // Window color
+
 
             // Bordereinstellungen
             ImGui.pushStyleVar(ImGuiStyleVar.FrameRounding, 10);

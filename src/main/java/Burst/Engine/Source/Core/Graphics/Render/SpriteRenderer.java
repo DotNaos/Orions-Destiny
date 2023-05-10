@@ -44,7 +44,7 @@ public class SpriteRenderer extends Component {
 
     @Override
     public void imgui() {
-        if (BImGui.colorPicker4("Color Pickier", this.color)) {
+        if (BImGui.colorPicker4("Color Picker", this.color)) {
             this.isDirty = true;
         }
     }

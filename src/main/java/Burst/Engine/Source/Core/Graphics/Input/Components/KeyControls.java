@@ -1,6 +1,5 @@
 package Burst.Engine.Source.Core.Graphics.Input.Components;
 
-import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.Game.Animation.StateMachine;
 import Burst.Engine.Source.Core.Graphics.Input.KeyListener;
 import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
@@ -13,12 +12,12 @@ import java.util.List;
 
 import static org.lwjgl.glfw.GLFW.*;
 
-public class KeyControls extends Component {
+public class KeyControls {
     private float debounceTime = 0.2f;
     private float debounce = 0.0f;
 
-    @Override
-    public void updateEditor(float dt) {
+
+    public void update(float dt) {
         debounce -= dt;
 
         PropertiesPanel propertiesPanel = Window.getScene().getPanel(PropertiesPanel.class);

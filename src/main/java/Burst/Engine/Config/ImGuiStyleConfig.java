@@ -22,6 +22,7 @@ public class ImGuiStyleConfig {
         style.setPopupBorderSize(0);
         style.setFrameBorderSize(0);
         style.setTabBorderSize(0);
+        style.setTabRounding(10);
         style.setWindowPadding(8, 8);
         style.setFramePadding(4, 3);
         style.setItemSpacing(8, 4);
@@ -36,6 +37,7 @@ public class ImGuiStyleConfig {
 
 
         style.setColor(ImGuiCol.WindowBg, 0x1E1E1E1E * 3);
+
 
         // Tabs
         style.setColor(ImGuiCol.Tab, 0.0f, 0.0f, 0.0f, 0.0f);

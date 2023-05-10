@@ -26,6 +26,11 @@ public class Editor extends Game {
     private Actor levelEditorStuff;
     private PickingTexture pickingTexture;
     private GridLines gridLines;
+    private MouseControls mouseControls;
+    private KeyControls keyControls;
+
+    private GizmoSystem gizmoSystem;
+
 
     public Editor(Scene scene) {
         super(scene);
@@ -48,19 +53,25 @@ public class Editor extends Game {
             Spritesheet gizmos = AssetManager.getAssetFromType(Assets.GIZMOS, Spritesheet.class);
 
         // Level Editor Stuff
+            this.mouseControls = new MouseControls();
+            this.keyControls = new KeyControls();
+            this.gizmoSystem = new GizmoSystem(gizmos);
+
             levelEditorStuff = spawnActor("LevelEditor");
             levelEditorStuff.serializedActor = false;
-            levelEditorStuff.addComponent(new MouseControls());
-            levelEditorStuff.addComponent(new KeyControls());
             levelEditorStuff.addComponent(new EditorCamera(Window.getScene().getViewport()));
-            levelEditorStuff.addComponent(new GizmoSystem(gizmos));
             addActor(levelEditorStuff);
     }
 
     @Override
     public void update(float dt) {
-        scene.getViewport().adjustProjection();
-        gridLines.update(dt);
+        this.scene.getViewport().adjustProjection();
+
+        this.mouseControls.update(dt);
+        this.keyControls.update(dt);
+        this.gizmoSystem.update(dt);
+        this.gridLines.update(dt);
+
         super.update(dt);
         for (Actor actor : actors) {
             DebugMessage.info(actor.name);
@@ -80,5 +91,13 @@ public class Editor extends Game {
 
         ImGui.showDemoWindow();
 
+    }
+
+    public MouseControls getMouseControls() {
+        return this.mouseControls;
+    }
+
+    public KeyControls getKeyControls() {
+        return this.keyControls;
     }
 }

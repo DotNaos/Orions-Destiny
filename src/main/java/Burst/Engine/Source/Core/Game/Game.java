@@ -85,11 +85,7 @@ public class Game{
 
 
     public void addActor(Actor actor) {
-        if (scene.isPaused()) {
             actors.add(actor);
-        } else {
-            actorsToAdd.add(actor);
-        }
     }
 
     

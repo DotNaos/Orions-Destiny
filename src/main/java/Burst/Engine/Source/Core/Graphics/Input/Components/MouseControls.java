@@ -10,7 +10,6 @@ import Burst.Engine.Source.Core.Graphics.Input.KeyListener;
 import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
 import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.UI.Window;
-import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.Game.Animation.StateMachine;
 import org.joml.Vector2f;
 import org.joml.Vector2i;
@@ -23,8 +22,8 @@ import java.util.Set;
 import static org.lwjgl.glfw.GLFW.GLFW_KEY_ESCAPE;
 import static org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT;
 
-public class MouseControls extends Component {
-    Actor holdinactorbject = null;
+public class MouseControls {
+    Actor holdingActor = null;
     private float debounceTime = 0.2f;
     private float debounce = debounceTime;
 
@@ -33,17 +32,17 @@ public class MouseControls extends Component {
     private Vector2f boxSelectEnd = new Vector2f();
 
     public void pickupObject(Actor actor) {
-        if (this.holdinactorbject != null) {
-            this.holdinactorbject.destroy();
+        if (this.holdingActor != null) {
+            this.holdingActor.destroy();
         }
-        this.holdinactorbject = actor;
-        this.holdinactorbject.getComponent(SpriteRenderer.class).setColor(new Vector4f(0.8f, 0.8f, 0.8f, 0.5f));
-        this.holdinactorbject.addComponent(new NonPickable());
+        this.holdingActor = actor;
+        this.holdingActor.getComponent(SpriteRenderer.class).setColor(new Vector4f(0.8f, 0.8f, 0.8f, 0.5f));
+        this.holdingActor.addComponent(new NonPickable());
         Window.getScene().getGame().addActor(actor);
     }
 
     public void place() {
-        Actor newObj = holdinactorbject.copy();
+        Actor newObj = holdingActor.copy();
         if (newObj.getComponent(StateMachine.class) != null) {
             newObj.getComponent(StateMachine.class).refreshTextures();
         }
@@ -52,24 +51,24 @@ public class MouseControls extends Component {
         Window.getScene().getGame().addActor(newObj);
     }
 
-    @Override
-    public void updateEditor(float dt) {
+
+    public void update(float dt) {
         debounce -= dt;
         PropertiesPanel propertiesPanel =  Window.getScene().getPanel(PropertiesPanel.class);
         PickingTexture pickingTexture = propertiesPanel.getPickingTexture();
         Game game = Window.getScene().getGame();
-        if (holdinactorbject != null) {
+        if (holdingActor != null) {
             float x = MouseListener.getWorldX();
             float y = MouseListener.getWorldY();
-            holdinactorbject.transform.position.x = ((int)Math.floor(x / GridLines_Config.GRID_WIDTH) * GridLines_Config.GRID_WIDTH) + GridLines_Config.GRID_WIDTH / 2.0f;
-            holdinactorbject.transform.position.y = ((int)Math.floor(y / GridLines_Config.GRID_HEIGHT) * GridLines_Config.GRID_HEIGHT) + GridLines_Config.GRID_HEIGHT / 2.0f;
+            holdingActor.transform.position.x = ((int)Math.floor(x / GridLines_Config.GRID_WIDTH) * GridLines_Config.GRID_WIDTH) + GridLines_Config.GRID_WIDTH / 2.0f;
+            holdingActor.transform.position.y = ((int)Math.floor(y / GridLines_Config.GRID_HEIGHT) * GridLines_Config.GRID_HEIGHT) + GridLines_Config.GRID_HEIGHT / 2.0f;
 
             if (MouseListener.mouseButtonDown(GLFW_MOUSE_BUTTON_LEFT)) {
                 float halfWidth = GridLines_Config.GRID_WIDTH / 2.0f;
                 float halfHeight = GridLines_Config.GRID_HEIGHT / 2.0f;
                 if (MouseListener.isDragging() &&
-                    !blockInSquare(holdinactorbject.transform.position.x - halfWidth,
-                            holdinactorbject.transform.position.y - halfHeight)) {
+                    !blockInSquare(holdingActor.transform.position.x - halfWidth,
+                            holdingActor.transform.position.y - halfHeight)) {
                     place();
                 } else if (!MouseListener.isDragging() && debounce < 0) {
                     place();
@@ -78,8 +77,8 @@ public class MouseControls extends Component {
             }
 
             if (KeyListener.isKeyPressed(GLFW_KEY_ESCAPE)) {
-                holdinactorbject.destroy();
-                holdinactorbject = null;
+                holdingActor.destroy();
+                holdingActor = null;
             }
         } else if (!MouseListener.isDragging() && MouseListener.mouseButtonDown(GLFW_MOUSE_BUTTON_LEFT) && debounce < 0) {
             int x = (int)MouseListener.getScreenX();
