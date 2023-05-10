@@ -3,9 +3,14 @@ package Burst.Engine.Source.Editor.Panel;
 import Burst.Engine.Source.Core.Observer.*;
 import Burst.Engine.Source.Core.Observer.Events.Event;
 import Burst.Engine.Source.Core.Observer.Events.EventType;
+import Burst.Engine.Source.Core.Scene.SceneType;
 import Burst.Engine.Source.Core.UI.ImGuiPanel;
+import Burst.Engine.Source.Core.util.DebugMessage;
 import imgui.ImGui;
+import imgui.ImGuiViewport;
 import imgui.ImVec2;
+import imgui.flag.ImGuiCol;
+import imgui.flag.ImGuiCond;
 import imgui.flag.ImGuiWindowFlags;
 import Burst.Engine.Source.Core.Graphics.Input.MouseListener;
 import Burst.Engine.Source.Core.UI.Window;
@@ -18,23 +23,44 @@ public class ViewportPanel extends ImGuiPanel {
 
     @Override
     public void imgui() {
+        boolean inGame = Window.getScene().getOpenScene() == SceneType.GAME;
+        int inGameFlags = 0;
+
+        if (inGame)
+        {
+            // The next window is displayed in the center of the screen in the viewport
+            ImGuiViewport mainViewport = ImGui.getMainViewport();
+            ImGui.setNextWindowPos(mainViewport.getWorkPosX() + mainViewport.getWorkSizeX() / 2, mainViewport.getWorkPosY() + mainViewport.getWorkSizeY() / 2, ImGuiCond.Always, 0.5f, 0.5f);
+            ImGui.setNextWindowSize(mainViewport.getWorkSizeX(), mainViewport.getWorkSizeY());
+            ImGui.setNextWindowViewport(mainViewport.getID());
+            inGameFlags |= ImGuiWindowFlags.NoTitleBar | ImGuiWindowFlags.NoResize | ImGuiWindowFlags.NoMove | ImGuiWindowFlags.NoCollapse | ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoScrollWithMouse | ImGuiWindowFlags.NoDocking;
+            ImGui.getStyle().setColor(ImGuiCol.WindowBg, 0.0f, 0.0f, 0.0f, 0.0f);
+            DebugMessage.printWarning("InGame");
+            ImGui.setNextWindowPos(0, 0, ImGuiCond.Always, 0.0f, 0.0f);
+
+        }
+
+
         ImGui.begin("Viewport",
-                 ImGuiWindowFlags.NoScrollbar |
+                ImGuiWindowFlags.NoTitleBar |
+                                ImGuiWindowFlags.NoScrollbar |
                                 ImGuiWindowFlags.NoScrollWithMouse |
-                                ImGuiWindowFlags.MenuBar |
-                                ImGuiWindowFlags.NoTitleBar
+                                ImGuiWindowFlags.MenuBar | inGameFlags
         );
 
-        ImGui.beginMenuBar();
-        if (ImGui.menuItem("Play", "", isPlaying, !isPlaying)) {
-            isPlaying = true;
-            EventSystem.notify(null, new Event(EventType.GameEngineStartPlay));
+        if (!inGame) {
+            ImGui.beginMenuBar();
+            if (ImGui.menuItem("Play", "", isPlaying, !isPlaying)) {
+                isPlaying = true;
+                EventSystem.notify(null, new Event(EventType.GameEngineStartPlay));
+            }
+            if (ImGui.menuItem("Stop", "", !isPlaying, isPlaying)) {
+                isPlaying = false;
+                EventSystem.notify(null, new Event(EventType.GameEngineStopPlay));
+            }
+            ImGui.endMenuBar();
         }
-        if (ImGui.menuItem("Stop", "", !isPlaying, isPlaying)) {
-            isPlaying = false;
-            EventSystem.notify(null, new Event(EventType.GameEngineStopPlay));
-        }
-        ImGui.endMenuBar();
+
 
 
         ImGui.setCursorPos(ImGui.getCursorPosX(), ImGui.getCursorPosY());
@@ -47,7 +73,7 @@ public class ViewportPanel extends ImGuiPanel {
         windowIsHovered = ImGui.isItemHovered();
 
         MouseListener.setGameViewportPos(new Vector2f(windowPos.x + 10, windowPos.y));
-        MouseListener.setGameViewportSize(new Vector2f(windowSize.x, windowSize.y));
+//        MouseListener.setGameViewportSize(new Vector2f(windowSize.x, windowSize.y));
 
         ImGui.end();
     }

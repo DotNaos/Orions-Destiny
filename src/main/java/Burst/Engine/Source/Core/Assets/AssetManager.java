@@ -1,5 +1,6 @@
 package Burst.Engine.Source.Core.Assets;
 
+import Burst.Engine.Config.Constants.Font_Config;
 import Burst.Engine.Config.ShaderConfig;
 import Burst.Engine.Source.Core.Assets.Audio.Sound;
 import Burst.Engine.Source.Core.Assets.Graphics.*;
@@ -106,7 +107,7 @@ public class AssetManager {
             }
             return count;
         } else if (assetType.equals(Font.class)) {
-            assetDir = Assets.FONTS;
+            assetDir = Font_Config.PATH;
             String[] foundFiles = searchDirectory(assetDir, "ttf");
 
             // Add all assetPaths to the map

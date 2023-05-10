@@ -1,5 +1,6 @@
 package Burst.Engine.Source.Core.UI;
 
+import Burst.Engine.Config.Constants.Font_Config;
 import Burst.Engine.Config.ImGuiStyleConfig;
 import Burst.Engine.Source.Core.Graphics.Input.KeyListener;
 import Burst.Engine.Source.Core.Graphics.Input.MouseListener;
@@ -136,7 +137,7 @@ public class ImGuiLayer {
         // Read: https://raw.githubusercontent.com/ocornut/imgui/master/docs/FONTS.txt
 
 
-        if (new File(Assets.FONT_INTER).isFile())
+        if (new File(Font_Config.UI).isFile())
         {
             final ImFontAtlas fontAtlas = io.getFonts();
             final ImFontConfig fontConfig = new ImFontConfig(); // Natively allocated object, should be explicitly destroyed
@@ -146,7 +147,7 @@ public class ImGuiLayer {
 
             // Fonts merge example
             fontConfig.setPixelSnapH(true);
-            fontAtlas.addFontFromFileTTF(Assets.FONT_INTER, 18, fontConfig);
+            fontAtlas.addFontFromFileTTF(Font_Config.UI, 18, fontConfig);
             fontConfig.destroy(); // After all fonts were added we don't need this config more
         } else if (new File("C:/Windows/Fonts/seactoreui.ttf").isFile()) {
             final ImFontAtlas fontAtlas = io.getFonts();
@@ -182,13 +183,21 @@ public class ImGuiLayer {
         imGuiGl3.init("#version 330 core");
     }
 
+    /**
+     * IMPORTANT!! ImGui code MUST be called between ImGui.newFrame()/ImGui.render() methods
+     * @param dt          Delta time
+     * @param currentScene
+     */
     public void update(float dt, Scene currentScene) {
         startFrame(dt);
+
         ImGuiStyleConfig.style();
 
-        // Any Dear ImGui code SHOULD actor between ImGui.newFrame()/ImGui.render() methods
+
         setupDockspace();
         currentScene.imgui();
+
+
 
         endFrame();
     }
@@ -196,12 +205,6 @@ public class ImGuiLayer {
     private void startFrame(final float deltaTime) {
         imGuiGlfw.newFrame();
         ImGui.newFrame();
-        // Push color variables
-        ImGui.pushStyleColor(ImGuiCol.TitleBg, (float) 255 / 20, (float) 255 / 20, (float) 255 / 20, 1.0f);
-        ImGui.pushStyleColor(ImGuiCol.WindowBg, (float) 255 / 100, (float) 255 / 100, (float) 255 / 100, 1.0f);
-
-        // Pop color variables
-        ImGui.popStyleColor(2);
     }
 
     private void endFrame() {
@@ -221,7 +224,7 @@ public class ImGuiLayer {
         glfwMakeContextCurrent(backupWindowPtr);
     }
 
-    // If you want to clean a room after yourself - do it by yourself
+    // If you want a clean room after yourself - do it by yourself
     private void destroyImGui() {
         imGuiGl3.dispose();
         ImGui.destroyContext();
@@ -238,6 +241,7 @@ public class ImGuiLayer {
         ImGui.setNextWindowSize(Window.getWidth(), Window.getHeight());
         ImGui.pushStyleVar(ImGuiStyleVar.WindowRounding, 0.0f);
         ImGui.pushStyleVar(ImGuiStyleVar.WindowBorderSize, 0.0f);
+
         windowFlags |= ImGuiWindowFlags.NoTitleBar | ImGuiWindowFlags.NoCollapse |
                 ImGuiWindowFlags.NoResize | ImGuiWindowFlags.NoMove |
                 ImGuiWindowFlags.NoBringToFrontOnFocus | ImGuiWindowFlags.NoNavFocus;

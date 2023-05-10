@@ -5,7 +5,9 @@ import Burst.Engine.Source.Core.Scene.SceneType;
 import Burst.Engine.Source.Core.UI.Menu;
 import Burst.Engine.Source.Core.UI.Window;
 import imgui.ImGui;
+import imgui.ImGuiViewport;
 import imgui.flag.ImGuiCol;
+import imgui.flag.ImGuiCond;
 import imgui.flag.ImGuiStyleVar;
 import imgui.flag.ImGuiWindowFlags;
 import org.joml.Vector2f;
@@ -27,16 +29,20 @@ public class StartMenuInitializer extends MenuInitializer {
     @Override
         public void imgui()
         {
-            ImGui.getStyle().setColor(ImGuiCol.WindowBg, 0x191919);
+            // The next window is displayed in the center of the screen in the viewport
+            ImGuiViewport mainViewport = ImGui.getMainViewport();
+            ImGui.setNextWindowPos(mainViewport.getWorkPosX() + mainViewport.getWorkSizeX() / 2, mainViewport.getWorkPosY() + mainViewport.getWorkSizeY() / 2, ImGuiCond.Always, 0.5f, 0.5f);
+            ImGui.setNextWindowSize(mainViewport.getWorkSizeX(), mainViewport.getWorkSizeY());
+            ImGui.setNextWindowViewport(mainViewport.getID());
 
             // Window centered in the glfw window
             ImGui.begin("StartMenu",
-                     ImGuiWindowFlags.NoTitleBar |
+                    ImGuiWindowFlags.NoTitleBar|
                                     ImGuiWindowFlags.NoResize |
                                     ImGuiWindowFlags.NoMove |
                                     ImGuiWindowFlags.NoCollapse |
                                     ImGuiWindowFlags.NoScrollbar |
-                                    ImGuiWindowFlags.NoScrollWithMouse
+                                    ImGuiWindowFlags.NoScrollWithMouse | ImGuiWindowFlags.NoDocking
             );
 
             // Window Position

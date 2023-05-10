@@ -23,8 +23,7 @@ public class Assets {
         // UI
         public static final String UI = "Assets/images/ui/";
 
-    // Fonts
-        public static final String FONTS = "Assets/fonts/";
+
 
     // Audio
         public static final String SOUNDS = "Assets/sounds/";
@@ -55,12 +54,6 @@ public class Assets {
     public static final String PIPES =  SPRITESHEETS +  "pipes.png";
 
     //===================================================================
-    // Fonts
-    public static final String FONT_INTER = FONTS + "inter.ttf";
-
-
-
-
 
     //===================================================================
     //========================  Asset Spritesheets  =====================

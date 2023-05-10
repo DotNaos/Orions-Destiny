@@ -82,11 +82,6 @@ public class Editor extends Game {
         ImGui.begin("Settings");
         levelEditorStuff.imgui();
         ImGui.end();
-
-
-
-        ImGui.showDemoWindow();
-
     }
 
     public MouseControls getMouseControls() {
