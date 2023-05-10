@@ -10,9 +10,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="787a90ad-2c32-4237-9403-4ac402e3150a" name="Changes" comment="Content drawer fix">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Abilities/AbilityDraw.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Abilities/AbilityHeavy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/Explosion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/Fire.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/Ice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/Light.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/Poison.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/Graphics/Spritesheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/Graphics/Spritesheet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/res/Assets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/res/Assets.java" afterDir="false" />
     </list>
     <list id="25a488fd-f17c-453d-94a6-413269d6c7ff" name="Changes by schue" comment="Changes by schue" />
     <option name="SHOW_DIALOG" value="false" />
@@ -49,8 +54,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -103,7 +108,7 @@
     &quot;TODO_SCOPE&quot;: &quot;All Places&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;deletionFromPopupRequiresConfirmation&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Timon&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/schue/Documents/Dev/Java/Orions-Destiny&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
