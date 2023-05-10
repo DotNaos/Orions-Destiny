@@ -1,5 +1,6 @@
 package Burst.Engine.Source.Editor.Gizmo;
 
+import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Graphics.Input.KeyListener;
 import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Core.Assets.Graphics.Spritesheet;
@@ -13,12 +14,15 @@ public class GizmoSystem extends Component {
     private Spritesheet gizmos;
     private int usingGizmo = 0;
 
-    public GizmoSystem(Spritesheet gizmoSprites) {
+
+    public GizmoSystem(Spritesheet gizmoSprites, Actor actor) {
+        super(actor);
         gizmos = gizmoSprites;
     }
 
     @Override
     public void start() {
+        if (this.actor == null) return;
         actor.addComponent(new TranslateGizmo(gizmos.getSprite(1),
                 Window.getScene().getPanel(PropertiesPanel.class)));
         actor.addComponent(new ScaleGizmo(gizmos.getSprite(2),
@@ -27,6 +31,7 @@ public class GizmoSystem extends Component {
 
     @Override
     public void updateEditor(float dt) {
+        if (this.actor == null) return;
         if (usingGizmo == 0) {
             actor.getComponent(TranslateGizmo.class).setUsing();
             actor.getComponent(ScaleGizmo.class).setNotUsing();

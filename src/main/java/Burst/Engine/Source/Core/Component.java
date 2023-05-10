@@ -15,9 +15,14 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
 public abstract class Component {
-    private long uid = -1;
+    private long ID = -1;
 
     public transient Actor actor = null;
+
+    public Component(Actor actor) {
+        this.ID = Prefabs.generateUniqueID();
+        this.actor = actor;
+    }
 
     protected transient String filePath = null;
 
@@ -116,8 +121,8 @@ public abstract class Component {
     }
 
     public void generateId() {
-        if (this.uid == -1) {
-            this.uid = Prefabs.generateUniqueID();
+        if (this.ID == -1) {
+            this.ID = Prefabs.generateUniqueID();
         }
     }
 
@@ -145,8 +150,8 @@ public abstract class Component {
 
     }
 
-    public long getUid() {
-        return this.uid;
+    public long getID() {
+        return this.ID;
     }
 
 }

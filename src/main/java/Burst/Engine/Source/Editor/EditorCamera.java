@@ -20,6 +20,7 @@ public class EditorCamera extends Component {
     private float scrollSensitivity = 0.1f;
 
     public EditorCamera(Viewport levelEditorViewport) {
+        super(null);
         this.levelEditorViewport = levelEditorViewport;
         this.clickOrigin = new Vector2f();
     }

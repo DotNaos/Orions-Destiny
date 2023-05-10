@@ -14,6 +14,7 @@ import Burst.Engine.Source.Editor.Panel.ViewportPanel;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import javax.swing.*;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -73,7 +74,6 @@ public class Game{
     public void update(float dt) {
         scene.getViewport().adjustProjection();
         this.physics2D.update(dt);
-
 
         for (Actor actor : actors) {
             actor.update(dt);

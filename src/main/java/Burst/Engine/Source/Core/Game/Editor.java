@@ -49,13 +49,11 @@ public class Editor extends Game {
             scene.addPanel(new PropertiesPanel(this.pickingTexture));
             scene.addPanel(new ContentDrawer());
 
-        // Gizmos
-            Spritesheet gizmos = AssetManager.getAssetFromType(Assets.GIZMOS, Spritesheet.class);
+
 
         // Level Editor Stuff
             this.mouseControls = new MouseControls();
             this.keyControls = new KeyControls();
-            this.gizmoSystem = new GizmoSystem(gizmos);
 
             levelEditorStuff = spawnActor("LevelEditor");
             levelEditorStuff.serializedActor = false;
@@ -69,12 +67,10 @@ public class Editor extends Game {
 
         this.mouseControls.update(dt);
         this.keyControls.update(dt);
-        this.gizmoSystem.update(dt);
         this.gridLines.update(dt);
 
         super.update(dt);
         for (Actor actor : actors) {
-            DebugMessage.info(actor.name);
             actor.update(dt);
         }
     }

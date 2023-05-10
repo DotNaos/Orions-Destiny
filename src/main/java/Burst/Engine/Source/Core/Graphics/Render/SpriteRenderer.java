@@ -1,6 +1,7 @@
 package Burst.Engine.Source.Core.Graphics.Render;
 
 
+import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
 import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Burst.Engine.Source.Core.UI.BImGui;
@@ -17,6 +18,10 @@ public class SpriteRenderer extends Component {
 
     private transient Transform lastTransform;
     private transient boolean isDirty = true;
+
+    public SpriteRenderer(Actor actor) {
+        super(actor);
+    }
 
     @Override
     public void start() {

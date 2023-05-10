@@ -1,5 +1,6 @@
 package Burst.Engine.Source.Core.Physics.Components;
 
+import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Graphics.Debug.DebugDraw;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.UI.Window;
@@ -9,6 +10,10 @@ public class CircleCollider extends Component {
     private float radius = 1f;
     private transient boolean resetFixtureNextFrame = false;
     protected Vector2f offset = new Vector2f();
+
+    public CircleCollider(Actor actor) {
+        super(actor);
+    }
 
     public float getRadius() {
         return radius;

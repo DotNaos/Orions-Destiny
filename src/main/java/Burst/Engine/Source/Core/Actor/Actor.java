@@ -59,6 +59,7 @@ public class Actor {
         this.components = new ArrayList<>();
         this.transform = new Transform(this);
         this.ID = Prefabs.generateUniqueID();
+        this.components.add(new SpriteRenderer(this));
     }
 
     /**
@@ -144,14 +145,7 @@ public class Actor {
      */
     public void init() {}
 
-    /**
-     * Calls the start() method of all components attached to this actor.
-     */
-    public void start() {
-        for (Component component : components) {
-            component.start();
-        }
-    }
+    public void start() {}
 
     //====================================================================================================
     // |=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
@@ -240,6 +234,8 @@ public class Actor {
         c.generateId();
         this.components.add(c);
         c.actor = this;
+
+        c.start();
     }
 
 

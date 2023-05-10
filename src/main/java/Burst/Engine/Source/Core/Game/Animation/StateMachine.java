@@ -1,5 +1,6 @@
 package Burst.Engine.Source.Core.Game.Animation;
 
+import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.Graphics.Render.SpriteRenderer;
 import imgui.ImGui;
@@ -11,6 +12,10 @@ import java.util.List;
 import java.util.Objects;
 
 public class StateMachine extends Component {
+    public StateMachine(Actor actor) {
+        super(actor);
+    }
+
     private class StateTrigger {
         public String state;
         public String trigger;

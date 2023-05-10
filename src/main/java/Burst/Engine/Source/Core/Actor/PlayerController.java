@@ -25,6 +25,10 @@ public class PlayerController extends Component {
     private transient Vector2f velocity = new Vector2f();
     private transient boolean isDead = false;
 
+    public PlayerController(Actor actor) {
+        super(actor);
+    }
+
     @Override
     public void start() {
 

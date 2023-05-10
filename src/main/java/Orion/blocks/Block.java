@@ -15,6 +15,10 @@ public abstract class Block extends Component {
 
     public float bopSpeed = 0.4f;
 
+    public Block(Actor actor) {
+        super(actor);
+    }
+
     @Override
     public void start() {
         this.bopStart = new Vector2f(this.actor.transform.position);

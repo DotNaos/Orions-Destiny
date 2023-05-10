@@ -34,21 +34,21 @@ public class PropertiesPanel extends ImGuiPanel {
             if (ImGui.beginPopupContextWindow("ComponentAdder")) {
                 if (ImGui.menuItem("Add Rigidbody")) {
                     if (activeActor.getComponent(Rigidbody2D.class) == null) {
-                        activeActor.addComponent(new Rigidbody2D());
+                        activeActor.addComponent(new Rigidbody2D(activeActor));
                     }
                 }
 
                 if (ImGui.menuItem("Add Box Collider")) {
                     if (activeActor.getComponent(Box2DCollider.class) == null &&
                             activeActor.getComponent(CircleCollider.class) == null) {
-                        activeActor.addComponent(new Box2DCollider());
+                        activeActor.addComponent(new Box2DCollider(activeActor));
                     }
                 }
 
                 if (ImGui.menuItem("Add Circle Collider")) {
                     if (activeActor.getComponent(CircleCollider.class) == null &&
                             activeActor.getComponent(Box2DCollider.class) == null) {
-                        activeActor.addComponent(new CircleCollider());
+                        activeActor.addComponent(new CircleCollider(activeActor));
                     }
                 }
 

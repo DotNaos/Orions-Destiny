@@ -40,6 +40,7 @@ public class Gizmo extends Component {
     private PropertiesPanel propertiesPanel;
 
     public Gizmo(Sprite arrowSprite, PropertiesPanel propertiesPanel) {
+        super(null);
         this.xAxisObject = Prefabs.generateSpriteObject(arrowSprite, gizmoWidth, gizmoHeight);
         this.yAxisObject = Prefabs.generateSpriteObject(arrowSprite, gizmoWidth, gizmoHeight);
         this.xAxisSprite = this.xAxisObject.getComponent(SpriteRenderer.class);

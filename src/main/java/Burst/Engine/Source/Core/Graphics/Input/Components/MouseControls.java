@@ -1,7 +1,10 @@
 package Burst.Engine.Source.Core.Graphics.Input.Components;
 
+import Burst.Engine.Source.Core.Assets.AssetManager;
+import Burst.Engine.Source.Core.Assets.Graphics.Spritesheet;
 import Burst.Engine.Source.Core.Graphics.Input.MouseListener;
 import Burst.Engine.Source.Core.Game.Game;
+import Burst.Engine.Source.Editor.Gizmo.GizmoSystem;
 import Burst.Engine.Source.Editor.NonPickable;
 import Burst.Engine.Source.Core.Graphics.Render.PickingTexture;
 import Burst.Engine.Source.Core.Graphics.Debug.DebugDraw;
@@ -11,6 +14,7 @@ import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
 import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Core.Game.Animation.StateMachine;
+import Orion.res.Assets;
 import org.joml.Vector2f;
 import org.joml.Vector2i;
 import org.joml.Vector4f;
@@ -31,6 +35,15 @@ public class MouseControls {
     private Vector2f boxSelectStart = new Vector2f();
     private Vector2f boxSelectEnd = new Vector2f();
 
+    // Gizmos
+    private GizmoSystem gizmoSystem;
+    Spritesheet gizmos = AssetManager.getAssetFromType(Assets.GIZMOS, Spritesheet.class);
+
+    public MouseControls()
+    {
+        this.gizmoSystem = new GizmoSystem(gizmos, null);
+    }
+
     public void pickupObject(Actor actor) {
         if (this.holdingActor != null) {
             this.holdingActor.destroy();
@@ -38,6 +51,7 @@ public class MouseControls {
         this.holdingActor = actor;
         this.holdingActor.getComponent(SpriteRenderer.class).setColor(new Vector4f(0.8f, 0.8f, 0.8f, 0.5f));
         this.holdingActor.addComponent(new NonPickable());
+        this.gizmoSystem = new GizmoSystem(gizmos, this.holdingActor);
         Window.getScene().getGame().addActor(actor);
     }
 
@@ -53,6 +67,7 @@ public class MouseControls {
 
 
     public void update(float dt) {
+        this.gizmoSystem.update(dt);
         debounce -= dt;
         PropertiesPanel propertiesPanel =  Window.getScene().getPanel(PropertiesPanel.class);
         PickingTexture pickingTexture = propertiesPanel.getPickingTexture();
