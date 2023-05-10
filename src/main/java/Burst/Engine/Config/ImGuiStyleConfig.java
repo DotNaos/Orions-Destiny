@@ -40,6 +40,8 @@ public class ImGuiStyleConfig {
             style.setColor(ImGuiCol.DockingEmptyBg, 0x00000000);
             style.setColor(ImGuiCol.PopupBg, 0.08f, 0.08f, 0.08f, 0.9f);
 
+        // Docking
+            style.setColor(ImGuiCol.DockingPreview, 0.9f, 0.1f, 0.2f, 0.5f);
 
         // Tabs
             style.setColor(ImGuiCol.Tab, 0.9f, 0.1f, 0.2f, 0.1f);

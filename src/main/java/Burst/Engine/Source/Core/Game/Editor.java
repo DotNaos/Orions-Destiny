@@ -23,14 +23,10 @@ import imgui.ImVec2;
 import org.joml.Vector2f;
 
 public class Editor extends Game {
-    private Actor levelEditorStuff;
     private PickingTexture pickingTexture;
     private GridLines gridLines;
     private MouseControls mouseControls;
     private KeyControls keyControls;
-
-    private GizmoSystem gizmoSystem;
-
 
     public Editor(Scene scene) {
         super(scene);
@@ -54,11 +50,6 @@ public class Editor extends Game {
         // Level Editor Stuff
             this.mouseControls = new MouseControls();
             this.keyControls = new KeyControls();
-
-            levelEditorStuff = spawnActor("LevelEditor");
-            levelEditorStuff.serializedActor = false;
-            levelEditorStuff.addComponent(new EditorCamera(Window.getScene().getViewport()));
-            addActor(levelEditorStuff);
     }
 
     @Override
@@ -79,9 +70,6 @@ public class Editor extends Game {
     public void imgui() {
         super.imgui();
 
-        ImGui.begin("Settings");
-        levelEditorStuff.imgui();
-        ImGui.end();
     }
 
     public MouseControls getMouseControls() {
