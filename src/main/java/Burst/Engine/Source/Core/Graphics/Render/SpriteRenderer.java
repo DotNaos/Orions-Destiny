@@ -33,6 +33,7 @@ public class SpriteRenderer extends Component {
 
     @Override
     public void update(float dt) {
+        if (this.lastTransform == null) start();
         if (!this.lastTransform.equals(this.actor.transform)) {
             this.actor.transform.copy(this.lastTransform);
             isDirty = true;
