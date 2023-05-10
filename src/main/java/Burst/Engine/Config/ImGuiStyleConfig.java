@@ -33,7 +33,7 @@ public class ImGuiStyleConfig {
         style.setWindowMenuButtonPosition(ImGuiDir.None);
         style.setChildRounding(0);
         style.setPopupRounding(0);
-        style.setScrollbarRounding(0);
+        style.setScrollbarRounding(2);
 
         // Background
             style.setColor(ImGuiCol.WindowBg,  (0xFF1A1A1A));
@@ -73,9 +73,10 @@ public class ImGuiStyleConfig {
             style.setColor(ImGuiCol.BorderShadow, 0.9f, 0.1f, 0.2f, 1f);
 
         // Seperator
-            style.setColor(ImGuiCol.Separator , 0.0f, 0.0f, 0.0f, 0.0f);
+            style.setColor(ImGuiCol.Separator , 0.0f, 0.0f, 0.0f, 0.3f);
             style.setColor(ImGuiCol.SeparatorHovered , 0.0f, 0.0f, 0.0f, 0.0f);
             style.setColor(ImGuiCol.SeparatorActive , 0.0f, 0.0f, 0.0f, 0.0f);
+
 
         // Text
             style.setColor(ImGuiCol.TextSelectedBg, 0.26f, 0.59f, 0.98f, 0.35f);
@@ -107,10 +108,10 @@ public class ImGuiStyleConfig {
 
 
         // Plot
-            style.setColor(ImGuiCol.PlotLines, 0.6f, 0.6f, 0.6f, 1.0f);
-            style.setColor(ImGuiCol.PlotLinesHovered, 1.0f, 0.43f, 0.35f, 1.0f);
-            style.setColor(ImGuiCol.PlotHistogram, 0.9f, 0.9f, 0.9f, 1.0f);
-            style.setColor(ImGuiCol.PlotHistogramHovered, 1.0f, 0.43f, 0.35f, 1.0f);
+            style.setColor(ImGuiCol.PlotLines, 1, 0, 0, 1f);
+            style.setColor(ImGuiCol.PlotLinesHovered, 1, 1, 1, 1.0f);
+            style.setColor(ImGuiCol.PlotHistogram, 0, 1, 0, 0.8f);
+            style.setColor(ImGuiCol.PlotHistogramHovered, 0, 1, 0, 1.0f);
 
     }
 }

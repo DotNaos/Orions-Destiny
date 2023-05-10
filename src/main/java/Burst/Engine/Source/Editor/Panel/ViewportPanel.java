@@ -34,8 +34,6 @@ public class ViewportPanel extends ImGuiPanel {
             ImGui.setNextWindowSize(mainViewport.getWorkSizeX(), mainViewport.getWorkSizeY());
             ImGui.setNextWindowViewport(mainViewport.getID());
             inGameFlags |= ImGuiWindowFlags.NoTitleBar | ImGuiWindowFlags.NoResize | ImGuiWindowFlags.NoMove | ImGuiWindowFlags.NoCollapse | ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoScrollWithMouse | ImGuiWindowFlags.NoDocking;
-            ImGui.getStyle().setColor(ImGuiCol.WindowBg, 0.0f, 0.0f, 0.0f, 0.0f);
-            DebugMessage.printWarning("InGame");
             ImGui.setNextWindowPos(0, 0, ImGuiCond.Always, 0.0f, 0.0f);
 
         }
@@ -73,7 +71,7 @@ public class ViewportPanel extends ImGuiPanel {
         windowIsHovered = ImGui.isItemHovered();
 
         MouseListener.setGameViewportPos(new Vector2f(windowPos.x + 10, windowPos.y));
-//        MouseListener.setGameViewportSize(new Vector2f(windowSize.x, windowSize.y));
+        MouseListener.setGameViewportSize(new Vector2f(windowSize.x, windowSize.y));
 
         ImGui.end();
     }
@@ -86,15 +84,20 @@ public class ViewportPanel extends ImGuiPanel {
         ImVec2 windowSize = new ImVec2();
         ImGui.getContentRegionAvail(windowSize);
 
+        // TODO: VIEWPORT CHANGE TO BLENDER STYLE
+        float ar = (float) Window.getWidth() / (float) Window.getHeight();
         float aspectWidth = windowSize.x;
-        float aspectHeight = aspectWidth / Window.getTargetAspectRatio();
+        float aspectHeight = aspectWidth / ar;
         if (aspectHeight > windowSize.y) {
             // We must switch to pillarbox mode
             aspectHeight = windowSize.y;
-            aspectWidth = aspectHeight * Window.getTargetAspectRatio();
+            aspectWidth = aspectHeight * ar;
         }
 
-        return new ImVec2(aspectWidth, aspectHeight);
+//        return new ImVec2(aspectWidth, aspectHeight);
+
+
+        return new ImVec2(windowSize.x, windowSize.y);
     }
 
     private ImVec2 getCenteredPositionForViewport(ImVec2 aspectSize) {

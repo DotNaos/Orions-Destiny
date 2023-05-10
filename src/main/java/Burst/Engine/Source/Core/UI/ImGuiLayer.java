@@ -183,26 +183,23 @@ public class ImGuiLayer {
         imGuiGl3.init("#version 330 core");
     }
 
+
     /**
      * IMPORTANT!! ImGui code MUST be called between ImGui.newFrame()/ImGui.render() methods
-     * @param dt          Delta time
-     * @param currentScene
      */
     public void update(float dt, Scene currentScene) {
-        startFrame(dt);
+        startFrame();
 
         ImGuiStyleConfig.style();
 
 
         setupDockspace();
         currentScene.imgui();
-
-
-
+        DebugPanel.imgui();
         endFrame();
     }
 
-    private void startFrame(final float deltaTime) {
+    private void startFrame() {
         imGuiGlfw.newFrame();
         ImGui.newFrame();
     }

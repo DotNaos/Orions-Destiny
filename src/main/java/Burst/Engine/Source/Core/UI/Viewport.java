@@ -7,14 +7,14 @@ import org.joml.Vector4f;
 
 public class Viewport {
     private Matrix4f projectionMatrix, viewMatrix, inverseProjection, inverseView;
-    public Vector2f position;
 
+    public Vector2f position;
     private float projectionWidth = 6;
     private float projectionHeight = 3;
     public Vector4f clearColor = new Vector4f(1, 1, 1, 1);
     private Vector2f projectionSize = new Vector2f(projectionWidth, projectionHeight);
 
-    private float zoom = 1.0f;
+    private float zoom = 1.5f;
 
     public Viewport()
     {

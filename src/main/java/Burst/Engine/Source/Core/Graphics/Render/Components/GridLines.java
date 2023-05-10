@@ -2,11 +2,15 @@ package Burst.Engine.Source.Core.Graphics.Render.Components;
 
 import Burst.Engine.Config.Constants.GridLines_Config;
 import Burst.Engine.Source.Core.Graphics.Debug.DebugDraw;
+import Burst.Engine.Source.Core.UI.DebugPanel;
 import Burst.Engine.Source.Core.UI.Viewport;
 import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Core.Component;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class GridLines{
 
@@ -29,6 +33,9 @@ public class GridLines{
         for (int i=0; i < maxLines; i++) {
             float x = firstX + (GridLines_Config.GRID_WIDTH * i);
             float y = firstY + (GridLines_Config.GRID_HEIGHT * i);
+
+            DebugPanel.plotValue3("Gridlines","X", x ,"Y", y, "Z", i);
+
 
             if (i < numVtLines) {
                 DebugDraw.addLine2D(new Vector2f(x, firstY), new Vector2f(x, firstY + height), color);
