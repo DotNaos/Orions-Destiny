@@ -1,7 +1,7 @@
 package Burst.Engine.Source.Editor.Gizmo;
 
 import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
-import Burst.Engine.Source.Core.util.Prefabs;
+import Burst.Engine.Source.Core.Util.Util;
 import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Graphics.Input.MouseListener;
@@ -41,8 +41,8 @@ public class Gizmo extends Component {
 
     public Gizmo(Sprite arrowSprite, PropertiesPanel propertiesPanel) {
         super(null);
-        this.xAxisObject = Prefabs.generateSpriteObject(arrowSprite, gizmoWidth, gizmoHeight);
-        this.yAxisObject = Prefabs.generateSpriteObject(arrowSprite, gizmoWidth, gizmoHeight);
+        this.xAxisObject = Actor.generateSpriteObject(arrowSprite, gizmoWidth, gizmoHeight);
+        this.yAxisObject = Actor.generateSpriteObject(arrowSprite, gizmoWidth, gizmoHeight);
         this.xAxisSprite = this.xAxisObject.getComponent(SpriteRenderer.class);
         this.yAxisSprite = this.yAxisObject.getComponent(SpriteRenderer.class);
         this.propertiesPanel = propertiesPanel;

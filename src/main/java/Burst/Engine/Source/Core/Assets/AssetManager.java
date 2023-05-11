@@ -5,7 +5,7 @@ import Burst.Engine.Config.ShaderConfig;
 import Burst.Engine.Source.Core.Assets.Audio.Sound;
 import Burst.Engine.Source.Core.Assets.Graphics.*;
 import Burst.Engine.Source.Core.Component;
-import Burst.Engine.Source.Core.util.DebugMessage;
+import Burst.Engine.Source.Core.Util.DebugMessage;
 import Orion.res.Assets;
 
 import java.io.File;

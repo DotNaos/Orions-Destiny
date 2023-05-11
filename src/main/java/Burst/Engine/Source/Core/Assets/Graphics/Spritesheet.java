@@ -2,7 +2,7 @@ package Burst.Engine.Source.Core.Assets.Graphics;
 
 import Burst.Engine.Source.Core.Assets.Asset;
 
-import Burst.Engine.Source.Core.util.DebugMessage;
+import Burst.Engine.Source.Core.Util.DebugMessage;
 import org.joml.Vector2f;
 
 import java.util.ArrayList;

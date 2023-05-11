@@ -5,7 +5,7 @@ import Burst.Engine.Source.Core.Scene.Initializer.*;
 import Burst.Engine.Source.Core.UI.Viewport;
 import Burst.Engine.Source.Core.Graphics.Render.ViewportRenderer;
 import Burst.Engine.Source.Core.UI.ImGuiPanel;
-import Burst.Engine.Source.Core.util.DebugMessage;
+import Burst.Engine.Source.Core.Util.DebugMessage;
 import Burst.Engine.Source.Core.Game.Game;
 
 import java.util.ArrayList;

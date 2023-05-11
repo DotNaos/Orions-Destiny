@@ -1,13 +1,15 @@
 package Burst.Engine.Source.Core.Actor;
 
 
+import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
 import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.Physics.Components.Transform;
 import Burst.Engine.Source.Core.Saving.ComponentDeserializer;
 import Burst.Engine.Source.Core.Saving.ActorDeserializer;
 import Burst.Engine.Source.Core.Graphics.Render.SpriteRenderer;
-import Burst.Engine.Source.Core.util.Prefabs;
+import Burst.Engine.Source.Core.UI.Window;
+import Burst.Engine.Source.Core.Util.Util;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import imgui.ImGui;
@@ -58,7 +60,7 @@ public class Actor {
     public Actor() {
         this.components = new ArrayList<>();
         this.transform = new Transform(this);
-        this.ID = Prefabs.generateUniqueID();
+        this.ID = Util.generateUniqueID();
         this.components.add(new SpriteRenderer(this));
     }
 
@@ -202,7 +204,7 @@ public class Actor {
         String objAsJson = gson.toJson(this);
         Actor obj = gson.fromJson(objAsJson, Actor.class);
 
-        obj.ID = Prefabs.generateUniqueID();
+        obj.ID = Util.generateUniqueID();
         for (Component c : obj.getAllComponents()) {
             c.generateId();
         }
@@ -213,6 +215,18 @@ public class Actor {
         }
 
         return obj;
+    }
+
+    public static Actor generateSpriteObject(Sprite sprite, float sizeX, float sizeY) {
+
+        Actor actor = Window.getScene().getGame().spawnActor("Generated_Num: " + Window.getScene().getGame().getActors().size());
+        actor.transform.scale.x = sizeX;
+        actor.transform.scale.y = sizeY;
+        SpriteRenderer renderer = new SpriteRenderer(actor);
+        renderer.setSprite(sprite);
+        actor.addComponent(renderer);
+
+        return actor;
     }
 
     //====================================================================================================
@@ -315,7 +329,7 @@ public class Actor {
         // Iterates through each Component in the components list
         for (Component c : components) {
             // If the Component's header is expanded, calls its imgui method
-            if (ImGui.collapsingHeader(c.getClass().getSimpleName())) c.imgui();
+//            if (ImGui.collapsingHeader(c.getClass().getSimpleName())) c.imgui();
         }
     }
 

@@ -1,4 +1,4 @@
-package Burst.Engine.Source.Core.util;
+package Burst.Engine.Source.Core.Util;
 
 import org.joml.Vector2f;
 

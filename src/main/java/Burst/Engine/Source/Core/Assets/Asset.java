@@ -1,7 +1,7 @@
 package Burst.Engine.Source.Core.Assets;
 
 
-import Burst.Engine.Source.Core.util.Prefabs;
+import Burst.Engine.Source.Core.Util.Util;
 
 /**
  * Every asset in the engine is a subclass of this class.
@@ -14,7 +14,7 @@ public class Asset {
 
     public Asset(String filepath) {
         this.filepath = filepath;
-        this.id = Prefabs.generateHashID(filepath);
+        this.id = Util.generateHashID(filepath);
         init();
     }
 

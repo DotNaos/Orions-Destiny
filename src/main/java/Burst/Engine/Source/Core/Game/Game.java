@@ -9,12 +9,11 @@ import Burst.Engine.Source.Core.Saving.ActorDeserializer;
 import Burst.Engine.Source.Core.Saving.ComponentDeserializer;
 
 import Burst.Engine.Source.Core.Scene.Scene;
-import Burst.Engine.Source.Core.util.DebugMessage;
+import Burst.Engine.Source.Core.Util.DebugMessage;
 import Burst.Engine.Source.Editor.Panel.ViewportPanel;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import javax.swing.*;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -99,25 +98,25 @@ public class Game{
     // |--------------------------------------[ Saving and Loading ]-------------------------------------|
     // |=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
     //====================================================================================================
-    
-    public void saveLevel() {
-
-        Gson gson = new GsonBuilder()
+    private Gson gsonBuilder(){
+        return new GsonBuilder()
                 .setPrettyPrinting()
                 .registerTypeAdapter(Component.class, new ComponentDeserializer())
                 .registerTypeAdapter(Actor.class, new ActorDeserializer())
                 .enableComplexMapKeySerialization()
                 .create();
+    }
 
+    public void saveLevel() {
         try {
             FileWriter writer = new FileWriter("level.json");
-            List<Actor> objsToSerialize = new ArrayList<>();
-            for (Actor obj : this.actors) {
-                if (obj.serializedActor) {
-                    objsToSerialize.add(obj);
+            List<Actor> actorsToSerialize = new ArrayList<>();
+            for (Actor actor : this.actors) {
+                if (actor.serializedActor) {
+                    actorsToSerialize.add(actor);
                 }
             }
-            writer.write(gson.toJson(objsToSerialize));
+            writer.write(gsonBuilder().toJson(actorsToSerialize));
             writer.close();
         } catch(IOException e) {
             e.printStackTrace();
@@ -125,13 +124,6 @@ public class Game{
     }
 
     public void loadLevel() {
-        Gson gson = new GsonBuilder()
-                .setPrettyPrinting()
-                .registerTypeAdapter(Component.class, new ComponentDeserializer())
-                .registerTypeAdapter(Actor.class, new ActorDeserializer())
-                .enableComplexMapKeySerialization()
-                .create();
-
         String inFile = "";
         try {
             inFile = new String(Files.readAllBytes(Paths.get("level.json")));
@@ -145,7 +137,7 @@ public class Game{
         }
 
         if (!inFile.equals("")) {
-            Actor[] objs = gson.fromJson(inFile, Actor[].class);
+            Actor[] objs = gsonBuilder().fromJson(inFile, Actor[].class);
             for (Actor obj : objs) {
                 addActor(obj);
             }

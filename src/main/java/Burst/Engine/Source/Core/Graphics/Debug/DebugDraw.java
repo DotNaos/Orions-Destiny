@@ -8,7 +8,7 @@ import Burst.Engine.Source.Core.UI.Window;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
 import Burst.Engine.Source.Core.Assets.AssetManager;
-import Burst.Engine.Source.Core.util.BMath;
+import Burst.Engine.Source.Core.Util.BMath;
 import org.joml.Vector4f;
 
 import java.util.ArrayList;

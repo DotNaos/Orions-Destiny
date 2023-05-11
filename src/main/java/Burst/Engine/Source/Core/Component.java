@@ -3,7 +3,7 @@ package Burst.Engine.Source.Core;
 import Burst.Engine.Source.Core.Assets.AssetManager;
 import Burst.Engine.Source.Core.UI.BImGui;
 import Burst.Engine.Source.Core.Actor.Actor;
-import Burst.Engine.Source.Core.util.Prefabs;
+import Burst.Engine.Source.Core.Util.Util;
 import imgui.ImGui;
 import imgui.type.ImInt;
 import org.jbox2d.dynamics.contacts.Contact;
@@ -20,7 +20,7 @@ public abstract class Component {
     public transient Actor actor = null;
 
     public Component(Actor actor) {
-        this.ID = Prefabs.generateUniqueID();
+        this.ID = Util.generateUniqueID();
         this.actor = actor;
     }
 
@@ -122,7 +122,7 @@ public abstract class Component {
 
     public void generateId() {
         if (this.ID == -1) {
-            this.ID = Prefabs.generateUniqueID();
+            this.ID = Util.generateUniqueID();
         }
     }
 
