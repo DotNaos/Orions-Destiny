@@ -34,7 +34,7 @@ public class GridLines{
             float x = firstX + (GridLines_Config.GRID_WIDTH * i);
             float y = firstY + (GridLines_Config.GRID_HEIGHT * i);
 
-            DebugPanel.plotValue3("Gridlines","X", x ,"Y", y, "Z", i);
+//            DebugPanel.plotValue3("Gridlines","X", x ,"Y", y, "Z", i);
 
 
             if (i < numVtLines) {
