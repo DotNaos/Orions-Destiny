@@ -11,5 +11,5 @@ public abstract class Ability {
 
     public abstract void activate();
 
-
+    public abstract void init ();
 }
