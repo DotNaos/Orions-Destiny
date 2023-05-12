@@ -142,31 +142,7 @@ public class Game {
     }
 
 
-    //====================================================================================================
-    // |=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
-    // |--------------------------------------[ Input Callbacks ]----------------------------------------|
-    // |=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
-    //====================================================================================================
 
-    /**
-     * @param window
-     * @param button
-     * @param action
-     * @param mods
-     */
-
-    public void mouseButtonCallback(long window, int button, int action, int mods) {
-        if (!scene.getPanel(ViewportPanel.class).getWantCaptureMouse()) return;
-        MouseListener.mouseButtonCallback(window, button, action, mods);
-    }
-
-
-    public void mousePositionCallback(long window, double xpos, double ypos) {
-        if (scene.getPanel(ViewportPanel.class).getWantCaptureMouse()) return;
-
-        MouseListener.clear();
-
-    }
 
 
     //====================================================================================================

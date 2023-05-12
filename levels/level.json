@@ -1,6 +1,6 @@
 [
   {
-    "ID": 20,
+    "ID": 1,
     "name": "Actor: 1",
     "components": [
       {
@@ -55,7 +55,7 @@
     "serializedActor": true
   },
   {
-    "ID": 22,
+    "ID": 3,
     "name": "Actor: 2",
     "components": [
       {
@@ -110,7 +110,7 @@
     "serializedActor": true
   },
   {
-    "ID": 24,
+    "ID": 5,
     "name": "Actor: 3",
     "components": [
       {
@@ -165,7 +165,7 @@
     "serializedActor": true
   },
   {
-    "ID": 26,
+    "ID": 7,
     "name": "Actor: 4",
     "components": [
       {
@@ -220,7 +220,7 @@
     "serializedActor": true
   },
   {
-    "ID": 28,
+    "ID": 9,
     "name": "Actor: 5",
     "components": [
       {
@@ -275,7 +275,7 @@
     "serializedActor": true
   },
   {
-    "ID": 30,
+    "ID": 11,
     "name": "Actor: 6",
     "components": [
       {
@@ -330,7 +330,7 @@
     "serializedActor": true
   },
   {
-    "ID": 32,
+    "ID": 13,
     "name": "Actor: 7",
     "components": [
       {
@@ -385,7 +385,7 @@
     "serializedActor": true
   },
   {
-    "ID": 34,
+    "ID": 15,
     "name": "Actor: 8",
     "components": [
       {

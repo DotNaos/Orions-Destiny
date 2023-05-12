@@ -1,12 +1,14 @@
-package Burst.Engine.Source.Core.Game;
+package Burst.Engine.Source.Editor;
 
 import Burst.Engine.Source.Core.Actor.Actor;
+import Burst.Engine.Source.Core.Game.Game;
 import Burst.Engine.Source.Core.Graphics.Input.Components.KeyControls;
 import Burst.Engine.Source.Core.Graphics.Input.Components.MouseControls;
 import Burst.Engine.Source.Core.Graphics.Render.Components.GridLines;
 import Burst.Engine.Source.Core.Graphics.Render.PickingTexture;
 import Burst.Engine.Source.Core.Scene.Scene;
 import Burst.Engine.Source.Editor.ContentDrawer;
+import Burst.Engine.Source.Editor.EditorCamera;
 import Burst.Engine.Source.Editor.Panel.OutlinerPanel;
 import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
 
@@ -15,6 +17,7 @@ public class Editor extends Game {
     private GridLines gridLines;
     private MouseControls mouseControls;
     private KeyControls keyControls;
+    private EditorCamera editorCamera;
 
     public Editor(Scene scene) {
         super(scene);
@@ -26,6 +29,7 @@ public class Editor extends Game {
         // Variables
         pickingTexture = new PickingTexture();
         gridLines = new GridLines();
+        editorCamera = new EditorCamera(this.scene.getViewport());
 
         // Panels
         scene.addPanel(new OutlinerPanel());
@@ -45,6 +49,7 @@ public class Editor extends Game {
         this.mouseControls.update(dt);
         this.keyControls.update(dt);
         this.gridLines.update(dt);
+        this.editorCamera.update(dt);
 
         super.update(dt);
         for (Actor actor : actors) {

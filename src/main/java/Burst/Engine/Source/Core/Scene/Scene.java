@@ -1,12 +1,14 @@
 package Burst.Engine.Source.Core.Scene;
 
-import Burst.Engine.Source.Core.Game.Editor;
 import Burst.Engine.Source.Core.Game.Game;
+import Burst.Engine.Source.Core.Graphics.Input.MouseListener;
 import Burst.Engine.Source.Core.Graphics.Render.ViewportRenderer;
 import Burst.Engine.Source.Core.Scene.Initializer.*;
 import Burst.Engine.Source.Core.UI.ImGuiPanel;
 import Burst.Engine.Source.Core.UI.Viewport;
 import Burst.Engine.Source.Core.Util.DebugMessage;
+import Burst.Engine.Source.Editor.Editor;
+import Burst.Engine.Source.Editor.Panel.ViewportPanel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -117,12 +119,21 @@ public class Scene {
     }
 
     public void mouseButtonCallback(long window, int button, int action, int mods) {
+        ViewportPanel viewportPanel = getPanel(ViewportPanel.class);
+        if (viewportPanel == null) return;
+        if (!viewportPanel.getWantCaptureMouse()) return;
+        MouseListener.mouseButtonCallback(window, button, action, mods);
+    }
+
+
+    public void mousePositionCallback(long window, double xpos, double ypos) {
+        ViewportPanel viewportPanel = getPanel(ViewportPanel.class);
+        if (viewportPanel == null) return;
+        if (viewportPanel.getWantCaptureMouse()) return;
+        MouseListener.clear();
     }
 
     public void scrollCallback(long window, double xOffset, double yOffset) {
-    }
-
-    public void mousePositionCallback(long window, double xpos, double ypos) {
     }
 
 

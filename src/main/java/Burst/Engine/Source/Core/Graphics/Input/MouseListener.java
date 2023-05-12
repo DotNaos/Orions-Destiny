@@ -78,7 +78,6 @@ public class MouseListener {
     public static void mouseButtonCallback(long window, int button, int action, int mods) {
         if (action == GLFW_PRESS) {
             get().mouseButtonDown++;
-
             if (button < get().mouseButtonPressed.length) {
                 get().mouseButtonPressed[button] = true;
             }
