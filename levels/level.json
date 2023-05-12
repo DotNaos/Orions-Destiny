@@ -438,5 +438,164 @@
       }
     ],
     "serializedActor": true
+  },
+  {
+    "ID": 17,
+    "name": "Actor: 9",
+    "components": [
+      {
+        "type": "Burst.Engine.Source.Core.Graphics.Render.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.8,
+            "y": 0.8,
+            "z": 0.8,
+            "w": 0.5
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "width": 512,
+              "height": 512,
+              "filepath": "Assets/images/spritesheets/blocks.png",
+              "id": 1156898028
+            },
+            "texCoords": [
+              {
+                "x": 0.34375,
+                "y": 1.0
+              },
+              {
+                "x": 0.34375,
+                "y": 0.96875
+              },
+              {
+                "x": 0.3125,
+                "y": 0.96875
+              },
+              {
+                "x": 0.3125,
+                "y": 1.0
+              }
+            ],
+            "filepath": "",
+            "id": 0
+          },
+          "ID": 21
+        }
+      },
+      {
+        "type": "Burst.Engine.Source.Editor.NonPickable",
+        "properties": {
+          "ID": 22
+        }
+      }
+    ],
+    "serializedActor": true
+  },
+  {
+    "ID": 19,
+    "name": "Actor: 10",
+    "components": [
+      {
+        "type": "Burst.Engine.Source.Core.Graphics.Render.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.8,
+            "y": 0.8,
+            "z": 0.8,
+            "w": 0.5
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "width": 512,
+              "height": 512,
+              "filepath": "Assets/images/spritesheets/blocks.png",
+              "id": 1156898028
+            },
+            "texCoords": [
+              {
+                "x": 0.40625,
+                "y": 1.0
+              },
+              {
+                "x": 0.40625,
+                "y": 0.96875
+              },
+              {
+                "x": 0.375,
+                "y": 0.96875
+              },
+              {
+                "x": 0.375,
+                "y": 1.0
+              }
+            ],
+            "filepath": "",
+            "id": 0
+          },
+          "ID": 25
+        }
+      },
+      {
+        "type": "Burst.Engine.Source.Editor.NonPickable",
+        "properties": {
+          "ID": 26
+        }
+      }
+    ],
+    "serializedActor": true
+  },
+  {
+    "ID": 21,
+    "name": "Actor: 10",
+    "components": [
+      {
+        "type": "Burst.Engine.Source.Core.Graphics.Render.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "width": 512,
+              "height": 512,
+              "filepath": "Assets/images/spritesheets/blocks.png",
+              "id": 1156898028
+            },
+            "texCoords": [
+              {
+                "x": 0.40625,
+                "y": 1.0
+              },
+              {
+                "x": 0.40625,
+                "y": 0.96875
+              },
+              {
+                "x": 0.375,
+                "y": 0.96875
+              },
+              {
+                "x": 0.375,
+                "y": 1.0
+              }
+            ],
+            "filepath": "",
+            "id": 0
+          },
+          "ID": 25
+        }
+      }
+    ],
+    "serializedActor": true
   }
 ]

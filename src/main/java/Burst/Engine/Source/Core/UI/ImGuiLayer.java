@@ -101,10 +101,12 @@ public class ImGuiLayer {
         glfwSetScrollCallback(glfwWindow, (w, xOffset, yOffset) -> {
             io.setMouseWheelH(io.getMouseWheelH() + (float) xOffset);
             io.setMouseWheel(io.getMouseWheel() + (float) yOffset);
-            if (!io.getWantCaptureMouse() || Window.getScene().getPanel(ViewportPanel.class).getWantCaptureMouse()) {
-                MouseListener.mouseScrollCallback(w, xOffset, yOffset);
-            } else {
-                MouseListener.clear();
+            if (Window.getScene().getPanel(ViewportPanel.class) != null ){
+                if (!io.getWantCaptureMouse() || Window.getScene().getPanel(ViewportPanel.class).getWantCaptureMouse()) {
+                    MouseListener.mouseScrollCallback(w, xOffset, yOffset);
+                } else {
+                    MouseListener.clear();
+                }
             }
             Window.getScene().scrollCallback(w, xOffset, yOffset);
         });
