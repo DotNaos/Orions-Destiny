@@ -2,6 +2,8 @@ package Burst.Engine.Source.Core.Game;
 
 import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Assets.Graphics.Background;
+import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
+import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.Graphics.Input.MouseListener;
 import Burst.Engine.Source.Core.Physics.Physics2D;
@@ -47,6 +49,15 @@ public class Game{
         loadLevel();
         scene.getSceneInitializer().loadResources(this);
         start();
+
+        // Show a debug image
+        Texture tex = new Texture("assets/images/debug/blendImage1.png");
+//        tex.init();
+        Sprite sprite = new Sprite();
+        sprite.setTexture(tex);
+
+
+        this.scene.getViewportRenderer().add(new Actor(sprite, 10, 10));
     }
 
     //====================================================================================================

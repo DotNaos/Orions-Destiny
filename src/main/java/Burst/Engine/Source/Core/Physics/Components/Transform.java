@@ -40,6 +40,7 @@ public class Transform {
     public void imgui() {
         actor.name = BImGui.inputText("Name: ", actor.name);
         BImGui.drawVec2Control("Position", this.position);
+        BImGui.drawVec2Control("Size", this.size, 32.0f);
         BImGui.drawVec2Control("Scale", this.scale, 1.0f);
         this.rotation = BImGui.dragFloat("Rotation", this.rotation);
         this.zIndex = BImGui.dragInt("Z-Index", this.zIndex);
@@ -56,7 +57,7 @@ public class Transform {
         if (o == null) return false;
         if (!(o instanceof Transform t)) return false;
 
-        return t.position.equals(this.position) && t.scale.equals(this.scale) &&
+        return t.position.equals(this.position) && t.scale.equals(this.scale) && t.size.equals(this.size) &&
                 t.rotation == this.rotation && t.zIndex == this.zIndex;
     }
 }

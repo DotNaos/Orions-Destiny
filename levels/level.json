@@ -12732,5 +12732,115 @@
       }
     ],
     "serializedActor": true
+  },
+  {
+    "ID": 197,
+    "name": "Actor: 99",
+    "components": [
+      {
+        "type": "Burst.Engine.Source.Core.Graphics.Render.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.8,
+            "y": 0.8,
+            "z": 0.8,
+            "w": 0.5
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "width": 512,
+              "height": 512,
+              "filepath": "C:\\Users\\schue\\Documents\\Dev\\Java\\Orions-Destiny\\Assets\\images\\spritesheets\\blocks.png",
+              "id": 1675606578
+            },
+            "texCoords": [
+              {
+                "x": 0.375,
+                "y": 1.0
+              },
+              {
+                "x": 0.375,
+                "y": 0.96875
+              },
+              {
+                "x": 0.34375,
+                "y": 0.96875
+              },
+              {
+                "x": 0.34375,
+                "y": 1.0
+              }
+            ],
+            "filepath": "",
+            "id": 0
+          },
+          "ID": 199
+        }
+      },
+      {
+        "type": "Burst.Engine.Source.Editor.NonPickable",
+        "properties": {
+          "ID": 200
+        }
+      }
+    ],
+    "serializedActor": true
+  },
+  {
+    "ID": 199,
+    "name": "Actor: 100",
+    "components": [
+      {
+        "type": "Burst.Engine.Source.Core.Graphics.Render.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.8,
+            "y": 0.8,
+            "z": 0.8,
+            "w": 0.5
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "width": 512,
+              "height": 512,
+              "filepath": "C:\\Users\\schue\\Documents\\Dev\\Java\\Orions-Destiny\\Assets\\images\\spritesheets\\blocks.png",
+              "id": 1675606578
+            },
+            "texCoords": [
+              {
+                "x": 0.3125,
+                "y": 1.0
+              },
+              {
+                "x": 0.3125,
+                "y": 0.96875
+              },
+              {
+                "x": 0.28125,
+                "y": 0.96875
+              },
+              {
+                "x": 0.28125,
+                "y": 1.0
+              }
+            ],
+            "filepath": "",
+            "id": 0
+          },
+          "ID": 201
+        }
+      },
+      {
+        "type": "Burst.Engine.Source.Editor.NonPickable",
+        "properties": {
+          "ID": 202
+        }
+      }
+    ],
+    "serializedActor": true
   }
 ]

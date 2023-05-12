@@ -1,5 +1,8 @@
 package Burst.Engine.Source.Core.Scene;
 
+import Burst.Engine.Source.Core.Actor.Actor;
+import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
+import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Burst.Engine.Source.Core.Game.Editor;
 import Burst.Engine.Source.Core.Scene.Initializer.*;
 import Burst.Engine.Source.Core.UI.Viewport;
@@ -15,13 +18,16 @@ public class Scene {
     private SceneInitializer sceneInitializer;
     private List<ImGuiPanel> panels = new ArrayList<>();
     private Viewport viewport;
-    private final ViewportRenderer viewportRenderer;
+    private ViewportRenderer viewportRenderer;
     private boolean isPaused = false;
     private SceneType openScene = SceneType.NONE;
     private Editor editor;
     private Game game;
 
-    public Scene(SceneType sceneType) {
+    public Scene() {
+
+    }
+    public void init(SceneType sceneType) {
         this.viewport = new Viewport();
         this.viewportRenderer = new ViewportRenderer();
         this.openScene = sceneType;
@@ -58,7 +64,6 @@ public class Scene {
 
         this.sceneInitializer.init();
     }
-
 
 
 
@@ -160,4 +165,6 @@ public class Scene {
 
     public void destroy() {
     }
+
+
 }

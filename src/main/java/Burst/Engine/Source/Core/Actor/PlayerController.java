@@ -37,7 +37,7 @@ public class PlayerController extends Component {
     @Override
     public void update(float dt) {
         if (KeyListener.isKeyPressed(GLFW_KEY_RIGHT) || KeyListener.isKeyPressed(GLFW_KEY_D)) {
-            this.actor.transform.scale.x = playerWidth;
+            this.actor.transform.size.x = playerWidth;
             this.acceleration.x = walkSpeed;
 
             if (this.velocity.x < 0) {
@@ -47,7 +47,7 @@ public class PlayerController extends Component {
                 this.stateMachine.trigger("startRunning");
             }
         } else if (KeyListener.isKeyPressed(GLFW_KEY_LEFT) || KeyListener.isKeyPressed(GLFW_KEY_A)) {
-            this.actor.transform.scale.x = -playerWidth;
+            this.actor.transform.size.x = -playerWidth;
             this.acceleration.x = -walkSpeed;
 
             if (this.velocity.x > 0) {

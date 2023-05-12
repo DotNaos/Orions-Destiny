@@ -213,8 +213,8 @@ public class RenderBatch implements Comparable<RenderBatch> {
                                         sprite.actor.transform.position.y, 0f);
             transformMatrix.rotate((float)Math.toRadians(sprite.actor.transform.rotation),
                     0, 0, 1);
-            transformMatrix.scale(sprite.actor.transform.scale.x,
-                    sprite.actor.transform.scale.y, 1);
+            transformMatrix.scale(sprite.actor.transform.size.x,
+                    sprite.actor.transform.size.y, 1);
         }
 
         // Add vertices with the appropriate properties
@@ -229,8 +229,8 @@ public class RenderBatch implements Comparable<RenderBatch> {
                 yAdd = 0.5f;
             }
 
-            Vector4f currentPos = new Vector4f(sprite.actor.transform.position.x + (xAdd * sprite.actor.transform.scale.x),
-                    sprite.actor.transform.position.y + (yAdd * sprite.actor.transform.scale.y),
+            Vector4f currentPos = new Vector4f(sprite.actor.transform.position.x + (xAdd * sprite.actor.transform.size.x),
+                    sprite.actor.transform.position.y + (yAdd * sprite.actor.transform.size.y),
                     0, 1);
             if (isRotated) {
                 currentPos = new Vector4f(xAdd, yAdd, 0, 1).mul(transformMatrix);

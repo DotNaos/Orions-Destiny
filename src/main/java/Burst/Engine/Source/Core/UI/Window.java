@@ -56,7 +56,8 @@ public class Window implements Observer {
     }
 
     public static void changeScene(SceneType sceneType) {
-        currentScene = new Scene(sceneType);
+        currentScene = new Scene();
+        currentScene.init(sceneType);
     }
 
     public static Window get() {
