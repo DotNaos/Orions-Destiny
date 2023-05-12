@@ -11,6 +11,10 @@ public class Asset {
     protected String filepath;
     protected long id;
 
+    /**
+     * Creates an asset with the given filepath.
+     * @param filepath The filepath of the asset.
+     */
 
     public Asset(String filepath) {
         this.filepath = filepath;

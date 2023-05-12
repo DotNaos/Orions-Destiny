@@ -42,12 +42,11 @@ public class Actor {
      */
     public transient Transform transform;
 
-    SpriteRenderer spriteRenderer;
 
     /**
      * Whether this actor is serialized when saving and loading.
      */
-    public boolean serializedActor = true;
+    public transient boolean serializedActor = true;
 
 
     //====================================================================================================
@@ -70,9 +69,9 @@ public class Actor {
     public Actor(Sprite sprite, float sizeX, float sizeY)
     {
         this("Actor: " + (Window.getScene().getGame().getActors().size() + 1));
-        this.spriteRenderer = new SpriteRenderer(this);
-        this.spriteRenderer.setSprite(sprite);
-        this.components.add(this.spriteRenderer);
+        SpriteRenderer spriteRenderer = new SpriteRenderer(this);
+        spriteRenderer.setSprite(sprite);
+        this.components.add(spriteRenderer);
         this.transform.size = new Vector2f(sizeX, sizeY);
     }
 
@@ -246,11 +245,29 @@ public class Actor {
      */
     public void addComponent(Component c) throws NullPointerException
     {
+        // Check if component is null
+        if (c == null) {
+            throw new NullPointerException("Cannot add null component to actor.");
+        }
+
+        // Check if actor already has component
+        if (hasComponent(c.getClass())) {
+            return;
+        }
         c.generateId();
         this.components.add(c);
         c.actor = this;
 
         c.start();
+    }
+
+    private boolean hasComponent(Class<? extends Component> aClass) {
+        for (Component c : components) {
+            if (c.getClass().equals(aClass)) {
+                return true;
+            }
+        }
+        return false;
     }
 
 

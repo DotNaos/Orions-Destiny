@@ -183,9 +183,6 @@ public class AssetManager {
             DebugMessage.notFound("Did not found: " + filePath);
             return null;
         }
-        else {
-            filePath = file.getAbsolutePath();
-        }
 
 
         if (assetType.equals(Spritesheet.class)) {
