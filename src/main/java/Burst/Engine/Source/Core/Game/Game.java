@@ -85,6 +85,8 @@ public class Game{
 
     public void addActor(Actor actor) {
             actors.add(actor);
+            if (!actor.serializedActor) return;
+            saveLevel();
     }
 
     
@@ -109,7 +111,7 @@ public class Game{
 
     public void saveLevel() {
         try {
-            FileWriter writer = new FileWriter("level.json");
+            FileWriter writer = new FileWriter(".\\levels\\level.json");
             List<Actor> actorsToSerialize = new ArrayList<>();
             for (Actor actor : this.actors) {
                 if (actor.serializedActor) {
@@ -126,7 +128,7 @@ public class Game{
     public void loadLevel() {
         String inFile = "";
         try {
-            inFile = new String(Files.readAllBytes(Paths.get("level.json")));
+            inFile = new String(Files.readAllBytes(Paths.get(".\\levels\\level.json")));
         } catch (IOException e)
         {
             if (e instanceof NoSuchFileException) {
@@ -137,9 +139,9 @@ public class Game{
         }
 
         if (!inFile.equals("")) {
-            Actor[] objs = gsonBuilder().fromJson(inFile, Actor[].class);
-            for (Actor obj : objs) {
-                addActor(obj);
+            Actor[] actors = gsonBuilder().fromJson(inFile, Actor[].class);
+            for (Actor actor : actors) {
+                addActor(actor);
             }
         }
     }

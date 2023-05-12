@@ -219,7 +219,7 @@ public class Actor {
 
     public static Actor generateSpriteObject(Sprite sprite, float sizeX, float sizeY) {
 
-        Actor actor = Window.getScene().getGame().spawnActor("Generated_Num: " + Window.getScene().getGame().getActors().size());
+        Actor actor = Window.getScene().getGame().spawnActor("Actor: " + Window.getScene().getGame().getActors().size() + 1);
         actor.transform.scale.x = sizeX;
         actor.transform.scale.y = sizeY;
         SpriteRenderer renderer = new SpriteRenderer(actor);
