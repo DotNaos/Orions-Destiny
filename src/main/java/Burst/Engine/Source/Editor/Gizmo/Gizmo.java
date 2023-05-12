@@ -41,8 +41,8 @@ public class Gizmo extends Component {
 
     public Gizmo(Sprite arrowSprite, PropertiesPanel propertiesPanel) {
         super(null);
-        this.xAxisObject = Actor.generateSpriteObject(arrowSprite, gizmoWidth, gizmoHeight);
-        this.yAxisObject = Actor.generateSpriteObject(arrowSprite, gizmoWidth, gizmoHeight);
+        this.xAxisObject = new Actor(arrowSprite, gizmoWidth, gizmoHeight);
+        this.yAxisObject = new Actor(arrowSprite, gizmoWidth, gizmoHeight);
         this.xAxisSprite = this.xAxisObject.getComponent(SpriteRenderer.class);
         this.yAxisSprite = this.yAxisObject.getComponent(SpriteRenderer.class);
         this.propertiesPanel = propertiesPanel;

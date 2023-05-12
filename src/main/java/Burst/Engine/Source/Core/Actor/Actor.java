@@ -14,6 +14,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import imgui.ImGui;
 import Burst.Engine.Source.Core.Assets.AssetManager;
+import org.joml.Vector2f;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +42,8 @@ public class Actor {
      */
     public transient Transform transform;
 
+    SpriteRenderer spriteRenderer;
+
     /**
      * Whether this actor is serialized when saving and loading.
      */
@@ -58,10 +61,19 @@ public class Actor {
      * Automatically generates a unique ID and creates a new Transform component.
      */
     public Actor() {
+        this.name = name;
         this.components = new ArrayList<>();
         this.transform = new Transform(this);
         this.ID = Util.generateUniqueID();
-        this.components.add(new SpriteRenderer(this));
+    }
+
+    public Actor(Sprite sprite, float sizeX, float sizeY)
+    {
+        this("Actor: " + (Window.getScene().getGame().getActors().size() + 1));
+        this.spriteRenderer = new SpriteRenderer(this);
+        this.spriteRenderer.setSprite(sprite);
+        this.components.add(this.spriteRenderer);
+        this.transform.size = new Vector2f(sizeX, sizeY);
     }
 
     /**
@@ -217,17 +229,6 @@ public class Actor {
         return obj;
     }
 
-    public static Actor generateSpriteObject(Sprite sprite, float sizeX, float sizeY) {
-
-        Actor actor = Window.getScene().getGame().spawnActor("Actor: " + Window.getScene().getGame().getActors().size() + 1);
-        actor.transform.scale.x = sizeX;
-        actor.transform.scale.y = sizeY;
-        SpriteRenderer renderer = new SpriteRenderer(actor);
-        renderer.setSprite(sprite);
-        actor.addComponent(renderer);
-
-        return actor;
-    }
 
     //====================================================================================================
     // |=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
