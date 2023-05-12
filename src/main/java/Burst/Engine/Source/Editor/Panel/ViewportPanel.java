@@ -1,17 +1,17 @@
 package Burst.Engine.Source.Editor.Panel;
 
-import Burst.Engine.Source.Core.Observer.*;
+import Burst.Engine.Source.Core.Graphics.Input.MouseListener;
+import Burst.Engine.Source.Core.Observer.EventSystem;
 import Burst.Engine.Source.Core.Observer.Events.Event;
 import Burst.Engine.Source.Core.Observer.Events.EventType;
 import Burst.Engine.Source.Core.Scene.SceneType;
 import Burst.Engine.Source.Core.UI.ImGuiPanel;
+import Burst.Engine.Source.Core.UI.Window;
 import imgui.ImGui;
 import imgui.ImGuiViewport;
 import imgui.ImVec2;
 import imgui.flag.ImGuiCond;
 import imgui.flag.ImGuiWindowFlags;
-import Burst.Engine.Source.Core.Graphics.Input.MouseListener;
-import Burst.Engine.Source.Core.UI.Window;
 import org.joml.Vector2f;
 
 public class ViewportPanel extends ImGuiPanel {
@@ -24,8 +24,7 @@ public class ViewportPanel extends ImGuiPanel {
         boolean inGame = Window.getScene().getOpenScene() == SceneType.GAME;
         int inGameFlags = 0;
 
-        if (inGame)
-        {
+        if (inGame) {
             // The next window is displayed in the center of the screen in the viewport
             ImGuiViewport mainViewport = ImGui.getMainViewport();
             ImGui.setNextWindowPos(mainViewport.getWorkPosX() + mainViewport.getWorkSizeX() / 2, mainViewport.getWorkPosY() + mainViewport.getWorkSizeY() / 2, ImGuiCond.Always, 0.5f, 0.5f);
@@ -37,12 +36,7 @@ public class ViewportPanel extends ImGuiPanel {
         }
 
 
-        ImGui.begin("Viewport",
-                ImGuiWindowFlags.NoTitleBar |
-                                ImGuiWindowFlags.NoScrollbar |
-                                ImGuiWindowFlags.NoScrollWithMouse |
-                                ImGuiWindowFlags.MenuBar | inGameFlags
-        );
+        ImGui.begin("Viewport", ImGuiWindowFlags.NoTitleBar | ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoScrollWithMouse | ImGuiWindowFlags.MenuBar | inGameFlags);
 
         if (!inGame) {
             ImGui.beginMenuBar();
@@ -56,7 +50,6 @@ public class ViewportPanel extends ImGuiPanel {
             }
             ImGui.endMenuBar();
         }
-
 
 
         ImGui.setCursorPos(ImGui.getCursorPosX(), ImGui.getCursorPosY());

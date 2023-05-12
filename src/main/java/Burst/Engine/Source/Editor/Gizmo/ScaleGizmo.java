@@ -1,8 +1,8 @@
 package Burst.Engine.Source.Editor.Gizmo;
 
-import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
-import Burst.Engine.Source.Core.Graphics.Input.MouseListener;
 import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
+import Burst.Engine.Source.Core.Graphics.Input.MouseListener;
+import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
 
 public class ScaleGizmo extends Gizmo {
     public ScaleGizmo(Sprite scaleSprite, PropertiesPanel propertiesPanel) {

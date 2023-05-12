@@ -1,10 +1,10 @@
 package Burst.Engine.Source.Editor.Panel;
 
+import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.UI.ImGuiPanel;
+import Burst.Engine.Source.Core.UI.Window;
 import imgui.ImGui;
 import imgui.flag.ImGuiTreeNodeFlags;
-import Burst.Engine.Source.Core.Actor.Actor;
-import Burst.Engine.Source.Core.UI.Window;
 
 import java.util.List;
 
@@ -16,15 +16,15 @@ public class OutlinerPanel extends ImGuiPanel {
     public void imgui() {
         ImGui.begin("Outliner");
 
-        
+
         List<Actor> actors = Window.getScene().getGame().getActors();
         int index = 0;
-        for (Actor obj : actors) {
-            if (!obj.serializedActor) {
+        for (Actor actor : actors) {
+            if (!actor.isSerializedActor()) {
                 continue;
             }
 
-            boolean treeNodeOpen = doTreeNode(obj, index);
+            boolean treeNodeOpen = doTreeNode(actor, index);
             if (treeNodeOpen) {
                 ImGui.treePop();
             }
@@ -33,21 +33,14 @@ public class OutlinerPanel extends ImGuiPanel {
         ImGui.end();
     }
 
-    private boolean doTreeNode(Actor obj, int index) {
+    private boolean doTreeNode(Actor actor, int index) {
         ImGui.pushID(index);
-        boolean treeNodeOpen = ImGui.treeNodeEx(
-                obj.name,
-                ImGuiTreeNodeFlags.DefaultOpen |
-                        ImGuiTreeNodeFlags.FramePadding |
-                        ImGuiTreeNodeFlags.OpenOnArrow |
-                        ImGuiTreeNodeFlags.SpanAvailWidth,
-                obj.name
-        );
+        boolean treeNodeOpen = ImGui.treeNodeEx(actor.getName(), ImGuiTreeNodeFlags.DefaultOpen | ImGuiTreeNodeFlags.FramePadding | ImGuiTreeNodeFlags.OpenOnArrow | ImGuiTreeNodeFlags.SpanAvailWidth, actor.getName());
         ImGui.popID();
 
         if (ImGui.beginDragDropSource()) {
-            ImGui.setDragDropPayloadObject(payloadDragDropType, obj);
-            ImGui.text(obj.name);
+            ImGui.setDragDropPayloadObject(payloadDragDropType, actor);
+            ImGui.text(actor.getName());
             ImGui.endDragDropSource();
         }
 
@@ -55,8 +48,8 @@ public class OutlinerPanel extends ImGuiPanel {
             Object payloadObj = ImGui.acceptDragDropPayloadObject(payloadDragDropType);
             if (payloadObj != null) {
                 if (payloadObj.getClass().isAssignableFrom(Actor.class)) {
-                    Actor playerGameObj = (Actor)payloadObj;
-                    System.out.println("Payload accepted '" + playerGameObj.name + "'");
+                    Actor playerActor = (Actor) payloadObj;
+                    System.out.println("Payload accepted '" + playerActor.getName() + "'");
                 }
             }
             ImGui.endDragDropTarget();

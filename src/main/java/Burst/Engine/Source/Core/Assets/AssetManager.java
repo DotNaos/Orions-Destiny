@@ -29,7 +29,6 @@ public class AssetManager {
     private static Map<String, UI_Assets> UIs = new HashMap<>();
 
 
-
     public static void loadAllAssets() {
         DebugMessage.noDebug = true;
         DebugMessage.header("Loading Assets");
@@ -89,7 +88,7 @@ public class AssetManager {
         } else if (assetType.equals(Shader.class)) {
             assetDir = ShaderConfig.SHADER_PATH;
             String[] foundFiles = searchDirectory(assetDir, "glsl");
-            
+
             // Add all assetPaths to the map
             for (String assetPath : foundFiles) {
                 shaders.put(assetPath, new Shader(assetPath));
@@ -188,31 +187,31 @@ public class AssetManager {
         if (assetType.equals(Spritesheet.class)) {
 
             return assetType.cast(AssetManager.spritesheets.getOrDefault(filePath, null));
-            
+
         } else if (assetType.equals(Sprite.class)) {
-            
+
             return assetType.cast(AssetManager.sprites.getOrDefault(filePath, null));
-            
+
         } else if (assetType.equals(Texture.class)) {
             if (AssetManager.textures.containsKey(filePath)) {
-                
+
                 return assetType.cast(AssetManager.textures.get(filePath));
-                
+
             } else {
                 // Create a new texture and add it to the map
 
 
                 Texture texture = new Texture(filePath);
                 AssetManager.textures.put(filePath, texture);
-                
+
                 return assetType.cast(texture);
-                
+
             }
         } else if (assetType.equals(Shader.class)) {
             if (AssetManager.shaders.containsKey(filePath)) {
-                
+
                 return assetType.cast(AssetManager.shaders.get(filePath));
-                
+
             } else {
                 // Create a new shader and add it to the map
                 Shader shader = new Shader(filePath);
@@ -221,19 +220,19 @@ public class AssetManager {
                 return assetType.cast(shader);
             }
         } else if (assetType.equals(Sound.class)) {
-            return assetType.cast( AssetManager.sounds.getOrDefault(filePath, null));
+            return assetType.cast(AssetManager.sounds.getOrDefault(filePath, null));
         } else if (assetType.equals(Font.class)) {
             DebugMessage.notFound(assetType + "IS NOT IMPLEMENTED YET");
-            return assetType.cast( AssetManager.fonts.getOrDefault(filePath, null));
+            return assetType.cast(AssetManager.fonts.getOrDefault(filePath, null));
         } else if (assetType.equals(LevelMap.class)) {
             DebugMessage.notFound(assetType + "IS NOT IMPLEMENTED YET");
-            return assetType.cast( AssetManager.maps.getOrDefault(filePath, null));
+            return assetType.cast(AssetManager.maps.getOrDefault(filePath, null));
         } else if (assetType.equals(Background.class)) {
             DebugMessage.notFound(assetType + "IS NOT IMPLEMENTED YET");
-            return assetType.cast( AssetManager.backgrounds.getOrDefault(filePath, null));
+            return assetType.cast(AssetManager.backgrounds.getOrDefault(filePath, null));
         } else if (assetType.equals(UI_Assets.class)) {
             DebugMessage.notFound(assetType + "IS NOT IMPLEMENTED YET");
-            return assetType.cast( AssetManager.UIs.getOrDefault(filePath, null));
+            return assetType.cast(AssetManager.UIs.getOrDefault(filePath, null));
         }
         DebugMessage.notFound("Did not found: " + assetType);
         return null;

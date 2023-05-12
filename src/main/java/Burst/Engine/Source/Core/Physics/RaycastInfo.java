@@ -35,7 +35,7 @@ public class RaycastInfo implements RayCastCallback {
         this.normal = new Vector2f(normal.x, normal.y);
         this.fraction = fraction;
         this.hit = fraction != 0;
-        this.hitObject = (Actor)fixture.m_userData;
+        this.hitObject = (Actor) fixture.m_userData;
 
         return fraction;
     }

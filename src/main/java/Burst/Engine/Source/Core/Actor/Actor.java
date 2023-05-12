@@ -1,52 +1,49 @@
 package Burst.Engine.Source.Core.Actor;
 
 
+import Burst.Engine.Source.Core.Assets.AssetManager;
 import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
 import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Burst.Engine.Source.Core.Component;
-import Burst.Engine.Source.Core.Physics.Components.Transform;
-import Burst.Engine.Source.Core.Saving.ComponentDeserializer;
-import Burst.Engine.Source.Core.Saving.ActorDeserializer;
 import Burst.Engine.Source.Core.Graphics.Render.SpriteRenderer;
+import Burst.Engine.Source.Core.Physics.Components.Transform;
+import Burst.Engine.Source.Core.Saving.ActorDeserializer;
+import Burst.Engine.Source.Core.Saving.ComponentDeserializer;
 import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Core.Util.Util;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import imgui.ImGui;
-import Burst.Engine.Source.Core.Assets.AssetManager;
 import org.joml.Vector2f;
 
 import java.util.ArrayList;
 import java.util.List;
+
 /**
  * Represents an object in the game world that can have Components attached to it.
  */
 public class Actor {
+    /**
+     * The Transform component attached to this actor.
+     * This is automatically added when the actor is created.
+     */
+    public transient Transform transform;
     /**
      * The ID of the actor.
      * This is set to -1 by default, and is set to a unique ID when the actor is created.
      * This is used to identify the actor when saving and loading or when searching for an actor.
      */
     private long ID = -1;
-
     /**
      * The name of the actor.
      * This is set to  "New Actor" by default, and is set to the name of the actor when the actor is created.
      * Besides being used to identify the actor, this is also used to display the actor in the editor.
      */
-    public String name = "New Actor";
+    private String name = "New Actor";
     private List<Component> components;
-    /**
-     * The Transform component attached to this actor.
-     * This is automatically added when the actor is created.
-     */
-    public transient Transform transform;
-
-
     /**
      * Whether this actor is serialized when saving and loading.
      */
-    public transient boolean serializedActor = true;
+    private boolean serializedActor = true;
 
 
     //====================================================================================================
@@ -66,8 +63,7 @@ public class Actor {
         this.ID = Util.generateUniqueID();
     }
 
-    public Actor(Sprite sprite, float sizeX, float sizeY)
-    {
+    public Actor(Sprite sprite, float sizeX, float sizeY) {
         this("Actor: " + (Window.getScene().getGame().getActors().size() + 1));
         SpriteRenderer spriteRenderer = new SpriteRenderer(this);
         spriteRenderer.setSprite(sprite);
@@ -78,6 +74,7 @@ public class Actor {
     /**
      * Creates a new Actor instance with a given name.
      * Automatically generates a unique ID and creates a new Transform component.
+     *
      * @param name The name to give to the actor.
      */
     public Actor(String name) {
@@ -88,9 +85,10 @@ public class Actor {
     /**
      * Creates a new Actor instance with a given name and position.
      * Automatically generates a unique ID and creates a new Transform component.
+     *
      * @param name The name to give to the actor.
-     * @param x The x position of the actor.
-     * @param y The y position of the actor.
+     * @param x    The x position of the actor.
+     * @param y    The y position of the actor.
      */
     public Actor(String name, float x, float y) {
         this(name);
@@ -100,9 +98,10 @@ public class Actor {
     /**
      * Creates a new Actor instance with a given name, position, and rotation.
      * Automatically generates a unique ID and creates a new Transform component.
-     * @param name The name to give to the actor.
-     * @param x The x position of the actor.
-     * @param y The y position of the actor.
+     *
+     * @param name     The name to give to the actor.
+     * @param x        The x position of the actor.
+     * @param y        The y position of the actor.
      * @param rotation The rotation of the actor.
      */
 
@@ -114,12 +113,13 @@ public class Actor {
     /**
      * Creates a new Actor instance with a given name, position, rotation, and scale.
      * Automatically generates a unique ID and creates a new Transform component.
-     * @param name The name to give to the actor.
-     * @param x The x position of the actor.
-     * @param y The y position of the actor.
+     *
+     * @param name     The name to give to the actor.
+     * @param x        The x position of the actor.
+     * @param y        The y position of the actor.
      * @param rotation The rotation of the actor.
-     * @param scaleX The x scale of the actor.
-     * @param scaleY The y scale of the actor.
+     * @param scaleX   The x scale of the actor.
+     * @param scaleY   The y scale of the actor.
      */
 
     public Actor(String name, float x, float y, float rotation, float scaleX, float scaleY) {
@@ -130,7 +130,8 @@ public class Actor {
     /**
      * Creates a new Actor instance with a given name, transform
      * Automatically generates a unique ID and creates a new Transform component.
-     * @param name The name to give to the actor.
+     *
+     * @param name      The name to give to the actor.
      * @param transform The transform to give to the actor.
      */
     public Actor(String name, Transform transform) {
@@ -140,25 +141,28 @@ public class Actor {
 
 
     /**
-     Initializes the object.
-     <p>
-     This method is called by the system when the object is first created, before it is put into service.
-     It is recommended to override this method to perform any initialization such as allocating resources or
-     initializing variables.
-     </p>
-     <p>
-     The default implementation of this method does nothing.
-     </p>
-     <p>
-     <b>Note:</b> This method should not be called directly by application code. Instead, it should be called by the
-     system when the object is first created.
-     </p>
-     @see #destroy()
-     @see #start()
+     * Initializes the object.
+     * <p>
+     * This method is called by the system when the object is first created, before it is put into service.
+     * It is recommended to override this method to perform any initialization such as allocating resources or
+     * initializing variables.
+     * </p>
+     * <p>
+     * The default implementation of this method does nothing.
+     * </p>
+     * <p>
+     * <b>Note:</b> This method should not be called directly by application code. Instead, it should be called by the
+     * system when the object is first created.
+     * </p>
+     *
+     * @see #destroy()
+     * @see #start()
      */
-    public void init() {}
+    public void init() {
+    }
 
-    public void start() {}
+    public void start() {
+    }
 
     //====================================================================================================
     // |=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
@@ -168,6 +172,7 @@ public class Actor {
 
     /**
      * Calls the update() method of all components attached to this actor.
+     *
      * @param dt The time elapsed since the last frame in seconds.
      */
     public void update(float dt) {
@@ -178,6 +183,7 @@ public class Actor {
 
     /**
      * Calls the updateEditor() method of all components attached to this actor.
+     *
      * @param dt The time elapsed since the last frame in seconds.
      */
     public void updateEditor(float dt) {
@@ -203,6 +209,7 @@ public class Actor {
 
     /**
      * Creates a copy of this actor.
+     *
      * @return A new Actor instance that is a copy of this actor.
      */
     public Actor copy() {
@@ -236,15 +243,12 @@ public class Actor {
     //====================================================================================================
 
     /**
-
-     Adds a {@link Component} to this actor's list of components, generates an ID for the component, and sets the component's actor to this actor.
-
-     @param c the component to add to this actor's list of components
-
-     @throws NullPointerException if the specified component is {@code null}
+     * Adds a {@link Component} to this actor's list of components, generates an ID for the component, and sets the component's actor to this actor.
+     *
+     * @param c the component to add to this actor's list of components
+     * @throws NullPointerException if the specified component is {@code null}
      */
-    public void addComponent(Component c) throws NullPointerException
-    {
+    public void addComponent(Component c) throws NullPointerException {
         // Check if component is null
         if (c == null) {
             throw new NullPointerException("Cannot add null component to actor.");
@@ -272,18 +276,18 @@ public class Actor {
 
 
     /**
-     Removes the first occurrence of a {@link Component} of the specified {@link Class} from the internal list of components.
-     @param <T> the type of the component to remove
-     @param componentClass the {@link Class} object representing the type of the component to remove
-     @throws NullPointerException if componentClass is null
-     @see Component
-     @see Class
-     @see List
-     @since 1.0
+     * Removes the first occurrence of a {@link Component} of the specified {@link Class} from the internal list of components.
+     *
+     * @param <T>            the type of the component to remove
+     * @param componentClass the {@link Class} object representing the type of the component to remove
+     * @throws NullPointerException if componentClass is null
+     * @see Component
+     * @see Class
+     * @see List
+     * @since 1.0
      */
-    public <T extends Component> void removeComponent(Class<T> componentClass) throws NullPointerException
-    {
-        for (int i=0; i < components.size(); i++) {
+    public <T extends Component> void removeComponent(Class<T> componentClass) throws NullPointerException {
+        for (int i = 0; i < components.size(); i++) {
             Component c = components.get(i);
             if (componentClass.isAssignableFrom(c.getClass())) {
                 components.remove(i);
@@ -294,16 +298,16 @@ public class Actor {
 
 
     /**
-     Returns the first component of the specified {@code componentClass} found in the {@code components} list, or {@code null} if none is found.
-     @param <T> the type of the component
-     @param componentClass the class of the component to be retrieved
-     @return the first component of the specified {@code componentClass} found in the {@code components} list, or {@code null} if none is found
-     @throws ClassCastException if the component cannot be cast to the specified class
-     @see Class#isAssignableFrom(Class)
-     @see Class#cast(Object)
+     * Returns the first component of the specified {@code componentClass} found in the {@code components} list, or {@code null} if none is found.
+     *
+     * @param <T>            the type of the component
+     * @param componentClass the class of the component to be retrieved
+     * @return the first component of the specified {@code componentClass} found in the {@code components} list, or {@code null} if none is found
+     * @throws ClassCastException if the component cannot be cast to the specified class
+     * @see Class#isAssignableFrom(Class)
+     * @see Class#cast(Object)
      */
-    public <T extends Component> T getComponent(Class<T> componentClass) throws ClassCastException
-    {
+    public <T extends Component> T getComponent(Class<T> componentClass) throws ClassCastException {
         for (Component c : components) {
             if (componentClass.isAssignableFrom(c.getClass())) {
                 try {
@@ -319,10 +323,11 @@ public class Actor {
     }
 
     /**
-     Returns a List of all the Components stored within this object.
-     @return a List of all the Components
-     @see Component
-     @see List
+     * Returns a List of all the Components stored within this object.
+     *
+     * @return a List of all the Components
+     * @see Component
+     * @see List
      */
     public List<Component> getAllComponents() {
         return this.components;
@@ -335,13 +340,14 @@ public class Actor {
     //====================================================================================================
 
     /**
-     Generates an imgui interface for each Component in the components list that is contained in a collapsing header
-     identified by the component's simple class name.
-     @implNote Uses the ImGui.collapsingHeader method to create the collapsing header.
-     @implSpec The imgui method of each Component is called if and only if its associated header is expanded.
-     @see <a href="https://github.com/ocornut/imgui">ImGui</a>
-     @see Component#imgui()
-     @throws NullPointerException if components is null or contains null elements.
+     * Generates an imgui interface for each Component in the components list that is contained in a collapsing header
+     * identified by the component's simple class name.
+     *
+     * @throws NullPointerException if components is null or contains null elements.
+     * @implNote Uses the ImGui.collapsingHeader method to create the collapsing header.
+     * @implSpec The imgui method of each Component is called if and only if its associated header is expanded.
+     * @see <a href="https://github.com/ocornut/imgui">ImGui</a>
+     * @see Component#imgui()
      */
     public void imgui() {
         // Iterates through each Component in the components list
@@ -360,9 +366,25 @@ public class Actor {
     //====================================================================================================
 
     /**
-     @return the unique identifier of the object.
+     * @return the unique identifier of the object.
      */
     public long getID() {
         return this.ID;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public boolean isSerializedActor() {
+        return this.serializedActor;
+    }
+
+    public void setNotSerializable() {
+        this.serializedActor = false;
     }
 }

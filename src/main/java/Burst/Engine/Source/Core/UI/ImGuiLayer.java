@@ -4,19 +4,17 @@ import Burst.Engine.Config.Constants.Font_Config;
 import Burst.Engine.Config.ImGuiStyleConfig;
 import Burst.Engine.Source.Core.Graphics.Input.KeyListener;
 import Burst.Engine.Source.Core.Graphics.Input.MouseListener;
+import Burst.Engine.Source.Core.Scene.Scene;
 import Burst.Engine.Source.Editor.Panel.ViewportPanel;
 import imgui.*;
 import imgui.callback.ImStrConsumer;
 import imgui.callback.ImStrSupplier;
-import imgui.flag.ImGuiCol;
 import imgui.flag.ImGuiConfigFlags;
 import imgui.flag.ImGuiStyleVar;
 import imgui.flag.ImGuiWindowFlags;
 import imgui.gl3.ImGuiImplGl3;
 import imgui.glfw.ImGuiImplGlfw;
 import imgui.type.ImBoolean;
-import Burst.Engine.Source.Core.Scene.Scene;
-import Orion.res.Assets;
 
 import java.io.File;
 
@@ -27,12 +25,10 @@ import static org.lwjgl.opengl.GL30.glBindFramebuffer;
 
 public class ImGuiLayer {
 
-    private long glfwWindow;
-
     // LWJGL3 renderer (SHOULD be initialized)
     private final ImGuiImplGl3 imGuiGl3 = new ImGuiImplGl3();
     private final ImGuiImplGlfw imGuiGlfw = new ImGuiImplGlfw();
-
+    private long glfwWindow;
 
 
     public ImGuiLayer(long glfwWindow) {
@@ -137,8 +133,7 @@ public class ImGuiLayer {
         // Read: https://raw.githubusercontent.com/ocornut/imgui/master/docs/FONTS.txt
 
 
-        if (new File(Font_Config.UI).isFile())
-        {
+        if (new File(Font_Config.UI).isFile()) {
             final ImFontAtlas fontAtlas = io.getFonts();
             final ImFontConfig fontConfig = new ImFontConfig(); // Natively allocated object, should be explicitly destroyed
 
@@ -239,16 +234,13 @@ public class ImGuiLayer {
         ImGui.pushStyleVar(ImGuiStyleVar.WindowRounding, 0.0f);
         ImGui.pushStyleVar(ImGuiStyleVar.WindowBorderSize, 0.0f);
 
-        windowFlags |= ImGuiWindowFlags.NoTitleBar | ImGuiWindowFlags.NoCollapse |
-                ImGuiWindowFlags.NoResize | ImGuiWindowFlags.NoMove |
-                ImGuiWindowFlags.NoBringToFrontOnFocus | ImGuiWindowFlags.NoNavFocus;
+        windowFlags |= ImGuiWindowFlags.NoTitleBar | ImGuiWindowFlags.NoCollapse | ImGuiWindowFlags.NoResize | ImGuiWindowFlags.NoMove | ImGuiWindowFlags.NoBringToFrontOnFocus | ImGuiWindowFlags.NoNavFocus;
 
         ImGui.begin("Dockspace Demo", new ImBoolean(true), windowFlags);
         ImGui.popStyleVar(2);
 
         // Dockspace
         ImGui.dockSpace(ImGui.getID("Dockspace"));
-
 
 
         ImGui.end();

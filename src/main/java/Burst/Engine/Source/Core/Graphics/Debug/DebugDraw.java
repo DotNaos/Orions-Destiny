@@ -1,14 +1,13 @@
 package Burst.Engine.Source.Core.Graphics.Debug;
 
 import Burst.Engine.Config.ShaderConfig;
-
+import Burst.Engine.Source.Core.Assets.AssetManager;
 import Burst.Engine.Source.Core.Assets.Graphics.Shader;
 import Burst.Engine.Source.Core.UI.Viewport;
 import Burst.Engine.Source.Core.UI.Window;
+import Burst.Engine.Source.Core.Util.BMath;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
-import Burst.Engine.Source.Core.Assets.AssetManager;
-import Burst.Engine.Source.Core.Util.BMath;
 import org.joml.Vector4f;
 
 import java.util.ArrayList;
@@ -59,7 +58,7 @@ public class DebugDraw {
         }
 
         // Remove dead lines
-        for (int i=0; i < lines.size(); i++) {
+        for (int i = 0; i < lines.size(); i++) {
             if (lines.get(i).beginFrame() < 0) {
                 lines.remove(i);
                 i--;
@@ -73,7 +72,7 @@ public class DebugDraw {
 
         int index = 0;
         for (Line2D line : lines) {
-            for (int i=0; i < 2; i++) {
+            for (int i = 0; i < 2; i++) {
                 Vector2f position = i == 0 ? line.getFrom() : line.getTo();
                 Vector3f color = new Vector3f(line.getColor().x, line.getColor().y, line.getColor().z);
 
@@ -127,8 +126,7 @@ public class DebugDraw {
         addLine2D(from, to, color, 1);
     }
 
-    public static void addLine2D(Vector2f from, Vector2f to, Vector3f color, int lifetime)
-    {
+    public static void addLine2D(Vector2f from, Vector2f to, Vector3f color, int lifetime) {
         addLine2D(from, to, new Vector4f(color, 1.0f), lifetime);
     }
 
@@ -140,7 +138,7 @@ public class DebugDraw {
                 add(new Vector2f(4.0f, 4.0f));
         boolean lineInView =
                 ((from.x >= cameraLeft.x && from.x <= cameraRight.x) && (from.y >= cameraLeft.y && from.y <= cameraRight.y)) ||
-                ((to.x >= cameraLeft.x && to.x <= cameraRight.x) && (to.y >= cameraLeft.y && to.y <= cameraRight.y));
+                        ((to.x >= cameraLeft.x && to.x <= cameraRight.x) && (to.y >= cameraLeft.y && to.y <= cameraRight.y));
         if (lines.size() >= MAX_LINES || !lineInView) {
             return;
         }
@@ -158,6 +156,7 @@ public class DebugDraw {
     public static void addBox2D(Vector2f center, Vector2f dimensions, float rotation, Vector3f color) {
         addBox2D(center, dimensions, rotation, color, 1);
     }
+
     public static void addBox2D(Vector2f center, Vector2f dimensions, float rotation, Vector4f color) {
         addBox2D(center, dimensions, rotation, color, 1);
     }
@@ -173,8 +172,8 @@ public class DebugDraw {
         Vector2f max = new Vector2f(center).add(new Vector2f(dimensions).mul(0.5f));
 
         Vector2f[] vertices = {
-              new Vector2f(min.x, min.y), new Vector2f(min.x, max.y),
-              new Vector2f(max.x, max.y), new Vector2f(max.x, min.y)
+                new Vector2f(min.x, min.y), new Vector2f(min.x, max.y),
+                new Vector2f(max.x, max.y), new Vector2f(max.x, min.y)
         };
 
         if (rotation != 0.0f) {
@@ -206,7 +205,7 @@ public class DebugDraw {
         int increment = 360 / points.length;
         int currentAngle = 0;
 
-        for (int i=0; i < points.length; i++) {
+        for (int i = 0; i < points.length; i++) {
             Vector2f tmp = new Vector2f(0, radius);
             BMath.rotate(tmp, currentAngle, new Vector2f());
             points[i] = new Vector2f(tmp).add(center);

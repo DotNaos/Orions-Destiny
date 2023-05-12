@@ -1,19 +1,18 @@
 package Orion.blocks;
 
 import Burst.Engine.Source.Core.Actor.Actor;
-import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.Actor.PlayerController;
+import Burst.Engine.Source.Core.Component;
 import org.jbox2d.dynamics.contacts.Contact;
 import org.joml.Vector2f;
 
 public abstract class Block extends Component {
+    public float bopSpeed = 0.4f;
     private transient boolean bopactoringUp = true;
     private transient boolean doBopAnimation = false;
     private transient Vector2f bopStart;
     private transient Vector2f topBopLocation;
     private transient boolean active = true;
-
-    public float bopSpeed = 0.4f;
 
     public Block(Actor actor) {
         super(actor);
@@ -56,7 +55,9 @@ public abstract class Block extends Component {
         }
     }
 
-    public void setInactive() { this.active = false; }
+    public void setInactive() {
+        this.active = false;
+    }
 
     abstract void playerHit(PlayerController playerController);
 }

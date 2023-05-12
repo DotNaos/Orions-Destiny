@@ -7,8 +7,9 @@ public class Util {
 
 
     public static long generateUniqueID() {
-            return counter.incrementAndGet();
-        }
+        return counter.incrementAndGet();
+    }
+
     public static long generateHashID(String filepath) {
         return filepath.hashCode();
     }

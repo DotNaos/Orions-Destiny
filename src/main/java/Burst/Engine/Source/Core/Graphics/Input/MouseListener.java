@@ -9,7 +9,8 @@ import org.joml.Vector4f;
 
 import java.util.Arrays;
 
-import static org.lwjgl.glfw.GLFW.*;
+import static org.lwjgl.glfw.GLFW.GLFW_PRESS;
+import static org.lwjgl.glfw.GLFW.GLFW_RELEASE;
 
 public class MouseListener {
     private static MouseListener instance;
@@ -19,7 +20,6 @@ public class MouseListener {
     private boolean isDragging;
 
     private int mouseButtonDown = 0;
-
 
 
     private Vector2f gameViewportPos = new Vector2f();
@@ -98,28 +98,32 @@ public class MouseListener {
     }
 
     public static float getX() {
-        return (float)get().xPos;
+        return (float) get().xPos;
     }
 
     public static float getY() {
-        return (float)get().yPos;
+        return (float) get().yPos;
     }
 
     public static float getWorldDx() {
-        return (float)(get().lastWorldX - get().worldX);
+        return (float) (get().lastWorldX - get().worldX);
     }
 
     public static float getWorldDy() {
-        return (float)(get().lastWorldY - get().worldY);
+        return (float) (get().lastWorldY - get().worldY);
     }
 
-    public static float getScrollX() { return (float)get().scrollX; }
+    public static float getScrollX() {
+        return (float) get().scrollX;
+    }
 
     public static float getScrollY() {
-        return (float)get().scrollY;
+        return (float) get().scrollY;
     }
 
-    public static boolean isDragging() { return get().isDragging; }
+    public static boolean isDragging() {
+        return get().isDragging;
+    }
 
     public static boolean mouseButtonDown(int button) {
         if (button < get().mouseButtonPressed.length) {
@@ -166,7 +170,6 @@ public class MouseListener {
         tmp.mul(inverseView.mul(inverseProjection));
 
 
-
         System.out.println(get().gameViewportPos.x);
 
 
@@ -203,15 +206,7 @@ public class MouseListener {
         currentY = (1.0f - (currentY / get().gameViewportSize.y)) * Window.getHeight();
 
 
-
-
         return new Vector2f(currentX, currentY);
-    }
-
-    public static void setGameViewportPos(Vector2f gameViewportPos) { get().gameViewportPos.set(gameViewportPos); }
-
-    public static void setGameViewportSize(Vector2f gameViewportSize) {
-        get().gameViewportSize.set(gameViewportSize);
     }
 
     // get GameViewportSize
@@ -219,7 +214,15 @@ public class MouseListener {
         return get().gameViewportSize;
     }
 
+    public static void setGameViewportSize(Vector2f gameViewportSize) {
+        get().gameViewportSize.set(gameViewportSize);
+    }
+
     public static Vector2f getGameViewportPos() {
         return new Vector2f(get().gameViewportPos);
+    }
+
+    public static void setGameViewportPos(Vector2f gameViewportPos) {
+        get().gameViewportPos.set(gameViewportPos);
     }
 }

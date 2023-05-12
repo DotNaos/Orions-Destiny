@@ -9,7 +9,6 @@ import Burst.Engine.Source.Core.Graphics.Input.MouseListener;
 import Burst.Engine.Source.Core.Physics.Physics2D;
 import Burst.Engine.Source.Core.Saving.ActorDeserializer;
 import Burst.Engine.Source.Core.Saving.ComponentDeserializer;
-
 import Burst.Engine.Source.Core.Scene.Scene;
 import Burst.Engine.Source.Core.Util.DebugMessage;
 import Burst.Engine.Source.Editor.Panel.ViewportPanel;
@@ -26,7 +25,7 @@ import java.util.List;
 import java.util.Optional;
 
 
-public class Game{
+public class Game {
     protected List<Actor> actors;
     protected List<Actor> actorsToAdd;
     protected Physics2D physics2D;
@@ -37,8 +36,7 @@ public class Game{
         this.scene = scene;
     }
 
-    public void init()
-    {
+    public void init() {
         this.physics2D = new Physics2D();
         this.actors = new ArrayList<>();
         this.actorsToAdd = new ArrayList<>();
@@ -65,7 +63,7 @@ public class Game{
     // |--------------------------------------[ Game Loop ]----------------------------------------------|
     // |=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
     //====================================================================================================
-    
+
     public void start() {
         for (Actor actor : actors) {
             actor.start();
@@ -80,7 +78,7 @@ public class Game{
             actor.destroy();
         }
     }
-    
+
     public void update(float dt) {
         scene.getViewport().adjustProjection();
         this.physics2D.update(dt);
@@ -92,12 +90,10 @@ public class Game{
     }
 
 
-
-
     public void addActor(Actor actor) {
-            actors.add(actor);
-            if (!actor.serializedActor) return;
-            saveLevel();
+        actors.add(actor);
+        if (!actor.isSerializedActor()) return;
+        saveLevel();
     }
 
     //====================================================================================================
@@ -105,13 +101,8 @@ public class Game{
     // |--------------------------------------[ Saving and Loading ]-------------------------------------|
     // |=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
     //====================================================================================================
-    private Gson gsonBuilder(){
-        return new GsonBuilder()
-                .setPrettyPrinting()
-                .registerTypeAdapter(Component.class, new ComponentDeserializer())
-                .registerTypeAdapter(Actor.class, new ActorDeserializer())
-                .enableComplexMapKeySerialization()
-                .create();
+    private Gson gsonBuilder() {
+        return new GsonBuilder().setPrettyPrinting().registerTypeAdapter(Component.class, new ComponentDeserializer()).registerTypeAdapter(Actor.class, new ActorDeserializer()).enableComplexMapKeySerialization().create();
     }
 
     public void saveLevel() {
@@ -119,13 +110,13 @@ public class Game{
             FileWriter writer = new FileWriter(".\\levels\\level.json");
             List<Actor> actorsToSerialize = new ArrayList<>();
             for (Actor actor : this.actors) {
-                if (actor.serializedActor) {
+                if (actor.isSerializedActor()) {
                     actorsToSerialize.add(actor);
                 }
             }
             writer.write(gsonBuilder().toJson(actorsToSerialize));
             writer.close();
-        } catch(IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -134,8 +125,7 @@ public class Game{
         String inFile = "";
         try {
             inFile = new String(Files.readAllBytes(Paths.get(".\\levels\\level.json")));
-        } catch (IOException e)
-        {
+        } catch (IOException e) {
             if (e instanceof NoSuchFileException) {
                 DebugMessage.notFound("Level Not Found");
             } else {
@@ -150,8 +140,8 @@ public class Game{
             }
         }
     }
-    
-    
+
+
     //====================================================================================================
     // |=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
     // |--------------------------------------[ Input Callbacks ]----------------------------------------|
@@ -203,16 +193,12 @@ public class Game{
     }
 
     public Actor getActor(int ActorId) {
-        Optional<Actor> result = this.actors.stream()
-                .filter(Actor -> Actor.getID() == ActorId)
-                .findFirst();
+        Optional<Actor> result = this.actors.stream().filter(Actor -> Actor.getID() == ActorId).findFirst();
         return result.orElse(null);
     }
 
     public Actor getActor(String ActorName) {
-        Optional<Actor> result = this.actors.stream()
-                .filter(Actor -> Actor.name.equals(ActorName))
-                .findFirst();
+        Optional<Actor> result = this.actors.stream().filter(Actor -> Actor.getName().equals(ActorName)).findFirst();
         return result.orElse(null);
     }
 

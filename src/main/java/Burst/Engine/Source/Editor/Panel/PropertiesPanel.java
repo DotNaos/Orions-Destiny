@@ -1,14 +1,14 @@
 package Burst.Engine.Source.Editor.Panel;
 
-import Burst.Engine.Source.Core.Graphics.Render.SpriteRenderer;
-import Burst.Engine.Source.Core.UI.ImGuiPanel;
-import imgui.ImGui;
 import Burst.Engine.Source.Core.Actor.Actor;
-import org.joml.Vector4f;
+import Burst.Engine.Source.Core.Graphics.Render.PickingTexture;
+import Burst.Engine.Source.Core.Graphics.Render.SpriteRenderer;
 import Burst.Engine.Source.Core.Physics.Components.Box2DCollider;
 import Burst.Engine.Source.Core.Physics.Components.CircleCollider;
 import Burst.Engine.Source.Core.Physics.Components.Rigidbody2D;
-import Burst.Engine.Source.Core.Graphics.Render.PickingTexture;
+import Burst.Engine.Source.Core.UI.ImGuiPanel;
+import imgui.ImGui;
+import org.joml.Vector4f;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -65,6 +65,13 @@ public class PropertiesPanel extends ImGuiPanel {
                 null;
     }
 
+    public void setActiveGameObject(Actor actor) {
+        if (actor != null) {
+            clearSelected();
+            this.activeActors.add(actor);
+        }
+    }
+
     public List<Actor> getActiveGameObjects() {
         return this.activeActors;
     }
@@ -84,16 +91,9 @@ public class PropertiesPanel extends ImGuiPanel {
         this.activeGameObjectsOgColor.clear();
     }
 
-    public void setActiveGameObject(Actor actor) {
-        if (actor != null) {
-            clearSelected();
-            this.activeActors.add(actor);
-        }
-    }
-
     public void addActiveGameObject(Actor actor) {
         SpriteRenderer spr = actor.getComponent(SpriteRenderer.class);
-        if (spr != null ) {
+        if (spr != null) {
             this.activeGameObjectsOgColor.add(new Vector4f(spr.getColor()));
             spr.setColor(new Vector4f(0.8f, 0.8f, 0.0f, 0.8f));
         } else {

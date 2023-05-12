@@ -1,6 +1,6 @@
 package Orion.abilities;
 
-public class SpecialAbility extends Ability{
+public class SpecialAbility extends Ability {
     /**
      *
      */

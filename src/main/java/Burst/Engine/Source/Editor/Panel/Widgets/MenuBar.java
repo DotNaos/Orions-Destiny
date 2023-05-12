@@ -3,7 +3,6 @@ package Burst.Engine.Source.Editor.Panel.Widgets;
 import Burst.Engine.Source.Core.Observer.EventSystem;
 import Burst.Engine.Source.Core.Observer.Events.Event;
 import Burst.Engine.Source.Core.Observer.Events.EventType;
-import Burst.Engine.Source.Core.UI.ImGuiPanel;
 import imgui.ImGui;
 
 

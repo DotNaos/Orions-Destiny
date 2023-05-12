@@ -1,40 +1,34 @@
 package Burst.Engine.Source.Editor.Gizmo;
 
-import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
-import Burst.Engine.Source.Core.Util.Util;
-import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Core.Actor.Actor;
+import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
+import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.Graphics.Input.MouseListener;
 import Burst.Engine.Source.Core.Graphics.Render.SpriteRenderer;
-import Burst.Engine.Source.Core.Component;
+import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Editor.NonPickable;
-import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
+import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
 
-import static org.lwjgl.glfw.GLFW.*;
+import static org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT;
 
 public class Gizmo extends Component {
+    protected Actor activeActor = null;
+    protected boolean xAxisActive = false;
+    protected boolean yAxisActive = false;
     private Vector4f xAxisColor = new Vector4f(1, 0, 0, 1);
     private Vector4f xAxisColorHover = new Vector4f(0.5f, 0, 0, 1);
     private Vector4f yAxisColor = new Vector4f(0, 1, 0, 1);
     private Vector4f yAxisColorHover = new Vector4f(0, 0.5f, 0, 1);
-
     private Actor xAxisObject;
     private Actor yAxisObject;
     private SpriteRenderer xAxisSprite;
     private SpriteRenderer yAxisSprite;
-    protected Actor activeActor = null;
-
     private Vector2f xAxisOffset = new Vector2f(24f / 80f, -6f / 80f);
     private Vector2f yAxisOffset = new Vector2f(-7f / 80f, 21f / 80f);
-
     private float gizmoWidth = 16f / 80f;
     private float gizmoHeight = 48f / 80f;
-
-    protected boolean xAxisActive = false;
-    protected boolean yAxisActive = false;
-
     private boolean using = false;
 
     private PropertiesPanel propertiesPanel;
@@ -50,7 +44,7 @@ public class Gizmo extends Component {
         this.xAxisObject.addComponent(new NonPickable());
         this.yAxisObject.addComponent(new NonPickable());
 
-        
+
         Window.getScene().getGame().addActor(this.xAxisObject);
         Window.getScene().getGame().addActor(this.yAxisObject);
     }
@@ -61,8 +55,8 @@ public class Gizmo extends Component {
         this.yAxisObject.transform.rotation = 180;
         this.xAxisObject.transform.zIndex = 100;
         this.yAxisObject.transform.zIndex = 100;
-        this.xAxisObject.serializedActor = false;
-        this.yAxisObject.serializedActor = false;
+        this.xAxisObject.setNotSerializable();
+        this.yAxisObject.setNotSerializable();
     }
 
     @Override
@@ -121,10 +115,7 @@ public class Gizmo extends Component {
 
     private boolean checkXHoverState() {
         Vector2f mousePos = new Vector2f(MouseListener.getWorldX(), MouseListener.getWorldY());
-        if (mousePos.x <= xAxisObject.transform.position.x + (gizmoHeight / 2.0f) &&
-                mousePos.x >= xAxisObject.transform.position.x - (gizmoWidth / 2.0f) &&
-                mousePos.y >= xAxisObject.transform.position.y - (gizmoHeight / 2.0f) &&
-                mousePos.y <= xAxisObject.transform.position.y + (gizmoWidth / 2.0f)) {
+        if (mousePos.x <= xAxisObject.transform.position.x + (gizmoHeight / 2.0f) && mousePos.x >= xAxisObject.transform.position.x - (gizmoWidth / 2.0f) && mousePos.y >= xAxisObject.transform.position.y - (gizmoHeight / 2.0f) && mousePos.y <= xAxisObject.transform.position.y + (gizmoWidth / 2.0f)) {
             xAxisSprite.setColor(xAxisColorHover);
             return true;
         }
@@ -135,10 +126,7 @@ public class Gizmo extends Component {
 
     private boolean checkYHoverState() {
         Vector2f mousePos = new Vector2f(MouseListener.getWorldX(), MouseListener.getWorldY());
-        if (mousePos.x <= yAxisObject.transform.position.x + (gizmoWidth / 2.0f) &&
-                mousePos.x >= yAxisObject.transform.position.x - (gizmoWidth / 2.0f) &&
-                mousePos.y <= yAxisObject.transform.position.y + (gizmoHeight / 2.0f) &&
-                mousePos.y >= yAxisObject.transform.position.y - (gizmoHeight / 2.0f)) {
+        if (mousePos.x <= yAxisObject.transform.position.x + (gizmoWidth / 2.0f) && mousePos.x >= yAxisObject.transform.position.x - (gizmoWidth / 2.0f) && mousePos.y <= yAxisObject.transform.position.y + (gizmoHeight / 2.0f) && mousePos.y >= yAxisObject.transform.position.y - (gizmoHeight / 2.0f)) {
             yAxisSprite.setColor(yAxisColorHover);
             return true;
         }

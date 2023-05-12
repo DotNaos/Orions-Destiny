@@ -20,24 +20,22 @@ public class Editor extends Game {
         super(scene);
     }
 
-    public void init()
-    {
+    public void init() {
         super.init();
 
         // Variables
-            pickingTexture = new PickingTexture();
-            gridLines = new GridLines();
+        pickingTexture = new PickingTexture();
+        gridLines = new GridLines();
 
         // Panels
-            scene.addPanel(new OutlinerPanel());
-            scene.addPanel(new PropertiesPanel(this.pickingTexture));
-            scene.addPanel(new ContentDrawer());
-
+        scene.addPanel(new OutlinerPanel());
+        scene.addPanel(new PropertiesPanel(this.pickingTexture));
+        scene.addPanel(new ContentDrawer());
 
 
         // Level Editor Stuff
-            this.mouseControls = new MouseControls();
-            this.keyControls = new KeyControls();
+        this.mouseControls = new MouseControls();
+        this.keyControls = new KeyControls();
     }
 
     @Override

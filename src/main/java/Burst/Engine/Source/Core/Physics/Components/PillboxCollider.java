@@ -6,13 +6,12 @@ import Burst.Engine.Source.Core.UI.Window;
 import org.joml.Vector2f;
 
 public class PillboxCollider extends Component {
-    private transient CircleCollider bottomCircle ;
-    private transient Box2DCollider box;
-    private transient boolean resetFixtureNextFrame = false;
-
     public float width = 0.1f;
     public float height = 0.2f;
     public Vector2f offset = new Vector2f();
+    private transient CircleCollider bottomCircle;
+    private transient Box2DCollider box;
+    private transient boolean resetFixtureNextFrame = false;
 
     public PillboxCollider(Actor actor) {
         super(actor);

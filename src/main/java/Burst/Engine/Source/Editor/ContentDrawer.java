@@ -6,7 +6,6 @@ import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
 import Burst.Engine.Source.Core.Assets.Graphics.Spritesheet;
 import Burst.Engine.Source.Core.UI.ImGuiPanel;
 import Burst.Engine.Source.Core.UI.Window;
-import Burst.Engine.Source.Core.Util.Util;
 import Orion.res.Assets;
 import imgui.ImGui;
 import imgui.ImVec2;
@@ -27,8 +26,7 @@ public class ContentDrawer extends ImGuiPanel {
     }
 
     public void removeSpritesheet(Spritesheet spritesheet) {
-        for (int i = 0; i < spritesheets.size(); i++)
-        {
+        for (int i = 0; i < spritesheets.size(); i++) {
             if (spritesheets.get(i).getID() == spritesheet.getID()) {
                 spritesheets.remove(i);
                 return;

@@ -1,7 +1,6 @@
 package Orion.abilities;
 
 
-
 public abstract class Ability {
     protected String name;
     protected String description;

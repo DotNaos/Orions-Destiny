@@ -5,7 +5,6 @@ import Burst.Engine.Source.Core.Util.Util;
 
 /**
  * Every asset in the engine is a subclass of this class.
- *
  */
 public class Asset {
     protected String filepath;
@@ -13,6 +12,7 @@ public class Asset {
 
     /**
      * Creates an asset with the given filepath.
+     *
      * @param filepath The filepath of the asset.
      */
 
@@ -22,7 +22,8 @@ public class Asset {
         init();
     }
 
-    protected void init() {}
+    protected void init() {
+    }
 
     public String getFilepath() {
         return this.filepath;

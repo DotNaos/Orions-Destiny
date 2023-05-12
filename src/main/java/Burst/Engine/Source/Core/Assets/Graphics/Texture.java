@@ -15,6 +15,7 @@ import static org.lwjgl.stb.STBImage.*;
 public class Texture extends Asset {
     private transient int texID;
     private int width, height;
+
     public Texture(String filepath) {
         super(filepath);
     }
@@ -111,7 +112,7 @@ public class Texture extends Asset {
     public boolean equals(Object o) {
         if (o == null) return false;
         if (!(o instanceof Texture)) return false;
-        Texture oTex = (Texture)o;
+        Texture oTex = (Texture) o;
         return oTex.getWidth() == this.width && oTex.getHeight() == this.height &&
                 oTex.getId() == this.texID &&
                 oTex.getFilepath().equals(this.filepath);
@@ -125,7 +126,7 @@ public class Texture extends Asset {
         float pixels[] = new float[3];
         glReadPixels(x, y, 1, 1, GL_RGB, GL_FLOAT, pixels);
 
-        return (int)(pixels[0]) - 1;
+        return (int) (pixels[0]) - 1;
     }
 
     public float[] readPixels(Vector2i start, Vector2i end) {

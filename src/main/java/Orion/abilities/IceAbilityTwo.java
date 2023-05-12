@@ -6,8 +6,9 @@ public class IceAbilityTwo {
     private float travellingSpeed;
     private float animationLength;
     private boolean collision;
-    public float getDamage(float damage){
-        damage=35;
+
+    public float getDamage(float damage) {
+        damage = 35;
         return damage;
     }
 
@@ -17,11 +18,12 @@ public class IceAbilityTwo {
     }
 
     public float getTravellingSpeed(float travellingSpeed) {
-        travellingSpeed= 3;
+        travellingSpeed = 3;
         return travellingSpeed;
     }
-    public float getAnimationLength(float animationLength){
-        animationLength=2;
+
+    public float getAnimationLength(float animationLength) {
+        animationLength = 2;
         return animationLength;
     }
 

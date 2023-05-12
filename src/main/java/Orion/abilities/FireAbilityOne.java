@@ -1,24 +1,25 @@
 package Orion.abilities;
 
 public class FireAbilityOne {
-    private float damage;
     public float burnDamage;
     public float burnLength;
+    private float damage;
     private float travellingSpeed;
     private float animationLength;
     private boolean collision;
 
-    public float getDamage(float damage){
-        damage=35;
+    public float getDamage(float damage) {
+        damage = 35;
         return damage;
     }
 
     public float getTravellingSpeed(float travellingSpeed) {
-        travellingSpeed= 3;
+        travellingSpeed = 3;
         return travellingSpeed;
     }
-    public float getBurnLength(float burnLength){
-        burnLength=4.5f;
+
+    public float getBurnLength(float burnLength) {
+        burnLength = 4.5f;
         return burnLength;
     }
 
@@ -27,8 +28,8 @@ public class FireAbilityOne {
         return burnDamage;
     }
 
-    public float getAnimationLength(float animationLength){
-        animationLength=2;
+    public float getAnimationLength(float animationLength) {
+        animationLength = 2;
         return animationLength;
     }
 

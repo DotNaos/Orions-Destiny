@@ -25,6 +25,7 @@ public class Transform {
         this.position = position;
         this.scale = scale;
     }
+
     public Transform(Vector2f position, Vector2f scale, float rotation) {
         this.position = position;
         this.scale = scale;
@@ -38,7 +39,7 @@ public class Transform {
 
 
     public void imgui() {
-        actor.name = BImGui.inputText("Name: ", actor.name);
+        actor.setName(BImGui.inputText("Name: ", actor.getName()));
         BImGui.drawVec2Control("Position", this.position);
         BImGui.drawVec2Control("Size", this.size, 32.0f);
         BImGui.drawVec2Control("Scale", this.scale, 1.0f);

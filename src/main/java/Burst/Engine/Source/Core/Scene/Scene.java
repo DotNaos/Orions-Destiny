@@ -1,15 +1,12 @@
 package Burst.Engine.Source.Core.Scene;
 
-import Burst.Engine.Source.Core.Actor.Actor;
-import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
-import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Burst.Engine.Source.Core.Game.Editor;
-import Burst.Engine.Source.Core.Scene.Initializer.*;
-import Burst.Engine.Source.Core.UI.Viewport;
-import Burst.Engine.Source.Core.Graphics.Render.ViewportRenderer;
-import Burst.Engine.Source.Core.UI.ImGuiPanel;
-import Burst.Engine.Source.Core.Util.DebugMessage;
 import Burst.Engine.Source.Core.Game.Game;
+import Burst.Engine.Source.Core.Graphics.Render.ViewportRenderer;
+import Burst.Engine.Source.Core.Scene.Initializer.*;
+import Burst.Engine.Source.Core.UI.ImGuiPanel;
+import Burst.Engine.Source.Core.UI.Viewport;
+import Burst.Engine.Source.Core.Util.DebugMessage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,12 +24,12 @@ public class Scene {
     public Scene() {
 
     }
+
     public void init(SceneType sceneType) {
         this.viewport = new Viewport();
         this.viewportRenderer = new ViewportRenderer();
         this.openScene = sceneType;
-        switch (openScene)
-        {
+        switch (openScene) {
             case GAME -> {
                 this.game = new Game(this);
                 this.sceneInitializer = new GameInitializer(this);
@@ -64,7 +61,6 @@ public class Scene {
 
         this.sceneInitializer.init();
     }
-
 
 
     public void update(float dt) {
@@ -114,12 +110,20 @@ public class Scene {
     // All Mouse and Keyboard callbacks
     //====================================================================================================
 
-    public void keyCallback( long window, int key, int scancode, int action, int mods){}
-    public void charCallback ( long window, int codepoint){}
-    public void mouseButtonCallback( long window, int button, int action, int mods){}
-    public void scrollCallback( long window, double xOffset, double yOffset){}
-    public void mousePositionCallback(long window, double xpos, double ypos){}
+    public void keyCallback(long window, int key, int scancode, int action, int mods) {
+    }
 
+    public void charCallback(long window, int codepoint) {
+    }
+
+    public void mouseButtonCallback(long window, int button, int action, int mods) {
+    }
+
+    public void scrollCallback(long window, double xOffset, double yOffset) {
+    }
+
+    public void mousePositionCallback(long window, double xpos, double ypos) {
+    }
 
 
     //====================================================================================================
@@ -128,6 +132,7 @@ public class Scene {
     public Viewport getViewport() {
         return this.viewport;
     }
+
     public SceneInitializer getSceneInitializer() {
         return this.sceneInitializer;
     }
@@ -146,6 +151,7 @@ public class Scene {
         }
         return this.game;
     }
+
     public Editor getEditor() {
         return this.editor;
     }

@@ -2,14 +2,14 @@ package Burst.Engine.Source.Core.Graphics.Render;
 
 
 import Burst.Engine.Source.Core.Actor.Actor;
+import Burst.Engine.Source.Core.Assets.AssetManager;
 import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
 import Burst.Engine.Source.Core.Assets.Graphics.Texture;
-import Burst.Engine.Source.Core.UI.BImGui;
-import Burst.Engine.Source.Core.Physics.Components.Transform;
 import Burst.Engine.Source.Core.Component;
+import Burst.Engine.Source.Core.Physics.Components.Transform;
+import Burst.Engine.Source.Core.UI.BImGui;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
-import Burst.Engine.Source.Core.Assets.AssetManager;
 
 public class SpriteRenderer extends Component {
 
@@ -63,8 +63,19 @@ public class SpriteRenderer extends Component {
         return this.color;
     }
 
+    public void setColor(Vector4f color) {
+        if (!this.color.equals(color)) {
+            this.isDirty = true;
+            this.color.set(color);
+        }
+    }
+
     public Texture getTexture() {
         return sprite.getTexture();
+    }
+
+    public void setTexture(Texture texture) {
+        this.sprite.setTexture(texture);
     }
 
     public Vector2f[] getTexCoords() {
@@ -76,22 +87,11 @@ public class SpriteRenderer extends Component {
         this.isDirty = true;
     }
 
-    public void setColor(Vector4f color) {
-        if (!this.color.equals(color)) {
-            this.isDirty = true;
-            this.color.set(color);
-        }
-    }
-
     public boolean isDirty() {
         return this.isDirty;
     }
 
     public void setClean() {
         this.isDirty = false;
-    }
-
-    public void setTexture(Texture texture) {
-        this.sprite.setTexture(texture);
     }
 }

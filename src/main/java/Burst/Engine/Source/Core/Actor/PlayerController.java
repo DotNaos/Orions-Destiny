@@ -94,7 +94,6 @@ public class PlayerController extends Component {
     }
 
 
-
     @Override
     public void beginCollision(Actor collidinactorbject, Contact contact, Vector2f contactNormal) {
         if (isDead) return;

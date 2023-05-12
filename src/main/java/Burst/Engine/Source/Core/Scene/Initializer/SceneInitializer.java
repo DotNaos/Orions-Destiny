@@ -1,12 +1,12 @@
 package Burst.Engine.Source.Core.Scene.Initializer;
 
-import Burst.Engine.Source.Core.Assets.Graphics.Texture;
-import Burst.Engine.Source.Core.Graphics.Render.SpriteRenderer;
 import Burst.Engine.Source.Core.Actor.Actor;
-import Burst.Engine.Source.Core.Scene.Scene;
 import Burst.Engine.Source.Core.Assets.AssetManager;
-import Burst.Engine.Source.Core.Game.Game;
+import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Burst.Engine.Source.Core.Game.Animation.StateMachine;
+import Burst.Engine.Source.Core.Game.Game;
+import Burst.Engine.Source.Core.Graphics.Render.SpriteRenderer;
+import Burst.Engine.Source.Core.Scene.Scene;
 
 public class SceneInitializer {
 
@@ -16,9 +16,11 @@ public class SceneInitializer {
         this.scene = scene;
     }
 
-    public void init() {}
+    public void init() {
+    }
 
-    public void imgui() {}
+    public void imgui() {
+    }
 
     public void loadResources(Game scene) {
         AssetManager.loadAllAssets();
@@ -37,10 +39,6 @@ public class SceneInitializer {
             }
         }
     }
-
-
-
-
 
 
 }
