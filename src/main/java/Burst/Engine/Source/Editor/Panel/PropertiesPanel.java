@@ -20,6 +20,7 @@ public class PropertiesPanel extends ImGuiPanel {
     private PickingTexture pickingTexture;
 
     public PropertiesPanel(PickingTexture pickingTexture) {
+        super();
         this.activeActors = new ArrayList<>();
         this.pickingTexture = pickingTexture;
         this.activeGameObjectsOgColor = new ArrayList<>();

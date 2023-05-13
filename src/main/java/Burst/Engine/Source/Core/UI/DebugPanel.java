@@ -1,11 +1,10 @@
 package Burst.Engine.Source.Core.UI;
 
 import imgui.ImGui;
+import imgui.flag.ImGuiCol;
+import org.joml.Vector2f;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class DebugPanel {
     private final static int bufferSize = 2000;
@@ -21,9 +20,57 @@ public class DebugPanel {
     {
         Runnable function = () -> {
             ImGui.begin(plotName);
+            int color;
             for (int i = 0; i < values.size(); i++) {
                 addOrUpdatePlot(plotName, values.values().stream().toList());
+                // Change the color of the plot line
+                if (i < 3)
+                {
+                    // X, Y, Z axis : Red, Green, Blue
+                    color = 0xFF000000 | 0x0000FF << 8 * i;
+                }
+                else
+                {
+                    // hash the name of the value
+                    int seed = values.keySet().stream().toList().get(i).hashCode();
+
+                    if (seed < 0)
+                    {
+                        seed *= -1;
+                    }
+                    float t = (float) ((seed % 10 + seed % 100) * seed) / 199;
+                    t *= 1000;
+                    t = (float) Math.sin(t);
+                    t *= 1000;
+                    t *= Math.PI;
+                    t /= 100;
+                    t *= 1000;
+                    t = (float) Math.sin(t);
+                    t *= 1000;
+                    t *= Math.PI;
+                    t /= 100;
+                    t *= 1000;
+                    t = (float) Math.sin(t);
+                    t *= 1000;
+                    t *= Math.PI;
+
+                    // Value is between 0 and 1
+                    t = Math.abs(t % 1);
+
+                    // Lerp around the color wheel
+                    float r = (float) Math.cos(t * 2 * Math.PI + 0) * 127 + 128;
+                    float g = (float) Math.cos(t * 2 * Math.PI + 2) * 127 + 128;
+                    float b = (float) Math.cos(t * 2 * Math.PI + 4) * 127 + 128;
+
+                    // Convert to hex
+                    color = 0xFF000000 | ((int) r << 16) | ((int) g << 8) | (int) b;
+                }
+
+
+                ImGui.pushStyleColor(ImGuiCol.PlotLines,   color);
+
                 ImGui.plotLines(plotName, plotBuffers.get(plotName).get(i).getBuffer(), plotBuffers.get(plotName).get(i).getSize(), 0, values.keySet().stream().toList().get(i), minScale, maxScale, ImGui.getWindowWidth(), ImGui.getWindowWidth() / 2);
+                ImGui.popStyleColor();
             }
             ImGui.end();
         };
@@ -31,11 +78,11 @@ public class DebugPanel {
         addOrUpdatePanel(plotName, function);
     }
 
-    public static void plotValues(String plotName, float[] values)
+    public static void plotValues(String plotName, List<Float> values)
     {
         Map<String, Float> valueMap = new HashMap<>();
-        for (int i = 0; i < values.length; i++) {
-            valueMap.put("", values[i]);
+        for (int i = 0; i < values.size(); i++) {
+            valueMap.put("Value " + i, values.get(i));
         }
         plotValues(plotName, valueMap);
     }

@@ -8,7 +8,7 @@ public class Transform {
 
     public Vector2f position = new Vector2f();
     public Vector2f scale = new Vector2f(1.0f, 1.0f);
-    public Vector2f size = new Vector2f(32.0f, 32.0f);
+    public Vector2f size = new Vector2f(1f, 1f);
     public float rotation = 0.0f;
     public int zIndex = 0;
     private Actor actor = null;

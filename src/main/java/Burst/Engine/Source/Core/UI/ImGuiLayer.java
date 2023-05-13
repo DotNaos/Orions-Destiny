@@ -9,11 +9,13 @@ import Burst.Engine.Source.Editor.Panel.ViewportPanel;
 import imgui.*;
 import imgui.callback.ImStrConsumer;
 import imgui.callback.ImStrSupplier;
+import imgui.flag.ImGuiCond;
 import imgui.flag.ImGuiConfigFlags;
 import imgui.flag.ImGuiStyleVar;
 import imgui.flag.ImGuiWindowFlags;
 import imgui.gl3.ImGuiImplGl3;
 import imgui.glfw.ImGuiImplGlfw;
+import imgui.internal.ImGuiDockNode;
 import imgui.type.ImBoolean;
 
 import java.io.File;
@@ -29,6 +31,9 @@ public class ImGuiLayer {
     private final ImGuiImplGl3 imGuiGl3 = new ImGuiImplGl3();
     private final ImGuiImplGlfw imGuiGlfw = new ImGuiImplGlfw();
     private long glfwWindow;
+
+
+
 
 
     public ImGuiLayer(long glfwWindow) {
@@ -243,7 +248,6 @@ public class ImGuiLayer {
 
         // Dockspace
         ImGui.dockSpace(ImGui.getID("Dockspace"));
-
 
         ImGui.end();
     }

@@ -18,7 +18,7 @@ public class ContentDrawer extends ImGuiPanel {
     private List<Spritesheet> spritesheets = new ArrayList<>();
 
     public ContentDrawer() {
-
+        super();
     }
 
     public void addSpritesheet(Spritesheet spritesheet) {

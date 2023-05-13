@@ -19,6 +19,10 @@ public class ViewportPanel extends ImGuiPanel {
     private boolean isPlaying = false;
     private boolean windowIsHovered;
 
+    public ViewportPanel() {
+        super();
+    }
+
     @Override
     public void imgui() {
         boolean inGame = Window.getScene().getOpenScene() == SceneType.GAME;
@@ -34,7 +38,6 @@ public class ViewportPanel extends ImGuiPanel {
             ImGui.setNextWindowPos(0, 0, ImGuiCond.Always, 0.0f, 0.0f);
 
         }
-
 
         ImGui.begin("Viewport", ImGuiWindowFlags.NoTitleBar | ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoScrollWithMouse | ImGuiWindowFlags.MenuBar | inGameFlags);
 

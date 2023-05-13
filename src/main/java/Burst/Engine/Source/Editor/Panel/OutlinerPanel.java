@@ -12,10 +12,13 @@ public class OutlinerPanel extends ImGuiPanel {
 
     private static String payloadDragDropType = "Outliner";
 
+    public OutlinerPanel() {
+        super();
+    }
+
     @Override
     public void imgui() {
         ImGui.begin("Outliner");
-
 
         List<Actor> actors = Window.getScene().getGame().getActors();
         int index = 0;
