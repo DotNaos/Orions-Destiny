@@ -1,21 +1,51 @@
 package Burst.Engine.Source.Core.UI;
 
 import imgui.ImGui;
-import imgui.flag.ImGuiCol;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class DebugPanel {
     private final static int bufferSize = 2000;
-    private static List<Runnable> debugPanels = new ArrayList<>();
-    private static List<String> debugPanelNames = new ArrayList<>();
-    private static float[] plotBuffer = new float[bufferSize];
-    private static float[] plotBuffer2 = new float[bufferSize];
-    private static float[] plotBuffer3 = new float[bufferSize];
-
     private final static int maxScale = 100;
     private final static int minScale = -100;
+    private static List<Runnable> debugPanels = new ArrayList<>();
+    private static List<String> debugPanelNames = new ArrayList<>();
+    private static Map<String, List<PlotBuffer>> plotBuffers = new HashMap<>();
+
+    private static void addOrUpdatePanel(String name, Runnable function) {
+        int index = debugPanelNames.indexOf(name);
+        if (index != -1) {
+            // If the panel already exists, update it
+            debugPanels.set(index, function);
+        } else {
+            // If the panel doesn't exist, add it
+            debugPanelNames.add(name);
+            debugPanels.add(function);
+        }
+        Window.getImguiLayer().update(0, Window.getScene());
+    }
+
+    private static void addOrUpdatePlot(String name, float[] values) {
+        int bufferCount = values.length;
+        if (plotBuffers.containsKey(name)) {
+            // If it has a buffer, update it
+            for (int i = 0; i < bufferCount; i++) {
+                plotBuffers.get(name).get(i).update(values[i]);
+            }
+        } else {
+            // If it has no buffer, add one
+            plotBuffers.put(name, new ArrayList<>());
+
+            for (int i = 0; i < bufferCount; i++) {
+                plotBuffers.get(name).add(new PlotBuffer(bufferSize));
+            }
+        }
+
+
+    }
 
     public static void plotValue(String name, float v1) {
         plotValue(name, "", v1);
@@ -25,17 +55,12 @@ public class DebugPanel {
         // If the panel already exists, update it
         Runnable function = () -> {
             ImGui.begin(name);
-            //plot a sinus function
-            ImGui.plotLines(name, plotBuffer, plotBuffer.length, 0, t1, minScale, maxScale, ImGui.getWindowWidth(), ImGui.getWindowWidth());
-            // update the values
-            plotBuffer[0] = v1;
-            for (int i = plotBuffer.length - 1; i > 0; i--) {
-                plotBuffer[i] = plotBuffer[i - 1];
-            }
+            addOrUpdatePlot(name, new float[]{v1});
+            ImGui.plotLines(name, plotBuffers.get(name).get(0).getBuffer(), plotBuffers.get(name).get(0).getSize(), 0, t1, minScale, maxScale, ImGui.getWindowWidth(), ImGui.getWindowWidth() / 2);
             ImGui.end();
         };
 
-        addOrUpdate(name, function);
+        addOrUpdatePanel(name, function);
     }
 
     public static void plotValue2(String name, float v1, float v2) {
@@ -46,24 +71,13 @@ public class DebugPanel {
         // If the panel already exists, update it
         Runnable function = () -> {
             ImGui.begin(name);
-            //plot a sinus function
-            ImGui.plotLines(name, plotBuffer, plotBuffer.length, 0, t1, minScale, maxScale, ImGui.getWindowWidth(), ImGui.getWindowWidth() / 2);
-
-            // change the color of the plot
-            ImGui.pushStyleColor(ImGuiCol.PlotLines, 0.0f, 1f, 0f, 1.0f);
-            ImGui.plotLines(name, plotBuffer2, plotBuffer2.length, 0, t2, minScale, maxScale, ImGui.getWindowWidth(), ImGui.getWindowWidth() / 2);
-            ImGui.popStyleColor();
-            // update the values
-            plotBuffer[0] = v1;
-            plotBuffer2[0] = v2;
-            for (int i = plotBuffer.length - 1; i > 0; i--) {
-                plotBuffer[i] = plotBuffer[i - 1];
-                plotBuffer2[i] = plotBuffer2[i - 1];
-            }
+            addOrUpdatePlot(name, new float[]{v1, v2});
+            ImGui.plotLines(name, plotBuffers.get(name).get(0).getBuffer(), plotBuffers.get(name).get(0).getSize(), 0, t1, minScale, maxScale, ImGui.getWindowWidth(), ImGui.getWindowWidth() / 2);
+            ImGui.plotLines(name, plotBuffers.get(name).get(1).getBuffer(), plotBuffers.get(name).get(1).getSize(), 0, t2, minScale, maxScale, ImGui.getWindowWidth(), ImGui.getWindowWidth() / 2);
             ImGui.end();
         };
 
-        addOrUpdate(name, function);
+        addOrUpdatePanel(name, function);
     }
 
     public static void plotValue3(String name, float v1, float v2, float v3) {
@@ -74,33 +88,16 @@ public class DebugPanel {
         // If the panel already exists, update it
         Runnable function = () -> {
             ImGui.begin(name);
-            //plot a sinus function
-            ImGui.plotLines(name, plotBuffer, plotBuffer.length, 0, t1, minScale, maxScale, ImGui.getWindowWidth(), ImGui.getWindowWidth() / 3);
-
-            // change the color of the plot
-            ImGui.pushStyleColor(ImGuiCol.PlotLines, 0.0f, 1f, 0f, 1.0f);
-            ImGui.plotLines(name, plotBuffer2, plotBuffer2.length, 0, t2, minScale, maxScale, ImGui.getWindowWidth(), ImGui.getWindowWidth() / 3);
-            ImGui.popStyleColor();
-
-            // change the color of the plot
-            ImGui.pushStyleColor(ImGuiCol.PlotLines, 0.0f, 0f, 1f, 1.0f);
-            ImGui.plotLines(name, plotBuffer3, plotBuffer3.length, 0, t3, -25, 25, ImGui.getWindowWidth(), ImGui.getWindowWidth() / 3);
-            ImGui.popStyleColor();
-
-            // update the values
-            plotBuffer[0] = v1;
-            plotBuffer2[0] = v2;
-            plotBuffer3[0] = v3;
-            for (int i = plotBuffer.length - 1; i > 0; i--) {
-                plotBuffer[i] = plotBuffer[i - 1];
-                plotBuffer2[i] = plotBuffer2[i - 1];
-                plotBuffer3[i] = plotBuffer3[i - 1];
-            }
+            addOrUpdatePlot(name, new float[]{v1, v2, v3});
+            ImGui.plotLines(name, plotBuffers.get(name).get(0).getBuffer(), plotBuffers.get(name).get(0).getSize(), 0, t1, minScale, maxScale, ImGui.getWindowWidth(), ImGui.getWindowWidth() / 2);
+            ImGui.plotLines(name, plotBuffers.get(name).get(1).getBuffer(), plotBuffers.get(name).get(1).getSize(), 0, t2, minScale, maxScale, ImGui.getWindowWidth(), ImGui.getWindowWidth() / 2);
+            ImGui.plotLines(name, plotBuffers.get(name).get(2).getBuffer(), plotBuffers.get(name).get(2).getSize(), 0, t3, minScale, maxScale, ImGui.getWindowWidth(), ImGui.getWindowWidth() / 2);
             ImGui.end();
         };
 
-        addOrUpdate(name, function);
+        addOrUpdatePanel(name, function);
     }
+
 
     public static void imgui() {
         for (Runnable panel : debugPanels) {
@@ -108,32 +105,5 @@ public class DebugPanel {
         }
     }
 
-    public static <T> void displayValue(String name, T value) {
-        // If the panel already exists, update it
 
-        Runnable panel = () -> {
-            ImGui.begin(name);
-            //plot a simple line
-            ImGui.plotLines(name, plotBuffer, plotBuffer.length, 0, "", minScale, maxScale, ImGui.getWindowWidth(), 100);
-            plotBuffer[0] = (float) value;
-            for (int i = 1; i < plotBuffer.length; i++) {
-                plotBuffer[i] = plotBuffer[i - 1];
-            }
-
-            // update the values
-            ImGui.end();
-        };
-        addOrUpdate(name, panel);
-    }
-
-    private static void addOrUpdate(String name, Runnable function) {
-        int index = debugPanelNames.indexOf(name);
-        if (index != -1) {
-            debugPanels.set(index, function);
-        } else {
-            debugPanelNames.add(name);
-            debugPanels.add(function);
-        }
-        Window.getImguiLayer().update(0, Window.getScene());
-    }
 }
