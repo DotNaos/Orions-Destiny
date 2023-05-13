@@ -15,6 +15,31 @@ public class DebugPanel {
     private static List<String> debugPanelNames = new ArrayList<>();
     private static Map<String, List<PlotBuffer>> plotBuffers = new HashMap<>();
 
+
+
+    public static void plotValues(String plotName, Map<String, Float> values)
+    {
+        Runnable function = () -> {
+            ImGui.begin(plotName);
+            for (int i = 0; i < values.size(); i++) {
+                addOrUpdatePlot(plotName, values.values().stream().toList());
+                ImGui.plotLines(plotName, plotBuffers.get(plotName).get(i).getBuffer(), plotBuffers.get(plotName).get(i).getSize(), 0, values.keySet().stream().toList().get(i), minScale, maxScale, ImGui.getWindowWidth(), ImGui.getWindowWidth() / 2);
+            }
+            ImGui.end();
+        };
+
+        addOrUpdatePanel(plotName, function);
+    }
+
+    public static void plotValues(String plotName, float[] values)
+    {
+        Map<String, Float> valueMap = new HashMap<>();
+        for (int i = 0; i < values.length; i++) {
+            valueMap.put("", values[i]);
+        }
+        plotValues(plotName, valueMap);
+    }
+
     private static void addOrUpdatePanel(String name, Runnable function) {
         int index = debugPanelNames.indexOf(name);
         if (index != -1) {
@@ -28,12 +53,12 @@ public class DebugPanel {
         Window.getImguiLayer().update(0, Window.getScene());
     }
 
-    private static void addOrUpdatePlot(String name, float[] values) {
-        int bufferCount = values.length;
+    private static void addOrUpdatePlot(String name, List<Float> values) {
+        int bufferCount = values.size();
         if (plotBuffers.containsKey(name)) {
             // If it has a buffer, update it
             for (int i = 0; i < bufferCount; i++) {
-                plotBuffers.get(name).get(i).update(values[i]);
+                plotBuffers.get(name).get(i).update(values.get(i));
             }
         } else {
             // If it has no buffer, add one
@@ -46,58 +71,6 @@ public class DebugPanel {
 
 
     }
-
-    public static void plotValue(String name, float v1) {
-        plotValue(name, "", v1);
-    }
-
-    public static void plotValue(String name, String t1, float v1) {
-        // If the panel already exists, update it
-        Runnable function = () -> {
-            ImGui.begin(name);
-            addOrUpdatePlot(name, new float[]{v1});
-            ImGui.plotLines(name, plotBuffers.get(name).get(0).getBuffer(), plotBuffers.get(name).get(0).getSize(), 0, t1, minScale, maxScale, ImGui.getWindowWidth(), ImGui.getWindowWidth() / 2);
-            ImGui.end();
-        };
-
-        addOrUpdatePanel(name, function);
-    }
-
-    public static void plotValue2(String name, float v1, float v2) {
-        plotValue2(name, "", v1, "", v2);
-    }
-
-    public static void plotValue2(String name, String t1, float v1, String t2, float v2) {
-        // If the panel already exists, update it
-        Runnable function = () -> {
-            ImGui.begin(name);
-            addOrUpdatePlot(name, new float[]{v1, v2});
-            ImGui.plotLines(name, plotBuffers.get(name).get(0).getBuffer(), plotBuffers.get(name).get(0).getSize(), 0, t1, minScale, maxScale, ImGui.getWindowWidth(), ImGui.getWindowWidth() / 2);
-            ImGui.plotLines(name, plotBuffers.get(name).get(1).getBuffer(), plotBuffers.get(name).get(1).getSize(), 0, t2, minScale, maxScale, ImGui.getWindowWidth(), ImGui.getWindowWidth() / 2);
-            ImGui.end();
-        };
-
-        addOrUpdatePanel(name, function);
-    }
-
-    public static void plotValue3(String name, float v1, float v2, float v3) {
-        plotValue3(name, "", v1, "", v2, "", v3);
-    }
-
-    public static void plotValue3(String name, String t1, float v1, String t2, float v2, String t3, float v3) {
-        // If the panel already exists, update it
-        Runnable function = () -> {
-            ImGui.begin(name);
-            addOrUpdatePlot(name, new float[]{v1, v2, v3});
-            ImGui.plotLines(name, plotBuffers.get(name).get(0).getBuffer(), plotBuffers.get(name).get(0).getSize(), 0, t1, minScale, maxScale, ImGui.getWindowWidth(), ImGui.getWindowWidth() / 2);
-            ImGui.plotLines(name, plotBuffers.get(name).get(1).getBuffer(), plotBuffers.get(name).get(1).getSize(), 0, t2, minScale, maxScale, ImGui.getWindowWidth(), ImGui.getWindowWidth() / 2);
-            ImGui.plotLines(name, plotBuffers.get(name).get(2).getBuffer(), plotBuffers.get(name).get(2).getSize(), 0, t3, minScale, maxScale, ImGui.getWindowWidth(), ImGui.getWindowWidth() / 2);
-            ImGui.end();
-        };
-
-        addOrUpdatePanel(name, function);
-    }
-
 
     public static void imgui() {
         for (Runnable panel : debugPanels) {

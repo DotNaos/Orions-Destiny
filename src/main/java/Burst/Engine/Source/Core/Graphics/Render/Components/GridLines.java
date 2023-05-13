@@ -10,6 +10,8 @@ import org.joml.Vector2f;
 import org.joml.Vector3f;
 
 import javax.swing.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class GridLines {
 
@@ -23,9 +25,11 @@ public class GridLines {
                 / GridLines_Config.GRID_WIDTH)) * GridLines_Config.GRID_HEIGHT;
         float firstY = ((int) Math.floor(viewportPos.y / GridLines_Config.GRID_HEIGHT)) * GridLines_Config.GRID_HEIGHT;
 
-        DebugPanel.plotValue("First X", MouseListener.getWorldX());
-        DebugPanel.plotValue("First Y", MouseListener.getWorldY());
-        DebugPanel.plotValue("Zoom", viewport.getZoom());
+        Map<String, Float> values = new HashMap<>();
+        values.put("firstX", firstX);
+        values.put("firstY", firstY);
+        values.put("projectionSize.x", projectionSize.x);
+        DebugPanel.plotValues("Gridlines", values);
 
         int numVtLines = (int) (projectionSize.x * viewport.getZoom() / GridLines_Config.GRID_WIDTH) * 2 + 2;
         int numHzLines = (int)  (projectionSize.y * viewport.getZoom() / GridLines_Config.GRID_HEIGHT) * 2 + 2;
