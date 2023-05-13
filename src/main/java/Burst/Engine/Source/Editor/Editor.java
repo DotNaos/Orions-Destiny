@@ -14,7 +14,6 @@ import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
 
 public class Editor extends Game {
     private PickingTexture pickingTexture;
-    private GridLines gridLines;
     private MouseControls mouseControls;
     private KeyControls keyControls;
     private EditorCamera editorCamera;
@@ -28,7 +27,6 @@ public class Editor extends Game {
 
         // Variables
         pickingTexture = new PickingTexture();
-        gridLines = new GridLines();
         editorCamera = new EditorCamera(this.scene.getViewport());
 
         // Panels
@@ -48,7 +46,7 @@ public class Editor extends Game {
 
         this.mouseControls.update(dt);
         this.keyControls.update(dt);
-        this.gridLines.update(dt);
+        GridLines.update(dt);
         this.editorCamera.update(dt);
 
         super.update(dt);

@@ -14,6 +14,9 @@ public class DebugPanel {
     private static float[] plotBuffer2 = new float[bufferSize];
     private static float[] plotBuffer3 = new float[bufferSize];
 
+    private final static int maxScale = 100;
+    private final static int minScale = -100;
+
     public static void plotValue(String name, float v1) {
         plotValue(name, "", v1);
     }
@@ -23,7 +26,7 @@ public class DebugPanel {
         Runnable function = () -> {
             ImGui.begin(name);
             //plot a sinus function
-            ImGui.plotLines(name, plotBuffer, plotBuffer.length, 0, t1, 0, 25, ImGui.getWindowWidth(), ImGui.getWindowWidth());
+            ImGui.plotLines(name, plotBuffer, plotBuffer.length, 0, t1, minScale, maxScale, ImGui.getWindowWidth(), ImGui.getWindowWidth());
             // update the values
             plotBuffer[0] = v1;
             for (int i = plotBuffer.length - 1; i > 0; i--) {
@@ -44,11 +47,11 @@ public class DebugPanel {
         Runnable function = () -> {
             ImGui.begin(name);
             //plot a sinus function
-            ImGui.plotLines(name, plotBuffer, plotBuffer.length, 0, t1, 0, 25, ImGui.getWindowWidth(), ImGui.getWindowWidth() / 2);
+            ImGui.plotLines(name, plotBuffer, plotBuffer.length, 0, t1, minScale, maxScale, ImGui.getWindowWidth(), ImGui.getWindowWidth() / 2);
 
             // change the color of the plot
             ImGui.pushStyleColor(ImGuiCol.PlotLines, 0.0f, 1f, 0f, 1.0f);
-            ImGui.plotLines(name, plotBuffer2, plotBuffer2.length, 0, t2, 0, 25, ImGui.getWindowWidth(), ImGui.getWindowWidth() / 2);
+            ImGui.plotLines(name, plotBuffer2, plotBuffer2.length, 0, t2, minScale, maxScale, ImGui.getWindowWidth(), ImGui.getWindowWidth() / 2);
             ImGui.popStyleColor();
             // update the values
             plotBuffer[0] = v1;
@@ -72,16 +75,16 @@ public class DebugPanel {
         Runnable function = () -> {
             ImGui.begin(name);
             //plot a sinus function
-            ImGui.plotLines(name, plotBuffer, plotBuffer.length, 0, t1, 0, 25, ImGui.getWindowWidth(), ImGui.getWindowWidth() / 3);
+            ImGui.plotLines(name, plotBuffer, plotBuffer.length, 0, t1, minScale, maxScale, ImGui.getWindowWidth(), ImGui.getWindowWidth() / 3);
 
             // change the color of the plot
             ImGui.pushStyleColor(ImGuiCol.PlotLines, 0.0f, 1f, 0f, 1.0f);
-            ImGui.plotLines(name, plotBuffer2, plotBuffer2.length, 0, t2, 0, 25, ImGui.getWindowWidth(), ImGui.getWindowWidth() / 3);
+            ImGui.plotLines(name, plotBuffer2, plotBuffer2.length, 0, t2, minScale, maxScale, ImGui.getWindowWidth(), ImGui.getWindowWidth() / 3);
             ImGui.popStyleColor();
 
             // change the color of the plot
             ImGui.pushStyleColor(ImGuiCol.PlotLines, 0.0f, 0f, 1f, 1.0f);
-            ImGui.plotLines(name, plotBuffer3, plotBuffer3.length, 0, t3, 0, 25, ImGui.getWindowWidth(), ImGui.getWindowWidth() / 3);
+            ImGui.plotLines(name, plotBuffer3, plotBuffer3.length, 0, t3, -25, 25, ImGui.getWindowWidth(), ImGui.getWindowWidth() / 3);
             ImGui.popStyleColor();
 
             // update the values
@@ -111,7 +114,7 @@ public class DebugPanel {
         Runnable panel = () -> {
             ImGui.begin(name);
             //plot a simple line
-            ImGui.plotLines(name, plotBuffer, plotBuffer.length, 0, "", 0, 100, ImGui.getWindowWidth(), 100);
+            ImGui.plotLines(name, plotBuffer, plotBuffer.length, 0, "", minScale, maxScale, ImGui.getWindowWidth(), 100);
             plotBuffer[0] = (float) value;
             for (int i = 1; i < plotBuffer.length; i++) {
                 plotBuffer[i] = plotBuffer[i - 1];

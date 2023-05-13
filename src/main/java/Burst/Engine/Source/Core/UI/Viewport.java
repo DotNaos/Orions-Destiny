@@ -6,6 +6,9 @@ import org.joml.Vector3f;
 import org.joml.Vector4f;
 
 public class Viewport {
+    /**
+     * The position of the center of the viewport in world units.
+     */
     public Vector2f position;
     public Vector4f clearColor = new Vector4f(1, 1, 1, 1);
     private Matrix4f projectionMatrix, viewMatrix, inverseProjection, inverseView;
@@ -33,11 +36,21 @@ public class Viewport {
         adjustProjection();
     }
 
+//    public void adjustProjection() {
+//        projectionMatrix.identity();
+//        projectionMatrix.ortho(0.0f, projectionSize.x * this.zoom, 0.0f, projectionSize.y * zoom, 0.0f, 100.0f);
+//        inverseProjection = new Matrix4f(projectionMatrix).invert();
+//    }
+
     public void adjustProjection() {
-        projectionMatrix.identity();
-        projectionMatrix.ortho(0.0f, projectionSize.x * this.zoom, 0.0f, projectionSize.y * zoom, 0.0f, 100.0f);
-        inverseProjection = new Matrix4f(projectionMatrix).invert();
-    }
+    projectionMatrix.identity();
+    float left = -projectionSize.x / 2.0f * zoom;
+    float right = projectionSize.x / 2.0f * zoom;
+    float bottom = -projectionSize.y / 2.0f * zoom;
+    float top = projectionSize.y / 2.0f * zoom;
+    projectionMatrix.ortho(left, right, bottom, top, 0.0f, 100.0f);
+    inverseProjection = new Matrix4f(projectionMatrix).invert();
+}
 
     public Matrix4f getViewMatrix() {
         Vector3f cameraFront = new Vector3f(0.0f, 0.0f, -1.0f);
