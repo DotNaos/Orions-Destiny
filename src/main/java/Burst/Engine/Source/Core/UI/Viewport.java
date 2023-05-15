@@ -13,15 +13,15 @@ public class Viewport {
     private Vector2f size = new Vector2f();
     public Vector4f clearColor = new Vector4f(1, 1, 1, 1);
     private Matrix4f projectionMatrix, viewMatrix, inverseProjection, inverseView;
-    private float projectionWidth = 6;
-    private float projectionHeight = 3;
-    private Vector2f projectionSize = new Vector2f(projectionWidth, projectionHeight);
+    // private float projectionWidth = 6;
+    // private float projectionHeight = 3;
+    // private Vector2f projectionSize = new Vector2f(projectionWidth, projectionHeight);
 
     private float zoom = 1.0f;
 
     public Viewport() {
         this.position = new Vector2f();
-        this.size = new Vector2f(); 
+        this.size = new Vector2f();
         this.projectionMatrix = new Matrix4f();
         this.viewMatrix = new Matrix4f();
         this.inverseProjection = new Matrix4f();
@@ -38,26 +38,22 @@ public class Viewport {
         adjustProjection();
     }
 
-
     public void adjustProjection() {
+        float left = -1 / 2.0f * zoom;
+        float right = 1 / 2.0f * zoom;
+        float bottom = -1 / 2.0f * zoom;
+        float top = 1 / 2.0f * zoom;
         projectionMatrix.identity();
-        float left = -projectionSize.x / 2.0f * zoom;
-        float right = projectionSize.x / 2.0f * zoom;
-        float bottom = -projectionSize.y / 2.0f * zoom;
-        float top = projectionSize.y / 2.0f * zoom;
         projectionMatrix.ortho(left, right, bottom, top, 0.0f, 100.0f);
         inverseProjection = new Matrix4f(projectionMatrix).invert();
-        
-        // set the size to the pixels visible in the viewport
-        size.x = Window.getWidth() * zoom;
-        size.y = Window.getHeight() * zoom;
     }
 
     public Matrix4f getViewMatrix() {
         Vector3f cameraFront = new Vector3f(0.0f, 0.0f, -1.0f);
         Vector3f cameraUp = new Vector3f(0.0f, 1.0f, 0.0f);
         viewMatrix.identity();
-        viewMatrix.lookAt(new Vector3f(position.x, position.y, 20.0f), cameraFront.add(position.x, position.y, 0.0f), cameraUp);
+        viewMatrix.lookAt(new Vector3f(position.x, position.y, 20.0f), cameraFront.add(position.x, position.y, 0.0f),
+                cameraUp);
         inverseView = new Matrix4f(this.viewMatrix).invert();
 
         return this.viewMatrix;
@@ -75,9 +71,9 @@ public class Viewport {
         return this.inverseView;
     }
 
-    public Vector2f getProjectionSize() {
-        return this.projectionSize;
-    }
+    // public Vector2f getProjectionSize() {
+    //     return this.projectionSize;
+    // }
 
     public Vector2f getSize() {
         return new Vector2f(this.size);

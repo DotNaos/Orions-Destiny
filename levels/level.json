@@ -53,5 +53,60 @@
       }
     ],
     "serializedActor": true
+  },
+  {
+    "ID": 3,
+    "name": "Actor: 2",
+    "components": [
+      {
+        "type": "Burst.Engine.Source.Core.Graphics.Render.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.8,
+            "y": 0.8,
+            "z": 0.8,
+            "w": 0.5
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "width": 512,
+              "height": 512,
+              "filepath": "Assets/images/spritesheets/blocks.png",
+              "id": 1156898028
+            },
+            "texCoords": [
+              {
+                "x": 0.4375,
+                "y": 1.0
+              },
+              {
+                "x": 0.4375,
+                "y": 0.96875
+              },
+              {
+                "x": 0.40625,
+                "y": 0.96875
+              },
+              {
+                "x": 0.40625,
+                "y": 1.0
+              }
+            ],
+            "filepath": "",
+            "id": 0
+          },
+          "ID": 7
+        }
+      },
+      {
+        "type": "Burst.Engine.Source.Editor.NonPickable",
+        "properties": {
+          "ID": 8
+        }
+      }
+    ],
+    "serializedActor": true
   }
 ]
