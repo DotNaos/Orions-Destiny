@@ -40,8 +40,14 @@ public class Viewport {
 
 
     public void adjustProjection() {
-
-    
+        projectionMatrix.identity();
+        float left = -projectionSize.x / 2.0f * zoom;
+        float right = projectionSize.x / 2.0f * zoom;
+        float bottom = -projectionSize.y / 2.0f * zoom;
+        float top = projectionSize.y / 2.0f * zoom;
+        projectionMatrix.ortho(left, right, bottom, top, 0.0f, 100.0f);
+        inverseProjection = new Matrix4f(projectionMatrix).invert();
+        size = new Vector2f(right - left, top - bottom);    
     }
 
     public Matrix4f getViewMatrix() {
