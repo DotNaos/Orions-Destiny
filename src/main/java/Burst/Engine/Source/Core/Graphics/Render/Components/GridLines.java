@@ -19,42 +19,44 @@ public class GridLines {
 
 
     public static void update(float dt) {
-        Viewport viewport = Window.getScene().getViewport();
-        Vector2f viewportPos = viewport.position;
-        Vector2f projectionSize = viewport.getProjectionSize();
+    Viewport viewport = Window.getScene().getViewport();
+    Vector2f viewportPos = viewport.position;
+    Vector2f projectionSize = viewport.getProjectionSize();
 
-        float firstX = ((int) Math.floor(viewportPos.x
-                / GridLines_Config.GRID_WIDTH)) * GridLines_Config.GRID_HEIGHT;
-        float firstY = ((int) Math.floor(viewportPos.y / GridLines_Config.GRID_HEIGHT)) * GridLines_Config.GRID_HEIGHT;
+    float firstX = viewportPos.x - projectionSize.x * viewport.getZoom(); 
+    float firstY =  viewportPos.y - projectionSize.y * viewport.getZoom();
 
-        Map<String, Float> val = new HashMap<>();
-        val.put("firstX", firstX);
-        val.put("firstY", firstY);
-        val.put("projectionSize.x", projectionSize.x);
-        val.put("projectionSize.y", projectionSize.y);
+    int linesX = (int) (GridLines_Config.GRID_WIDTH);
+    int linesY = (int) (GridLines_Config.GRID_HEIGHT);
 
-        DebugPanel.plotValues("Gridlines", val);
+   
+    Vector3f color = new Vector3f(0.2f, 0.2f, 0.2f);
+    int maxLines = Math.max(linesX, linesY);
+    for (int i = 0; i < maxLines; i++) {
+        float x = firstX - (i * GridLines_Config.GRID_WIDTH);
+        float y = firstY - (i * GridLines_Config.GRID_HEIGHT);
 
-        int numVtLines = (int) (projectionSize.x * viewport.getZoom() / GridLines_Config.GRID_WIDTH) * 2 + 2;
-        int numHzLines = (int)  (projectionSize.y * viewport.getZoom() / GridLines_Config.GRID_HEIGHT) * 2 + 2;
+        // X
+        DebugDraw.addLine2D(    
+                new Vector2f(firstX, y),
+                new Vector2f(firstX + viewport.getSize().x * 2, y),
+                color
+        ); 
 
-        float width = (int) (projectionSize.x * viewport.getZoom()) + (5 * GridLines_Config.GRID_WIDTH);
-        float height = (int) (projectionSize.y * viewport.getZoom()) + (5 * GridLines_Config.GRID_HEIGHT);
+        // Y
+        // DebugDraw.addLine2D(
+        //         new Vector2f(firstX + (GridLines_Config.GRID_WIDTH * i), y),
+        //         new Vector2f(firstX + (GridLines_Config.GRID_WIDTH * i), y + viewport.getSize().y),
+        //         color
+        // );
 
-        int maxLines = Math.max(numVtLines, numHzLines);
-        Vector3f color = new Vector3f(0.2f, 0.2f, 0.2f);
-        for (int i = 0; i < maxLines; i++) {
-            float x = firstX - (projectionSize.x * viewport.getZoom() / 2) + (GridLines_Config.GRID_WIDTH * i);
-            float y = firstY - (projectionSize.y * viewport.getZoom() / 2) + (GridLines_Config.GRID_HEIGHT * i);
 
-            if (i < numVtLines) {
-                DebugDraw.addLine2D(new Vector2f(x, firstY - (projectionSize.y * viewport.getZoom() / 2)), new Vector2f(x, firstY + height - (projectionSize.y * viewport.getZoom() / 2)), color);
-            }
+        List<Float> values = new ArrayList<>();
 
-            if (i < numHzLines) {
-                DebugDraw.addLine2D(new Vector2f(firstX - (projectionSize.x * viewport.getZoom() / 2), y), new Vector2f(firstX + width - (projectionSize.x * viewport.getZoom() / 2), y), color);
-            }
-        }
+
+        // DebugPanel.plotValues("Width", values);
+    }
+
     }
 
 }
