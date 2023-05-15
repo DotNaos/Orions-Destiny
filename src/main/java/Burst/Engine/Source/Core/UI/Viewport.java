@@ -47,7 +47,10 @@ public class Viewport {
         float top = projectionSize.y / 2.0f * zoom;
         projectionMatrix.ortho(left, right, bottom, top, 0.0f, 100.0f);
         inverseProjection = new Matrix4f(projectionMatrix).invert();
-        size = new Vector2f(right - left, top - bottom);    
+        
+        // set the size to the pixels visible in the viewport
+        size.x = Window.getWidth() * zoom;
+        size.y = Window.getHeight() * zoom;
     }
 
     public Matrix4f getViewMatrix() {

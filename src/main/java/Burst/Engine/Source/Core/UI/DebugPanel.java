@@ -64,12 +64,12 @@ public class DebugPanel {
     /**
      * The maximum scale value for a plot.
      */
-    private final static int maxScale = 100;
+    public static int maxScale = 100;
 
     /**
      * The minimum scale value for a plot.
      */
-    private final static int minScale = -100;
+    public static int minScale = -100;
 
     /**
      * A list of all the debug panels that have been registered.
@@ -170,21 +170,14 @@ public class DebugPanel {
                     float t = (float) ((seed % 10 + seed % 100) * seed) / 199;
 
                     // increase the difference between the colors
-                    t *= 1000;
-                    t = (float) Math.sin(t);
-                    t *= 1000;
-                    t *= Math.PI;
-                    t /= 100;
-                    t *= 1000;
-                    t = (float) Math.sin(t);
-                    t *= 1000;
-                    t *= Math.PI;
-                    t /= 100;
-                    t *= 1000;
-                    t = (float) Math.sin(t);
-                    t *= 1000;
-                    t *= Math.PI;
-
+                    for (int j = 0; j < 4; j++) {
+                        t *= 1000;
+                        t = (float) Math.sin(t);
+                        t *= 1000;
+                        t *= Math.PI;
+                        t /= 100;
+                    }
+                    
                     // Make sure t is between 0 and 1
                     t = Math.abs(t % 1);
 

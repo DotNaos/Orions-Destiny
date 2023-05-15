@@ -64,6 +64,9 @@ public class GridLines {
             if (i < numHzLines) {
                 DebugDraw.addLine2D(new Vector2f(firstX, y), new Vector2f(firstX + width, y), color);
             }
+
+            // DebugPanel.maxScale = (int) (10000 * viewport.getZoom());
+            // DebugPanel.plotValue("ViewportSize", viewportSize.x);
         }
 
     }
