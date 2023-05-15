@@ -142,7 +142,7 @@ public class DebugDraw {
         if (lines.size() >= MAX_LINES || !lineInView) {
             return;
         }
-        DebugDraw.lines.add(new Line2D(from, to, color, lifetime));
+        DebugDraw.lines.add(new Line2D(new Vector2f(from), new Vector2f(to), new Vector4f(color), lifetime));
     }
 
     // ==================================================
