@@ -2,7 +2,8 @@ package Orion.abilities.Ultimate;
 
 import Orion.abilities.UltimateAbility;
 
-public class Fire extends UltimateAbility{
+public class Time extends UltimateAbility {
+
         private float bulletSize;
         private float dmg; //Damage depends on distance to player and distance to enemy
         private float dmgArea;

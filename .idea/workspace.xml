@@ -9,7 +9,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="787a90ad-2c32-4237-9403-4ac402e3150a" name="Changes" comment="" />
+    <list default="true" id="787a90ad-2c32-4237-9403-4ac402e3150a" name="Changes" comment="Content drawer fix">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/Energy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/Heal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/Shadow.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/Time.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/Water.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/Explosion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/Explosion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/Fire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/Fire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/Ice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/Ice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/Light.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/Light.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/Plant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/Plant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/Poison.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/Poison.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/UltimateAbility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/UltimateAbility.java" afterDir="false" />
+    </list>
     <list id="25a488fd-f17c-453d-94a6-413269d6c7ff" name="Changes by schue" comment="Changes by schue" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +124,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.rainbow.brackets&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;settings.editor.splitter.proportion&quot;: &quot;0.30120483&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -313,13 +327,8 @@
       <workItem from="1683783341158" duration="948000" />
       <workItem from="1683787686801" duration="2578000" />
       <workItem from="1684172527914" duration="189000" />
-    </task>
-    <task id="LOCAL-00051" summary="Viewport Camera movement">
-      <created>1682101430943</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1682101430943</updated>
+      <workItem from="1684237959885" duration="4688000" />
+      <workItem from="1684261469592" duration="171000" />
     </task>
     <task id="LOCAL-00052" summary="Gizmos">
       <created>1682155411553</created>
@@ -657,7 +666,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684172539372</updated>
     </task>
-    <option name="localTasksCounter" value="100" />
+    <task id="LOCAL-00100" summary="Content drawer fix">
+      <created>1684238032896</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1684238032898</updated>
+    </task>
+    <option name="localTasksCounter" value="101" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
