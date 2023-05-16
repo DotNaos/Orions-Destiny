@@ -5,6 +5,9 @@ import org.joml.Vector2f;
 import org.joml.Vector3f;
 import org.joml.Vector4f;
 
+import Burst.Engine.Source.Editor.Panel.ViewportPanel;
+import imgui.ImGui;
+
 public class Viewport {
     /**
      * The position of the center of the viewport in world units.
@@ -39,8 +42,17 @@ public class Viewport {
     }
 
     public void adjustProjection() {
-        float left = -1 / 2.0f * zoom;
-        float right = 1 / 2.0f * zoom;
+        ViewportPanel viewportPanel = Window.getScene().getPanel(ViewportPanel.class);
+        float width = Window.getWidth();
+        float height = Window.getHeight();
+        if (viewportPanel != null){
+            width = viewportPanel.getSize().x;
+            height = viewportPanel.getSize().y;
+        }
+            
+
+        float left = -1 / 2.0f * zoom * (width / height);
+        float right = 1 / 2.0f * zoom * (width / height);
         float bottom = -1 / 2.0f * zoom;
         float top = 1 / 2.0f * zoom;
         projectionMatrix.identity();

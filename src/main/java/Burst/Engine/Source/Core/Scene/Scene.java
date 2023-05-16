@@ -30,7 +30,7 @@ public class Scene {
     public void init(SceneType sceneType) {
         this.viewport = new Viewport();
         this.viewportRenderer = new ViewportRenderer();
-        this.openScene = sceneType;
+        this.openScene = SceneType.EDITOR;
         switch (openScene) {
             case GAME -> {
                 this.game = new Game(this);

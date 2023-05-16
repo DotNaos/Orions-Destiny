@@ -134,7 +134,7 @@ public class DebugDraw {
         Viewport viewport = Window.getScene().getViewport();
         Vector2f cameraLeft = new Vector2f(viewport.position).add(new Vector2f(-2.0f, -2.0f));
         Vector2f cameraRight = new Vector2f(viewport.position).
-                add(new Vector2f(viewport.getProjectionSize()).mul(viewport.getZoom())).
+                add(new Vector2f(viewport.getSize()).mul(viewport.getZoom())).
                 add(new Vector2f(4.0f, 4.0f));
         boolean lineInView =
                 ((from.x >= cameraLeft.x && from.x <= cameraRight.x) && (from.y >= cameraLeft.y && from.y <= cameraRight.y)) ||
@@ -219,3 +219,5 @@ public class DebugDraw {
         addLine2D(points[points.length - 1], points[0], color, lifetime);
     }
 }
+
+

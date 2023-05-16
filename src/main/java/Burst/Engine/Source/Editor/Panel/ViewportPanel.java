@@ -18,6 +18,7 @@ public class ViewportPanel extends ImGuiPanel {
 
     private boolean isPlaying = false;
     private boolean windowIsHovered;
+    private Vector2f viewportSize = new Vector2f();
 
     public ViewportPanel() {
         super();
@@ -57,6 +58,8 @@ public class ViewportPanel extends ImGuiPanel {
 
         ImGui.setCursorPos(ImGui.getCursorPosX(), ImGui.getCursorPosY());
         ImVec2 windowSize = getLargestSizeForViewport();
+        this.viewportSize = new Vector2f(windowSize.x, windowSize.y);
+
         ImVec2 windowPos = getCenteredPositionForViewport(windowSize);
         ImGui.setCursorPos(windowPos.x, windowPos.y);
 
@@ -102,5 +105,9 @@ public class ViewportPanel extends ImGuiPanel {
         float viewportY = (windowSize.y / 2.0f) - (aspectSize.y / 2.0f);
 
         return new ImVec2(viewportX + ImGui.getCursorPosX(), viewportY + ImGui.getCursorPosY());
+    }
+
+    public Vector2f getSize() {
+        return new Vector2f(viewportSize);
     }
 }
