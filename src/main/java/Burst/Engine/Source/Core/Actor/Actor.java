@@ -11,6 +11,8 @@ import Burst.Engine.Source.Core.Saving.ActorDeserializer;
 import Burst.Engine.Source.Core.Saving.ComponentDeserializer;
 import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Core.Util.Util;
+import imgui.ImGui;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.joml.Vector2f;
@@ -57,7 +59,6 @@ public class Actor {
      * Automatically generates a unique ID and creates a new Transform component.
      */
     public Actor() {
-        this.name = name;
         this.components = new ArrayList<>();
         this.transform = new Transform(this);
         this.ID = Util.generateUniqueID();
@@ -351,9 +352,10 @@ public class Actor {
      */
     public void imgui() {
         // Iterates through each Component in the components list
+        // TODO: Fix Component imgui
         for (Component c : components) {
             // If the Component's header is expanded, calls its imgui method
-//            if (ImGui.collapsingHeader(c.getClass().getSimpleName())) c.imgui();
+        //    if (ImGui.collapsingHeader(c.getClass().getSimpleName())) c.imgui();
         }
     }
 

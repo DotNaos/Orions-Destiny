@@ -35,7 +35,8 @@ public class Camera extends Actor {
     public void update(float dt) {
         if (player == null) return;
 
+        // viewport.position.x = player.transform.position.x;
         viewport.position.x = player.transform.position.x;
-
+        viewport.position.y = player.transform.position.y;
     }
 }

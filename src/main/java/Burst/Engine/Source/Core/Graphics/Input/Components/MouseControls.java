@@ -72,12 +72,12 @@ public class MouseControls {
         if (holdingActor != null) {
             float x = MouseListener.getWorldX();
             float y = MouseListener.getWorldY();
-            holdingActor.transform.position.x = ((int) Math.floor(x / GridLines_Config.GRID_WIDTH) * GridLines_Config.GRID_WIDTH) + GridLines_Config.GRID_WIDTH / 2.0f;
-            holdingActor.transform.position.y = ((int) Math.floor(y / GridLines_Config.GRID_HEIGHT) * GridLines_Config.GRID_HEIGHT) + GridLines_Config.GRID_HEIGHT / 2.0f;
+            holdingActor.transform.position.x = ((int) Math.floor(x / GridLines_Config.SIZE) * GridLines_Config.SIZE) + GridLines_Config.SIZE / 2.0f;
+            holdingActor.transform.position.y = ((int) Math.floor(y / GridLines_Config.SIZE) * GridLines_Config.SIZE) + GridLines_Config.SIZE / 2.0f;
 
             if (MouseListener.mouseButtonDown(GLFW_MOUSE_BUTTON_LEFT)) {
-                float halfWidth = GridLines_Config.GRID_WIDTH / 2.0f;
-                float halfHeight = GridLines_Config.GRID_HEIGHT / 2.0f;
+                float halfWidth = GridLines_Config.SIZE / 2.0f;
+                float halfHeight = GridLines_Config.SIZE / 2.0f;
                 if (MouseListener.isDragging() &&
                         !blockInSquare(holdingActor.transform.position.x - halfWidth,
                                 holdingActor.transform.position.y - halfHeight)) {
@@ -161,7 +161,7 @@ public class MouseControls {
     private boolean blockInSquare(float x, float y) {
         PropertiesPanel propertiesPanel = Window.getScene().getPanel(PropertiesPanel.class);
         Vector2f start = new Vector2f(x, y);
-        Vector2f end = new Vector2f(start).add(new Vector2f(GridLines_Config.GRID_WIDTH, GridLines_Config.GRID_HEIGHT));
+        Vector2f end = new Vector2f(start).add(new Vector2f(GridLines_Config.SIZE, GridLines_Config.SIZE));
         Vector2f startScreenf = MouseListener.worldToScreen(start);
         Vector2f endScreenf = MouseListener.worldToScreen(end);
         Vector2i startScreen = new Vector2i((int) startScreenf.x + 2, (int) startScreenf.y + 2);

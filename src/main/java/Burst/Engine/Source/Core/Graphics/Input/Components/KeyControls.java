@@ -30,7 +30,7 @@ public class KeyControls {
             Actor newObj = activeActor.copy();
             assert Window.getScene().getGame() != null;
             Window.getScene().getGame().addActor(newObj);
-            newObj.transform.position.add(GridLines_Config.GRID_WIDTH, 0.0f);
+            newObj.transform.position.add(GridLines_Config.SIZE, 0.0f);
             propertiesPanel.setActiveGameObject(newObj);
             if (newObj.getComponent(StateMachine.class) != null) {
                 newObj.getComponent(StateMachine.class).refreshTextures();
@@ -66,22 +66,22 @@ public class KeyControls {
         } else if (KeyListener.isKeyPressed(GLFW_KEY_UP) && debounce < 0) {
             debounce = debounceTime;
             for (Actor actor : activeActors) {
-                actor.transform.position.y += GridLines_Config.GRID_HEIGHT * multiplier;
+                actor.transform.position.y += GridLines_Config.SIZE * multiplier;
             }
         } else if (KeyListener.isKeyPressed(GLFW_KEY_LEFT) && debounce < 0) {
             debounce = debounceTime;
             for (Actor actor : activeActors) {
-                actor.transform.position.x -= GridLines_Config.GRID_HEIGHT * multiplier;
+                actor.transform.position.x -= GridLines_Config.SIZE * multiplier;
             }
         } else if (KeyListener.isKeyPressed(GLFW_KEY_RIGHT) && debounce < 0) {
             debounce = debounceTime;
             for (Actor actor : activeActors) {
-                actor.transform.position.x += GridLines_Config.GRID_HEIGHT * multiplier;
+                actor.transform.position.x += GridLines_Config.SIZE * multiplier;
             }
         } else if (KeyListener.isKeyPressed(GLFW_KEY_DOWN) && debounce < 0) {
             debounce = debounceTime;
             for (Actor actor : activeActors) {
-                actor.transform.position.y -= GridLines_Config.GRID_HEIGHT * multiplier;
+                actor.transform.position.y -= GridLines_Config.SIZE * multiplier;
             }
         }
     }

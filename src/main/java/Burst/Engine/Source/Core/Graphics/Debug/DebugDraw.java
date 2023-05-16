@@ -19,7 +19,7 @@ import static org.lwjgl.opengl.GL30.glBindVertexArray;
 import static org.lwjgl.opengl.GL30.glGenVertexArrays;
 
 public class DebugDraw {
-    private static int MAX_LINES = 5000;
+    private static int MAX_LINES = 10000;
 
     private static List<Line2D> lines = new ArrayList<>();
     // 6 floats per vertex, 2 vertices per line
@@ -30,6 +30,8 @@ public class DebugDraw {
     private static int vboID;
 
     private static boolean started = false;
+
+    public static float lineWidth = 2f;
 
     public static void start() {
         // Generate the vao
@@ -48,7 +50,7 @@ public class DebugDraw {
         glVertexAttribPointer(1, 3, GL_FLOAT, false, 6 * Float.BYTES, 3 * Float.BYTES);
         glEnableVertexAttribArray(1);
 
-        glLineWidth(2.0f);
+        glLineWidth(lineWidth);
     }
 
     public static void beginFrame() {
@@ -119,11 +121,11 @@ public class DebugDraw {
     // ==================================================
     public static void addLine2D(Vector2f from, Vector2f to) {
         // TODO: ADD CONSTANTS FOR COMMON COLORS
-        addLine2D(from, to, new Vector3f(0, 1, 0), 1);
+        addLine2D(from, to, new Vector3f(0, 1, 0));
     }
 
     public static void addLine2D(Vector2f from, Vector2f to, Vector3f color) {
-        addLine2D(from, to, color, 1);
+        addLine2D(from, to, color, 2);
     }
 
     public static void addLine2D(Vector2f from, Vector2f to, Vector3f color, int lifetime) {
@@ -132,9 +134,9 @@ public class DebugDraw {
 
     public static void addLine2D(Vector2f from, Vector2f to, Vector4f color, int lifetime) {
         Viewport viewport = Window.getScene().getViewport();
-        Vector2f cameraLeft = new Vector2f(viewport.position).add(new Vector2f(-2.0f, -2.0f));
-        Vector2f cameraRight = new Vector2f(viewport.position).
-                add(new Vector2f(viewport.getSize()).mul(viewport.getZoom())).
+        Vector2f cameraLeft = viewport.getPosition().add(new Vector2f(-2.0f, -2.0f));
+        Vector2f cameraRight = viewport.getPosition().
+                add(viewport.getSize().mul(viewport.getZoom())).
                 add(new Vector2f(4.0f, 4.0f));
         boolean lineInView =
                 ((from.x >= cameraLeft.x && from.x <= cameraRight.x) && (from.y >= cameraLeft.y && from.y <= cameraRight.y)) ||

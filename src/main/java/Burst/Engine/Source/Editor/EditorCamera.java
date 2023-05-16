@@ -23,6 +23,7 @@ public class EditorCamera {
     }
 
     public void update(float dt) {
+
         if (MouseListener.mouseButtonDown(GLFW_MOUSE_BUTTON_MIDDLE) && dragDebounce > 0) {
             this.clickOrigin = new Vector2f(MouseListener.getWorldX(), MouseListener.getWorldY());
             dragDebounce -= dt;
@@ -30,6 +31,7 @@ public class EditorCamera {
         } else if (MouseListener.mouseButtonDown(GLFW_MOUSE_BUTTON_MIDDLE)) {
             Vector2f mousePos = new Vector2f(MouseListener.getWorldX(), MouseListener.getWorldY());
             Vector2f delta = new Vector2f(mousePos).sub(this.clickOrigin);
+
             viewport.position.sub(delta.mul(dt).mul(dragSensitivity));
             this.clickOrigin.lerp(mousePos, dt);
         }
@@ -41,6 +43,8 @@ public class EditorCamera {
         if (MouseListener.getScrollY() != 0.0f) {
             float addValue = (float) Math.pow(Math.abs(MouseListener.getScrollY() * scrollSensitivity), 1 / viewport.getZoom());
             addValue *= -Math.signum(MouseListener.getScrollY());
+
+            addValue = (float) Math.floor(addValue * 10) / 10;
             viewport.addZoom(addValue);
         }
 

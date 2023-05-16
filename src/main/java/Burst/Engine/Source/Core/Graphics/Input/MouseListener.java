@@ -168,12 +168,6 @@ public class MouseListener {
         Matrix4f inverseProjection = new Matrix4f(viewport.getInverseProjection());
         tmp.mul(inverseView.mul(inverseProjection));
 
-
-        System.out.println(get().gameViewportPos.x);
-
-
-        DebugDraw.addBox2D(new Vector2f(tmp.x, tmp.y), new Vector2f(0.1f, 0.1f), 0.0f, new Vector4f(1, 0, 0, 1));
-
         return new Vector2f(tmp.x, tmp.y);
     }
 

@@ -3,17 +3,12 @@ package Burst.Engine.Source.Core.Graphics.Render.Components;
 import Burst.Engine.Config.Constants.GridLines_Config;
 import Burst.Engine.Source.Core.Graphics.Debug.DebugDraw;
 import Burst.Engine.Source.Core.Graphics.Input.MouseListener;
-import Burst.Engine.Source.Core.UI.DebugPanel;
 import Burst.Engine.Source.Core.UI.Viewport;
 import Burst.Engine.Source.Core.UI.Window;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
+import org.joml.Vector4f;
 
-import javax.swing.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class GridLines {
 
@@ -22,54 +17,66 @@ public class GridLines {
      * Updates the grid lines based on the current viewport's position, size, zoom
      * level, and projection size.
      * 
-     * @param dt the delta time since the last frame was rendered
+     * @paspectRatioam dt the delta time since the last frame was rendered
      * @see Window#getScene()
      * @see Viewport#getViewport()
      * @see Viewport#getSize()
-     * @see Viewport#getProjectionSize()
      * @see DebugDraw#addLine2D(Vector2f, Vector2f, Vector3f)
-     * @see GridLines_Config#GRID_WIDTH
-     * @see GridLines_Config#GRID_HEIGHT
+     * @see GridLines_Config#SIZE
+     * @see GridLines_Config#SIZE
      * @see Math#floor(double)
      * @see Vector2f
      * @see Vector3f
      */
     public static void update(float dt) {
-        if (1 == 1) return;
+        // Get the viewports attributes
         Viewport viewport = Window.getScene().getViewport();
-        Vector2f viewportPos = viewport.position;
+        Vector2f viewportPos = viewport.getPosition();
+        viewportPos.x = (float) Math.floor(viewportPos.x);
+        viewportPos.y = (float) Math.floor(viewportPos.y);
         Vector2f viewportSize = viewport.getSize();
-        // Vector2f projectionSize = viewport.getProjectionSize();
-        Vector2f projectionSize;
-        float firstX = ((int) Math.floor(viewportPos.x - viewportSize.x / GridLines_Config.GRID_WIDTH))
-                * GridLines_Config.GRID_WIDTH;
-        float firstY = ((int) Math.floor(viewportPos.y - viewportSize.y / GridLines_Config.GRID_HEIGHT))
-                * GridLines_Config.GRID_HEIGHT;
+        float zoom = viewport.getZoom();
+        float aspectRatio = viewportSize.x / viewportSize.y;
 
-        int numVtLines = (int) Math.ceil(viewportSize.x / GridLines_Config.GRID_WIDTH) + 1;
-        int numHzLines = (int) Math.ceil(viewportSize.y / GridLines_Config.GRID_HEIGHT) + 1;
+        // Calculate the scaling factor
+        // float scaling = (float) Math.pow(10, (int) Math.log10(zoom) - 1);
+        float scaling = 1;
+        float gridSize = (GridLines_Config.SIZE * scaling);
 
-        float width = numVtLines * GridLines_Config.GRID_WIDTH;
-        float height = numHzLines * GridLines_Config.GRID_HEIGHT;
+        float width = zoom * 2;
+        float height = zoom * 2 / aspectRatio;
+
+        width = (float) Math.floor(width);
+        height = (float) Math.floor(height);
 
 
-        int maxLines = Math.max(numVtLines, numHzLines);
-        Vector3f color = new Vector3f(0.2f, 0.2f, 0.2f);
-        for (int i = 0; i < maxLines; i++) {
-            float x = firstX + (GridLines_Config.GRID_WIDTH * i);
-            float y = firstY + (GridLines_Config.GRID_HEIGHT * i);
 
-            if (i < numVtLines) {
-                DebugDraw.addLine2D(new Vector2f(x, firstY), new Vector2f(x, firstY + height), color);
-            }
+        // Viewportpos is in the center of the viewport, so we need to offset it by half
+        float firstX = viewportPos.x - zoom;
+        float firstY = viewportPos.y - zoom / aspectRatio;
 
-            if (i < numHzLines) {
-                DebugDraw.addLine2D(new Vector2f(firstX, y), new Vector2f(firstX + width, y), color);
-            }
+        firstX = (float) Math.floor(firstX);
+        firstY = (float) Math.floor(firstY);
 
-            // DebugPanel.maxScale = (int) (10000 * viewport.getZoom());
-            // DebugPanel.plotValue("ViewportSize", viewportSize.x);
+
+        // DebugDraw.addBox2D(new Vector2f(), new Vector2f(1f, 1f), 0.0f, new Vector4f(0, 0, 1, 1));
+
+        // Draw a Line from the viewport's position to the bottom left corner of the viewport
+        // DebugDraw.addLine2D(viewportPos, new Vector2f(firstX, firstY), new Vector3f(0, 1, 0.1f));
+
+        // 
+        System.out.println("ViewportPos: " + viewportPos.x + ", " + viewportPos.y + " | " + firstX + ", " + firstY + " | " + zoom + " | | | " + width + ", " + height);
+
+
+        for (int i = -100; i < 100; i++) {
+            DebugDraw.addLine2D(new Vector2f(i * gridSize, -100 * gridSize), new Vector2f(i * gridSize, 100 * gridSize), new Vector3f(0, 0, 0.1f));
+
+            
         }
+
+
+
+
 
     }
 

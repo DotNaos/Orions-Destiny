@@ -1,6 +1,5 @@
 package Burst.Engine.Config.Constants;
 
-import Orion.res.Assets;
 
 public class Font_Config {
     public static final String PATH = "Assets/fonts/";

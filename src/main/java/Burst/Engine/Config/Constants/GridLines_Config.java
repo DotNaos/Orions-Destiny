@@ -15,6 +15,5 @@ package Burst.Engine.Config.Constants;
  @since 2023-05-08
  */
 public class GridLines_Config {
-    public static float GRID_WIDTH = 0.25f;
-    public static float GRID_HEIGHT = 0.25f;
+    public static float SIZE = 1f;
 }
