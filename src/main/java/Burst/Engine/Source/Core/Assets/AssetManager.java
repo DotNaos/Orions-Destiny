@@ -15,11 +15,11 @@ import java.util.*;
 
 
 public class AssetManager {
-    private static Map<String, Spritesheet> spritesheets = new HashMap<>();
-    private static Map<String, Sprite> sprites = new HashMap<>();
-    private static Map<String, Texture> textures = new HashMap<>();
+  private static Map<String, Spritesheet> spritesheets = new HashMap<>();
+  private static Map<String, Sprite> sprites = new HashMap<>();
+  private static Map<String, Texture> textures = new HashMap<>();
 
-    private static Map<String, Shader> shaders = new HashMap<>();
+  private static Map<String, Shader> shaders = new HashMap<>();
     private static Map<String, Sound> sounds = new HashMap<>();
 
 
@@ -28,8 +28,7 @@ public class AssetManager {
     private static Map<String, Background> backgrounds = new HashMap<>();
     private static Map<String, UI_Assets> UIs = new HashMap<>();
 
-
-    public static void loadAllAssets() {
+  public static void loadAllAssets() {
         DebugMessage.noDebug = true;
         DebugMessage.header("Loading Assets");
         System.out.println("Loading Assets from: " + Assets.class.getProtectionDomain().getCodeSource().getLocation().getPath() + "\n");

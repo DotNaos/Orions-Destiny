@@ -1,11 +1,10 @@
 package Burst.Engine.Source.Core.UI;
 
+import java.lang.Math;
 import java.lang.invoke.VarHandle;
 
-import org.joml.Matrix4f;
+import org.joml.*;
 import org.joml.Vector3f;
-import org.joml.Vector3f;
-import org.joml.Vector4f;
 
 import Burst.Engine.Source.Editor.Panel.ViewportPanel;
 
@@ -14,8 +13,7 @@ public class Viewport {
      * The position of the center of the viewport in world units.
      */
     public Vector3f position;
-
-    private Vector3f size = new Vector3f();
+    private Vector2f size = new Vector2f();
     public Vector4f clearColor = new Vector4f(0.75f,0.75f,0.75f, 1f);
     private Matrix4f projectionMatrix, viewMatrix, inverseProjection, inverseView;
 
@@ -23,7 +21,7 @@ public class Viewport {
 
     public Viewport() {
         this.position = new Vector3f();
-        this.size = new Vector3f();
+        this.size = new Vector2f();
         this.projectionMatrix = new Matrix4f();
         this.viewMatrix = new Matrix4f();
         this.inverseProjection = new Matrix4f();
@@ -45,8 +43,8 @@ public class Viewport {
         float width = Window.getWidth();
         float height = Window.getHeight();
         if (viewportPanel != null) {
-            width = viewportPanel.getSize().x * 2;
-            height = viewportPanel.getSize().y * 2;
+            width = viewportPanel.getSize().x;
+            height = viewportPanel.getSize().y;
             this.size.x = width;
             this.size.y = height;
         }
@@ -85,8 +83,8 @@ public class Viewport {
         return this.inverseView;
     }
 
-    public Vector3f getSize() {
-        return new Vector3f(this.size);
+    public Vector2f getSize() {
+        return new Vector2f(this.size);
     }
 
     public float getZoom() {
@@ -110,6 +108,19 @@ public class Viewport {
 
     public Vector3f getPosition() {
         return new Vector3f(this.position);
+    }
+
+    public Vector3f getStartPosition() {
+        return new Vector3f(this.position.x - this.size.x / 2, this.position.y - this.size.y / 2, this.position.z);
+    }
+
+    public Vector3f getEndPosition() {
+        return new Vector3f(this.position.x + this.size.x / 2, this.position.y + this.size.y / 2, this.position.z);
+    }
+
+    public Vector2f getWorldSize()
+    {
+        return new Vector2f(this.zoom * 2 * (this.size.x / this.size.y), zoom * 2);
     }
 
 }

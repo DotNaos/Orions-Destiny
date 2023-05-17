@@ -20,7 +20,7 @@ import static org.lwjgl.opengl.GL30.glBindVertexArray;
 import static org.lwjgl.opengl.GL30.glGenVertexArrays;
 
 public class DebugDraw {
-    private static int MAX_LINES = 2000;
+    private static final int MAX_LINES = 2000;
 
     private static List<Line2D> lines = new ArrayList<>();
     // 6 floats per vertex, 2 vertices per line
@@ -134,17 +134,20 @@ public class DebugDraw {
 
     public static void addLine2D(Vector3f from, Vector3f to, Vector4f color, int lifetime) {
         Viewport viewport = Window.getScene().getViewport();
-        Vector3f cameraLeft = viewport.getPosition().sub(new Vector3f(viewport.getSize().x / 4, viewport.getSize().y / 4, 0));
-        
-        Vector3f cameraRight = viewport.getPosition().add(new Vector3f(viewport.getSize().x / 4, viewport.getSize().y / 4, 0));
 
-                
-        boolean lineInView =
-                ((from.x >= cameraLeft.x && from.x <= cameraRight.x) && (from.y >= cameraLeft.y && from.y <= cameraRight.y)) ||
-                        ((to.x >= cameraLeft.x && to.x <= cameraRight.x) && (to.y >= cameraLeft.y && to.y <= cameraRight.y));
-        // if (lines.size() >= MAX_LINES || !lineInView) {
-        //     return;
-        // }
+        // TODO: Fix Camera viewport size, not used currently
+
+//        Vector3f cameraLeft = viewport.getPosition().sub(new Vector3f(viewport.getSize().x / 4, viewport.getSize().y / 4, 0));
+//        Vector3f cameraRight = viewport.getPosition().add(new Vector3f(viewport.getSize().x / 4, viewport.getSize().y / 4, 0));
+//
+//
+        boolean lineInView = true;
+//                ((from.x >= cameraLeft.x && from.x <= cameraRight.x) && (from.y >= cameraLeft.y && from.y <= cameraRight.y)) ||
+//                        ((to.x >= cameraLeft.x && to.x <= cameraRight.x) && (to.y >= cameraLeft.y && to.y <= cameraRight.y));
+         if (lines.size() >= MAX_LINES || !lineInView) {
+             return;
+         }
+
         DebugDraw.lines.add(new Line2D(new Vector3f(from), new Vector3f(to), new Vector4f(color), lifetime));
     }
 
