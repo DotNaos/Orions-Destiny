@@ -28,6 +28,8 @@ public class UltimateAbility extends Ability{
         float bulletPosX = .getXPos;        //Detonation Position of the Bullet
         float bulletPosY = .getYPos;
 
+        float enemyDefence = .get;
+
         float a;
         float b;
         float c;
