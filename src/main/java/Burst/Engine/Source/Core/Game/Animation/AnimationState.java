@@ -1,7 +1,7 @@
 package Burst.Engine.Source.Core.Game.Animation;
 
-import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
 import Burst.Engine.Source.Core.Assets.AssetManager;
+import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
 import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 
 import java.util.ArrayList;
@@ -9,10 +9,9 @@ import java.util.List;
 
 public class AnimationState {
 
+    private static Sprite defaultSprite = new Sprite();
     public String title;
     public List<Frame> animationFrames = new ArrayList<>();
-
-    private static Sprite defaultSprite = new Sprite();
     private float time = 0.0f;
     private transient int currentSprite = 0;
     private boolean doesLoop = false;

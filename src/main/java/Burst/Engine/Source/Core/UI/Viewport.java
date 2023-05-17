@@ -1,24 +1,29 @@
 package Burst.Engine.Source.Core.UI;
 
+import java.lang.invoke.VarHandle;
+
 import org.joml.Matrix4f;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
 import org.joml.Vector4f;
 
+import Burst.Engine.Source.Editor.Panel.ViewportPanel;
+
 public class Viewport {
-    private Matrix4f projectionMatrix, viewMatrix, inverseProjection, inverseView;
+    /**
+     * The position of the center of the viewport in world units.
+     */
     public Vector2f position;
 
-    private float projectionWidth = 6;
-    private float projectionHeight = 3;
+    private Vector2f size = new Vector2f();
     public Vector4f clearColor = new Vector4f(1, 1, 1, 1);
-    private Vector2f projectionSize = new Vector2f(projectionWidth, projectionHeight);
+    private Matrix4f projectionMatrix, viewMatrix, inverseProjection, inverseView;
 
-    private float zoom = 1.0f;
+    private float zoom = 10.0f;
 
-    public Viewport()
-    {
+    public Viewport() {
         this.position = new Vector2f();
+        this.size = new Vector2f();
         this.projectionMatrix = new Matrix4f();
         this.viewMatrix = new Matrix4f();
         this.inverseProjection = new Matrix4f();
@@ -36,19 +41,33 @@ public class Viewport {
     }
 
     public void adjustProjection() {
+        ViewportPanel viewportPanel = Window.getScene().getPanel(ViewportPanel.class);
+        float width = Window.getWidth();
+        float height = Window.getHeight();
+        if (viewportPanel != null) {
+            width = viewportPanel.getSize().x;
+            height = viewportPanel.getSize().y;
+            this.size.x = width;
+            this.size.y = height;
+        }
+
+        float left = -1 / 2.0f * zoom * (width / height);
+        float right = 1 / 2.0f * zoom * (width / height);
+        float bottom = -1 / 2.0f * zoom;
+        float top = 1 / 2.0f * zoom;
         projectionMatrix.identity();
-        projectionMatrix.ortho(0.0f, projectionSize.x * this.zoom,
-                0.0f, projectionSize.y * zoom, 0.0f, 100.0f);
+        projectionMatrix.ortho(left, right, bottom, top, 0.0f, 100.0f);
         inverseProjection = new Matrix4f(projectionMatrix).invert();
     }
 
     public Matrix4f getViewMatrix() {
+        viewMatrix.identity();
+        
         Vector3f cameraFront = new Vector3f(0.0f, 0.0f, -1.0f);
         Vector3f cameraUp = new Vector3f(0.0f, 1.0f, 0.0f);
-        viewMatrix.identity();
-        viewMatrix.lookAt(new Vector3f(position.x, position.y, 20.0f),
-                                        cameraFront.add(position.x, position.y, 0.0f),
-                                        cameraUp);
+
+        viewMatrix.lookAt(new Vector3f(position.x, position.y, 20.0f), cameraFront.add(position.x, position.y, 0.0f),
+                cameraUp);
         inverseView = new Matrix4f(this.viewMatrix).invert();
 
         return this.viewMatrix;
@@ -66,8 +85,8 @@ public class Viewport {
         return this.inverseView;
     }
 
-    public Vector2f getProjectionSize() {
-        return this.projectionSize;
+    public Vector2f getSize() {
+        return new Vector2f(this.size);
     }
 
     public float getZoom() {
@@ -80,5 +99,17 @@ public class Viewport {
 
     public void addZoom(float value) {
         this.zoom += value;
+        if (this.zoom < 1f) {
+            this.zoom = 1f;
+        }
+        else 
+        {
+            this.zoom = (float) (Math.floor(this.zoom * 10) / 10);
+        }
     }
+
+    public Vector2f getPosition() {
+        return new Vector2f(this.position);
+    }
+
 }

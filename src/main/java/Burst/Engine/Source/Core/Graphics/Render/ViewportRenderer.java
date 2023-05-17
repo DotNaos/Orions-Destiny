@@ -8,13 +8,21 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class ViewportRenderer extends Renderer{
+public class ViewportRenderer extends Renderer {
+    private static Shader currentShader;
     private final int MAX_BATCH_SIZE = 2000;
     private List<RenderBatch> batches;
-    private static Shader currentShader;
 
     public ViewportRenderer() {
         this.batches = new ArrayList<>();
+    }
+
+    public static void bindShader(Shader shader) {
+        currentShader = shader;
+    }
+
+    public static Shader getBoundShader() {
+        return currentShader;
     }
 
     public void add(Actor actor) {
@@ -38,8 +46,7 @@ public class ViewportRenderer extends Renderer{
         }
 
         if (!added) {
-            RenderBatch newBatch = new RenderBatch(MAX_BATCH_SIZE,
-                    sprite.actor.transform.zIndex, this);
+            RenderBatch newBatch = new RenderBatch(MAX_BATCH_SIZE, sprite.actor.transform.zIndex, this);
             newBatch.start();
             batches.add(newBatch);
             newBatch.addSprite(sprite);
@@ -54,14 +61,6 @@ public class ViewportRenderer extends Renderer{
                 return;
             }
         }
-    }
-
-    public static void bindShader(Shader shader) {
-        currentShader = shader;
-    }
-
-    public static Shader getBoundShader() {
-        return currentShader;
     }
 
     @Override

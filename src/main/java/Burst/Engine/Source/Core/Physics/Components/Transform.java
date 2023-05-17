@@ -8,6 +8,7 @@ public class Transform {
 
     public Vector2f position = new Vector2f();
     public Vector2f scale = new Vector2f(1.0f, 1.0f);
+    public Vector2f size = new Vector2f(1f, 1f);
     public float rotation = 0.0f;
     public int zIndex = 0;
     private Actor actor = null;
@@ -24,6 +25,7 @@ public class Transform {
         this.position = position;
         this.scale = scale;
     }
+
     public Transform(Vector2f position, Vector2f scale, float rotation) {
         this.position = position;
         this.scale = scale;
@@ -37,9 +39,10 @@ public class Transform {
 
 
     public void imgui() {
-        actor.name = BImGui.inputText("Name: ", actor.name);
+        actor.setName(BImGui.inputText("Name: ", actor.getName()));
         BImGui.drawVec2Control("Position", this.position);
-        BImGui.drawVec2Control("Scale", this.scale, 32.0f);
+        BImGui.drawVec2Control("Size", this.size, 32.0f);
+        BImGui.drawVec2Control("Scale", this.scale, 1.0f);
         this.rotation = BImGui.dragFloat("Rotation", this.rotation);
         this.zIndex = BImGui.dragInt("Z-Index", this.zIndex);
     }
@@ -55,7 +58,7 @@ public class Transform {
         if (o == null) return false;
         if (!(o instanceof Transform t)) return false;
 
-        return t.position.equals(this.position) && t.scale.equals(this.scale) &&
+        return t.position.equals(this.position) && t.scale.equals(this.scale) && t.size.equals(this.size) &&
                 t.rotation == this.rotation && t.zIndex == this.zIndex;
     }
 }

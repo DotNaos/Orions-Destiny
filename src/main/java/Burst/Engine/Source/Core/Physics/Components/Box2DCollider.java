@@ -1,7 +1,8 @@
 package Burst.Engine.Source.Core.Physics.Components;
 
-import Burst.Engine.Source.Core.Graphics.Debug.DebugDraw;
+import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Component;
+import Burst.Engine.Source.Core.Graphics.Debug.DebugDraw;
 import org.joml.Vector2f;
 
 public class Box2DCollider extends Component {
@@ -9,11 +10,17 @@ public class Box2DCollider extends Component {
     private Vector2f origin = new Vector2f();
     private Vector2f offset = new Vector2f();
 
+    public Box2DCollider(Actor actor) {
+        super(actor);
+    }
+
     public Vector2f getOffset() {
         return this.offset;
     }
 
-    public void setOffset(Vector2f newOffset) { this.offset.set(newOffset); }
+    public void setOffset(Vector2f newOffset) {
+        this.offset.set(newOffset);
+    }
 
     public Vector2f getHalfSize() {
         return halfSize;

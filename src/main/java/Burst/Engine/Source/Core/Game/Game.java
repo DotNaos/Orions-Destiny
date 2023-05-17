@@ -2,15 +2,15 @@ package Burst.Engine.Source.Core.Game;
 
 import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Assets.Graphics.Background;
+import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
+import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Burst.Engine.Source.Core.Component;
-import Burst.Engine.Source.Core.Graphics.Debug.DebugDraw;
 import Burst.Engine.Source.Core.Graphics.Input.MouseListener;
 import Burst.Engine.Source.Core.Physics.Physics2D;
 import Burst.Engine.Source.Core.Saving.ActorDeserializer;
 import Burst.Engine.Source.Core.Saving.ComponentDeserializer;
-
 import Burst.Engine.Source.Core.Scene.Scene;
-import Burst.Engine.Source.Core.util.DebugMessage;
+import Burst.Engine.Source.Core.Util.DebugMessage;
 import Burst.Engine.Source.Editor.Panel.ViewportPanel;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -25,7 +25,7 @@ import java.util.List;
 import java.util.Optional;
 
 
-public class Game{
+public class Game {
     protected List<Actor> actors;
     protected List<Actor> actorsToAdd;
     protected Physics2D physics2D;
@@ -36,8 +36,7 @@ public class Game{
         this.scene = scene;
     }
 
-    public void init()
-    {
+    public void init() {
         this.physics2D = new Physics2D();
         this.actors = new ArrayList<>();
         this.actorsToAdd = new ArrayList<>();
@@ -48,6 +47,15 @@ public class Game{
         loadLevel();
         scene.getSceneInitializer().loadResources(this);
         start();
+
+        // Show a debug image
+        Texture tex = new Texture("assets/images/debug/blendImage1.png");
+//        tex.init();
+        Sprite sprite = new Sprite();
+        sprite.setTexture(tex);
+
+
+        this.scene.getViewportRenderer().add(new Actor(sprite, 10, 10));
     }
 
     //====================================================================================================
@@ -55,7 +63,7 @@ public class Game{
     // |--------------------------------------[ Game Loop ]----------------------------------------------|
     // |=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
     //====================================================================================================
-    
+
     public void start() {
         for (Actor actor : actors) {
             actor.start();
@@ -70,11 +78,10 @@ public class Game{
             actor.destroy();
         }
     }
-    
-    public void update(float dt) {
-        scene.getCamera().adjustProjection();
-        this.physics2D.update(dt);
 
+    public void update(float dt) {
+        scene.getViewport().adjustProjection();
+        this.physics2D.update(dt);
 
         for (Actor actor : actors) {
             actor.update(dt);
@@ -83,65 +90,42 @@ public class Game{
     }
 
 
-
-
     public void addActor(Actor actor) {
-        if (scene.isPaused()) {
-            actors.add(actor);
-        } else {
-            actorsToAdd.add(actor);
-        }
+        actors.add(actor);
+        if (!actor.isSerializedActor()) return;
+        saveLevel();
     }
-
-    
-    public Actor spawnActor(String name) {
-        return new Actor(name);
-    }
-
 
     //====================================================================================================
     // |=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
     // |--------------------------------------[ Saving and Loading ]-------------------------------------|
     // |=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
     //====================================================================================================
-    
+    private Gson gsonBuilder() {
+        return new GsonBuilder().setPrettyPrinting().registerTypeAdapter(Component.class, new ComponentDeserializer()).registerTypeAdapter(Actor.class, new ActorDeserializer()).enableComplexMapKeySerialization().create();
+    }
+
     public void saveLevel() {
-
-        Gson gson = new GsonBuilder()
-                .setPrettyPrinting()
-                .registerTypeAdapter(Component.class, new ComponentDeserializer())
-                .registerTypeAdapter(Actor.class, new ActorDeserializer())
-                .enableComplexMapKeySerialization()
-                .create();
-
         try {
-            FileWriter writer = new FileWriter("level.json");
-            List<Actor> objsToSerialize = new ArrayList<>();
-            for (Actor obj : this.actors) {
-                if (obj.serializedActor) {
-                    objsToSerialize.add(obj);
+            FileWriter writer = new FileWriter(".\\levels\\level.json");
+            List<Actor> actorsToSerialize = new ArrayList<>();
+            for (Actor actor : this.actors) {
+                if (actor.isSerializedActor()) {
+                    actorsToSerialize.add(actor);
                 }
             }
-            writer.write(gson.toJson(objsToSerialize));
+            writer.write(gsonBuilder().toJson(actorsToSerialize));
             writer.close();
-        } catch(IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     public void loadLevel() {
-        Gson gson = new GsonBuilder()
-                .setPrettyPrinting()
-                .registerTypeAdapter(Component.class, new ComponentDeserializer())
-                .registerTypeAdapter(Actor.class, new ActorDeserializer())
-                .enableComplexMapKeySerialization()
-                .create();
-
         String inFile = "";
         try {
-            inFile = new String(Files.readAllBytes(Paths.get("level.json")));
-        } catch (IOException e)
-        {
+            inFile = new String(Files.readAllBytes(Paths.get(".\\levels\\level.json")));
+        } catch (IOException e) {
             if (e instanceof NoSuchFileException) {
                 DebugMessage.notFound("Level Not Found");
             } else {
@@ -150,39 +134,15 @@ public class Game{
         }
 
         if (!inFile.equals("")) {
-            Actor[] objs = gson.fromJson(inFile, Actor[].class);
-            for (Actor obj : objs) {
-                addActor(obj);
+            Actor[] actors = gsonBuilder().fromJson(inFile, Actor[].class);
+            for (Actor actor : actors) {
+                addActor(actor);
             }
         }
     }
-    
-    
-    //====================================================================================================
-    // |=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
-    // |--------------------------------------[ Input Callbacks ]----------------------------------------|
-    // |=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
-    //====================================================================================================
-
-    /**
-     * @param window
-     * @param button
-     * @param action
-     * @param mods
-     */
-
-    public void mouseButtonCallback(long window, int button, int action, int mods) {
-        if (!scene.getPanel(ViewportPanel.class).getWantCaptureMouse()) return;
-        MouseListener.mouseButtonCallback(window, button, action, mods);
-    }
 
 
-    public void mousePositionCallback(long window, double xpos, double ypos) {
-        if (scene.getPanel(ViewportPanel.class).getWantCaptureMouse()) return;
 
-        MouseListener.clear();
-
-    }
 
 
     //====================================================================================================
@@ -209,16 +169,12 @@ public class Game{
     }
 
     public Actor getActor(int ActorId) {
-        Optional<Actor> result = this.actors.stream()
-                .filter(Actor -> Actor.getID() == ActorId)
-                .findFirst();
+        Optional<Actor> result = this.actors.stream().filter(Actor -> Actor.getID() == ActorId).findFirst();
         return result.orElse(null);
     }
 
     public Actor getActor(String ActorName) {
-        Optional<Actor> result = this.actors.stream()
-                .filter(Actor -> Actor.name.equals(ActorName))
-                .findFirst();
+        Optional<Actor> result = this.actors.stream().filter(Actor -> Actor.getName().equals(ActorName)).findFirst();
         return result.orElse(null);
     }
 

@@ -1,44 +1,65 @@
 package Burst.Engine.Source.Editor.Panel;
 
-import Burst.Engine.Source.Core.Observer.*;
+import Burst.Engine.Source.Core.Graphics.Input.MouseListener;
+import Burst.Engine.Source.Core.Observer.EventSystem;
 import Burst.Engine.Source.Core.Observer.Events.Event;
 import Burst.Engine.Source.Core.Observer.Events.EventType;
+import Burst.Engine.Source.Core.Scene.SceneType;
 import Burst.Engine.Source.Core.UI.ImGuiPanel;
-import imgui.ImGui;
-import imgui.ImVec2;
-import imgui.flag.ImGuiWindowFlags;
-import Burst.Engine.Source.Core.Graphics.Input.MouseListener;
 import Burst.Engine.Source.Core.UI.Window;
+import imgui.ImGui;
+import imgui.ImGuiViewport;
+import imgui.ImVec2;
+import imgui.flag.ImGuiCond;
+import imgui.flag.ImGuiWindowFlags;
 import org.joml.Vector2f;
 
 public class ViewportPanel extends ImGuiPanel {
 
     private boolean isPlaying = false;
     private boolean windowIsHovered;
+    private Vector2f viewportSize = new Vector2f();
+
+    public ViewportPanel() {
+        super();
+    }
 
     @Override
     public void imgui() {
-        ImGui.begin("Viewport",
-                 ImGuiWindowFlags.NoScrollbar |
-                                ImGuiWindowFlags.NoScrollWithMouse |
-                                ImGuiWindowFlags.MenuBar |
-                                ImGuiWindowFlags.NoTitleBar
-        );
+        boolean inGame = Window.getScene().getOpenScene() == SceneType.GAME;
+        int inGameFlags = 0;
 
-        ImGui.beginMenuBar();
-        if (ImGui.menuItem("Play", "", isPlaying, !isPlaying)) {
-            isPlaying = true;
-            EventSystem.notify(null, new Event(EventType.GameEngineStartPlay));
+        if (inGame) {
+            // The next window is displayed in the center of the screen in the viewport
+            ImGuiViewport mainViewport = ImGui.getMainViewport();
+            ImGui.setNextWindowPos(mainViewport.getWorkPosX() + mainViewport.getWorkSizeX() / 2, mainViewport.getWorkPosY() + mainViewport.getWorkSizeY() / 2, ImGuiCond.Always, 0.5f, 0.5f);
+            ImGui.setNextWindowSize(mainViewport.getWorkSizeX(), mainViewport.getWorkSizeY());
+            ImGui.setNextWindowViewport(mainViewport.getID());
+            inGameFlags |= ImGuiWindowFlags.NoTitleBar | ImGuiWindowFlags.NoResize | ImGuiWindowFlags.NoMove | ImGuiWindowFlags.NoCollapse | ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoScrollWithMouse | ImGuiWindowFlags.NoDocking;
+            ImGui.setNextWindowPos(0, 0, ImGuiCond.Always, 0.0f, 0.0f);
+
         }
-        if (ImGui.menuItem("Stop", "", !isPlaying, isPlaying)) {
-            isPlaying = false;
-            EventSystem.notify(null, new Event(EventType.GameEngineStopPlay));
+
+        ImGui.begin("Viewport", ImGuiWindowFlags.NoTitleBar | ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoScrollWithMouse | ImGuiWindowFlags.MenuBar | inGameFlags);
+
+        if (!inGame) {
+            ImGui.beginMenuBar();
+            if (ImGui.menuItem("Play", "", isPlaying, !isPlaying)) {
+                isPlaying = true;
+                EventSystem.notify(null, new Event(EventType.GameEngineStartPlay));
+            }
+            if (ImGui.menuItem("Stop", "", !isPlaying, isPlaying)) {
+                isPlaying = false;
+                EventSystem.notify(null, new Event(EventType.GameEngineStopPlay));
+            }
+            ImGui.endMenuBar();
         }
-        ImGui.endMenuBar();
 
 
         ImGui.setCursorPos(ImGui.getCursorPosX(), ImGui.getCursorPosY());
         ImVec2 windowSize = getLargestSizeForViewport();
+        this.viewportSize = new Vector2f(windowSize.x, windowSize.y);
+
         ImVec2 windowPos = getCenteredPositionForViewport(windowSize);
         ImGui.setCursorPos(windowPos.x, windowPos.y);
 
@@ -60,15 +81,20 @@ public class ViewportPanel extends ImGuiPanel {
         ImVec2 windowSize = new ImVec2();
         ImGui.getContentRegionAvail(windowSize);
 
+        // TODO: VIEWPORT CHANGE TO BLENDER STYLE
+        float ar = (float) Window.getWidth() / (float) Window.getHeight();
         float aspectWidth = windowSize.x;
-        float aspectHeight = aspectWidth / Window.getTargetAspectRatio();
+        float aspectHeight = aspectWidth / ar;
         if (aspectHeight > windowSize.y) {
             // We must switch to pillarbox mode
             aspectHeight = windowSize.y;
-            aspectWidth = aspectHeight * Window.getTargetAspectRatio();
+            aspectWidth = aspectHeight * ar;
         }
 
-        return new ImVec2(aspectWidth, aspectHeight);
+//        return new ImVec2(aspectWidth, aspectHeight);
+
+
+        return new ImVec2(windowSize.x, windowSize.y);
     }
 
     private ImVec2 getCenteredPositionForViewport(ImVec2 aspectSize) {
@@ -79,5 +105,9 @@ public class ViewportPanel extends ImGuiPanel {
         float viewportY = (windowSize.y / 2.0f) - (aspectSize.y / 2.0f);
 
         return new ImVec2(viewportX + ImGui.getCursorPosX(), viewportY + ImGui.getCursorPosY());
+    }
+
+    public Vector2f getSize() {
+        return new Vector2f(viewportSize);
     }
 }

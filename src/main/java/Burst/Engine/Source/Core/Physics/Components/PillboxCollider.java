@@ -1,20 +1,26 @@
 package Burst.Engine.Source.Core.Physics.Components;
 
+import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.UI.Window;
 import org.joml.Vector2f;
 
 public class PillboxCollider extends Component {
-    private transient CircleCollider bottomCircle = new CircleCollider();
-    private transient Box2DCollider box = new Box2DCollider();
-    private transient boolean resetFixtureNextFrame = false;
-
     public float width = 0.1f;
     public float height = 0.2f;
     public Vector2f offset = new Vector2f();
+    private transient CircleCollider bottomCircle;
+    private transient Box2DCollider box;
+    private transient boolean resetFixtureNextFrame = false;
+
+    public PillboxCollider(Actor actor) {
+        super(actor);
+    }
 
     @Override
     public void start() {
+        this.bottomCircle = new CircleCollider(this.actor);
+        this.box = new Box2DCollider(this.actor);
         this.bottomCircle.actor = this.actor;
         this.box.actor = this.actor;
         recalculateColliders();

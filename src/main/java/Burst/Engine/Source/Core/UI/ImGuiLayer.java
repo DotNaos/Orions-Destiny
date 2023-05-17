@@ -1,20 +1,22 @@
 package Burst.Engine.Source.Core.UI;
 
+import Burst.Engine.Config.Constants.Font_Config;
+import Burst.Engine.Config.ImGuiStyleConfig;
 import Burst.Engine.Source.Core.Graphics.Input.KeyListener;
 import Burst.Engine.Source.Core.Graphics.Input.MouseListener;
+import Burst.Engine.Source.Core.Scene.Scene;
 import Burst.Engine.Source.Editor.Panel.ViewportPanel;
 import imgui.*;
 import imgui.callback.ImStrConsumer;
 import imgui.callback.ImStrSupplier;
-import imgui.flag.ImGuiCol;
+import imgui.flag.ImGuiCond;
 import imgui.flag.ImGuiConfigFlags;
 import imgui.flag.ImGuiStyleVar;
 import imgui.flag.ImGuiWindowFlags;
 import imgui.gl3.ImGuiImplGl3;
 import imgui.glfw.ImGuiImplGlfw;
+import imgui.internal.ImGuiDockNode;
 import imgui.type.ImBoolean;
-import Burst.Engine.Source.Core.Scene.Scene;
-import Orion.res.Assets;
 
 import java.io.File;
 
@@ -25,11 +27,12 @@ import static org.lwjgl.opengl.GL30.glBindFramebuffer;
 
 public class ImGuiLayer {
 
-    private long glfwWindow;
-
     // LWJGL3 renderer (SHOULD be initialized)
     private final ImGuiImplGl3 imGuiGl3 = new ImGuiImplGl3();
     private final ImGuiImplGlfw imGuiGlfw = new ImGuiImplGlfw();
+    private long glfwWindow;
+
+
 
 
 
@@ -103,10 +106,12 @@ public class ImGuiLayer {
         glfwSetScrollCallback(glfwWindow, (w, xOffset, yOffset) -> {
             io.setMouseWheelH(io.getMouseWheelH() + (float) xOffset);
             io.setMouseWheel(io.getMouseWheel() + (float) yOffset);
-            if (!io.getWantCaptureMouse() || Window.getScene().getPanel(ViewportPanel.class).getWantCaptureMouse()) {
-                MouseListener.mouseScrollCallback(w, xOffset, yOffset);
-            } else {
-                MouseListener.clear();
+            if (Window.getScene().getPanel(ViewportPanel.class) != null ){
+                if (!io.getWantCaptureMouse() || Window.getScene().getPanel(ViewportPanel.class).getWantCaptureMouse()) {
+                    MouseListener.mouseScrollCallback(w, xOffset, yOffset);
+                } else {
+                    MouseListener.clear();
+                }
             }
             Window.getScene().scrollCallback(w, xOffset, yOffset);
         });
@@ -135,8 +140,7 @@ public class ImGuiLayer {
         // Read: https://raw.githubusercontent.com/ocornut/imgui/master/docs/FONTS.txt
 
 
-        if (new File(Assets.FONT_INTER).isFile())
-        {
+        if (new File(Font_Config.UI).isFile()) {
             final ImFontAtlas fontAtlas = io.getFonts();
             final ImFontConfig fontConfig = new ImFontConfig(); // Natively allocated object, should be explicitly destroyed
 
@@ -145,7 +149,7 @@ public class ImGuiLayer {
 
             // Fonts merge example
             fontConfig.setPixelSnapH(true);
-            fontAtlas.addFontFromFileTTF(Assets.FONT_INTER, 18, fontConfig);
+            fontAtlas.addFontFromFileTTF(Font_Config.UI, 18, fontConfig);
             fontConfig.destroy(); // After all fonts were added we don't need this config more
         } else if (new File("C:/Windows/Fonts/seactoreui.ttf").isFile()) {
             final ImFontAtlas fontAtlas = io.getFonts();
@@ -181,25 +185,25 @@ public class ImGuiLayer {
         imGuiGl3.init("#version 330 core");
     }
 
-    public void update(float dt, Scene currentScene) {
-        startFrame(dt);
 
-        // Any Dear ImGui code SHOULD actor between ImGui.newFrame()/ImGui.render() methods
+    /**
+     * IMPORTANT!! ImGui code MUST be called between ImGui.newFrame()/ImGui.render() methods
+     */
+    public void update(float dt, Scene currentScene) {
+        startFrame();
+
+        ImGuiStyleConfig.style();
+
+
         setupDockspace();
         currentScene.imgui();
-        ImGui.showDemoWindow();
+        DebugPanel.imgui();
         endFrame();
     }
 
-    private void startFrame(final float deltaTime) {
+    private void startFrame() {
         imGuiGlfw.newFrame();
         ImGui.newFrame();
-        // Push color variables
-        ImGui.pushStyleColor(ImGuiCol.TitleBg, (float) 255 / 20, (float) 255 / 20, (float) 255 / 20, 1.0f);
-        ImGui.pushStyleColor(ImGuiCol.WindowBg, (float) 255 / 100, (float) 255 / 100, (float) 255 / 100, 1.0f);
-
-        // Pop color variables
-        ImGui.popStyleColor(2);
     }
 
     private void endFrame() {
@@ -219,7 +223,7 @@ public class ImGuiLayer {
         glfwMakeContextCurrent(backupWindowPtr);
     }
 
-    // If you want to clean a room after yourself - do it by yourself
+    // If you want a clean room after yourself - do it by yourself
     private void destroyImGui() {
         imGuiGl3.dispose();
         ImGui.destroyContext();
@@ -236,17 +240,14 @@ public class ImGuiLayer {
         ImGui.setNextWindowSize(Window.getWidth(), Window.getHeight());
         ImGui.pushStyleVar(ImGuiStyleVar.WindowRounding, 0.0f);
         ImGui.pushStyleVar(ImGuiStyleVar.WindowBorderSize, 0.0f);
-        windowFlags |= ImGuiWindowFlags.NoTitleBar | ImGuiWindowFlags.NoCollapse |
-                ImGuiWindowFlags.NoResize | ImGuiWindowFlags.NoMove |
-                ImGuiWindowFlags.NoBringToFrontOnFocus | ImGuiWindowFlags.NoNavFocus;
+
+        windowFlags |= ImGuiWindowFlags.NoTitleBar | ImGuiWindowFlags.NoCollapse | ImGuiWindowFlags.NoResize | ImGuiWindowFlags.NoMove | ImGuiWindowFlags.NoBringToFrontOnFocus | ImGuiWindowFlags.NoNavFocus;
 
         ImGui.begin("Dockspace Demo", new ImBoolean(true), windowFlags);
         ImGui.popStyleVar(2);
 
         // Dockspace
         ImGui.dockSpace(ImGui.getID("Dockspace"));
-
-
 
         ImGui.end();
     }

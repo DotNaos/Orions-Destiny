@@ -25,6 +25,10 @@ public class PlayerController extends Component {
     private transient Vector2f velocity = new Vector2f();
     private transient boolean isDead = false;
 
+    public PlayerController(Actor actor) {
+        super(actor);
+    }
+
     @Override
     public void start() {
 
@@ -33,7 +37,7 @@ public class PlayerController extends Component {
     @Override
     public void update(float dt) {
         if (KeyListener.isKeyPressed(GLFW_KEY_RIGHT) || KeyListener.isKeyPressed(GLFW_KEY_D)) {
-            this.actor.transform.scale.x = playerWidth;
+            this.actor.transform.size.x = playerWidth;
             this.acceleration.x = walkSpeed;
 
             if (this.velocity.x < 0) {
@@ -43,7 +47,7 @@ public class PlayerController extends Component {
                 this.stateMachine.trigger("startRunning");
             }
         } else if (KeyListener.isKeyPressed(GLFW_KEY_LEFT) || KeyListener.isKeyPressed(GLFW_KEY_A)) {
-            this.actor.transform.scale.x = -playerWidth;
+            this.actor.transform.size.x = -playerWidth;
             this.acceleration.x = -walkSpeed;
 
             if (this.velocity.x > 0) {
@@ -88,7 +92,6 @@ public class PlayerController extends Component {
         this.actor.transform.position.set(newPos);
         this.rb.setPosition(newPos);
     }
-
 
 
     @Override

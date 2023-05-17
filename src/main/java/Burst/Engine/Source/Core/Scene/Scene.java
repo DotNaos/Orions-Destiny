@@ -1,12 +1,14 @@
 package Burst.Engine.Source.Core.Scene;
 
-import Burst.Engine.Source.Core.Game.Editor;
-import Burst.Engine.Source.Core.Scene.Initializer.*;
-import Burst.Engine.Source.Core.UI.Viewport;
-import Burst.Engine.Source.Core.Graphics.Render.ViewportRenderer;
-import Burst.Engine.Source.Core.UI.ImGuiPanel;
-import Burst.Engine.Source.Core.util.DebugMessage;
 import Burst.Engine.Source.Core.Game.Game;
+import Burst.Engine.Source.Core.Graphics.Input.MouseListener;
+import Burst.Engine.Source.Core.Graphics.Render.ViewportRenderer;
+import Burst.Engine.Source.Core.Scene.Initializer.*;
+import Burst.Engine.Source.Core.UI.ImGuiPanel;
+import Burst.Engine.Source.Core.UI.Viewport;
+import Burst.Engine.Source.Core.Util.DebugMessage;
+import Burst.Engine.Source.Editor.Editor;
+import Burst.Engine.Source.Editor.Panel.ViewportPanel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,18 +17,21 @@ public class Scene {
     private SceneInitializer sceneInitializer;
     private List<ImGuiPanel> panels = new ArrayList<>();
     private Viewport viewport;
-    private final ViewportRenderer viewportRenderer;
+    private ViewportRenderer viewportRenderer;
     private boolean isPaused = false;
     private SceneType openScene = SceneType.NONE;
     private Editor editor;
     private Game game;
 
-    public Scene(SceneType sceneType) {
+    public Scene() {
+
+    }
+
+    public void init(SceneType sceneType) {
         this.viewport = new Viewport();
         this.viewportRenderer = new ViewportRenderer();
-        this.openScene = sceneType;
-        switch (openScene)
-        {
+        this.openScene = SceneType.EDITOR;
+        switch (openScene) {
             case GAME -> {
                 this.game = new Game(this);
                 this.sceneInitializer = new GameInitializer(this);
@@ -58,8 +63,6 @@ public class Scene {
 
         this.sceneInitializer.init();
     }
-
-
 
 
     public void update(float dt) {
@@ -109,20 +112,38 @@ public class Scene {
     // All Mouse and Keyboard callbacks
     //====================================================================================================
 
-    public void keyCallback( long window, int key, int scancode, int action, int mods){}
-    public void charCallback ( long window, int codepoint){}
-    public void mouseButtonCallback( long window, int button, int action, int mods){}
-    public void scrollCallback( long window, double xOffset, double yOffset){}
-    public void mousePositionCallback(long window, double xpos, double ypos){}
+    public void keyCallback(long window, int key, int scancode, int action, int mods) {
+    }
 
+    public void charCallback(long window, int codepoint) {
+    }
+
+    public void mouseButtonCallback(long window, int button, int action, int mods) {
+        ViewportPanel viewportPanel = getPanel(ViewportPanel.class);
+        if (viewportPanel == null) return;
+        if (!viewportPanel.getWantCaptureMouse()) return;
+        MouseListener.mouseButtonCallback(window, button, action, mods);
+    }
+
+
+    public void mousePositionCallback(long window, double xpos, double ypos) {
+        ViewportPanel viewportPanel = getPanel(ViewportPanel.class);
+        if (viewportPanel == null) return;
+        if (viewportPanel.getWantCaptureMouse()) return;
+        MouseListener.clear();
+    }
+
+    public void scrollCallback(long window, double xOffset, double yOffset) {
+    }
 
 
     //====================================================================================================
     // All getters and setters
     //====================================================================================================
-    public Viewport getCamera() {
+    public Viewport getViewport() {
         return this.viewport;
     }
+
     public SceneInitializer getSceneInitializer() {
         return this.sceneInitializer;
     }
@@ -141,6 +162,7 @@ public class Scene {
         }
         return this.game;
     }
+
     public Editor getEditor() {
         return this.editor;
     }
@@ -160,4 +182,6 @@ public class Scene {
 
     public void destroy() {
     }
+
+
 }

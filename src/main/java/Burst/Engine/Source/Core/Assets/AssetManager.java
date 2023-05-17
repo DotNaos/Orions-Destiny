@@ -1,10 +1,11 @@
 package Burst.Engine.Source.Core.Assets;
 
+import Burst.Engine.Config.Constants.Font_Config;
 import Burst.Engine.Config.ShaderConfig;
 import Burst.Engine.Source.Core.Assets.Audio.Sound;
 import Burst.Engine.Source.Core.Assets.Graphics.*;
 import Burst.Engine.Source.Core.Component;
-import Burst.Engine.Source.Core.util.DebugMessage;
+import Burst.Engine.Source.Core.Util.DebugMessage;
 import Orion.res.Assets;
 
 import java.io.File;
@@ -26,7 +27,6 @@ public class AssetManager {
     private static Map<String, LevelMap> maps = new HashMap<>();
     private static Map<String, Background> backgrounds = new HashMap<>();
     private static Map<String, UI_Assets> UIs = new HashMap<>();
-
 
 
     public static void loadAllAssets() {
@@ -88,7 +88,7 @@ public class AssetManager {
         } else if (assetType.equals(Shader.class)) {
             assetDir = ShaderConfig.SHADER_PATH;
             String[] foundFiles = searchDirectory(assetDir, "glsl");
-            
+
             // Add all assetPaths to the map
             for (String assetPath : foundFiles) {
                 shaders.put(assetPath, new Shader(assetPath));
@@ -106,7 +106,7 @@ public class AssetManager {
             }
             return count;
         } else if (assetType.equals(Font.class)) {
-            assetDir = Assets.FONTS;
+            assetDir = Font_Config.PATH;
             String[] foundFiles = searchDirectory(assetDir, "ttf");
 
             // Add all assetPaths to the map
@@ -176,75 +176,70 @@ public class AssetManager {
         return null;
     }
 
-    public static <T extends Asset> T getAssetFromType(Class<T> assetType, String resourceName) {
-        System.out.println("Loading ressource: " + resourceName);
-        File file = new File(resourceName);
+    public static <T extends Asset> T getAssetFromType(Class<T> assetType, String filePath) {
+        File file = new File(filePath);
         if (!file.exists()) {
-            DebugMessage.notFound("Did not found: " + resourceName);
+            DebugMessage.notFound("Did not found: " + filePath);
             return null;
-        }
-        else {
-            System.out.print("Found ressource: ");
-            resourceName = file.getAbsolutePath();
         }
 
 
         if (assetType.equals(Spritesheet.class)) {
-            
-            return assetType.cast(AssetManager.spritesheets.getOrDefault(resourceName, null));
-            
+
+            return assetType.cast(AssetManager.spritesheets.getOrDefault(filePath, null));
+
         } else if (assetType.equals(Sprite.class)) {
-            
-            return assetType.cast(AssetManager.sprites.getOrDefault(resourceName, null));
-            
+
+            return assetType.cast(AssetManager.sprites.getOrDefault(filePath, null));
+
         } else if (assetType.equals(Texture.class)) {
-            if (AssetManager.textures.containsKey(resourceName)) {
-                
-                return assetType.cast(AssetManager.textures.get(resourceName));
-                
+            if (AssetManager.textures.containsKey(filePath)) {
+
+                return assetType.cast(AssetManager.textures.get(filePath));
+
             } else {
                 // Create a new texture and add it to the map
 
 
-                Texture texture = new Texture(resourceName);
-                AssetManager.textures.put(resourceName, texture);
-                
+                Texture texture = new Texture(filePath);
+                AssetManager.textures.put(filePath, texture);
+
                 return assetType.cast(texture);
-                
+
             }
         } else if (assetType.equals(Shader.class)) {
-            if (AssetManager.shaders.containsKey(resourceName)) {
-                
-                return assetType.cast(AssetManager.shaders.get(resourceName));
-                
+            if (AssetManager.shaders.containsKey(filePath)) {
+
+                return assetType.cast(AssetManager.shaders.get(filePath));
+
             } else {
                 // Create a new shader and add it to the map
-                Shader shader = new Shader(resourceName);
+                Shader shader = new Shader(filePath);
                 shader.compile();
-                AssetManager.shaders.put(resourceName, shader);
+                AssetManager.shaders.put(filePath, shader);
                 return assetType.cast(shader);
             }
         } else if (assetType.equals(Sound.class)) {
-            return assetType.cast( AssetManager.sounds.getOrDefault(resourceName, null));
+            return assetType.cast(AssetManager.sounds.getOrDefault(filePath, null));
         } else if (assetType.equals(Font.class)) {
             DebugMessage.notFound(assetType + "IS NOT IMPLEMENTED YET");
-            return assetType.cast( AssetManager.fonts.getOrDefault(resourceName, null));
+            return assetType.cast(AssetManager.fonts.getOrDefault(filePath, null));
         } else if (assetType.equals(LevelMap.class)) {
             DebugMessage.notFound(assetType + "IS NOT IMPLEMENTED YET");
-            return assetType.cast( AssetManager.maps.getOrDefault(resourceName, null));
+            return assetType.cast(AssetManager.maps.getOrDefault(filePath, null));
         } else if (assetType.equals(Background.class)) {
             DebugMessage.notFound(assetType + "IS NOT IMPLEMENTED YET");
-            return assetType.cast( AssetManager.backgrounds.getOrDefault(resourceName, null));
+            return assetType.cast(AssetManager.backgrounds.getOrDefault(filePath, null));
         } else if (assetType.equals(UI_Assets.class)) {
             DebugMessage.notFound(assetType + "IS NOT IMPLEMENTED YET");
-            return assetType.cast( AssetManager.UIs.getOrDefault(resourceName, null));
+            return assetType.cast(AssetManager.UIs.getOrDefault(filePath, null));
         }
         DebugMessage.notFound("Did not found: " + assetType);
         return null;
     }
 
-    public static <T extends Asset> T getAssetFromType(String resourceName, Class<T> assetType) {
-        return getAssetFromType(assetType, resourceName);
+    public static <T extends Asset> T getAssetFromType(String filePath, Class<T> assetType) {
+        return getAssetFromType(assetType, filePath);
     }
 
     public static String[] searchDirectory(String relativePath, String fileType) {

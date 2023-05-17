@@ -7,11 +7,12 @@ public class LightAbilityOne {
     private float animationLength;
     private boolean collision;
 
-    public float getDamage(float damage){
-        damage=10;
+    public float getDamage(float damage) {
+        damage = 10;
         return damage;
     }
-    public float getKnockback(float knockback){
+
+    public float getKnockback(float knockback) {
         knockback = 2.5f;
         return knockback;
     }

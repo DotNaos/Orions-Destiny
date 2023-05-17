@@ -1,18 +1,21 @@
 package Burst.Engine.Source.Core.UI;
 
 import Burst.Engine.Config.ShaderConfig;
+import Burst.Engine.Source.Core.Actor.Actor;
+import Burst.Engine.Source.Core.Assets.AssetManager;
+import Burst.Engine.Source.Core.Assets.Graphics.Shader;
+import Burst.Engine.Source.Core.Graphics.Debug.DebugDraw;
+import Burst.Engine.Source.Core.Graphics.Input.KeyListener;
+import Burst.Engine.Source.Core.Graphics.Input.MouseListener;
 import Burst.Engine.Source.Core.Graphics.Render.Framebuffer;
 import Burst.Engine.Source.Core.Graphics.Render.PickingTexture;
 import Burst.Engine.Source.Core.Graphics.Render.ViewportRenderer;
-import Burst.Engine.Source.Core.Assets.Graphics.Shader;
-import Burst.Engine.Source.Core.Graphics.Debug.DebugDraw;
-import Burst.Engine.Source.Core.Actor.Actor;
-import Burst.Engine.Source.Core.Graphics.Input.KeyListener;
-import Burst.Engine.Source.Core.Graphics.Input.MouseListener;
 import Burst.Engine.Source.Core.Observer.EventSystem;
-import Burst.Engine.Source.Core.Observer.Observer;
 import Burst.Engine.Source.Core.Observer.Events.Event;
-import Burst.Engine.Source.Core.Scene.*;
+import Burst.Engine.Source.Core.Observer.Observer;
+import Burst.Engine.Source.Core.Physics.Physics2D;
+import Burst.Engine.Source.Core.Scene.Scene;
+import Burst.Engine.Source.Core.Scene.SceneType;
 import org.joml.Vector4f;
 import org.lwjgl.Version;
 import org.lwjgl.glfw.GLFWErrorCallback;
@@ -21,8 +24,6 @@ import org.lwjgl.openal.ALC;
 import org.lwjgl.openal.ALCCapabilities;
 import org.lwjgl.openal.ALCapabilities;
 import org.lwjgl.opengl.GL;
-import Burst.Engine.Source.Core.Physics.Physics2D;
-import Burst.Engine.Source.Core.Assets.AssetManager;
 
 import java.util.Objects;
 
@@ -33,18 +34,16 @@ import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.system.MemoryUtil.NULL;
 
 public class Window implements Observer {
-    private int width, height;
+    private static boolean isPlaying = false;
+    private static Window window = null;
+    private static Scene currentScene;
     private final String title;
+    private int width, height;
     private long glfwWindow;
     private ImGuiLayer imguiLayer;
     private Framebuffer framebuffer;
-    private static boolean isPlaying = false;
-
-    private static Window window = null;
-
     private long audioContext;
     private long audioDevice;
-    private static Scene currentScene;
     private PickingTexture pickingTexture;
 
 
@@ -56,7 +55,8 @@ public class Window implements Observer {
     }
 
     public static void changeScene(SceneType sceneType) {
-        currentScene = new Scene(sceneType);
+        currentScene = new Scene();
+        currentScene.init(sceneType);
     }
 
     public static Window get() {
@@ -78,6 +78,30 @@ public class Window implements Observer {
 
     public static boolean isIsPlaying() {
         return isPlaying;
+    }
+
+    public static int getWidth() {
+        return 1920;//get().width;
+    }
+
+    public static void setWidth(int newWidth) {
+        get().width = newWidth;
+    }
+
+    public static int getHeight() {
+        return 1080;//get().height;
+    }
+
+    public static void setHeight(int newHeight) {
+        get().height = newHeight;
+    }
+
+    public static Framebuffer getFramebuffer() {
+        return get().framebuffer;
+    }
+
+    public static ImGuiLayer getImguiLayer() {
+        return get().imguiLayer;
     }
 
     public void run() {
@@ -171,7 +195,7 @@ public class Window implements Observer {
     }
 
     public void loop() {
-        float beginTime = (float)glfwGetTime();
+        float beginTime = (float) glfwGetTime();
         float endTime;
         float dt = -1.0f;
 
@@ -200,7 +224,7 @@ public class Window implements Observer {
             DebugDraw.beginFrame();
 
             this.framebuffer.bind();
-            Vector4f clearColor = currentScene.getCamera().clearColor;
+            Vector4f clearColor = currentScene.getViewport().clearColor;
             glClearColor(clearColor.x, clearColor.y, clearColor.z, clearColor.w);
             glClear(GL_COLOR_BUFFER_BIT);
 
@@ -218,38 +242,10 @@ public class Window implements Observer {
             MouseListener.endFrame();
             glfwSwapBuffers(glfwWindow);
 
-            endTime = (float)glfwGetTime();
+            endTime = (float) glfwGetTime();
             dt = endTime - beginTime;
             beginTime = endTime;
         }
-    }
-
-    public static int getWidth() {
-        return 1920;//get().width;
-    }
-
-    public static int getHeight() {
-        return 1080;//get().height;
-    }
-
-    public static void setWidth(int newWidth) {
-        get().width = newWidth;
-    }
-
-    public static void setHeight(int newHeight) {
-        get().height = newHeight;
-    }
-
-    public static Framebuffer getFramebuffer() {
-        return get().framebuffer;
-    }
-
-    public static float getTargetAspectRatio() {
-        return 16.0f / 9.0f;
-    }
-
-    public static ImGuiLayer getImguiLayer() {
-        return get().imguiLayer;
     }
 
     @Override

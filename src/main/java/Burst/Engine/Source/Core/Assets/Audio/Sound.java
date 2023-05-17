@@ -20,8 +20,7 @@ public class Sound extends Asset {
         super(filepath);
     }
 
-    public void init(boolean loops)
-    {
+    public void init(boolean loops) {
         // Allocate space to store the return information from stb
         stackPush();
         IntBuffer channelsBuffer = stackMallocInt(1);

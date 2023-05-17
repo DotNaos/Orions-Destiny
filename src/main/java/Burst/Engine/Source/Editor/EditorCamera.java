@@ -1,31 +1,29 @@
 package Burst.Engine.Source.Editor;
 
-import Burst.Engine.Source.Core.UI.Viewport;
 import Burst.Engine.Source.Core.Graphics.Input.KeyListener;
 import Burst.Engine.Source.Core.Graphics.Input.MouseListener;
-import Burst.Engine.Source.Core.Component;
+import Burst.Engine.Source.Core.UI.Viewport;
 import org.joml.Vector2f;
 
-import static org.lwjgl.glfw.GLFW.GLFW_KEY_KP_DECIMAL;
-import static org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_MIDDLE;
+import static org.lwjgl.glfw.GLFW.*;
 
-public class EditorCamera extends Component {
+public class EditorCamera {
 
     private float dragDebounce = 0.032f;
-    private Viewport levelEditorViewport;
+    private Viewport viewport;
     private Vector2f clickOrigin;
     private boolean reset = false;
     private float lerpTime = 0.0f;
     private float dragSensitivity = 30.0f;
     private float scrollSensitivity = 0.1f;
 
-    public EditorCamera(Viewport levelEditorViewport) {
-        this.levelEditorViewport = levelEditorViewport;
+    public EditorCamera(Viewport viewport) {
+        this.viewport = viewport;
         this.clickOrigin = new Vector2f();
     }
 
-    @Override
-    public void updateEditor(float dt) {
+    public void update(float dt) {
+
         if (MouseListener.mouseButtonDown(GLFW_MOUSE_BUTTON_MIDDLE) && dragDebounce > 0) {
             this.clickOrigin = new Vector2f(MouseListener.getWorldX(), MouseListener.getWorldY());
             dragDebounce -= dt;
@@ -33,7 +31,8 @@ public class EditorCamera extends Component {
         } else if (MouseListener.mouseButtonDown(GLFW_MOUSE_BUTTON_MIDDLE)) {
             Vector2f mousePos = new Vector2f(MouseListener.getWorldX(), MouseListener.getWorldY());
             Vector2f delta = new Vector2f(mousePos).sub(this.clickOrigin);
-            levelEditorViewport.position.sub(delta.mul(dt).mul(dragSensitivity));
+
+            viewport.position.sub(delta.mul(dt).mul(dragSensitivity));
             this.clickOrigin.lerp(mousePos, dt);
         }
 
@@ -42,26 +41,25 @@ public class EditorCamera extends Component {
         }
 
         if (MouseListener.getScrollY() != 0.0f) {
-            float addValue = (float)Math.pow(Math.abs(MouseListener.getScrollY() * scrollSensitivity),
-                    1 / levelEditorViewport.getZoom());
+            float addValue = (float) Math.pow(Math.abs(MouseListener.getScrollY() * scrollSensitivity), 1 / viewport.getZoom());
             addValue *= -Math.signum(MouseListener.getScrollY());
-            levelEditorViewport.addZoom(addValue);
+
+            addValue = (float) Math.floor(addValue * 10) / 10;
+            viewport.addZoom(addValue);
         }
 
-        if (KeyListener.isKeyPressed(GLFW_KEY_KP_DECIMAL)) {
+        if (KeyListener.isKeyPressed(GLFW_KEY_0)) {
             reset = true;
         }
 
         if (reset) {
-            levelEditorViewport.position.lerp(new Vector2f(), lerpTime);
-            levelEditorViewport.setZoom(this.levelEditorViewport.getZoom() +
-                    ((1.0f - levelEditorViewport.getZoom()) * lerpTime));
+            viewport.position.lerp(new Vector2f(), lerpTime);
+            viewport.setZoom(this.viewport.getZoom() + ((1.0f - viewport.getZoom()) * lerpTime));
             this.lerpTime += 0.1f * dt;
-            if (Math.abs(levelEditorViewport.position.x) <= 5.0f &&
-                    Math.abs(levelEditorViewport.position.y) <= 5.0f) {
+            if (Math.abs(viewport.position.x) <= 10.0f && Math.abs(viewport.position.y) <= 10.0f) {
                 this.lerpTime = 0.0f;
-                levelEditorViewport.position.set(0f, 0f);
-                this.levelEditorViewport.setZoom(1.0f);
+                viewport.position.set(0f, 0f);
+                this.viewport.setZoom(1.0f);
                 reset = false;
             }
         }

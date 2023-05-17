@@ -1,11 +1,10 @@
-package Burst.Engine.Source.Core.util;
+package Burst.Engine.Source.Core.Util;
 
 public class DebugMessage {
     private static final String seperator = "-";
+    public static boolean noDebug = false;
     private static char leftChar = '#';
     private static char rightChar = '#';
-
-    public static boolean noDebug = false;
 
     public static void notFound(String message) {
         leftChar = '?';
@@ -33,8 +32,7 @@ public class DebugMessage {
         DebugPrint(message);
     }
 
-    public static void header(String header)
-    {
+    public static void header(String header) {
         if (noDebug) return;
         int headerLength = 50;
         StringBuilder tempSeperator = new StringBuilder();
@@ -44,8 +42,7 @@ public class DebugMessage {
         System.out.println(tempSeperator);
     }
 
-    public static void DebugPrint(String message)
-    {
+    public static void DebugPrint(String message) {
         if (noDebug) return;
         rightChar = leftChar == '#' ? '#' : leftChar;
 
@@ -57,17 +54,11 @@ public class DebugMessage {
         tempLeft.append(Character.toString(leftChar).repeat(4));
         tempRight.append(Character.toString(rightChar).repeat(4));
 
-        System.out.println(
-                "\n\\" + tempTopBottom + "/" +
-                "\n\\" + tempLeft + " " + message + " " + tempRight + "/" +
-                "\n\\" + tempTopBottom + "/" +
-                "\n"
-        );
+        System.out.println("\n\\" + tempTopBottom + "/" + "\n\\" + tempLeft + " " + message + " " + tempRight + "/" + "\n\\" + tempTopBottom + "/" + "\n");
         reset();
     }
 
-    private static void reset()
-    {
+    private static void reset() {
         leftChar = rightChar = '#';
     }
 

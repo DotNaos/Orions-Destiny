@@ -1,24 +1,23 @@
 package Burst.Engine.Source.Core.Graphics.Input.Components;
 
-import Burst.Engine.Source.Core.Component;
+import Burst.Engine.Config.Constants.GridLines_Config;
+import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Game.Animation.StateMachine;
 import Burst.Engine.Source.Core.Graphics.Input.KeyListener;
-import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
-import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.UI.Window;
-import Burst.Engine.Config.Constants.GridLines_Config;
+import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.lwjgl.glfw.GLFW.*;
 
-public class KeyControls extends Component {
+public class KeyControls {
     private float debounceTime = 0.2f;
     private float debounce = 0.0f;
 
-    @Override
-    public void updateEditor(float dt) {
+
+    public void update(float dt) {
         debounce -= dt;
 
         PropertiesPanel propertiesPanel = Window.getScene().getPanel(PropertiesPanel.class);
@@ -31,7 +30,7 @@ public class KeyControls extends Component {
             Actor newObj = activeActor.copy();
             assert Window.getScene().getGame() != null;
             Window.getScene().getGame().addActor(newObj);
-            newObj.transform.position.add(GridLines_Config.GRID_WIDTH, 0.0f);
+            newObj.transform.position.add(GridLines_Config.SIZE, 0.0f);
             propertiesPanel.setActiveGameObject(newObj);
             if (newObj.getComponent(StateMachine.class) != null) {
                 newObj.getComponent(StateMachine.class).refreshTextures();
@@ -67,22 +66,22 @@ public class KeyControls extends Component {
         } else if (KeyListener.isKeyPressed(GLFW_KEY_UP) && debounce < 0) {
             debounce = debounceTime;
             for (Actor actor : activeActors) {
-                actor.transform.position.y += GridLines_Config.GRID_HEIGHT * multiplier;
+                actor.transform.position.y += GridLines_Config.SIZE * multiplier;
             }
         } else if (KeyListener.isKeyPressed(GLFW_KEY_LEFT) && debounce < 0) {
             debounce = debounceTime;
             for (Actor actor : activeActors) {
-                actor.transform.position.x -= GridLines_Config.GRID_HEIGHT * multiplier;
+                actor.transform.position.x -= GridLines_Config.SIZE * multiplier;
             }
         } else if (KeyListener.isKeyPressed(GLFW_KEY_RIGHT) && debounce < 0) {
             debounce = debounceTime;
             for (Actor actor : activeActors) {
-                actor.transform.position.x += GridLines_Config.GRID_HEIGHT * multiplier;
+                actor.transform.position.x += GridLines_Config.SIZE * multiplier;
             }
         } else if (KeyListener.isKeyPressed(GLFW_KEY_DOWN) && debounce < 0) {
             debounce = debounceTime;
             for (Actor actor : activeActors) {
-                actor.transform.position.y -= GridLines_Config.GRID_HEIGHT * multiplier;
+                actor.transform.position.y -= GridLines_Config.SIZE * multiplier;
             }
         }
     }

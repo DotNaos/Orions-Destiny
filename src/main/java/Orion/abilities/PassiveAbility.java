@@ -1,6 +1,6 @@
 package Orion.abilities;
 
-public class PassiveAbility extends Ability{
+public class PassiveAbility extends Ability {
 
     /**
      *

@@ -1,7 +1,7 @@
 package Burst.Engine.Source.Core.Physics;
 
-import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.Actor.Actor;
+import Burst.Engine.Source.Core.Component;
 import org.jbox2d.callbacks.ContactImpulse;
 import org.jbox2d.callbacks.ContactListener;
 import org.jbox2d.collision.Manifold;
@@ -12,8 +12,8 @@ import org.joml.Vector2f;
 public class BurstContactListener implements ContactListener {
     @Override
     public void beginContact(Contact contact) {
-        Actor objA = (Actor)contact.getFixtureA().getUserData();
-        Actor objB = (Actor)contact.getFixtureB().getUserData();
+        Actor objA = (Actor) contact.getFixtureA().getUserData();
+        Actor objB = (Actor) contact.getFixtureB().getUserData();
         WorldManifold worldManifold = new WorldManifold();
         contact.getWorldManifold(worldManifold);
         Vector2f aNormal = new Vector2f(worldManifold.normal.x, worldManifold.normal.y);
@@ -30,8 +30,8 @@ public class BurstContactListener implements ContactListener {
 
     @Override
     public void endContact(Contact contact) {
-        Actor objA = (Actor)contact.getFixtureA().getUserData();
-        Actor objB = (Actor)contact.getFixtureB().getUserData();
+        Actor objA = (Actor) contact.getFixtureA().getUserData();
+        Actor objB = (Actor) contact.getFixtureB().getUserData();
         WorldManifold worldManifold = new WorldManifold();
         contact.getWorldManifold(worldManifold);
         Vector2f aNormal = new Vector2f(worldManifold.normal.x, worldManifold.normal.y);
@@ -48,8 +48,8 @@ public class BurstContactListener implements ContactListener {
 
     @Override
     public void preSolve(Contact contact, Manifold manifold) {
-        Actor objA = (Actor)contact.getFixtureA().getUserData();
-        Actor objB = (Actor)contact.getFixtureB().getUserData();
+        Actor objA = (Actor) contact.getFixtureA().getUserData();
+        Actor objB = (Actor) contact.getFixtureB().getUserData();
         WorldManifold worldManifold = new WorldManifold();
         contact.getWorldManifold(worldManifold);
         Vector2f aNormal = new Vector2f(worldManifold.normal.x, worldManifold.normal.y);
@@ -66,8 +66,8 @@ public class BurstContactListener implements ContactListener {
 
     @Override
     public void postSolve(Contact contact, ContactImpulse contactImpulse) {
-        Actor objA = (Actor)contact.getFixtureA().getUserData();
-        Actor objB = (Actor)contact.getFixtureB().getUserData();
+        Actor objA = (Actor) contact.getFixtureA().getUserData();
+        Actor objB = (Actor) contact.getFixtureB().getUserData();
         WorldManifold worldManifold = new WorldManifold();
         contact.getWorldManifold(worldManifold);
         Vector2f aNormal = new Vector2f(worldManifold.normal.x, worldManifold.normal.y);

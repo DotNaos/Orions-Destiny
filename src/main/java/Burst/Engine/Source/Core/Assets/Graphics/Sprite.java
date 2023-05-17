@@ -1,7 +1,6 @@
 package Burst.Engine.Source.Core.Assets.Graphics;
 
 import Burst.Engine.Source.Core.Assets.Asset;
-
 import org.joml.Vector2f;
 
 public class Sprite extends Asset {
@@ -9,28 +8,29 @@ public class Sprite extends Asset {
     private float width, height;
 
     private Texture texture = null;
+    private Vector2f[] texCoords = {
+            new Vector2f(1, 1),
+            new Vector2f(1, 0),
+            new Vector2f(0, 0),
+            new Vector2f(0, 1)
+    };
 
     public Sprite() {
         super("");
         this.width = 0;
         this.height = 0;
     }
-    private Vector2f[] texCoords = {
-                new Vector2f(1, 1),
-                new Vector2f(1, 0),
-                new Vector2f(0, 0),
-                new Vector2f(0, 1)
-        };
 
     /**
      * Checks if the Sprite has only transparent pixels
+     *
      * @return true if the sprite is empty, false otherwise
      */
     public static boolean isEmpty(Sprite sprite) {
         for (int i = 0; i < sprite.getTexture().getWidth(); i++) {
             for (int j = 0; j < sprite.getTexture().getHeight(); j++) {
 
-                    return false;
+                return false;
 
             }
         }
@@ -43,8 +43,16 @@ public class Sprite extends Asset {
         return this.texture;
     }
 
+    public void setTexture(Texture tex) {
+        this.texture = tex;
+    }
+
     public Vector2f[] getTexCoords() {
         return this.texCoords;
+    }
+
+    public void setTexCoords(Vector2f[] texCoords) {
+        this.texCoords = texCoords;
     }
 
     public float getWidth() {
@@ -61,14 +69,6 @@ public class Sprite extends Asset {
 
     public void setHeight(float height) {
         this.height = height;
-    }
-
-    public void setTexture(Texture tex) {
-        this.texture = tex;
-    }
-
-    public void setTexCoords(Vector2f[] texCoords) {
-        this.texCoords = texCoords;
     }
 
     public int getTexId() {

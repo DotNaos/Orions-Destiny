@@ -1,5 +1,6 @@
 package Burst.Engine.Source.Core.Physics.Components;
 
+import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Physics.Enums.BodyType;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.UI.Window;
@@ -22,6 +23,10 @@ public class Rigidbody2D extends Component {
     private boolean continuousCollision = true;
 
     private transient Body rawBody = null;
+
+    public Rigidbody2D(Actor actor) {
+        super(actor);
+    }
 
     @Override
     public void update(float dt) {

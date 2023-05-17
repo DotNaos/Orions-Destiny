@@ -3,7 +3,6 @@ package Burst.Engine.Source.Core.Graphics.Debug;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
 import org.joml.Vector4f;
-import org.lwjgl.system.CallbackI;
 
 public class Line2D {
     private Vector2f from;
@@ -29,7 +28,6 @@ public class Line2D {
         this.color = color;
         this.lifetime = lifetime;
     }
-
 
 
     public int beginFrame() {
