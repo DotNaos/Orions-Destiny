@@ -3,40 +3,40 @@ package Burst.Engine.Source.Core.Physics.Components;
 import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.Graphics.Debug.DebugDraw;
-import org.joml.Vector2f;
+import org.joml.Vector3f;
 
 public class Box2DCollider extends Component {
-    private Vector2f halfSize = new Vector2f(1);
-    private Vector2f origin = new Vector2f();
-    private Vector2f offset = new Vector2f();
+    private Vector3f halfSize = new Vector3f(1);
+    private Vector3f origin = new Vector3f();
+    private Vector3f offset = new Vector3f();
 
     public Box2DCollider(Actor actor) {
         super(actor);
     }
 
-    public Vector2f getOffset() {
+    public Vector3f getOffset() {
         return this.offset;
     }
 
-    public void setOffset(Vector2f newOffset) {
+    public void setOffset(Vector3f newOffset) {
         this.offset.set(newOffset);
     }
 
-    public Vector2f getHalfSize() {
+    public Vector3f getHalfSize() {
         return halfSize;
     }
 
-    public void setHalfSize(Vector2f halfSize) {
+    public void setHalfSize(Vector3f halfSize) {
         this.halfSize = halfSize;
     }
 
-    public Vector2f getOrigin() {
+    public Vector3f getOrigin() {
         return this.origin;
     }
 
     @Override
     public void updateEditor(float dt) {
-        Vector2f center = new Vector2f(this.actor.transform.position).add(this.offset);
+        Vector3f center = new Vector3f(this.actor.transform.position).add(this.offset);
         DebugDraw.addBox2D(center, this.halfSize, this.actor.transform.rotation);
     }
 }

@@ -8,7 +8,7 @@ import org.jbox2d.collision.shapes.CircleShape;
 import org.jbox2d.collision.shapes.PolygonShape;
 import org.jbox2d.common.Vec2;
 import org.jbox2d.dynamics.*;
-import org.joml.Vector2f;
+import org.joml.Vector3f;
 
 public class Physics2D {
     private Vec2 gravity = new Vec2(0, -10.0f);
@@ -27,22 +27,22 @@ public class Physics2D {
             Actor actor,
             float innerPlayerWidth,
             float height) {
-        Vector2f raycastBegin = new Vector2f(actor.transform.position);
-        raycastBegin.sub(innerPlayerWidth / 2.0f, 0.0f);
-        Vector2f raycastEnd = new Vector2f(raycastBegin).add(0.0f, height);
+        Vector3f raycastBegin = new Vector3f(actor.transform.position);
+        raycastBegin.sub(innerPlayerWidth / 2.0f, 0.0f, 0);
+        Vector3f raycastEnd = new Vector3f(raycastBegin).add(0.0f, height, 0);
 
         RaycastInfo info = Window.getPhysics().raycast(actor, raycastBegin, raycastEnd);
 
-        Vector2f raycast2Begin = new Vector2f(raycastBegin).add(innerPlayerWidth, 0.0f);
-        Vector2f raycast2End = new Vector2f(raycastEnd).add(innerPlayerWidth, 0.0f);
+        Vector3f raycast2Begin = new Vector3f(raycastBegin).add(innerPlayerWidth, 0.0f, 0);
+        Vector3f raycast2End = new Vector3f(raycastEnd).add(innerPlayerWidth, 0.0f, 0);
         RaycastInfo info2 = Window.getPhysics().raycast(actor, raycast2Begin, raycast2End);
 
         return (info.hit && info.hitObject != null && info.hitObject.getComponent(Ground.class) != null) ||
                 (info2.hit && info2.hitObject != null && info2.hitObject.getComponent(Ground.class) != null);
     }
 
-    public Vector2f getGravity() {
-        return new Vector2f(world.getGravity().x, world.getGravity().y);
+    public Vector3f getGravity() {
+        return new Vector3f(world.getGravity().x, world.getGravity().y, 0);
     }
 
     public void add(Actor actor) {
@@ -115,7 +115,8 @@ public class Physics2D {
 
     public void setIsSensor(Rigidbody2D rb) {
         Body body = rb.getRawBody();
-        if (body == null) return;
+        if (body == null)
+            return;
 
         Fixture fixture = body.getFixtureList();
         while (fixture != null) {
@@ -126,7 +127,8 @@ public class Physics2D {
 
     public void setNotSensor(Rigidbody2D rb) {
         Body body = rb.getRawBody();
-        if (body == null) return;
+        if (body == null)
+            return;
 
         Fixture fixture = body.getFixtureList();
         while (fixture != null) {
@@ -137,7 +139,8 @@ public class Physics2D {
 
     public void resetCircleCollider(Rigidbody2D rb, CircleCollider circleCollider) {
         Body body = rb.getRawBody();
-        if (body == null) return;
+        if (body == null)
+            return;
 
         int size = fixtureListSize(body);
         for (int i = 0; i < size; i++) {
@@ -150,7 +153,8 @@ public class Physics2D {
 
     public void resetBox2DCollider(Rigidbody2D rb, Box2DCollider boxCollider) {
         Body body = rb.getRawBody();
-        if (body == null) return;
+        if (body == null)
+            return;
 
         int size = fixtureListSize(body);
         for (int i = 0; i < size; i++) {
@@ -163,7 +167,8 @@ public class Physics2D {
 
     public void resetPillboxCollider(Rigidbody2D rb, PillboxCollider pb) {
         Body body = rb.getRawBody();
-        if (body == null) return;
+        if (body == null)
+            return;
 
         int size = fixtureListSize(body);
         for (int i = 0; i < size; i++) {
@@ -187,9 +192,9 @@ public class Physics2D {
         assert body != null : "Raw body must not be null";
 
         PolygonShape shape = new PolygonShape();
-        Vector2f halfSize = new Vector2f(boxCollider.getHalfSize()).mul(0.5f);
-        Vector2f offset = boxCollider.getOffset();
-        Vector2f origin = new Vector2f(boxCollider.getOrigin());
+        Vector3f halfSize = new Vector3f(boxCollider.getHalfSize()).mul(0.5f);
+        Vector3f offset = boxCollider.getOffset();
+        Vector3f origin = new Vector3f(boxCollider.getOrigin());
         shape.setAsBox(halfSize.x, halfSize.y, new Vec2(offset.x, offset.y), 0);
 
         FixtureDef fixtureDef = new FixtureDef();
@@ -218,7 +223,7 @@ public class Physics2D {
         body.createFixture(fixtureDef);
     }
 
-    public RaycastInfo raycast(Actor requestinactorbject, Vector2f point1, Vector2f point2) {
+    public RaycastInfo raycast(Actor requestinactorbject, Vector3f point1, Vector3f point2) {
         RaycastInfo callback = new RaycastInfo(requestinactorbject);
         world.raycast(callback, new Vec2(point1.x, point1.y),
                 new Vec2(point2.x, point2.y));

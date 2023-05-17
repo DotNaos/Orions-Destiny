@@ -4,14 +4,14 @@ import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Actor.PlayerController;
 import Burst.Engine.Source.Core.Component;
 import org.jbox2d.dynamics.contacts.Contact;
-import org.joml.Vector2f;
+import org.joml.Vector3f;
 
 public abstract class Block extends Component {
     public float bopSpeed = 0.4f;
     private transient boolean bopactoringUp = true;
     private transient boolean doBopAnimation = false;
-    private transient Vector2f bopStart;
-    private transient Vector2f topBopLocation;
+    private transient Vector3f bopStart;
+    private transient Vector3f topBopLocation;
     private transient boolean active = true;
 
     public Block(Actor actor) {
@@ -20,8 +20,8 @@ public abstract class Block extends Component {
 
     @Override
     public void start() {
-        this.bopStart = new Vector2f(this.actor.transform.position);
-        this.topBopLocation = new Vector2f(bopStart).add(0.0f, 0.02f);
+        this.bopStart = new Vector3f(this.actor.transform.position);
+        this.topBopLocation = new Vector3f(bopStart).add(0.0f, 0.02f, 0);
     }
 
     @Override
@@ -46,7 +46,7 @@ public abstract class Block extends Component {
     }
 
     @Override
-    public void beginCollision(Actor obj, Contact contact, Vector2f contactNormal) {
+    public void beginCollision(Actor obj, Contact contact, Vector3f contactNormal) {
         PlayerController playerController = obj.getComponent(PlayerController.class);
         if (active && playerController != null && contactNormal.y < -0.8f) {
             doBopAnimation = true;

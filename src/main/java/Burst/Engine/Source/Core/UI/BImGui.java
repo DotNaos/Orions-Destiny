@@ -4,7 +4,9 @@ import imgui.ImGui;
 import imgui.flag.ImGuiCol;
 import imgui.flag.ImGuiStyleVar;
 import imgui.type.ImString;
+
 import org.joml.Vector2f;
+import org.joml.Vector3f;
 import org.joml.Vector3f;
 import org.joml.Vector4f;
 
@@ -15,15 +17,15 @@ public class BImGui {
 
     private static float defaultColumnWidth = 220.0f;
 
-    public static void drawVec2Control(String label, Vector2f values) {
+    public static void drawVec2Control(String label, Vector3f values) {
         drawVec2Control(label, values, 0.0f, defaultColumnWidth);
     }
 
-    public static void drawVec2Control(String label, Vector2f values, float resetValue) {
+    public static void drawVec2Control(String label, Vector3f values, float resetValue) {
         drawVec2Control(label, values, resetValue, defaultColumnWidth);
     }
 
-    public static void drawVec2Control(String label, Vector2f values, float resetValue, float columnWidth) {
+    public static void drawVec2Control(String label, Vector3f values, float resetValue, float columnWidth) {
         ImGui.pushID(label);
 
         ImGui.columns(2);

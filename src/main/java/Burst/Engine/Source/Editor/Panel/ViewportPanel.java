@@ -12,13 +12,13 @@ import imgui.ImGuiViewport;
 import imgui.ImVec2;
 import imgui.flag.ImGuiCond;
 import imgui.flag.ImGuiWindowFlags;
-import org.joml.Vector2f;
+import org.joml.Vector3f;
 
 public class ViewportPanel extends ImGuiPanel {
 
     private boolean isPlaying = false;
     private boolean windowIsHovered;
-    private Vector2f viewportSize = new Vector2f();
+    private Vector3f viewportSize = new Vector3f();
 
     public ViewportPanel() {
         super();
@@ -58,7 +58,7 @@ public class ViewportPanel extends ImGuiPanel {
 
         ImGui.setCursorPos(ImGui.getCursorPosX(), ImGui.getCursorPosY());
         ImVec2 windowSize = getLargestSizeForViewport();
-        this.viewportSize = new Vector2f(windowSize.x, windowSize.y);
+        this.viewportSize = new Vector3f(windowSize.x, windowSize.y, 0);
 
         ImVec2 windowPos = getCenteredPositionForViewport(windowSize);
         ImGui.setCursorPos(windowPos.x, windowPos.y);
@@ -67,8 +67,8 @@ public class ViewportPanel extends ImGuiPanel {
         ImGui.imageButton(textureId, windowSize.x, windowSize.y, 0, 1, 1, 0);
         windowIsHovered = ImGui.isItemHovered();
 
-        MouseListener.setGameViewportPos(new Vector2f(windowPos.x + 10, windowPos.y));
-        MouseListener.setGameViewportSize(new Vector2f(windowSize.x, windowSize.y));
+        MouseListener.setGameViewportPos(new Vector3f(windowPos.x + 10, windowPos.y, 0));
+        MouseListener.setGameViewportSize(new Vector3f(windowSize.x, windowSize.y, 0));
 
         ImGui.end();
     }
@@ -81,7 +81,6 @@ public class ViewportPanel extends ImGuiPanel {
         ImVec2 windowSize = new ImVec2();
         ImGui.getContentRegionAvail(windowSize);
 
-        // TODO: VIEWPORT CHANGE TO BLENDER STYLE
         float ar = (float) Window.getWidth() / (float) Window.getHeight();
         float aspectWidth = windowSize.x;
         float aspectHeight = aspectWidth / ar;
@@ -107,7 +106,7 @@ public class ViewportPanel extends ImGuiPanel {
         return new ImVec2(viewportX + ImGui.getCursorPosX(), viewportY + ImGui.getCursorPosY());
     }
 
-    public Vector2f getSize() {
-        return new Vector2f(viewportSize);
+    public Vector3f getSize() {
+        return new Vector3f(viewportSize);
     }
 }

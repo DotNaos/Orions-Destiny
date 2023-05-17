@@ -2,13 +2,13 @@ package Burst.Engine.Source.Core.Physics.Components;
 
 import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.UI.BImGui;
-import org.joml.Vector2f;
+import org.joml.Vector3f;
 
 public class Transform {
 
-    public Vector2f position = new Vector2f();
-    public Vector2f scale = new Vector2f(1.0f, 1.0f);
-    public Vector2f size = new Vector2f(1f, 1f);
+    public Vector3f position = new Vector3f(0, 0, 0 );
+    public Vector3f scale = new Vector3f(1.0f, 1.0f, 1.0f);
+    public Vector3f size = new Vector3f(1f, 1f, 1f);
     public float rotation = 0.0f;
     public int zIndex = 0;
     private Actor actor = null;
@@ -17,16 +17,16 @@ public class Transform {
         this.actor = actor;
     }
 
-    public Transform(Vector2f position) {
+    public Transform(Vector3f position) {
         this.position = position;
     }
 
-    public Transform(Vector2f position, Vector2f scale) {
+    public Transform(Vector3f position, Vector3f scale) {
         this.position = position;
         this.scale = scale;
     }
 
-    public Transform(Vector2f position, Vector2f scale, float rotation) {
+    public Transform(Vector3f position, Vector3f scale, float rotation) {
         this.position = position;
         this.scale = scale;
         this.rotation = rotation;
@@ -34,7 +34,7 @@ public class Transform {
 
 
     public Transform copy() {
-        return new Transform(new Vector2f(this.position), new Vector2f(this.scale), this.rotation);
+        return new Transform(new Vector3f(this.position), new Vector3f(this.scale), this.rotation);
     }
 
 

@@ -30,7 +30,7 @@ public class KeyControls {
             Actor newObj = activeActor.copy();
             assert Window.getScene().getGame() != null;
             Window.getScene().getGame().addActor(newObj);
-            newObj.transform.position.add(GridLines_Config.SIZE, 0.0f);
+            newObj.transform.position.add(GridLines_Config.SIZE, 0.0f, 0);
             propertiesPanel.setActiveGameObject(newObj);
             if (newObj.getComponent(StateMachine.class) != null) {
                 newObj.getComponent(StateMachine.class).refreshTextures();

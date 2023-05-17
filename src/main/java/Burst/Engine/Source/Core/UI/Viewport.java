@@ -3,7 +3,7 @@ package Burst.Engine.Source.Core.UI;
 import java.lang.invoke.VarHandle;
 
 import org.joml.Matrix4f;
-import org.joml.Vector2f;
+import org.joml.Vector3f;
 import org.joml.Vector3f;
 import org.joml.Vector4f;
 
@@ -13,17 +13,17 @@ public class Viewport {
     /**
      * The position of the center of the viewport in world units.
      */
-    public Vector2f position;
+    public Vector3f position;
 
-    private Vector2f size = new Vector2f();
-    public Vector4f clearColor = new Vector4f(1, 1, 1, 1);
+    private Vector3f size = new Vector3f();
+    public Vector4f clearColor = new Vector4f(0.75f,0.75f,0.75f, 1f);
     private Matrix4f projectionMatrix, viewMatrix, inverseProjection, inverseView;
 
     private float zoom = 10.0f;
 
     public Viewport() {
-        this.position = new Vector2f();
-        this.size = new Vector2f();
+        this.position = new Vector3f();
+        this.size = new Vector3f();
         this.projectionMatrix = new Matrix4f();
         this.viewMatrix = new Matrix4f();
         this.inverseProjection = new Matrix4f();
@@ -31,7 +31,7 @@ public class Viewport {
         adjustProjection();
     }
 
-    public Viewport(Vector2f position) {
+    public Viewport(Vector3f position) {
         this.position = position;
         this.projectionMatrix = new Matrix4f();
         this.viewMatrix = new Matrix4f();
@@ -45,8 +45,8 @@ public class Viewport {
         float width = Window.getWidth();
         float height = Window.getHeight();
         if (viewportPanel != null) {
-            width = viewportPanel.getSize().x;
-            height = viewportPanel.getSize().y;
+            width = viewportPanel.getSize().x * 2;
+            height = viewportPanel.getSize().y * 2;
             this.size.x = width;
             this.size.y = height;
         }
@@ -85,8 +85,8 @@ public class Viewport {
         return this.inverseView;
     }
 
-    public Vector2f getSize() {
-        return new Vector2f(this.size);
+    public Vector3f getSize() {
+        return new Vector3f(this.size);
     }
 
     public float getZoom() {
@@ -108,8 +108,8 @@ public class Viewport {
         }
     }
 
-    public Vector2f getPosition() {
-        return new Vector2f(this.position);
+    public Vector3f getPosition() {
+        return new Vector3f(this.position);
     }
 
 }

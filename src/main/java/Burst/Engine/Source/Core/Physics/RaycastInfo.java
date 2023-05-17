@@ -4,12 +4,12 @@ import Burst.Engine.Source.Core.Actor.Actor;
 import org.jbox2d.callbacks.RayCastCallback;
 import org.jbox2d.common.Vec2;
 import org.jbox2d.dynamics.Fixture;
-import org.joml.Vector2f;
+import org.joml.Vector3f;
 
 public class RaycastInfo implements RayCastCallback {
     public Fixture fixture;
-    public Vector2f point;
-    public Vector2f normal;
+    public Vector3f point;
+    public Vector3f normal;
     public float fraction;
     public boolean hit;
     public Actor hitObject;
@@ -17,8 +17,8 @@ public class RaycastInfo implements RayCastCallback {
 
     public RaycastInfo(Actor obj) {
         fixture = null;
-        point = new Vector2f();
-        normal = new Vector2f();
+        point = new Vector3f();
+        normal = new Vector3f();
         fraction = 0.0f;
         hit = false;
         hitObject = null;
@@ -31,8 +31,8 @@ public class RaycastInfo implements RayCastCallback {
             return 1;
         }
         this.fixture = fixture;
-        this.point = new Vector2f(point.x, point.y);
-        this.normal = new Vector2f(normal.x, normal.y);
+        this.point = new Vector3f(point.x, point.y, 0);
+        this.normal = new Vector3f(normal.x, normal.y, 0);
         this.fraction = fraction;
         this.hit = fraction != 0;
         this.hitObject = (Actor) fixture.m_userData;

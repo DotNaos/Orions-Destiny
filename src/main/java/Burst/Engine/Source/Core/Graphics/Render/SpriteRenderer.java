@@ -8,7 +8,7 @@ import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.Physics.Components.Transform;
 import Burst.Engine.Source.Core.UI.BImGui;
-import org.joml.Vector2f;
+import org.joml.Vector3f;
 import org.joml.Vector4f;
 
 public class SpriteRenderer extends Component {
@@ -78,7 +78,7 @@ public class SpriteRenderer extends Component {
         this.sprite.setTexture(texture);
     }
 
-    public Vector2f[] getTexCoords() {
+    public Vector3f[] getTexCoords() {
         return sprite.getTexCoords();
     }
 

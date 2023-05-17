@@ -4,10 +4,10 @@ import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.Graphics.Debug.DebugDraw;
 import Burst.Engine.Source.Core.UI.Window;
-import org.joml.Vector2f;
+import org.joml.Vector3f;
 
 public class CircleCollider extends Component {
-    protected Vector2f offset = new Vector2f();
+    protected Vector3f offset = new Vector3f();
     private float radius = 1f;
     private transient boolean resetFixtureNextFrame = false;
 
@@ -24,17 +24,17 @@ public class CircleCollider extends Component {
         this.radius = radius;
     }
 
-    public Vector2f getOffset() {
+    public Vector3f getOffset() {
         return this.offset;
     }
 
-    public void setOffset(Vector2f newOffset) {
+    public void setOffset(Vector3f newOffset) {
         this.offset.set(newOffset);
     }
 
     @Override
     public void updateEditor(float dt) {
-        Vector2f center = new Vector2f(this.actor.transform.position).add(this.offset);
+        Vector3f center = new Vector3f(this.actor.transform.position).add(this.offset);
         DebugDraw.addCircle(center, this.radius);
 
         if (resetFixtureNextFrame) {

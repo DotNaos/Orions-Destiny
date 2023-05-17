@@ -6,10 +6,10 @@ import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.UI.Window;
 import org.jbox2d.common.Vec2;
 import org.jbox2d.dynamics.Body;
-import org.joml.Vector2f;
+import org.joml.Vector3f;
 
 public class Rigidbody2D extends Component {
-    private Vector2f velocity = new Vector2f();
+    private Vector3f velocity = new Vector3f();
     private float angularDamping = 0.8f;
     private float linearDamping = 0.9f;
     private float mass = 0;
@@ -33,11 +33,11 @@ public class Rigidbody2D extends Component {
         if (rawBody != null) {
             if (this.bodyType == BodyType.Dynamic || this.bodyType == BodyType.Kinematic) {
                 this.actor.transform.position.set(
-                        rawBody.getPosition().x, rawBody.getPosition().y
+                        rawBody.getPosition().x, rawBody.getPosition().y, 0
                 );
                 this.actor.transform.rotation = (float) Math.toDegrees(rawBody.getAngle());
                 Vec2 vel = rawBody.getLinearVelocity();
-                this.velocity.set(vel.x, vel.y);
+                this.velocity.set(vel.x, vel.y, 0);
             } else if (this.bodyType == BodyType.Static) {
                 this.rawBody.setTransform(
                         new Vec2(this.actor.transform.position.x, this.actor.transform.position.y),
@@ -47,30 +47,30 @@ public class Rigidbody2D extends Component {
         }
     }
 
-    public void addVelocity(Vector2f forceToAdd) {
+    public void addVelocity(Vector3f forceToAdd) {
         if (rawBody != null) {
             rawBody.applyForceToCenter(new Vec2(forceToAdd.x, forceToAdd.y));
         }
     }
 
-    public void addImpulse(Vector2f impulse) {
+    public void addImpulse(Vector3f impulse) {
         if (rawBody != null) {
             rawBody.applyLinearImpulse(new Vec2(velocity.x, velocity.y), rawBody.getWorldCenter(), true);
         }
     }
 
-    public Vector2f getVelocity() {
+    public Vector3f getVelocity() {
         return velocity;
     }
 
-    public void setVelocity(Vector2f velocity) {
+    public void setVelocity(Vector3f velocity) {
         this.velocity.set(velocity);
         if (rawBody != null) {
             this.rawBody.setLinearVelocity(new Vec2(velocity.x, velocity.y));
         }
     }
 
-    public void setPosition(Vector2f newPos) {
+    public void setPosition(Vector3f newPos) {
         if (rawBody != null) {
             rawBody.setTransform(new Vec2(newPos.x, newPos.y), actor.transform.rotation);
         }

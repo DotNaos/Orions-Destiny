@@ -210,8 +210,8 @@ public class Window implements Observer {
             glDisable(GL_BLEND);
             pickingTexture.enableWriting();
 
-            glViewport(0, 0, Window.getWidth(), Window.getHeight());
-            glClearColor(0, 0, 0, 0);
+            glViewport(0, 0, Window.getWidth() , Window.getHeight());
+            glClearColor(0, 0, 0, 1);
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
             ViewportRenderer.bindShader(pickingShader);

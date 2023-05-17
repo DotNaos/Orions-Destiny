@@ -9,7 +9,7 @@ import Burst.Engine.Source.Core.UI.Window;
 import Orion.res.Assets;
 import imgui.ImGui;
 import imgui.ImVec2;
-import org.joml.Vector2f;
+import org.joml.Vector3f;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,7 +58,7 @@ public class ContentDrawer extends ImGuiPanel {
                     float spriteWidth = sprite.getWidth() * 4;
                     float spriteHeight = sprite.getHeight() * 4;
                     int id = sprite.getTexId();
-                    Vector2f[] texCoords = sprite.getTexCoords();
+                    Vector3f[] texCoords = sprite.getTexCoords();
 
                     ImGui.pushID(i);
                     if (ImGui.imageButton(id, spriteWidth, spriteHeight, texCoords[2].x, texCoords[0].y, texCoords[0].x, texCoords[2].y)) {

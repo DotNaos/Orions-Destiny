@@ -3,7 +3,7 @@ package Burst.Engine.Source.Editor;
 import Burst.Engine.Source.Core.Graphics.Input.KeyListener;
 import Burst.Engine.Source.Core.Graphics.Input.MouseListener;
 import Burst.Engine.Source.Core.UI.Viewport;
-import org.joml.Vector2f;
+import org.joml.Vector3f;
 
 import static org.lwjgl.glfw.GLFW.*;
 
@@ -11,7 +11,7 @@ public class EditorCamera {
 
     private float dragDebounce = 0.032f;
     private Viewport viewport;
-    private Vector2f clickOrigin;
+    private Vector3f clickOrigin;
     private boolean reset = false;
     private float lerpTime = 0.0f;
     private float dragSensitivity = 30.0f;
@@ -19,18 +19,18 @@ public class EditorCamera {
 
     public EditorCamera(Viewport viewport) {
         this.viewport = viewport;
-        this.clickOrigin = new Vector2f();
+        this.clickOrigin = new Vector3f();
     }
 
     public void update(float dt) {
 
         if (MouseListener.mouseButtonDown(GLFW_MOUSE_BUTTON_MIDDLE) && dragDebounce > 0) {
-            this.clickOrigin = new Vector2f(MouseListener.getWorldX(), MouseListener.getWorldY());
+            this.clickOrigin = new Vector3f(MouseListener.getWorldX(), MouseListener.getWorldY(), 0);
             dragDebounce -= dt;
             return;
         } else if (MouseListener.mouseButtonDown(GLFW_MOUSE_BUTTON_MIDDLE)) {
-            Vector2f mousePos = new Vector2f(MouseListener.getWorldX(), MouseListener.getWorldY());
-            Vector2f delta = new Vector2f(mousePos).sub(this.clickOrigin);
+            Vector3f mousePos = new Vector3f(MouseListener.getWorldX(), MouseListener.getWorldY(), 0);
+            Vector3f delta = new Vector3f(mousePos).sub(this.clickOrigin);
 
             viewport.position.sub(delta.mul(dt).mul(dragSensitivity));
             this.clickOrigin.lerp(mousePos, dt);
@@ -53,12 +53,12 @@ public class EditorCamera {
         }
 
         if (reset) {
-            viewport.position.lerp(new Vector2f(), lerpTime);
+            viewport.position.lerp(new Vector3f(), lerpTime);
             viewport.setZoom(this.viewport.getZoom() + ((1.0f - viewport.getZoom()) * lerpTime));
             this.lerpTime += 0.1f * dt;
             if (Math.abs(viewport.position.x) <= 10.0f && Math.abs(viewport.position.y) <= 10.0f) {
                 this.lerpTime = 0.0f;
-                viewport.position.set(0f, 0f);
+                viewport.position.set(0f, 0f, 0);
                 this.viewport.setZoom(1.0f);
                 reset = false;
             }

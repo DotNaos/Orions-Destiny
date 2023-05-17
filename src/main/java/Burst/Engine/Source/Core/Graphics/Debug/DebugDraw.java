@@ -1,12 +1,13 @@
 package Burst.Engine.Source.Core.Graphics.Debug;
 
 import Burst.Engine.Config.ShaderConfig;
+import Burst.Engine.Config.Constants.Color_Config;
 import Burst.Engine.Source.Core.Assets.AssetManager;
 import Burst.Engine.Source.Core.Assets.Graphics.Shader;
 import Burst.Engine.Source.Core.UI.Viewport;
 import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Core.Util.BMath;
-import org.joml.Vector2f;
+import org.joml.Vector3f;
 import org.joml.Vector3f;
 import org.joml.Vector4f;
 
@@ -19,7 +20,7 @@ import static org.lwjgl.opengl.GL30.glBindVertexArray;
 import static org.lwjgl.opengl.GL30.glGenVertexArrays;
 
 public class DebugDraw {
-    private static int MAX_LINES = 10000;
+    private static int MAX_LINES = 2000;
 
     private static List<Line2D> lines = new ArrayList<>();
     // 6 floats per vertex, 2 vertices per line
@@ -75,7 +76,7 @@ public class DebugDraw {
         int index = 0;
         for (Line2D line : lines) {
             for (int i = 0; i < 2; i++) {
-                Vector2f position = i == 0 ? line.getFrom() : line.getTo();
+                Vector3f position = i == 0 ? line.getFrom() : line.getTo();
                 Vector3f color = new Vector3f(line.getColor().x, line.getColor().y, line.getColor().z);
 
                 // Load position
@@ -119,67 +120,66 @@ public class DebugDraw {
     // ==================================================
     // Add line2D methods
     // ==================================================
-    public static void addLine2D(Vector2f from, Vector2f to) {
-        // TODO: ADD CONSTANTS FOR COMMON COLORS
-        addLine2D(from, to, new Vector3f(0, 1, 0));
+    public static void addLine2D(Vector3f from, Vector3f to) {
+        addLine2D(from, to, new Vector4f(Color_Config.GREEN));
     }
 
-    public static void addLine2D(Vector2f from, Vector2f to, Vector3f color) {
+    public static void addLine2D(Vector3f from, Vector3f to, Vector4f color) {
         addLine2D(from, to, color, 2);
     }
 
-    public static void addLine2D(Vector2f from, Vector2f to, Vector3f color, int lifetime) {
+    public static void addLine2D(Vector3f from, Vector3f to, Vector3f color, int lifetime) {
         addLine2D(from, to, new Vector4f(color, 1.0f), lifetime);
     }
 
-    public static void addLine2D(Vector2f from, Vector2f to, Vector4f color, int lifetime) {
+    public static void addLine2D(Vector3f from, Vector3f to, Vector4f color, int lifetime) {
         Viewport viewport = Window.getScene().getViewport();
-        Vector2f cameraLeft = viewport.getPosition().add(new Vector2f(-2.0f, -2.0f));
-        Vector2f cameraRight = viewport.getPosition().
-                add(viewport.getSize().mul(viewport.getZoom())).
-                add(new Vector2f(4.0f, 4.0f));
+        Vector3f cameraLeft = viewport.getPosition().sub(new Vector3f(viewport.getSize().x / 4, viewport.getSize().y / 4, 0));
+        
+        Vector3f cameraRight = viewport.getPosition().add(new Vector3f(viewport.getSize().x / 4, viewport.getSize().y / 4, 0));
+
+                
         boolean lineInView =
                 ((from.x >= cameraLeft.x && from.x <= cameraRight.x) && (from.y >= cameraLeft.y && from.y <= cameraRight.y)) ||
                         ((to.x >= cameraLeft.x && to.x <= cameraRight.x) && (to.y >= cameraLeft.y && to.y <= cameraRight.y));
-        if (lines.size() >= MAX_LINES || !lineInView) {
-            return;
-        }
-        DebugDraw.lines.add(new Line2D(new Vector2f(from), new Vector2f(to), new Vector4f(color), lifetime));
+        // if (lines.size() >= MAX_LINES || !lineInView) {
+        //     return;
+        // }
+        DebugDraw.lines.add(new Line2D(new Vector3f(from), new Vector3f(to), new Vector4f(color), lifetime));
     }
 
     // ==================================================
     // Add Box2D methods
     // ==================================================
-    public static void addBox2D(Vector2f center, Vector2f dimensions, float rotation) {
-        // TODO: ADD CONSTANTS FOR COMMON COLORS
-        addBox2D(center, dimensions, rotation, new Vector3f(0, 1, 0), 1);
+    public static void addBox2D(Vector3f center, Vector3f dimensions, float rotation) {
+        addBox2D(center, dimensions, rotation, Color_Config.GREEN, 1);
     }
 
-    public static void addBox2D(Vector2f center, Vector2f dimensions, float rotation, Vector3f color) {
+    public static void addBox2D(Vector3f center, Vector3f dimensions, float rotation, Vector3f color) {
         addBox2D(center, dimensions, rotation, color, 1);
     }
 
-    public static void addBox2D(Vector2f center, Vector2f dimensions, float rotation, Vector4f color) {
+    public static void addBox2D(Vector3f center, Vector3f dimensions, float rotation, Vector4f color) {
         addBox2D(center, dimensions, rotation, color, 1);
     }
 
-    public static void addBox2D(Vector2f center, Vector2f dimensions, float rotation,
+    public static void addBox2D(Vector3f center, Vector3f dimensions, float rotation,
                                 Vector3f color, int lifetime) {
         addBox2D(center, dimensions, rotation, new Vector4f(color.x, color.y, color.z, 1), 1);
     }
 
-    public static void addBox2D(Vector2f center, Vector2f dimensions, float rotation,
+    public static void addBox2D(Vector3f center, Vector3f dimensions, float rotation,
                                 Vector4f color, int lifetime) {
-        Vector2f min = new Vector2f(center).sub(new Vector2f(dimensions).mul(0.5f));
-        Vector2f max = new Vector2f(center).add(new Vector2f(dimensions).mul(0.5f));
+        Vector3f min = new Vector3f(center).sub(new Vector3f(dimensions).mul(0.5f));
+        Vector3f max = new Vector3f(center).add(new Vector3f(dimensions).mul(0.5f));
 
-        Vector2f[] vertices = {
-                new Vector2f(min.x, min.y), new Vector2f(min.x, max.y),
-                new Vector2f(max.x, max.y), new Vector2f(max.x, min.y)
+        Vector3f[] vertices = {
+                new Vector3f(min.x, min.y, 0), new Vector3f(min.x, max.y,0),
+                new Vector3f(max.x, max.y, 0), new Vector3f(max.x, min.y, 0)
         };
 
         if (rotation != 0.0f) {
-            for (Vector2f vert : vertices) {
+            for (Vector3f vert : vertices) {
                 BMath.rotate(vert, rotation, center);
             }
         }
@@ -193,24 +193,24 @@ public class DebugDraw {
     // ==================================================
     // Add Circle methods
     // ==================================================
-    public static void addCircle(Vector2f center, float radius) {
-        // TODO: ADD CONSTANTS FOR COMMON COLORS
-        addCircle(center, radius, new Vector3f(0, 1, 0), 1);
+    public static void addCircle(Vector3f center, float radius) {
+
+        addCircle(center, radius, Color_Config.GREEN, 1);
     }
 
-    public static void addCircle(Vector2f center, float radius, Vector3f color) {
-        addCircle(center, radius, color, 1);
+    public static void addCircle(Vector3f center, float radius, Vector3f color) {
+        addCircle(center, radius, new Vector4f(color, 1.0f), 1);
     }
 
-    public static void addCircle(Vector2f center, float radius, Vector3f color, int lifetime) {
-        Vector2f[] points = new Vector2f[20];
+    public static void addCircle(Vector3f center, float radius, Vector4f color, int lifetime) {
+        Vector3f[] points = new Vector3f[20];
         int increment = 360 / points.length;
         int currentAngle = 0;
 
         for (int i = 0; i < points.length; i++) {
-            Vector2f tmp = new Vector2f(0, radius);
-            BMath.rotate(tmp, currentAngle, new Vector2f());
-            points[i] = new Vector2f(tmp).add(center);
+            Vector3f tmp = new Vector3f(0, radius,0);
+            BMath.rotate(tmp, currentAngle, new Vector3f());
+            points[i] = new Vector3f(tmp).add(center);
 
             if (i > 0) {
                 addLine2D(points[i - 1], points[i], color, lifetime);

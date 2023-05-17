@@ -1,18 +1,18 @@
 package Burst.Engine.Source.Core.Assets.Graphics;
 
 import Burst.Engine.Source.Core.Assets.Asset;
-import org.joml.Vector2f;
+import org.joml.Vector3f;
 
 public class Sprite extends Asset {
 
     private float width, height;
 
     private Texture texture = null;
-    private Vector2f[] texCoords = {
-            new Vector2f(1, 1),
-            new Vector2f(1, 0),
-            new Vector2f(0, 0),
-            new Vector2f(0, 1)
+    private Vector3f[] texCoords = {
+            new Vector3f(1, 1 , 0),
+            new Vector3f(1, 0, 0),
+            new Vector3f(0, 0, 0),
+            new Vector3f(0, 1, 0)
     };
 
     public Sprite() {
@@ -47,11 +47,11 @@ public class Sprite extends Asset {
         this.texture = tex;
     }
 
-    public Vector2f[] getTexCoords() {
+    public Vector3f[] getTexCoords() {
         return this.texCoords;
     }
 
-    public void setTexCoords(Vector2f[] texCoords) {
+    public void setTexCoords(Vector3f[] texCoords) {
         this.texCoords = texCoords;
     }
 

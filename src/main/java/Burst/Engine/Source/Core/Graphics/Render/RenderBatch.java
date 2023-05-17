@@ -5,7 +5,7 @@ import Burst.Engine.Source.Core.Assets.Graphics.Shader;
 import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Burst.Engine.Source.Core.UI.Window;
 import org.joml.Matrix4f;
-import org.joml.Vector2f;
+import org.joml.Vector3f;
 import org.joml.Vector4f;
 
 import java.util.ArrayList;
@@ -194,7 +194,7 @@ public class RenderBatch implements Comparable<RenderBatch> {
         int offset = index * 4 * VERTEX_SIZE;
 
         Vector4f color = sprite.getColor();
-        Vector2f[] texCoords = sprite.getTexCoords();
+        Vector3f[] texCoords = sprite.getTexCoords();
 
         int texId = 0;
         if (sprite.getTexture() != null) {

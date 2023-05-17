@@ -1,10 +1,9 @@
 package Burst.Engine.Source.Core.Graphics.Input;
 
-import Burst.Engine.Source.Core.Graphics.Debug.DebugDraw;
 import Burst.Engine.Source.Core.UI.Viewport;
 import Burst.Engine.Source.Core.UI.Window;
 import org.joml.Matrix4f;
-import org.joml.Vector2f;
+import org.joml.Vector3f;
 import org.joml.Vector4f;
 
 import java.util.Arrays;
@@ -22,8 +21,8 @@ public class MouseListener {
     private int mouseButtonDown = 0;
 
 
-    private Vector2f gameViewportPos = new Vector2f();
-    private Vector2f gameViewportSize = new Vector2f();
+    private Vector3f gameViewportPos = new Vector3f();
+    private Vector3f gameViewportSize = new Vector3f();
 
     private MouseListener() {
         this.scrollX = 0.0;
@@ -140,7 +139,7 @@ public class MouseListener {
         return getWorld().y;
     }
 
-    public static Vector2f getWorld() {
+    public static Vector3f getWorld() {
         float currentX = getX() - get().gameViewportPos.x;
         currentX = (2.0f * (currentX / get().gameViewportSize.x)) - 1.0f;
         float currentY = (getY() - get().gameViewportPos.y);
@@ -152,15 +151,15 @@ public class MouseListener {
         Matrix4f inverseProjection = new Matrix4f(viewport.getInverseProjection());
         tmp.mul(inverseView.mul(inverseProjection));
 
-        return new Vector2f(tmp.x, tmp.y);
+        return new Vector3f(tmp.x, tmp.y, 0);
     }
 
-    public static Vector2f screenToWorld(Vector2f screenCoords) {
-        Vector2f normalizedScreenCords = new Vector2f(
+    public static Vector3f screenToWorld(Vector3f screenCoords) {
+        Vector3f normalizedScreenCords = new Vector3f(
                 screenCoords.x / Window.getWidth(),
-                screenCoords.y / Window.getHeight()
+                screenCoords.y / Window.getHeight(), 0
         );
-        normalizedScreenCords.mul(2.0f).sub(new Vector2f(1.0f, 1.0f));
+        normalizedScreenCords.mul(2.0f).sub(new Vector3f(1.0f, 1.0f, 0));
         Viewport viewport = Window.getScene().getViewport();
         Vector4f tmp = new Vector4f(normalizedScreenCords.x, normalizedScreenCords.y,
                 0, 1);
@@ -168,18 +167,18 @@ public class MouseListener {
         Matrix4f inverseProjection = new Matrix4f(viewport.getInverseProjection());
         tmp.mul(inverseView.mul(inverseProjection));
 
-        return new Vector2f(tmp.x, tmp.y);
+        return new Vector3f(tmp.x, tmp.y, 0);
     }
 
-    public static Vector2f worldToScreen(Vector2f worldCoords) {
+    public static Vector3f worldToScreen(Vector3f worldCoords) {
         Viewport viewport = Window.getScene().getViewport();
         Vector4f ndcSpacePos = new Vector4f(worldCoords.x, worldCoords.y, 0, 1);
         Matrix4f view = new Matrix4f(viewport.getViewMatrix());
         Matrix4f projection = new Matrix4f(viewport.getProjectionMatrix());
         ndcSpacePos.mul(projection.mul(view));
-        Vector2f windowSpace = new Vector2f(ndcSpacePos.x, ndcSpacePos.y).mul(1.0f / ndcSpacePos.w);
-        windowSpace.add(new Vector2f(1.0f, 1.0f)).mul(0.5f);
-        windowSpace.mul(new Vector2f(Window.getWidth(), Window.getHeight()));
+        Vector3f windowSpace = new Vector3f(ndcSpacePos.x, ndcSpacePos.y, 0).mul(1.0f / ndcSpacePos.w);
+        windowSpace.add(new Vector3f(1.0f, 1.0f, 0)).mul(0.5f);
+        windowSpace.mul(new Vector3f(Window.getWidth(), Window.getHeight(), 0));
 
         return windowSpace;
     }
@@ -192,30 +191,30 @@ public class MouseListener {
         return getScreen().y;
     }
 
-    public static Vector2f getScreen() {
+    public static Vector3f getScreen() {
         float currentX = getX() - get().gameViewportPos.x;
         currentX = (currentX / get().gameViewportSize.x) * Window.getWidth();
         float currentY = (getY() - get().gameViewportPos.y);
         currentY = (1.0f - (currentY / get().gameViewportSize.y)) * Window.getHeight();
 
 
-        return new Vector2f(currentX, currentY);
+        return new Vector3f(currentX, currentY, 0);
     }
 
     // get GameViewportSize
-    public static Vector2f getGameViewportSize() {
+    public static Vector3f getGameViewportSize() {
         return get().gameViewportSize;
     }
 
-    public static void setGameViewportSize(Vector2f gameViewportSize) {
+    public static void setGameViewportSize(Vector3f gameViewportSize) {
         get().gameViewportSize.set(gameViewportSize);
     }
 
-    public static Vector2f getGameViewportPos() {
-        return new Vector2f(get().gameViewportPos);
+    public static Vector3f getGameViewportPos() {
+        return new Vector3f(get().gameViewportPos);
     }
 
-    public static void setGameViewportPos(Vector2f gameViewportPos) {
+    public static void setGameViewportPos(Vector3f gameViewportPos) {
         get().gameViewportPos.set(gameViewportPos);
     }
 }

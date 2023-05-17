@@ -1,6 +1,5 @@
 package Burst.Engine.Source.Core.Actor;
 
-
 import Burst.Engine.Source.Core.Assets.AssetManager;
 import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
 import Burst.Engine.Source.Core.Assets.Graphics.Texture;
@@ -11,17 +10,17 @@ import Burst.Engine.Source.Core.Saving.ActorDeserializer;
 import Burst.Engine.Source.Core.Saving.ComponentDeserializer;
 import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Core.Util.Util;
-import imgui.ImGui;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import org.joml.Vector2f;
+import org.joml.Vector3f;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Represents an object in the game world that can have Components attached to it.
+ * Represents an object in the game world that can have Components attached to
+ * it.
  */
 public class Actor {
     /**
@@ -31,14 +30,18 @@ public class Actor {
     public transient Transform transform;
     /**
      * The ID of the actor.
-     * This is set to -1 by default, and is set to a unique ID when the actor is created.
-     * This is used to identify the actor when saving and loading or when searching for an actor.
+     * This is set to -1 by default, and is set to a unique ID when the actor is
+     * created.
+     * This is used to identify the actor when saving and loading or when searching
+     * for an actor.
      */
     private long ID = -1;
     /**
      * The name of the actor.
-     * This is set to  "New Actor" by default, and is set to the name of the actor when the actor is created.
-     * Besides being used to identify the actor, this is also used to display the actor in the editor.
+     * This is set to "New Actor" by default, and is set to the name of the actor
+     * when the actor is created.
+     * Besides being used to identify the actor, this is also used to display the
+     * actor in the editor.
      */
     private String name = "New Actor";
     private List<Component> components;
@@ -47,12 +50,12 @@ public class Actor {
      */
     private boolean serializedActor = true;
 
-
-    //====================================================================================================
+    // ====================================================================================================
     // |=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
-    // |--------------------------------------[ Initialization ]-----------------------------------------|
+    // |--------------------------------------[ Initialization
+    // ]-----------------------------------------|
     // |=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
-    //====================================================================================================
+    // ====================================================================================================
 
     /**
      * Creates a new Actor instance with default values.
@@ -69,7 +72,7 @@ public class Actor {
         SpriteRenderer spriteRenderer = new SpriteRenderer(this);
         spriteRenderer.setSprite(sprite);
         this.components.add(spriteRenderer);
-        this.transform.size = new Vector2f(sizeX, sizeY);
+        this.transform.size = new Vector3f(sizeX, sizeY, 0);
     }
 
     /**
@@ -91,9 +94,9 @@ public class Actor {
      * @param x    The x position of the actor.
      * @param y    The y position of the actor.
      */
-    public Actor(String name, float x, float y) {
+    public Actor(String name, float x, float y, float z) {
         this(name);
-        this.transform.position.set(x, y);
+        this.transform.position.set(x, y, z);
     }
 
     /**
@@ -106,13 +109,14 @@ public class Actor {
      * @param rotation The rotation of the actor.
      */
 
-    public Actor(String name, float x, float y, float rotation) {
-        this(name, x, y);
+    public Actor(String name, float x, float y, float z, float rotation) {
+        this(name, x, y, z);
         this.transform.rotation = rotation;
     }
 
     /**
-     * Creates a new Actor instance with a given name, position, rotation, and scale.
+     * Creates a new Actor instance with a given name, position, rotation, and
+     * scale.
      * Automatically generates a unique ID and creates a new Transform component.
      *
      * @param name     The name to give to the actor.
@@ -123,9 +127,9 @@ public class Actor {
      * @param scaleY   The y scale of the actor.
      */
 
-    public Actor(String name, float x, float y, float rotation, float scaleX, float scaleY) {
+    public Actor(String name, float x, float y, float rotation, float scaleX, float scaleY, float scaleZ) {
         this(name, x, y, rotation);
-        this.transform.scale.set(scaleX, scaleY);
+        this.transform.scale.set(scaleX, scaleY, scaleZ);
     }
 
     /**
@@ -140,19 +144,21 @@ public class Actor {
         this.transform.copy(transform);
     }
 
-
     /**
      * Initializes the object.
      * <p>
-     * This method is called by the system when the object is first created, before it is put into service.
-     * It is recommended to override this method to perform any initialization such as allocating resources or
+     * This method is called by the system when the object is first created, before
+     * it is put into service.
+     * It is recommended to override this method to perform any initialization such
+     * as allocating resources or
      * initializing variables.
      * </p>
      * <p>
      * The default implementation of this method does nothing.
      * </p>
      * <p>
-     * <b>Note:</b> This method should not be called directly by application code. Instead, it should be called by the
+     * <b>Note:</b> This method should not be called directly by application code.
+     * Instead, it should be called by the
      * system when the object is first created.
      * </p>
      *
@@ -165,11 +171,12 @@ public class Actor {
     public void start() {
     }
 
-    //====================================================================================================
+    // ====================================================================================================
     // |=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
-    // |--------------------------------------[ Updating ]------------------------------------------------|
+    // |--------------------------------------[ Updating
+    // ]------------------------------------------------|
     // |=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
-    //====================================================================================================
+    // ====================================================================================================
 
     /**
      * Calls the update() method of all components attached to this actor.
@@ -193,11 +200,12 @@ public class Actor {
         }
     }
 
-    //====================================================================================================
+    // ====================================================================================================
     // |=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
-    // |--------------------------------------[ Operations ]---------------------------------------------|
+    // |--------------------------------------[ Operations
+    // ]---------------------------------------------|
     // |=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
-    //====================================================================================================
+    // ====================================================================================================
 
     /**
      * Calls the destroy() method of all components attached to this actor.
@@ -230,21 +238,23 @@ public class Actor {
 
         SpriteRenderer sprite = obj.getComponent(SpriteRenderer.class);
         if (sprite != null && sprite.getTexture() != null) {
-            sprite.setTexture((Texture) AssetManager.getAssetFromType(sprite.getTexture().getFilepath(), Texture.class));
+            sprite.setTexture(
+                    (Texture) AssetManager.getAssetFromType(sprite.getTexture().getFilepath(), Texture.class));
         }
 
         return obj;
     }
 
-
-    //====================================================================================================
+    // ====================================================================================================
     // |=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
-    // |--------------------------------------[ Component System ]---------------------------------------|
+    // |--------------------------------------[ Component System
+    // ]---------------------------------------|
     // |=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
-    //====================================================================================================
+    // ====================================================================================================
 
     /**
-     * Adds a {@link Component} to this actor's list of components, generates an ID for the component, and sets the component's actor to this actor.
+     * Adds a {@link Component} to this actor's list of components, generates an ID
+     * for the component, and sets the component's actor to this actor.
      *
      * @param c the component to add to this actor's list of components
      * @throws NullPointerException if the specified component is {@code null}
@@ -275,12 +285,13 @@ public class Actor {
         return false;
     }
 
-
     /**
-     * Removes the first occurrence of a {@link Component} of the specified {@link Class} from the internal list of components.
+     * Removes the first occurrence of a {@link Component} of the specified
+     * {@link Class} from the internal list of components.
      *
      * @param <T>            the type of the component to remove
-     * @param componentClass the {@link Class} object representing the type of the component to remove
+     * @param componentClass the {@link Class} object representing the type of the
+     *                       component to remove
      * @throws NullPointerException if componentClass is null
      * @see Component
      * @see Class
@@ -297,14 +308,16 @@ public class Actor {
         }
     }
 
-
     /**
-     * Returns the first component of the specified {@code componentClass} found in the {@code components} list, or {@code null} if none is found.
+     * Returns the first component of the specified {@code componentClass} found in
+     * the {@code components} list, or {@code null} if none is found.
      *
      * @param <T>            the type of the component
      * @param componentClass the class of the component to be retrieved
-     * @return the first component of the specified {@code componentClass} found in the {@code components} list, or {@code null} if none is found
-     * @throws ClassCastException if the component cannot be cast to the specified class
+     * @return the first component of the specified {@code componentClass} found in
+     *         the {@code components} list, or {@code null} if none is found
+     * @throws ClassCastException if the component cannot be cast to the specified
+     *                            class
      * @see Class#isAssignableFrom(Class)
      * @see Class#cast(Object)
      */
@@ -334,19 +347,23 @@ public class Actor {
         return this.components;
     }
 
-    //====================================================================================================
+    // ====================================================================================================
     // |=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
-    // |----------------------------------------[ ImGui ]------------------------------------------------|
+    // |----------------------------------------[ ImGui
+    // ]------------------------------------------------|
     // |=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
-    //====================================================================================================
+    // ====================================================================================================
 
     /**
-     * Generates an imgui interface for each Component in the components list that is contained in a collapsing header
+     * Generates an imgui interface for each Component in the components list that
+     * is contained in a collapsing header
      * identified by the component's simple class name.
      *
      * @throws NullPointerException if components is null or contains null elements.
-     * @implNote Uses the ImGui.collapsingHeader method to create the collapsing header.
-     * @implSpec The imgui method of each Component is called if and only if its associated header is expanded.
+     * @implNote Uses the ImGui.collapsingHeader method to create the collapsing
+     *           header.
+     * @implSpec The imgui method of each Component is called if and only if its
+     *           associated header is expanded.
      * @see <a href="https://github.com/ocornut/imgui">ImGui</a>
      * @see Component#imgui()
      */
@@ -355,17 +372,19 @@ public class Actor {
         // TODO: Fix Component imgui
         for (Component c : components) {
             // If the Component's header is expanded, calls its imgui method
-        //    if (ImGui.collapsingHeader(c.getClass().getSimpleName())) c.imgui();
+            // if (ImGui.collapsingHeader(c.getClass().getSimpleName())) c.imgui();
         }
     }
 
-    //====================================================================================================
+    // ====================================================================================================
     // |=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
-    // |----------------------------------------[ Getters ]---------------------------------------------|
+    // |----------------------------------------[ Getters
+    // ]---------------------------------------------|
     // |=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
-    // |----------------------------------------[ Setters ]---------------------------------------------|
+    // |----------------------------------------[ Setters
+    // ]---------------------------------------------|
     // |=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
-    //====================================================================================================
+    // ====================================================================================================
 
     /**
      * @return the unique identifier of the object.

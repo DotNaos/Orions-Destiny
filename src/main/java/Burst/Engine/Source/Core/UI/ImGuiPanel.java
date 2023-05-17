@@ -1,12 +1,12 @@
 package Burst.Engine.Source.Core.UI;
 
 import imgui.ImGui;
-import org.joml.Vector2f;
+import org.joml.Vector3f;
 
 public abstract class ImGuiPanel {
     protected boolean show = true;
-    protected Vector2f position = new Vector2f(100, 100);
-    protected Vector2f size = new Vector2f((float) Window.getWidth() / 3, (float) Window.getHeight() / 3);
+    protected Vector3f position = new Vector3f(100, 100, 0);
+    protected Vector3f size = new Vector3f((float) Window.getWidth() / 3, (float) Window.getHeight() / 3, 0);
 
     public ImGuiPanel() {
         ImGui.setNextWindowSize(size.x, size.y);
