@@ -7,6 +7,7 @@ import Burst.Engine.Source.Core.Util.Util;
 import imgui.ImGui;
 import imgui.type.ImInt;
 import org.jbox2d.dynamics.contacts.Contact;
+import org.joml.Vector2f;
 import org.joml.Vector3f;
 import org.joml.Vector3f;
 import org.joml.Vector4f;
@@ -83,8 +84,8 @@ public abstract class Component {
                     if (ImGui.checkbox(name + ": ", val)) {
                         field.set(this, !val);
                     }
-                } else if (type == Vector3f.class) {
-                    Vector3f val = (Vector3f) value;
+                } else if (type == Vector2f.class) {
+                    Vector2f val = (Vector2f) value;
                     BImGui.drawVec2Control(name, val);
                 } else if (type == Vector3f.class) {
                     Vector3f val = (Vector3f) value;

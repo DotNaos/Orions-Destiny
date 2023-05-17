@@ -1,12 +1,13 @@
 package Burst.Engine.Source.Core.Graphics.Render;
 
 import Burst.Engine.Source.Core.UI.Window;
+import Burst.Engine.Source.Editor.EditorOption;
 import org.joml.Vector2i;
 
 import static org.lwjgl.opengl.GL11.GL_TEXTURE_2D;
 import static org.lwjgl.opengl.GL30.*;
 
-public class PickingTexture {
+public class PickingTexture implements EditorOption {
     private int pickingTextureId;
     private int fbo;
     private int depthTexture;
@@ -91,5 +92,10 @@ public class PickingTexture {
         }
 
         return pixels;
+    }
+
+    @Override
+    public void imgui() {
+
     }
 }

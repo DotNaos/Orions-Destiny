@@ -11,6 +11,7 @@ import Burst.Engine.Source.Editor.ContentDrawer;
 import Burst.Engine.Source.Editor.EditorCamera;
 import Burst.Engine.Source.Editor.Panel.OutlinerPanel;
 import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
+import imgui.ImGui;
 
 public class Editor extends Game {
     private PickingTexture pickingTexture;
@@ -59,6 +60,18 @@ public class Editor extends Game {
     public void imgui() {
         super.imgui();
 
+        // ImGui for all editor features
+        ImGui.begin("Editor");
+        ImGui.beginTabBar("EditorTabs");
+
+        this.pickingTexture.imgui();
+        this.editorCamera.imgui();
+        this.mouseControls.imgui();
+        this.keyControls.imgui();
+        GridLines.imgui(0);
+
+        ImGui.endTabBar();
+        ImGui.end();
     }
 
     public MouseControls getMouseControls() {

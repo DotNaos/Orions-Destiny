@@ -7,7 +7,7 @@ import org.joml.Vector3f;
 
 import static org.lwjgl.glfw.GLFW.*;
 
-public class EditorCamera {
+public class EditorCamera implements EditorOption{
 
     private float dragDebounce = 0.032f;
     private Viewport viewport;
@@ -66,5 +66,9 @@ public class EditorCamera {
                 reset = false;
             }
         }
+    }
+
+    public void imgui() {
+
     }
 }

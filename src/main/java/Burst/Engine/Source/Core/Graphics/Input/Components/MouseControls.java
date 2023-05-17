@@ -12,6 +12,7 @@ import Burst.Engine.Source.Core.Graphics.Input.MouseListener;
 import Burst.Engine.Source.Core.Graphics.Render.PickingTexture;
 import Burst.Engine.Source.Core.Graphics.Render.SpriteRenderer;
 import Burst.Engine.Source.Core.UI.Window;
+import Burst.Engine.Source.Editor.EditorOption;
 import Burst.Engine.Source.Editor.Gizmo.GizmoSystem;
 import Burst.Engine.Source.Editor.NonPickable;
 import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
@@ -26,7 +27,7 @@ import java.util.Set;
 import static org.lwjgl.glfw.GLFW.GLFW_KEY_ESCAPE;
 import static org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT;
 
-public class MouseControls {
+public class MouseControls implements EditorOption {
     Actor holdingActor = null;
     Spritesheet gizmos = AssetManager.getAssetFromType(Assets.GIZMOS, Spritesheet.class);
     private float debounceTime = 0.2f;
@@ -178,5 +179,13 @@ public class MouseControls {
         }
 
         return false;
+    }
+
+    /**
+     *
+     */
+    @Override
+    public void imgui() {
+
     }
 }

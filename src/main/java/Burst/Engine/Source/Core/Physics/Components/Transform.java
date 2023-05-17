@@ -40,9 +40,9 @@ public class Transform {
 
     public void imgui() {
         actor.setName(BImGui.inputText("Name: ", actor.getName()));
-        BImGui.drawVec2Control("Position", this.position);
-        BImGui.drawVec2Control("Size", this.size, 32.0f);
-        BImGui.drawVec2Control("Scale", this.scale, 1.0f);
+        BImGui.drawVec3Control("Position", this.position);
+        BImGui.drawVec3Control("Size", this.size, 32.0f);
+        BImGui.drawVec3Control("Scale", this.scale, 1.0f);
         this.rotation = BImGui.dragFloat("Rotation", this.rotation);
         this.zIndex = BImGui.dragInt("Z-Index", this.zIndex);
     }

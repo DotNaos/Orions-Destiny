@@ -5,6 +5,7 @@ import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Game.Animation.StateMachine;
 import Burst.Engine.Source.Core.Graphics.Input.KeyListener;
 import Burst.Engine.Source.Core.UI.Window;
+import Burst.Engine.Source.Editor.EditorOption;
 import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
 
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ import java.util.List;
 
 import static org.lwjgl.glfw.GLFW.*;
 
-public class KeyControls {
+public class KeyControls implements EditorOption {
     private float debounceTime = 0.2f;
     private float debounce = 0.0f;
 
@@ -84,5 +85,13 @@ public class KeyControls {
                 actor.transform.position.y -= GridLines_Config.SIZE * multiplier;
             }
         }
+    }
+
+    /**
+     *
+     */
+    @Override
+    public void imgui() {
+
     }
 }

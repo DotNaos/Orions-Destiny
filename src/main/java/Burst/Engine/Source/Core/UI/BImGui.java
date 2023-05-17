@@ -10,6 +10,9 @@ import org.joml.Vector3f;
 import org.joml.Vector3f;
 import org.joml.Vector4f;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 /**
  * This class has various methods to draw ImGui controls.
  */
@@ -17,15 +20,15 @@ public class BImGui {
 
     private static float defaultColumnWidth = 220.0f;
 
-    public static void drawVec2Control(String label, Vector3f values) {
+    public static void drawVec2Control(String label, Vector2f values) {
         drawVec2Control(label, values, 0.0f, defaultColumnWidth);
     }
 
-    public static void drawVec2Control(String label, Vector3f values, float resetValue) {
+    public static void drawVec2Control(String label, Vector2f values, float resetValue) {
         drawVec2Control(label, values, resetValue, defaultColumnWidth);
     }
 
-    public static void drawVec2Control(String label, Vector3f values, float resetValue, float columnWidth) {
+    public static void drawVec2Control(String label, Vector2f values, float resetValue, float columnWidth) {
         ImGui.pushID(label);
 
         ImGui.columns(2);
@@ -230,5 +233,17 @@ public class BImGui {
         ImGui.popID();
 
         return text;
+    }
+
+    public static void resetButton(int[] valueArr, int resetValue) {
+        ImGui.pushID("resetButton" + Arrays.hashCode(valueArr));
+        ImGui.pushStyleColor(ImGuiCol.Button, 0.8f, 0.1f, 0.15f, 1.0f);
+        ImGui.pushStyleColor(ImGuiCol.ButtonHovered, 0.9f, 0.2f, 0.2f, 1.0f);
+        ImGui.pushStyleColor(ImGuiCol.ButtonActive, 0.8f, 0.1f, 0.15f, 1.0f);
+        if (ImGui.button("*", 20, 20)) {
+            valueArr[0] = resetValue;
+        }
+        ImGui.popStyleColor(3);
+        ImGui.popID();
     }
 }
