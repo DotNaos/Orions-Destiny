@@ -36,45 +36,39 @@ public class GridLines {
    */
   public static void update(float dt) {
     // Get the viewports attributes
-    Viewport viewport = Window.getScene().getViewport();
-    Vector3f viewportStart = viewport.getStartPosition();
-    Vector2f viewportSize = viewport.getSize();
+      Viewport viewport = Window.getScene().getViewport();
 
-    float zoom = viewport.getZoom();
-    float aspectRatio = viewportSize.x / viewportSize.y;
-    float resizeX = viewportSize.x / Window.getWidth();
-    float resizeY = viewportSize.y / Window.getHeight();
+      float zoom = viewport.getZoom();
 
-    // Calculate the scaling factor
-    // float scaling = (float) Math.pow(10, (int) Math.log10(zoom) - 1);
-    float scaling = 1;
-    float gridSize = (GridLines_Config.SIZE * scaling);
+    // Scaling factor snaps to the nearest power of 2 of zoom
+      float scaling = (float) Math.pow(10, (int) Math.log10(zoom) - 1);
+      scaling = 1;
+
+      float gridSize = (GridLines_Config.SIZE * scaling);
+
 
     // Zoom is half the width of the viewport in world units
-    float width = viewport.getWorldSize().x;
-    float height = viewport.getWorldSize().y;
+      float width = viewport.getWorldSize().x;
+      float height = viewport.getWorldSize().y;
 
-    width = (float) Math.ceil(width);
-    height = (float) Math.ceil(height);
+      width  = (float) Math.ceil(width);
+      height = (float) Math.ceil(height);
 
 
     // Start to draw at this position
-    float firstX = viewportStart.x;
-    float firstY = viewportStart.y;
+      float firstX = viewport.getPosition().x - width / 2;
+      float firstY = viewport.getPosition().y - height / 2;
 
-    // Align to the grid
-    firstX = (float) Math.ceil(firstX);
-    firstY = (float) Math.ceil(firstY);
-
-    // Debug draw the start
-    DebugDraw.addBox2D(new Vector3f(firstX, firstY, 0), new Vector3f(2), 0, new Vector4f(0, 0, 1, 1));
+      // Align to the grid
+      firstX = (float) Math.ceil(firstX) - gridSize / 2;
+      firstY = (float) Math.ceil(firstY) - gridSize / 2;
 
     // Lines per axis, +2 for the lines that are at the edge
-    int numLinesX = (int) (width / gridSize) + 2;
-    int numLinesY = (int) (height / gridSize) + 2;
+      int numLinesX = (int) (width / gridSize) + 2;
+      int numLinesY = (int) (height / gridSize) + 2;
 
 
-    System.out.println("Size: " + viewportSize.x + " " + viewportSize.y + " | " + width + " " + height + " | " + aspectRatio);
+    System.out.println("Pos: " + firstX + " " + firstY + " | " + width + " " + height);
 
     // Maximum number of lines
     int numLines = Math.max(numLinesX, numLinesY);

@@ -14,7 +14,7 @@ public class Viewport {
      */
     public Vector3f position;
     private Vector2f size = new Vector2f();
-    public Vector4f clearColor = new Vector4f(0.75f,0.75f,0.75f, 1f);
+    public Vector4f clearColor = new Vector4f(1f);
     private Matrix4f projectionMatrix, viewMatrix, inverseProjection, inverseView;
 
     private float zoom = 10.0f;
@@ -122,5 +122,8 @@ public class Viewport {
     {
         return new Vector2f(this.zoom * 2 * (this.size.x / this.size.y), zoom * 2);
     }
+
+
+
 
 }

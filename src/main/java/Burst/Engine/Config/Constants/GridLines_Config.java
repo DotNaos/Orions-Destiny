@@ -18,5 +18,5 @@ import org.joml.Vector4f;
  */
 public class GridLines_Config {
     public static float SIZE = 1f;
-    public static Vector4f COLOR = new Vector4f(0.5f, 0.5f, 0.5f, 1f);
+    public static Vector4f COLOR = new Vector4f(0.2f, 0.2f, 0.2f, 0.0f);
 }

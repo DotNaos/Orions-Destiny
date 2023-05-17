@@ -20,11 +20,13 @@ import static org.lwjgl.opengl.GL30.glBindVertexArray;
 import static org.lwjgl.opengl.GL30.glGenVertexArrays;
 
 public class DebugDraw {
-    private static final int MAX_LINES = 2000;
+    private static final int MAX_LINES = 3000;
 
     private static List<Line2D> lines = new ArrayList<>();
-    // 6 floats per vertex, 2 vertices per line
-    private static float[] vertexArray = new float[MAX_LINES * 6 * 2];
+
+    private static final int vertexSize = 7;
+    // 7 floats per vertex, 2 vertices per line
+    private static float[] vertexArray = new float[MAX_LINES * vertexSize * 2];
     private static Shader shader = (Shader) AssetManager.getAssetFromType(ShaderConfig.SHADER_DEBUG, Shader.class);
 
     private static int vaoID;
@@ -42,13 +44,13 @@ public class DebugDraw {
         // Create the vbo and buffer some memory
         vboID = glGenBuffers();
         glBindBuffer(GL_ARRAY_BUFFER, vboID);
-        glBufferData(GL_ARRAY_BUFFER, vertexArray.length * Float.BYTES, GL_DYNAMIC_DRAW);
+        glBufferData(GL_ARRAY_BUFFER, (long) vertexArray.length * Float.BYTES, GL_DYNAMIC_DRAW);
 
         // Enable the vertex array attributes
-        glVertexAttribPointer(0, 3, GL_FLOAT, false, 6 * Float.BYTES, 0);
+        glVertexAttribPointer(0, 3, GL_FLOAT, false, vertexSize * Float.BYTES, 0);
         glEnableVertexAttribArray(0);
 
-        glVertexAttribPointer(1, 3, GL_FLOAT, false, 6 * Float.BYTES, 3 * Float.BYTES);
+        glVertexAttribPointer(1, 3, GL_FLOAT, false, vertexSize * Float.BYTES, 3 * Float.BYTES);
         glEnableVertexAttribArray(1);
 
         glLineWidth(lineWidth);
@@ -77,18 +79,19 @@ public class DebugDraw {
         for (Line2D line : lines) {
             for (int i = 0; i < 2; i++) {
                 Vector3f position = i == 0 ? line.getFrom() : line.getTo();
-                Vector3f color = new Vector3f(line.getColor().x, line.getColor().y, line.getColor().z);
+                Vector4f color = new Vector4f(line.getColor().x, line.getColor().y, line.getColor().z, line.getColor().w);
 
                 // Load position
                 vertexArray[index] = position.x;
                 vertexArray[index + 1] = position.y;
-                vertexArray[index + 2] = -10.0f;
+                vertexArray[index + 2] = position.z -10.0f;
 
                 // Load the color
                 vertexArray[index + 3] = color.x;
                 vertexArray[index + 4] = color.y;
                 vertexArray[index + 5] = color.z;
-                index += 6;
+                vertexArray[index + 6] = color.w;
+                index += vertexSize;
             }
         }
 
@@ -155,20 +158,20 @@ public class DebugDraw {
     // Add Box2D methods
     // ==================================================
     public static void addBox2D(Vector3f center, Vector3f dimensions, float rotation) {
-        addBox2D(center, dimensions, rotation, Color_Config.GREEN, 1);
+        addBox2D(center, dimensions, rotation, Color_Config.GREEN, 2);
     }
 
     public static void addBox2D(Vector3f center, Vector3f dimensions, float rotation, Vector3f color) {
-        addBox2D(center, dimensions, rotation, color, 1);
+        addBox2D(center, dimensions, rotation, color, 2);
     }
 
     public static void addBox2D(Vector3f center, Vector3f dimensions, float rotation, Vector4f color) {
-        addBox2D(center, dimensions, rotation, color, 1);
+        addBox2D(center, dimensions, rotation, color, 2);
     }
 
     public static void addBox2D(Vector3f center, Vector3f dimensions, float rotation,
                                 Vector3f color, int lifetime) {
-        addBox2D(center, dimensions, rotation, new Vector4f(color.x, color.y, color.z, 1), 1);
+        addBox2D(center, dimensions, rotation, new Vector4f(color.x, color.y, color.z, 1), 2);
     }
 
     public static void addBox2D(Vector3f center, Vector3f dimensions, float rotation,
@@ -198,11 +201,11 @@ public class DebugDraw {
     // ==================================================
     public static void addCircle(Vector3f center, float radius) {
 
-        addCircle(center, radius, Color_Config.GREEN, 1);
+        addCircle(center, radius, Color_Config.GREEN, 2);
     }
 
     public static void addCircle(Vector3f center, float radius, Vector3f color) {
-        addCircle(center, radius, new Vector4f(color, 1.0f), 1);
+        addCircle(center, radius, new Vector4f(color, 1.0f), 2);
     }
 
     public static void addCircle(Vector3f center, float radius, Vector4f color, int lifetime) {

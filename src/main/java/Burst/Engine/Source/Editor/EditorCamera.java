@@ -53,13 +53,16 @@ public class EditorCamera {
         }
 
         if (reset) {
+            final float standardZoom = 10.0f;
+            final Vector3f standardViewportPos = new Vector3f();
+
             viewport.position.lerp(new Vector3f(), lerpTime);
-            viewport.setZoom(this.viewport.getZoom() + ((1.0f - viewport.getZoom()) * lerpTime));
+            viewport.setZoom(this.viewport.getZoom() + ((standardZoom - viewport.getZoom()) * lerpTime));
             this.lerpTime += 0.1f * dt;
-            if (Math.abs(viewport.position.x) <= 10.0f && Math.abs(viewport.position.y) <= 10.0f) {
+            if (Math.abs(viewport.position.x) <= 10.0f && Math.abs(viewport.position.y) <= 10.0f && Math.abs(viewport.getZoom() - 10.0f) <= 0.01f) {
                 this.lerpTime = 0.0f;
-                viewport.position.set(0f, 0f, 0);
-                this.viewport.setZoom(1.0f);
+                viewport.position.set(standardViewportPos);
+                this.viewport.setZoom(standardZoom);
                 reset = false;
             }
         }
