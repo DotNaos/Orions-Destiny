@@ -2,7 +2,7 @@ package Burst.Engine.Source.Core.Physics.Components;
 
 import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Component;
-import Burst.Engine.Source.Core.Graphics.Debug.DebugDraw;
+import Burst.Engine.Source.Core.Render.Debug.DebugDraw;
 import org.joml.Vector3f;
 
 public class Box2DCollider extends Component {

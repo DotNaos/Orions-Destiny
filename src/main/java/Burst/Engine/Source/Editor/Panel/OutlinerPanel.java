@@ -1,7 +1,7 @@
 package Burst.Engine.Source.Editor.Panel;
 
 import Burst.Engine.Source.Core.Actor.Actor;
-import Burst.Engine.Source.Core.UI.ImGuiPanel;
+import Burst.Engine.Source.Core.UI.ImGui.ImGuiPanel;
 import Burst.Engine.Source.Core.UI.Window;
 import imgui.ImGui;
 import imgui.flag.ImGuiTreeNodeFlags;

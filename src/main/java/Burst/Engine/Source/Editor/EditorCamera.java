@@ -1,7 +1,7 @@
 package Burst.Engine.Source.Editor;
 
-import Burst.Engine.Source.Core.Graphics.Input.KeyListener;
-import Burst.Engine.Source.Core.Graphics.Input.MouseListener;
+import Burst.Engine.Source.Core.Input.KeyListener;
+import Burst.Engine.Source.Core.Input.MouseListener;
 import Burst.Engine.Source.Core.UI.Viewport;
 import org.joml.Vector3f;
 

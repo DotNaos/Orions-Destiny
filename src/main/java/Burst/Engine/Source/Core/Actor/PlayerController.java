@@ -1,8 +1,8 @@
 package Burst.Engine.Source.Core.Actor;
 
 import Burst.Engine.Source.Core.Component;
-import Burst.Engine.Source.Core.Game.Animation.StateMachine;
-import Burst.Engine.Source.Core.Graphics.Input.KeyListener;
+import Burst.Engine.Source.Game.Animation.StateMachine;
+import Burst.Engine.Source.Core.Input.KeyListener;
 import Burst.Engine.Source.Core.Physics.Components.Rigidbody2D;
 import Orion.blocks.Ground;
 import org.jbox2d.dynamics.contacts.Contact;

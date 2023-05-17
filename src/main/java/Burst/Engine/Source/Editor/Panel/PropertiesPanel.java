@@ -1,12 +1,12 @@
 package Burst.Engine.Source.Editor.Panel;
 
 import Burst.Engine.Source.Core.Actor.Actor;
-import Burst.Engine.Source.Core.Graphics.Render.PickingTexture;
-import Burst.Engine.Source.Core.Graphics.Render.SpriteRenderer;
+import Burst.Engine.Source.Core.Render.PickingTexture;
+import Burst.Engine.Source.Core.Render.SpriteRenderer;
 import Burst.Engine.Source.Core.Physics.Components.Box2DCollider;
 import Burst.Engine.Source.Core.Physics.Components.CircleCollider;
 import Burst.Engine.Source.Core.Physics.Components.Rigidbody2D;
-import Burst.Engine.Source.Core.UI.ImGuiPanel;
+import Burst.Engine.Source.Core.UI.ImGui.ImGuiPanel;
 import imgui.ImGui;
 import org.joml.Vector4f;
 

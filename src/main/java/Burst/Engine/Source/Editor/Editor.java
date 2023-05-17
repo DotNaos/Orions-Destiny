@@ -1,14 +1,12 @@
 package Burst.Engine.Source.Editor;
 
 import Burst.Engine.Source.Core.Actor.Actor;
-import Burst.Engine.Source.Core.Game.Game;
-import Burst.Engine.Source.Core.Graphics.Input.Components.KeyControls;
-import Burst.Engine.Source.Core.Graphics.Input.Components.MouseControls;
-import Burst.Engine.Source.Core.Graphics.Render.Components.GridLines;
-import Burst.Engine.Source.Core.Graphics.Render.PickingTexture;
+import Burst.Engine.Source.Game.Game;
+import Burst.Engine.Source.Editor.Components.KeyControls;
+import Burst.Engine.Source.Editor.Components.MouseControls;
+import Burst.Engine.Source.Editor.Components.GridLines;
+import Burst.Engine.Source.Core.Render.PickingTexture;
 import Burst.Engine.Source.Core.Scene.Scene;
-import Burst.Engine.Source.Editor.ContentDrawer;
-import Burst.Engine.Source.Editor.EditorCamera;
 import Burst.Engine.Source.Editor.Panel.OutlinerPanel;
 import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
 import imgui.ImGui;

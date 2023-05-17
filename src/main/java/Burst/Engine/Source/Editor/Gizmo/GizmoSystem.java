@@ -3,7 +3,7 @@ package Burst.Engine.Source.Editor.Gizmo;
 import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Assets.Graphics.Spritesheet;
 import Burst.Engine.Source.Core.Component;
-import Burst.Engine.Source.Core.Graphics.Input.KeyListener;
+import Burst.Engine.Source.Core.Input.KeyListener;
 import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
 

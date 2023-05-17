@@ -1,8 +1,6 @@
 package Orion.abilities;
 
-import Burst.Engine.Source.Core.Graphics.Input.KeyListener;
-
-import static org.lwjgl.glfw.GLFW.GLFW_KEY_E;
+import Burst.Engine.Source.Core.Input.KeyListener;
 
 public class SpecialAbility extends Ability{
 

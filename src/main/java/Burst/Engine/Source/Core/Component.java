@@ -2,13 +2,12 @@ package Burst.Engine.Source.Core;
 
 import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Assets.AssetManager;
-import Burst.Engine.Source.Core.UI.BImGui;
+import Burst.Engine.Source.Core.UI.ImGui.BImGui;
 import Burst.Engine.Source.Core.Util.Util;
 import imgui.ImGui;
 import imgui.type.ImInt;
 import org.jbox2d.dynamics.contacts.Contact;
 import org.joml.Vector2f;
-import org.joml.Vector3f;
 import org.joml.Vector3f;
 import org.joml.Vector4f;
 

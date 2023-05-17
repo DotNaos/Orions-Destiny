@@ -1,10 +1,10 @@
 package Burst.Engine.Source.Core.Scene;
 
-import Burst.Engine.Source.Core.Game.Game;
-import Burst.Engine.Source.Core.Graphics.Input.MouseListener;
-import Burst.Engine.Source.Core.Graphics.Render.ViewportRenderer;
+import Burst.Engine.Source.Game.Game;
+import Burst.Engine.Source.Core.Input.MouseListener;
+import Burst.Engine.Source.Core.Render.ViewportRenderer;
 import Burst.Engine.Source.Core.Scene.Initializer.*;
-import Burst.Engine.Source.Core.UI.ImGuiPanel;
+import Burst.Engine.Source.Core.UI.ImGui.ImGuiPanel;
 import Burst.Engine.Source.Core.UI.Viewport;
 import Burst.Engine.Source.Core.Util.DebugMessage;
 import Burst.Engine.Source.Editor.Editor;

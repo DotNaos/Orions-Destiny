@@ -1,8 +1,5 @@
 package Orion.abilities;
 
-import Burst.Engine.Source.Core.Graphics.Input.KeyListener;
-import Burst.Engine.Source.Core.Graphics.Input.MouseListener;
-
 public class IceAbilityOne {
 
     private float damage;

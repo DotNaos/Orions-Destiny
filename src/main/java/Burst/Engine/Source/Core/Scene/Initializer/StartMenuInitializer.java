@@ -2,7 +2,7 @@ package Burst.Engine.Source.Core.Scene.Initializer;
 
 import Burst.Engine.Source.Core.Scene.Scene;
 import Burst.Engine.Source.Core.Scene.SceneType;
-import Burst.Engine.Source.Core.UI.Menu;
+import Burst.Engine.Source.Core.UI.ImGui.Menu;
 import Burst.Engine.Source.Core.UI.Window;
 import imgui.ImGui;
 import imgui.ImGuiViewport;
@@ -12,7 +12,6 @@ import imgui.flag.ImGuiStyleVar;
 import imgui.flag.ImGuiWindowFlags;
 
 import org.joml.Vector2f;
-import org.joml.Vector3f;
 
 
 public class StartMenuInitializer extends MenuInitializer {

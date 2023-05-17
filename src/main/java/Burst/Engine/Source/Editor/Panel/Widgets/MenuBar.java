@@ -1,8 +1,8 @@
 package Burst.Engine.Source.Editor.Panel.Widgets;
 
-import Burst.Engine.Source.Core.Observer.EventSystem;
-import Burst.Engine.Source.Core.Observer.Events.Event;
-import Burst.Engine.Source.Core.Observer.Events.EventType;
+import Burst.Engine.Source.Core.EventSystem.EventSystem;
+import Burst.Engine.Source.Core.EventSystem.Events.Event;
+import Burst.Engine.Source.Core.EventSystem.Events.EventType;
 import imgui.ImGui;
 
 

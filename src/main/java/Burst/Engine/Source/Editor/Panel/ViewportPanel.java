@@ -1,11 +1,11 @@
 package Burst.Engine.Source.Editor.Panel;
 
-import Burst.Engine.Source.Core.Graphics.Input.MouseListener;
-import Burst.Engine.Source.Core.Observer.EventSystem;
-import Burst.Engine.Source.Core.Observer.Events.Event;
-import Burst.Engine.Source.Core.Observer.Events.EventType;
+import Burst.Engine.Source.Core.Input.MouseListener;
+import Burst.Engine.Source.Core.EventSystem.EventSystem;
+import Burst.Engine.Source.Core.EventSystem.Events.Event;
+import Burst.Engine.Source.Core.EventSystem.Events.EventType;
 import Burst.Engine.Source.Core.Scene.SceneType;
-import Burst.Engine.Source.Core.UI.ImGuiPanel;
+import Burst.Engine.Source.Core.UI.ImGui.ImGuiPanel;
 import Burst.Engine.Source.Core.UI.Window;
 import imgui.ImGui;
 import imgui.ImGuiViewport;

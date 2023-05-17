@@ -4,7 +4,7 @@ import Burst.Engine.Source.Core.Assets.AssetManager;
 import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
 import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Burst.Engine.Source.Core.Component;
-import Burst.Engine.Source.Core.Graphics.Render.SpriteRenderer;
+import Burst.Engine.Source.Core.Render.SpriteRenderer;
 import Burst.Engine.Source.Core.Physics.Components.Transform;
 import Burst.Engine.Source.Core.Saving.ActorDeserializer;
 import Burst.Engine.Source.Core.Saving.ComponentDeserializer;
