@@ -11,9 +11,6 @@ import org.joml.Vector4f;
 
 
 public class GridLines {
-    private static float pos1 = 0;
-    private static float pos2 = 0;
-
     /**
      * 
      * Updates the grid lines based on the current viewport's position, size, zoom
@@ -21,9 +18,8 @@ public class GridLines {
      * 
      * @paspectRatioam dt the delta time since the last frame was rendered
      * @see Window#getScene()
-     * @see Viewport#getViewport()
      * @see Viewport#getSize()
-     * @see DebugDraw#addLine2D(Vector3f, Vector3f, Vector3f)
+     * @see DebugDraw#addLine2D(Vector3f, Vector3f, Vector4f)
      * @see GridLines_Config#SIZE
      * @see GridLines_Config#SIZE
      * @see Math#floor(double)
