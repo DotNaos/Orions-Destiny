@@ -1,5 +1,6 @@
 package Burst.Engine.Source.Core.Graphics.Render.Components;
 
+import Burst.Engine.Config.Constants.Color_Config;
 import Burst.Engine.Config.Constants.GridLines_Config;
 import Burst.Engine.Source.Core.Graphics.Debug.DebugDraw;
 import Burst.Engine.Source.Core.UI.Viewport;
@@ -33,6 +34,9 @@ public class GridLines {
    *
    */
   public static int pixelsPerGrid = 1;
+  public static int spriteResolution = 16;
+
+  public static boolean enabled = true;
 
   /**
    * Updates the grid lines based on the current viewport's position, size, zoom
@@ -49,6 +53,7 @@ public class GridLines {
    * @see Vector3f
    */
   public static void update(float dt) {
+    if (!enabled) return;
     // Get the viewports attributes
       Viewport viewport = Window.getScene().getViewport();
 
@@ -57,7 +62,7 @@ public class GridLines {
     // Scaling factor snaps to the nearest power of 2 of zoom
 
       int nearestPowerOf2 = (int) Math.pow(2, Math.floor(Math.log(zoom) / Math.log(2) + pixelsPerGrid - 1));
-      float scaling = ((float) 1 / 16 * nearestPowerOf2);
+      float scaling = ((float) 1 / spriteResolution * nearestPowerOf2);
 
       float gridSize = (GridLines_Config.SIZE * scaling);
 
@@ -71,25 +76,35 @@ public class GridLines {
 
 
     // Start to draw at this position
-      float firstX = viewport.getPosition().x - width / 2 - 1;
-      float firstY = viewport.getPosition().y - height / 2 - 1;
+
+
+
+      float firstX = viewport.getPosition().x - width / 2;
+      float firstY = viewport.getPosition().y - height / 2;
+
+      // Make sure firstX and firstY are even multiples of gridSize
+        firstX = (float) Math.floor(firstX / gridSize) * gridSize;
+        firstY = (float) Math.floor(firstY / gridSize) * gridSize;
 
       // Align to the grid
-      firstX = (float) Math.floor(firstX) - gridSize / 2;
-      firstY = (float) Math.floor(firstY) - gridSize / 2;
+        firstX = (float) Math.ceil(firstX) ;
+        firstY = (float) Math.ceil(firstY) ;
+
+      // offset by half a sprite size in world units
+        firstX +=  1f / (spriteResolution / 8f);
+        firstY +=  1f / (spriteResolution / 8f);
+
 
     // Lines per axis, +2 for the lines that are at the edge
       int numLinesX = (int) (width / gridSize) + 2;
       int numLinesY = (int) (height / gridSize) + 2;
 
 
-    System.out.println("Zoom: " + zoom + " | " + scaling + " | " + nearestPowerOf2);
 
     // Maximum number of lines
     int numLines = Math.max(numLinesX, numLinesY);
 
     for (int i = 0; i < numLines; i++) {
-
       // Vertical lines
       float x = firstX + (i * gridSize);
       if (i < numLinesX)
@@ -100,8 +115,6 @@ public class GridLines {
       if (i < numLinesY)
         DebugDraw.addLine2D(new Vector3f(firstX, y, 0), new Vector3f(firstX + width, y, 0), GridLines_Config.COLOR);
     }
-
-
   }
 
 }

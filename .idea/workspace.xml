@@ -9,7 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="GridLines funktionieren">
+    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="GridLines pixelSize">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/imgui.ini" beforeDir="false" afterPath="$PROJECT_DIR$/imgui.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Graphics/Render/Components/GridLines.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Graphics/Render/Components/GridLines.java" afterDir="false" />
@@ -173,7 +173,7 @@
       <workItem from="1683974186339" duration="15713000" />
       <workItem from="1684333118706" duration="770000" />
       <workItem from="1684334578947" duration="5518000" />
-      <workItem from="1684341084673" duration="7142000" />
+      <workItem from="1684341084673" duration="10128000" />
     </task>
     <task id="LOCAL-00001" summary="Refactoring vom Editor">
       <created>1683701936326</created>
@@ -294,7 +294,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684346127623</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="GridLines pixelSize">
+      <created>1684348446405</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1684348446405</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -319,6 +326,7 @@
     <MESSAGE value="JAR build config" />
     <MESSAGE value="Viewport World Koordinaten" />
     <MESSAGE value="GridLines funktionieren" />
-    <option name="LAST_COMMIT_MESSAGE" value="GridLines funktionieren" />
+    <MESSAGE value="GridLines pixelSize" />
+    <option name="LAST_COMMIT_MESSAGE" value="GridLines pixelSize" />
   </component>
 </project>
