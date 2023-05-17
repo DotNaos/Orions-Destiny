@@ -11,22 +11,18 @@ public class IceAbilityTwo {
         return damage;
     }
 
-    public float getSpeedSlow(float speedSlow) {
-        speedSlow = 0.25f;
-        return speedSlow;
+    public float getSpeedSlow() {
+        return this.speedSlow;
     }
 
-    public float getTravellingSpeed(float travellingSpeed) {
-        travellingSpeed= 3;
-        return travellingSpeed;
+    public float getTravellingSpeed() {
+        return this.travellingSpeed;
     }
-    public float getAnimationLength(float animationLength){
-        animationLength=2;
-        return animationLength;
+    public float getAnimationLength(){
+        return this.animationLength;
     }
 
-    public boolean isCollision(boolean collision) {
-        collision = false;
-        return collision;
+    public boolean isCollision() {
+        return this.collision;
     }
 }

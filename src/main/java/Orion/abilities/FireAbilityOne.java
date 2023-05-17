@@ -1,39 +1,34 @@
 package Orion.abilities;
 
-public class FireAbilityOne {
+public class FireAbilityOne extends SpecialAbility {
+
     private float damage;
-    public float burnDamage;
-    public float burnLength;
+    private float burnDamage;
+    private float burnLength;
     private float travellingSpeed;
     private float animationLength;
     private boolean collision;
 
-    public float getDamage(float damage){
-        damage=35;
-        return damage;
+    public float getDamage(){
+        return this.damage;
     }
 
-    public float getTravellingSpeed(float travellingSpeed) {
-        travellingSpeed= 3;
-        return travellingSpeed;
+    public float getTravellingSpeed() {
+        return this.travellingSpeed;
     }
-    public float getBurnLength(float burnLength){
-        burnLength=4.5f;
-        return burnLength;
+    public float getBurnLength(){
+        return this.burnLength;
     }
 
-    public float getBurnDamage(float burnDamage) {
-        burnDamage = 3;
-        return burnDamage;
+    public float getBurnDamage() {
+        return this.burnDamage;
     }
 
-    public float getAnimationLength(float animationLength){
-        animationLength=2;
-        return animationLength;
+    public float getAnimationLength(){
+        return this.animationLength;
     }
 
-    public boolean isCollision(boolean collision) {
-        collision = false;
-        return collision;
+    public boolean isCollision() {
+        return this.collision;
     }
 }
