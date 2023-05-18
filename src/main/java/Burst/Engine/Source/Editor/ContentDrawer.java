@@ -6,6 +6,7 @@ import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
 import Burst.Engine.Source.Core.Assets.Graphics.Spritesheet;
 import Burst.Engine.Source.Core.UI.ImGui.ImGuiPanel;
 import Burst.Engine.Source.Core.UI.Window;
+import Burst.Engine.Source.Editor.Components.MouseControls;
 import Orion.res.Assets;
 import imgui.ImGui;
 import imgui.ImVec2;
@@ -64,7 +65,7 @@ public class ContentDrawer extends ImGuiPanel {
                     if (ImGui.imageButton(id, spriteWidth, spriteHeight, texCoords[2].x, texCoords[0].y, texCoords[0].x, texCoords[2].y)) {
                         // TODO: ContentDrawer Pickup Object
                         Actor actor = new Actor(sprite, 1.0f, 1.0f);
-                        Window.getScene().getEditor().getMouseControls().pickupObject(actor);
+                        Window.getScene().getEditor().getComponent(MouseControls.class).pickupObject(actor);
 
                     }
                     ImGui.popID();

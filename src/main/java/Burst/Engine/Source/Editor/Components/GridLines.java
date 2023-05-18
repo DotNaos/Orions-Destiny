@@ -1,11 +1,11 @@
 package Burst.Engine.Source.Editor.Components;
 
 import Burst.Engine.Config.Constants.GridLines_Config;
+import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.Render.Debug.DebugDraw;
 import Burst.Engine.Source.Core.UI.ImGui.BImGui;
 import Burst.Engine.Source.Core.UI.Viewport;
 import Burst.Engine.Source.Core.UI.Window;
-import Burst.Engine.Source.Editor.EditorOption;
 import imgui.ImGui;
 import org.joml.Vector3f;
 import org.joml.Vector4f;
@@ -21,7 +21,7 @@ import org.joml.Vector4f;
  * <p>{@link GridLines_Config#SIZE} is used as size of the grid and which increases proportional to the zoom</p>
  *
  */
-public class GridLines implements EditorOption {
+public class GridLines extends Component {
 
 
   /**
@@ -35,10 +35,10 @@ public class GridLines implements EditorOption {
    * </p>
    *
    */
-  public static int[] pixelsPerGrid = {1};
-  public static int[] spriteResolution = {16};
+  public int pixelsPerGrid = 1;
+  public int spriteResolution = 16;
 
-  public static boolean[] enabled = {true};
+  public boolean enabled = true;
 
   /**
    * Updates the grid lines based on the current viewport's position, size, zoom
@@ -54,8 +54,8 @@ public class GridLines implements EditorOption {
    * @see Vector3f
    * @see Vector3f
    */
-  public static void update(float dt) {
-    if (!enabled[0]) return;
+  public void update(float dt) {
+    if (!enabled) return;
 
     // Get the viewports attributes
     Viewport viewport = Window.getScene().getViewport();
@@ -64,8 +64,8 @@ public class GridLines implements EditorOption {
 
     // Scaling factor snaps to the nearest power of 2 of zoom
 
-      int nearestPowerOf2 = (int) Math.pow(2, Math.floor(Math.log(zoom) / Math.log(2) + pixelsPerGrid[0] - 1));
-      float scaling = ((float) 1 / spriteResolution[0] * nearestPowerOf2);
+      int nearestPowerOf2 = (int) Math.pow(2, Math.floor(Math.log(zoom) / Math.log(2) + pixelsPerGrid - 1));
+      float scaling = ((float) 1 / spriteResolution * nearestPowerOf2);
 
       float gridSize = (GridLines_Config.SIZE * scaling);
 
@@ -90,8 +90,8 @@ public class GridLines implements EditorOption {
         firstY = (float) Math.ceil(firstY) ;
 
       // offset by half a sprite size in world units
-        firstX +=  1f / (spriteResolution[0] / 8f);
-        firstY +=  1f / (spriteResolution[0] / 8f);
+        firstX +=  1f / (spriteResolution / 8f);
+        firstY +=  1f / (spriteResolution / 8f);
 
 
     // Lines per axis, +2 for the lines that are at the edge
@@ -116,27 +116,8 @@ public class GridLines implements EditorOption {
     }
   }
 
-  /**
-   *
-   */
-
-  public void imgui() {}
-  public static void imgui(int v) {
-    ImGui.beginTabItem("GridLines");
-    if(ImGui.checkbox("Enabled", enabled[0])) enabled[0] = !enabled[0];
-
-    BImGui.resetButton(pixelsPerGrid, 1);
-    ImGui.sameLine();
-    ImGui.sliderInt("Pixels per Grid", pixelsPerGrid, 0, 10);
-
-    BImGui.resetButton(spriteResolution, 16);
-    ImGui.sameLine();
-    ImGui.sliderInt("Sprite Resolution", spriteResolution, 1, 64);
-
-    float[] tempColor = {GridLines_Config.COLOR.x, GridLines_Config.COLOR.y, GridLines_Config.COLOR.z, GridLines_Config.COLOR.w};
-    ImGui.colorEdit4("Color", tempColor);
-    GridLines_Config.COLOR = new Vector4f(tempColor[0], tempColor[1], tempColor[2], tempColor[3]);
-    ImGui.endTabItem();
+  public void imgui() {
+    super.imgui();
   }
 }
 

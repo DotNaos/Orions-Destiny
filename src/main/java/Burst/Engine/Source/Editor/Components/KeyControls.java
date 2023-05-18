@@ -2,10 +2,10 @@ package Burst.Engine.Source.Editor.Components;
 
 import Burst.Engine.Config.Constants.GridLines_Config;
 import Burst.Engine.Source.Core.Actor.Actor;
+import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Game.Animation.StateMachine;
 import Burst.Engine.Source.Core.Input.KeyListener;
 import Burst.Engine.Source.Core.UI.Window;
-import Burst.Engine.Source.Editor.EditorOption;
 import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
 
 import java.util.ArrayList;
@@ -13,9 +13,9 @@ import java.util.List;
 
 import static org.lwjgl.glfw.GLFW.*;
 
-public class KeyControls implements EditorOption {
-    private float debounceTime = 0.2f;
-    private float debounce = 0.0f;
+public class KeyControls extends Component {
+    protected float debounceTime = 0.2f;
+    protected float debounce = 0.0f;
 
 
     public void update(float dt) {
@@ -85,13 +85,5 @@ public class KeyControls implements EditorOption {
                 actor.transform.position.y -= GridLines_Config.SIZE * multiplier;
             }
         }
-    }
-
-    /**
-     *
-     */
-    @Override
-    public void imgui() {
-
     }
 }

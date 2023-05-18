@@ -40,6 +40,7 @@ public class Game {
         this.physics2D = new Physics2D();
         this.actors = new ArrayList<>();
         this.actorsToAdd = new ArrayList<>();
+        this.components = new ArrayList<>();
 
         System.out.println("\n" + scene.getOpenScene());
         scene.addPanel(new ViewportPanel());
@@ -80,6 +81,10 @@ public class Game {
     }
 
     public void update(float dt) {
+        for (Component c : components) {
+            c.update(dt);
+        }
+
         scene.getViewport().adjustProjection();
         this.physics2D.update(dt);
 
@@ -169,7 +174,7 @@ public class Game {
      * @see Class#isAssignableFrom(Class)
      * @see Class#cast(Object)
      */
-    protected <T extends Component> T getComponent(Class<T> componentClass) throws ClassCastException {
+    public <T extends Component> T getComponent(Class<T> componentClass) throws ClassCastException {
         for (Component c : components) {
             if (componentClass.isAssignableFrom(c.getClass())) {
                 try {

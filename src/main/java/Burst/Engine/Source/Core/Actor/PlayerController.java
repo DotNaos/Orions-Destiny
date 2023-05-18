@@ -31,7 +31,6 @@ public class PlayerController extends Component {
 
     @Override
     public void start() {
-
     }
 
     @Override

@@ -30,6 +30,7 @@ public class ImGuiLayer {
     // LWJGL3 renderer (SHOULD be initialized)
     private final ImGuiImplGl3 imGuiGl3 = new ImGuiImplGl3();
     private final ImGuiImplGlfw imGuiGlfw = new ImGuiImplGlfw();
+
     private long glfwWindow;
 
 
@@ -191,10 +192,7 @@ public class ImGuiLayer {
      */
     public void update(float dt, Scene currentScene) {
         startFrame();
-
-        ImGuiStyleConfig.style();
-
-
+        ImGuiStyleConfig.get().style();
         setupDockspace();
         currentScene.imgui();
         DebugPanel.imgui();

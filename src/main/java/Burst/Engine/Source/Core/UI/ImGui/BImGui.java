@@ -1,5 +1,6 @@
 package Burst.Engine.Source.Core.UI.ImGui;
 
+import Burst.Engine.Source.Core.Util.Util;
 import imgui.ImGui;
 import imgui.flag.ImGuiCol;
 import imgui.flag.ImGuiStyleVar;
@@ -7,10 +8,8 @@ import imgui.type.ImString;
 
 import org.joml.Vector2f;
 import org.joml.Vector3f;
-import org.joml.Vector3f;
 import org.joml.Vector4f;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 /**
@@ -235,7 +234,7 @@ public class BImGui {
         return text;
     }
 
-    public static void resetButton(int[] valueArr, int resetValue) {
+    public static void resetButton(float[] valueArr, float resetValue) {
         ImGui.pushID("resetButton" + Arrays.hashCode(valueArr));
         ImGui.pushStyleColor(ImGuiCol.Button, 0.8f, 0.1f, 0.15f, 1.0f);
         ImGui.pushStyleColor(ImGuiCol.ButtonHovered, 0.9f, 0.2f, 0.2f, 1.0f);
@@ -246,4 +245,30 @@ public class BImGui {
         ImGui.popStyleColor(3);
         ImGui.popID();
     }
+
+    public static void resetButton(int[] valueArr, int resetValue){
+        ImGui.pushID("resetButton" + Arrays.hashCode(valueArr));
+        ImGui.pushStyleColor(ImGuiCol.Button, 0.8f, 0.1f, 0.15f, 1.0f);
+        ImGui.pushStyleColor(ImGuiCol.ButtonHovered, 0.9f, 0.2f, 0.2f, 1.0f);
+        ImGui.pushStyleColor(ImGuiCol.ButtonActive, 0.8f, 0.1f, 0.15f, 1.0f);
+        if (ImGui.button("*", 20, 20)) {
+            valueArr[0] = resetValue;
+        }
+        ImGui.popStyleColor(3);
+        ImGui.popID();
+    }
+
+    public static boolean resetButton(String ID){
+        // generate unique id
+        ImGui.pushID(ID);
+        ImGui.pushStyleColor(ImGuiCol.Button, 0.8f, 0.1f, 0.15f, 1.0f);
+        ImGui.pushStyleColor(ImGuiCol.ButtonHovered, 0.9f, 0.2f, 0.2f, 1.0f);
+        ImGui.pushStyleColor(ImGuiCol.ButtonActive, 0.8f, 0.1f, 0.15f, 1.0f);
+        boolean res = ImGui.button("*", 20, 20);
+        ImGui.popStyleColor(3);
+        ImGui.popID();
+        return res;
+    }
+
+
 }

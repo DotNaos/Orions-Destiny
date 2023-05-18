@@ -1,5 +1,6 @@
 package Burst.Engine.Source.Editor;
 
+import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.Input.KeyListener;
 import Burst.Engine.Source.Core.Input.MouseListener;
 import Burst.Engine.Source.Core.UI.Viewport;
@@ -7,7 +8,7 @@ import org.joml.Vector3f;
 
 import static org.lwjgl.glfw.GLFW.*;
 
-public class EditorCamera implements EditorOption{
+public class EditorCamera extends Component {
 
     private float dragDebounce = 0.032f;
     private Viewport viewport;
@@ -66,9 +67,5 @@ public class EditorCamera implements EditorOption{
                 reset = false;
             }
         }
-    }
-
-    public void imgui() {
-
     }
 }

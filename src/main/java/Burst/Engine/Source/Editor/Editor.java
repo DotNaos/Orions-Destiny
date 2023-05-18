@@ -1,6 +1,8 @@
 package Burst.Engine.Source.Editor;
 
+import Burst.Engine.Config.ImGuiStyleConfig;
 import Burst.Engine.Source.Core.Actor.Actor;
+import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Game.Game;
 import Burst.Engine.Source.Editor.Components.KeyControls;
 import Burst.Engine.Source.Editor.Components.MouseControls;
@@ -12,10 +14,6 @@ import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
 import imgui.ImGui;
 
 public class Editor extends Game {
-    private PickingTexture pickingTexture;
-    private MouseControls mouseControls;
-    private KeyControls keyControls;
-    private EditorCamera editorCamera;
 
     public Editor(Scene scene) {
         super(scene);
@@ -25,28 +23,24 @@ public class Editor extends Game {
         super.init();
 
         // Variables
-        pickingTexture = new PickingTexture();
-        editorCamera = new EditorCamera(this.scene.getViewport());
+        this.components.add(new PickingTexture());
+        this.components.add(new EditorCamera(this.scene.getViewport()));
 
         // Panels
         scene.addPanel(new OutlinerPanel());
-        scene.addPanel(new PropertiesPanel(this.pickingTexture));
+        scene.addPanel(new PropertiesPanel(getComponent(PickingTexture.class)));
         scene.addPanel(new ContentDrawer());
 
 
         // Level Editor Stuff
-        this.mouseControls = new MouseControls();
-        this.keyControls = new KeyControls();
+        this.components.add(new MouseControls());
+        this.components.add(new KeyControls());
+        this.components.add(new GridLines());
     }
 
     @Override
     public void update(float dt) {
         this.scene.getViewport().adjustProjection();
-
-        this.mouseControls.update(dt);
-        this.keyControls.update(dt);
-        GridLines.update(dt);
-        this.editorCamera.update(dt);
 
         super.update(dt);
         for (Actor actor : actors) {
@@ -62,21 +56,16 @@ public class Editor extends Game {
         ImGui.begin("Editor");
         ImGui.beginTabBar("EditorTabs");
 
-        this.pickingTexture.imgui();
-        this.editorCamera.imgui();
-        this.mouseControls.imgui();
-        this.keyControls.imgui();
-        GridLines.imgui(0);
-
+        // Components imgui
+        for (Component component : components) {
+//            ImGui.beginTabItem(component.getClass().getSimpleName());
+            component.imgui();
+//            ImGui.endTabItem();
+        }
+        ImGui.beginTabItem("Style");
+        ImGuiStyleConfig.get().imgui();
+        ImGui.endTabItem();
         ImGui.endTabBar();
         ImGui.end();
-    }
-
-    public MouseControls getMouseControls() {
-        return this.mouseControls;
-    }
-
-    public KeyControls getKeyControls() {
-        return this.keyControls;
     }
 }

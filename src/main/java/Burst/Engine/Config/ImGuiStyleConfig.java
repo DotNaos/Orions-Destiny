@@ -1,14 +1,23 @@
 package Burst.Engine.Config;
 
+import Burst.Engine.Source.Core.Component;
+import Burst.Engine.Source.Core.Util.Scalar;
 import imgui.ImGui;
 import imgui.ImGuiStyle;
 import imgui.flag.ImGuiCol;
 import imgui.flag.ImGuiDir;
 
-public class ImGuiStyleConfig {
-    static boolean active = true;
-    static boolean dark = true;
-    public static void style()
+public class ImGuiStyleConfig extends Component {
+    private transient boolean active = true;
+    private boolean dark = true;
+    private static transient ImGuiStyleConfig instance = new ImGuiStyleConfig();
+
+    @Override
+    public void imgui()
+    {
+        super.imgui();
+    }
+    public void style()
     {
         if (!active) return;
 
@@ -35,8 +44,10 @@ public class ImGuiStyleConfig {
         style.setPopupRounding(0);
         style.setScrollbarRounding(2);
 
+
+
         // Background
-            style.setColor(ImGuiCol.WindowBg,  (0xFF1A1A1A));
+            style.setColor(ImGuiCol.WindowBg,  dark ? (0xFF1A1A1A) : (0xFFE6E6E6));
             style.setColor(ImGuiCol.DockingEmptyBg, 0x00000000);
             style.setColor(ImGuiCol.PopupBg, 0.08f, 0.08f, 0.08f, 0.9f);
 
@@ -113,5 +124,9 @@ public class ImGuiStyleConfig {
             style.setColor(ImGuiCol.PlotHistogram, 0, 1, 0, 0.8f);
             style.setColor(ImGuiCol.PlotHistogramHovered, 0, 1, 0, 1.0f);
 
+    }
+
+    public static ImGuiStyleConfig get() {
+        return instance;
     }
 }
