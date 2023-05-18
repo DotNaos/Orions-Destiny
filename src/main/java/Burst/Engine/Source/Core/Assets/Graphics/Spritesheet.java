@@ -15,7 +15,8 @@ public class Spritesheet extends Asset {
     private SpriteSheetUsage usage;
     private int spriteCount = 0;
     private int[] spritesPerRow;
-    private int spriteWidth, spriteHeight, spacing;
+    private boolean emptySpritesDefined = false;
+    private int spriteWidth, spriteHeight, spacing, rows, cols;
 
     public Spritesheet(Texture texture, int spriteWidth, int spriteHeight, int spacing) {
         super(texture.getFilepath());
@@ -25,9 +26,9 @@ public class Spritesheet extends Asset {
         this.spriteWidth = spriteWidth;
         this.spriteHeight = spriteHeight;
         this.spacing = spacing;
-        int rows = texture.getWidth() / (spriteWidth + spacing);
-        int cols = texture.getHeight() / (spriteHeight + spacing);
-        spritesPerRow = new int[rows];
+        this.rows = texture.getWidth() / (spriteWidth + spacing);
+        this.cols = texture.getHeight() / (spriteHeight + spacing);
+        this.spritesPerRow = new int[rows];
         createSprites(rows, cols);
     }
 
@@ -38,9 +39,10 @@ public class Spritesheet extends Asset {
         this.spriteWidth = spriteWidth;
         this.spriteHeight = spriteHeight;
         this.spacing = spacing;
-        int rows = texture.getWidth() / (spriteWidth + spacing);
-        int cols = texture.getHeight() / (spriteHeight + spacing);
+        this.rows = texture.getWidth() / (spriteWidth + spacing);
+        this.cols = texture.getHeight() / (spriteHeight + spacing);
         this.spritesPerRow = spritesPerRow;
+        this.emptySpritesDefined = true;
         createSprites(rows, cols);
     }
 
@@ -56,7 +58,6 @@ public class Spritesheet extends Asset {
                     return;
                 }
 
-
                 float topY = (currentY + spriteHeight) / (float) texture.getHeight();
                 float rightX = (currentX + spriteWidth) / (float) texture.getWidth();
                 float leftX = currentX / (float) texture.getWidth();
@@ -68,13 +69,13 @@ public class Spritesheet extends Asset {
                         new Vector3f(leftX, bottomY, 0),
                         new Vector3f(leftX, topY, 0)
                 };
-                Sprite sprite = new Sprite();
-                sprite.setTexture(this.texture);
-                sprite.setTexCoords(texCoords);
-                sprite.setWidth(spriteWidth);
-                sprite.setHeight(spriteHeight);
+                Sprite sprite = new Sprite(this.texture, texCoords, this.spriteWidth, this.spriteHeight);
 
-                if (!(col >= this.spritesPerRow[row] && this.spritesPerRow[row] != -1)) {
+                if (!emptySpritesDefined)
+                {
+                    this.sprites.add(sprite);
+                }
+                else if (!(col >= this.spritesPerRow[row] && this.spritesPerRow[row] != -1)) {
                     this.sprites.add(sprite);
                 }
 
@@ -90,6 +91,23 @@ public class Spritesheet extends Asset {
 
     public Sprite getSprite(int index) {
         return this.sprites.get(index);
+    }
+
+    public Sprite getSprite(int row, int col) {
+        int rowOfSprite = ((row - 1) * this.cols);
+        return this.sprites.get(rowOfSprite + col - 1);
+    }
+
+    /**
+     * This method returns the texture of the sprite at the given index
+     * It uses the texturecoords of the sprite to create a new texture
+     * @param index The index of the sprite to get the texture from
+     * @return
+     */
+    public Texture getTexture(int index) {
+        Sprite sprite = this.sprites.get(index);
+        Vector3f[] texCoords = sprite.getTexCoords();
+        return new Texture(spriteWidth, spriteHeight);
     }
 
     public int size() {

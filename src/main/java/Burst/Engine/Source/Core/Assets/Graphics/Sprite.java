@@ -21,6 +21,14 @@ public class Sprite extends Asset {
         this.height = 0;
     }
 
+    public Sprite(Texture texture, Vector3f[] texCoords, int spriteWidth, int spriteHeight) {
+        super("");
+        this.texture = texture;
+        this.texCoords = texCoords;
+        this.width = spriteWidth;
+        this.height = spriteHeight;
+    }
+
     /**
      * Checks if the Sprite has only transparent pixels
      *
@@ -43,17 +51,12 @@ public class Sprite extends Asset {
         return this.texture;
     }
 
-    public void setTexture(Texture tex) {
-        this.texture = tex;
-    }
+
 
     public Vector3f[] getTexCoords() {
         return this.texCoords;
     }
 
-    public void setTexCoords(Vector3f[] texCoords) {
-        this.texCoords = texCoords;
-    }
 
     public float getWidth() {
         return width;
@@ -73,5 +76,13 @@ public class Sprite extends Asset {
 
     public int getTexId() {
         return texture == null ? -1 : texture.getId();
+    }
+
+    public void setTexture(Texture texture) {
+        this.texture = texture;
+    }
+
+    public void setTexCoords(Vector3f[] texCoords) {
+        this.texCoords = texCoords;
     }
 }

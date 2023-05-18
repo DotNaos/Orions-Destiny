@@ -66,7 +66,6 @@ public class ContentDrawer extends ImGuiPanel {
                         // TODO: ContentDrawer Pickup Object
                         Actor actor = new Actor(sprite, 1.0f, 1.0f);
                         Window.getScene().getEditor().getComponent(MouseControls.class).pickupObject(actor);
-
                     }
                     ImGui.popID();
 

@@ -65,10 +65,10 @@ public class Transform extends ActorComponent {
   public void imgui() {
     actor.setName(BImGui.inputText("Name: ", actor.getName()));
     BImGui.drawVec3Control("Position", this.position);
-    BImGui.drawVec3Control("Size", this.size, 32.0f);
-    BImGui.drawVec3Control("Scale", this.scale, 1.0f);
-    this.rotation = BImGui.dragFloat("Rotation", this.rotation);
-    this.zIndex = BImGui.dragInt("Z-Index", this.zIndex);
+    BImGui.drawVec3Control("Size", this.size, new Vector3f(1));
+    BImGui.drawVec3Control("Scale", this.scale, new Vector3f(1));
+    this.rotation = BImGui.dragFloat("Rotation", this.rotation, 0.1f);
+    this.zIndex = BImGui.dragInt("Z-Index", this.zIndex, 1);
   }
 
   public void copy(Transform from) {

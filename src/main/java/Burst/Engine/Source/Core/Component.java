@@ -6,6 +6,8 @@ import Burst.Engine.Source.Core.UI.ImGui.BImGui;
 import Burst.Engine.Source.Core.Util.DebugMessage;
 import Burst.Engine.Source.Core.Util.Util;
 import imgui.ImGui;
+import imgui.ImVec2;
+import imgui.ImVec4;
 import imgui.type.ImInt;
 import org.jbox2d.dynamics.contacts.Contact;
 import org.joml.Vector2f;
@@ -47,6 +49,21 @@ public abstract class Component {
 
       try {
         Object value = field.get(this);
+
+        // Make a copy of the value
+        if (value instanceof Vector2f) {
+          value = new Vector2f((Vector2f) value);
+        } else if (value instanceof Vector3f) {
+          value = new Vector3f((Vector3f) value);
+        } else if (value instanceof Vector4f) {
+          value = new Vector4f((Vector4f) value);
+        } else if (value instanceof ImInt) {
+          value = new ImInt((ImInt) value);
+        } else if (value instanceof ImVec2) {
+          value = new ImVec2((ImVec2) value);
+        } else if (value instanceof ImVec4) {
+          value = new ImVec4((ImVec4) value);
+        }
         initialValues.put(field.getName(), value);
       } catch (IllegalAccessException e) {
         DebugMessage.loadFail("Failed to get initial value of field: " + field.getName());
@@ -92,47 +109,53 @@ public abstract class Component {
         Object value = field.get(this);
         String name = field.getName();
 
-        if (type == int.class) {
+
+        if (type.equals(int.class)) {
           int val = (int) value;
-          field.set(this, BImGui.dragInt(name, val));
-          ImGui.sameLine();
-          if (BImGui.resetButton(field.getName())) {
-            Object initialValue = initialValues.get(field.getName());
-              field.set(this, initialValue);
-          }
-        } else if (type == float.class) {
-          float val = (float) value;
-          field.set(this, BImGui.dragFloat(name, val));
-          ImGui.sameLine();
-          if (BImGui.resetButton(field.getName())) {
-            Object initialValue = initialValues.get(field.getName());
-              field.set(this, initialValue);
-          }
-        } else if (type == boolean.class) {
+          field.set(this, BImGui.dragInt(name, val, (int) initialValues.get(field.getName())));
+        }
+        else if (type.equals(float.class))
+        {
+          float val =  (float)value;
+          field.set(this, BImGui.dragFloat(name, val, (float) initialValues.get(field.getName())));
+        }
+        else if (type.equals(boolean.class))
+        {
           boolean val = (boolean) value;
-          if (ImGui.checkbox(name, val)) {
+          if (ImGui.checkbox(name, val))
+          {
             field.set(this, !val);
           }
-        } else if (type == Vector2f.class) {
+        }
+        else if (type.equals(Vector2f.class))
+        {
           Vector2f val = (Vector2f) value;
-          BImGui.drawVec2Control(name, val);
-        } else if (type == Vector3f.class) {
+
+          BImGui.drawVec2Control(name, val, new Vector2f((Vector2f) initialValues.get(field.getName())));
+        }
+        else if (type.equals(Vector3f.class))
+        {
           Vector3f val = (Vector3f) value;
-          float[] imVec = {val.x, val.y, val.z};
-          if (ImGui.dragFloat3(name + ": ", imVec)) {
-            val.set(imVec[0], imVec[1], imVec[2]);
-          }
-        } else if (type == Vector4f.class) {
+          BImGui.drawVec3Control(name, val);
+        }
+        else if (type.equals(Vector4f.class))
+        {
           Vector4f val = (Vector4f) value;
           BImGui.colorPicker4(name, val);
-        } else if (type.isEnum()) {
+        }
+        else if (type.isEnum())
+        {
           String[] enumValues = getEnumValues(type);
           String enumType = ((Enum) value).name();
           ImInt index = new ImInt(indexOf(enumType, enumValues));
-          if (ImGui.combo(field.getName(), index, enumValues, enumValues.length)) {
+
+          if (ImGui.combo(field.getName(), index, enumValues, enumValues.length))
+          {
             field.set(this, type.getEnumConstants()[index.get()]);
           }
-        } else if (type == String.class) {
+        }
+        else if (type == String.class)
+        {
           field.set(this, BImGui.inputText(field.getName() + ": ", (String) value));
         }
 

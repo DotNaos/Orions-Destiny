@@ -198,13 +198,10 @@ public class AssetManager {
 
             } else {
                 // Create a new texture and add it to the map
-
-
                 Texture texture = new Texture(filePath);
                 AssetManager.textures.put(filePath, texture);
 
                 return assetType.cast(texture);
-
             }
         } else if (assetType.equals(Shader.class)) {
             if (AssetManager.shaders.containsKey(filePath)) {
