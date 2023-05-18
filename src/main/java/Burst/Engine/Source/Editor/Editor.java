@@ -52,22 +52,26 @@ public class Editor extends Game {
     public void imgui() {
         super.imgui();
 
-        // ImGui for all editor features
+        // Start the tab bar
         ImGui.begin("Editor");
-        ImGui.beginTabBar("EditorTabs");
-        ImGui.beginTabItem("Style");
-        ImGuiStyleConfig.get().imgui();
-        ImGui.endTabItem();
+        if (ImGui.beginTabBar("EditorTabs")) {
+            if (ImGui.beginTabItem("Style"))
+            {
+                ImGuiStyleConfig.get().imgui();
+                ImGui.endTabItem();
+            }
 
-        // Components imgui
-        for (Component component : components) {
-//            ImGui.beginTabItem(component.getClass().getSimpleName());
-            component.imgui();
-//            ImGui.endTabItem();
+            // Components imgui
+            for (Component component : components) {
+                if (ImGui.beginTabItem(component.getClass().getSimpleName())) {
+                    component.imgui();
+                    ImGui.endTabItem();
+                }
+            }
+
+            ImGui.endTabBar();
         }
 
-
-        ImGui.endTabBar();
         ImGui.end();
     }
 }
