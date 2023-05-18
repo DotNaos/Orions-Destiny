@@ -9,8 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="Editor">
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Editor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Editor.java" afterDir="false" />
+    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="Editor mit Component Tabs">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Config/ImGuiStyleConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Config/ImGuiStyleConfig.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,7 +176,7 @@
       <workItem from="1684333118706" duration="770000" />
       <workItem from="1684334578947" duration="5518000" />
       <workItem from="1684341084673" duration="14895000" />
-      <workItem from="1684390126193" duration="21227000" />
+      <workItem from="1684390126193" duration="23140000" />
     </task>
     <task id="LOCAL-00001" summary="Refactoring vom Editor">
       <created>1683701936326</created>
@@ -359,14 +360,20 @@
       <option name="project" value="LOCAL" />
       <updated>1684428878100</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Editor mit Component Tabs">
+      <created>1684429091364</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1684429091364</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Irgendwas mit Actor" />
     <MESSAGE value="UI sieht besser aus und Start Menu endlich im Viewport.&#10;GameFont hinzugefügt" />
     <MESSAGE value="Docking Farbe, Level Editor Stuff gelöscht" />
     <MESSAGE value="Actor Update und Serialization" />
@@ -391,7 +398,8 @@
     <MESSAGE value="Diagramme" />
     <MESSAGE value="Diagramm fertig" />
     <MESSAGE value="Editor" />
-    <option name="LAST_COMMIT_MESSAGE" value="Editor" />
+    <MESSAGE value="Editor mit Component Tabs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Editor mit Component Tabs" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
