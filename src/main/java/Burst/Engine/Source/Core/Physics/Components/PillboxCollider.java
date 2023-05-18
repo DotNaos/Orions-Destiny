@@ -1,11 +1,12 @@
 package Burst.Engine.Source.Core.Physics.Components;
 
 import Burst.Engine.Source.Core.Actor.Actor;
+import Burst.Engine.Source.Core.Actor.ActorComponent;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.UI.Window;
 import org.joml.Vector3f;
 
-public class PillboxCollider extends Component {
+public class PillboxCollider extends ActorComponent {
     public float width = 0.1f;
     public float height = 0.2f;
     public Vector3f offset = new Vector3f();

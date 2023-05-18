@@ -1,6 +1,7 @@
 package Burst.Engine.Source.Game.Animation;
 
 import Burst.Engine.Source.Core.Actor.Actor;
+import Burst.Engine.Source.Core.Actor.ActorComponent;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.Render.SpriteRenderer;
 import imgui.ImGui;
@@ -11,7 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 
-public class StateMachine extends Component {
+public class StateMachine extends ActorComponent {
     public HashMap<StateTrigger, String> stateTransfers = new HashMap<>();
     private List<AnimationState> states = new ArrayList<>();
     private transient AnimationState currentState = null;

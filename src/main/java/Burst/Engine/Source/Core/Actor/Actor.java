@@ -43,8 +43,9 @@ public class Actor {
      * Besides being used to identify the actor, this is also used to display the
      * actor in the editor.
      */
-    private String name = "New Actor";
-    private List<Component> components;
+    protected String name = "New Actor";
+    private List<ActorComponent> components;
+
     /**
      * Whether this actor is serialized when saving and loading.
      */
@@ -256,24 +257,24 @@ public class Actor {
      * Adds a {@link Component} to this actor's list of components, generates an ID
      * for the component, and sets the component's actor to this actor.
      *
-     * @param c the component to add to this actor's list of components
+     * @param ac the component to add to this actor's list of components
      * @throws NullPointerException if the specified component is {@code null}
      */
-    public void addComponent(Component c) throws NullPointerException {
+    public void addComponent(ActorComponent ac) throws NullPointerException {
         // Check if component is null
-        if (c == null) {
+        if (ac == null) {
             throw new NullPointerException("Cannot add null component to actor.");
         }
 
         // Check if actor already has component
-        if (hasComponent(c.getClass())) {
+        if (hasComponent(ac.getClass())) {
             return;
         }
-        c.generateId();
-        this.components.add(c);
-        c.actor = this;
+        ac.generateId();
+        this.components.add(ac);
+        ac.actor = this;
 
-        c.start();
+        ac.start();
     }
 
     private boolean hasComponent(Class<? extends Component> aClass) {
@@ -343,7 +344,7 @@ public class Actor {
      * @see Component
      * @see List
      */
-    public List<Component> getAllComponents() {
+    public List<ActorComponent> getAllComponents() {
         return this.components;
     }
 

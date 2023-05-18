@@ -1,6 +1,7 @@
 package Burst.Engine.Source.Core.Physics.Components;
 
 import Burst.Engine.Source.Core.Actor.Actor;
+import Burst.Engine.Source.Core.Actor.ActorComponent;
 import Burst.Engine.Source.Core.Physics.Enums.BodyType;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.UI.Window;
@@ -8,7 +9,7 @@ import org.jbox2d.common.Vec2;
 import org.jbox2d.dynamics.Body;
 import org.joml.Vector3f;
 
-public class Rigidbody2D extends Component {
+public class Rigidbody2D extends ActorComponent {
     private Vector3f velocity = new Vector3f();
     private float angularDamping = 0.8f;
     private float linearDamping = 0.9f;

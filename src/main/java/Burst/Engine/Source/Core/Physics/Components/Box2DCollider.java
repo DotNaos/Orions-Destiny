@@ -1,11 +1,12 @@
 package Burst.Engine.Source.Core.Physics.Components;
 
 import Burst.Engine.Source.Core.Actor.Actor;
+import Burst.Engine.Source.Core.Actor.ActorComponent;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.Render.Debug.DebugDraw;
 import org.joml.Vector3f;
 
-public class Box2DCollider extends Component {
+public class Box2DCollider extends ActorComponent {
     private Vector3f halfSize = new Vector3f(1);
     private Vector3f origin = new Vector3f();
     private Vector3f offset = new Vector3f();

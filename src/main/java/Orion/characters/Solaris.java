@@ -2,6 +2,7 @@ package Orion.characters;
 
 public class Solaris extends PlayerCharacter {
     public Solaris() {
+        super("Solaris");
         this.description = """
                        Solaris is a bright and energetic character, radiating heat and light wherever he actores.\s
                        His powers give him the ability to control fire,\s

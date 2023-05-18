@@ -10,7 +10,7 @@ import org.joml.Vector3f;
 
 import static org.lwjgl.glfw.GLFW.*;
 
-public class PlayerController extends Component {
+public class PlayerController extends ActorComponent {
 
     public float walkSpeed = 1.9f;
     public float jumpBoost = 1.0f;

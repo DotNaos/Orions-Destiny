@@ -55,6 +55,9 @@ public class Editor extends Game {
         // ImGui for all editor features
         ImGui.begin("Editor");
         ImGui.beginTabBar("EditorTabs");
+        ImGui.beginTabItem("Style");
+        ImGuiStyleConfig.get().imgui();
+        ImGui.endTabItem();
 
         // Components imgui
         for (Component component : components) {
@@ -62,9 +65,8 @@ public class Editor extends Game {
             component.imgui();
 //            ImGui.endTabItem();
         }
-        ImGui.beginTabItem("Style");
-        ImGuiStyleConfig.get().imgui();
-        ImGui.endTabItem();
+
+
         ImGui.endTabBar();
         ImGui.end();
     }

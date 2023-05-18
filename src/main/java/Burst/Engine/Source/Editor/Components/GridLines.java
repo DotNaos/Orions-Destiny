@@ -1,6 +1,7 @@
 package Burst.Engine.Source.Editor.Components;
 
 import Burst.Engine.Config.Constants.GridLines_Config;
+import Burst.Engine.Source.Core.Actor.ActorComponent;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.Render.Debug.DebugDraw;
 import Burst.Engine.Source.Core.UI.ImGui.BImGui;

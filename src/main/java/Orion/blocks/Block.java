@@ -1,12 +1,13 @@
 package Orion.blocks;
 
 import Burst.Engine.Source.Core.Actor.Actor;
+import Burst.Engine.Source.Core.Actor.ActorComponent;
 import Burst.Engine.Source.Core.Actor.PlayerController;
 import Burst.Engine.Source.Core.Component;
 import org.jbox2d.dynamics.contacts.Contact;
 import org.joml.Vector3f;
 
-public abstract class Block extends Component {
+public abstract class Block extends ActorComponent {
     public float bopSpeed = 0.4f;
     private transient boolean bopactoringUp = true;
     private transient boolean doBopAnimation = false;

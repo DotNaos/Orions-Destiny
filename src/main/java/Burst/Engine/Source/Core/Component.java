@@ -18,19 +18,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public abstract class Component {
-  public transient Actor actor = null;
   protected transient String filePath = null;
   private long ID = -1;
   private transient boolean started = false;
   protected Map<String, Object> initialValues;
 
-  public Component(Actor actor) {
-    this.ID = Util.generateUniqueID();
-    this.actor = actor;
-  }
-
   public Component() {
-    this(null);
+    this.ID = Util.generateUniqueID();
   }
 
   public void start() {
@@ -73,21 +67,7 @@ public abstract class Component {
 
   }
 
-  public void beginCollision(Actor collidinactorbject, Contact contact, Vector3f hitNormal) {
 
-  }
-
-  public void endCollision(Actor collidinactorbject, Contact contact, Vector3f hitNormal) {
-
-  }
-
-  public void preSolve(Actor collidinactorbject, Contact contact, Vector3f hitNormal) {
-
-  }
-
-  public void postSolve(Actor collidinactorbject, Contact contact, Vector3f hitNormal) {
-
-  }
 
   public void imgui() {
     if (!started)

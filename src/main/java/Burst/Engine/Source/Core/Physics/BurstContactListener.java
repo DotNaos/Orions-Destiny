@@ -1,6 +1,7 @@
 package Burst.Engine.Source.Core.Physics;
 
 import Burst.Engine.Source.Core.Actor.Actor;
+import Burst.Engine.Source.Core.Actor.ActorComponent;
 import Burst.Engine.Source.Core.Component;
 import org.jbox2d.callbacks.ContactImpulse;
 import org.jbox2d.callbacks.ContactListener;
@@ -19,12 +20,12 @@ public class BurstContactListener implements ContactListener {
         Vector3f aNormal = new Vector3f(worldManifold.normal.x, worldManifold.normal.y, 0);
         Vector3f bNormal = new Vector3f(aNormal).negate();
 
-        for (Component c : objA.getAllComponents()) {
-            c.beginCollision(objB, contact, aNormal);
+        for (ActorComponent ac : objA.getAllComponents()) {
+            ac.beginCollision(objB, contact, aNormal);
         }
 
-        for (Component c : objB.getAllComponents()) {
-            c.beginCollision(objA, contact, bNormal);
+        for (ActorComponent ac : objB.getAllComponents()) {
+            ac.beginCollision(objA, contact, bNormal);
         }
     }
 
@@ -37,12 +38,12 @@ public class BurstContactListener implements ContactListener {
         Vector3f aNormal = new Vector3f(worldManifold.normal.x, worldManifold.normal.y, 0);
         Vector3f bNormal = new Vector3f(aNormal).negate();
 
-        for (Component c : objA.getAllComponents()) {
-            c.endCollision(objB, contact, aNormal);
+        for (ActorComponent ac : objA.getAllComponents()) {
+            ac.endCollision(objB, contact, aNormal);
         }
 
-        for (Component c : objB.getAllComponents()) {
-            c.endCollision(objA, contact, bNormal);
+        for (ActorComponent ac : objB.getAllComponents()) {
+            ac.endCollision(objA, contact, bNormal);
         }
     }
 
@@ -55,12 +56,12 @@ public class BurstContactListener implements ContactListener {
         Vector3f aNormal = new Vector3f(worldManifold.normal.x, worldManifold.normal.y, 0);
         Vector3f bNormal = new Vector3f(aNormal).negate();
 
-        for (Component c : objA.getAllComponents()) {
-            c.preSolve(objB, contact, aNormal);
+        for (ActorComponent ac : objA.getAllComponents()) {
+            ac.preSolve(objB, contact, aNormal);
         }
 
-        for (Component c : objB.getAllComponents()) {
-            c.preSolve(objA, contact, bNormal);
+        for (ActorComponent ac : objB.getAllComponents()) {
+            ac.preSolve(objA, contact, bNormal);
         }
     }
 
@@ -73,12 +74,12 @@ public class BurstContactListener implements ContactListener {
         Vector3f aNormal = new Vector3f(worldManifold.normal.x, worldManifold.normal.y, 0);
         Vector3f bNormal = new Vector3f(aNormal).negate();
 
-        for (Component c : objA.getAllComponents()) {
-            c.postSolve(objB, contact, aNormal);
+        for (ActorComponent ac : objA.getAllComponents()) {
+            ac.postSolve(objB, contact, aNormal);
         }
 
-        for (Component c : objB.getAllComponents()) {
-            c.postSolve(objA, contact, bNormal);
+        for (ActorComponent ac : objB.getAllComponents()) {
+            ac.postSolve(objA, contact, bNormal);
         }
     }
 }

@@ -3,348 +3,373 @@
   <ID>JAVA</ID>
   <OriginalElement>Burst.Engine</OriginalElement>
   <nodes>
-    <node x="-4066.0" y="4129.544372558597">Burst.Engine.Source.Editor.EditorCamera</node>
-    <node x="-6834.148847190955" y="1436.2731953872076">Burst.Engine.Source.Core.Scene.Initializer.EditorInitializer</node>
-    <node x="-5340.16881480625" y="1872.5331417750945">Burst.Engine.Source.Core.UI.Window</node>
-    <node x="-4904.02752840625" y="1872.5331417750945">Burst.Engine.Source.Core.Render.Framebuffer</node>
-    <node x="-8546.39404757566" y="1843.5926297750948">Burst.Engine.Source.Core.Physics.Components.Transform</node>
-    <node x="-5167.0" y="3992.544372558597">Burst.Engine.Source.Core.Physics.Components.CircleCollider</node>
-    <node x="-6521.148847190955" y="3260.4636513671917">Burst.Engine.Source.Core.Actor.Player</node>
-    <node x="-7534.376141998528" y="1851.0331417750945">Burst.Engine.Source.Core.EventSystem.EventSystem</node>
-    <node x="-7534.376141998528" y="2069.9818319163087">Burst.Engine.Source.Core.EventSystem.Events.EventType</node>
-    <node x="-6519.648847190955" y="3354.4636513671917">Burst.Engine.Source.Core.Actor.Pawn</node>
-    <node x="-2394.0" y="3928.544372558597">Burst.Engine.Source.Game.Animation.StateMachine</node>
-    <node x="-2373.0" y="3766.544372558597">Burst.Engine.Source.Game.Animation.StateMachine.StateTrigger</node>
-    <node x="-6981.648847190955" y="1576.2731953872076">Burst.Engine.Source.Core.Scene.Initializer.SceneInitializer</node>
-    <node x="-1796.0" y="3838.544372558597">Burst.Engine.Source.Core.Render.SpriteRenderer</node>
-    <node x="-7043.648847190955" y="1851.0331417750945">Burst.Engine.Source.Core.Scene.Scene</node>
-    <node x="-5895.718830998603" y="2086.9474650766033">Burst.Engine.Config.Constants.Font_Config</node>
-    <node x="-3749.682149240437" y="1872.5331417750945">Burst.Engine.Source.Editor.Panel.PropertiesPanel</node>
-    <node x="-3847.0" y="4152.544372558597">Burst.Engine.Source.Editor.NonPickable</node>
-    <node x="-6959.148847190955" y="5111.894160959289">Burst.Engine.Source.Core.Assets.Graphics.Font</node>
-    <node x="-6981.648847190955" y="1724.653168581151">Burst.Engine.Source.Core.Scene.SceneType</node>
-    <node x="-9153.603859288052" y="1843.5926297750948">Burst.Engine.Source.Core.Util.Scalar</node>
-    <node x="-6699.148847190955" y="1851.0331417750945">Burst.Engine.Source.Game.Game</node>
-    <node x="-5332.66881480625" y="1778.5331417750945">Burst.Engine.Source.Core.EventSystem.Observer</node>
-    <node x="-6720.148847190955" y="5423.821407053043">Burst.Engine.Source.Core.Assets.AssetManager</node>
-    <node x="-2671.0" y="4018.544372558597">Burst.Engine.Source.Core.Render.PickingTexture</node>
-    <node x="-6747.148847190955" y="4113.546464723446">Burst.Engine.Source.Core.Saving.ActorDeserializer</node>
-    <node x="-3479.682149240437" y="1918.5331417750945">Burst.Engine.Source.Editor.Panel.ViewportPanel</node>
-    <node x="-5749.148847190955" y="5111.894160959289">Burst.Engine.Source.Core.Assets.Graphics.LevelMap</node>
-    <node x="-3331.182149240437" y="2219.3125849750945">Burst.Engine.Source.Core.UI.ImGui.DebugPanel</node>
-    <node x="-3256.182149240437" y="2126.5331417750945">Burst.Engine.Source.Core.UI.ImGui.ImGuiPanel</node>
-    <node x="-4722.529392873301" y="1872.5331417750945">Burst.Engine.Source.Core.Render.RenderBatch</node>
-    <node x="-6618.648847190955" y="5205.894160959289">Burst.Engine.Source.Core.Assets.Asset</node>
-    <node x="-3034.682149240437" y="2272.3125849750945">Burst.Engine.Source.Core.UI.PlotBuffer</node>
-    <node x="-2121.0" y="4038.544372558597">Burst.Engine.Source.Core.Actor.PlayerController</node>
-    <node x="-7866.7162718508225" y="2842.251504710398">Burst.Engine.Source.Core.Physics.BurstContactListener</node>
-    <node x="-6625.148847190955" y="1458.2731953872076">Burst.Engine.Source.Core.Scene.Initializer.GameInitializer</node>
-    <node x="-8930.69952277566" y="2515.0331417750945">Burst.Engine.Source.Core.Physics.RaycastInfo</node>
-    <node x="-4093.4102900404373" y="2232.7667801750945">Burst.Engine.Source.Core.UI.ImGui.Menu</node>
-    <node x="-3371.0" y="4106.544372558597">Burst.Engine.Source.Editor.Gizmo.GizmoSystem</node>
-    <node x="-3106.0" y="4128.544372558597">Burst.Engine.Source.Editor.Components.KeyControls</node>
-    <node x="-5116.598171606251" y="2489.489122575095">Burst.Engine.Source.Core.Render.Debug.DebugDraw</node>
-    <node x="-7236.148847190955" y="4797.894160959289">Burst.Engine.Source.Core.Assets.Graphics.Texture</node>
-    <node x="-3445.5" y="4246.544372558597">Burst.Engine.Source.Core.Component</node>
-    <node x="-4914.02752840625" y="2182.5331417750945">Burst.Engine.Source.Core.Render.ViewportRenderer</node>
-    <node x="-3997.4102900404373" y="2426.6528601750947">Burst.Engine.Source.Editor.Panel.Widgets.MenuBar</node>
-    <node x="-5538.73945800625" y="1872.5331417750945">Burst.Engine.Source.Core.Util.DebugMessage</node>
-    <node x="-4772.956885206249" y="2520.489122575095">Burst.Engine.Source.Core.Render.Debug.Line2D</node>
-    <node x="-6804.148847190955" y="5111.894160959289">Burst.Engine.Source.Core.Assets.Graphics.UI_Assets</node>
-    <node x="-7866.7162718508225" y="2625.919856710398">Burst.Engine.Source.Core.Input.KeyListener</node>
-    <node x="-8546.39404757566" y="2205.4018367938443">Burst.Engine.Source.Editor.TransDir</node>
-    <node x="-6930.648847190955" y="2542.292294378123">Burst.Engine.Source.Game.Level</node>
-    <node x="-2923.0" y="3952.544372558597">Burst.Engine.Source.Editor.Gizmo.Gizmo</node>
-    <node x="-7180.648847190955" y="1482.2731953872076">Burst.Engine.Source.Core.Scene.Initializer.MenuInitializer</node>
-    <node x="-5944.148847190955" y="5111.894160959289">Burst.Engine.Source.Core.Assets.Graphics.Background</node>
-    <node x="-2394.5" y="3481.403299066339">Burst.Engine.Source.Game.Animation.AnimationState</node>
-    <node x="-6432.648847190955" y="4885.894160959289">Burst.Engine.Source.Core.Assets.Graphics.SpriteSheetUsage</node>
-    <node x="-4280.0" y="3992.544372558597">Burst.Engine.Source.Core.Physics.Components.Box2DCollider</node>
-    <node x="-6103.718830998603" y="2086.9474650766033">Burst.Engine.Config.Constants.GridLines_Config</node>
-    <node x="-3514.0" y="4673.544372558597">Burst.Engine.Source.Core.Saving.ComponentDeserializer</node>
-    <node x="-4093.410290040437" y="1872.5331417750945">Burst.Engine.Source.Core.UI.ImGui.BImGui</node>
-    <node x="-2851.682149240437" y="1986.5331417750945">Burst.Engine.Source.Editor.Panel.OutlinerPanel</node>
-    <node x="-4753.0" y="3860.544372558597">Burst.Engine.Source.Core.Physics.Components.PillboxCollider</node>
-    <node x="-4953.0" y="4106.544372558597">Burst.Engine.Source.Core.Render.Components.FontRenderer</node>
-    <node x="-3672.0" y="4062.544372558597">Burst.Engine.Source.Editor.Components.MouseControls</node>
-    <node x="-6624.148847190955" y="4973.894160959289">Burst.Engine.Source.Core.Assets.Audio.Sound</node>
-    <node x="-6625.148847190955" y="2388.033141775094">Burst.Engine.Source.Editor.Editor</node>
-    <node x="-4296.523467640438" y="1872.5331417750945">Burst.Engine.Source.Core.UI.ImGui.ImGuiLayer</node>
-    <node x="-4520.0" y="3486.544372558597">Burst.Engine.Source.Core.Physics.Components.Rigidbody2D</node>
-    <node x="-4719.456885206249" y="2204.1351641750944">Burst.Engine.Source.Game.Animation.Frame</node>
-    <node x="-3086.0" y="3834.544372558597">Burst.Engine.Source.Editor.Gizmo.TranslateGizmo</node>
-    <node x="-8546.39404757566" y="2079.4972332844695">Burst.Engine.Source.Core.Physics.Enums.BodyType</node>
-    <node x="-2787.0" y="3834.544372558597">Burst.Engine.Source.Editor.Gizmo.ScaleGizmo</node>
-    <node x="-7866.7162718508225" y="1851.0331417750945">Burst.Engine.Source.Core.Input.MouseListener</node>
-    <node x="-6443.148847190955" y="4997.894160959289">Burst.Engine.Source.Core.Assets.Graphics.Spritesheet</node>
-    <node x="-6709.148847190955" y="3309.4636513671917">Burst.Engine.Source.Game.Camera</node>
-    <node x="-7507.148847190955" y="4845.894160959289">Burst.Engine.Source.Core.Assets.Graphics.Shader</node>
-    <node x="-1582.0" y="4106.544372558597">Burst.Engine.Source.Editor.Components.GridLines</node>
-    <node x="-8930.69952277566" y="2313.3128857750944">Burst.Engine.Source.Core.Util.BMath</node>
-    <node x="-6703.648847190955" y="3448.4636513671917">Burst.Engine.Source.Core.Actor.Actor</node>
-    <node x="-7318.148847190955" y="1364.2731953872076">Burst.Engine.Source.Core.Scene.Initializer.StartMenuInitializer</node>
-    <node x="-4882.52752840625" y="2064.5331417750945">Burst.Engine.Source.Core.Render.Renderer</node>
-    <node x="-7085.148847190955" y="1364.2731953872076">Burst.Engine.Source.Core.Scene.Initializer.SettingsMenuInitializer</node>
-    <node x="-7534.376141998528" y="1972.5074868457016">Burst.Engine.Source.Core.EventSystem.Events.Event</node>
-    <node x="-6103.718830998603" y="2172.068972283449">Burst.Engine.Source.Core.Util.Util</node>
-    <node x="-6158.148847190955" y="4885.894160959289">Burst.Engine.Source.Core.Assets.Graphics.Sprite</node>
-    <node x="-6103.718830998603" y="1872.5331417750945">Burst.Engine.Config.Constants.Color_Config</node>
-    <node x="-3129.682149240437" y="1965.5331417750945">Burst.Engine.Source.Editor.ContentDrawer</node>
-    <node x="-5116.598171606251" y="1872.5331417750945">Burst.Engine.Source.Core.UI.Viewport</node>
-    <node x="-8930.69952277566" y="1843.5926297750948">Burst.Engine.Source.Core.Physics.Physics2D</node>
+    <node x="-6223.0" y="2757.0">Burst.Engine.Source.Editor.EditorCamera</node>
+    <node x="-8900.5" y="4278.0">Burst.Engine.Source.Core.Scene.Initializer.EditorInitializer</node>
+    <node x="-5381.0" y="2987.0">Burst.Engine.Source.Core.UI.Window</node>
+    <node x="-8266.0" y="4587.0">Burst.Engine.Source.Core.Render.Framebuffer</node>
+    <node x="-6501.000000000001" y="2635.0">Burst.Engine.Source.Core.Physics.Components.Transform</node>
+    <node x="-8324.0" y="2625.0">Burst.Engine.Source.Core.Physics.Components.CircleCollider</node>
+    <node x="-7310.5" y="3695.0">Burst.Engine.Source.Core.Actor.Player</node>
+    <node x="-5624.0" y="4587.0">Burst.Engine.Source.Core.EventSystem.EventSystem</node>
+    <node x="-9154.0" y="4855.0">Burst.Engine.Source.Core.EventSystem.Events.EventType</node>
+    <node x="-7403.0" y="3601.0">Burst.Engine.Source.Core.Actor.Pawn</node>
+    <node x="-9154.0" y="2399.0">Burst.Engine.Source.Game.Animation.StateMachine</node>
+    <node x="-9133.0" y="2723.0">Burst.Engine.Source.Game.Animation.StateMachine.StateTrigger</node>
+    <node x="-8932.75" y="4001.0">Burst.Engine.Source.Core.Scene.Initializer.SceneInitializer</node>
+    <node x="-8110.0" y="2461.0">Burst.Engine.Source.Core.Render.SpriteRenderer</node>
+    <node x="-5739.0" y="2893.0">Burst.Engine.Source.Core.Scene.Scene</node>
+    <node x="-6962.0" y="4855.0">Burst.Engine.Config.Constants.Font_Config</node>
+    <node x="-7020.25" y="3034.0">Burst.Engine.Source.Editor.Panel.PropertiesPanel</node>
+    <node x="-6004.0" y="2794.0">Burst.Engine.Source.Editor.NonPickable</node>
+    <node x="-8883.0" y="3493.0">Burst.Engine.Source.Core.Assets.Graphics.Font</node>
+    <node x="-5383.0" y="4587.0">Burst.Engine.Source.Core.Scene.SceneType</node>
+    <node x="-6296.5" y="4001.0">Burst.Engine.Source.Core.Util.Scalar</node>
+    <node x="-6075.0" y="2893.0">Burst.Engine.Source.Game.Game</node>
+    <node x="-5373.5" y="2893.0">Burst.Engine.Source.Core.EventSystem.Observer</node>
+    <node x="-5512.499999999999" y="4001.0">Burst.Engine.Source.Core.Assets.AssetManager</node>
+    <node x="-5829.000000000002" y="2657.0">Burst.Engine.Source.Core.Render.PickingTexture</node>
+    <node x="-8471.0" y="4855.0">Burst.Engine.Source.Core.Saving.ActorDeserializer</node>
+    <node x="-7050.0" y="3317.0">Burst.Engine.Source.Editor.Panel.ViewportPanel</node>
+    <node x="-8728.0" y="3493.0">Burst.Engine.Source.Core.Assets.Graphics.LevelMap</node>
+    <node x="-6062.499999999999" y="4001.0">Burst.Engine.Source.Core.UI.ImGui.DebugPanel</node>
+    <node x="-6817.25" y="2893.0">Burst.Engine.Source.Core.UI.ImGui.ImGuiPanel</node>
+    <node x="-6826.5" y="4001.0">Burst.Engine.Source.Core.Render.RenderBatch</node>
+    <node x="-8362.25" y="2893.0">Burst.Engine.Source.Core.Assets.Asset</node>
+    <node x="-8062.0" y="4587.0">Burst.Engine.Source.Core.UI.PlotBuffer</node>
+    <node x="-7896.0" y="2664.0">Burst.Engine.Source.Core.Actor.PlayerController</node>
+    <node x="-6913.0" y="4587.0">Burst.Engine.Source.Core.Physics.BurstContactListener</node>
+    <node x="-8691.5" y="4300.0">Burst.Engine.Source.Core.Scene.Initializer.GameInitializer</node>
+    <node x="-8039.0" y="4855.0">Burst.Engine.Source.Core.Physics.RaycastInfo</node>
+    <node x="-7874.0" y="4587.0">Burst.Engine.Source.Core.UI.ImGui.Menu</node>
+    <node x="-8755.75" y="2307.0">Burst.Engine.Source.Editor.Gizmo.GizmoSystem</node>
+    <node x="-5552.000000000002" y="2767.0">Burst.Engine.Source.Editor.Components.KeyControls</node>
+    <node x="-7865.5" y="4001.0">Burst.Engine.Source.Core.Render.Debug.DebugDraw</node>
+    <node x="-8546.0" y="3170.0">Burst.Engine.Source.Core.Assets.Graphics.Texture</node>
+    <node x="-7273.5" y="1364.0">Burst.Engine.Source.Core.Component</node>
+    <node x="-6520.5" y="4122.0">Burst.Engine.Source.Core.Render.ViewportRenderer</node>
+    <node x="-7714.0" y="4855.0">Burst.Engine.Source.Editor.Panel.Widgets.MenuBar</node>
+    <node x="-5740.499999999999" y="4001.0">Burst.Engine.Source.Core.Util.DebugMessage</node>
+    <node x="-7131.5" y="4001.0">Burst.Engine.Source.Core.Render.Debug.Line2D</node>
+    <node x="-8269.0" y="3493.0">Burst.Engine.Source.Core.Assets.Graphics.UI_Assets</node>
+    <node x="-7206.0" y="4587.0">Burst.Engine.Source.Core.Input.KeyListener</node>
+    <node x="-8692.0" y="4855.0">Burst.Engine.Source.Editor.TransDir</node>
+    <node x="-6786.0" y="4855.0">Burst.Engine.Source.Game.Level</node>
+    <node x="-8739.0" y="2470.0">Burst.Engine.Source.Editor.Gizmo.Gizmo</node>
+    <node x="-9131.75" y="4186.0">Burst.Engine.Source.Core.Scene.Initializer.MenuInitializer</node>
+    <node x="-8089.0" y="3493.0">Burst.Engine.Source.Core.Assets.Graphics.Background</node>
+    <node x="-9154.0" y="4587.0">Burst.Engine.Source.Game.Animation.AnimationState</node>
+    <node x="-6136.0" y="4587.0">Burst.Engine.Source.Core.Assets.Graphics.SpriteSheetUsage</node>
+    <node x="-7571.0" y="2625.0">Burst.Engine.Source.Core.Physics.Components.Box2DCollider</node>
+    <node x="-7170.0" y="4855.0">Burst.Engine.Config.Constants.GridLines_Config</node>
+    <node x="-6603.0" y="4587.0">Burst.Engine.Source.Core.Saving.ComponentDeserializer</node>
+    <node x="-7490.5" y="4001.0">Burst.Engine.Source.Core.UI.ImGui.BImGui</node>
+    <node x="-6700.0" y="3388.0">Burst.Engine.Source.Editor.Panel.OutlinerPanel</node>
+    <node x="-7357.000000000001" y="2483.0">Burst.Engine.Source.Core.Physics.Components.PillboxCollider</node>
+    <node x="-7124.000000000002" y="2745.0">Burst.Engine.Source.Core.Render.Components.FontRenderer</node>
+    <node x="-5369.000000000002" y="2701.0">Burst.Engine.Source.Editor.Components.MouseControls</node>
+    <node x="-7894.0" y="3346.0">Burst.Engine.Source.Core.Assets.Audio.Sound</node>
+    <node x="-6001.0" y="3442.0">Burst.Engine.Source.Editor.Editor</node>
+    <node x="-8491.0" y="4587.0">Burst.Engine.Source.Core.UI.ImGui.ImGuiLayer</node>
+    <node x="-7799.5" y="1882.9999999999998">Burst.Engine.Source.Core.Actor.ActorComponent</node>
+    <node x="-6924.000000000002" y="2119.0">Burst.Engine.Source.Core.Physics.Components.Rigidbody2D</node>
+    <node x="-7556.0" y="4855.0">Burst.Engine.Source.Game.Animation.Frame</node>
+    <node x="-8623.0" y="2767.0">Burst.Engine.Source.Editor.Gizmo.TranslateGizmo</node>
+    <node x="-8922.0" y="4855.0">Burst.Engine.Source.Core.Physics.Enums.BodyType</node>
+    <node x="-8902.0" y="2767.0">Burst.Engine.Source.Editor.Gizmo.ScaleGizmo</node>
+    <node x="-6419.0" y="2893.0">Burst.Engine.Source.Core.Input.MouseListener</node>
+    <node x="-7713.0" y="3373.0">Burst.Engine.Source.Core.Assets.Graphics.Spritesheet</node>
+    <node x="-7243.0" y="3552.0">Burst.Engine.Source.Game.Camera</node>
+    <node x="-9154.0" y="3224.0">Burst.Engine.Source.Core.Assets.Graphics.Shader</node>
+    <node x="-6684.000000000002" y="2745.0">Burst.Engine.Source.Editor.Components.GridLines</node>
+    <node x="-7524.0" y="4587.0">Burst.Engine.Source.Core.Util.BMath</node>
+    <node x="-7399.0" y="2893.0">Burst.Engine.Source.Core.Actor.Actor</node>
+    <node x="-9154.0" y="4300.0">Burst.Engine.Source.Core.Scene.Initializer.StartMenuInitializer</node>
+    <node x="-6489.0" y="4001.0">Burst.Engine.Source.Core.Render.Renderer</node>
+    <node x="-8943.75" y="4461.0">Burst.Engine.Source.Core.Scene.Initializer.SettingsMenuInitializer</node>
+    <node x="-7358.0" y="4855.0">Burst.Engine.Source.Core.EventSystem.Events.Event</node>
+    <node x="-5867.0" y="4587.0">Burst.Engine.Source.Core.Util.Util</node>
+    <node x="-8387.75" y="3667.0">Burst.Engine.Source.Core.Assets.Graphics.Sprite</node>
+    <node x="-8875.0" y="4587.0">Burst.Engine.Config.Constants.Color_Config</node>
+    <node x="-6875.75" y="3551.0">Burst.Engine.Source.Editor.ContentDrawer</node>
+    <node x="-8477.5" y="4001.0">Burst.Engine.Source.Core.UI.Viewport</node>
+    <node x="-8245.5" y="4001.0">Burst.Engine.Source.Core.Physics.Physics2D</node>
   </nodes>
   <notes />
   <edges>
-    <edge source="Burst.Engine.Source.Editor.Components.KeyControls" target="Burst.Engine.Source.Core.Component" relationship="GENERALIZATION">
-      <point x="0.0" y="-0.0" />
-      <point x="-3034.5" y="4226.544372558597" />
-      <point x="-3303.0" y="4226.544372558597" />
-      <point x="0.0" y="-0.0" />
-    </edge>
     <edge source="Burst.Engine.Source.Core.Assets.Graphics.Background" target="Burst.Engine.Source.Core.Assets.Asset" relationship="GENERALIZATION">
-      <point x="0.0" y="-0.0" />
-      <point x="-5866.648847190955" y="5185.894160959289" />
-      <point x="-6557.148847190955" y="5185.894160959289" />
-      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-27.0" />
+      <point x="-8011.5" y="3130.0" />
+      <point x="-8331.5" y="3130.0" />
+      <point x="-30.75" y="78.5" />
+    </edge>
+    <edge source="Burst.Engine.Source.Editor.Components.KeyControls" target="Burst.Engine.Source.Core.Component" relationship="GENERALIZATION">
+      <point x="0.0" y="-40.5" />
+      <point x="-5480.500000000002" y="1803.0" />
+      <point x="-7131.0" y="1803.0" />
+      <point x="0.0" y="199.5" />
     </edge>
     <edge source="Burst.Engine.Source.Core.Render.PickingTexture" target="Burst.Engine.Source.Core.Component" relationship="GENERALIZATION">
-      <point x="0.0" y="-0.0" />
-      <point x="-2552.5" y="4226.544372558597" />
-      <point x="-3303.0" y="4226.544372558597" />
-      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-95.5" />
+      <point x="-5710.500000000002" y="1823.0" />
+      <point x="-7131.0" y="1823.0" />
+      <point x="0.0" y="199.5" />
     </edge>
     <edge source="Burst.Engine.Source.Core.Assets.Audio.Sound" target="Burst.Engine.Source.Core.Assets.Asset" relationship="GENERALIZATION">
-      <point x="0.0" y="-0.0" />
-      <point x="-6553.648847190955" y="5185.894160959289" />
-      <point x="-6557.148847190955" y="5185.894160959289" />
-      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-100.5" />
+      <point x="-7823.5" y="3110.0" />
+      <point x="-8331.5" y="3110.0" />
+      <point x="-30.75" y="78.5" />
     </edge>
     <edge source="Burst.Engine.Source.Editor.Editor" target="Burst.Engine.Source.Game.Game" relationship="GENERALIZATION">
-      <point x="0.0" y="-0.0" />
-      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-62.5" />
+      <point x="0.0" y="254.5" />
     </edge>
     <edge source="Burst.Engine.Source.Core.Scene.Initializer.SettingsMenuInitializer" target="Burst.Engine.Source.Core.Scene.Initializer.MenuInitializer" relationship="GENERALIZATION">
-      <point x="0.0" y="-0.0" />
-      <point x="-6979.648847190955" y="1462.2731953872076" />
-      <point x="-7096.148847190955" y="1462.2731953872076" />
-      <point x="0.0" y="-0.0" />
+      <point x="-26.375" y="-40.5" />
+      <point x="-8864.625" y="4421.0" />
+      <point x="-8941.0" y="4421.0" />
+      <point x="-8941.0" y="4260.0" />
+      <point x="-9005.0" y="4260.0" />
+      <point x="42.25" y="27.0" />
     </edge>
-    <edge source="Burst.Engine.Source.Core.Render.Components.FontRenderer" target="Burst.Engine.Source.Core.Component" relationship="GENERALIZATION">
-      <point x="0.0" y="-0.0" />
-      <point x="-4873.0" y="4226.544372558597" />
-      <point x="-3303.0" y="4226.544372558597" />
-      <point x="0.0" y="-0.0" />
+    <edge source="Burst.Engine.Source.Editor.Gizmo.GizmoSystem" target="Burst.Engine.Source.Core.Actor.ActorComponent" relationship="GENERALIZATION">
+      <point x="0.0" y="-51.5" />
+      <point x="-8643.25" y="1998.9999999999998" />
+      <point x="-7754.0" y="1998.9999999999998" />
+      <point x="-45.5" y="38.0" />
     </edge>
     <edge source="Burst.Engine.Source.Editor.Panel.OutlinerPanel" target="Burst.Engine.Source.Core.UI.ImGui.ImGuiPanel" relationship="GENERALIZATION">
-      <point x="0.0" y="-0.0" />
-      <point x="-2743.682149240437" y="2106.5331417750945" />
-      <point x="-3192.682149240437" y="2106.5331417750945" />
-      <point x="0.0" y="-0.0" />
-    </edge>
-    <edge source="Burst.Engine.Source.Game.Camera" target="Burst.Engine.Source.Core.Actor.Actor" relationship="GENERALIZATION">
-      <point x="0.0" y="-0.0" />
-      <point x="-6635.148847190955" y="3428.4636513671917" />
-      <point x="-6553.648847190955" y="3428.4636513671917" />
-      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-51.5" />
+      <point x="-6592.0" y="3014.0" />
+      <point x="-6797.083333333334" y="3014.0" />
+      <point x="-40.33333333333333" y="40.5" />
     </edge>
     <edge source="Burst.Engine.Source.Core.Assets.Graphics.Sprite" target="Burst.Engine.Source.Core.Assets.Asset" relationship="GENERALIZATION">
-      <point x="0.0" y="-0.0" />
-      <point x="-6071.148847190955" y="5185.894160959289" />
-      <point x="-6557.148847190955" y="5185.894160959289" />
-      <point x="0.0" y="-0.0" />
+      <point x="77.33333333333331" y="-144.5" />
+      <point x="-8223.416666666666" y="3647.0" />
+      <point x="-7448.0" y="3647.0" />
+      <point x="-7448.0" y="3070.0" />
+      <point x="-8270.0" y="3070.0" />
+      <point x="30.75" y="78.5" />
+    </edge>
+    <edge source="Burst.Engine.Source.Game.Camera" target="Burst.Engine.Source.Core.Actor.Actor" relationship="GENERALIZATION">
+      <point x="0.0" y="-51.5" />
+      <point x="-7169.0" y="3532.0" />
+      <point x="-7249.0" y="3532.0" />
+      <point x="0.0" y="309.5" />
     </edge>
     <edge source="Burst.Engine.Source.Core.Actor.Player" target="Burst.Engine.Source.Core.Actor.Pawn" relationship="GENERALIZATION">
-      <point x="0.0" y="-0.0" />
-      <point x="0.0" y="-0.0" />
-    </edge>
-    <edge source="Burst.Engine.Source.Core.Physics.Components.Rigidbody2D" target="Burst.Engine.Source.Core.Component" relationship="GENERALIZATION">
-      <point x="0.0" y="-0.0" />
-      <point x="-4420.0" y="4226.544372558597" />
-      <point x="-3303.0" y="4226.544372558597" />
-      <point x="0.0" y="-0.0" />
+      <point x="-30.75" y="-27.0" />
+      <point x="-7279.75" y="3675.0" />
+      <point x="-7343.0" y="3675.0" />
+      <point x="0.0" y="27.0" />
     </edge>
     <edge source="Burst.Engine.Source.Core.Assets.Graphics.Spritesheet" target="Burst.Engine.Source.Core.Assets.Asset" relationship="GENERALIZATION">
-      <point x="0.0" y="-0.0" />
-      <point x="-6320.648847190955" y="5185.894160959289" />
-      <point x="-6557.148847190955" y="5185.894160959289" />
-      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-87.0" />
+      <point x="-7590.5" y="3090.0" />
+      <point x="-8331.5" y="3090.0" />
+      <point x="-30.75" y="78.5" />
+    </edge>
+    <edge source="Burst.Engine.Source.Core.Physics.Components.PillboxCollider" target="Burst.Engine.Source.Core.Actor.ActorComponent" relationship="GENERALIZATION">
+      <point x="0.0" y="-182.5" />
+      <point x="-7260.5" y="2059.0" />
+      <point x="-7754.0" y="2059.0" />
+      <point x="-45.5" y="38.0" />
     </edge>
     <edge source="Burst.Engine.Source.Editor.Gizmo.TranslateGizmo" target="Burst.Engine.Source.Editor.Gizmo.Gizmo" relationship="GENERALIZATION">
-      <point x="0.0" y="-0.0" />
-      <point x="-2956.5" y="3932.544372558597" />
-      <point x="-2817.0" y="3932.544372558597" />
-      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-40.5" />
+      <point x="-8493.5" y="2747.0" />
+      <point x="-8633.0" y="2747.0" />
+      <point x="0.0" y="128.5" />
     </edge>
     <edge source="Burst.Engine.Source.Game.Animation.StateMachine.StateTrigger" target="Burst.Engine.Source.Game.Animation.StateMachine" relationship="INNER_CLASS">
-      <point x="0.0" y="-0.0" />
-      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-62.5" />
+      <point x="0.0" y="142.0" />
     </edge>
     <edge source="Burst.Engine.Source.Core.Assets.Graphics.Shader" target="Burst.Engine.Source.Core.Assets.Asset" relationship="GENERALIZATION">
-      <point x="0.0" y="-0.0" />
-      <point x="-7391.648847190955" y="5185.894160959289" />
-      <point x="-6557.148847190955" y="5185.894160959289" />
-      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-161.5" />
+      <point x="-9038.5" y="3070.0" />
+      <point x="-8331.5" y="3070.0" />
+      <point x="-30.75" y="78.5" />
+    </edge>
+    <edge source="Burst.Engine.Source.Game.Animation.StateMachine" target="Burst.Engine.Source.Core.Actor.ActorComponent" relationship="GENERALIZATION">
+      <point x="0.0" y="-142.0" />
+      <point x="-9037.5" y="1978.9999999999998" />
+      <point x="-7754.0" y="1978.9999999999998" />
+      <point x="-45.5" y="38.0" />
     </edge>
     <edge source="Burst.Engine.Source.Editor.NonPickable" target="Burst.Engine.Source.Core.Component" relationship="GENERALIZATION">
-      <point x="0.0" y="-0.0" />
-      <point x="-3779.5" y="4226.544372558597" />
-      <point x="-3303.0" y="4226.544372558597" />
-      <point x="0.0" y="-0.0" />
-    </edge>
-    <edge source="Burst.Engine.Source.Core.Scene.Initializer.MenuInitializer" target="Burst.Engine.Source.Core.Scene.Initializer.SceneInitializer" relationship="GENERALIZATION">
-      <point x="0.0" y="-0.0" />
-      <point x="-7096.148847190955" y="1556.2731953872076" />
-      <point x="-6887.148847190955" y="1556.2731953872076" />
-      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-27.0" />
+      <point x="-5936.5" y="1843.0" />
+      <point x="-7131.0" y="1843.0" />
+      <point x="0.0" y="199.5" />
     </edge>
     <edge source="Burst.Engine.Source.Core.Assets.Graphics.Texture" target="Burst.Engine.Source.Core.Assets.Asset" relationship="GENERALIZATION">
-      <point x="0.0" y="-0.0" />
-      <point x="-7117.648847190955" y="5185.894160959289" />
-      <point x="-6557.148847190955" y="5185.894160959289" />
-      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-188.5" />
+      <point x="-8427.5" y="3130.0" />
+      <point x="-8331.5" y="3130.0" />
+      <point x="-30.75" y="78.5" />
+    </edge>
+    <edge source="Burst.Engine.Source.Core.Scene.Initializer.MenuInitializer" target="Burst.Engine.Source.Core.Scene.Initializer.SceneInitializer" relationship="GENERALIZATION">
+      <point x="0.0" y="-27.0" />
+      <point x="-9047.25" y="4146.0" />
+      <point x="-8838.25" y="4146.0" />
+      <point x="0.0" y="62.5" />
     </edge>
     <edge source="Burst.Engine.Source.Editor.Components.MouseControls" target="Burst.Engine.Source.Core.Component" relationship="GENERALIZATION">
-      <point x="0.0" y="-0.0" />
-      <point x="-3541.5" y="4226.544372558597" />
-      <point x="-3303.0" y="4226.544372558597" />
-      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-73.5" />
+      <point x="-5238.500000000002" y="1783.0" />
+      <point x="-7131.0" y="1783.0" />
+      <point x="0.0" y="199.5" />
     </edge>
-    <edge source="Burst.Engine.Source.Editor.Gizmo.GizmoSystem" target="Burst.Engine.Source.Core.Component" relationship="GENERALIZATION">
-      <point x="0.0" y="-0.0" />
-      <point x="-3258.5" y="4226.544372558597" />
-      <point x="-3303.0" y="4226.544372558597" />
-      <point x="0.0" y="-0.0" />
+    <edge source="Burst.Engine.Source.Core.Render.SpriteRenderer" target="Burst.Engine.Source.Core.Actor.ActorComponent" relationship="GENERALIZATION">
+      <point x="0.0" y="-193.5" />
+      <point x="-8023.0" y="2059.0" />
+      <point x="-7754.0" y="2059.0" />
+      <point x="-45.5" y="38.0" />
     </edge>
-    <edge source="Burst.Engine.Source.Editor.Gizmo.Gizmo" target="Burst.Engine.Source.Core.Component" relationship="GENERALIZATION">
-      <point x="0.0" y="-0.0" />
-      <point x="-2817.0" y="4226.544372558597" />
-      <point x="-3303.0" y="4226.544372558597" />
-      <point x="0.0" y="-0.0" />
+    <edge source="Burst.Engine.Source.Core.Physics.Components.Transform" target="Burst.Engine.Source.Core.Actor.ActorComponent" relationship="GENERALIZATION">
+      <point x="0.0" y="-106.5" />
+      <point x="-6382.0" y="1978.9999999999998" />
+      <point x="-7754.0" y="1978.9999999999998" />
+      <point x="-45.5" y="38.0" />
     </edge>
     <edge source="Burst.Engine.Source.Core.UI.Window" target="Burst.Engine.Source.Core.EventSystem.Observer" relationship="REALIZATION">
-      <point x="0.0" y="-0.0" />
-      <point x="0.0" y="-0.0" />
-    </edge>
-    <edge source="Burst.Engine.Source.Core.Physics.Components.PillboxCollider" target="Burst.Engine.Source.Core.Component" relationship="GENERALIZATION">
-      <point x="0.0" y="-0.0" />
-      <point x="-4656.5" y="4226.544372558597" />
-      <point x="-3303.0" y="4226.544372558597" />
-      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-232.5" />
+      <point x="0.0" y="27.0" />
     </edge>
     <edge source="Burst.Engine.Source.Editor.Panel.ViewportPanel" target="Burst.Engine.Source.Core.UI.ImGui.ImGuiPanel" relationship="GENERALIZATION">
-      <point x="0.0" y="-0.0" />
-      <point x="-3324.682149240437" y="2106.5331417750945" />
-      <point x="-3192.682149240437" y="2106.5331417750945" />
-      <point x="0.0" y="-0.0" />
+      <point x="77.5" y="-87.0" />
+      <point x="-6817.5" y="3297.0" />
+      <point x="-6770.25" y="3297.0" />
+      <point x="-6770.25" y="3014.0" />
+      <point x="-6756.75" y="3014.0" />
+      <point x="0.0" y="40.5" />
     </edge>
-    <edge source="Burst.Engine.Source.Editor.EditorCamera" target="Burst.Engine.Source.Core.Component" relationship="GENERALIZATION">
-      <point x="0.0" y="-0.0" />
-      <point x="-3976.5" y="4226.544372558597" />
-      <point x="-3303.0" y="4226.544372558597" />
-      <point x="0.0" y="-0.0" />
+    <edge source="Burst.Engine.Source.Core.Actor.ActorComponent" target="Burst.Engine.Source.Core.Component" relationship="GENERALIZATION">
+      <point x="0.0" y="-38.0" />
+      <point x="-7708.5" y="1783.0" />
+      <point x="-7131.0" y="1783.0" />
+      <point x="0.0" y="199.5" />
     </edge>
     <edge source="Burst.Engine.Source.Editor.Gizmo.ScaleGizmo" target="Burst.Engine.Source.Editor.Gizmo.Gizmo" relationship="GENERALIZATION">
-      <point x="0.0" y="-0.0" />
-      <point x="-2667.5" y="3932.544372558597" />
-      <point x="-2817.0" y="3932.544372558597" />
-      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-40.5" />
+      <point x="-8782.5" y="2747.0" />
+      <point x="-8633.0" y="2747.0" />
+      <point x="0.0" y="128.5" />
+    </edge>
+    <edge source="Burst.Engine.Source.Editor.EditorCamera" target="Burst.Engine.Source.Core.Component" relationship="GENERALIZATION">
+      <point x="0.0" y="-45.5" />
+      <point x="-6133.5" y="1863.0" />
+      <point x="-7131.0" y="1863.0" />
+      <point x="0.0" y="199.5" />
     </edge>
     <edge source="Burst.Engine.Source.Core.Render.ViewportRenderer" target="Burst.Engine.Source.Core.Render.Renderer" relationship="GENERALIZATION">
-      <point x="0.0" y="-0.0" />
-      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-98.0" />
+      <point x="0.0" y="40.5" />
     </edge>
     <edge source="Burst.Engine.Source.Core.Assets.Graphics.Font" target="Burst.Engine.Source.Core.Assets.Asset" relationship="GENERALIZATION">
-      <point x="0.0" y="-0.0" />
-      <point x="-6901.648847190955" y="5185.894160959289" />
-      <point x="-6557.148847190955" y="5185.894160959289" />
-      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-27.0" />
+      <point x="-8825.5" y="3090.0" />
+      <point x="-8331.5" y="3090.0" />
+      <point x="-30.75" y="78.5" />
     </edge>
     <edge source="Burst.Engine.Source.Core.Assets.Graphics.LevelMap" target="Burst.Engine.Source.Core.Assets.Asset" relationship="GENERALIZATION">
-      <point x="0.0" y="-0.0" />
-      <point x="-5678.148847190955" y="5185.894160959289" />
-      <point x="-6557.148847190955" y="5185.894160959289" />
-      <point x="0.0" y="-0.0" />
-    </edge>
-    <edge source="Burst.Engine.Source.Core.Render.SpriteRenderer" target="Burst.Engine.Source.Core.Component" relationship="GENERALIZATION">
-      <point x="0.0" y="-0.0" />
-      <point x="-1709.0" y="4226.544372558597" />
-      <point x="-3303.0" y="4226.544372558597" />
-      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-27.0" />
+      <point x="-8657.0" y="3110.0" />
+      <point x="-8331.5" y="3110.0" />
+      <point x="-30.75" y="78.5" />
     </edge>
     <edge source="Burst.Engine.Source.Core.Assets.Graphics.UI_Assets" target="Burst.Engine.Source.Core.Assets.Asset" relationship="GENERALIZATION">
-      <point x="0.0" y="-0.0" />
-      <point x="-6734.148847190955" y="5185.894160959289" />
-      <point x="-6557.148847190955" y="5185.894160959289" />
-      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-27.0" />
+      <point x="-8199.0" y="3150.0" />
+      <point x="-8331.5" y="3150.0" />
+      <point x="-30.75" y="78.5" />
     </edge>
     <edge source="Burst.Engine.Source.Core.Actor.Pawn" target="Burst.Engine.Source.Core.Actor.Actor" relationship="GENERALIZATION">
-      <point x="0.0" y="-0.0" />
-      <point x="-6459.648847190955" y="3428.4636513671917" />
-      <point x="-6553.648847190955" y="3428.4636513671917" />
-      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-27.0" />
+      <point x="-7343.0" y="3532.0" />
+      <point x="-7249.0" y="3532.0" />
+      <point x="0.0" y="309.5" />
     </edge>
-    <edge source="Burst.Engine.Source.Core.Physics.Components.Box2DCollider" target="Burst.Engine.Source.Core.Component" relationship="GENERALIZATION">
-      <point x="0.0" y="-0.0" />
-      <point x="-4193.0" y="4226.544372558597" />
-      <point x="-3303.0" y="4226.544372558597" />
-      <point x="0.0" y="-0.0" />
+    <edge source="Burst.Engine.Source.Core.Actor.PlayerController" target="Burst.Engine.Source.Core.Actor.ActorComponent" relationship="GENERALIZATION">
+      <point x="0.0" y="-92.0" />
+      <point x="-7753.5" y="2099.0" />
+      <point x="-7754.0" y="2099.0" />
+      <point x="-45.5" y="38.0" />
+    </edge>
+    <edge source="Burst.Engine.Source.Editor.Gizmo.Gizmo" target="Burst.Engine.Source.Core.Actor.ActorComponent" relationship="GENERALIZATION">
+      <point x="53.0" y="-128.5" />
+      <point x="-8580.0" y="2450.0" />
+      <point x="-8510.75" y="2450.0" />
+      <point x="-8510.75" y="2018.9999999999998" />
+      <point x="-7663.0" y="2018.9999999999998" />
+      <point x="45.5" y="38.0" />
     </edge>
     <edge source="Burst.Engine.Source.Core.Scene.Initializer.StartMenuInitializer" target="Burst.Engine.Source.Core.Scene.Initializer.MenuInitializer" relationship="GENERALIZATION">
-      <point x="0.0" y="-0.0" />
-      <point x="-7221.648847190955" y="1462.2731953872076" />
-      <point x="-7096.148847190955" y="1462.2731953872076" />
-      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-40.5" />
+      <point x="-9057.5" y="4280.0" />
+      <point x="-9089.5" y="4280.0" />
+      <point x="-42.25" y="27.0" />
     </edge>
     <edge source="Burst.Engine.Source.Core.Scene.Initializer.GameInitializer" target="Burst.Engine.Source.Core.Scene.Initializer.SceneInitializer" relationship="GENERALIZATION">
-      <point x="0.0" y="-0.0" />
-      <point x="-6540.648847190955" y="1556.2731953872076" />
-      <point x="-6887.148847190955" y="1556.2731953872076" />
-      <point x="0.0" y="-0.0" />
-    </edge>
-    <edge source="Burst.Engine.Source.Game.Animation.StateMachine" target="Burst.Engine.Source.Core.Component" relationship="GENERALIZATION">
-      <point x="0.0" y="-0.0" />
-      <point x="-2277.5" y="4226.544372558597" />
-      <point x="-3303.0" y="4226.544372558597" />
-      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-40.5" />
+      <point x="-8607.0" y="4146.0" />
+      <point x="-8838.25" y="4146.0" />
+      <point x="0.0" y="62.5" />
     </edge>
     <edge source="Burst.Engine.Source.Editor.Panel.PropertiesPanel" target="Burst.Engine.Source.Core.UI.ImGui.ImGuiPanel" relationship="GENERALIZATION">
-      <point x="0.0" y="-0.0" />
-      <point x="-3634.682149240437" y="2106.5331417750945" />
-      <point x="-3192.682149240437" y="2106.5331417750945" />
-      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-111.5" />
+      <point x="-6905.25" y="2994.0" />
+      <point x="-6797.083333333334" y="2994.0" />
+      <point x="-40.33333333333333" y="40.5" />
     </edge>
-    <edge source="Burst.Engine.Source.Core.Physics.Components.CircleCollider" target="Burst.Engine.Source.Core.Component" relationship="GENERALIZATION">
-      <point x="0.0" y="-0.0" />
-      <point x="-5080.0" y="4226.544372558597" />
-      <point x="-3303.0" y="4226.544372558597" />
-      <point x="0.0" y="-0.0" />
+    <edge source="Burst.Engine.Source.Editor.Components.GridLines" target="Burst.Engine.Source.Core.Actor.ActorComponent" relationship="GENERALIZATION">
+      <point x="0.0" y="-51.5" />
+      <point x="-6612.500000000002" y="1998.9999999999998" />
+      <point x="-7754.0" y="1998.9999999999998" />
+      <point x="-45.5" y="38.0" />
     </edge>
-    <edge source="Burst.Engine.Source.Editor.Components.GridLines" target="Burst.Engine.Source.Core.Component" relationship="GENERALIZATION">
-      <point x="0.0" y="-0.0" />
-      <point x="-1510.5" y="4226.544372558597" />
-      <point x="-3303.0" y="4226.544372558597" />
-      <point x="0.0" y="-0.0" />
+    <edge source="Burst.Engine.Source.Core.Physics.Components.CircleCollider" target="Burst.Engine.Source.Core.Actor.ActorComponent" relationship="GENERALIZATION">
+      <point x="0.0" y="-111.5" />
+      <point x="-8237.0" y="2038.9999999999998" />
+      <point x="-7754.0" y="2038.9999999999998" />
+      <point x="-45.5" y="38.0" />
     </edge>
     <edge source="Burst.Engine.Source.Editor.ContentDrawer" target="Burst.Engine.Source.Core.UI.ImGui.ImGuiPanel" relationship="GENERALIZATION">
-      <point x="0.0" y="-0.0" />
-      <point x="-3010.682149240437" y="2106.5331417750945" />
-      <point x="-3192.682149240437" y="2106.5331417750945" />
-      <point x="0.0" y="-0.0" />
+      <point x="79.33333333333334" y="-62.5" />
+      <point x="-6677.416666666668" y="3531.0" />
+      <point x="-6464.0" y="3531.0" />
+      <point x="-6464.0" y="2994.0" />
+      <point x="-6716.416666666668" y="2994.0" />
+      <point x="40.33333333333333" y="40.5" />
     </edge>
-    <edge source="Burst.Engine.Source.Core.Actor.PlayerController" target="Burst.Engine.Source.Core.Component" relationship="GENERALIZATION">
-      <point x="0.0" y="-0.0" />
-      <point x="-1978.5" y="4226.544372558597" />
-      <point x="-3303.0" y="4226.544372558597" />
-      <point x="0.0" y="-0.0" />
+    <edge source="Burst.Engine.Source.Core.Physics.Components.Box2DCollider" target="Burst.Engine.Source.Core.Actor.ActorComponent" relationship="GENERALIZATION">
+      <point x="0.0" y="-111.5" />
+      <point x="-7484.0" y="2079.0" />
+      <point x="-7754.0" y="2079.0" />
+      <point x="-45.5" y="38.0" />
+    </edge>
+    <edge source="Burst.Engine.Source.Core.Render.Components.FontRenderer" target="Burst.Engine.Source.Core.Actor.ActorComponent" relationship="GENERALIZATION">
+      <point x="0.0" y="-51.5" />
+      <point x="-7044.000000000002" y="2038.9999999999998" />
+      <point x="-7754.0" y="2038.9999999999998" />
+      <point x="-45.5" y="38.0" />
+    </edge>
+    <edge source="Burst.Engine.Source.Core.Physics.Components.Rigidbody2D" target="Burst.Engine.Source.Core.Actor.ActorComponent" relationship="GENERALIZATION">
+      <point x="0.0" y="-364.5" />
+      <point x="-6824.000000000002" y="2018.9999999999998" />
+      <point x="-7754.0" y="2018.9999999999998" />
+      <point x="-45.5" y="38.0" />
     </edge>
     <edge source="Burst.Engine.Source.Core.Scene.Initializer.EditorInitializer" target="Burst.Engine.Source.Core.Scene.Initializer.SceneInitializer" relationship="GENERALIZATION">
-      <point x="0.0" y="-0.0" />
-      <point x="-6749.648847190955" y="1556.2731953872076" />
-      <point x="-6887.148847190955" y="1556.2731953872076" />
-      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-51.5" />
+      <point x="-8816.0" y="4166.0" />
+      <point x="-8838.25" y="4166.0" />
+      <point x="0.0" y="62.5" />
     </edge>
   </edges>
-  <settings layout="Generic" zoom="0.15625" showDependencies="false" x="-2485.5108421300793" y="4048.970457599995" />
+  <settings layout="Series Parallel" zoom="0.5615099266740455" showDependencies="false" x="-6929.372043149189" y="3428.828812319548" />
   <SelectedNodes />
   <Categories>
     <Category>Constructors</Category>

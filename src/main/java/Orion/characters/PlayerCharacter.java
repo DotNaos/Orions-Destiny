@@ -1,7 +1,8 @@
 package Orion.characters;
 
-public abstract class PlayerCharacter {
-    protected String name;
+import Burst.Engine.Source.Core.Actor.Pawn;
+
+public abstract class PlayerCharacter extends Pawn {
     protected String description;
     protected int HP;
     protected int DEF;
@@ -11,8 +12,8 @@ public abstract class PlayerCharacter {
     protected int LVL;
     protected int EXP;
 
-    public String getName() {
-        return this.name;
+    public PlayerCharacter(String name) {
+        super(name);
     }
 
     public String getDescription() {

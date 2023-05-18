@@ -1,6 +1,7 @@
 package Burst.Engine.Source.Editor.Gizmo;
 
 import Burst.Engine.Source.Core.Actor.Actor;
+import Burst.Engine.Source.Core.Actor.ActorComponent;
 import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.Input.MouseListener;
@@ -13,7 +14,7 @@ import org.joml.Vector4f;
 
 import static org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT;
 
-public class Gizmo extends Component {
+public class Gizmo extends ActorComponent {
     protected Actor activeActor = null;
     protected boolean xAxisActive = false;
     protected boolean yAxisActive = false;

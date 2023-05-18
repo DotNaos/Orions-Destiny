@@ -1,12 +1,13 @@
 package Burst.Engine.Source.Core.Physics.Components;
 
 import Burst.Engine.Source.Core.Actor.Actor;
+import Burst.Engine.Source.Core.Actor.ActorComponent;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.Render.Debug.DebugDraw;
 import Burst.Engine.Source.Core.UI.Window;
 import org.joml.Vector3f;
 
-public class CircleCollider extends Component {
+public class CircleCollider extends ActorComponent {
     protected Vector3f offset = new Vector3f();
     private float radius = 1f;
     private transient boolean resetFixtureNextFrame = false;

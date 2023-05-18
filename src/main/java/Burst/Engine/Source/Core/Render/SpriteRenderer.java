@@ -2,6 +2,7 @@ package Burst.Engine.Source.Core.Render;
 
 
 import Burst.Engine.Source.Core.Actor.Actor;
+import Burst.Engine.Source.Core.Actor.ActorComponent;
 import Burst.Engine.Source.Core.Assets.AssetManager;
 import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
 import Burst.Engine.Source.Core.Assets.Graphics.Texture;
@@ -11,7 +12,7 @@ import Burst.Engine.Source.Core.UI.ImGui.BImGui;
 import org.joml.Vector3f;
 import org.joml.Vector4f;
 
-public class SpriteRenderer extends Component {
+public class SpriteRenderer extends ActorComponent {
 
     private Vector4f color = new Vector4f(1, 1, 1, 1);
     private Sprite sprite = new Sprite();

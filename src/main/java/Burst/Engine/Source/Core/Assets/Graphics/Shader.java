@@ -151,7 +151,7 @@ public class Shader extends Asset {
         glUniform3f(varLocation, vec.x, vec.y, vec.z);
     }
 
-    public void uploadVec2f(String varName, Vector3f vec) {
+    public void uploadVec2f(String varName, Vector2f vec) {
         int varLocation = glGetUniformLocation(shaderProgramID, varName);
         use();
         glUniform2f(varLocation, vec.x, vec.y);
