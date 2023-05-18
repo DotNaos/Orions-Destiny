@@ -12,6 +12,8 @@ import Burst.Engine.Source.Core.Scene.Scene;
 import Burst.Engine.Source.Editor.Panel.OutlinerPanel;
 import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
 import imgui.ImGui;
+import imgui.flag.ImGuiCol;
+import imgui.flag.ImGuiStyleVar;
 
 public class Editor extends Game {
 
@@ -57,20 +59,39 @@ public class Editor extends Game {
         if (ImGui.beginTabBar("EditorTabs")) {
             if (ImGui.beginTabItem("Style"))
             {
+                ImGui.beginTable("EditorTable", 2);
+                ImGui.pushStyleColor(ImGuiCol.Border, 1.0f, 1.0f, 1.0f, 0.2f);
+                ImGui.pushStyleVar(ImGuiStyleVar.FrameBorderSize, 1.0f);
+                ImGui.pushStyleVar(ImGuiStyleVar.ItemSpacing, 20f, 20f);
                 ImGuiStyleConfig.get().imgui();
+
+                ImGui.popStyleColor();
+                ImGui.popStyleVar(2);
+
+                ImGui.endTable();
                 ImGui.endTabItem();
+
             }
 
             // Components imgui
-            for (Component component : components) {
-                if (ImGui.beginTabItem(component.getClass().getSimpleName())) {
-                    component.imgui();
-                    ImGui.endTabItem();
+            if (ImGui.beginTabItem("Components"))
+            {
+                ImGui.beginTable("EditorTable", 2);
+                for (Component component : components) {
+                    if (ImGui.collapsingHeader(component.getClass().getSimpleName())) {
+                        component.imgui();
+                    }
                 }
+                ImGui.endTable();
+                ImGui.endTabItem();
             }
+
+
 
             ImGui.endTabBar();
         }
+
+
 
         ImGui.end();
     }

@@ -9,20 +9,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="All Style Variables">
-      <change afterPath="$PROJECT_DIR$/Assets/images/spritesheets/buttons.png" afterDir="false" />
+    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="Sprites for UI, Unreal Engine Colors (Window), Fixed Object reset value">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/imgui.ini" beforeDir="false" afterPath="$PROJECT_DIR$/imgui.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Config/ImGuiStyleConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Config/ImGuiStyleConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/AssetManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/AssetManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/Graphics/Sprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/Graphics/Sprite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/Graphics/Spritesheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/Graphics/Spritesheet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Component.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Component.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Physics/Components/Transform.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Physics/Components/Transform.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/ImGui/BImGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/ImGui/BImGui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Util/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Util/Util.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/ContentDrawer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/ContentDrawer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/res/Assets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/res/Assets.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/ImGui/ImGuiLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/ImGui/ImGuiLayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Editor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Editor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,7 +182,7 @@
       <workItem from="1684333118706" duration="770000" />
       <workItem from="1684334578947" duration="5518000" />
       <workItem from="1684341084673" duration="14895000" />
-      <workItem from="1684390126193" duration="36743000" />
+      <workItem from="1684390126193" duration="40356000" />
     </task>
     <task id="LOCAL-00001" summary="Refactoring vom Editor">
       <created>1683701936326</created>
@@ -386,14 +380,20 @@
       <option name="project" value="LOCAL" />
       <updated>1684431159847</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Sprites for UI, Unreal Engine Colors (Window), Fixed Object reset value">
+      <created>1684444995164</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1684444995164</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Docking Farbe, Level Editor Stuff gelöscht" />
     <MESSAGE value="Actor Update und Serialization" />
     <MESSAGE value="Saving Actors" />
     <MESSAGE value="Generating Actors updated" />
@@ -418,7 +418,8 @@
     <MESSAGE value="Editor" />
     <MESSAGE value="Editor mit Component Tabs" />
     <MESSAGE value="All Style Variables" />
-    <option name="LAST_COMMIT_MESSAGE" value="All Style Variables" />
+    <MESSAGE value="Sprites for UI, Unreal Engine Colors (Window), Fixed Object reset value" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sprites for UI, Unreal Engine Colors (Window), Fixed Object reset value" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

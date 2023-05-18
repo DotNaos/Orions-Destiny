@@ -20,7 +20,7 @@ public class ImGuiStyleConfig extends Component {
   //------------------------------[Style Vars]-------------------------------
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   //=========================================================================
-  private float frameRounding = 0.0f;
+  private float frameRounding = 2.5f;
   private float childBorderSize = 1.0f;
   private float alpha = 1.0f;
   private boolean antiAliasedFill = true;
@@ -41,7 +41,7 @@ public class ImGuiStyleConfig extends Component {
   private float grabRounding = 0.0f;
   private float indentSpacing = 21.0f;
   private Vector2f itemInnerSpacing = new Vector2f(4.0f, 4.0f);
-  private Vector2f itemSpacing = new Vector2f(8.0f, 4.0f);
+  private Vector2f itemSpacing = new Vector2f(2);
   private float logSliderDeadzone = 4.0f;
   private float mouseCursorScale = 1.0f;
   private float popupBorderSize = 1.0f;
@@ -85,18 +85,18 @@ public class ImGuiStyleConfig extends Component {
   /**
    * Background of checkbox, radio button, plot, slider, text input
    */
-  private Vector4f FrameBg = hexToVec4f(0xff000007);
-  private Vector4f FrameBgHovered = hexToVec4f(0xff000008);
-  private Vector4f FrameBgActive = hexToVec4f(0xff000009);
+  private Vector4f FrameBg = hexToVec4f(0xff0f0f0f);
+  private Vector4f FrameBgHovered = hexToVec4f(0xff0f0f0f);
+  private Vector4f FrameBgActive = hexToVec4f(0xff0064FF);
   private Vector4f TitleBg = hexToVec4f(0xff151515);
   private Vector4f TitleBgActive = hexToVec4f(0xff151515);
   private Vector4f TitleBgCollapsed = hexToVec4f(0xff151515);
   private Vector4f MenuBarBg = hexToVec4f(0xff242424);
   private Vector4f ScrollbarBg = hexToVec4f(0xff00000e);
-  private Vector4f ScrollbarGrab = hexToVec4f(0xff00000f);
-  private Vector4f ScrollbarGrabHovered = hexToVec4f(0xff000010);
-  private Vector4f ScrollbarGrabActive = hexToVec4f(0xff000011);
-  private Vector4f CheckMark = hexToVec4f(0xff000012);
+  private Vector4f ScrollbarGrab = hexToVec4f(0xff575757);
+  private Vector4f ScrollbarGrabHovered = hexToVec4f((0xff575757 + (0x00111111 * 2)));
+  private Vector4f ScrollbarGrabActive = hexToVec4f((0xff575757 + (0x00111111 * 2)));
+  private Vector4f CheckMark = hexToVec4f(0xffffffff);
   private Vector4f SliderGrab = hexToVec4f(0xff000013);
   private Vector4f SliderGrabActive = hexToVec4f(0xff000014);
   private Vector4f Button = hexToVec4f(0x00000000);
@@ -105,17 +105,17 @@ public class ImGuiStyleConfig extends Component {
   /**
    * Header* colors are used for CollapsingHeader, TreeNode, Selectable, MenuItem
    */
-  private Vector4f Header = hexToVec4f(0xff000018);
-  private Vector4f HeaderHovered = hexToVec4f(0xff000019);
-  private Vector4f HeaderActive = hexToVec4f(0xff00001a);
+  private Vector4f Header = hexToVec4f(0xff2f2f2f);
+  private Vector4f HeaderHovered = hexToVec4f(0xff2f2f2f);
+  private Vector4f HeaderActive = hexToVec4f(0xff2f2f2f);
   private Vector4f Separator = hexToVec4f(0xff151515);
   private Vector4f SeparatorHovered = hexToVec4f(0xff404040);
   private Vector4f SeparatorActive = hexToVec4f(0xff404040);
   private Vector4f ResizeGrip = hexToVec4f(0xff00001e);
   private Vector4f ResizeGripHovered = hexToVec4f(0xff00001f);
   private Vector4f ResizeGripActive = hexToVec4f(0xff000020);
-  private Vector4f Tab = hexToVec4f(0xff000021);
-  private Vector4f TabHovered = hexToVec4f(0xff000022);
+  private Vector4f Tab = hexToVec4f(0x00000000);
+  private Vector4f TabHovered = hexToVec4f(0xAA242424);
   private Vector4f TabActive = hexToVec4f(0xff242424);
   private Vector4f TabUnfocused = hexToVec4f(0xff242424);
   private Vector4f TabUnfocusedActive = hexToVec4f(0xff242424);

@@ -35,10 +35,6 @@ public class BImGui {
 
     public static void drawVec2Control(String label, Vector2f values, Vector2f resetValue, float columnWidth) {
         ImGui.pushID(label);
-        ImGui.columns(2);
-        ImGui.setColumnWidth(0, columnWidth);
-        ImGui.text(label);
-        ImGui.nextColumn();
         ImGui.pushStyleVar(ImGuiStyleVar.ItemSpacing, 0, 0);
 
         float lineHeight = ImGui.getFontSize() + ImGui.getStyle().getFramePaddingY() * 2.0f;
@@ -64,7 +60,6 @@ public class BImGui {
         float[] vecValuesY = {values.y};
         ImGui.dragFloat("##Y", vecValuesY, 0.1f);
         ImGui.popItemWidth();
-        ImGui.columns(1);
 
         values.x = vecValuesX[0];
         values.y = vecValuesY[0];
@@ -83,11 +78,6 @@ public class BImGui {
 
     public static void drawVec3Control(String label, Vector3f values, Vector3f resetValue, float columnWidth) {
         ImGui.pushID(label);
-
-        ImGui.columns(2);
-        ImGui.setColumnWidth(0, columnWidth);
-        ImGui.text(label);
-        ImGui.nextColumn();
         ImGui.pushStyleVar(ImGuiStyleVar.ItemSpacing, 0, 0);
 
         float lineHeight = ImGui.getFontSize() + ImGui.getStyle().getFramePaddingY() * 2.0f;
@@ -124,7 +114,6 @@ public class BImGui {
         float[] vecValuesZ = {values.z};
         ImGui.dragFloat("##Z", vecValuesZ, 0.1f);
         ImGui.popItemWidth();
-        ImGui.columns(1);
 
         values.x = vecValuesX[0];
         values.y = vecValuesY[0];
@@ -136,11 +125,6 @@ public class BImGui {
 
     public static float dragFloat(String label, float value, float resetValue) {
         ImGui.pushID(label);
-        ImGui.columns(2);
-        ImGui.setColumnWidth(0, defaultColumnWidth);
-        ImGui.text(label);
-        ImGui.nextColumn();
-
         ImGui.pushStyleVar(ImGuiStyleVar.ItemSpacing, 0, 0);
 
         float lineHeight = ImGui.getFontSize() + ImGui.getStyle().getFramePaddingY() * 2.0f;
@@ -155,7 +139,6 @@ public class BImGui {
         ImGui.popItemWidth();
 
         ImGui.popStyleVar();
-        ImGui.columns(1);
         ImGui.popID();
 
         return reset ? resetValue : valArr[0];
@@ -164,10 +147,6 @@ public class BImGui {
     public static int dragInt(String label, int value, int resetValue)
     {
         ImGui.pushID(label);
-        ImGui.columns(2);
-        ImGui.setColumnWidth(0, defaultColumnWidth);
-        ImGui.text(label);
-        ImGui.nextColumn();
         ImGui.pushStyleVar(ImGuiStyleVar.ItemSpacing, 0, 0);
 
         float lineHeight = ImGui.getFontSize() + ImGui.getStyle().getFramePaddingY() * 2.0f;
@@ -182,7 +161,6 @@ public class BImGui {
         ImGui.popItemWidth();
 
         ImGui.popStyleVar();
-        ImGui.columns(1);
         ImGui.popID();
 
         return reset ? resetValue : valArr[0];
@@ -214,10 +192,6 @@ public class BImGui {
         boolean res = false;
         ImGui.pushID(label);
 
-        ImGui.columns(2);
-        ImGui.setColumnWidth(0, defaultColumnWidth);
-        ImGui.text(label);
-        ImGui.nextColumn();
 
         float[] imColor = {color.x, color.y, color.z, color.w};
         if (ImGui.colorEdit4("##colorPicker", imColor)) {
@@ -225,7 +199,6 @@ public class BImGui {
             res = true;
         }
 
-        ImGui.columns(1);
         ImGui.popID();
 
         return res;
@@ -233,11 +206,6 @@ public class BImGui {
 
     public static String inputText(String label, String text) {
         ImGui.pushID(label);
-
-        ImGui.columns(2);
-        ImGui.setColumnWidth(0, defaultColumnWidth);
-        ImGui.text(label);
-        ImGui.nextColumn();
 
         ImString outString = new ImString(text, 256);
         if (ImGui.inputText("##" + label, outString)) {
@@ -247,7 +215,6 @@ public class BImGui {
             return outString.get();
         }
 
-        ImGui.columns(1);
         ImGui.popID();
 
         return text;

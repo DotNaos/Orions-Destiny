@@ -109,7 +109,9 @@ public abstract class Component {
         Object value = field.get(this);
         String name = field.getName();
 
-
+        ImGui.tableNextColumn();
+        ImGui.text(field.getName());
+        ImGui.tableNextColumn();
         if (type.equals(int.class)) {
           int val = (int) value;
           field.set(this, BImGui.dragInt(name, val, (int) initialValues.get(field.getName())));
@@ -122,10 +124,12 @@ public abstract class Component {
         else if (type.equals(boolean.class))
         {
           boolean val = (boolean) value;
-          if (ImGui.checkbox(name, val))
+          ImGui.pushID(name);
+          if (ImGui.checkbox("", val))
           {
             field.set(this, !val);
           }
+          ImGui.popID();
         }
         else if (type.equals(Vector2f.class))
         {
@@ -159,6 +163,7 @@ public abstract class Component {
           field.set(this, BImGui.inputText(field.getName() + ": ", (String) value));
         }
 
+        ImGui.tableNextRow();
 
         if (isPrivate) {
           field.setAccessible(false);
