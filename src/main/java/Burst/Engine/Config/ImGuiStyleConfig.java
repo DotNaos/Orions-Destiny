@@ -79,7 +79,7 @@ public class ImGuiStyleConfig extends Component {
   /**
    * Background of popups, menus, tooltips windows
    */
-  private Vector4f PopupBg = hexToVec4f(0x000004ff);
+  private Vector4f PopupBg = hexToVec4f(0x202020C8);
   private Vector4f Border = hexToVec4f(0x00000000);
   private Vector4f BorderShadow = hexToVec4f(0x00000000);
   /**

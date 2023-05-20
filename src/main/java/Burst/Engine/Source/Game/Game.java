@@ -6,6 +6,7 @@ import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
 import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.Physics.Physics2D;
+import Burst.Engine.Source.Core.Render.SpriteRenderer;
 import Burst.Engine.Source.Core.Saving.ActorDeserializer;
 import Burst.Engine.Source.Core.Saving.ComponentDeserializer;
 import Burst.Engine.Source.Core.Scene.Scene;
@@ -55,8 +56,7 @@ public class Game {
         Sprite sprite = new Sprite();
         sprite.setTexture(tex);
 
-
-        this.scene.getViewportRenderer().add(new Actor(sprite));
+        this.addActor(new Actor(sprite));
     }
 
     //====================================================================================================
@@ -97,6 +97,14 @@ public class Game {
 
     public void addActor(Actor actor) {
         actors.add(actor);
+
+        // Add the actor to the physics engine
+        this.physics2D.add(actor);
+
+        // Add the actor to the viewport renderer, if it has a sprite
+        if (actor.getComponent(SpriteRenderer.class) != null) {
+            scene.getViewportRenderer().add(actor);
+        }
 
         // Save the level if the actor is a serialized actor
         if (!actor.isSerializedActor()) return;

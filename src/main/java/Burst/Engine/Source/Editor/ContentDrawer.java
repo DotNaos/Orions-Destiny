@@ -10,6 +10,8 @@ import Burst.Engine.Source.Editor.Components.MouseControls;
 import Orion.res.Assets;
 import imgui.ImGui;
 import imgui.ImVec2;
+import imgui.flag.ImGuiMouseButton;
+import imgui.flag.ImGuiMouseCursor;
 import org.joml.Vector3f;
 
 import java.util.ArrayList;
@@ -60,14 +62,40 @@ public class ContentDrawer extends ImGuiPanel {
                     float spriteHeight = sprite.getHeight() * 4;
                     int id = sprite.getTexId();
                     Vector3f[] texCoords = sprite.getTexCoords();
-
                     ImGui.pushID(i);
+
+                    // When hovering over the sprite, show the sprite in the tooltip
+
                     if (ImGui.imageButton(id, spriteWidth, spriteHeight, texCoords[2].x, texCoords[0].y, texCoords[0].x, texCoords[2].y)) {
+                        // While dragging the mouse, show the sprite next to the cursor
+
+
+
+
+
                         // TODO: ContentDrawer Pickup Object
                         Actor actor = new Actor(sprite);
-                        Window.getScene().getEditor().getComponent(MouseControls.class).pickupObject(actor);
+
+                        // Make the actor non-pickable
+                        actor.addComponent(new NonPickable());
+
+                        //
                     }
                     ImGui.popID();
+
+                    // Shows next to the cursor when dragging the mouse
+//                            ImGui.beginTooltip();
+//                            ImGui.image(id, spriteWidth, spriteHeight, texCoords[2].x, texCoords[0].y, texCoords[0].x, texCoords[2].y);
+//                            ImGui.endTooltip();
+
+
+
+                    if (ImGui.isItemHovered()) {
+                        ImGui.beginTooltip();
+                        ImGui.setMouseCursor(ImGuiMouseCursor.Hand);
+                        ImGui.image(id, spriteWidth, spriteHeight, texCoords[2].x, texCoords[0].y, texCoords[0].x, texCoords[2].y);
+                        ImGui.endTooltip();
+                    }
 
                     ImVec2 lastButtonPos = new ImVec2();
                     ImGui.getItemRectMax(lastButtonPos);
