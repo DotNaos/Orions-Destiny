@@ -67,108 +67,108 @@ public class ImGuiStyleConfig extends Component {
   //=========================================================================
 
   private Vector4f Text = hexToVec4f(0xffffffff);
-  private Vector4f TextDisabled = hexToVec4f(0xff000001);
+  private Vector4f TextDisabled = hexToVec4f(0x000001ff);
   /**
    * Background of normal windows
    */
-  private Vector4f WindowBg = hexToVec4f(0xff151515);
+  private Vector4f WindowBg = hexToVec4f(0x151515ff);
   /**
    * Background of child windows
    */
-  private Vector4f ChildBg = hexToVec4f(0xff151515);
+  private Vector4f ChildBg = hexToVec4f(0x151515ff);
   /**
    * Background of popups, menus, tooltips windows
    */
-  private Vector4f PopupBg = hexToVec4f(0xff000004);
+  private Vector4f PopupBg = hexToVec4f(0x000004ff);
   private Vector4f Border = hexToVec4f(0x00000000);
   private Vector4f BorderShadow = hexToVec4f(0x00000000);
   /**
    * Background of checkbox, radio button, plot, slider, text input
    */
-  private Vector4f FrameBg = hexToVec4f(0xff0f0f0f);
-  private Vector4f FrameBgHovered = hexToVec4f(0xff0f0f0f);
-  private Vector4f FrameBgActive = hexToVec4f(0xff0064FF);
-  private Vector4f TitleBg = hexToVec4f(0xff151515);
-  private Vector4f TitleBgActive = hexToVec4f(0xff151515);
-  private Vector4f TitleBgCollapsed = hexToVec4f(0xff151515);
-  private Vector4f MenuBarBg = hexToVec4f(0xff242424);
-  private Vector4f ScrollbarBg = hexToVec4f(0xff00000e);
-  private Vector4f ScrollbarGrab = hexToVec4f(0xff575757);
-  private Vector4f ScrollbarGrabHovered = hexToVec4f((0xff575757 + (0x00111111 * 2)));
-  private Vector4f ScrollbarGrabActive = hexToVec4f((0xff575757 + (0x00111111 * 2)));
+  private Vector4f FrameBg = hexToVec4f(0x0f0f0fff);
+  private Vector4f FrameBgHovered = hexToVec4f(0x0f0f0fff);
+  private Vector4f FrameBgActive = hexToVec4f(0x0064FFff);
+  private Vector4f TitleBg = hexToVec4f(0x151515ff);
+  private Vector4f TitleBgActive = hexToVec4f(0x151515ff);
+  private Vector4f TitleBgCollapsed = hexToVec4f(0x151515ff);
+  private Vector4f MenuBarBg = hexToVec4f(0x242424ff);
+  private Vector4f ScrollbarBg = hexToVec4f(0x00000eff);
+  private Vector4f ScrollbarGrab = hexToVec4f(0x575757ff);
+  private Vector4f ScrollbarGrabHovered = hexToVec4f((0x575757ff + (0x111111ff * 2)));
+  private Vector4f ScrollbarGrabActive = hexToVec4f((0x575757ff + (0x111111ff * 2)));
   private Vector4f CheckMark = hexToVec4f(0xffffffff);
-  private Vector4f SliderGrab = hexToVec4f(0xff000013);
-  private Vector4f SliderGrabActive = hexToVec4f(0xff000014);
+  private Vector4f SliderGrab = hexToVec4f(0x000013ff);
+  private Vector4f SliderGrabActive = hexToVec4f(0x000014ff);
   private Vector4f Button = hexToVec4f(0x00000000);
-  private Vector4f ButtonHovered = hexToVec4f(0xff000016);
-  private Vector4f ButtonActive = hexToVec4f(0xff000017);
+  private Vector4f ButtonHovered = hexToVec4f(0x0064FF64);
+  private Vector4f ButtonActive = hexToVec4f(0x000017ff);
   /**
    * Header* colors are used for CollapsingHeader, TreeNode, Selectable, MenuItem
    */
-  private Vector4f Header = hexToVec4f(0xff2f2f2f);
-  private Vector4f HeaderHovered = hexToVec4f(0xff2f2f2f);
-  private Vector4f HeaderActive = hexToVec4f(0xff2f2f2f);
-  private Vector4f Separator = hexToVec4f(0xff151515);
-  private Vector4f SeparatorHovered = hexToVec4f(0xff404040);
-  private Vector4f SeparatorActive = hexToVec4f(0xff404040);
-  private Vector4f ResizeGrip = hexToVec4f(0xff00001e);
-  private Vector4f ResizeGripHovered = hexToVec4f(0xff00001f);
-  private Vector4f ResizeGripActive = hexToVec4f(0xff000020);
-  private Vector4f Tab = hexToVec4f(0x00000000);
-  private Vector4f TabHovered = hexToVec4f(0xAA242424);
-  private Vector4f TabActive = hexToVec4f(0xff242424);
-  private Vector4f TabUnfocused = hexToVec4f(0xff242424);
-  private Vector4f TabUnfocusedActive = hexToVec4f(0xff242424);
+  private Vector4f Header = hexToVec4f(0x2f2f2fff);
+  private Vector4f HeaderHovered = hexToVec4f(0x2f2f2fff);
+  private Vector4f HeaderActive = hexToVec4f(0x2f2f2fff);
+  private Vector4f Separator = hexToVec4f(0x151515ff);
+  private Vector4f SeparatorHovered = hexToVec4f(0x404040ff);
+  private Vector4f SeparatorActive = hexToVec4f(0x404040ff);
+  private Vector4f ResizeGrip = hexToVec4f(0x00001eff);
+  private Vector4f ResizeGripHovered = hexToVec4f(0x00001fff);
+  private Vector4f ResizeGripActive = hexToVec4f(0x000020ff);
+  private Vector4f Tab = hexToVec4f(0x000000ff);
+  private Vector4f TabHovered = hexToVec4f(0x242424ff);
+  private Vector4f TabActive = hexToVec4f(0x242424ff);
+  private Vector4f TabUnfocused = hexToVec4f(0x242424ff);
+  private Vector4f TabUnfocusedActive = hexToVec4f(0x242424ff);
   /**
    * Preview overlay color when about to docking something
    */
-  private Vector4f DockingPreview = hexToVec4f(0xff000026);
+  private Vector4f DockingPreview = hexToVec4f(0xFDFDFF76);
   /**
    * Background color for empty node (e.g. CentralNode with no window docked Vector4fo it)
    */
-  private Vector4f DockingEmptyBg = hexToVec4f(0xff000027);
-  private Vector4f PlotLines = hexToVec4f(0xff000028);
-  private Vector4f PlotLinesHovered = hexToVec4f(0xff000029);
-  private Vector4f PlotHistogram = hexToVec4f(0xff00002a);
-  private Vector4f PlotHistogramHovered = hexToVec4f(0xff00002b);
+  private Vector4f DockingEmptyBg = hexToVec4f(0x000027ff);
+  private Vector4f PlotLines = hexToVec4f(0x000028ff);
+  private Vector4f PlotLinesHovered = hexToVec4f(0x000029ff);
+  private Vector4f PlotHistogram = hexToVec4f(0x00002aff);
+  private Vector4f PlotHistogramHovered = hexToVec4f(0x00002bff);
   /**
    * Table header background
    */
-  private Vector4f TableHeaderBg = hexToVec4f(0xff00002c);
+  private Vector4f TableHeaderBg = hexToVec4f(0x00002cff);
   /**
    * Table outer and header borders (prefer using Alpha= hexToVec4f(1.0 here)
    */
-  private Vector4f TableBorderStrong = hexToVec4f(0xff00002d);
+  private Vector4f TableBorderStrong = hexToVec4f(0x00002dff);
   /**
    * Table inner borders (prefer using Alpha= hexToVec4f(1.0 here)
    */
-  private Vector4f TableBorderLight = hexToVec4f(0xff00002e);
+  private Vector4f TableBorderLight = hexToVec4f(0x00002eff);
   /**
    * Table row background (even rows)
    */
-  private Vector4f TableRowBg = hexToVec4f(0xff00002f);
+  private Vector4f TableRowBg = hexToVec4f(0x00002fff);
   /**
    * Table row background (odd rows)
    */
-  private Vector4f TableRowBgAlt = hexToVec4f(0xff000030);
-  private Vector4f TextSelectedBg = hexToVec4f(0xff000031);
-  private Vector4f DragDropTarget = hexToVec4f(0xff000032);
+  private Vector4f TableRowBgAlt = hexToVec4f(0x000030ff);
+  private Vector4f TextSelectedBg = hexToVec4f(0x000031ff);
+  private Vector4f DragDropTarget = hexToVec4f(0x000032ff);
   /**
    * Gamepad/keyboard: current highlighted item
    */
-  private Vector4f NavHighlight = hexToVec4f(0xff000033);
+  private Vector4f NavHighlight = hexToVec4f(0x000033ff);
   /**
    * Highlight window when using CTRL+TAB
    */
-  private Vector4f NavWindowingHighlight = hexToVec4f(0xff000034);
+  private Vector4f NavWindowingHighlight = hexToVec4f(0x000034ff);
   /**
    * Darken/colorize entire screen behind the CTRL+TAB window list, when active
    */
-  private Vector4f NavWindowingDimBg = hexToVec4f(0xff000035);
+  private Vector4f NavWindowingDimBg = hexToVec4f(0x000035ff);
   /**
    * Darken/colorize entire screen behind a modal window, when one is active
    */
-  private Vector4f ModalWindowDimBg = hexToVec4f(0xff000036);
+  private Vector4f ModalWindowDimBg = hexToVec4f(0x000036ff);
 
   public static ImGuiStyleConfig get() {
     return instance;

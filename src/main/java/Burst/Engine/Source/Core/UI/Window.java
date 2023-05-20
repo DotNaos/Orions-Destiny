@@ -175,6 +175,7 @@ public class Window implements Observer {
 
         assert alCapabilities.OpenAL10 : "Audio library not supported.";
 
+
         // This line is critical for LWJGL's interoperation with GLFW's
         // OpenGL context, or any context that is managed externally.
         // LWJGL detects the context that is current in the current thread,

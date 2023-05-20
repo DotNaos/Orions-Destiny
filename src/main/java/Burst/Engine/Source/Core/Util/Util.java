@@ -18,10 +18,10 @@ public class Util {
 
     public static Vector4f hexToVec4f(int HEX)
     {
-        float r = ((HEX >> 16) & 0xFF) / 255f;
-        float g = ((HEX >> 8) & 0xFF) / 255f;
-        float b = ((HEX) & 0xFF) / 255f;
-        float a = ((HEX >> 24) & 0xFF) / 255f;
+        float r = ((HEX >> 24) & 0xFF) / 255f;
+        float g = ((HEX >> 16) & 0xFF) / 255f;
+        float b = ((HEX >> 8) & 0xFF) / 255f;
+        float a = ((HEX) & 0xFF) / 255f;
         return new Vector4f(r, g, b, a);
     }
 }

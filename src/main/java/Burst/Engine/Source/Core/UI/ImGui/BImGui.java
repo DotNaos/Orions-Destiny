@@ -192,15 +192,21 @@ public class BImGui {
         boolean res = false;
         ImGui.pushID(label);
 
-
         float[] imColor = {color.x, color.y, color.z, color.w};
         if (ImGui.colorEdit4("##colorPicker", imColor)) {
             color.set(imColor[0], imColor[1], imColor[2], imColor[3]);
+
+            // Copies the color to the clipboard
+            String hex = String.format("0x%02X%02X%02X%02X",
+                    (int) (color.x * 255),
+                    (int) (color.y * 255),
+                    (int) (color.z * 255),
+                    (int) (color.w * 255));
+            ImGui.setClipboardText(hex);
+
             res = true;
         }
-
         ImGui.popID();
-
         return res;
     }
 
