@@ -24,9 +24,15 @@ public abstract class Component {
   private long ID = -1;
   private transient boolean started = false;
   protected Map<String, Object> initialValues;
+  private transient boolean imGuiEditable = true;
 
   public Component() {
     this.ID = Util.generateUniqueID();
+  }
+
+  public Component(boolean imGuiEditable) {
+    this();
+    this.imGuiEditable = imGuiEditable;
   }
 
   public void start() {
@@ -92,6 +98,7 @@ public abstract class Component {
       started = true;
       start();
     }
+
     try {
       Field[] fields = this.getClass().getDeclaredFields();
       for (Field field : fields) {
@@ -208,4 +215,11 @@ public abstract class Component {
     return this.ID;
   }
 
+  public boolean isEditableInImGui() {
+    return imGuiEditable;
+  }
+
+  public void setImGuiNotEditable() {
+    this.imGuiEditable = false;
+  }
 }

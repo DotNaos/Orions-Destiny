@@ -9,5 +9,167 @@
       }
     ],
     "serializedActor": true
+  },
+  {
+    "ID": 15,
+    "name": "Actor: 2",
+    "components": [
+      {
+        "color": {
+          "x": 0.8,
+          "y": 0.8,
+          "z": 0.8,
+          "w": 0.5
+        },
+        "sprite": {
+          "width": 16.0,
+          "height": 16.0,
+          "texture": {
+            "width": 512,
+            "height": 512,
+            "filepath": "Assets/images/spritesheets/blocks.png",
+            "id": 1156898028
+          },
+          "texCoords": [
+            {
+              "x": 0.375,
+              "y": 1.0,
+              "z": 0.0
+            },
+            {
+              "x": 0.375,
+              "y": 0.96875,
+              "z": 0.0
+            },
+            {
+              "x": 0.34375,
+              "y": 0.96875,
+              "z": 0.0
+            },
+            {
+              "x": 0.34375,
+              "y": 1.0,
+              "z": 0.0
+            }
+          ],
+          "filepath": "",
+          "id": 0
+        },
+        "ID": 16
+      },
+      {
+        "ID": 17,
+        "initialValues": {}
+      }
+    ],
+    "serializedActor": true
+  },
+  {
+    "ID": 21,
+    "name": "Actor: 3",
+    "components": [
+      {
+        "color": {
+          "x": 0.8,
+          "y": 0.8,
+          "z": 0.8,
+          "w": 0.5
+        },
+        "sprite": {
+          "width": 16.0,
+          "height": 16.0,
+          "texture": {
+            "width": 512,
+            "height": 512,
+            "filepath": "Assets/images/spritesheets/blocks.png",
+            "id": 1156898028
+          },
+          "texCoords": [
+            {
+              "x": 0.375,
+              "y": 1.0,
+              "z": 0.0
+            },
+            {
+              "x": 0.375,
+              "y": 0.96875,
+              "z": 0.0
+            },
+            {
+              "x": 0.34375,
+              "y": 0.96875,
+              "z": 0.0
+            },
+            {
+              "x": 0.34375,
+              "y": 1.0,
+              "z": 0.0
+            }
+          ],
+          "filepath": "",
+          "id": 0
+        },
+        "ID": 22
+      },
+      {
+        "ID": 23,
+        "initialValues": {}
+      }
+    ],
+    "serializedActor": true
+  },
+  {
+    "ID": 27,
+    "name": "Actor: 4",
+    "components": [
+      {
+        "color": {
+          "x": 0.8,
+          "y": 0.8,
+          "z": 0.8,
+          "w": 0.5
+        },
+        "sprite": {
+          "width": 16.0,
+          "height": 16.0,
+          "texture": {
+            "width": 512,
+            "height": 512,
+            "filepath": "Assets/images/spritesheets/blocks.png",
+            "id": 1156898028
+          },
+          "texCoords": [
+            {
+              "x": 0.375,
+              "y": 1.0,
+              "z": 0.0
+            },
+            {
+              "x": 0.375,
+              "y": 0.96875,
+              "z": 0.0
+            },
+            {
+              "x": 0.34375,
+              "y": 0.96875,
+              "z": 0.0
+            },
+            {
+              "x": 0.34375,
+              "y": 1.0,
+              "z": 0.0
+            }
+          ],
+          "filepath": "",
+          "id": 0
+        },
+        "ID": 28
+      },
+      {
+        "ID": 29,
+        "initialValues": {}
+      }
+    ],
+    "serializedActor": true
   }
 ]

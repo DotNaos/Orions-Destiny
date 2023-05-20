@@ -76,13 +76,24 @@ public class Editor extends Game {
             // Components imgui
             if (ImGui.beginTabItem("Components"))
             {
-                ImGui.beginTable("EditorTable", 2);
+
                 for (Component component : components) {
-                    if (ImGui.collapsingHeader(component.getClass().getSimpleName())) {
+
+                    if (!component.isEditableInImGui()) continue;
+                    if(ImGui.collapsingHeader(component.getClass().getSimpleName())) {
+                        ImGui.beginTable("EditorTable", 2);
+                        ImGui.pushStyleColor(ImGuiCol.Border, 1.0f, 1.0f, 1.0f, 0.2f);
+                        ImGui.pushStyleVar(ImGuiStyleVar.FrameBorderSize, 1.0f);
+                        ImGui.pushStyleVar(ImGuiStyleVar.ItemSpacing, 20f, 20f);
+
                         component.imgui();
+
+                        ImGui.popStyleColor();
+                        ImGui.popStyleVar(2);
+
+                        ImGui.endTable();
                     }
                 }
-                ImGui.endTable();
                 ImGui.endTabItem();
             }
 

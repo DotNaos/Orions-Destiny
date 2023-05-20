@@ -114,7 +114,7 @@ public class ImGuiStyleConfig extends Component {
   private Vector4f ResizeGrip = hexToVec4f(0x00001eff);
   private Vector4f ResizeGripHovered = hexToVec4f(0x00001fff);
   private Vector4f ResizeGripActive = hexToVec4f(0x000020ff);
-  private Vector4f Tab = hexToVec4f(0x000000ff);
+  private Vector4f Tab = hexToVec4f(0x00000000);
   private Vector4f TabHovered = hexToVec4f(0x242424ff);
   private Vector4f TabActive = hexToVec4f(0x242424ff);
   private Vector4f TabUnfocused = hexToVec4f(0x242424ff);
@@ -126,7 +126,7 @@ public class ImGuiStyleConfig extends Component {
   /**
    * Background color for empty node (e.g. CentralNode with no window docked Vector4fo it)
    */
-  private Vector4f DockingEmptyBg = hexToVec4f(0x000027ff);
+  private Vector4f DockingEmptyBg = hexToVec4f(0x00000000);
   private Vector4f PlotLines = hexToVec4f(0x000028ff);
   private Vector4f PlotLinesHovered = hexToVec4f(0x000029ff);
   private Vector4f PlotHistogram = hexToVec4f(0x00002aff);

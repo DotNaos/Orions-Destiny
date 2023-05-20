@@ -39,6 +39,7 @@ public class MouseControls extends Component {
     private GizmoSystem gizmoSystem;
 
     public MouseControls() {
+        super();
         this.gizmoSystem = new GizmoSystem(gizmos, null);
     }
 
