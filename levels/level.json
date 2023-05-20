@@ -1,6 +1,6 @@
 [
   {
-    "ID": 3,
+    "ID": 2,
     "name": "Actor: 1",
     "components": [
       {
@@ -11,162 +11,88 @@
     "serializedActor": true
   },
   {
-    "ID": 15,
+    "ID": 4,
     "name": "Actor: 2",
     "components": [
       {
-        "color": {
-          "x": 0.8,
-          "y": 0.8,
-          "z": 0.8,
-          "w": 0.5
-        },
-        "sprite": {
-          "width": 16.0,
-          "height": 16.0,
-          "texture": {
-            "width": 512,
-            "height": 512,
-            "filepath": "Assets/images/spritesheets/blocks.png",
-            "id": 1156898028
-          },
-          "texCoords": [
-            {
-              "x": 0.375,
-              "y": 1.0,
-              "z": 0.0
-            },
-            {
-              "x": 0.375,
-              "y": 0.96875,
-              "z": 0.0
-            },
-            {
-              "x": 0.34375,
-              "y": 0.96875,
-              "z": 0.0
-            },
-            {
-              "x": 0.34375,
-              "y": 1.0,
-              "z": 0.0
-            }
-          ],
-          "filepath": "",
-          "id": 0
-        },
-        "ID": 16
-      },
-      {
-        "ID": 17,
+        "ID": 16,
         "initialValues": {}
       }
     ],
     "serializedActor": true
   },
   {
-    "ID": 21,
+    "ID": 6,
     "name": "Actor: 3",
     "components": [
       {
-        "color": {
-          "x": 0.8,
-          "y": 0.8,
-          "z": 0.8,
-          "w": 0.5
-        },
-        "sprite": {
-          "width": 16.0,
-          "height": 16.0,
-          "texture": {
-            "width": 512,
-            "height": 512,
-            "filepath": "Assets/images/spritesheets/blocks.png",
-            "id": 1156898028
-          },
-          "texCoords": [
-            {
-              "x": 0.375,
-              "y": 1.0,
-              "z": 0.0
-            },
-            {
-              "x": 0.375,
-              "y": 0.96875,
-              "z": 0.0
-            },
-            {
-              "x": 0.34375,
-              "y": 0.96875,
-              "z": 0.0
-            },
-            {
-              "x": 0.34375,
-              "y": 1.0,
-              "z": 0.0
-            }
-          ],
-          "filepath": "",
-          "id": 0
-        },
-        "ID": 22
-      },
-      {
-        "ID": 23,
+        "ID": 22,
         "initialValues": {}
       }
     ],
     "serializedActor": true
   },
   {
-    "ID": 27,
+    "ID": 8,
     "name": "Actor: 4",
     "components": [
       {
-        "color": {
-          "x": 0.8,
-          "y": 0.8,
-          "z": 0.8,
-          "w": 0.5
-        },
-        "sprite": {
-          "width": 16.0,
-          "height": 16.0,
-          "texture": {
-            "width": 512,
-            "height": 512,
-            "filepath": "Assets/images/spritesheets/blocks.png",
-            "id": 1156898028
-          },
-          "texCoords": [
-            {
-              "x": 0.375,
-              "y": 1.0,
-              "z": 0.0
-            },
-            {
-              "x": 0.375,
-              "y": 0.96875,
-              "z": 0.0
-            },
-            {
-              "x": 0.34375,
-              "y": 0.96875,
-              "z": 0.0
-            },
-            {
-              "x": 0.34375,
-              "y": 1.0,
-              "z": 0.0
-            }
-          ],
-          "filepath": "",
-          "id": 0
-        },
-        "ID": 28
-      },
+        "ID": 28,
+        "initialValues": {}
+      }
+    ],
+    "serializedActor": true
+  },
+  {
+    "ID": 10,
+    "name": "Actor: 5",
+    "components": [
       {
-        "ID": 29,
+        "ID": 22,
+        "initialValues": {}
+      }
+    ],
+    "serializedActor": true
+  },
+  {
+    "ID": 12,
+    "name": "Actor: 6",
+    "components": [
+      {
+        "ID": 28,
+        "initialValues": {}
+      }
+    ],
+    "serializedActor": true
+  },
+  {
+    "ID": 14,
+    "name": "Actor: 7",
+    "components": [
+      {
+        "ID": 27,
+        "initialValues": {}
+      }
+    ],
+    "serializedActor": true
+  },
+  {
+    "ID": 16,
+    "name": "Actor: 8",
+    "components": [
+      {
+        "ID": 33,
+        "initialValues": {}
+      }
+    ],
+    "serializedActor": true
+  },
+  {
+    "ID": 18,
+    "name": "Actor: 9",
+    "components": [
+      {
+        "ID": 39,
         "initialValues": {}
       }
     ],

@@ -71,11 +71,12 @@ public class Transform extends ActorComponent {
     this.zIndex = BImGui.dragInt("Z-Index", this.zIndex, 1);
   }
 
-  public void copy(Transform from) {
+  public Transform copy(Transform from) {
     this.position.set(from.position);
     this.scale.set(from.scale);
     this.rotation = from.rotation;
     this.zIndex = from.zIndex;
+    return this;
   }
 
   public boolean equals(Object o) {

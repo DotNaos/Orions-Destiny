@@ -1,5 +1,6 @@
 package Burst.Engine.Source.Core.Actor;
 
+import Burst.Engine.Config.HotKeys;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Game.Animation.StateMachine;
 import Burst.Engine.Source.Core.Input.KeyListener;
@@ -35,7 +36,7 @@ public class PlayerController extends ActorComponent {
 
     @Override
     public void update(float dt) {
-        if (KeyListener.isKeyPressed(GLFW_KEY_RIGHT) || KeyListener.isKeyPressed(GLFW_KEY_D)) {
+        if (KeyListener.isKeyPressed(HotKeys.get().PlayerMoveRight)) {
             this.actor.transform.size.x = playerWidth;
             this.acceleration.x = walkSpeed;
 
@@ -45,7 +46,7 @@ public class PlayerController extends ActorComponent {
             } else {
                 this.stateMachine.trigger("startRunning");
             }
-        } else if (KeyListener.isKeyPressed(GLFW_KEY_LEFT) || KeyListener.isKeyPressed(GLFW_KEY_A)) {
+        } else if (KeyListener.isKeyPressed(HotKeys.get().PlayerMoveLeft)) {
             this.actor.transform.size.x = -playerWidth;
             this.acceleration.x = -walkSpeed;
 

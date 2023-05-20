@@ -56,7 +56,7 @@ public class Game {
         sprite.setTexture(tex);
 
 
-        this.scene.getViewportRenderer().add(new Actor(sprite, 10, 10));
+        this.scene.getViewportRenderer().add(new Actor(sprite));
     }
 
     //====================================================================================================
@@ -97,6 +97,8 @@ public class Game {
 
     public void addActor(Actor actor) {
         actors.add(actor);
+
+        // Save the level if the actor is a serialized actor
         if (!actor.isSerializedActor()) return;
         saveLevel();
     }

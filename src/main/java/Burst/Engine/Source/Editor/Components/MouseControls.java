@@ -51,6 +51,7 @@ public class MouseControls extends Component {
         this.holdingActor.getComponent(SpriteRenderer.class).setColor(new Vector4f(0.8f, 0.8f, 0.8f, 0.5f));
         this.holdingActor.addComponent(new NonPickable());
         this.gizmoSystem = new GizmoSystem(gizmos, this.holdingActor);
+
         Window.getScene().getGame().addActor(actor);
     }
 

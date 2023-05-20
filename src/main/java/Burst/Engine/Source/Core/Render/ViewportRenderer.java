@@ -3,6 +3,7 @@ package Burst.Engine.Source.Core.Render;
 import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Assets.Graphics.Shader;
 import Burst.Engine.Source.Core.Assets.Graphics.Texture;
+import org.joml.Vector2i;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -12,6 +13,8 @@ public class ViewportRenderer extends Renderer {
     private static Shader currentShader;
     private final int MAX_BATCH_SIZE = 2000;
     private List<RenderBatch> batches;
+
+    private static Vector2i viewportSize = new Vector2i(1920, 1080);
 
     public ViewportRenderer() {
         this.batches = new ArrayList<>();
@@ -23,6 +26,18 @@ public class ViewportRenderer extends Renderer {
 
     public static Shader getBoundShader() {
         return currentShader;
+    }
+
+    public static Vector2i getViewportSize() {
+        return viewportSize;
+    }
+
+    public int getViewportWidth() {
+        return viewportSize.x;
+    }
+
+    public int getViewportHeight() {
+        return viewportSize.y;
     }
 
     public void add(Actor actor) {

@@ -186,9 +186,9 @@ public class Window implements Observer {
         glEnable(GL_BLEND);
         glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
 
-        this.framebuffer = new Framebuffer(Window.getWidth(), Window.getHeight());
-        this.pickingTexture = new PickingTexture(Window.getWidth(), Window.getHeight());
-        glViewport(0, 0, Window.getWidth(), Window.getHeight());
+        this.framebuffer = new Framebuffer(ViewportRenderer.getViewportSize().x, ViewportRenderer.getViewportSize().y);
+        this.pickingTexture = new PickingTexture(ViewportRenderer.getViewportSize().x, ViewportRenderer.getViewportSize().y);
+        glViewport(0, 0, ViewportRenderer.getViewportSize().x, ViewportRenderer.getViewportSize().y);
 
         this.imguiLayer = new ImGuiLayer(glfwWindow);
         this.imguiLayer.initImGui();
@@ -248,6 +248,10 @@ public class Window implements Observer {
             dt = endTime - beginTime;
             beginTime = endTime;
         }
+    }
+
+    public void setCursor(int cursor) {
+        glfwSetCursor(glfwWindow, cursor);
     }
 
     @Override

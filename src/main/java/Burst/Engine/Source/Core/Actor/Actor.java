@@ -62,88 +62,26 @@ public class Actor {
      * Creates a new Actor instance with default values.
      * Automatically generates a unique ID and creates a new Transform component.
      */
-    public Actor() {
+    public Actor(String name) {
+        this.name = name;
+        this.ID = Util.generateUniqueID();
         this.components = new ArrayList<>();
         this.transform = new Transform(this);
-        this.ID = Util.generateUniqueID();
     }
 
-    public Actor(Sprite sprite, float sizeX, float sizeY) {
+    public Actor(Sprite sprite) {
         this("Actor: " + (Window.getScene().getGame().getActors().size() + 1));
-        SpriteRenderer spriteRenderer = new SpriteRenderer(this);
-        spriteRenderer.setSprite(sprite);
-        this.components.add(spriteRenderer);
-        this.transform.size = new Vector3f(sizeX, sizeY, 0);
+        this.addComponent(new SpriteRenderer(this));
+        this.getComponent(SpriteRenderer.class).setSprite(sprite);
     }
 
-    /**
-     * Creates a new Actor instance with a given name.
-     * Automatically generates a unique ID and creates a new Transform component.
-     *
-     * @param name The name to give to the actor.
-     */
-    public Actor(String name) {
-        this();
-        this.name = name;
+    public Actor(Sprite sprite, Transform transform)
+    {
+        this(sprite);
+        this.transform = new Transform(this).copy(transform);
     }
 
-    /**
-     * Creates a new Actor instance with a given name and position.
-     * Automatically generates a unique ID and creates a new Transform component.
-     *
-     * @param name The name to give to the actor.
-     * @param x    The x position of the actor.
-     * @param y    The y position of the actor.
-     */
-    public Actor(String name, float x, float y, float z) {
-        this(name);
-        this.transform.position.set(x, y, z);
-    }
 
-    /**
-     * Creates a new Actor instance with a given name, position, and rotation.
-     * Automatically generates a unique ID and creates a new Transform component.
-     *
-     * @param name     The name to give to the actor.
-     * @param x        The x position of the actor.
-     * @param y        The y position of the actor.
-     * @param rotation The rotation of the actor.
-     */
-
-    public Actor(String name, float x, float y, float z, float rotation) {
-        this(name, x, y, z);
-        this.transform.rotation = rotation;
-    }
-
-    /**
-     * Creates a new Actor instance with a given name, position, rotation, and
-     * scale.
-     * Automatically generates a unique ID and creates a new Transform component.
-     *
-     * @param name     The name to give to the actor.
-     * @param x        The x position of the actor.
-     * @param y        The y position of the actor.
-     * @param rotation The rotation of the actor.
-     * @param scaleX   The x scale of the actor.
-     * @param scaleY   The y scale of the actor.
-     */
-
-    public Actor(String name, float x, float y, float rotation, float scaleX, float scaleY, float scaleZ) {
-        this(name, x, y, rotation);
-        this.transform.scale.set(scaleX, scaleY, scaleZ);
-    }
-
-    /**
-     * Creates a new Actor instance with a given name, transform
-     * Automatically generates a unique ID and creates a new Transform component.
-     *
-     * @param name      The name to give to the actor.
-     * @param transform The transform to give to the actor.
-     */
-    public Actor(String name, Transform transform) {
-        this(name);
-        this.transform.copy(transform);
-    }
 
     /**
      * Initializes the object.
@@ -392,6 +330,11 @@ public class Actor {
      */
     public long getID() {
         return this.ID;
+    }
+    public void generateId() {
+        if (this.ID == -1) {
+            this.ID = Util.generateUniqueID();
+        }
     }
 
     public String getName() {

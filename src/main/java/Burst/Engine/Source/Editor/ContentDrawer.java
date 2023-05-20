@@ -64,7 +64,7 @@ public class ContentDrawer extends ImGuiPanel {
                     ImGui.pushID(i);
                     if (ImGui.imageButton(id, spriteWidth, spriteHeight, texCoords[2].x, texCoords[0].y, texCoords[0].x, texCoords[2].y)) {
                         // TODO: ContentDrawer Pickup Object
-                        Actor actor = new Actor(sprite, 1.0f, 1.0f);
+                        Actor actor = new Actor(sprite);
                         Window.getScene().getEditor().getComponent(MouseControls.class).pickupObject(actor);
                     }
                     ImGui.popID();

@@ -33,6 +33,7 @@ public class KeyListener {
             get().keyPressed[key] = true;
             get().keyBeginPress[key] = true;
         } else if (action == GLFW_RELEASE) {
+            System.out.println("Key released: " + key);
             get().keyPressed[key] = false;
             get().keyBeginPress[key] = false;
         }

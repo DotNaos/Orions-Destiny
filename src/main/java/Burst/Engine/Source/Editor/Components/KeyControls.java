@@ -1,6 +1,7 @@
 package Burst.Engine.Source.Editor.Components;
 
 import Burst.Engine.Config.Constants.GridLines_Config;
+import Burst.Engine.Config.HotKeys;
 import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Game.Animation.StateMachine;
@@ -24,10 +25,10 @@ public class KeyControls extends Component {
         PropertiesPanel propertiesPanel = Window.getScene().getPanel(PropertiesPanel.class);
         Actor activeActor = propertiesPanel.getActiveGameObject();
         List<Actor> activeActors = propertiesPanel.getActiveGameObjects();
-        float multiplier = KeyListener.isKeyPressed(GLFW_KEY_LEFT_SHIFT) ? 0.1f : 1.0f;
+        float multiplier = KeyListener.isKeyPressed(HotKeys.get().Modifier_EditorSlow) ? 0.1f : 1.0f;
 
-        if (KeyListener.isKeyPressed(GLFW_KEY_LEFT_CONTROL) &&
-                KeyListener.keyBeginPress(GLFW_KEY_D) && activeActor != null) {
+        if (KeyListener.isKeyPressed(HotKeys.get().Shortcut_EditorDuplicate.first) &&
+                KeyListener.keyBeginPress(HotKeys.get().Shortcut_EditorDuplicate.second) && activeActor != null) {
             Actor newObj = activeActor.copy();
             assert Window.getScene().getGame() != null;
             Window.getScene().getGame().addActor(newObj);
@@ -36,8 +37,8 @@ public class KeyControls extends Component {
             if (newObj.getComponent(StateMachine.class) != null) {
                 newObj.getComponent(StateMachine.class).refreshTextures();
             }
-        } else if (KeyListener.isKeyPressed(GLFW_KEY_LEFT_CONTROL) &&
-                KeyListener.keyBeginPress(GLFW_KEY_D) && activeActors.size() > 1) {
+        } else if (KeyListener.isKeyPressed(HotKeys.get().Shortcut_EditorDuplicate.first) &&
+                KeyListener.keyBeginPress(HotKeys.get().Shortcut_EditorDuplicate.second) && activeActors.size() > 1) {
             List<Actor> actors = new ArrayList<>(activeActors);
             propertiesPanel.clearSelected();
             for (Actor actor : actors) {
@@ -49,37 +50,37 @@ public class KeyControls extends Component {
                     copy.getComponent(StateMachine.class).refreshTextures();
                 }
             }
-        } else if (KeyListener.keyBeginPress(GLFW_KEY_DELETE)) {
+        } else if (KeyListener.keyBeginPress(HotKeys.get().EditorDelete) && activeActor != null) {
             for (Actor actor : activeActors) {
                 actor.destroy();
             }
             propertiesPanel.clearSelected();
-        } else if (KeyListener.isKeyPressed(GLFW_KEY_PAGE_DOWN) && debounce < 0) {
+        } else if (KeyListener.isKeyPressed(HotKeys.get().EditorMoveZToBack) && debounce < 0) {
             debounce = debounceTime;
             for (Actor actor : activeActors) {
                 actor.transform.zIndex--;
             }
-        } else if (KeyListener.isKeyPressed(GLFW_KEY_PAGE_UP) && debounce < 0) {
+        } else if (KeyListener.isKeyPressed(HotKeys.get().EditorMoveZToFront) && debounce < 0) {
             debounce = debounceTime;
             for (Actor actor : activeActors) {
                 actor.transform.zIndex++;
             }
-        } else if (KeyListener.isKeyPressed(GLFW_KEY_UP) && debounce < 0) {
+        } else if (KeyListener.isKeyPressed(HotKeys.get().EditorMoveUp) && debounce < 0) {
             debounce = debounceTime;
             for (Actor actor : activeActors) {
                 actor.transform.position.y += GridLines_Config.SIZE * multiplier;
             }
-        } else if (KeyListener.isKeyPressed(GLFW_KEY_LEFT) && debounce < 0) {
+        } else if (KeyListener.isKeyPressed(HotKeys.get().EditorMoveLeft) && debounce < 0) {
             debounce = debounceTime;
             for (Actor actor : activeActors) {
                 actor.transform.position.x -= GridLines_Config.SIZE * multiplier;
             }
-        } else if (KeyListener.isKeyPressed(GLFW_KEY_RIGHT) && debounce < 0) {
+        } else if (KeyListener.isKeyPressed(HotKeys.get().EditorMoveRight) && debounce < 0) {
             debounce = debounceTime;
             for (Actor actor : activeActors) {
                 actor.transform.position.x += GridLines_Config.SIZE * multiplier;
             }
-        } else if (KeyListener.isKeyPressed(GLFW_KEY_DOWN) && debounce < 0) {
+        } else if (KeyListener.isKeyPressed(HotKeys.get().EditorMoveDown) && debounce < 0) {
             debounce = debounceTime;
             for (Actor actor : activeActors) {
                 actor.transform.position.y -= GridLines_Config.SIZE * multiplier;

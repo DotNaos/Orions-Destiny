@@ -5,6 +5,7 @@ import Burst.Engine.Source.Core.Actor.ActorComponent;
 import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.Input.MouseListener;
+import Burst.Engine.Source.Core.Physics.Components.Transform;
 import Burst.Engine.Source.Core.Render.SpriteRenderer;
 import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Editor.NonPickable;
@@ -36,8 +37,8 @@ public class Gizmo extends ActorComponent {
 
     public Gizmo(Sprite arrowSprite, PropertiesPanel propertiesPanel) {
         super(null);
-        this.xAxisObject = new Actor(arrowSprite, gizmoWidth, gizmoHeight);
-        this.yAxisObject = new Actor(arrowSprite, gizmoWidth, gizmoHeight);
+        this.xAxisObject = new Actor(arrowSprite, new Transform(new Vector3f(0, 0, 0), new Vector3f(gizmoWidth, gizmoHeight, 1), 90));
+        this.yAxisObject = new Actor(arrowSprite, new Transform(new Vector3f(0, 0, 0), new Vector3f(gizmoWidth, gizmoHeight, 1), 180));
         this.xAxisSprite = this.xAxisObject.getComponent(SpriteRenderer.class);
         this.yAxisSprite = this.yAxisObject.getComponent(SpriteRenderer.class);
         this.propertiesPanel = propertiesPanel;
@@ -52,8 +53,6 @@ public class Gizmo extends ActorComponent {
 
     @Override
     public void start() {
-        this.xAxisObject.transform.rotation = 90;
-        this.yAxisObject.transform.rotation = 180;
         this.xAxisObject.transform.zIndex = 100;
         this.yAxisObject.transform.zIndex = 100;
         this.xAxisObject.setNotSerializable();
