@@ -75,7 +75,7 @@ public class Sprite extends Asset {
     }
 
     public int getTexId() {
-        return texture == null ? -1 : texture.getId();
+        return texture == null ? -1 : texture.getTexID();
     }
 
     public void setTexture(Texture texture) {

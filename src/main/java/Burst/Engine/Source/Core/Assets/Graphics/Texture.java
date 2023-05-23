@@ -104,7 +104,7 @@ public class Texture extends Asset {
         return this.height;
     }
 
-    public int getId() {
+    public int getTexID() {
         return texID;
     }
 
@@ -114,7 +114,7 @@ public class Texture extends Asset {
         if (!(o instanceof Texture)) return false;
         Texture oTex = (Texture) o;
         return oTex.getWidth() == this.width && oTex.getHeight() == this.height &&
-                oTex.getId() == this.texID &&
+                oTex.getTexID() == this.texID &&
                 oTex.getFilepath().equals(this.filepath);
     }
 

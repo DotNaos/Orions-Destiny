@@ -12,13 +12,15 @@ public class Spritesheet extends Asset {
     private static int MAX_SPRITES = -1;
     private Texture texture;
     private List<Sprite> sprites;
-    private SpriteSheetUsage usage;
+    private SpriteSheetUsage usage = SpriteSheetUsage.NONE;
+
+
     private int spriteCount = 0;
     private int[] spritesPerRow;
     private boolean emptySpritesDefined = false;
     private int spriteWidth, spriteHeight, spacing, rows, cols;
 
-    public Spritesheet(Texture texture, int spriteWidth, int spriteHeight, int spacing) {
+    public Spritesheet(Texture texture, SpriteSheetUsage usage, int spriteWidth, int spriteHeight, int spacing) {
         super(texture.getFilepath());
         DebugMessage.info("Creating Spritesheet: " + texture.getFilepath());
         this.sprites = new ArrayList<>();
@@ -29,10 +31,11 @@ public class Spritesheet extends Asset {
         this.rows = texture.getWidth() / (spriteWidth + spacing);
         this.cols = texture.getHeight() / (spriteHeight + spacing);
         this.spritesPerRow = new int[rows];
+        this.usage = usage;
         createSprites(rows, cols);
     }
 
-    public Spritesheet(Texture texture, int spriteWidth, int spriteHeight, int spacing, int[] spritesPerRow) {
+    public Spritesheet(Texture texture, SpriteSheetUsage usage, int spriteWidth, int spriteHeight, int spacing, int[] spritesPerRow) {
         super(texture.getFilepath());
         this.sprites = new ArrayList<>();
         this.texture = texture;
@@ -43,6 +46,7 @@ public class Spritesheet extends Asset {
         this.cols = texture.getHeight() / (spriteHeight + spacing);
         this.spritesPerRow = spritesPerRow;
         this.emptySpritesDefined = true;
+        this.usage = usage;
         createSprites(rows, cols);
     }
 
@@ -110,11 +114,16 @@ public class Spritesheet extends Asset {
         return new Texture(spriteWidth, spriteHeight);
     }
 
+    public Texture getSheetTexture() {
+        return this.texture;
+    }
+
     public int size() {
         return sprites.size();
     }
 
-    public int getCount() {
-        return this.spriteCount;
+    public SpriteSheetUsage getUsage() {
+        return usage;
     }
+
 }

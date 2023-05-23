@@ -13,25 +13,24 @@ import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
-
 public class AssetManager {
-  private static Map<String, Spritesheet> spritesheets = new HashMap<>();
-  private static Map<String, Sprite> sprites = new HashMap<>();
-  private static Map<String, Texture> textures = new HashMap<>();
+    private static Map<String, Spritesheet> spritesheets = new HashMap<>();
+    private static Map<String, Sprite> sprites = new HashMap<>();
+    private static Map<String, Texture> textures = new HashMap<>();
 
-  private static Map<String, Shader> shaders = new HashMap<>();
+    private static Map<String, Shader> shaders = new HashMap<>();
     private static Map<String, Sound> sounds = new HashMap<>();
-
 
     private static Map<String, Font> fonts = new HashMap<>();
     private static Map<String, LevelMap> maps = new HashMap<>();
     private static Map<String, Background> backgrounds = new HashMap<>();
     private static Map<String, UI_Assets> UIs = new HashMap<>();
 
-  public static void loadAllAssets() {
+    public static void loadAllAssets() {
         DebugMessage.noDebug = true;
         DebugMessage.header("Loading Assets");
-        System.out.println("Loading Assets from: " + Assets.class.getProtectionDomain().getCodeSource().getLocation().getPath() + "\n");
+        System.out.println("Loading Assets from: "
+                + Assets.class.getProtectionDomain().getCodeSource().getLocation().getPath() + "\n");
 
         // =================== Spritesheets ===================
         DebugMessage.header("Spritesheets");
@@ -43,7 +42,6 @@ public class AssetManager {
         loadAllAssetOfType(Shader.class);
         DebugMessage.loadSuccess("Loaded " + shaders.size() + " shaders");
 
-
         // =================== Sounds ===================
         DebugMessage.header("Sounds");
         loadAllAssetOfType(Sound.class);
@@ -51,14 +49,16 @@ public class AssetManager {
 
         DebugMessage.noDebug = false;
         // set overworld sound to loop
-//        getAssetFromType(Sound.class, "assets/sounds/main-theme-overworld.ogg").init(true);
-//        AssetManager.getAssetFromType(("assets/sounds/main-theme-overworld.ogg"), Sound.class).play();
+        // getAssetFromType(Sound.class,
+        // "assets/sounds/main-theme-overworld.ogg").init(true);
+        // AssetManager.getAssetFromType(("assets/sounds/main-theme-overworld.ogg"),
+        // Sound.class).play();
 
     }
 
-
     /**
-     * Searches the directory (specified in Assets) for the assets and add them to the map of assets
+     * Searches the directory (specified in Assets) for the assets and add them to
+     * the map of assets
      *
      * @param assetType The type of asset to load
      * @return The number of assets loaded
@@ -67,11 +67,10 @@ public class AssetManager {
         int count = 0;
         String assetDir;
 
-
         if (assetType.equals(Spritesheet.class)) {
             assetDir = Assets.SPRITESHEETS;
 
-            // save the list of  in a variable
+            // save the list of in a variable
             List<Spritesheet> assetList = Assets.SPRITESHEETS_LIST;
 
             // Add all Spritesheets to the map
@@ -182,7 +181,6 @@ public class AssetManager {
             return null;
         }
 
-
         if (assetType.equals(Spritesheet.class)) {
 
             return assetType.cast(AssetManager.spritesheets.getOrDefault(filePath, null));
@@ -284,5 +282,22 @@ public class AssetManager {
         String path = component.getClass().getProtectionDomain().getCodeSource().getLocation().getPath();
         path = URLDecoder.decode(path, StandardCharsets.UTF_8);
         return path;
+    }
+
+    /**
+     * @param usage Specifies where in the contentdrawer it is displayed; Also adds
+     *              some Funktionality
+     * @return All Spritesheets in the Map of spritesheets that match the usage
+     */
+    public static List<Spritesheet> getSpriteSheets(SpriteSheetUsage usage) {
+        List<Spritesheet> spritesheetsWithUsage = new ArrayList<>();
+        List<Spritesheet> ListOfSpriteSheets = spritesheets.values().stream().toList();
+        for (Spritesheet sheet : ListOfSpriteSheets) {
+            if (sheet.getUsage() == usage) {
+                spritesheetsWithUsage.add(sheet);
+            }
+        }
+
+        return spritesheetsWithUsage;
     }
 }
