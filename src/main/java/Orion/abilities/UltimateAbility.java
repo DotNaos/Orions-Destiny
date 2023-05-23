@@ -6,15 +6,24 @@ import java.util.Vector;
 
 public class UltimateAbility extends Ability{
 
-    private Vector2f castingPosition = new Vector2f();
-    private float enemyDefence;
-    private float enemyDistance;
-    private float bulletDistanceEnemy;
+    protected Vector2f castingPosition = new Vector2f();
+    protected float enemyDefence;
+    protected float enemyDistance;
+    protected float bulletDistanceEnemy;
+
     /**
      *
      */
     @Override
     public void activate() {
+
+    }
+
+    /**
+     *
+     */
+    @Override
+    public void init() {
 
     }
 
