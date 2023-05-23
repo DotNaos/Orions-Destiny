@@ -1,4 +1,4 @@
-package Orion.abilities;
+package Orion.abilities.SpecialAbility;
 
 public class FireAbilityOne extends SpecialAbility {
 
@@ -9,14 +9,15 @@ public class FireAbilityOne extends SpecialAbility {
     private float animationLength;
     private boolean collision;
 
-    public float getDamage(){
+    public float getDamage() {
         return this.damage;
     }
 
     public float getTravellingSpeed() {
         return this.travellingSpeed;
     }
-    public float getBurnLength(){
+
+    public float getBurnLength() {
         return this.burnLength;
     }
 
@@ -24,7 +25,7 @@ public class FireAbilityOne extends SpecialAbility {
         return this.burnDamage;
     }
 
-    public float getAnimationLength(){
+    public float getAnimationLength() {
         return this.animationLength;
     }
 

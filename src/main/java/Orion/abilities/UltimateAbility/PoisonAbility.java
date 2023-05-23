@@ -1,4 +1,4 @@
-package Orion.abilities;
+package Orion.abilities.UltimateAbility;
 
 public class PoisonAbility {
     private float damage;
