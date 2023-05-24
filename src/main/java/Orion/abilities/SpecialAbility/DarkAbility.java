@@ -11,10 +11,6 @@ public class DarkAbility extends Ability {
     // leaves enemy at leas 1hp
 
     //activate ability
-    public void activateAbility() {
-
-    }
-
 
     /**
      *

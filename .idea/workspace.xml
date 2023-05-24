@@ -9,20 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="ViewportSize extra und HotKeys in eigener Datei">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/SpecialAbility/DarkAbility.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/SpecialAbility/FireAbility.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/UltimateAbility/LightAbillity.java" afterDir="false" />
+    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="kaka">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/AbilityMovement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/AbilityMovement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/FireAbilityOne.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/SpecialAbility/FireAbilityOne.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/IceAbilityOne.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/SpecialAbility/IceAbilityOne.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/IceAbilityTwo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/SpecialAbility/IceAbilityTwo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/LightAbilityOne.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/UltimateAbility/LightAbilityOne.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/PassiveAbility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/PassiveAbility/PassiveAbility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/PoisonAbility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/UltimateAbility/PoisonAbility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/SpecialAbility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/SpecialAbility/SpecialAbility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/UltimateAbility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/UltimateAbility/UltimateAbility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/SpecialAbility/DarkAbility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/SpecialAbility/DarkAbility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/SpecialAbility/FireAbility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/SpecialAbility/FireAbility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/UltimateAbility/LightAbillity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/UltimateAbility/LightAbillity.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -421,7 +412,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684596433196</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="kaka">
+      <created>1684847722279</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1684847722279</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -439,7 +437,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="FilePath fix" />
     <MESSAGE value="Formatting of files mit Strg+Alt+L" />
     <MESSAGE value="Scrolling im Editor geht wieder" />
     <MESSAGE value="Bugfix Nullpointer" />
@@ -464,7 +461,8 @@
     <MESSAGE value="Copy On changing color" />
     <MESSAGE value="Components angezeigt in Fenster" />
     <MESSAGE value="ViewportSize extra und HotKeys in eigener Datei" />
-    <option name="LAST_COMMIT_MESSAGE" value="ViewportSize extra und HotKeys in eigener Datei" />
+    <MESSAGE value="kaka" />
+    <option name="LAST_COMMIT_MESSAGE" value="kaka" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

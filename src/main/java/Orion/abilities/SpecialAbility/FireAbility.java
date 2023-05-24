@@ -62,19 +62,8 @@ public class FireAbility extends Ability
 
         
         // Get the enemies
-        ArrayList<Enemy> enemies = new ArrayList<Enemy>();
 
         // Loop through the enemies
-        for (Enemy enemy : enemies) {
-            // Get the enemy's position
-            Vector2f enemyPosition = new Vector2f();
-            
-            // Check if the enemy is in the fire vortex
-            if (enemyPosition.x >= start.x && enemyPosition.x <= end.x && enemyPosition.y >= start.y && enemyPosition.y <= end.y) {
-                // Destroy the enemy
-                // enemy.destroy();
-            }
-        }
 
 
 
