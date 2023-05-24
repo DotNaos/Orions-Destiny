@@ -11,6 +11,7 @@ public class Assets {
 
   // Images
   public static final String SPRITESHEETS = "Assets/images/spritesheets/";
+  public static final String ABILITIES = "Abilities/";
   public static final String TEXTURES = "Assets/images/textures/";
 
   public static final String DEBUG_TEXTURES = "Assets/images/debug/";
@@ -57,6 +58,8 @@ public class Assets {
   //                  List of all Spritesheets
   //============================================================
     public static final List<Spritesheet> SPRITESHEETS_LIST = List.of(BUTTONS_SPRITESHEET, BLOCKS_SPRITESHEET, GIZMOS_SPRITESHEET);
-
+  //Ability
+    public static final String poisonAbility = SPRITESHEETS + ABILITIES + "Poison_FX/PoisonClaw.png";
+    public static final Spritesheet poisonaAbilitySpritesheet = new Spritesheet(AssetManager.getAssetFromType(poisonAbility, Texture.class), 96,96,0);
 
 }
