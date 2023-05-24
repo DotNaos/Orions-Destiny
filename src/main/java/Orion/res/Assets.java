@@ -68,6 +68,23 @@ public class Assets {
     //IceAbility1
     public static final String iceAbilityStart = SPRITESHEETS+ABILITIES+ "Ice_FX/IceFXStart1";
     public static final Spritesheet iceAbilityStartSpritesheet = new Spritesheet(AssetManager.getAssetFromType(iceAbilityStart, Texture.class), SpriteSheetUsage.ANIMATION, 144, 32, 0);
-    public static final String IceAbilityHit = SPRITESHEETS+ABILITIES+"Ice_FX/IceFXHit1";
-    public static final Spritesheet IceAbilityHitSpritesheet = new Spritesheet(AssetManager.getAssetFromType(IceAbilityHit, Texture.class), SpriteSheetUsage.ANIMATION, 384,32,0);
+    public static final String iceAbilityHit = SPRITESHEETS+ABILITIES+"Ice_FX/IceFXHit1";
+    public static final Spritesheet iceAbilityHitSpritesheet = new Spritesheet(AssetManager.getAssetFromType(iceAbilityHit, Texture.class), SpriteSheetUsage.ANIMATION, 384,32,0);
+    //Ice Ability2
+    public static final String iceAbilityStart2 = SPRITESHEETS+ABILITIES+"Ice_FX/Ice_FX2Start";
+    public static final Spritesheet iceAbility2StartSpritesheet = new Spritesheet(AssetManager.getAssetFromType(iceAbilityStart2, Texture.class), SpriteSheetUsage.ANIMATION, 288, 32, 0);
+    public static final String iceAbilityActive  = SPRITESHEETS+ABILITIES+"Ice_FX/Ice_FX2Active";
+    public static final Spritesheet iceAbility2ActiveSpritesheet = new Spritesheet(AssetManager.getAssetFromType(iceAbilityActive, Texture.class), SpriteSheetUsage.ANIMATION,256,32,0);
+    public static final String iceAbilityEnding2 = SPRITESHEETS+ABILITIES+"Ice_FX/Ice_FX2Ending";
+    public static final Spritesheet iceAbility2EndingSpritesheet = new Spritesheet(AssetManager.getAssetFromType(iceAbilityEnding2, Texture.class), SpriteSheetUsage.ANIMATION,576,32,0);
+    //Fire Ability
+    public static final String fireAbility = SPRITESHEETS+ABILITIES+"Fire_FX/ActualFireball";
+    public static final Spritesheet fireAbilitySpritesheet = new Spritesheet(AssetManager.getAssetFromType(fireAbility, Texture.class),SpriteSheetUsage.ANIMATION,64,64,0);
+    //Water Ability
+    public static final String waterAbility = SPRITESHEETS+ABILITIES+"Ice_FX/WaterAbility";
+    public static final Spritesheet waterAbilitySpritesheet = new Spritesheet(AssetManager.getAssetFromType(waterAbility, Texture.class),SpriteSheetUsage.ANIMATION,96,96,0);
+    //Plant Ability
+    public static final String plantAbility = SPRITESHEETS+ABILITIES+"Poison_FX/PlantAbility";
+    public static final Spritesheet plantAbolitySpritesheet = new Spritesheet(AssetManager.getAssetFromType(plantAbility,Texture.class), SpriteSheetUsage.ANIMATION,96,96,0);
+
 }
