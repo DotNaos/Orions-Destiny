@@ -3,24 +3,25 @@ package Orion.abilities.Ultimate;
 import Orion.abilities.UltimateAbility;
 
 public class EnergyAbility extends UltimateAbility {
+    public float actualDmg;
 
-    private float bulletSize = 0;
-    private float dmg; //Damage depends on distance to player and distance to enemy
-    private float dmgArea = 10;
-    public static float actualDmg;
-    private float knockback = 0;
-    private float slowDown = 0;
-    public static float heal = 0;
-    private float healArea = 0;
-    private float travelTime = 0;
-    private float staminaCost = 20;
-    private int duration = 10;
-    private int cooldown = 50;
-    String animation;
-
-    public float damage () {
-        dmgArea = (enemyDistance*bulletDistanceEnemy);
-        actualDmg = dmgArea+dmg;
-        return actualDmg;
+    public EnergyAbility()
+    {
+        this.bulletSize = 0;
+        this.dmg = 5; //Damage depends on distance to player and distance to enemy
+        this.heal = 0;
+        this.knockback = 0;
+        this.slowDown = 0;
+        this.staminaCost = 0;
+        this.traveltime = 0;
+        this.duration = 0;
+        this.cooldown = 0;
+        String animation;
     }
+ @Override
+ public void activate() {
+        dmgArea = (enemyDistance*bulletDistanceEnemy);
+        actualDmg = dmg+dmgArea;
+ }
+
 }
