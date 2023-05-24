@@ -9,11 +9,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="kaka">
+    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="Umbenannt">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/SpecialAbility/DarkAbility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/SpecialAbility/DarkAbility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/SpecialAbility/FireAbility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/SpecialAbility/FireAbility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/UltimateAbility/LightAbillity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/UltimateAbility/LightAbillity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/Abilities/Ice FX/Ice VFX 1 Hit.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/Abilities/Ice_FX/IceFXHit1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/Abilities/Ice FX/Ice VFX 1 Start.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/Abilities/Ice_FX/IceFXStart1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/Abilities/Ice FX/Ice VFX 2 Active.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/Abilities/Ice_FX/Ice VFX 2 Active.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/Abilities/Ice FX/Ice VFX 2 Ending.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/Abilities/Ice_FX/Ice VFX 2 Ending.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/Abilities/Ice FX/Ice VFX 2 Start.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/Abilities/Ice_FX/Ice VFX 2 Start.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/Abilities/Ice FX/IceCast_96x96.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/Abilities/Ice_FX/IceCast_96x96.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/Abilities/Ice FX/IcePick_64x64.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/Abilities/Ice_FX/IcePick_64x64.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/Abilities/Ice FX/IceShatter_2_96x96.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/Abilities/Ice_FX/IceShatter_2_96x96.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/Abilities/Ice FX/IceShatter_96x96.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/Abilities/Ice_FX/IceShatter_96x96.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/Abilities/Ice FX/IceVFX 1 Repeatable.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/Abilities/Ice_FX/IceVFX 1 Repeatable.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/Abilities/Light FX/HolyExplosion_96x96.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/Abilities/Light_FX/HolyExplosion.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/Abilities/Light FX/LightCast_96.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/Abilities/Light_FX/LightCast_96.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/Abilities/Light FX/SmallStar_64x64.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/Abilities/Light_FX/SmallStar_64x64.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/res/Assets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/res/Assets.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +36,16 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view />
+      </state>
+    </system>
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -34,6 +55,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Domina" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -463,16 +489,6 @@
     <MESSAGE value="ViewportSize extra und HotKeys in eigener Datei" />
     <MESSAGE value="kaka" />
     <option name="LAST_COMMIT_MESSAGE" value="kaka" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.ExceptionInInitializerError" package="java.lang" />
-          <option name="timeStamp" value="7" />
-        </breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
