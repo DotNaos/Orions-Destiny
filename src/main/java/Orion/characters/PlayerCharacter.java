@@ -1,6 +1,7 @@
 package Orion.characters;
 
 import Burst.Engine.Source.Core.Actor.Pawn;
+import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
 
 public abstract class PlayerCharacter extends Pawn {
     protected String description;
@@ -12,8 +13,14 @@ public abstract class PlayerCharacter extends Pawn {
     protected int LVL;
     protected int EXP;
 
-    public PlayerCharacter(String name) {
-        super(name);
+    public PlayerCharacter(String name, Sprite sprite) {
+        super(name, sprite);
+    }
+
+    public static <T extends PlayerCharacter> T getNewPlayerCharacter(long ID) {
+        // Create a new instance of the specified type and return it
+        if (ID == 0) return null;
+        return (T) new Apex();
     }
 
     public String getDescription() {

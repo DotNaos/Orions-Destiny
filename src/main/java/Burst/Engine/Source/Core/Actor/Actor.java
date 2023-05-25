@@ -62,17 +62,23 @@ public class Actor {
      * Creates a new Actor instance with default values.
      * Automatically generates a unique ID and creates a new Transform component.
      */
-    public Actor(String name) {
+
+    public Actor(String name, Sprite sprite)
+    {
         this.name = name;
         this.ID = Util.generateUniqueID();
         this.components = new ArrayList<>();
         this.transform = new Transform(this);
+        this.addComponent(new SpriteRenderer(this));
+        this.getComponent(SpriteRenderer.class).setSprite(sprite);
+    }
+
+    public Actor(String name) {
+        this(name, null);
     }
 
     public Actor(Sprite sprite) {
-        this("Actor: " + (Window.getScene().getGame().getActors().size() + 1));
-        this.addComponent(new SpriteRenderer(this));
-        this.getComponent(SpriteRenderer.class).setSprite(sprite);
+        this("Actor: " + (Window.getScene().getGame().getActors().size() + 1), sprite);
     }
 
     public Actor(Sprite sprite, Transform transform)

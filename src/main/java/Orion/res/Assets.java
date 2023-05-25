@@ -11,6 +11,8 @@ public class Assets {
 
   // Images
   public static final String SPRITESHEETS = "Assets/images/spritesheets/";
+  public static final String ENEMIES = "Enemy/";
+
   public static final String TEXTURES = "Assets/images/textures/";
 
   public static final String DEBUG_TEXTURES = "Assets/images/debug/";
@@ -41,6 +43,9 @@ public class Assets {
   // Editor
     public static final String GIZMOS = SPRITESHEETS + "gizmos.png";
     public static final Spritesheet GIZMOS_SPRITESHEET = new Spritesheet(AssetManager.getAssetFromType(GIZMOS, Texture.class), SpriteSheetUsage.UI, 24, 48, 0);
+
+  // Enemies
+    public static final String ENEMY_1 = SPRITESHEETS + ENEMIES + "enemy_1.png";
 
   // UI
     public static final String BUTTONS = SPRITESHEETS + "buttons.png";

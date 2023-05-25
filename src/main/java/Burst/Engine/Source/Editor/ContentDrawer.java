@@ -6,6 +6,8 @@ import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
 import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheetUsage;
 import Burst.Engine.Source.Core.Assets.Graphics.Spritesheet;
 import Burst.Engine.Source.Core.UI.ImGui.ImGuiPanel;
+import Orion.blocks.Block;
+import Orion.characters.PlayerCharacter;
 import imgui.ImGui;
 import imgui.ImVec2;
 
@@ -52,9 +54,13 @@ public class ContentDrawer extends ImGuiPanel {
     public void imgui() {
         ImGui.begin("Content Drawer");
         if (ImGui.beginTabBar("WindowTabBar")) {
-            for (int n = 0; n < categories.size(); n++) {
-                if (ImGui.beginTabItem(usages.get(n).toString()))
+            for (int category = 0; category < categories.size(); category++) {
+                if (ImGui.beginTabItem(usages.get(category).toString()))
                 {
+                    if (categories.get(category).isEmpty()) {
+                    ImGui.text("No Spritesheets in this category");
+                    }
+
                     // Add all Spritesheets to the tab
                     ImVec2 windowPos = new ImVec2();
                     ImGui.getWindowPos(windowPos);
@@ -64,7 +70,7 @@ public class ContentDrawer extends ImGuiPanel {
                     ImGui.getStyle().getItemSpacing(itemSpacing);
                     
                     float windowX2 = windowPos.x + windowSize.x;
-                    for (Spritesheet sprites : categories.get(n))
+                    for (Spritesheet sprites : categories.get(category))
                     {
                         // Add all Sprites of the Spritesheet to the tab
                         for (int i = 0; i < sprites.size(); i++) {
@@ -77,10 +83,34 @@ public class ContentDrawer extends ImGuiPanel {
                             if (ImGui.imageButton(id, spriteWidth, spriteHeight, texCoords[2].x, texCoords[0].y, texCoords[0].x, texCoords[2].y)) {
                                 // While dragging the mouse, show the sprite next to the cursor
                                 // TODO: ContentDrawer Pickup Object
-                                Actor actor = new Actor(sprite);
+                                switch (usages.get(category)) {
+                                    case ACTOR -> {
+                                        Actor actor = new Actor(sprite);
+                                        actor.addComponent(new NonPickable());
+                                    }
+                                    case BLOCK -> {
+                                        Block block = new Block(sprite);
+                                        block.addComponent(new NonPickable());
+                                    }
 
-                                // Make the actor non-pickable
-                                actor.addComponent(new NonPickable());
+                                    case PLAYER -> {
+                                        Class <? extends PlayerCharacter> type;
+                                        // 
+                                        // TODO: FIX THIS
+                                        PlayerCharacter player = PlayerCharacter.getNewPlayerCharacter(sprite.getID());
+                                        player.addComponent(new NonPickable());
+                                    }
+
+                                    case ITEM -> {
+                                        // Item actor = new Item(sprite);
+                                        // actor.addComponent(new NonPickable());
+                                    }
+                                    default -> throw new IllegalArgumentException("Unexpected value: " + usages.get(category));
+
+                                }
+                
+
+                      
                             }
                             ImGui.popID();
                             
@@ -100,9 +130,7 @@ public class ContentDrawer extends ImGuiPanel {
                 }
             
                 // Show a text if there are no Spritesheets in the category
-                if (categories.get(n).isEmpty()) {
-                    ImGui.text("No Spritesheets in this category");
-                }
+
             }
             
             

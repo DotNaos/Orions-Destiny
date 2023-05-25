@@ -356,6 +356,105 @@
     "name": "Actor: 33",
     "components": [
       {
+        "ID": 68,
+        "initialValues": {}
+      }
+    ],
+    "serializedActor": true
+  },
+  {
+    "ID": 68,
+    "name": "Actor: 34",
+    "components": [
+      {
+        "ID": 70,
+        "initialValues": {}
+      }
+    ],
+    "serializedActor": true
+  },
+  {
+    "ID": 70,
+    "name": "Actor: 35",
+    "components": [
+      {
+        "ID": 72,
+        "initialValues": {}
+      }
+    ],
+    "serializedActor": true
+  },
+  {
+    "ID": 72,
+    "name": "Actor: 36",
+    "components": [
+      {
+        "ID": 159,
+        "initialValues": {}
+      }
+    ],
+    "serializedActor": true
+  },
+  {
+    "ID": 74,
+    "name": "Actor: 37",
+    "components": [
+      {
+        "ID": 76,
+        "initialValues": {}
+      }
+    ],
+    "serializedActor": true
+  },
+  {
+    "ID": 76,
+    "name": "Actor: 38",
+    "components": [
+      {
+        "ID": 78,
+        "initialValues": {}
+      }
+    ],
+    "serializedActor": true
+  },
+  {
+    "ID": 78,
+    "name": "Actor: 39",
+    "components": [
+      {
+        "ID": 80,
+        "initialValues": {}
+      }
+    ],
+    "serializedActor": true
+  },
+  {
+    "ID": 80,
+    "name": "Actor: 40",
+    "components": [
+      {
+        "ID": 82,
+        "initialValues": {}
+      }
+    ],
+    "serializedActor": true
+  },
+  {
+    "ID": 82,
+    "name": "Actor: 41",
+    "components": [
+      {
+        "ID": 84,
+        "initialValues": {}
+      }
+    ],
+    "serializedActor": true
+  },
+  {
+    "ID": 84,
+    "name": "Actor: 42",
+    "components": [
+      {
         "color": {
           "x": 1.0,
           "y": 1.0,
@@ -396,7 +495,7 @@
           "filepath": "",
           "id": 0
         },
-        "ID": 68
+        "ID": 86
       }
     ],
     "serializedActor": true

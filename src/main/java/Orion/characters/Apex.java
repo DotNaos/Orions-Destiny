@@ -1,8 +1,10 @@
 package Orion.characters;
 
+import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
+
 public class Apex extends PlayerCharacter {
     public Apex() {
-        super("Apex");
+        super("Apex", null);
         this.description = """
                         Apex is a mysterious and elusive character who is feared by many.\s
                         He possesses a powerful mastery over the shadows, and is able to bend them to his will.\s
