@@ -13,14 +13,32 @@ public abstract class PlayerCharacter extends Pawn {
     protected int LVL;
     protected int EXP;
 
-    public PlayerCharacter(String name, Sprite sprite) {
-        super(name, sprite);
+    public PlayerCharacter() {
+        super();
     }
 
-    public static <T extends PlayerCharacter> T getNewPlayerCharacter(long ID) {
+    public static <T extends PlayerCharacter> T getNewPlayerCharacter(int PlayerID) {
         // Create a new instance of the specified type and return it
-        if (ID == 0) return null;
-        return (T) new Apex();
+
+        switch (PlayerID)
+        {
+            case 2 -> {
+                return (T) new Aura();
+            }
+            case 3 -> {
+                return (T) new Genesis();
+            }
+            case 4 -> {
+                return (T) new Helix();
+            }
+            case 5 -> {
+                return (T) new Solaris();
+            }
+            default -> {
+                // Default character
+                return (T) new Apex();
+            }
+        }
     }
 
     public String getDescription() {

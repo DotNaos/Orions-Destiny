@@ -21,6 +21,21 @@ public class ComponentDeserializer implements JsonSerializer<Component>,
         }
     }
 
+
+    // @Override
+    // public Component deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
+    //     JsonObject jsonObject = json.getAsJsonObject();
+    //     String className = jsonObject.get("className").getAsString();
+    //     Class<?> clazz;
+    //     try {
+    //         clazz = Class.forName(className);
+    //     } catch (ClassNotFoundException e) {
+    //         throw new JsonParseException("Class not found: " + className, e);
+    //     }
+    //     return context.deserialize(jsonObject, clazz);
+    // }
+
+
     @Override
     public JsonElement serialize(Component src, Type typeOfSrc, JsonSerializationContext context) {
         JsonObject result = new JsonObject();

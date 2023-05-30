@@ -1,5 +1,10 @@
 package Burst.Engine.Source.Editor;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.joml.Vector3f;
+
 import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Assets.AssetManager;
 import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
@@ -10,13 +15,6 @@ import Orion.blocks.Block;
 import Orion.characters.PlayerCharacter;
 import imgui.ImGui;
 import imgui.ImVec2;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.joml.Vector3f;
 
 public class ContentDrawer extends ImGuiPanel {
     private List<List<Spritesheet>> categories = new ArrayList<>();
@@ -85,7 +83,8 @@ public class ContentDrawer extends ImGuiPanel {
                                 // TODO: ContentDrawer Pickup Object
                                 switch (usages.get(category)) {
                                     case ACTOR -> {
-                                        Actor actor = new Actor(sprite);
+                                        Actor actor = new Actor();
+                                        actor.setSprite(sprite);
                                         actor.addComponent(new NonPickable());
                                     }
                                     case BLOCK -> {
@@ -97,7 +96,7 @@ public class ContentDrawer extends ImGuiPanel {
                                         Class <? extends PlayerCharacter> type;
                                         // 
                                         // TODO: FIX THIS
-                                        PlayerCharacter player = PlayerCharacter.getNewPlayerCharacter(sprite.getID());
+                                        PlayerCharacter player = PlayerCharacter.getNewPlayerCharacter(i);
                                         player.addComponent(new NonPickable());
                                     }
 

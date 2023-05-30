@@ -6,8 +6,8 @@ import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
 
 public class TranslateGizmo extends Gizmo {
 
-    public TranslateGizmo(Sprite arrowSprite, PropertiesPanel propertiesPanel) {
-        super(arrowSprite, propertiesPanel);
+    public TranslateGizmo(Sprite arrowSprite) {
+        super(arrowSprite);
     }
 
     @Override

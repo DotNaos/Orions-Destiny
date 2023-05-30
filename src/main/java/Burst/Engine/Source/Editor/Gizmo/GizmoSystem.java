@@ -24,8 +24,8 @@ public class GizmoSystem extends ActorComponent {
     @Override
     public void start() {
         if (this.actor == null) return;
-        actor.addComponent(new TranslateGizmo(gizmos.getSprite(1), Window.getScene().getPanel(PropertiesPanel.class)));
-        actor.addComponent(new ScaleGizmo(gizmos.getSprite(2), Window.getScene().getPanel(PropertiesPanel.class)));
+        actor.addComponent(new TranslateGizmo(gizmos.getSprite(1)));
+        actor.addComponent(new ScaleGizmo(gizmos.getSprite(2)));
     }
 
     @Override

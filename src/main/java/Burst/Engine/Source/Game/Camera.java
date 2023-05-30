@@ -20,9 +20,9 @@ public class Camera extends Actor {
     private Actor player;
 
 
-    public Camera(Viewport viewport) {
+    public Camera() {
         super("GameCamera");
-        this.viewport = viewport;
+        this.viewport = Window.getScene().getViewport();
     }
 
     @Override

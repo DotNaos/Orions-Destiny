@@ -12,7 +12,6 @@ public class Block extends Actor {
 
     public Block(Sprite sprite) {
         super(sprite);
-        //TODO Auto-generated constructor stub
     }
 
 }

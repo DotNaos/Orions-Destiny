@@ -1,22 +1,21 @@
 package Burst.Engine.Source.Core.Actor;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.Assets.AssetManager;
 import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
 import Burst.Engine.Source.Core.Assets.Graphics.Texture;
-import Burst.Engine.Source.Core.Component;
-import Burst.Engine.Source.Core.Render.SpriteRenderer;
 import Burst.Engine.Source.Core.Physics.Components.Transform;
+import Burst.Engine.Source.Core.Render.SpriteRenderer;
 import Burst.Engine.Source.Core.Saving.ActorDeserializer;
 import Burst.Engine.Source.Core.Saving.ComponentDeserializer;
 import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Core.Util.Util;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import org.joml.Vector3f;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Represents an object in the game world that can have Components attached to
@@ -27,7 +26,7 @@ public class Actor {
      * The Transform component attached to this actor.
      * This is automatically added when the actor is created.
      */
-    public transient Transform transform;
+    public Transform transform;
     /**
      * The ID of the actor.
      * This is set to -1 by default, and is set to a unique ID when the actor is
@@ -63,31 +62,13 @@ public class Actor {
      * Automatically generates a unique ID and creates a new Transform component.
      */
 
-    public Actor(String name, Sprite sprite)
+    public Actor()
     {
-        this.name = name;
+        this.name = "Actor: " + (Window.getScene().getGame().getActors().size() + 1);
         this.ID = Util.generateUniqueID();
         this.components = new ArrayList<>();
         this.transform = new Transform(this);
-        this.addComponent(new SpriteRenderer(this));
-        this.getComponent(SpriteRenderer.class).setSprite(sprite);
     }
-
-    public Actor(String name) {
-        this(name, null);
-    }
-
-    public Actor(Sprite sprite) {
-        this("Actor: " + (Window.getScene().getGame().getActors().size() + 1), sprite);
-    }
-
-    public Actor(Sprite sprite, Transform transform)
-    {
-        this(sprite);
-        this.transform = new Transform(this).copy(transform);
-    }
-
-
 
     /**
      * Initializes the object.
@@ -349,6 +330,21 @@ public class Actor {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    /**
+     * Adds a SpriteRenderer if not there 
+     * and sets the sprite of the SpriteRenderer 
+     * @param sprite the sprite to set
+     */
+    public void setSprite(Sprite sprite)
+    {
+        if (this.getComponent(SpriteRenderer.class) == null)
+        {
+            this.addComponent(new SpriteRenderer(this));
+        }
+        
+        this.getComponent(SpriteRenderer.class).setSprite(sprite);
     }
 
     public boolean isSerializedActor() {

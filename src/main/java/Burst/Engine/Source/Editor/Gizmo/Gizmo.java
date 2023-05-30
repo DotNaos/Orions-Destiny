@@ -35,17 +35,23 @@ public class Gizmo extends ActorComponent {
 
     private PropertiesPanel propertiesPanel;
 
-    public Gizmo(Sprite arrowSprite, PropertiesPanel propertiesPanel) {
+
+    public Gizmo(Sprite arrowSprite) {
         super(null);
-        this.xAxisObject = new Actor(arrowSprite, new Transform(new Vector3f(0, 0, 0), new Vector3f(gizmoWidth, gizmoHeight, 1), 90));
-        this.yAxisObject = new Actor(arrowSprite, new Transform(new Vector3f(0, 0, 0), new Vector3f(gizmoWidth, gizmoHeight, 1), 180));
+        this.xAxisObject = new Actor();
+        this.xAxisObject.setSprite(arrowSprite);
+        this.xAxisObject.transform = new Transform(new Vector3f(0, 0, 0), new Vector3f(gizmoWidth, gizmoHeight, 1), 90);
+        this.yAxisObject = new Actor();
+        this.yAxisObject.setSprite(arrowSprite);
+        this.yAxisObject.transform = new Transform(new Vector3f(0, 0, 0), new Vector3f(gizmoWidth, gizmoHeight, 1), 180);
+
         this.xAxisSprite = this.xAxisObject.getComponent(SpriteRenderer.class);
         this.yAxisSprite = this.yAxisObject.getComponent(SpriteRenderer.class);
-        this.propertiesPanel = propertiesPanel;
 
         this.xAxisObject.addComponent(new NonPickable());
         this.yAxisObject.addComponent(new NonPickable());
 
+        this.propertiesPanel = Window.getScene().getPanel(PropertiesPanel.class);
 
         Window.getScene().getGame().addActor(this.xAxisObject);
         Window.getScene().getGame().addActor(this.yAxisObject);
@@ -72,7 +78,7 @@ public class Gizmo extends ActorComponent {
     public void updateEditor(float dt) {
         if (!using) return;
 
-        this.activeActor = this.propertiesPanel.getActiveGameObject();
+        this.activeActor = propertiesPanel.getActiveGameObject();
         if (this.activeActor != null) {
             this.setActive();
         } else {

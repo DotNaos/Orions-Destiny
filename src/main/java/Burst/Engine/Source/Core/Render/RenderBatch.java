@@ -99,16 +99,18 @@ public class RenderBatch implements Comparable<RenderBatch> {
     }
 
     public void addSprite(SpriteRenderer spr) {
+        if (spr.getTexture() == null) return;
+
+
         // Get index and add renderObject
         int index = this.numSprites;
         this.sprites[index] = spr;
         this.numSprites++;
 
-        if (spr.getTexture() != null) {
-            if (!textures.contains(spr.getTexture())) {
-                textures.add(spr.getTexture());
-            }
+        if (!textures.contains(spr.getTexture())) {
+            textures.add(spr.getTexture());
         }
+        
 
         // Add properties to local vertices array
         loadVertexProperties(index);

@@ -50,13 +50,14 @@ public class Game {
         scene.getSceneInitializer().loadResources(this);
         start();
 
-        // Show a debug image
-        Texture tex = new Texture("assets/images/debug/blendImage1.png");
-//        tex.init();
-        Sprite sprite = new Sprite();
-        sprite.setTexture(tex);
+        //  Show a debug image
+        // Texture tex = new Texture("assets/images/debug/blendImage1.png");
+        // Sprite sprite = new Sprite();
+        // sprite.setTexture(tex);
 
-        this.addActor(new Actor(sprite));
+        // this.addActor(new Actor(sprite));
+        // saveLevel();
+
     }
 
     //====================================================================================================
@@ -108,7 +109,7 @@ public class Game {
 
         // Save the level if the actor is a serialized actor
         if (!actor.isSerializedActor()) return;
-        saveLevel();
+        // saveLevel();
     }
 
     // ====================================================================================================
@@ -206,7 +207,12 @@ public class Game {
     // |=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
     //====================================================================================================
     private Gson gsonBuilder() {
-        return new GsonBuilder().setPrettyPrinting().registerTypeAdapter(Component.class, new ComponentDeserializer()).registerTypeAdapter(Actor.class, new ActorDeserializer()).enableComplexMapKeySerialization().create();
+        return new GsonBuilder()
+        .setPrettyPrinting()
+        .registerTypeAdapter(Component.class, new ComponentDeserializer())
+        .registerTypeAdapter(Actor.class, new ActorDeserializer())
+        .enableComplexMapKeySerialization()
+        .create();
     }
 
     public void saveLevel() {
@@ -239,6 +245,7 @@ public class Game {
 
         if (!inFile.equals("")) {
             Actor[] actors = gsonBuilder().fromJson(inFile, Actor[].class);
+    
             for (Actor actor : actors) {
                 addActor(actor);
             }
@@ -293,8 +300,12 @@ public class Game {
     //====================================================================================================
 
     public void imgui() {
+
+
         for (Actor actor : actors) {
             actor.imgui();
         }
+
+
     }
 }

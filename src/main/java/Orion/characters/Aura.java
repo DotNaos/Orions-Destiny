@@ -2,7 +2,9 @@ package Orion.characters;
 
 public class Aura extends PlayerCharacter {
     public Aura() {
-        super("Aura", null);
+        super();
+        this.name = "Aura";
+        // this.sprite = new Sprite("assets/textures/characters/aura.png");
         this.description = """
                         Aura is a charismatic and confident character,\s
                         radiating energy wherever she actores.\s
