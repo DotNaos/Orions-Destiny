@@ -10,19 +10,23 @@ import java.util.List;
 public class Assets {
 
   // Images
-  public static final String SPRITESHEETS = "Assets/images/spritesheets/";
-  public static final String ENEMIES = "Enemy/";
+  public static final String IMAGES = "Assets/images/";
 
-  public static final String TEXTURES = "Assets/images/textures/";
-  public static final String ICONS = "icons/";
+    public static final String SPRITESHEETS = IMAGES + "spritesheets/";
+    public static final String ENEMIES = SPRITESHEETS + "Enemy/";
 
-  public static final String DEBUG_TEXTURES = "Assets/images/debug/";
+    // Textures
+    public static final String TEXTURES = IMAGES + "textures/";
+    public static final String ICONS = TEXTURES + "icons/";
 
-  // Backgrounds
-  public static final String BACKGROUNDS = "Assets/images/backgrounds/";
 
-  // UI
-  public static final String UI = "Assets/images/ui/";
+    public static final String DEBUG_TEXTURES = IMAGES + "debug/";
+
+    // Backgrounds
+    public static final String BACKGROUNDS = IMAGES + "backgrounds/";
+
+    // UI
+    public static final String UI = IMAGES + "ui/";
 
   // Audio
   public static final String SOUNDS = "Assets/sounds/";

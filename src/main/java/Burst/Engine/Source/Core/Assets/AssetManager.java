@@ -23,8 +23,6 @@ public class AssetManager {
 
     private static Map<String, Font> fonts = new HashMap<>();
     private static Map<String, LevelMap> maps = new HashMap<>();
-    private static Map<String, Background> backgrounds = new HashMap<>();
-    private static Map<String, UI_Assets> UIs = new HashMap<>();
 
     public static void loadAllAssets() {
         DebugMessage.noDebug = true;
@@ -80,7 +78,18 @@ public class AssetManager {
             }
 
             return count;
-        } else if (assetType.equals(Sprite.class) || assetType.equals(Texture.class)) {
+        } else if (assetType.equals(Texture.class)){
+            assetDir = Assets.TEXTURES;
+            String[] foundFiles = searchDirectory(assetDir, "png");
+
+            // Add all assetPaths to the map
+            for (String assetPath : foundFiles) {
+                textures.put(assetPath, new Texture(assetPath));
+                count++;
+            }
+            return count;
+
+        } else if (assetType.equals(Sprite.class)) {
             DebugMessage.error(assetType.toString() + "Are not Files to load");
             return count;
         } else if (assetType.equals(Shader.class)) {
@@ -123,26 +132,6 @@ public class AssetManager {
                 count++;
             }
             return count;
-        } else if (assetType.equals(Background.class)) {
-            assetDir = Assets.BACKGROUNDS;
-            String[] foundFiles = searchDirectory(assetDir, "png");
-
-            // Add all assetPaths to the map
-            for (String assetPath : foundFiles) {
-                backgrounds.put(assetPath, new Background(assetPath));
-                count++;
-            }
-            return count;
-        } else if (assetType.equals(UI_Assets.class)) {
-            assetDir = Assets.UI;
-            String[] foundFiles = searchDirectory(assetDir, "png");
-
-            // Add all assetPaths to the map
-            for (String assetPath : foundFiles) {
-                UIs.put(assetPath, new UI_Assets(assetPath));
-                count++;
-            }
-            return count;
         }
         DebugMessage.notFound("Did not found: " + assetType);
         return -1;
@@ -165,13 +154,11 @@ public class AssetManager {
             return new ArrayList<>(fonts.values());
         } else if (assetType.equals(LevelMap.class)) {
             return new ArrayList<>(maps.values());
-        } else if (assetType.equals(Background.class)) {
-            return new ArrayList<>(backgrounds.values());
-        } else if (assetType.equals(UI_Assets.class)) {
-            return new ArrayList<>(UIs.values());
-        }
+        } 
+
         DebugMessage.notFound("Did not found: " + assetType.toString());
         return null;
+
     }
 
     public static <T extends Asset> T getAssetFromType(Class<T> assetType, String filePath) {
@@ -221,13 +208,7 @@ public class AssetManager {
         } else if (assetType.equals(LevelMap.class)) {
             DebugMessage.notFound(assetType + "IS NOT IMPLEMENTED YET");
             return assetType.cast(AssetManager.maps.getOrDefault(filePath, null));
-        } else if (assetType.equals(Background.class)) {
-            DebugMessage.notFound(assetType + "IS NOT IMPLEMENTED YET");
-            return assetType.cast(AssetManager.backgrounds.getOrDefault(filePath, null));
-        } else if (assetType.equals(UI_Assets.class)) {
-            DebugMessage.notFound(assetType + "IS NOT IMPLEMENTED YET");
-            return assetType.cast(AssetManager.UIs.getOrDefault(filePath, null));
-        }
+        } 
         DebugMessage.notFound("Did not found: " + assetType);
         return null;
     }
@@ -262,10 +243,6 @@ public class AssetManager {
             keys = new ArrayList<>(fonts.keySet());
         } else if (assetType.equals(LevelMap.class)) {
             keys = new ArrayList<>(maps.keySet());
-        } else if (assetType.equals(Background.class)) {
-            keys = new ArrayList<>(backgrounds.keySet());
-        } else if (assetType.equals(UI_Assets.class)) {
-            keys = new ArrayList<>(UIs.keySet());
         } else {
             DebugMessage.notFound("Did not found: " + assetType);
             return null;
