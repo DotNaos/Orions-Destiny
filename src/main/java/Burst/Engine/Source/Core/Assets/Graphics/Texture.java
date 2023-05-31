@@ -143,4 +143,10 @@ public class Texture extends Asset {
 
         return pixels;
     }
+
+    @Override
+    public Asset build() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'build'");
+    }
 }

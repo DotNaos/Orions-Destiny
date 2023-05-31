@@ -1,23 +1,16 @@
 package Burst.Engine.Source.Editor;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.joml.Vector3f;
-
 import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Assets.AssetManager;
-import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
 import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheetUsage;
 import Burst.Engine.Source.Core.Assets.Graphics.Spritesheet;
 import Burst.Engine.Source.Core.UI.ImGui.ImGuiPanel;
 import Burst.Engine.Source.Core.Util.ClassDerivativeSearch;
-import Orion.blocks.Block;
-import Orion.characters.PlayerCharacter;
-import Orion.items.Item;
 import imgui.ImGui;
-import imgui.ImVec2;
+
 
 public class ContentDrawer extends ImGuiPanel {
     private List<List<Spritesheet>> categories = new ArrayList<>();
@@ -49,7 +42,7 @@ public class ContentDrawer extends ImGuiPanel {
         usages.add(usage);
 
         ClassDerivativeSearch actorSearcher = new ClassDerivativeSearch(Actor.class);
-        actorSearcher.addPackage("Burst.");
+        actorSearcher.addPackage("Burst");
         actorSearcher.addPackage("Orion");
 
         this.actors = actorSearcher.search(); 

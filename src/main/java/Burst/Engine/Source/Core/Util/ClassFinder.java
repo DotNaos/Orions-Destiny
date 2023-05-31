@@ -37,8 +37,21 @@ public class ClassFinder {
                         addClassesFromDirectory(subPackage, subDirectoryPath, classes);
                     } else if (fileName.endsWith(".class")) {
                         String className = packageName + "." + fileName.substring(0, fileName.length() - 6);
-                        Class<?> clazz = Class.forName(className);
-                        classes.add(clazz);
+                        if (className.contains("$")) {
+                            continue;
+                        }
+                        if (className.contains("Main")) {
+                            continue;
+                        }
+                        try {
+                            System.out.println(className);
+                            Class<?> clazz = Class.forName(className);
+                            classes.add(clazz);
+                            System.out.println(className); 
+                        }  catch (ExceptionInInitializerError e) {
+                            Throwable cause = e.getCause();
+                            cause.printStackTrace();
+                        }
                     }
                 }
             }

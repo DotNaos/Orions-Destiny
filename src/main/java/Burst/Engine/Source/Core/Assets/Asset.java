@@ -6,7 +6,7 @@ import Burst.Engine.Source.Core.Util.Util;
 /**
  * Every asset in the engine is a subclass of this class.
  */
-public class Asset {
+public abstract class Asset {
     protected String filepath;
     protected long id;
 
@@ -33,5 +33,5 @@ public class Asset {
         return this.id;
     }
 
-
+    public abstract Asset build();
 }

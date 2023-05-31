@@ -85,4 +85,10 @@ public class Sprite extends Asset {
     public void setTexCoords(Vector3f[] texCoords) {
         this.texCoords = texCoords;
     }
+
+    @Override
+    public Asset build() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'build'");
+    }
 }

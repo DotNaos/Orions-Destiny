@@ -1,6 +1,6 @@
 package Burst.Engine.Source.Core.UI;
 
-import Burst.Engine.Config.ShaderConfig;
+import Burst.Engine.Config.Shader_Config;
 import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Assets.AssetManager;
 import Burst.Engine.Source.Core.Assets.Graphics.Shader;
@@ -201,8 +201,8 @@ public class Window implements Observer {
         float endTime;
         float dt = -1.0f;
 
-        Shader defaultShader = AssetManager.getAssetFromType(ShaderConfig.SHADER_DEFAULT, Shader.class);
-        Shader pickingShader = AssetManager.getAssetFromType(ShaderConfig.SHADER_PICKING, Shader.class);
+        Shader defaultShader = AssetManager.getAssetFromType(Shader_Config.SHADER_DEFAULT, Shader.class);
+        Shader pickingShader = AssetManager.getAssetFromType(Shader_Config.SHADER_PICKING, Shader.class);
 
         while (!glfwWindowShouldClose(glfwWindow)) {
             // Poll events

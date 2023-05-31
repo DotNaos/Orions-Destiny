@@ -120,4 +120,10 @@ public class Spritesheet extends Asset {
         return usage;
     }
 
+    @Override
+    public Asset build() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'build'");
+    }
+
 }

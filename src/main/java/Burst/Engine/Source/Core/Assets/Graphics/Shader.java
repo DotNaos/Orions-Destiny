@@ -180,4 +180,12 @@ public class Shader extends Asset {
         use();
         glUniform1iv(varLocation, array);
     }
+
+    @Override
+    public Asset build() {
+        Shader shader = new Shader(filepath);
+        shader.compile();
+        
+        return shader;  
+    }
 }

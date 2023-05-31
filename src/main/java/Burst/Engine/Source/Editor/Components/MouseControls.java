@@ -16,7 +16,7 @@ import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Editor.Gizmo.GizmoSystem;
 import Burst.Engine.Source.Editor.NonPickable;
 import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
-import Orion.res.Assets;
+import Orion.res.AssetHolder;
 import org.joml.Vector3f;
 import org.joml.Vector2i;
 import org.joml.Vector4f;
@@ -29,7 +29,7 @@ import static org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT;
 
 public class MouseControls extends Component {
     Actor holdingActor = null;
-    Spritesheet gizmos = AssetManager.getAssetFromType(Assets.GIZMOS, Spritesheet.class);
+    Spritesheet gizmos = AssetManager.getAssetFromType(AssetHolder.GIZMOS, Spritesheet.class);
     private float debounceTime = 0.2f;
     private float debounce = debounceTime;
     private boolean boxSelectSet = false;

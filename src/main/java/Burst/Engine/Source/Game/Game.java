@@ -1,7 +1,6 @@
 package Burst.Engine.Source.Game;
 
 import Burst.Engine.Source.Core.Actor.Actor;
-import Burst.Engine.Source.Core.Assets.Graphics.Background;
 import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
 import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Burst.Engine.Source.Core.Component;
@@ -31,7 +30,6 @@ public class Game {
     protected List<Component> components;
     protected Physics2D physics2D;
     protected Scene scene;
-    protected Background background;
 
     public Game(Scene scene) {
         this.scene = scene;

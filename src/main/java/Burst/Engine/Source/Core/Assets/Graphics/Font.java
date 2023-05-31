@@ -7,4 +7,10 @@ public class Font extends Asset {
     public Font(String filepath) {
         super(filepath);
     }
+
+    @Override
+    public Asset build() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'build'");
+    }
 }

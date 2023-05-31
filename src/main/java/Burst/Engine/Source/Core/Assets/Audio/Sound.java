@@ -99,4 +99,10 @@ public class Sound extends Asset {
         }
         return isPlaying;
     }
+
+    @Override
+    public Asset build() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'build'");
+    }
 }
