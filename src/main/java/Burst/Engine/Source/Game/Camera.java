@@ -21,7 +21,8 @@ public class Camera extends Actor {
 
 
     public Camera() {
-        super("GameCamera");
+        super();
+        this.name = "Game Camera";
         this.viewport = Window.getScene().getViewport();
     }
 

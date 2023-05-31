@@ -22,6 +22,8 @@ import Burst.Engine.Source.Core.Util.Util;
  * it.
  */
 public class Actor {
+    public static Sprite icon = AssetManager.getAssetFromType("Icon_Actor" ,Sprite.class);
+
     /**
      * The Transform component attached to this actor.
      * This is automatically added when the actor is created.

@@ -1,5 +1,6 @@
 package Burst.Engine.Source.Editor;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,14 +12,17 @@ import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
 import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheetUsage;
 import Burst.Engine.Source.Core.Assets.Graphics.Spritesheet;
 import Burst.Engine.Source.Core.UI.ImGui.ImGuiPanel;
+import Burst.Engine.Source.Core.Util.ClassDerivativeSearch;
 import Orion.blocks.Block;
 import Orion.characters.PlayerCharacter;
+import Orion.items.Item;
 import imgui.ImGui;
 import imgui.ImVec2;
 
 public class ContentDrawer extends ImGuiPanel {
     private List<List<Spritesheet>> categories = new ArrayList<>();
     private List<SpriteSheetUsage> usages = new ArrayList<>();
+    private List<Class<?>> actors = new ArrayList<>();
 
     public ContentDrawer() {
         super();
@@ -43,6 +47,12 @@ public class ContentDrawer extends ImGuiPanel {
         List<Spritesheet> players = AssetManager.getSpriteSheets(usage);
         categories.add(players);
         usages.add(usage);
+
+        ClassDerivativeSearch actorSearcher = new ClassDerivativeSearch(Actor.class);
+        actorSearcher.addPackage("Burst.");
+        actorSearcher.addPackage("Orion");
+
+        this.actors = actorSearcher.search(); 
     }
 
     /**
@@ -50,9 +60,24 @@ public class ContentDrawer extends ImGuiPanel {
      */
     @Override
     public void imgui() {
+
+        boolean open = false;
         ImGui.begin("Content Drawer");
+
+            // Show all actors in a text list
+            for (Class<?> actor : actors) { 
+                ImGui.text(actor.getPackage().toString());
+            }
+            
+        /* 
         if (ImGui.beginTabBar("WindowTabBar")) {
             for (int category = 0; category < categories.size(); category++) {
+
+
+                if (category >= 0) continue;
+
+
+
                 if (ImGui.beginTabItem(usages.get(category).toString()))
                 {
                     if (categories.get(category).isEmpty()) {
@@ -88,21 +113,31 @@ public class ContentDrawer extends ImGuiPanel {
                                         actor.addComponent(new NonPickable());
                                     }
                                     case BLOCK -> {
-                                        Block block = new Block(sprite);
+                                        Block block = new Block();
+                                        block.setSprite(sprite);
                                         block.addComponent(new NonPickable());
                                     }
 
                                     case PLAYER -> {
-                                        Class <? extends PlayerCharacter> type;
-                                        // 
                                         // TODO: FIX THIS
-                                        PlayerCharacter player = PlayerCharacter.getNewPlayerCharacter(i);
-                                        player.addComponent(new NonPickable());
+                                        Class<? extends PlayerCharacter> selectedPlayer;
+                                        selectedPlayer = (Class<? extends PlayerCharacter>) sprites.getUsedBy();
+
+
+                                        PlayerCharacter player;
+                                        try {
+                                            player = PlayerCharacter.getNewPlayerCharacter(selectedPlayer);
+                                            player.addComponent(new NonPickable());
+
+                                        } catch (Exception e) {
+                                            e.printStackTrace();
+                                        }
+                                            
                                     }
 
                                     case ITEM -> {
-                                        // Item actor = new Item(sprite);
-                                        // actor.addComponent(new NonPickable());
+                                        Item item = new Item();
+                                        item.addComponent(new NonPickable());
                                     }
                                     default -> throw new IllegalArgumentException("Unexpected value: " + usages.get(category));
 
@@ -132,9 +167,12 @@ public class ContentDrawer extends ImGuiPanel {
 
             }
             
-            
+
+
+
             ImGui.endTabBar();
-        }
+        }*/
+        
         ImGui.end();
     }
 }

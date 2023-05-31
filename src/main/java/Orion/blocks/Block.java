@@ -10,8 +10,8 @@ import org.joml.Vector3f;
 
 public class Block extends Actor {
 
-    public Block(Sprite sprite) {
-        super(sprite);
+    public Block() {
+        super();
     }
 
 }

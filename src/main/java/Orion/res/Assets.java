@@ -14,6 +14,7 @@ public class Assets {
   public static final String ENEMIES = "Enemy/";
 
   public static final String TEXTURES = "Assets/images/textures/";
+  public static final String ICONS = "icons/";
 
   public static final String DEBUG_TEXTURES = "Assets/images/debug/";
 
@@ -30,10 +31,32 @@ public class Assets {
   public static final String MAPS = "Assets/maps/";
 
 
-  //============================================================
-  //========================  Asset Names  =====================
-  //============================================================
+  // // ============================================================
+  // // ========================  Asset Names  =====================
+  // // ============================================================
 
+
+  //===================================================================
+  //========================  Class Icons  ============================
+  //===================================================================
+
+  // Actor
+  public static final String ICON_ACTOR = ICONS + "actor.png";
+
+  // Block
+  public static final String ICON_BLOCK = ICONS + "block.png";
+
+  // Pawn
+  public static final String ICON_PAWN = ICONS + "pawn.png";
+
+  // Player
+  public static final String ICON_PLAYER = ICONS + "player.png";
+
+  // Enemy
+  public static final String ICON_ENEMY = ICONS + "enemy.png";
+
+  // Item
+  public static final String ICON_ITEM = ICONS + "item.png";
 
 
   //===================================================================

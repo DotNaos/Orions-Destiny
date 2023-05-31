@@ -1,5 +1,7 @@
 package Orion.characters;
 
+import java.lang.reflect.InvocationTargetException;
+
 import Burst.Engine.Source.Core.Actor.Pawn;
 import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
 
@@ -17,28 +19,9 @@ public abstract class PlayerCharacter extends Pawn {
         super();
     }
 
-    public static <T extends PlayerCharacter> T getNewPlayerCharacter(int PlayerID) {
+    public static <T extends PlayerCharacter> T getNewPlayerCharacter(Class<T> type) throws InstantiationException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
         // Create a new instance of the specified type and return it
-
-        switch (PlayerID)
-        {
-            case 2 -> {
-                return (T) new Aura();
-            }
-            case 3 -> {
-                return (T) new Genesis();
-            }
-            case 4 -> {
-                return (T) new Helix();
-            }
-            case 5 -> {
-                return (T) new Solaris();
-            }
-            default -> {
-                // Default character
-                return (T) new Apex();
-            }
-        }
+        return type.getDeclaredConstructor().newInstance();
     }
 
     public String getDescription() {

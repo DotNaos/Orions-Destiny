@@ -13,7 +13,7 @@ public class Spritesheet extends Asset {
     private Texture texture;
     private List<Sprite> sprites;
     private SpriteSheetUsage usage = SpriteSheetUsage.NONE;
-
+    private Class<?> usedBy = null;
 
     private int spriteCount = 0;
     private int[] spritesPerRow;
@@ -102,20 +102,14 @@ public class Spritesheet extends Asset {
         return this.sprites.get(rowOfSprite + col - 1);
     }
 
-    /**
-     * This method returns the texture of the sprite at the given index
-     * It uses the texturecoords of the sprite to create a new texture
-     * @param index The index of the sprite to get the texture from
-     * @return
-     */
-    public Texture getTexture(int index) {
-        Sprite sprite = this.sprites.get(index);
-        Vector3f[] texCoords = sprite.getTexCoords();
-        return new Texture(spriteWidth, spriteHeight);
-    }
+
 
     public Texture getSheetTexture() {
         return this.texture;
+    }
+
+    public Class<?> getUsedBy() {
+        return usedBy;
     }
 
     public int size() {
