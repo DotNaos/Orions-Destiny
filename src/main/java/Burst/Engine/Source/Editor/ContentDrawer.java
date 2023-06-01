@@ -59,7 +59,14 @@ public class ContentDrawer extends ImGuiPanel {
 
         ImGui.begin("Content Drawer");
 
-            // Show all actors in a text list
+            float windowWidth = ImGui.getWindowWidth();
+            float windowHeight = ImGui.getWindowHeight();
+            float iconSize = Math.max(64, Math.min(windowWidth / 4, windowHeight / 2));
+
+
+            ImGui.columns(Math.max((int)(ImGui.getContentRegionAvailX() / iconSize), 1), "", false);
+
+            // Show all actors in a Grid Layout
             for (Class<?> actor : actors) {
                 ImGui.text(actor.getSimpleName());
                 try {
@@ -72,13 +79,26 @@ public class ContentDrawer extends ImGuiPanel {
 
 
                     // Cast the icon value to a Texture and show it
-                    ImGui.image(((Texture) iconValue).getTexID(), 128, 128);
+                    // Also adapt the size of the icon to the size of the window
+
+
+                    // Background
+                    ImGui.imageButton(((Texture) iconValue).getTexID(), iconSize, iconSize);
+
+                    // Show the text below the image
+                    ImGui.text(actor.getSimpleName());
+                  
+
+                    // Move to the next column
+                    ImGui.nextColumn();
                 } catch (NoSuchFieldException | IllegalAccessException e) {
                     // Handle any exceptions that may occur
                     // System.out.println("No icon field found for class: " + actor.getSimpleName() );
                 }
             
             }
+            // Reset the columns
+            ImGui.columns(1, "", false);
             
         /* 
         if (ImGui.beginTabBar("WindowTabBar")) {

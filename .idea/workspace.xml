@@ -9,13 +9,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="Highlighted Sections">
+    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="CMD output besser">
+      <change afterPath="$PROJECT_DIR$/Assets/images/textures/icons/folder.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/textures/icons/actor.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/textures/icons/actor.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/textures/icons/block.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/textures/icons/block.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/textures/icons/enemy.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/textures/icons/enemy.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/textures/icons/item.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/textures/icons/item.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/textures/icons/pawn.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/textures/icons/pawn.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/textures/icons/player.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/textures/icons/player.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/imgui.ini" beforeDir="false" afterPath="$PROJECT_DIR$/imgui.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/AssetManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/AssetManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/ImGui/ImGuiPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/ImGui/ImGuiPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/ContentDrawer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/ContentDrawer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Editor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Editor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Game/Game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -208,7 +213,7 @@
       <workItem from="1684912517239" duration="101000" />
       <workItem from="1685381057571" duration="1340000" />
       <workItem from="1685632750986" duration="5612000" />
-      <workItem from="1685639644841" duration="4053000" />
+      <workItem from="1685639644841" duration="6596000" />
     </task>
     <task id="LOCAL-00001" summary="Refactoring vom Editor">
       <created>1683701936326</created>
@@ -455,14 +460,20 @@
       <option name="project" value="LOCAL" />
       <updated>1685639554671</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="CMD output besser">
+      <created>1685643762251</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1685643762251</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Scrolling im Editor geht wieder" />
     <MESSAGE value="Bugfix Nullpointer" />
     <MESSAGE value="Zoom in center" />
     <MESSAGE value="Mehrere Plots gleichzeitig" />
@@ -487,7 +498,8 @@
     <MESSAGE value="ViewportSize extra und HotKeys in eigener Datei" />
     <MESSAGE value="Assets Updated. Sehr gut" />
     <MESSAGE value="Highlighted Sections" />
-    <option name="LAST_COMMIT_MESSAGE" value="Highlighted Sections" />
+    <MESSAGE value="CMD output besser" />
+    <option name="LAST_COMMIT_MESSAGE" value="CMD output besser" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
