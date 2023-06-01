@@ -1,8 +1,12 @@
 package Orion.characters;
 
+import Burst.Engine.Source.Core.Assets.AssetManager;
 import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
+import Burst.Engine.Source.Core.Assets.Graphics.Texture;
+import Orion.res.AssetConfig;
 
 public class Apex extends PlayerCharacter {
+    public static final transient Texture icon = AssetManager.getAssetFromType(AssetConfig.ICON_PLAYER,Texture.class).flippedTexture();
     public Apex() {
         super();
         this.name = "Apex";

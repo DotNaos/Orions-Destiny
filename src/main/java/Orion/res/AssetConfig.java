@@ -49,6 +49,7 @@ public class AssetConfig {
     public static final String ICON_ITEM = DIR_OF_ICONS + "item.png";
     public static final String ICON_BLOCK = DIR_OF_ICONS + "block.png";
     public static final String ICON_PLAYER = DIR_OF_ICONS + "player.png";
+    public static final String ICON_CAMERA = DIR_OF_ICONS + "camera.png";
 
 
   //? =================== Images - SpriteSheets ==========================

@@ -18,12 +18,13 @@ import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Core.Util.Util;
 import Orion.res.AssetConfig;
 
+
 /**
  * Represents an object in the game world that can have Components attached to
  * it.
  */
 public class Actor {
-    public static Texture icon = AssetManager.getAssetFromType(AssetConfig.ICON_ACTOR,Texture.class);
+    public static final transient Texture icon = AssetManager.getAssetFromType(AssetConfig.ICON_ACTOR,Texture.class).flippedTexture();
 
     /**
      * The Transform component attached to this actor.

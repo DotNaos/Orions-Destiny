@@ -2,12 +2,16 @@ package Burst.Engine.Source.Game;
 
 import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Actor.PlayerController;
+import Burst.Engine.Source.Core.Assets.AssetManager;
+import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Burst.Engine.Source.Core.UI.Viewport;
 import Burst.Engine.Source.Core.UI.Window;
+import Orion.res.AssetConfig;
 import org.joml.Vector3f;
 import org.joml.Vector4f;
 
 public class Camera extends Actor {
+    public static final transient Texture icon = AssetManager.getAssetFromType(AssetConfig.ICON_CAMERA, Texture.class).flippedTexture();
     private final transient Viewport viewport;
 
     /**

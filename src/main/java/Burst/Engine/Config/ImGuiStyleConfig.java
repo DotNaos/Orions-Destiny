@@ -36,7 +36,7 @@ public class ImGuiStyleConfig extends Component {
   private Vector2f displaySafeAreaPadding = new Vector2f(3.0f, 3.0f);
   private Vector2f displayWindowPadding = new Vector2f(4.0f, 4.0f);
   private float frameBorderSize = 1.0f;
-  private Vector2f framePadding = new Vector2f(8.0f, 4.0f);
+  private Vector2f framePadding = new Vector2f(4.0f, 4.0f);
   private float grabMinSize = 10.0f;
   private float grabRounding = 0.0f;
   private float indentSpacing = 21.0f;

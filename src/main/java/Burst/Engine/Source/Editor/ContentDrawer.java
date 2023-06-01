@@ -13,6 +13,8 @@ import Burst.Engine.Source.Core.UI.ImGui.ImGuiPanel;
 import Burst.Engine.Source.Core.Util.ClassDerivativeSearch;
 import imgui.ImGui;
 import imgui.ImVec2;
+import imgui.flag.ImGuiCol;
+import imgui.flag.ImGuiStyleVar;
 
 
 public class ContentDrawer extends ImGuiPanel {
@@ -56,19 +58,21 @@ public class ContentDrawer extends ImGuiPanel {
      */
     @Override
     public void imgui() {
-
+        ImGui.pushStyleColor(ImGuiCol.ChildBg, 0.125f, 0.125f,0.125f, 0.75f);
         ImGui.begin("Content Drawer");
 
             float windowWidth = ImGui.getWindowWidth();
             float windowHeight = ImGui.getWindowHeight();
-            float iconSize = Math.max(64, Math.min(windowWidth / 4, windowHeight / 2));
+            float iconSize = Math.max(128, Math.min(windowWidth / 4, windowHeight / 4));
 
-
-            ImGui.columns(Math.max((int)(ImGui.getContentRegionAvailX() / iconSize), 1), "", false);
+            // Add a border around the window
+            ImGui.pushStyleColor(ImGuiCol.Border, 0.3f, 0.3f, 0.3f, 0.5f);
+            // Add a padding between the border and the content
+            ImGui.pushStyleVar(ImGuiStyleVar.ItemSpacing, 10, 10);
+            ImGui.columns(Math.max((int)(ImGui.getContentRegionAvailX() / iconSize) -1 , 1), "", false);
 
             // Show all actors in a Grid Layout
             for (Class<?> actor : actors) {
-                ImGui.text(actor.getSimpleName());
                 try {
                     // Get the icon field of the actor class
                     Field iconField = actor.getDeclaredField("icon");
@@ -78,14 +82,24 @@ public class ContentDrawer extends ImGuiPanel {
                     Object iconValue = iconField.get(actor);
 
 
-                    // Cast the icon value to a Texture and show it
-                    // Also adapt the size of the icon to the size of the window
 
 
                     // Background
+                    ImGui.pushStyleColor(ImGuiCol.Button, 0.5f, 0.5f, 0.5f, 0.3f);
+                    ImGui.pushStyleColor(ImGuiCol.ButtonHovered, 0.5f, 0.5f, 0.5f, 0.5f);
+                    ImGui.pushStyleColor(ImGuiCol.ButtonActive, 0.5f, 0.5f, 0.5f, 1f);
+
+
                     ImGui.imageButton(((Texture) iconValue).getTexID(), iconSize, iconSize);
+                    ImGui.popStyleColor(3);
 
                     // Show the text below the image
+                    // And center it
+                    ImVec2 textSize = new ImVec2();
+                    ImGui.calcTextSize(textSize, actor.getSimpleName());
+                    ImGui.setCursorPosX(ImGui.getCursorPosX() + (iconSize - textSize.x) / 2);
+
+
                     ImGui.text(actor.getSimpleName());
                   
 
@@ -99,6 +113,8 @@ public class ContentDrawer extends ImGuiPanel {
             }
             // Reset the columns
             ImGui.columns(1, "", false);
+            ImGui.popStyleColor();
+            ImGui.popStyleVar();
             
         /* 
         if (ImGui.beginTabBar("WindowTabBar")) {
@@ -205,5 +221,6 @@ public class ContentDrawer extends ImGuiPanel {
         }*/
         
         ImGui.end();
+        ImGui.popStyleColor();
     }
 }
