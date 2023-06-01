@@ -183,9 +183,8 @@ public class Shader extends Asset {
 
     @Override
     public Asset build() {
-        Shader shader = new Shader(filepath);
-        shader.compile();
+        compile();
         
-        return shader;  
+        return this;  
     }
 }

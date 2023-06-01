@@ -3,6 +3,8 @@ package Burst.Engine.Source.Core.Actor;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.w3c.dom.Text;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -16,13 +18,14 @@ import Burst.Engine.Source.Core.Saving.ActorDeserializer;
 import Burst.Engine.Source.Core.Saving.ComponentDeserializer;
 import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Core.Util.Util;
+import Orion.res.AssetHolder;
 
 /**
  * Represents an object in the game world that can have Components attached to
  * it.
  */
 public class Actor {
-    public static Sprite icon = AssetManager.getAssetFromType("Icon_Actor" ,Sprite.class);
+    public static Texture icon = AssetManager.getAssetFromType(AssetHolder.ICON_ACTOR,Texture.class);
 
     /**
      * The Transform component attached to this actor.

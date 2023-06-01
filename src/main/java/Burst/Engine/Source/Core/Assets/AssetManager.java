@@ -17,7 +17,6 @@ import java.util.*;
 public class AssetManager {
 
     private static List<Assets> assetsList = new ArrayList<>();
-    private static Map<String, Spritesheet> spritesheets = new HashMap<>();
 
     public static void loadAllAssets() {
         DebugMessage.noDebug = true;
@@ -36,6 +35,8 @@ public class AssetManager {
 
         for (Assets assets : assetsList)
         {
+            if (assets.getAssetType().isAssignableFrom(Spritesheet.class)) continue;
+
             assetDir = assets.getDir();
             foundFiles = searchDirectory(assetDir, assets.getFileType());
 
@@ -44,9 +45,12 @@ public class AssetManager {
 
             // Add all assetPaths to the map
             for (String assetPath : foundFiles) {
-                assets.getAssets().put(assetPath, new Texture(assetPath));
-                // System.out.println(assetPath);
-            }
+                // add the relative path to the asset
+                assetPath = assetPath.replace("\\", "/");
+                
+                assets.getAssets().put(assetPath, createNewAsset(assetPath, assets.getAssetType())); 
+                
+            } 
 
             DebugMessage.loadSuccess("Loaded " + assets.getAssets().size() + " " + assets.getName());
         }
@@ -54,15 +58,32 @@ public class AssetManager {
             DebugMessage.noDebug = false;
     }
 
+    private static Asset createNewAsset(String assetPath, Class<? extends Asset> assetType) {
+        if (assetType.isAssignableFrom(Texture.class)) {
+            return new Texture(assetPath);
+        } else if (assetType.isAssignableFrom(Spritesheet.class)) {
+            return new Spritesheet(assetPath);
+        } else if (assetType.isAssignableFrom(Shader.class)) {
+            return new Shader(assetPath);
+        } else if (assetType.isAssignableFrom(Sound.class)) {
+            return new Sound(assetPath);
+        } else if (assetType.isAssignableFrom(Font.class)) {
+            return new Font(assetPath);
+        } else if (assetType.isAssignableFrom(LevelMap.class)) {
+            return new LevelMap(assetPath);
+        } else {
+            DebugMessage.error("Could not create asset: " + assetType.toString());
+            return null;
+        }
+
+    }
+
     public static List<? extends Asset> getAllAssetsFromType(Class<? extends Asset> assetType) {
 
-        if (assetType.equals(Spritesheet.class)) {
-            return new ArrayList<>(spritesheets.values());
-        } else {
-            for (Assets assets : assetsList) {
-                if (assets.getAssetType().equals(assetType)) {
-                    return new ArrayList<>(assets.getAssets().values());
-                }
+
+        for (Assets assets : assetsList) {
+            if (assets.getAssetType().equals(assetType)) {
+                return new ArrayList<>(assets.getAssets().values());
             }
         }
 
@@ -72,16 +93,20 @@ public class AssetManager {
 
     public static <T extends Asset> T getAssetFromType(Class<T> assetType, String filePath) {
         File file = new File(filePath);
+
         if (!file.exists()) {
             DebugMessage.notFound("Did not found: " + filePath);
             return null;
         }
 
-        if (assetType.equals(Spritesheet.class)) {
 
-            return assetType.cast(AssetManager.spritesheets.getOrDefault(filePath, null));
-
+        for (Assets assets : assetsList) {
+            if (assets.getAssetType().equals(assetType)) {
+                return (T) assets.getAssets().get(filePath);
+            }
         }
+
+
         DebugMessage.notFound("Did not found: " + assetType);
         return null;
     }
@@ -106,26 +131,26 @@ public class AssetManager {
                 if (file.isDirectory()) {
                     searchDirectoryHelper(file, fileType, files);
                 } else if (file.getName().toLowerCase().endsWith("." + fileType)) {
-                    files.add(file.getAbsolutePath());
-                    System.out.println(file.getAbsolutePath());
+                    files.add(file.getPath());
+                    System.out.println(file.getPath());
                 }
             }
         }
     }
 
-    public static List<String> printAllAssetsFromType(Class<? extends Asset> assetType) {
-        List<String> keys;
-        if (assetType.equals(Spritesheet.class)) {
-            keys = new ArrayList<>(spritesheets.keySet());
-        } else {
-            DebugMessage.notFound("Did not found: " + assetType);
-            return null;
+    public static void printAllAssetsFromType(Class<? extends Asset> assetType) {
+        List<String> keys = new ArrayList<>();
+        for (Assets assets : assetsList) {
+            if (assets.getAssetType().equals(assetType)) {
+                keys = new ArrayList<>(assets.getAssets().keySet());
+                break;
+            }
         }
-
         for (String key : keys) {
             System.out.println(key);
         }
-        return keys;
+
+
     }
 
     public static String getFilePath(Component component) {
@@ -142,7 +167,7 @@ public class AssetManager {
      */
     public static List<Spritesheet> getSpriteSheets(SpriteSheetUsage usage) {
         List<Spritesheet> spritesheetsWithUsage = new ArrayList<>();
-        List<Spritesheet> ListOfSpriteSheets = spritesheets.values().stream().toList();
+        List<Spritesheet> ListOfSpriteSheets = (List<Spritesheet>) getAllAssetsFromType(Spritesheet.class);
         for (Spritesheet sheet : ListOfSpriteSheets) {
             if (sheet.getUsage() == usage) {
                 spritesheetsWithUsage.add(sheet);

@@ -10,6 +10,6 @@ public class LevelMap extends Asset {
 
     @Override
     public Asset build() {
-        return null;
+        return this;
     }
 }

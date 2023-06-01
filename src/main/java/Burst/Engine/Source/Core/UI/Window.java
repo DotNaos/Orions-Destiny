@@ -201,6 +201,7 @@ public class Window implements Observer {
         float endTime;
         float dt = -1.0f;
 
+
         Shader defaultShader = AssetManager.getAssetFromType(Shader_Config.SHADER_DEFAULT, Shader.class);
         Shader pickingShader = AssetManager.getAssetFromType(Shader_Config.SHADER_PICKING, Shader.class);
 

@@ -20,25 +20,17 @@ public class Spritesheet extends Asset {
     private boolean emptySpritesDefined = false;
     private int spriteWidth, spriteHeight, spacing, rows, cols;
 
-    public Spritesheet(Texture texture, SpriteSheetUsage usage, int spriteWidth, int spriteHeight, int spacing) {
-        super(texture.getFilepath());
-        DebugMessage.info("Creating Spritesheet: " + texture.getFilepath());
-        this.sprites = new ArrayList<>();
-        this.texture = texture;
-        this.spriteWidth = spriteWidth;
-        this.spriteHeight = spriteHeight;
-        this.spacing = spacing;
-        this.rows = texture.getWidth() / (spriteWidth + spacing);
-        this.cols = texture.getHeight() / (spriteHeight + spacing);
-        this.spritesPerRow = new int[rows];
-        this.usage = usage;
-        createSprites(rows, cols);
+    public Spritesheet(String filepath) {
+        super(filepath);
     }
 
-    public Spritesheet(Texture texture, SpriteSheetUsage usage, int spriteWidth, int spriteHeight, int spacing, int[] spritesPerRow) {
-        super(texture.getFilepath());
+    public void configure(SpriteSheetUsage usage, int spriteWidth, int spriteHeight, int spacing) {
+        configure(usage, spriteWidth, spriteHeight, spacing, new int[rows]);
+        emptySpritesDefined = false;
+    }
+
+    public void configure(SpriteSheetUsage usage, int spriteWidth, int spriteHeight, int spacing, int[] spritesPerRow) {
         this.sprites = new ArrayList<>();
-        this.texture = texture;
         this.spriteWidth = spriteWidth;
         this.spriteHeight = spriteHeight;
         this.spacing = spacing;
@@ -49,6 +41,9 @@ public class Spritesheet extends Asset {
         this.usage = usage;
         createSprites(rows, cols);
     }
+
+
+
 
     private void createSprites(int rows, int cols) {
 
@@ -122,8 +117,8 @@ public class Spritesheet extends Asset {
 
     @Override
     public Asset build() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'build'");
+        this.texture = new Texture(this.filepath);
+        return this;
     }
 
 }

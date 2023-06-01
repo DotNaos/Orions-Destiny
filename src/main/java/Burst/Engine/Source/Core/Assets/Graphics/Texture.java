@@ -18,6 +18,23 @@ public class Texture extends Asset {
 
     public Texture(String filepath) {
         super(filepath);
+        
+        // Get the width and height from the image
+        IntBuffer width = BufferUtils.createIntBuffer(1);
+        IntBuffer height = BufferUtils.createIntBuffer(1);
+        IntBuffer channels = BufferUtils.createIntBuffer(1);
+        stbi_set_flip_vertically_on_load(true);
+        ByteBuffer image = stbi_load(filepath, width, height, channels, 0);
+
+        // Generate texture on GPU
+        texID = glGenTextures();
+        glBindTexture(GL_TEXTURE_2D, texID);
+
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width.get(), height.get(),
+                0, GL_RGB, GL_UNSIGNED_BYTE, image);
     }
 
     public Texture() {
@@ -146,7 +163,6 @@ public class Texture extends Asset {
 
     @Override
     public Asset build() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'build'");
+        return this;
     }
 }
