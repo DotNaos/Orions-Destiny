@@ -44,10 +44,8 @@ public class ClassFinder {
                             continue;
                         }
                         try {
-                            System.out.println(className);
                             Class<?> clazz = Class.forName(className);
                             classes.add(clazz);
-                            System.out.println(className); 
                         }  catch (ExceptionInInitializerError e) {
                             Throwable cause = e.getCause();
                             cause.printStackTrace();

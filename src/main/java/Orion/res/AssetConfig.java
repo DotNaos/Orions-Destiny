@@ -1,13 +1,11 @@
 package Orion.res;
 
-import Burst.Engine.Source.Core.Assets.AssetManager;
+import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheetConfig;
 import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheetUsage;
-import Burst.Engine.Source.Core.Assets.Graphics.Spritesheet;
-import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 
 import java.util.List;
 
-public class AssetHolder {
+public class AssetConfig {
 
   public static final String ASSETS = "Assets/";
 
@@ -58,25 +56,23 @@ public class AssetHolder {
 
   // Editor
     public static final String GIZMOS = SPRITESHEETS + "gizmos.png";
-    // public static final Spritesheet GIZMOS_SPRITESHEET = new Spritesheet(AssetManager.getAssetFromType(GIZMOS, Texture.class), SpriteSheetUsage.UI, 24, 48, 0);
 
   // Enemies
     public static final String ENEMY_1 = SPRITESHEETS + ENEMIES + "enemy_1.png";
 
   // UI
     public static final String BUTTONS = SPRITESHEETS + "buttons.png";
-    // public static final Spritesheet BUTTONS_SPRITESHEET = new Spritesheet(AssetManager.getAssetFromType(BUTTONS, Texture.class), SpriteSheetUsage.UI,  16, 16, 0);
-
 
   // Level Blocks
     public static final String BLOCKS = SPRITESHEETS + "blocks.png";
-    // public static final Spritesheet BLOCKS_SPRITESHEET = new Spritesheet(AssetManager.getAssetFromType(BLOCKS, Texture.class), SpriteSheetUsage.BLOCK, 16, 16, 0, new int[]{16, 16, 4, 13, 10, 9, 7, 9, 14, 17, 18, 5, 21, 8, 3, 0, 7, 20, 15, 29, 32, 30, 32, 16, 16, 8, 5, 0, 0, 15, 15, 15});
 
 
-
-
-  //============================================================
-  //                  List of all Spritesheets
-  //============================================================
-    // public static final List<Spritesheet> SPRITESHEETS_LIST = List.of(BUTTONS_SPRITESHEET, BLOCKS_SPRITESHEET, GIZMOS_SPRITESHEET);
+    //===================================================================
+    //========================  Asset Configs  ==========================
+    //===================================================================
+    public static final List<SpriteSheetConfig> SPRITESHEETS_CONFIG = List.of(
+            new SpriteSheetConfig(GIZMOS, SpriteSheetUsage.UI, 24, 48, 0),
+            new SpriteSheetConfig(BUTTONS, SpriteSheetUsage.UI, 16, 16, 0),
+            new SpriteSheetConfig(BLOCKS, SpriteSheetUsage.BLOCK, 16, 16, 0, new int[]{16, 16, 4, 13, 10, 9, 7, 9, 14, 17, 18, 5, 21, 8, 3, 0, 7, 20, 15, 29, 32, 30, 32, 16, 16, 8, 5, 0, 0, 15, 15, 15})
+            );
 }

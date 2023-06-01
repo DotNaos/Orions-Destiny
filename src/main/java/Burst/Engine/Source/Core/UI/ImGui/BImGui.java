@@ -3,9 +3,8 @@ package Burst.Engine.Source.Core.UI.ImGui;
 import Burst.Engine.Config.Constants.Color_Config;
 import Burst.Engine.Source.Core.Assets.AssetManager;
 import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
-import Burst.Engine.Source.Core.Assets.Graphics.Spritesheet;
-import Burst.Engine.Source.Core.Assets.Graphics.Texture;
-import Orion.res.AssetHolder;
+import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheet;
+import Orion.res.AssetConfig;
 import imgui.ImGui;
 import imgui.flag.ImGuiCol;
 import imgui.flag.ImGuiStyleVar;
@@ -14,9 +13,6 @@ import imgui.type.ImString;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
 import org.joml.Vector4f;
-import org.w3c.dom.Text;
-
-import java.util.Arrays;
 
 /**
  * This class has various methods to draw ImGui controls.
@@ -168,7 +164,7 @@ public class BImGui {
 
     private static boolean resetButton(String label, float widthEach, Vector2f buttonSize) {
         ImGui.pushItemWidth(widthEach);
-        Spritesheet sprites = AssetManager.getAssetFromType(AssetHolder.BUTTONS, Spritesheet.class);
+        SpriteSheet sprites = AssetManager.getAssetFromType(AssetConfig.BUTTONS, SpriteSheet.class);
         Sprite sprite = sprites.getSprite(10 , 10);
         Vector3f[] texCoords = sprite.getTexCoords();
         boolean reset = ImGui.imageButton(sprite.getTexId(), buttonSize.x / 2f, buttonSize.y / 1.5f, texCoords[2].x, texCoords[0].y, texCoords[0].x, texCoords[2].y);

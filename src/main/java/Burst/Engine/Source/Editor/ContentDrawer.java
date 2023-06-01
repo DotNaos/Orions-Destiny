@@ -6,14 +6,14 @@ import java.util.List;
 import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Assets.AssetManager;
 import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheetUsage;
-import Burst.Engine.Source.Core.Assets.Graphics.Spritesheet;
+import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheet;
 import Burst.Engine.Source.Core.UI.ImGui.ImGuiPanel;
 import Burst.Engine.Source.Core.Util.ClassDerivativeSearch;
 import imgui.ImGui;
 
 
 public class ContentDrawer extends ImGuiPanel {
-    private List<List<Spritesheet>> categories = new ArrayList<>();
+    private List<List<SpriteSheet>> categories = new ArrayList<>();
     private List<SpriteSheetUsage> usages = new ArrayList<>();
     private List<Class<?>> actors = new ArrayList<>();
 
@@ -22,22 +22,22 @@ public class ContentDrawer extends ImGuiPanel {
 
         SpriteSheetUsage usage = SpriteSheetUsage.ACTOR;
 
-        List<Spritesheet> actors = AssetManager.getSpriteSheets(usage);
+        List<SpriteSheet> actors = AssetManager.getSpriteSheets(usage);
         categories.add(actors);
         usages.add(usage);
 
         usage = SpriteSheetUsage.BLOCK;
-        List<Spritesheet> blocks = AssetManager.getSpriteSheets(usage);
+        List<SpriteSheet> blocks = AssetManager.getSpriteSheets(usage);
         categories.add(blocks);
         usages.add(usage);
 
         usage = SpriteSheetUsage.ITEM;
-        List<Spritesheet> items = AssetManager.getSpriteSheets(usage);
+        List<SpriteSheet> items = AssetManager.getSpriteSheets(usage);
         categories.add(items);
         usages.add(usage);
 
         usage = SpriteSheetUsage.PLAYER;
-        List<Spritesheet> players = AssetManager.getSpriteSheets(usage);
+        List<SpriteSheet> players = AssetManager.getSpriteSheets(usage);
         categories.add(players);
         usages.add(usage);
 

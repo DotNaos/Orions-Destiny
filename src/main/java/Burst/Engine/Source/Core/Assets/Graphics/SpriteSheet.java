@@ -7,48 +7,41 @@ import org.joml.Vector3f;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Spritesheet extends Asset {
-
-    private static int MAX_SPRITES = -1;
+public class SpriteSheet extends Asset {
+    /**
+     * <p>
+     * Maximum number of sprites in a SpriteSheet. -1 for no limit.
+     * </p>
+     *
+     * <p>
+     *   Global limit for all SpriteSheets
+     * </p>
+     */
+    private static final int MAX_SPRITES = -1;
     private Texture texture;
     private List<Sprite> sprites;
-    private SpriteSheetUsage usage = SpriteSheetUsage.NONE;
-    private Class<?> usedBy = null;
-
     private int spriteCount = 0;
-    private int[] spritesPerRow;
-    private boolean emptySpritesDefined = false;
-    private int spriteWidth, spriteHeight, spacing, rows, cols;
+    private int rows, cols = -1;
 
-    public Spritesheet(String filepath) {
+
+    private SpriteSheetConfig config;
+
+    public SpriteSheet(String filepath) {
         super(filepath);
+        this.texture = new Texture(filepath);
     }
 
-    public void configure(SpriteSheetUsage usage, int spriteWidth, int spriteHeight, int spacing) {
-        configure(usage, spriteWidth, spriteHeight, spacing, new int[rows]);
-        emptySpritesDefined = false;
-    }
-
-    public void configure(SpriteSheetUsage usage, int spriteWidth, int spriteHeight, int spacing, int[] spritesPerRow) {
-        this.sprites = new ArrayList<>();
-        this.spriteWidth = spriteWidth;
-        this.spriteHeight = spriteHeight;
-        this.spacing = spacing;
-        this.rows = texture.getWidth() / (spriteWidth + spacing);
-        this.cols = texture.getHeight() / (spriteHeight + spacing);
-        this.spritesPerRow = spritesPerRow;
-        this.emptySpritesDefined = true;
-        this.usage = usage;
+    public void setConfig(SpriteSheetConfig config) {
+        this.config = config;
+        rows = texture.getWidth() / (config.spriteWidth + config.spacing);
+        cols = texture.getHeight() / (config.spriteHeight + config.spacing);
         createSprites(rows, cols);
     }
 
-
-
-
     private void createSprites(int rows, int cols) {
-
+        this.sprites = new ArrayList<>();
         int currentX = 0;
-        int currentY = texture.getHeight() - spriteHeight;
+        int currentY = texture.getHeight() - config.spriteHeight;
 
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
@@ -57,8 +50,8 @@ public class Spritesheet extends Asset {
                     return;
                 }
 
-                float topY = (currentY + spriteHeight) / (float) texture.getHeight();
-                float rightX = (currentX + spriteWidth) / (float) texture.getWidth();
+                float topY = (currentY + config.spriteHeight) / (float) texture.getHeight();
+                float rightX = (currentX + config.spriteWidth) / (float) texture.getWidth();
                 float leftX = currentX / (float) texture.getWidth();
                 float bottomY = currentY / (float) texture.getHeight();
 
@@ -68,20 +61,20 @@ public class Spritesheet extends Asset {
                         new Vector3f(leftX, bottomY, 0),
                         new Vector3f(leftX, topY, 0)
                 };
-                Sprite sprite = new Sprite(this.texture, texCoords, this.spriteWidth, this.spriteHeight);
+                Sprite sprite = new Sprite(this.texture, texCoords, this.config.spriteWidth, this.config.spriteHeight);
 
-                if (!emptySpritesDefined)
+                if (config.spritesPerRow == null)
                 {
                     this.sprites.add(sprite);
                 }
-                else if (!(col >= this.spritesPerRow[row] && this.spritesPerRow[row] != -1)) {
+                else if (!(col >= this.config.spritesPerRow[row])) {
                     this.sprites.add(sprite);
                 }
 
-                currentX += spriteWidth + spacing;
+                currentX += config.spriteWidth + config.spacing;
                 if (currentX >= texture.getWidth()) {
                     currentX = 0;
-                    currentY -= spriteHeight + spacing;
+                    currentY -= config.spriteHeight + config.spacing;
                 }
                 this.spriteCount++;
             }
@@ -99,12 +92,8 @@ public class Spritesheet extends Asset {
 
 
 
-    public Texture getSheetTexture() {
+    public Texture getTexture() {
         return this.texture;
-    }
-
-    public Class<?> getUsedBy() {
-        return usedBy;
     }
 
     public int size() {
@@ -112,7 +101,7 @@ public class Spritesheet extends Asset {
     }
 
     public SpriteSheetUsage getUsage() {
-        return usage;
+        return config.usage;
     }
 
     @Override

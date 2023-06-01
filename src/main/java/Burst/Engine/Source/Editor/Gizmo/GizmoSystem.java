@@ -2,21 +2,18 @@ package Burst.Engine.Source.Editor.Gizmo;
 
 import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Actor.ActorComponent;
-import Burst.Engine.Source.Core.Assets.Graphics.Spritesheet;
-import Burst.Engine.Source.Core.Component;
+import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheet;
 import Burst.Engine.Source.Core.Input.KeyListener;
-import Burst.Engine.Source.Core.UI.Window;
-import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
 
 import static org.lwjgl.glfw.GLFW.GLFW_KEY_E;
 import static org.lwjgl.glfw.GLFW.GLFW_KEY_R;
 
 public class GizmoSystem extends ActorComponent {
-    private Spritesheet gizmos;
+    private SpriteSheet gizmos;
     private int usingGizmo = 0;
 
 
-    public GizmoSystem(Spritesheet gizmoSprites, Actor actor) {
+    public GizmoSystem(SpriteSheet gizmoSprites, Actor actor) {
         super(actor);
         gizmos = gizmoSprites;
     }

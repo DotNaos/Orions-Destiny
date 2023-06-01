@@ -6,174 +6,188 @@ import Burst.Engine.Source.Core.Assets.Audio.Sound;
 import Burst.Engine.Source.Core.Assets.Graphics.*;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.Util.DebugMessage;
-import Orion.res.AssetHolder;
+import Orion.res.AssetConfig;
 import Orion.res.Assets;
 
 import java.io.File;
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class AssetManager {
 
-    private static List<Assets> assetsList = new ArrayList<>();
+  private static final List<Assets> assetsList = new ArrayList<>();
+  public static void loadAllAssets() {
+    DebugMessage.noDebug = true;
+    DebugMessage.header("Loading Assets");
 
-    public static void loadAllAssets() {
-        DebugMessage.noDebug = true;
-        DebugMessage.header("Loading Assets");
+    String assetDir = AssetConfig.ASSETS;
+    List<String> foundFiles;
 
-        String assetDir = AssetHolder.ASSETS;
-        List<String> foundFiles;  
-
-        assetsList.add(new Assets(Texture.class, AssetHolder.TEXTURES, "png"));
-        assetsList.add(new Assets(Spritesheet.class, AssetHolder.SPRITESHEETS, "png"));
-        assetsList.add(new Assets( Shader.class, Shader_Config.PATH, "glsl"));
-        assetsList.add(new Assets( Sound.class, AssetHolder.SOUNDS, "ogg"));
-        assetsList.add(new Assets( Font.class, Font_Config.PATH, "ttf"));
-        assetsList.add(new Assets( LevelMap.class, AssetHolder.MAPS, "tmx"));
-
-
-        for (Assets assets : assetsList)
-        {
-            if (assets.getAssetType().isAssignableFrom(Spritesheet.class)) continue;
-
-            assetDir = assets.getDir();
-            foundFiles = searchDirectory(assetDir, assets.getFileType());
-
-            DebugMessage.header(assets.getName());
+    assetsList.add(new Assets(Texture.class, AssetConfig.TEXTURES, "png"));
+    assetsList.add(new Assets(SpriteSheet.class, AssetConfig.SPRITESHEETS, "png"));
+    assetsList.add(new Assets(Shader.class, Shader_Config.PATH, "glsl"));
+    assetsList.add(new Assets(Sound.class, AssetConfig.SOUNDS, "ogg"));
+    assetsList.add(new Assets(Font.class, Font_Config.PATH, "ttf"));
+    assetsList.add(new Assets(LevelMap.class, AssetConfig.MAPS, "tmx"));
 
 
-            // Add all assetPaths to the map
-            for (String assetPath : foundFiles) {
-                // add the relative path to the asset
-                assetPath = assetPath.replace("\\", "/");
-                
-                assets.getAssets().put(assetPath, createNewAsset(assetPath, assets.getAssetType())); 
-                
-            } 
+    for (Assets assets : assetsList) {
 
-            DebugMessage.loadSuccess("Loaded " + assets.getAssets().size() + " " + assets.getName());
-        }
 
-            DebugMessage.noDebug = false;
-    }
+      assetDir = assets.getDir();
+      foundFiles = searchDirectory(assetDir, assets.getFileType());
 
-    private static Asset createNewAsset(String assetPath, Class<? extends Asset> assetType) {
-        if (assetType.isAssignableFrom(Texture.class)) {
-            return new Texture(assetPath);
-        } else if (assetType.isAssignableFrom(Spritesheet.class)) {
-            return new Spritesheet(assetPath);
-        } else if (assetType.isAssignableFrom(Shader.class)) {
-            return new Shader(assetPath);
-        } else if (assetType.isAssignableFrom(Sound.class)) {
-            return new Sound(assetPath);
-        } else if (assetType.isAssignableFrom(Font.class)) {
-            return new Font(assetPath);
-        } else if (assetType.isAssignableFrom(LevelMap.class)) {
-            return new LevelMap(assetPath);
+      DebugMessage.header(assets.getName());
+
+
+      // Add all assetPaths to the map
+      for (String assetPath : foundFiles) {
+        // add the relative path to the asset
+        assetPath = assetPath.replace("\\", "/");
+
+        Asset asset = createNewAsset(assetPath, assets.getAssetType());
+
+        // If the asset is a spritesheet, set the config to the matching filepath of the config
+        if (asset instanceof SpriteSheet) {
+          for (SpriteSheetConfig config : AssetConfig.SPRITESHEETS_CONFIG) {
+            System.out.println(config.filePath + " " + assetPath);
+            if (config.filePath.equals(assetPath)) {
+              ((SpriteSheet) asset).setConfig(config);
+              assets.getAssets().put(assetPath, asset);
+              System.out.println("Added " + assetPath + " to " + assets.getName());
+            }
+          }
         } else {
-            DebugMessage.error("Could not create asset: " + assetType.toString());
-            return null;
+          assets.getAssets().put(assetPath, asset);
         }
+      }
 
+      DebugMessage.loadSuccess("Loaded " + assets.getAssets().size() + " " + assets.getName());
     }
 
-    public static List<? extends Asset> getAllAssetsFromType(Class<? extends Asset> assetType) {
+    DebugMessage.noDebug = false;
+  }
 
-
-        for (Assets assets : assetsList) {
-            if (assets.getAssetType().equals(assetType)) {
-                return new ArrayList<>(assets.getAssets().values());
-            }
-        }
-
-        DebugMessage.notFound("Did not found: " + assetType.toString());
-        return null;
+  private static Asset createNewAsset(String assetPath, Class<? extends Asset> assetType) {
+    if (assetType.isAssignableFrom(Texture.class)) {
+      return new Texture(assetPath);
+    } else if (assetType.isAssignableFrom(SpriteSheet.class)) {
+      return new SpriteSheet(assetPath);
+    } else if (assetType.isAssignableFrom(Shader.class)) {
+      return new Shader(assetPath);
+    } else if (assetType.isAssignableFrom(Sound.class)) {
+      return new Sound(assetPath);
+    } else if (assetType.isAssignableFrom(Font.class)) {
+      return new Font(assetPath);
+    } else if (assetType.isAssignableFrom(LevelMap.class)) {
+      return new LevelMap(assetPath);
+    } else {
+      DebugMessage.error("Could not create asset: " + assetType);
+      return null;
     }
 
-    public static <T extends Asset> T getAssetFromType(Class<T> assetType, String filePath) {
-        File file = new File(filePath);
+  }
 
-        if (!file.exists()) {
-            DebugMessage.notFound("Did not found: " + filePath);
-            return null;
-        }
+  public static List<? extends Asset> getAllAssetsFromType(Class<? extends Asset> assetType) {
 
 
-        for (Assets assets : assetsList) {
-            if (assets.getAssetType().equals(assetType)) {
-                return (T) assets.getAssets().get(filePath);
-            }
-        }
-
-
-        DebugMessage.notFound("Did not found: " + assetType);
-        return null;
+    for (Assets assets : assetsList) {
+      if (assets.getAssetType().equals(assetType)) {
+        return new ArrayList<>(assets.getAssets().values());
+      }
     }
 
-    public static <T extends Asset> T getAssetFromType(String filePath, Class<T> assetType) {
-        return getAssetFromType(assetType, filePath);
+    DebugMessage.notFound("Did not found: " + assetType.toString());
+    return null;
+  }
+
+  public static <T extends Asset> T getAssetFromType(Class<T> assetType, String filePath) {
+    File file = new File(filePath);
+
+    if (!file.exists()) {
+      DebugMessage.notFound("Did not found: " + filePath);
+      return null;
     }
 
-    public static List<String> searchDirectory(String relativePath, String fileType) {
-        List<String> files = new ArrayList<>();
-        File directory = new File(relativePath);
-        if (directory.exists() && directory.isDirectory()) {
-            searchDirectoryHelper(directory, fileType, files);
+
+    for (Assets assets : assetsList) {
+      if (assets.getAssetType().equals(assetType)) {
+        return (T) assets.getAssets().get(filePath);
+      }
+    }
+
+
+    DebugMessage.notFound("Did not found: " + assetType);
+    return null;
+  }
+
+  public static <T extends Asset> T getAssetFromType(String filePath, Class<T> assetType) {
+    return getAssetFromType(assetType, filePath);
+  }
+
+  public static List<String> searchDirectory(String relativePath, String fileType) {
+    List<String> files = new ArrayList<>();
+    File directory = new File(relativePath);
+    if (directory.exists() && directory.isDirectory()) {
+      searchDirectoryHelper(directory, fileType, files);
+    }
+    return files;
+  }
+
+  private static void searchDirectoryHelper(File directory, String fileType, List<String> files) {
+    File[] fileList = directory.listFiles();
+    if (fileList != null) {
+      for (File file : fileList) {
+        if (file.isDirectory()) {
+          searchDirectoryHelper(file, fileType, files);
+        } else if (file.getName().toLowerCase().endsWith("." + fileType)) {
+          files.add(file.getPath());
+
+          //! Prints all found Assets
+//                    System.out.println(file.getPath());
         }
-        return files;
+      }
+    }
+  }
+
+  public static void printAllAssetsFromType(Class<? extends Asset> assetType) {
+    List<String> keys = new ArrayList<>();
+    for (Assets assets : assetsList) {
+      if (assets.getAssetType().equals(assetType)) {
+        keys = new ArrayList<>(assets.getAssets().keySet());
+        break;
+      }
+    }
+    for (String key : keys) {
+      System.out.println(key);
     }
 
-    private static void searchDirectoryHelper(File directory, String fileType, List<String> files) {
-        File[] fileList = directory.listFiles();
-        if (fileList != null) {
-            for (File file : fileList) {
-                if (file.isDirectory()) {
-                    searchDirectoryHelper(file, fileType, files);
-                } else if (file.getName().toLowerCase().endsWith("." + fileType)) {
-                    files.add(file.getPath());
-                    System.out.println(file.getPath());
-                }
-            }
-        }
+
+  }
+
+  public static String getFilePath(Component component) {
+    // get the path of the component file
+    String path = component.getClass().getProtectionDomain().getCodeSource().getLocation().getPath();
+    path = URLDecoder.decode(path, StandardCharsets.UTF_8);
+    return path;
+  }
+
+  /**
+   * @param usage Specifies where in the contentdrawer it is displayed; Also adds
+   *              some Funktionality
+   * @return All Spritesheets in the Map of spritesheets that match the usage
+   */
+  public static List<SpriteSheet> getSpriteSheets(SpriteSheetUsage usage) {
+    List<SpriteSheet> spritesheetsWithUsage = new ArrayList<>();
+    List<SpriteSheet> listOfSpriteSheets = (List<SpriteSheet>) getAllAssetsFromType(SpriteSheet.class);
+    for (SpriteSheet sheet : listOfSpriteSheets) {
+      if (sheet.getUsage() == usage) {
+        spritesheetsWithUsage.add(sheet);
+      }
     }
 
-    public static void printAllAssetsFromType(Class<? extends Asset> assetType) {
-        List<String> keys = new ArrayList<>();
-        for (Assets assets : assetsList) {
-            if (assets.getAssetType().equals(assetType)) {
-                keys = new ArrayList<>(assets.getAssets().keySet());
-                break;
-            }
-        }
-        for (String key : keys) {
-            System.out.println(key);
-        }
-
-
-    }
-
-    public static String getFilePath(Component component) {
-        // get the path of the component file
-        String path = component.getClass().getProtectionDomain().getCodeSource().getLocation().getPath();
-        path = URLDecoder.decode(path, StandardCharsets.UTF_8);
-        return path;
-    }
-
-    /**
-     * @param usage Specifies where in the contentdrawer it is displayed; Also adds
-     *              some Funktionality
-     * @return All Spritesheets in the Map of spritesheets that match the usage
-     */
-    public static List<Spritesheet> getSpriteSheets(SpriteSheetUsage usage) {
-        List<Spritesheet> spritesheetsWithUsage = new ArrayList<>();
-        List<Spritesheet> ListOfSpriteSheets = (List<Spritesheet>) getAllAssetsFromType(Spritesheet.class);
-        for (Spritesheet sheet : ListOfSpriteSheets) {
-            if (sheet.getUsage() == usage) {
-                spritesheetsWithUsage.add(sheet);
-            }
-        }
-
-        return spritesheetsWithUsage;
-    }
+    return spritesheetsWithUsage;
+  }
 }
