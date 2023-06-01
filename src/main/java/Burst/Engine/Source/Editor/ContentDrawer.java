@@ -1,15 +1,18 @@
 package Burst.Engine.Source.Editor;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
 import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Assets.AssetManager;
 import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheetUsage;
+import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheet;
 import Burst.Engine.Source.Core.UI.ImGui.ImGuiPanel;
 import Burst.Engine.Source.Core.Util.ClassDerivativeSearch;
 import imgui.ImGui;
+import imgui.ImVec2;
 
 
 public class ContentDrawer extends ImGuiPanel {
@@ -45,7 +48,7 @@ public class ContentDrawer extends ImGuiPanel {
         actorSearcher.addPackage("Burst");
         actorSearcher.addPackage("Orion");
 
-        this.actors = actorSearcher.search(); 
+        this.actors = actorSearcher.search();
     }
 
     /**
@@ -54,12 +57,27 @@ public class ContentDrawer extends ImGuiPanel {
     @Override
     public void imgui() {
 
-        boolean open = false;
         ImGui.begin("Content Drawer");
 
             // Show all actors in a text list
-            for (Class<?> actor : actors) { 
-                ImGui.text(actor.getPackage().toString());
+            for (Class<?> actor : actors) {
+                ImGui.text(actor.getSimpleName());
+                try {
+                    // Get the icon field of the actor class
+                    Field iconField = actor.getDeclaredField("icon");
+                    iconField.setAccessible(true);
+
+                    // Get the value of the icon field from the actor object
+                    Object iconValue = iconField.get(actor);
+
+
+                    // Cast the icon value to a Texture and show it
+                    ImGui.image(((Texture) iconValue).getTexID(), 128, 128);
+                } catch (NoSuchFieldException | IllegalAccessException e) {
+                    // Handle any exceptions that may occur
+                    // System.out.println("No icon field found for class: " + actor.getSimpleName() );
+                }
+            
             }
             
         /* 

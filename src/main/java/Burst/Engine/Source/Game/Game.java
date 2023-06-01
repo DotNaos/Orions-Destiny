@@ -41,7 +41,10 @@ public class Game {
         this.actorsToAdd = new ArrayList<>();
         this.components = new ArrayList<>();
 
-        System.out.println("\n" + scene.getOpenScene());
+        DebugMessage.info("Game initializing...");
+        DebugMessage.info("Opening Scene: " + scene.getOpenScene());
+
+        DebugMessage.header("Game Panels");
         scene.addPanel(new ViewportPanel());
 
         loadLevel();

@@ -19,8 +19,9 @@ public class AssetManager {
 
   private static final List<Assets> assetsList = new ArrayList<>();
   public static void loadAllAssets() {
-    DebugMessage.noDebug = true;
-    DebugMessage.header("Loading Assets");
+    DebugMessage.noDebug = false;
+
+    DebugMessage.info("Loading Assets");
 
     String assetDir = AssetConfig.DIR_OF_ASSETS;
     List<String> foundFiles;
@@ -34,8 +35,6 @@ public class AssetManager {
 
 
     for (Assets assets : assetsList) {
-
-
       assetDir = assets.getDir();
       foundFiles = searchDirectory(assetDir, assets.getFileType());
 
@@ -49,21 +48,25 @@ public class AssetManager {
 
         Asset asset = createNewAsset(assetPath, assets.getAssetType());
 
+
+
         // If the asset is a spritesheet, set the config to the matching filepath of the config
         if (asset instanceof SpriteSheet) {
           for (SpriteSheetConfig config : AssetConfig.SPRITESHEETS_CONFIG) {
-            System.out.println(config.filePath + " " + assetPath);
             if (config.filePath.equals(assetPath)) {
               ((SpriteSheet) asset).setConfig(config);
               assets.getAssets().put(assetPath, asset);
-              System.out.println("Added " + assetPath + " to " + assets.getName());
+              System.out.println("ADDING " + assets.getName().toUpperCase() + " : " + assetPath);
+              System.out.println("\\--------->" + " CONFIG : " + config.filePath + "\n");
             }
           }
         } else {
+          System.out.println("ADDING " + assets.getName().toUpperCase() + " : " + assetPath);
           assets.getAssets().put(assetPath, asset);
         }
-      }
 
+
+      }
       DebugMessage.loadSuccess("Loaded " + assets.getAssets().size() + " " + assets.getName());
     }
 
@@ -161,7 +164,7 @@ public class AssetManager {
       }
     }
     for (String key : keys) {
-      System.out.println(key);
+      System.out.println("Key: " + key);
     }
 
 
