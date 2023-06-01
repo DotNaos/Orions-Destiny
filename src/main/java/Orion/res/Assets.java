@@ -6,7 +6,7 @@ import java.util.Map;
 import Burst.Engine.Source.Core.Assets.Asset;
 
 public class Assets {
-  private String dir = AssetConfig.ASSETS;
+  private String dir = AssetConfig.DIR_OF_ASSETS;
   private String fileType;
   private Class<? extends Asset> assetType = Asset.class;
 

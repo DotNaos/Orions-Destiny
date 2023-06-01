@@ -59,9 +59,9 @@ public class Shader extends Asset {
     }
 
     public void compile() {
-        // ============================================================
+        //!============================================================
         // Compile and link shaders
-        // ============================================================
+        //!============================================================
         int vertexID, fragmentID;
 
         // First load and compile the vertex shader

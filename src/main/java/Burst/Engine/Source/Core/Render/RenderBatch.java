@@ -20,7 +20,7 @@ import static org.lwjgl.opengl.GL30.glGenVertexArrays;
 
 public class RenderBatch implements Comparable<RenderBatch> {
     // Vertex
-    // ======
+    //!======
     // Pos               Color                         tex coords     tex id
     // float, float,     float, float, float, float    float, float   float
     private final int POS_SIZE = 2;

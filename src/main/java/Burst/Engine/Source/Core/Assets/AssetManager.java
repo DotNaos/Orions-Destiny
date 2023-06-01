@@ -22,15 +22,15 @@ public class AssetManager {
     DebugMessage.noDebug = true;
     DebugMessage.header("Loading Assets");
 
-    String assetDir = AssetConfig.ASSETS;
+    String assetDir = AssetConfig.DIR_OF_ASSETS;
     List<String> foundFiles;
 
-    assetsList.add(new Assets(Texture.class, AssetConfig.TEXTURES, "png"));
-    assetsList.add(new Assets(SpriteSheet.class, AssetConfig.SPRITESHEETS, "png"));
+    assetsList.add(new Assets(Texture.class, AssetConfig.DIR_OF_TEXTURES, "png"));
+    assetsList.add(new Assets(SpriteSheet.class, AssetConfig.DIR_OF_SPRITESHEETS, "png"));
     assetsList.add(new Assets(Shader.class, Shader_Config.PATH, "glsl"));
-    assetsList.add(new Assets(Sound.class, AssetConfig.SOUNDS, "ogg"));
+    assetsList.add(new Assets(Sound.class, AssetConfig.DIR_OF_SOUNDS, "ogg"));
     assetsList.add(new Assets(Font.class, Font_Config.PATH, "ttf"));
-    assetsList.add(new Assets(LevelMap.class, AssetConfig.MAPS, "tmx"));
+    assetsList.add(new Assets(LevelMap.class, AssetConfig.DIR_OF_MAPS, "tmx"));
 
 
     for (Assets assets : assetsList) {

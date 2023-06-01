@@ -7,69 +7,68 @@ import java.util.List;
 
 public class AssetConfig {
 
-  public static final String ASSETS = "Assets/";
+  //!=========================================================================
+  //!========================  Asset Directories  ============================
+  //!=========================================================================
+
+  public static final String DIR_OF_ASSETS = "Assets/";
 
   // Images
-  public static final String IMAGES = "Assets/images/";
+  public static final String DIR_OF_IMAGES = "Assets/images/";
 
-    public static final String SPRITESHEETS = IMAGES + "spritesheets/";
-    public static final String ENEMIES = SPRITESHEETS + "Enemy/";
+    public static final String DIR_OF_SPRITESHEETS = DIR_OF_IMAGES + "spritesheets/";
+    public static final String DIR_OF_ENEMIES = DIR_OF_SPRITESHEETS + "Enemy/";
 
     // Textures
-    public static final String TEXTURES = IMAGES + "textures/";
-    public static final String ICONS = TEXTURES + "icons/";
-    public static final String ICON_ACTOR = ICONS + "actor.png";
-    public static final String ICON_PAWN = ICONS + "pawn.png";
-    public static final String ICON_ENEMY = ICONS + "enemy.png";
-    public static final String ICON_ITEM = ICONS + "item.png";
-    public static final String ICON_BLOCK = ICONS + "block.png";
-    public static final String ICON_PLAYER = ICONS + "player.png";
-    
+    public static final String DIR_OF_TEXTURES = DIR_OF_IMAGES + "textures/";
+    public static final String DIR_OF_ICONS = DIR_OF_TEXTURES + "icons/";
 
 
-    public static final String DEBUG_TEXTURES = IMAGES + "debug/";
+    public static final String DIR_OF_DEBUG_TEXTURES = DIR_OF_IMAGES + "debug/";
 
     // Backgrounds
-    public static final String BACKGROUNDS = IMAGES + "backgrounds/";
+    public static final String DIR_OF_BACKGROUNDS = DIR_OF_IMAGES + "backgrounds/";
 
 
   // Audio
-  public static final String SOUNDS = "Assets/sounds/";
+  public static final String DIR_OF_SOUNDS = "Assets/sounds/";
 
   // Maps
-  public static final String MAPS = "Assets/maps/";
+  public static final String DIR_OF_MAPS = "Assets/maps/";
 
 
-  // // ============================================================
-  // // ========================  Asset Names  =====================
-  // // ============================================================
+
+  //!===================================================================
+  //!========================  Asset Files  ============================
+  //!===================================================================
+
+  //? ======================== Images - Icons ==========================
+    public static final String ICON_ACTOR = DIR_OF_ICONS + "actor.png";
+    public static final String ICON_PAWN = DIR_OF_ICONS + "pawn.png";
+    public static final String ICON_ENEMY = DIR_OF_ICONS + "enemy.png";
+    public static final String ICON_ITEM = DIR_OF_ICONS + "item.png";
+    public static final String ICON_BLOCK = DIR_OF_ICONS + "block.png";
+    public static final String ICON_PLAYER = DIR_OF_ICONS + "player.png";
 
 
-  //===================================================================
-  //========================  Class Icons  ============================
-  //===================================================================
+  //? =================== Images - SpriteSheets ==========================
+
+    // Editor
+      public static final String GIZMOS = DIR_OF_SPRITESHEETS + "gizmos.png";
+
+    // Enemies
+      public static final String ENEMY_1 = DIR_OF_SPRITESHEETS + DIR_OF_ENEMIES + "enemy_1.png";
+
+    // UI
+      public static final String BUTTONS = DIR_OF_SPRITESHEETS + "buttons.png";
+
+    // Level Blocks
+      public static final String BLOCKS = DIR_OF_SPRITESHEETS + "blocks.png";
 
 
-  //===================================================================
-  //========================  Asset Spritesheets  =====================
-  //===================================================================
-
-  // Editor
-    public static final String GIZMOS = SPRITESHEETS + "gizmos.png";
-
-  // Enemies
-    public static final String ENEMY_1 = SPRITESHEETS + ENEMIES + "enemy_1.png";
-
-  // UI
-    public static final String BUTTONS = SPRITESHEETS + "buttons.png";
-
-  // Level Blocks
-    public static final String BLOCKS = SPRITESHEETS + "blocks.png";
-
-
-    //===================================================================
-    //========================  Asset Configs  ==========================
-    //===================================================================
+    //!========================================================================
+    //!========================  SpriteSheet Configs  =========================
+    //!========================================================================
     public static final List<SpriteSheetConfig> SPRITESHEETS_CONFIG = List.of(
             new SpriteSheetConfig(GIZMOS, SpriteSheetUsage.UI, 24, 48, 0),
             new SpriteSheetConfig(BUTTONS, SpriteSheetUsage.UI, 16, 16, 0),

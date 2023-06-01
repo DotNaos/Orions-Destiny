@@ -9,20 +9,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="ViewportSize extra und HotKeys in eigener Datei">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/Graphics/SpriteSheetConfig.java" afterDir="false" />
+    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="Assets Updated. Sehr gut">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Config/ImGuiStyleConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Config/ImGuiStyleConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/Actor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/Actor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/Pawn.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/AssetManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/AssetManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/Graphics/Spritesheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/Graphics/SpriteSheet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/Graphics/Texture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/Graphics/Texture.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/ImGui/BImGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/ImGui/BImGui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Util/ClassFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Util/ClassFinder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Components/MouseControls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Components/MouseControls.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/ContentDrawer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/ContentDrawer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Gizmo/GizmoSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Gizmo/GizmoSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/res/AssetHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/res/AssetConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/Graphics/Shader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/Graphics/Shader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Render/Debug/DebugDraw.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Render/Debug/DebugDraw.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Render/RenderBatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Render/RenderBatch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/Scene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Game/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/res/AssetConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/res/AssetConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Orion/res/Assets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/res/Assets.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -215,7 +212,7 @@
       <workItem from="1684910728300" duration="761000" />
       <workItem from="1684912517239" duration="101000" />
       <workItem from="1685381057571" duration="1340000" />
-      <workItem from="1685632750986" duration="4507000" />
+      <workItem from="1685632750986" duration="5400000" />
     </task>
     <task id="LOCAL-00001" summary="Refactoring vom Editor">
       <created>1683701936326</created>
@@ -448,14 +445,20 @@
       <option name="project" value="LOCAL" />
       <updated>1684596433196</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Assets Updated. Sehr gut">
+      <created>1685638566536</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1685638566536</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="FilePath fix" />
     <MESSAGE value="Formatting of files mit Strg+Alt+L" />
     <MESSAGE value="Scrolling im Editor geht wieder" />
     <MESSAGE value="Bugfix Nullpointer" />
@@ -480,7 +483,8 @@
     <MESSAGE value="Copy On changing color" />
     <MESSAGE value="Components angezeigt in Fenster" />
     <MESSAGE value="ViewportSize extra und HotKeys in eigener Datei" />
-    <option name="LAST_COMMIT_MESSAGE" value="ViewportSize extra und HotKeys in eigener Datei" />
+    <MESSAGE value="Assets Updated. Sehr gut" />
+    <option name="LAST_COMMIT_MESSAGE" value="Assets Updated. Sehr gut" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

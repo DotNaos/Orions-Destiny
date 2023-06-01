@@ -119,9 +119,9 @@ public class DebugDraw {
         shader.detach();
     }
 
-    // ==================================================
+    //!==================================================
     // Add line2D methods
-    // ==================================================
+    //!==================================================
     public static void addLine2D(Vector3f from, Vector3f to) {
         addLine2D(from, to, new Vector4f(Color_Config.GREEN));
     }
@@ -153,9 +153,9 @@ public class DebugDraw {
         DebugDraw.lines.add(new Line2D(new Vector3f(from), new Vector3f(to), new Vector4f(color), lifetime));
     }
 
-    // ==================================================
+    //!==================================================
     // Add Box2D methods
-    // ==================================================
+    //!==================================================
     public static void addBox2D(Vector3f center, Vector3f dimensions, float rotation) {
         addBox2D(center, dimensions, rotation, Color_Config.GREEN, 2);
     }
@@ -195,9 +195,9 @@ public class DebugDraw {
         addLine2D(vertices[2], vertices[3], color, lifetime);
     }
 
-    // ==================================================
+    //!==================================================
     // Add Circle methods
-    // ==================================================
+    //!==================================================
     public static void addCircle(Vector3f center, float radius) {
 
         addCircle(center, radius, Color_Config.GREEN, 2);
