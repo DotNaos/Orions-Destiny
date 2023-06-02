@@ -9,18 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="Umbenannt">
+    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="Ability Spritesheet Wichtig: Die Größe die oben rechts am rand von der png Datei steht muss nicht stimmen">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/Abilities/Fire FX/FireBall_2_64x64.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/Abilities/Fire_FX/FireBall_2_64x64.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/Abilities/Fire FX/FireBall_3_64x64.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/Abilities/Fire_FX/ActualFireball.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/Abilities/Fire FX/FireBall_64x64.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/Abilities/Fire_FX/FireBall_64x64.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/Abilities/Fire FX/FireBurst_64x64.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/Abilities/Fire_FX/FireBurst_64x64.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/Abilities/Ice_FX/Ice VFX 2 Active.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/Abilities/Ice_FX/Ice_FX2Active.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/Abilities/Ice_FX/Ice VFX 2 Ending.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/Abilities/Ice_FX/Ice_FX2Ending.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/Abilities/Ice_FX/Ice VFX 2 Start.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/Abilities/Ice_FX/Ice_FX2Start.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/Abilities/Ice_FX/IceShatter_2_96x96.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/Abilities/Ice_FX/WaterAbility.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/Abilities/Poison_FX/PoisonCast_96x96.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/Abilities/Poison_FX/PlantAbility.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/res/Assets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/res/Assets.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/SpecialAbility/IceAbilityOne.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/SpecialAbility/IceAbilityOne.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/UltimateAbility/LightAbilityOne.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/UltimateAbility/LightAbilityOne.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/UltimateAbility/PoisonAbility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/UltimateAbility/PoisonAbility.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -441,7 +434,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684847722279</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Ability Spritesheet Wichtig: Die Größe die oben rechts am rand von der png Datei steht muss nicht stimmen">
+      <created>1684962908379</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1684962908379</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -459,7 +459,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Formatting of files mit Strg+Alt+L" />
     <MESSAGE value="Scrolling im Editor geht wieder" />
     <MESSAGE value="Bugfix Nullpointer" />
     <MESSAGE value="Zoom in center" />
@@ -484,7 +483,8 @@
     <MESSAGE value="Components angezeigt in Fenster" />
     <MESSAGE value="ViewportSize extra und HotKeys in eigener Datei" />
     <MESSAGE value="kaka" />
-    <option name="LAST_COMMIT_MESSAGE" value="kaka" />
+    <MESSAGE value="Ability Spritesheet Wichtig: Die Größe die oben rechts am rand von der png Datei steht muss nicht stimmen" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ability Spritesheet Wichtig: Die Größe die oben rechts am rand von der png Datei steht muss nicht stimmen" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

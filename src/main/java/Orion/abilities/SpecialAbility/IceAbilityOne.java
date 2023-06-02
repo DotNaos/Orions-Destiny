@@ -1,6 +1,8 @@
 package Orion.abilities.SpecialAbility;
 
-public class IceAbilityOne {
+import Orion.abilities.Ability;
+
+public class IceAbilityOne extends Ability{
 
     private float damage;
     private float speedSlow;
@@ -24,4 +26,9 @@ public class IceAbilityOne {
     public boolean isCollision() {
         return this.collision;
     }
+
+        @Override
+        public void activate() {
+
+        }
 }

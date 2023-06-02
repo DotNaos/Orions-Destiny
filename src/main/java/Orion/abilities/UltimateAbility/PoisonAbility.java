@@ -1,6 +1,8 @@
 package Orion.abilities.UltimateAbility;
 
-public class PoisonAbility {
+import Orion.abilities.Ability;
+
+public class PoisonAbility extends Ability {
     private float damage;
     private float duration;
     private float dmgOverTime;
@@ -31,6 +33,14 @@ public class PoisonAbility {
     public int getRange() {
         range = 4;
         return range;
+    }
+
+    /**
+     *
+     */
+    @Override
+    public void activate() {
+
     }
 }
 

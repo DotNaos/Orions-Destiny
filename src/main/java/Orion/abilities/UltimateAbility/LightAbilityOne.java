@@ -1,6 +1,8 @@
 package Orion.abilities.UltimateAbility;
 
-public class LightAbilityOne {
+import Orion.abilities.Ability;
+
+public class LightAbilityOne extends Ability{
     //Ultimate Ability die über die ganze map(sichtbaren bereich) geht?
     private float damage;
     private float knockback;
@@ -21,5 +23,13 @@ public class LightAbilityOne {
 
     public boolean getCollision() {
         return this.collision;
+    }
+
+    /**
+     *
+     */
+    @Override
+    public void activate() {
+
     }
 }
