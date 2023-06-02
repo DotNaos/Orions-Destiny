@@ -9,11 +9,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="Ability Spritesheet Wichtig: Die Größe die oben rechts am rand von der png Datei steht muss nicht stimmen">
+    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="Vollständige Vererbung der Ability Klassen mit Ability als Oberklasse">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Orion/enemies/DarkMage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Orion/enemies/DemonBoss.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Orion/enemies/EnemyCharacter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Orion/enemies/FireSkull.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Orion/enemies/Ghost.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Orion/enemies/Muelltonne.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Orion/enemies/Satan.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/SpecialAbility/IceAbilityOne.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/SpecialAbility/IceAbilityOne.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/UltimateAbility/LightAbilityOne.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/UltimateAbility/LightAbilityOne.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/UltimateAbility/PoisonAbility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/UltimateAbility/PoisonAbility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/characters/PlayerCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/characters/PlayerCharacter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -441,7 +446,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684962908379</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Vollständige Vererbung der Ability Klassen mit Ability als Oberklasse">
+      <created>1685733304137</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1685733304137</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -459,7 +471,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Scrolling im Editor geht wieder" />
     <MESSAGE value="Bugfix Nullpointer" />
     <MESSAGE value="Zoom in center" />
     <MESSAGE value="Mehrere Plots gleichzeitig" />
@@ -484,7 +495,8 @@
     <MESSAGE value="ViewportSize extra und HotKeys in eigener Datei" />
     <MESSAGE value="kaka" />
     <MESSAGE value="Ability Spritesheet Wichtig: Die Größe die oben rechts am rand von der png Datei steht muss nicht stimmen" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ability Spritesheet Wichtig: Die Größe die oben rechts am rand von der png Datei steht muss nicht stimmen" />
+    <MESSAGE value="Vollständige Vererbung der Ability Klassen mit Ability als Oberklasse" />
+    <option name="LAST_COMMIT_MESSAGE" value="Vollständige Vererbung der Ability Klassen mit Ability als Oberklasse" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
