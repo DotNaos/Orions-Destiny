@@ -11,7 +11,7 @@ import org.joml.Vector3f;
 import org.joml.Vector4f;
 
 public class Camera extends Actor {
-    public static final transient Texture icon = AssetManager.getAssetFromType(AssetConfig.ICON_CAMERA, Texture.class).flippedTexture();
+    public static final transient Texture icon = AssetManager.getAssetFromType(AssetConfig.ICON_CAMERA, Texture.class);
     private final transient Viewport viewport;
 
     /**

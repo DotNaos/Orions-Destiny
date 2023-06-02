@@ -9,10 +9,11 @@ import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Orion.res.AssetConfig;
 
 public abstract class PlayerCharacter extends Pawn {
-    public static final transient Texture icon = AssetManager.getAssetFromType(AssetConfig.ICON_PLAYER,Texture.class).flippedTexture();
+    public static final transient Texture icon = AssetManager.getAssetFromType(AssetConfig.ICON_PLAYER,Texture.class);
     protected String description;
     protected int HP;
     protected int DEF;
+
     protected int ATK;
     protected int SPD;
     protected int STAMINA;

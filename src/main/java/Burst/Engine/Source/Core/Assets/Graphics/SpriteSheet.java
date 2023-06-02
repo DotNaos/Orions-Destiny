@@ -2,6 +2,7 @@ package Burst.Engine.Source.Core.Assets.Graphics;
 
 import Burst.Engine.Source.Core.Assets.Asset;
 import Burst.Engine.Source.Core.Util.DebugMessage;
+import org.joml.Vector2f;
 import org.joml.Vector3f;
 
 import java.util.ArrayList;
@@ -55,11 +56,11 @@ public class SpriteSheet extends Asset {
                 float leftX = currentX / (float) texture.getWidth();
                 float bottomY = currentY / (float) texture.getHeight();
 
-                Vector3f[] texCoords = {
-                        new Vector3f(rightX, topY, 0),
-                        new Vector3f(rightX, bottomY, 0),
-                        new Vector3f(leftX, bottomY, 0),
-                        new Vector3f(leftX, topY, 0)
+                Vector2f[] texCoords = {
+                        new Vector2f(rightX, topY),
+                        new Vector2f(rightX, bottomY),
+                        new Vector2f(leftX, bottomY),
+                        new Vector2f(leftX, topY)
                 };
                 Sprite sprite = new Sprite(this.texture, texCoords, this.config.spriteWidth, this.config.spriteHeight);
 

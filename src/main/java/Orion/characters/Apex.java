@@ -6,7 +6,7 @@ import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Orion.res.AssetConfig;
 
 public class Apex extends PlayerCharacter {
-    public static final transient Texture icon = AssetManager.getAssetFromType(AssetConfig.ICON_PLAYER,Texture.class).flippedTexture();
+    public static final transient Texture icon = AssetManager.getAssetFromType(AssetConfig.ICON_PLAYER,Texture.class);
     public Apex() {
         super();
         this.name = "Apex";

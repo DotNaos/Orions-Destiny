@@ -12,7 +12,7 @@ import org.jbox2d.dynamics.contacts.Contact;
 import org.joml.Vector3f;
 
 public class Block extends Actor {
-    public static final transient Texture icon = AssetManager.getAssetFromType(AssetConfig.ICON_BLOCK,Texture.class).flippedTexture();
+    public static final transient Texture icon = AssetManager.getAssetFromType(AssetConfig.ICON_BLOCK,Texture.class);
     public Block() {
         super();
     }

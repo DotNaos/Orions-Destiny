@@ -165,8 +165,8 @@ public class BImGui {
     private static boolean resetButton(String label, float widthEach, Vector2f buttonSize) {
         ImGui.pushItemWidth(widthEach);
         SpriteSheet sprites = AssetManager.getAssetFromType(AssetConfig.BUTTONS, SpriteSheet.class);
-        Sprite sprite = sprites.getSprite(10 , 10);
-        Vector3f[] texCoords = sprite.getTexCoords();
+        Sprite sprite = sprites.getSprite(3 , 10);
+        Vector2f[] texCoords = sprite.getTexCoords();
         boolean reset = ImGui.imageButton(sprite.getTexId(), buttonSize.x / 2f, buttonSize.y / 1.5f, texCoords[2].x, texCoords[0].y, texCoords[0].x, texCoords[2].y);
         return reset;
     }

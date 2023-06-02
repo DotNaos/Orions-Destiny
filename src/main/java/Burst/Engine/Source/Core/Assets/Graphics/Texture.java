@@ -16,8 +16,6 @@ public class Texture extends Asset {
     private transient int texID;
     private int width, height;
 
-    private boolean flipVertical = true;
-
     public Texture(String filepath) {
         super(filepath);
     }
@@ -29,10 +27,6 @@ public class Texture extends Asset {
         height = -1;
     }
 
-    public Texture flippedTexture() {
-        this.flipVertical = false;
-        return this;
-    }
 
     public Texture(int width, int height) {
         super("Generated");
@@ -66,7 +60,7 @@ public class Texture extends Asset {
         IntBuffer width = BufferUtils.createIntBuffer(1);
         IntBuffer height = BufferUtils.createIntBuffer(1);
         IntBuffer channels = BufferUtils.createIntBuffer(1);
-        stbi_set_flip_vertically_on_load(flipVertical);
+        stbi_set_flip_vertically_on_load(false);
         ByteBuffer image = stbi_load(filepath, width, height, channels, 0);
 
         if (image != null) {

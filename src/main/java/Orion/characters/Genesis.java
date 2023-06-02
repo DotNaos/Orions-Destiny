@@ -5,7 +5,7 @@ import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Orion.res.AssetConfig;
 
 public class Genesis extends PlayerCharacter {
-    public static final transient Texture icon = AssetManager.getAssetFromType(AssetConfig.ICON_PLAYER,Texture.class).flippedTexture();
+    public static final transient Texture icon = AssetManager.getAssetFromType(AssetConfig.ICON_PLAYER,Texture.class);
     public Genesis() {
         super();
         this.name = "Genesis";

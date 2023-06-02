@@ -24,7 +24,7 @@ import Orion.res.AssetConfig;
  * it.
  */
 public class Actor {
-    public static final transient Texture icon = AssetManager.getAssetFromType(AssetConfig.ICON_ACTOR,Texture.class).flippedTexture();
+    public static final transient Texture icon = AssetManager.getAssetFromType(AssetConfig.ICON_ACTOR,Texture.class);
 
     /**
      * The Transform component attached to this actor.

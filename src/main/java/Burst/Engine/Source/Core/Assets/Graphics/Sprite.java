@@ -1,6 +1,7 @@
 package Burst.Engine.Source.Core.Assets.Graphics;
 
 import Burst.Engine.Source.Core.Assets.Asset;
+import org.joml.Vector2f;
 import org.joml.Vector3f;
 
 public class Sprite extends Asset {
@@ -8,11 +9,11 @@ public class Sprite extends Asset {
     private float width, height;
 
     private Texture texture = null;
-    private Vector3f[] texCoords = {
-            new Vector3f(1, 1 , 0),
-            new Vector3f(1, 0, 0),
-            new Vector3f(0, 0, 0),
-            new Vector3f(0, 1, 0)
+    private Vector2f[] texCoords = {
+            new Vector2f(1, 1),
+            new Vector2f(1, 0),
+            new Vector2f(0, 0),
+            new Vector2f(0, 1)
     };
 
     public Sprite() {
@@ -21,7 +22,7 @@ public class Sprite extends Asset {
         this.height = 0;
     }
 
-    public Sprite(Texture texture, Vector3f[] texCoords, int spriteWidth, int spriteHeight) {
+    public Sprite(Texture texture, Vector2f[] texCoords, int spriteWidth, int spriteHeight) {
         super("");
         this.texture = texture;
         this.texCoords = texCoords;
@@ -53,7 +54,7 @@ public class Sprite extends Asset {
 
 
 
-    public Vector3f[] getTexCoords() {
+    public Vector2f[] getTexCoords() {
         return this.texCoords;
     }
 
@@ -82,7 +83,7 @@ public class Sprite extends Asset {
         this.texture = texture;
     }
 
-    public void setTexCoords(Vector3f[] texCoords) {
+    public void setTexCoords(Vector2f[] texCoords) {
         this.texCoords = texCoords;
     }
 

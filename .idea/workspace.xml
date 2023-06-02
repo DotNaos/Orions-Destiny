@@ -9,22 +9,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="Icons update">
-      <change afterPath="$PROJECT_DIR$/Assets/images/textures/icons/camera.png" afterDir="false" />
+    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="Schöner Contentdrawer mit background">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/images/textures/icons/actor.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/textures/icons/actor.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/images/textures/icons/block.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/textures/icons/block.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/textures/icons/camera.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/textures/icons/camera.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/images/textures/icons/enemy.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/textures/icons/enemy.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/images/textures/icons/folder.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/textures/icons/folder.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/images/textures/icons/item.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/textures/icons/item.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/images/textures/icons/pawn.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/textures/icons/pawn.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/images/textures/icons/player.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/textures/icons/player.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/images/textures/ui/folder.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/imgui.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Config/ImGuiStyleConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Config/ImGuiStyleConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/Actor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/Actor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/Pawn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/Graphics/Sprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/Graphics/Sprite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/Graphics/SpriteSheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/Graphics/SpriteSheet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/Graphics/Texture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/Graphics/Texture.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Render/RenderBatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Render/RenderBatch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Render/SpriteRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Render/SpriteRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/ImGui/BImGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/ImGui/BImGui.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/ContentDrawer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/ContentDrawer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Game/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Game/Camera.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Orion/blocks/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/blocks/Block.java" afterDir="false" />
@@ -35,7 +37,6 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/Orion/characters/PlayerCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/characters/PlayerCharacter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Orion/characters/Solaris.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/characters/Solaris.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Orion/items/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/items/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/res/AssetConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/res/AssetConfig.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -229,7 +230,8 @@
       <workItem from="1684912517239" duration="101000" />
       <workItem from="1685381057571" duration="1340000" />
       <workItem from="1685632750986" duration="5612000" />
-      <workItem from="1685639644841" duration="9753000" />
+      <workItem from="1685639644841" duration="10177000" />
+      <workItem from="1685705799370" duration="2612000" />
     </task>
     <task id="LOCAL-00001" summary="Refactoring vom Editor">
       <created>1683701936326</created>
@@ -490,14 +492,20 @@
       <option name="project" value="LOCAL" />
       <updated>1685649524177</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Schöner Contentdrawer mit background">
+      <created>1685652161353</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1685652161353</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Zoom in center" />
     <MESSAGE value="Mehrere Plots gleichzeitig" />
     <MESSAGE value="plotValues mit variabler Länge" />
     <MESSAGE value="JAR build config" />
@@ -522,7 +530,8 @@
     <MESSAGE value="Highlighted Sections" />
     <MESSAGE value="CMD output besser" />
     <MESSAGE value="Icons update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Icons update" />
+    <MESSAGE value="Schöner Contentdrawer mit background" />
+    <option name="LAST_COMMIT_MESSAGE" value="Schöner Contentdrawer mit background" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
