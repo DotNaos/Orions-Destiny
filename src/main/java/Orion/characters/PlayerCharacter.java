@@ -16,6 +16,7 @@ public abstract class PlayerCharacter extends Pawn {
         super(name);
     }
 
+
     public String getDescription() {
         return this.description;
     }
