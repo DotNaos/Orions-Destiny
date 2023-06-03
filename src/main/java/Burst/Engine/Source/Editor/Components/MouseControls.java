@@ -17,7 +17,7 @@ import Burst.Engine.Source.Editor.Gizmo.GizmoSystem;
 import Burst.Engine.Source.Editor.NonPickable;
 import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
 import Orion.res.AssetConfig;
-import org.joml.Vector3f;
+import org.joml.Vector2f;
 import org.joml.Vector2i;
 import org.joml.Vector4f;
 
@@ -33,8 +33,8 @@ public class MouseControls extends Component {
     private float debounceTime = 0.2f;
     private float debounce = debounceTime;
     private boolean boxSelectSet = false;
-    private Vector3f boxSelectStart = new Vector3f();
-    private Vector3f boxSelectEnd = new Vector3f();
+    private Vector2f boxSelectStart = new Vector2f();
+    private Vector2f boxSelectEnd = new Vector2f();
     // Gizmos
     private GizmoSystem gizmoSystem;
 
@@ -75,6 +75,7 @@ public class MouseControls extends Component {
         if (holdingActor != null) {
             float x = MouseListener.getWorldX();
             float y = MouseListener.getWorldY();
+
             holdingActor.transform.position.x = ((int) Math.floor(x / GridLines_Config.SIZE) * GridLines_Config.SIZE) + GridLines_Config.SIZE / 2.0f;
             holdingActor.transform.position.y = ((int) Math.floor(y / GridLines_Config.SIZE) * GridLines_Config.SIZE) + GridLines_Config.SIZE / 2.0f;
 
@@ -115,14 +116,15 @@ public class MouseControls extends Component {
                 boxSelectSet = true;
             }
             boxSelectEnd = MouseListener.getScreen();
-            Vector3f boxSelectStartWorld = MouseListener.screenToWorld(boxSelectStart);
-            Vector3f boxSelectEndWorld = MouseListener.screenToWorld(boxSelectEnd);
-            Vector3f halfSize =
-                    (new Vector3f(boxSelectEndWorld).sub(boxSelectStartWorld)).mul(0.5f);
-            DebugDraw.addBox2D(
-                    (new Vector3f(boxSelectStartWorld)).add(halfSize),
-                    new Vector3f(halfSize).mul(2.0f),
+            Vector2f boxSelectStartWorld = MouseListener.screenToWorld(boxSelectStart);
+            Vector2f boxSelectEndWorld = MouseListener.screenToWorld(boxSelectEnd);
+            Vector2f halfSize =
+                    (new Vector2f(boxSelectEndWorld).sub(boxSelectStartWorld)).mul(0.5f);
+            DebugDraw.addBox(
+                    (new Vector2f(boxSelectStartWorld)).add(halfSize),
+                    new Vector2f(halfSize).mul(2.0f),
                     0.0f);
+
         } else if (boxSelectSet) {
             boxSelectSet = false;
             int screenStartX = (int) boxSelectStart.x;
@@ -163,10 +165,10 @@ public class MouseControls extends Component {
 
     private boolean blockInSquare(float x, float y, float z) {
         PropertiesPanel propertiesPanel = Window.getScene().getPanel(PropertiesPanel.class);
-        Vector3f start = new Vector3f(x, y, z);
-        Vector3f end = new Vector3f(start).add(new Vector3f(GridLines_Config.SIZE, GridLines_Config.SIZE, 0));
-        Vector3f startScreenf = MouseListener.worldToScreen(start);
-        Vector3f endScreenf = MouseListener.worldToScreen(end);
+        Vector2f start = new Vector2f(x, y);
+        Vector2f end = new Vector2f(start).add(new Vector2f(GridLines_Config.SIZE, GridLines_Config.SIZE));
+        Vector2f startScreenf = MouseListener.worldToScreen(start);
+        Vector2f endScreenf = MouseListener.worldToScreen(end);
         Vector2i startScreen = new Vector2i((int) startScreenf.x + 2, (int) startScreenf.y + 2);
         Vector2i endScreen = new Vector2i((int) endScreenf.x - 2, (int) endScreenf.y - 2);
         float[] gameObjectIds = propertiesPanel.getPickingTexture().readPixels(startScreen, endScreen);

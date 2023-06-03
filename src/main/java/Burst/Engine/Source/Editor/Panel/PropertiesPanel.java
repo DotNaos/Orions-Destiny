@@ -57,6 +57,11 @@ public class PropertiesPanel extends ImGuiPanel {
             }
 
             activeActor.imgui();
+
+            // Update the position of the Panel
+            this.position.x = ImGui.getWindowPosX();
+            this.position.y = ImGui.getWindowPosY();
+
             ImGui.end();
         }
     }

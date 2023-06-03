@@ -1,14 +1,11 @@
 package Burst.Engine.Source.Editor.Components;
 
 import Burst.Engine.Config.Constants.GridLines_Config;
-import Burst.Engine.Source.Core.Actor.ActorComponent;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.Render.Debug.DebugDraw;
-import Burst.Engine.Source.Core.UI.ImGui.BImGui;
 import Burst.Engine.Source.Core.UI.Viewport;
 import Burst.Engine.Source.Core.UI.Window;
-import imgui.ImGui;
-import org.joml.Vector3f;
+import org.joml.Vector2f;
 import org.joml.Vector4f;
 
 
@@ -48,12 +45,12 @@ public class GridLines extends Component {
    * @param dt the delta time since the last frame was rendered
    * @see Window#getScene()
    * @see Viewport#getSize()
-   * @see DebugDraw#addLine2D(Vector3f, Vector3f, Vector4f)
+   * @see DebugDraw#addLine(Vector2f, Vector2f, Vector4f)
    * @see GridLines_Config#SIZE
    * @see GridLines_Config#SIZE
    * @see Math#floor(double)
-   * @see Vector3f
-   * @see Vector3f
+   * @see Vector2f
+   * @see Vector2f
    */
   public void update(float dt) {
     if (!enabled) return;
@@ -108,12 +105,12 @@ public class GridLines extends Component {
       // Vertical lines
       float x = firstX + (i * gridSize);
       if (i < numLinesX)
-        DebugDraw.addLine2D(new Vector3f(x, firstY, 0), new Vector3f(x, firstY + height, 0), GridLines_Config.COLOR);
+        DebugDraw.addLine(new Vector2f(x, firstY), new Vector2f(x, firstY + height), GridLines_Config.COLOR);
 
       // Horizontal lines
       float y = firstY + (i * gridSize);
       if (i < numLinesY)
-        DebugDraw.addLine2D(new Vector3f(firstX, y, 0), new Vector3f(firstX + width, y, 0), GridLines_Config.COLOR);
+        DebugDraw.addLine(new Vector2f(firstX, y), new Vector2f(firstX + width, y), GridLines_Config.COLOR);
     }
   }
 

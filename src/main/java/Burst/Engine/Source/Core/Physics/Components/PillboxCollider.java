@@ -4,12 +4,12 @@ import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Actor.ActorComponent;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.UI.Window;
-import org.joml.Vector3f;
+import org.joml.Vector2f;
 
 public class PillboxCollider extends ActorComponent {
     public float width = 0.1f;
     public float height = 0.2f;
-    public Vector3f offset = new Vector3f();
+    public Vector2f offset = new Vector2f();
     private transient CircleCollider bottomCircle;
     private transient Box2DCollider box;
     private transient boolean resetFixtureNextFrame = false;
@@ -76,9 +76,9 @@ public class PillboxCollider extends ActorComponent {
         float circleRadius = width / 2.0f;
         float boxHeight = height - circleRadius;
         bottomCircle.setRadius(circleRadius);
-        bottomCircle.setOffset(new Vector3f(offset).sub(0, (height - circleRadius * 2.0f) / 2.0f, 0));
-        box.setHalfSize(new Vector3f(width - 0.01f, boxHeight, 0));
-        box.setOffset(new Vector3f(offset).add(0, (height - boxHeight) / 2.0f, 0));
+        bottomCircle.setOffset(new Vector2f(offset).sub(0, (height - circleRadius * 2.0f) / 2.0f));
+        box.setHalfSize(new Vector2f(width - 0.01f, boxHeight));
+        box.setOffset(new Vector2f(offset).add(0, (height - boxHeight) / 2.0f));
     }
 
     public CircleCollider getBottomCircle() {

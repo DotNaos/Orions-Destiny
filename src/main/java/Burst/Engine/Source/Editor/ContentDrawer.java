@@ -1,6 +1,7 @@
 package Burst.Engine.Source.Editor;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +11,9 @@ import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheetUsage;
 import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheet;
 import Burst.Engine.Source.Core.UI.ImGui.ImGuiPanel;
+import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Core.Util.ClassDerivativeSearch;
+import Burst.Engine.Source.Core.Util.DebugMessage;
 import imgui.ImGui;
 import imgui.ImVec2;
 import imgui.flag.ImGuiCol;
@@ -29,6 +32,10 @@ public class ContentDrawer extends ImGuiPanel {
         actorSearcher.addPackage("Orion");
 
         this.actors = actorSearcher.search();
+        // Print all found actors
+        for (Class<?> actor : actors) {
+            System.out.println(actor.getSimpleName());
+        }
     }
 
     /**
@@ -59,6 +66,11 @@ public class ContentDrawer extends ImGuiPanel {
 
                     // Get the value of the icon field from the actor object
                     Object iconValue = iconField.get(actor);
+                    if (iconValue == null) {
+                        // If the icon field is null, skip this actor
+                        // And add a debug message
+                        continue;
+                    }
 
                     // Button colors
                     ImGui.pushStyleColor(ImGuiCol.Button, 0.5f, 0.5f, 0.5f, 0.3f);
@@ -69,7 +81,7 @@ public class ContentDrawer extends ImGuiPanel {
                     if (ImGui.imageButton(((Texture) iconValue).getTexID(), iconSize, iconSize))
                     {
                         // If the button is clicked, create a new actor of the type
-
+//                        Window.getScene().getGame().addActor((Actor)actor.getDeclaredConstructor().newInstance());
                     }
 
                     // Stop using the button colorss
@@ -89,13 +101,17 @@ public class ContentDrawer extends ImGuiPanel {
                 } catch (NoSuchFieldException | IllegalAccessException e) {
                      System.out.println("No icon field found for class: " + actor.getSimpleName() );
                 }
-            
+
             }
             // Resets columns and Style/Color changes
             ImGui.columns(1, "", false);
             ImGui.popStyleColor();
             ImGui.popStyleVar();
 
+
+        // Update the position of the Panel
+        this.position.x =ImGui.getWindowPosX();
+        this.position.y = ImGui.getWindowPosY();
 
         ImGui.end();
         ImGui.popStyleColor();

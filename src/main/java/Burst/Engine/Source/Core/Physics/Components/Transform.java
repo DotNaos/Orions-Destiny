@@ -3,13 +3,13 @@ package Burst.Engine.Source.Core.Physics.Components;
 import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Actor.ActorComponent;
 import Burst.Engine.Source.Core.UI.ImGui.BImGui;
-import org.joml.Vector3f;
+import org.joml.Vector2f;
 
 public class Transform extends ActorComponent {
 
-  public Vector3f position = new Vector3f(0, 0, 0);
-  public Vector3f scale = new Vector3f(1.0f, 1.0f, 1.0f);
-  public Vector3f size = new Vector3f(1f, 1f, 1f);
+  public Vector2f position = new Vector2f(0, 0);
+  public Vector2f scale = new Vector2f(1.0f, 1.0f);
+  public Vector2f size = new Vector2f(1f, 1f);
   public float rotation = 0.0f;
   public int zIndex = 0;
   private Actor actor = null;
@@ -18,18 +18,18 @@ public class Transform extends ActorComponent {
     super(null);
   }
 
-  public Transform(Vector3f position) {
+  public Transform(Vector2f position) {
     super(null);
     this.position = position;
   }
 
-  public Transform(Vector3f position, Vector3f scale) {
+  public Transform(Vector2f position, Vector2f scale) {
     super(null);
     this.position = position;
     this.scale = scale;
   }
 
-  public Transform(Vector3f position, Vector3f scale, float rotation) {
+  public Transform(Vector2f position, Vector2f scale, float rotation) {
     super(null);
     this.position = position;
     this.scale = scale;
@@ -40,18 +40,18 @@ public class Transform extends ActorComponent {
     super(actor);
   }
 
-  public Transform(Actor actor, Vector3f position) {
+  public Transform(Actor actor, Vector2f position) {
     super(actor);
     this.position = position;
   }
 
-  public Transform(Actor actor, Vector3f position, Vector3f scale) {
+  public Transform(Actor actor, Vector2f position, Vector2f scale) {
     super(actor);
     this.position = position;
     this.scale = scale;
   }
 
-  public Transform(Actor actor, Vector3f position, Vector3f scale, float rotation) {
+  public Transform(Actor actor, Vector2f position, Vector2f scale, float rotation) {
     super(actor);
     this.position = position;
     this.scale = scale;
@@ -59,14 +59,14 @@ public class Transform extends ActorComponent {
   }
 
   public Transform copy() {
-    return new Transform(this.actor, new Vector3f(this.position), new Vector3f(this.scale), this.rotation);
+    return new Transform(this.actor, new Vector2f(this.position), new Vector2f(this.scale), this.rotation);
   }
 
   public void imgui() {
     actor.setName(BImGui.inputText("Name: ", actor.getName()));
-    BImGui.drawVec3Control("Position", this.position);
-    BImGui.drawVec3Control("Size", this.size, new Vector3f(1));
-    BImGui.drawVec3Control("Scale", this.scale, new Vector3f(1));
+    BImGui.drawVec2Control("Position", this.position, new Vector2f(0));
+    BImGui.drawVec2Control("Size", this.size, new Vector2f(1));
+    BImGui.drawVec2Control("Scale", this.scale, new Vector2f(1));
     this.rotation = BImGui.dragFloat("Rotation", this.rotation, 0.1f);
     this.zIndex = BImGui.dragInt("Z-Index", this.zIndex, 1);
   }

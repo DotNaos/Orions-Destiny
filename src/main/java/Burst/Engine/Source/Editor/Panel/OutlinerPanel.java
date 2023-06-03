@@ -33,6 +33,11 @@ public class OutlinerPanel extends ImGuiPanel {
             }
             index++;
         }
+
+        // Update the position of the Panel
+        this.position.x =ImGui.getWindowPosX();
+        this.position.y = ImGui.getWindowPosY();
+
         ImGui.end();
     }
 

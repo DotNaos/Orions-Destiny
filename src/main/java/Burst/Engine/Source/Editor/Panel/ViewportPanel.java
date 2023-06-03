@@ -1,9 +1,11 @@
 package Burst.Engine.Source.Editor.Panel;
 
+import Burst.Engine.Config.ImGuiStyleConfig;
 import Burst.Engine.Source.Core.Input.MouseListener;
 import Burst.Engine.Source.Core.EventSystem.EventSystem;
 import Burst.Engine.Source.Core.EventSystem.Events.Event;
 import Burst.Engine.Source.Core.EventSystem.Events.EventType;
+import Burst.Engine.Source.Core.Render.Debug.DebugDraw;
 import Burst.Engine.Source.Core.Scene.SceneType;
 import Burst.Engine.Source.Core.UI.ImGui.ImGuiPanel;
 import Burst.Engine.Source.Core.UI.Window;
@@ -12,6 +14,7 @@ import imgui.ImGuiViewport;
 import imgui.ImVec2;
 import imgui.flag.ImGuiCond;
 import imgui.flag.ImGuiWindowFlags;
+import org.joml.Vector2f;
 import org.joml.Vector3f;
 
 public class ViewportPanel extends ImGuiPanel {
@@ -28,6 +31,7 @@ public class ViewportPanel extends ImGuiPanel {
     public void imgui() {
         boolean inGame = Window.getScene().getOpenScene() == SceneType.GAME;
         int inGameFlags = 0;
+
 
         if (inGame) {
             // The next window is displayed in the center of the screen in the viewport
@@ -67,8 +71,15 @@ public class ViewportPanel extends ImGuiPanel {
         ImGui.imageButton(textureId, windowSize.x, windowSize.y, 0, 1, 1, 0);
         windowIsHovered = ImGui.isItemHovered();
 
-        MouseListener.setGameViewportPos(new Vector3f(windowPos.x + 10, windowPos.y, 0));
-        MouseListener.setGameViewportSize(new Vector3f(windowSize.x, windowSize.y, 0));
+        // Update the position of the Panel
+        this.position.x = ImGui.getWindowPosX() + ImGuiStyleConfig.get().getWindowPadding().x;
+        // + 2x padding because of the menu bar
+        this.position.y = ImGui.getWindowPosY() + ImGuiStyleConfig.get().getWindowPadding().y * (ImGui.isWindowDocked() ? 5 : 2);
+
+        MouseListener.setGameViewportPos(new Vector2f(this.position.x, this.position.y));
+
+        // + 8 because of the padding
+        MouseListener.setGameViewportSize(new Vector2f(windowSize.x + 8, windowSize.y));
 
         ImGui.end();
     }

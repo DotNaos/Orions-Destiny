@@ -52,13 +52,12 @@ public class Game {
         start();
 
         //  Show a debug image
-        // Texture tex = new Texture("assets/images/debug/blendImage1.png");
-        // Sprite sprite = new Sprite();
-        // sprite.setTexture(tex);
+         Texture tex = new Texture("assets/images/debug/blendImage1.png");
+         Sprite sprite = new Sprite();
+         sprite.setTexture(tex);
 
-        // this.addActor(new Actor(sprite));
-        // saveLevel();
-
+         this.addActor(new Actor().setSprite(sprite));
+         saveLevel();
     }
 
     //! ====================================================================================================

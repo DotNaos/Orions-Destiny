@@ -8,7 +8,7 @@ import org.jbox2d.callbacks.ContactListener;
 import org.jbox2d.collision.Manifold;
 import org.jbox2d.collision.WorldManifold;
 import org.jbox2d.dynamics.contacts.Contact;
-import org.joml.Vector3f;
+import org.joml.Vector2f;
 
 public class BurstContactListener implements ContactListener {
     @Override
@@ -17,8 +17,8 @@ public class BurstContactListener implements ContactListener {
         Actor objB = (Actor) contact.getFixtureB().getUserData();
         WorldManifold worldManifold = new WorldManifold();
         contact.getWorldManifold(worldManifold);
-        Vector3f aNormal = new Vector3f(worldManifold.normal.x, worldManifold.normal.y, 0);
-        Vector3f bNormal = new Vector3f(aNormal).negate();
+        Vector2f aNormal = new Vector2f(worldManifold.normal.x, worldManifold.normal.y);
+        Vector2f bNormal = new Vector2f(aNormal).negate();
 
         for (ActorComponent ac : objA.getAllComponents()) {
             ac.beginCollision(objB, contact, aNormal);
@@ -35,8 +35,8 @@ public class BurstContactListener implements ContactListener {
         Actor objB = (Actor) contact.getFixtureB().getUserData();
         WorldManifold worldManifold = new WorldManifold();
         contact.getWorldManifold(worldManifold);
-        Vector3f aNormal = new Vector3f(worldManifold.normal.x, worldManifold.normal.y, 0);
-        Vector3f bNormal = new Vector3f(aNormal).negate();
+        Vector2f aNormal = new Vector2f(worldManifold.normal.x, worldManifold.normal.y);
+        Vector2f bNormal = new Vector2f(aNormal).negate();
 
         for (ActorComponent ac : objA.getAllComponents()) {
             ac.endCollision(objB, contact, aNormal);
@@ -53,8 +53,8 @@ public class BurstContactListener implements ContactListener {
         Actor objB = (Actor) contact.getFixtureB().getUserData();
         WorldManifold worldManifold = new WorldManifold();
         contact.getWorldManifold(worldManifold);
-        Vector3f aNormal = new Vector3f(worldManifold.normal.x, worldManifold.normal.y, 0);
-        Vector3f bNormal = new Vector3f(aNormal).negate();
+        Vector2f aNormal = new Vector2f(worldManifold.normal.x, worldManifold.normal.y);
+        Vector2f bNormal = new Vector2f(aNormal).negate();
 
         for (ActorComponent ac : objA.getAllComponents()) {
             ac.preSolve(objB, contact, aNormal);
@@ -71,8 +71,8 @@ public class BurstContactListener implements ContactListener {
         Actor objB = (Actor) contact.getFixtureB().getUserData();
         WorldManifold worldManifold = new WorldManifold();
         contact.getWorldManifold(worldManifold);
-        Vector3f aNormal = new Vector3f(worldManifold.normal.x, worldManifold.normal.y, 0);
-        Vector3f bNormal = new Vector3f(aNormal).negate();
+        Vector2f aNormal = new Vector2f(worldManifold.normal.x, worldManifold.normal.y);
+        Vector2f bNormal = new Vector2f(aNormal).negate();
 
         for (ActorComponent ac : objA.getAllComponents()) {
             ac.postSolve(objB, contact, aNormal);

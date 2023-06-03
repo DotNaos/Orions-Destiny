@@ -8,6 +8,7 @@ import Burst.Engine.Source.Game.Animation.StateMachine;
 import Burst.Engine.Source.Core.Input.KeyListener;
 import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
+import org.joml.Vector2f;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +33,7 @@ public class KeyControls extends Component {
             Actor newObj = activeActor.copy();
             assert Window.getScene().getGame() != null;
             Window.getScene().getGame().addActor(newObj);
-            newObj.transform.position.add(GridLines_Config.SIZE, 0.0f, 0);
+            newObj.transform.position.add(GridLines_Config.SIZE, 0.0f);
             propertiesPanel.setActiveGameObject(newObj);
             if (newObj.getComponent(StateMachine.class) != null) {
                 newObj.getComponent(StateMachine.class).refreshTextures();

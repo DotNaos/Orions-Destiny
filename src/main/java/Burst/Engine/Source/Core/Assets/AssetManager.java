@@ -55,6 +55,7 @@ public class AssetManager {
           for (SpriteSheetConfig config : AssetConfig.SPRITESHEETS_CONFIG) {
             if (config.filePath.equals(assetPath)) {
               ((SpriteSheet) asset).setConfig(config);
+              asset.build();
               assets.getAssets().put(assetPath, asset);
               System.out.println("ADDING " + assets.getName().toUpperCase() + " : " + assetPath);
               System.out.println("\\--------->" + " CONFIG : " + config.filePath + "\n");
@@ -62,6 +63,7 @@ public class AssetManager {
           }
         } else {
           System.out.println("ADDING " + assets.getName().toUpperCase() + " : " + assetPath);
+          asset.build();
           assets.getAssets().put(assetPath, asset);
         }
 

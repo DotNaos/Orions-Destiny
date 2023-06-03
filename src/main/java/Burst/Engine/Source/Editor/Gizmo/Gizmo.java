@@ -10,7 +10,8 @@ import Burst.Engine.Source.Core.Render.SpriteRenderer;
 import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Editor.NonPickable;
 import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
-import org.joml.Vector3f;
+import org.joml.Vector2f;
+import org.joml.Vector2f;
 import org.joml.Vector4f;
 
 import static org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT;
@@ -27,8 +28,8 @@ public class Gizmo extends ActorComponent {
     private Actor yAxisObject;
     private SpriteRenderer xAxisSprite;
     private SpriteRenderer yAxisSprite;
-    private Vector3f xAxisOffset = new Vector3f(24f / 80f, -6f / 80f, 0);
-    private Vector3f yAxisOffset = new Vector3f(-7f / 80f, 21f / 80f, 0);
+    private Vector2f xAxisOffset = new Vector2f(24f / 80f, -6f / 80f);
+    private Vector2f yAxisOffset = new Vector2f(-7f / 80f, 21f / 80f);
     private float gizmoWidth = 16f / 80f;
     private float gizmoHeight = 48f / 80f;
     private boolean using = false;
@@ -40,10 +41,13 @@ public class Gizmo extends ActorComponent {
         super(null);
         this.xAxisObject = new Actor();
         this.xAxisObject.setSprite(arrowSprite);
-        this.xAxisObject.transform = new Transform(new Vector3f(0, 0, 0), new Vector3f(gizmoWidth, gizmoHeight, 1), 90);
+        this.xAxisObject.transform = new Transform(new Vector2f(0), new Vector2f(gizmoWidth, gizmoHeight), 90);
+        this.xAxisObject.transform.zIndex = 100;
+
         this.yAxisObject = new Actor();
         this.yAxisObject.setSprite(arrowSprite);
-        this.yAxisObject.transform = new Transform(new Vector3f(0, 0, 0), new Vector3f(gizmoWidth, gizmoHeight, 1), 180);
+        this.yAxisObject.transform = new Transform(new Vector2f(0), new Vector2f(gizmoWidth, gizmoHeight), 180);
+        this.yAxisObject.transform.zIndex = 100;
 
         this.xAxisSprite = this.xAxisObject.getComponent(SpriteRenderer.class);
         this.yAxisSprite = this.yAxisObject.getComponent(SpriteRenderer.class);
@@ -120,7 +124,7 @@ public class Gizmo extends ActorComponent {
     }
 
     private boolean checkXHoverState() {
-        Vector3f mousePos = new Vector3f(MouseListener.getWorldX(), MouseListener.getWorldY(), 0);
+        Vector2f mousePos = new Vector2f(MouseListener.getWorldX(), MouseListener.getWorldY());
         if (mousePos.x <= xAxisObject.transform.position.x + (gizmoHeight / 2.0f) && mousePos.x >= xAxisObject.transform.position.x - (gizmoWidth / 2.0f) && mousePos.y >= xAxisObject.transform.position.y - (gizmoHeight / 2.0f) && mousePos.y <= xAxisObject.transform.position.y + (gizmoWidth / 2.0f)) {
             xAxisSprite.setColor(xAxisColorHover);
             return true;
@@ -131,7 +135,7 @@ public class Gizmo extends ActorComponent {
     }
 
     private boolean checkYHoverState() {
-        Vector3f mousePos = new Vector3f(MouseListener.getWorldX(), MouseListener.getWorldY(), 0);
+        Vector2f mousePos = new Vector2f(MouseListener.getWorldX(), MouseListener.getWorldY());
         if (mousePos.x <= yAxisObject.transform.position.x + (gizmoWidth / 2.0f) && mousePos.x >= yAxisObject.transform.position.x - (gizmoWidth / 2.0f) && mousePos.y <= yAxisObject.transform.position.y + (gizmoHeight / 2.0f) && mousePos.y >= yAxisObject.transform.position.y - (gizmoHeight / 2.0f)) {
             yAxisSprite.setColor(yAxisColorHover);
             return true;

@@ -12,7 +12,7 @@ public class Viewport {
     /**
      * The position of the center of the viewport in world units.
      */
-    public Vector3f position;
+    public Vector2f position;
     private Vector2f size = new Vector2f();
     public Vector4f clearColor = new Vector4f(1f);
     private Matrix4f projectionMatrix, viewMatrix, inverseProjection, inverseView;
@@ -20,7 +20,7 @@ public class Viewport {
     private float zoom = 10.0f;
 
     public Viewport() {
-        this.position = new Vector3f();
+        this.position = new Vector2f();
         this.size = new Vector2f();
         this.projectionMatrix = new Matrix4f();
         this.viewMatrix = new Matrix4f();
@@ -29,7 +29,7 @@ public class Viewport {
         adjustProjection();
     }
 
-    public Viewport(Vector3f position) {
+    public Viewport(Vector2f position) {
         this.position = position;
         this.projectionMatrix = new Matrix4f();
         this.viewMatrix = new Matrix4f();
@@ -106,16 +106,16 @@ public class Viewport {
         }
     }
 
-    public Vector3f getPosition() {
-        return new Vector3f(this.position);
+    public Vector2f getPosition() {
+        return new Vector2f(this.position);
     }
 
-    public Vector3f getStartPosition() {
-        return new Vector3f(this.position.x - this.size.x / 2, this.position.y - this.size.y / 2, this.position.z);
+    public Vector2f getStartPosition() {
+        return new Vector2f(this.position.x - this.size.x / 2, this.position.y - this.size.y / 2);
     }
 
-    public Vector3f getEndPosition() {
-        return new Vector3f(this.position.x + this.size.x / 2, this.position.y + this.size.y / 2, this.position.z);
+    public Vector2f getEndPosition() {
+        return new Vector2f(this.position.x + this.size.x / 2, this.position.y + this.size.y / 2);
     }
 
     public Vector2f getWorldSize()

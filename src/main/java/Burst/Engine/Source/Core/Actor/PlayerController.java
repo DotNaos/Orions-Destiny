@@ -1,7 +1,7 @@
 package Burst.Engine.Source.Core.Actor;
 
 import org.jbox2d.dynamics.contacts.Contact;
-import org.joml.Vector3f;
+import org.joml.Vector2f;
 
 import Burst.Engine.Config.HotKeys;
 import Burst.Engine.Source.Core.Input.KeyListener;
@@ -15,13 +15,13 @@ public class PlayerController extends ActorComponent {
     public float jumpBoost = 1.0f;
     public float jumpImpulse = 3.0f;
     public float slowDownForce = 0.05f;
-    public Vector3f terminalVelocity = new Vector3f(2.1f, 3.1f ,0);
+    public Vector2f terminalVelocity = new Vector2f(2.1f, 3.1f);
     public transient boolean onGround = false;
     private transient Rigidbody2D rb;
     private transient StateMachine stateMachine;
     private transient float playerWidth = 0.25f;
-    private transient Vector3f acceleration = new Vector3f();
-    private transient Vector3f velocity = new Vector3f();
+    private transient Vector2f acceleration = new Vector2f();
+    private transient Vector2f velocity = new Vector2f();
     private transient boolean isDead = false;
 
     public PlayerController(Actor actor) {
@@ -81,19 +81,19 @@ public class PlayerController extends ActorComponent {
         }
     }
 
-    public void move(Vector3f amount) {
+    public void move(Vector2f amount) {
         this.actor.transform.position.add(amount);
         this.rb.setPosition(this.actor.transform.position);
     }
 
-    public void setPosition(Vector3f newPos) {
+    public void setPosition(Vector2f newPos) {
         this.actor.transform.position.set(newPos);
         this.rb.setPosition(newPos);
     }
 
 
     @Override
-    public void beginCollision(Actor collidinactorbject, Contact contact, Vector3f contactNormal) {
+    public void beginCollision(Actor collidinactorbject, Contact contact, Vector2f contactNormal) {
         if (isDead) return;
 
         if (collidinactorbject.getComponent(Ground.class) != null) {

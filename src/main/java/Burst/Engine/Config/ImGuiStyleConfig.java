@@ -289,4 +289,8 @@ public class ImGuiStyleConfig extends Component {
     style.setColor(ImGuiCol.ModalWindowDimBg, this.ModalWindowDimBg.x, this.ModalWindowDimBg.y, this.ModalWindowDimBg.z, this.ModalWindowDimBg.w);
 
   }
+
+  public Vector2f getWindowPadding() {
+    return new Vector2f(this.windowPadding);
+  }
 }

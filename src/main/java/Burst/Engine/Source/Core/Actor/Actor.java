@@ -313,14 +313,11 @@ public class Actor {
      * @return the unique identifier of the object.
      */
     public long getID() {
-        return this.ID;
-    }
-    public void generateId() {
         if (this.ID == -1) {
             this.ID = Util.generateUniqueID();
         }
+        return this.ID;
     }
-
     public String getName() {
         return this.name;
     }
@@ -334,7 +331,7 @@ public class Actor {
      * and sets the sprite of the SpriteRenderer 
      * @param sprite the sprite to set
      */
-    public void setSprite(Sprite sprite)
+    public Actor setSprite(Sprite sprite)
     {
         if (this.getComponent(SpriteRenderer.class) == null)
         {
@@ -342,6 +339,8 @@ public class Actor {
         }
         
         this.getComponent(SpriteRenderer.class).setSprite(sprite);
+
+        return this;
     }
 
     public boolean isSerializedActor() {
