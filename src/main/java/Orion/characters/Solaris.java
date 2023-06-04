@@ -9,5 +9,13 @@ public class Solaris extends PlayerCharacter{
                        and he uses his skills to bring warmth and light to the world around him.\s
                        Despite his warm nature, Solaris is a force to be reckoned with, and he is not to be trifled with.\s
                 """;
+        this.name ="Solaris";
+        this.HP = 0;
+        this.DEF = 0;
+        this.ATK = 0;
+        this.SPD = 0;
+        this.STAMINA = 0;
+        this.LVL = 0;
+        this.EXP = 0;
     }
 }

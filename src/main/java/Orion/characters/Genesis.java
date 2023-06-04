@@ -10,5 +10,13 @@ public class Genesis extends PlayerCharacter{
                     Despite his peaceful nature, Genesis is not to be underestimated,\s
                     as his connection to the forces of nature gives him immense power.\s
                 """;
+        this.name ="Genesis";
+        this.HP = 0;
+        this.DEF = 0;
+        this.ATK = 0;
+        this.SPD = 0;
+        this.STAMINA = 0;
+        this.LVL = 0;
+        this.EXP = 0;
     }
 }
