@@ -8,7 +8,7 @@ public class Sprite extends Asset {
 
     private float width, height;
 
-    private Texture texture = null;
+    private transient Texture texture = null;
     private Vector2f[] texCoords = {
             new Vector2f(1, 1),
             new Vector2f(1, 0),
@@ -86,9 +86,14 @@ public class Sprite extends Asset {
         return texture == null ? -1 : texture.getTexID();
     }
 
-    public void setTexture(Texture texture) {
+    public Sprite setTexture(Texture texture) {
+        if (texture == null) return this;
+
         this.texture = texture;
+        if(!this.texture.isInitialized()) this.texture.init();
         this.filepath = texture.getFilepath();
+
+        return this;
     }
 
     public void setTexCoords(Vector2f[] texCoords) {

@@ -36,6 +36,7 @@ import static org.lwjgl.system.MemoryUtil.NULL;
 
 public class Window implements Observer {
     private static boolean isPlaying = false;
+    private static boolean imguiActive = false;
     private static Window window = null;
     private static Scene currentScene;
     private final String title;
@@ -103,6 +104,10 @@ public class Window implements Observer {
 
     public static ImGuiLayer getImguiLayer() {
         return get().imguiLayer;
+    }
+
+    public static boolean isImguiActive() {
+        return imguiActive;
     }
 
     public void run() {
@@ -239,7 +244,9 @@ public class Window implements Observer {
             }
             this.framebuffer.unbind();
 
+            imguiActive = true;
             this.imguiLayer.update(dt, currentScene);
+            imguiActive = false;
 
             KeyListener.endFrame();
             MouseListener.endFrame();

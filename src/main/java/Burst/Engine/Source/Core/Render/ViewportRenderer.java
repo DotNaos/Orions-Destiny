@@ -50,7 +50,7 @@ public class ViewportRenderer extends Renderer {
     private void add(SpriteRenderer sprite) {
         boolean added = false;
         for (RenderBatch batch : batches) {
-            if (batch.hasRoom() && batch.zIndex() == sprite.actor.transform.zIndex) {
+            if (batch.hasRoom() && batch.zIndex() == sprite.actor.getTransform().zIndex) {
                 Texture tex = sprite.getTexture();
                 if (tex == null || (batch.hasTexture(tex) || batch.hasTextureRoom())) {
                     batch.addSprite(sprite);
@@ -61,7 +61,7 @@ public class ViewportRenderer extends Renderer {
         }
 
         if (!added) {
-            RenderBatch newBatch = new RenderBatch(MAX_BATCH_SIZE, sprite.actor.transform.zIndex, this);
+            RenderBatch newBatch = new RenderBatch(MAX_BATCH_SIZE, sprite.actor.getTransform().zIndex, this);
             newBatch.start();
             batches.add(newBatch);
             newBatch.addSprite(sprite);

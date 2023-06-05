@@ -79,15 +79,15 @@ public class MouseControls extends Component {
             float x = MouseListener.getWorldX();
             float y = MouseListener.getWorldY();
 
-            holdingActor.transform.position.x = ((int) Math.floor(x / GridLines_Config.SIZE) * GridLines_Config.SIZE) + GridLines_Config.SIZE / 2.0f;
-            holdingActor.transform.position.y = ((int) Math.floor(y / GridLines_Config.SIZE) * GridLines_Config.SIZE) + GridLines_Config.SIZE / 2.0f;
+            holdingActor.getTransform().position.x = ((int) Math.floor(x / GridLines_Config.SIZE) * GridLines_Config.SIZE) + GridLines_Config.SIZE / 2.0f;
+            holdingActor.getTransform().position.y = ((int) Math.floor(y / GridLines_Config.SIZE) * GridLines_Config.SIZE) + GridLines_Config.SIZE / 2.0f;
 
             if (MouseListener.mouseButtonDown(GLFW_MOUSE_BUTTON_LEFT)) {
                 float halfWidth = GridLines_Config.SIZE / 2.0f;
                 float halfHeight = GridLines_Config.SIZE / 2.0f;
                 if (MouseListener.isDragging() &&
-                        !blockInSquare(holdingActor.transform.position.x - halfWidth,
-                                holdingActor.transform.position.y - halfHeight)) {
+                        !blockInSquare(holdingActor.getTransform().position.x - halfWidth,
+                                holdingActor.getTransform().position.y - halfHeight)) {
                     place();
                 } else if (!MouseListener.isDragging() && debounce < 0) {
                     place();

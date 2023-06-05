@@ -27,11 +27,6 @@ public class Actor {
     public static final transient Texture icon = AssetManager.getAssetFromType(AssetConfig.ICON_ACTOR,Texture.class);
 
     /**
-     * The Transform component attached to this actor.
-     * This is automatically added when the actor is created.
-     */
-    public Transform transform;
-    /**
      * The ID of the actor.
      * This is set to -1 by default, and is set to a unique ID when the actor is
      * created.
@@ -70,7 +65,7 @@ public class Actor {
         this.name = "Actor: " + (Window.getScene().getGame().getActors().size() + 1);
         this.ID = Util.generateUniqueID();
         this.components = new ArrayList<>();
-        this.transform = new Transform(this);
+        this.addComponent(new Transform(this));
     }
 
     /**
@@ -113,7 +108,10 @@ public class Actor {
      */
     public void update(float dt) {
         for (Component component : components) {
-            component.update(dt);
+            if (!component.isStarted())
+                component.start();
+            else
+                component.update(dt);
         }
     }
 
@@ -151,7 +149,7 @@ public class Actor {
     public Actor copy() {
         // TODO: come up with cleaner solution
         Gson gson = new GsonBuilder()
-                .registerTypeAdapter(Component.class, new ComponentDeserializer())
+                .registerTypeAdapter(ActorComponent.class, new ComponentDeserializer())
                 .registerTypeAdapter(Actor.class, new ActorDeserializer())
                 .enableComplexMapKeySerialization()
                 .create();
@@ -185,7 +183,7 @@ public class Actor {
      * @param ac the component to add to this actor's list of components
      * @throws NullPointerException if the specified component is {@code null}
      */
-    public void addComponent(ActorComponent ac) throws NullPointerException {
+    public ActorComponent addComponent(ActorComponent ac) throws NullPointerException {
         // Check if component is null
         if (ac == null) {
             throw new NullPointerException("Cannot add null component to actor.");
@@ -193,13 +191,15 @@ public class Actor {
 
         // Check if actor already has component
         if (hasComponent(ac.getClass())) {
-            return;
+            return getComponent(ac.getClass());
         }
         ac.generateId();
         this.components.add(ac);
         ac.actor = this;
 
         ac.start();
+
+        return ac;
     }
 
     private boolean hasComponent(Class<? extends Component> aClass) {
@@ -318,12 +318,21 @@ public class Actor {
         }
         return this.ID;
     }
+    public Transform getTransform() {
+        if (getComponent(Transform.class) == null) {
+            addComponent(new Transform(this));
+        }
+        return getComponent(Transform.class);
+    }
+
     public String getName() {
         return this.name;
     }
 
-    public void setName(String name) {
+
+    public Actor setName(String name) {
         this.name = name;
+        return this;
     }
 
     /**
@@ -347,7 +356,8 @@ public class Actor {
         return this.serializedActor;
     }
 
-    public void setNotSerializable() {
+    public Actor setNotSerializable() {
         this.serializedActor = false;
+        return this;
     }
 }

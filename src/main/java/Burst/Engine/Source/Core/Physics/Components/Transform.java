@@ -86,4 +86,12 @@ public class Transform extends ActorComponent {
     return t.position.equals(this.position) && t.scale.equals(this.scale) && t.size.equals(this.size) &&
             t.rotation == this.rotation && t.zIndex == this.zIndex;
   }
+
+    public void set(Transform transform) {
+          this.position.set(transform.position);
+            this.scale.set(transform.scale);
+            this.size.set(transform.size);
+            this.rotation = transform.rotation;
+            this.zIndex = transform.zIndex;
+    }
 }

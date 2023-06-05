@@ -15,7 +15,8 @@ out float fTexID;
 void main()
 {
     fColor = aColor;
-    fTexCoord = aTexCoord;
+            // flip vertical
+    fTexCoord = aTexCoord * vec2(1.0, -1.0) + vec2(0.0, 1.0);
     fTexID = aTexID;
 
     gl_Position = uProjection * uView * vec4(aPos, 1.0);

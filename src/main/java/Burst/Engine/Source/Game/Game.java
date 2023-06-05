@@ -1,6 +1,8 @@
 package Burst.Engine.Source.Game;
 
 import Burst.Engine.Source.Core.Actor.Actor;
+import Burst.Engine.Source.Core.Actor.ActorComponent;
+import Burst.Engine.Source.Core.Assets.AssetManager;
 import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
 import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Burst.Engine.Source.Core.Component;
@@ -11,6 +13,8 @@ import Burst.Engine.Source.Core.Saving.ComponentDeserializer;
 import Burst.Engine.Source.Core.Scene.Scene;
 import Burst.Engine.Source.Core.Util.DebugMessage;
 import Burst.Engine.Source.Editor.Panel.ViewportPanel;
+import Orion.res.AssetConfig;
+import Orion.res.Assets;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -53,8 +57,8 @@ public class Game {
 
         //  Show a debug image
 
-         this.addActor(new Actor().setSprite(new Sprite("assets/images/debug/blendImage1.png")));
-         saveLevel();
+         this.addActor(new Actor().setSprite(new Sprite().setTexture(AssetManager.getAssetFromType(AssetConfig.ICON_PLAYER, Texture.class))));
+//         saveLevel();
     }
 
     //! ====================================================================================================
@@ -206,7 +210,7 @@ public class Game {
     private Gson gsonBuilder() {
         return new GsonBuilder()
         .setPrettyPrinting()
-        .registerTypeAdapter(Component.class, new ComponentDeserializer())
+        .registerTypeAdapter(ActorComponent.class, new ComponentDeserializer())
         .registerTypeAdapter(Actor.class, new ActorDeserializer())
         .enableComplexMapKeySerialization()
         .create();

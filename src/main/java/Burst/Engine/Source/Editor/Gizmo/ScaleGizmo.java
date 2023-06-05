@@ -13,9 +13,9 @@ public class ScaleGizmo extends Gizmo {
     public void updateEditor(float dt) {
         if (activeActor != null) {
             if (xAxisActive && !yAxisActive) {
-                activeActor.transform.size.x -= MouseListener.getWorldDx();
+                activeActor.getTransform().size.x -= MouseListener.getWorldDx();
             } else if (yAxisActive) {
-                activeActor.transform.size.y -= MouseListener.getWorldDy();
+                activeActor.getTransform().size.y -= MouseListener.getWorldDy();
             }
         }
 

@@ -19,14 +19,15 @@ import imgui.ImVec4;
 import imgui.type.ImInt;
 
 public abstract class Component {
-  protected transient String filePath = null;
   private long ID = -1;
-  private transient boolean started = false;
+  private String name = "Component";
+  protected transient boolean started = false;
   protected transient Map<String, Object> initialValues;
   private transient boolean imGuiEditable = true;
 
   public Component() {
-    this.ID = Util.generateUniqueID();
+      this.ID = Util.generateHashID(this.getClass().getName());
+      this.name = this.getClass().getSimpleName();
   }
 
   public Component(boolean imGuiEditable) {
@@ -35,8 +36,6 @@ public abstract class Component {
   }
 
   public void start() {
-    // get the filepath of this component
-    this.filePath = AssetManager.getFilePath(this);
     // get the initial values of this component
     this.initialValues = new HashMap<>();
 
@@ -78,6 +77,7 @@ public abstract class Component {
         field.setAccessible(false);
       }
     }
+    started = true;
   }
 
 
@@ -182,7 +182,9 @@ public abstract class Component {
 
   public void generateId() {
     if (this.ID == -1) {
-      this.ID = Util.generateUniqueID();
+      // Generate a unique ID for components that are different to actor ids
+
+       this.ID = Util.generateHashID(this.getClass().getName());
     }
   }
 
@@ -207,7 +209,7 @@ public abstract class Component {
   }
 
   public void destroy() {
-
+    //TODO: Destroy component
   }
 
   public long getID() {
@@ -220,5 +222,9 @@ public abstract class Component {
 
   public void setImGuiNotEditable() {
     this.imGuiEditable = false;
+  }
+
+  public boolean isStarted() {
+    return started;
   }
 }

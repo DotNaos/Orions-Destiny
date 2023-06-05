@@ -104,7 +104,7 @@ public class AssetManager {
       }
     }
 
-    DebugMessage.notFound("Did not found: " + assetType.toString());
+    DebugMessage.notFound("Did not found AssetType: " + assetType.toString());
     return null;
   }
 
@@ -112,7 +112,7 @@ public class AssetManager {
     File file = new File(filePath);
 
     if (!file.exists()) {
-      DebugMessage.notFound("Did not found: " + filePath);
+      DebugMessage.notFound("Did not found Asset for filepath: " + filePath);
       return null;
     }
 
@@ -124,7 +124,7 @@ public class AssetManager {
     }
 
 
-    DebugMessage.notFound("Did not found: " + assetType);
+    DebugMessage.notFound("Did not found AssetType: " + assetType);
     return null;
   }
 

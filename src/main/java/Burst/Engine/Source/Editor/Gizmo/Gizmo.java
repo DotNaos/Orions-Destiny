@@ -41,13 +41,13 @@ public class Gizmo extends ActorComponent {
         super(null);
         this.xAxisObject = new Actor();
         this.xAxisObject.setSprite(arrowSprite);
-        this.xAxisObject.transform = new Transform(new Vector2f(0), new Vector2f(gizmoWidth, gizmoHeight), 90);
-        this.xAxisObject.transform.zIndex = 100;
+        this.xAxisObject.getTransform().set(new Transform(new Vector2f(0), new Vector2f(gizmoWidth, gizmoHeight), 90));
+        this.xAxisObject.getTransform().zIndex = 100;
 
         this.yAxisObject = new Actor();
         this.yAxisObject.setSprite(arrowSprite);
-        this.yAxisObject.transform = new Transform(new Vector2f(0), new Vector2f(gizmoWidth, gizmoHeight), 180);
-        this.yAxisObject.transform.zIndex = 100;
+        this.yAxisObject.getTransform().set(new Transform(new Vector2f(0), new Vector2f(gizmoWidth, gizmoHeight), 180));
+        this.yAxisObject.getTransform().zIndex = 100;
 
         this.xAxisSprite = this.xAxisObject.getComponent(SpriteRenderer.class);
         this.yAxisSprite = this.yAxisObject.getComponent(SpriteRenderer.class);
@@ -63,8 +63,8 @@ public class Gizmo extends ActorComponent {
 
     @Override
     public void start() {
-        this.xAxisObject.transform.zIndex = 100;
-        this.yAxisObject.transform.zIndex = 100;
+        this.xAxisObject.getTransform().zIndex = 100;
+        this.yAxisObject.getTransform().zIndex = 100;
         this.xAxisObject.setNotSerializable();
         this.yAxisObject.setNotSerializable();
     }
@@ -105,10 +105,10 @@ public class Gizmo extends ActorComponent {
         }
 
         if (this.activeActor != null) {
-            this.xAxisObject.transform.position.set(this.activeActor.transform.position);
-            this.yAxisObject.transform.position.set(this.activeActor.transform.position);
-            this.xAxisObject.transform.position.add(this.xAxisOffset);
-            this.yAxisObject.transform.position.add(this.yAxisOffset);
+            this.xAxisObject.getTransform().position.set(this.activeActor.getTransform().position);
+            this.yAxisObject.getTransform().position.set(this.activeActor.getTransform().position);
+            this.xAxisObject.getTransform().position.add(this.xAxisOffset);
+            this.yAxisObject.getTransform().position.add(this.yAxisOffset);
         }
     }
 
@@ -125,7 +125,7 @@ public class Gizmo extends ActorComponent {
 
     private boolean checkXHoverState() {
         Vector2f mousePos = new Vector2f(MouseListener.getWorldX(), MouseListener.getWorldY());
-        if (mousePos.x <= xAxisObject.transform.position.x + (gizmoHeight / 2.0f) && mousePos.x >= xAxisObject.transform.position.x - (gizmoWidth / 2.0f) && mousePos.y >= xAxisObject.transform.position.y - (gizmoHeight / 2.0f) && mousePos.y <= xAxisObject.transform.position.y + (gizmoWidth / 2.0f)) {
+        if (mousePos.x <= xAxisObject.getTransform().position.x + (gizmoHeight / 2.0f) && mousePos.x >= xAxisObject.getTransform().position.x - (gizmoWidth / 2.0f) && mousePos.y >= xAxisObject.getTransform().position.y - (gizmoHeight / 2.0f) && mousePos.y <= xAxisObject.getTransform().position.y + (gizmoWidth / 2.0f)) {
             xAxisSprite.setColor(xAxisColorHover);
             return true;
         }
@@ -136,7 +136,7 @@ public class Gizmo extends ActorComponent {
 
     private boolean checkYHoverState() {
         Vector2f mousePos = new Vector2f(MouseListener.getWorldX(), MouseListener.getWorldY());
-        if (mousePos.x <= yAxisObject.transform.position.x + (gizmoWidth / 2.0f) && mousePos.x >= yAxisObject.transform.position.x - (gizmoWidth / 2.0f) && mousePos.y <= yAxisObject.transform.position.y + (gizmoHeight / 2.0f) && mousePos.y >= yAxisObject.transform.position.y - (gizmoHeight / 2.0f)) {
+        if (mousePos.x <= yAxisObject.getTransform().position.x + (gizmoWidth / 2.0f) && mousePos.x >= yAxisObject.getTransform().position.x - (gizmoWidth / 2.0f) && mousePos.y <= yAxisObject.getTransform().position.y + (gizmoHeight / 2.0f) && mousePos.y >= yAxisObject.getTransform().position.y - (gizmoHeight / 2.0f)) {
             yAxisSprite.setColor(yAxisColorHover);
             return true;
         }

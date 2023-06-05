@@ -33,16 +33,16 @@ public class Rigidbody2D extends ActorComponent {
     public void update(float dt) {
         if (rawBody != null) {
             if (this.bodyType == BodyType.Dynamic || this.bodyType == BodyType.Kinematic) {
-                this.actor.transform.position.set(
+                this.actor.getTransform().position.set(
                         rawBody.getPosition().x, rawBody.getPosition().y
                 );
-                this.actor.transform.rotation = (float) Math.toDegrees(rawBody.getAngle());
+                this.actor.getTransform().rotation = (float) Math.toDegrees(rawBody.getAngle());
                 Vec2 vel = rawBody.getLinearVelocity();
                 this.velocity.set(vel.x, vel.y);
             } else if (this.bodyType == BodyType.Static) {
                 this.rawBody.setTransform(
-                        new Vec2(this.actor.transform.position.x, this.actor.transform.position.y),
-                        this.actor.transform.rotation
+                        new Vec2(this.actor.getTransform().position.x, this.actor.getTransform().position.y),
+                        this.actor.getTransform().rotation
                 );
             }
         }
@@ -73,7 +73,7 @@ public class Rigidbody2D extends ActorComponent {
 
     public void setPosition(Vector2f newPos) {
         if (rawBody != null) {
-            rawBody.setTransform(new Vec2(newPos.x, newPos.y), actor.transform.rotation);
+            rawBody.setTransform(new Vec2(newPos.x, newPos.y), actor.getTransform().rotation);
         }
     }
 

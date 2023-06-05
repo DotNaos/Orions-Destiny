@@ -14,9 +14,9 @@ public class TranslateGizmo extends Gizmo {
     public void updateEditor(float dt) {
         if (activeActor != null) {
             if (xAxisActive && !yAxisActive) {
-                activeActor.transform.position.x -= MouseListener.getWorldDx();
+                activeActor.getTransform().position.x -= MouseListener.getWorldDx();
             } else if (yAxisActive) {
-                activeActor.transform.position.y -= MouseListener.getWorldDy();
+                activeActor.getTransform().position.y -= MouseListener.getWorldDy();
             }
         }
 

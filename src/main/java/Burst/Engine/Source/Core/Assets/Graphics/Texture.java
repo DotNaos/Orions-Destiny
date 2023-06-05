@@ -1,9 +1,11 @@
 package Burst.Engine.Source.Core.Assets.Graphics;
 
 import Burst.Engine.Source.Core.Assets.Asset;
+import Burst.Engine.Source.Core.UI.Window;
 import org.joml.Vector2i;
 import org.lwjgl.BufferUtils;
 
+import javax.swing.plaf.TextUI;
 import java.nio.ByteBuffer;
 import java.nio.IntBuffer;
 
@@ -15,6 +17,7 @@ import static org.lwjgl.stb.STBImage.*;
 public class Texture extends Asset {
     private transient int texID;
     private int width, height;
+    private transient boolean initialized = false;
 
     public Texture(String filepath) {
         super(filepath);
@@ -60,6 +63,7 @@ public class Texture extends Asset {
         IntBuffer width = BufferUtils.createIntBuffer(1);
         IntBuffer height = BufferUtils.createIntBuffer(1);
         IntBuffer channels = BufferUtils.createIntBuffer(1);
+
         stbi_set_flip_vertically_on_load(false);
         ByteBuffer image = stbi_load(filepath, width, height, channels, 0);
 
@@ -82,6 +86,7 @@ public class Texture extends Asset {
         }
 
         stbi_image_free(image);
+        initialized = true;
     }
 
     public void bind() {
@@ -147,5 +152,9 @@ public class Texture extends Asset {
     @Override
     public Asset build() {
         return this;
+    }
+
+    public boolean isInitialized() {
+        return initialized;
     }
 }
