@@ -9,7 +9,9 @@ public class Transform extends ActorComponent {
 
   public Vector2f position = new Vector2f(0, 0);
   public Vector2f scale = new Vector2f(1.0f, 1.0f);
+
   public Vector2f size = new Vector2f(1f, 1f);
+  private Vector2f scaledSize = new Vector2f(size).mul(new Vector2f(scale));
   public float rotation = 0.0f;
   public int zIndex = 0;
   private Actor actor = null;
@@ -69,6 +71,7 @@ public class Transform extends ActorComponent {
     BImGui.drawVec2Control("Scale", this.scale, new Vector2f(1));
     this.rotation = BImGui.dragFloat("Rotation", this.rotation, 0.1f);
     this.zIndex = BImGui.dragInt("Z-Index", this.zIndex, 1);
+    this.scaledSize = new Vector2f(size).mul(new Vector2f(scale));
   }
 
   public Transform copy(Transform from) {
@@ -94,4 +97,8 @@ public class Transform extends ActorComponent {
             this.rotation = transform.rotation;
             this.zIndex = transform.zIndex;
     }
+
+  public Vector2f getScaledSize() {
+    return scaledSize;
+  }
 }

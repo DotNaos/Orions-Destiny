@@ -77,7 +77,6 @@ public class ContentDrawer extends ImGuiPanel {
                     ImGui.pushStyleColor(ImGuiCol.ButtonHovered, 0.5f, 0.5f, 0.5f, 0.5f);
                     ImGui.pushStyleColor(ImGuiCol.ButtonActive, 0.5f, 0.5f, 0.5f, 1f);
 
-                    // Flip the image vertically
                     Texture texture = (Texture) iconValue;
 
                     if (ImGui.imageButton(texture.getTexID(), iconSize, iconSize))

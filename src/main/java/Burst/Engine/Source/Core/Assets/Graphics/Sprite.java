@@ -93,6 +93,9 @@ public class Sprite extends Asset {
         if(!this.texture.isInitialized()) this.texture.init();
         this.filepath = texture.getFilepath();
 
+        this.width = texture.getWidth();
+        this.height = texture.getHeight();
+
         return this;
     }
 

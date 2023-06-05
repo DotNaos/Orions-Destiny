@@ -74,6 +74,9 @@ public class SpriteRenderer extends ActorComponent {
     public Texture getTexture() {
         return sprite.getTexture();
     }
+    public Sprite getSprite() {
+        return sprite;
+    }
 
     public void setTexture(Texture texture) {
         this.sprite.setTexture(texture);

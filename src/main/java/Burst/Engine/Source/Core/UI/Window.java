@@ -195,6 +195,7 @@ public class Window implements Observer {
         this.pickingTexture = new PickingTexture(ViewportRenderer.getViewportSize().x, ViewportRenderer.getViewportSize().y);
         glViewport(0, 0, ViewportRenderer.getViewportSize().x, ViewportRenderer.getViewportSize().y);
 
+
         this.imguiLayer = new ImGuiLayer(glfwWindow);
         this.imguiLayer.initImGui();
 

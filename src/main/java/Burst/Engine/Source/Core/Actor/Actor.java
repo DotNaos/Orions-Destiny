@@ -3,6 +3,7 @@ package Burst.Engine.Source.Core.Actor;
 import java.util.ArrayList;
 import java.util.List;
 
+import Burst.Engine.Source.Core.Util.DebugMessage;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -90,6 +91,37 @@ public class Actor {
      * @see #start()
      */
     public void init() {
+        // Get the transform component
+        Transform transform = getComponent(Transform.class);
+        // Adjust the actors size to match the sprite size
+
+        SpriteRenderer spriteRenderer = getComponent(SpriteRenderer.class);
+        if (spriteRenderer != null) {
+            Sprite sprite = spriteRenderer.getSprite();
+            if (sprite != null) {
+
+                float width = sprite.getWidth();
+                float height = sprite.getHeight();
+
+
+                // If aspect ratio is not 1:1, adjust the size
+                if (width != height)
+                {
+                    if(width > height)
+                    {
+                        transform.size.x *= sprite.getWidth() / sprite.getHeight();
+                    }
+                    else
+                    {
+                        transform.size.y *= sprite.getHeight() / sprite.getWidth();
+                    }
+                    DebugMessage.info("Adjusting size of '" + name + "' to: 'X = " + transform.size.x + "' and 'Y = " + transform.size.y + "' | Sprite resolution: 'X = " + width + "' 'Y = " + height + "'");
+
+                }
+
+            }
+        }
+
     }
 
     public void start() {

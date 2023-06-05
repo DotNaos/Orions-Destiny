@@ -53,12 +53,17 @@ public class Game {
 
         loadLevel();
         scene.getSceneInitializer().loadResources(this);
-        start();
 
         //  Show a debug image
 
          this.addActor(new Actor().setSprite(new Sprite().setTexture(AssetManager.getAssetFromType(AssetConfig.ICON_PLAYER, Texture.class))));
+         this.addActor(new Actor().setSprite(new Sprite().setTexture(new Texture("Assets/images/spritesheets/pipes.png"))));
 //         saveLevel();
+
+        for (Actor actor : actors) {
+            actor.init();
+        }
+        start();
     }
 
     //! ====================================================================================================
