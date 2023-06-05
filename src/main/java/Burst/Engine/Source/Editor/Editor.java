@@ -40,6 +40,7 @@ public class Editor extends Game {
         this.components.add(new MouseControls());
         this.components.add(new KeyControls());
         this.components.add(new GridLines());
+
     }
 
     @Override

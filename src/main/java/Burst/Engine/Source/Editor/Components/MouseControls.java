@@ -72,7 +72,10 @@ public class MouseControls extends Component {
         PropertiesPanel propertiesPanel = Window.getScene().getPanel(PropertiesPanel.class);
         PickingTexture pickingTexture = propertiesPanel.getPickingTexture();
         Game game = Window.getScene().getGame();
-        if (holdingActor != null) {
+
+
+        if (holdingActor != null) 
+        {
             float x = MouseListener.getWorldX();
             float y = MouseListener.getWorldY();
 
@@ -84,7 +87,7 @@ public class MouseControls extends Component {
                 float halfHeight = GridLines_Config.SIZE / 2.0f;
                 if (MouseListener.isDragging() &&
                         !blockInSquare(holdingActor.transform.position.x - halfWidth,
-                                holdingActor.transform.position.y - halfHeight, 0)) {
+                                holdingActor.transform.position.y - halfHeight)) {
                     place();
                 } else if (!MouseListener.isDragging() && debounce < 0) {
                     place();
@@ -96,7 +99,11 @@ public class MouseControls extends Component {
                 holdingActor.destroy();
                 holdingActor = null;
             }
-        } else if (!MouseListener.isDragging() && MouseListener.mouseButtonDown(GLFW_MOUSE_BUTTON_LEFT) && debounce < 0) {
+        } 
+        
+        
+        else if (!MouseListener.isDragging() && MouseListener.mouseButtonDown(GLFW_MOUSE_BUTTON_LEFT) && debounce < 0)
+        {
             int x = (int) MouseListener.getScreenX();
             int y = (int) MouseListener.getScreenY();
             int gameObjectId = pickingTexture.readPixel(x, y);
@@ -108,7 +115,11 @@ public class MouseControls extends Component {
                 propertiesPanel.clearSelected();
             }
             this.debounce = 0.2f;
-        } else if (MouseListener.isDragging() && MouseListener.mouseButtonDown(GLFW_MOUSE_BUTTON_LEFT)) {
+        } 
+        
+        
+        else if (MouseListener.isDragging() && MouseListener.mouseButtonDown(GLFW_MOUSE_BUTTON_LEFT)) 
+        {
             if (!boxSelectSet) {
                 propertiesPanel.clearSelected();
                 boxSelectStart = MouseListener.getScreen();
@@ -118,6 +129,7 @@ public class MouseControls extends Component {
             boxSelectEnd = MouseListener.getScreen();
             Vector2f boxSelectStartWorld = MouseListener.screenToWorld(boxSelectStart);
             Vector2f boxSelectEndWorld = MouseListener.screenToWorld(boxSelectEnd);
+
             Vector2f halfSize =
                     (new Vector2f(boxSelectEndWorld).sub(boxSelectStartWorld)).mul(0.5f);
             DebugDraw.addBox(
@@ -125,7 +137,11 @@ public class MouseControls extends Component {
                     new Vector2f(halfSize).mul(2.0f),
                     0.0f);
 
-        } else if (boxSelectSet) {
+        }
+
+
+        else if (boxSelectSet) 
+        {
             boxSelectSet = false;
             int screenStartX = (int) boxSelectStart.x;
             int screenStartY = (int) boxSelectStart.y;
@@ -149,6 +165,7 @@ public class MouseControls extends Component {
                     new Vector2i(screenStartX, screenStartY),
                     new Vector2i(screenEndX, screenEndY)
             );
+
             Set<Integer> uniqueGameObjectIds = new HashSet<>();
             for (float objId : gameObjectIds) {
                 uniqueGameObjectIds.add((int) objId);
@@ -163,7 +180,7 @@ public class MouseControls extends Component {
         }
     }
 
-    private boolean blockInSquare(float x, float y, float z) {
+    private boolean blockInSquare(float x, float y) {
         PropertiesPanel propertiesPanel = Window.getScene().getPanel(PropertiesPanel.class);
         Vector2f start = new Vector2f(x, y);
         Vector2f end = new Vector2f(start).add(new Vector2f(GridLines_Config.SIZE, GridLines_Config.SIZE));

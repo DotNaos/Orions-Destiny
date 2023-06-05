@@ -52,11 +52,8 @@ public class Game {
         start();
 
         //  Show a debug image
-         Texture tex = new Texture("assets/images/debug/blendImage1.png");
-         Sprite sprite = new Sprite();
-         sprite.setTexture(tex);
 
-         this.addActor(new Actor().setSprite(sprite));
+         this.addActor(new Actor().setSprite(new Sprite("assets/images/debug/blendImage1.png")));
          saveLevel();
     }
 

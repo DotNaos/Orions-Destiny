@@ -15,6 +15,7 @@ import imgui.ImVec2;
 import imgui.flag.ImGuiCond;
 import imgui.flag.ImGuiWindowFlags;
 import org.joml.Vector2f;
+import org.joml.Vector2i;
 import org.joml.Vector3f;
 
 public class ViewportPanel extends ImGuiPanel {
@@ -56,6 +57,17 @@ public class ViewportPanel extends ImGuiPanel {
                 isPlaying = false;
                 EventSystem.notify(null, new Event(EventType.GameEngineStopPlay));
             }
+            
+            // Show the current mouse position in the viewport and screen
+            // in the center of the menu bar
+            ImGui.sameLine(ImGui.getContentRegionAvailX() / 2 - 100);
+            Vector2i worldPos = new Vector2i((int)MouseListener.getWorldX(), (int)MouseListener.getWorldY());
+            Vector2i screenPos = new Vector2i((int)MouseListener.getScreenX(), (int)MouseListener.getScreenY());
+
+            ImGui.text("World | X: " + worldPos.x + " Y: " + worldPos.y + " | " + "\t");
+            ImGui.sameLine();
+            ImGui.text("Screen | X: " + screenPos.x + " Y: " + screenPos.y + " | ");
+
             ImGui.endMenuBar();
         }
 

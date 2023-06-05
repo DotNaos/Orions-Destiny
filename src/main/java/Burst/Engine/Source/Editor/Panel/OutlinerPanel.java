@@ -35,7 +35,7 @@ public class OutlinerPanel extends ImGuiPanel {
         }
 
         // Update the position of the Panel
-        this.position.x =ImGui.getWindowPosX();
+        this.position.x = ImGui.getWindowPosX();
         this.position.y = ImGui.getWindowPosY();
 
         ImGui.end();
@@ -48,6 +48,8 @@ public class OutlinerPanel extends ImGuiPanel {
 
         if (ImGui.beginDragDropSource()) {
             ImGui.setDragDropPayloadObject(payloadDragDropType, actor);
+            // Icon of the actor type
+
             ImGui.text(actor.getName());
             ImGui.endDragDropSource();
         }

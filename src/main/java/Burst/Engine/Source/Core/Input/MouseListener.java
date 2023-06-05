@@ -1,12 +1,17 @@
 package Burst.Engine.Source.Core.Input;
 
+import Burst.Engine.Source.Core.UI.ImGui.DebugPanel;
 import Burst.Engine.Source.Core.UI.Viewport;
 import Burst.Engine.Source.Core.UI.Window;
+import Burst.Engine.Source.Core.Util.DebugMessage;
+import imgui.ImGui;
+import imgui.ImVec2;
 import org.joml.Matrix4f;
 import org.joml.Vector2f;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
 
+import javax.swing.*;
 import java.util.Arrays;
 
 import static org.lwjgl.glfw.GLFW.GLFW_PRESS;
@@ -156,19 +161,16 @@ public class MouseListener {
     }
 
     public static Vector2f screenToWorld(Vector2f screenCoords) {
-        Vector2f normalizedScreenCords = new Vector2f(
-                screenCoords.x / Window.getWidth(),
-                screenCoords.y / Window.getHeight()
-        );
-        normalizedScreenCords.mul(2.0f).sub(new Vector2f(1.0f, 1.0f));
+        float currentX = screenCoords.x - get().gameViewportPos.x;
+        currentX = (2.0f * (currentX / get().gameViewportSize.x)) - 1.0f;
+        float currentY = (screenCoords.y - get().gameViewportPos.y - 24);
+        currentY = (2.0f * (1.0f - (currentY / get().gameViewportSize.y))) - 1.0f;
+
         Viewport viewport = Window.getScene().getViewport();
-        Vector4f tmp = new Vector4f(normalizedScreenCords.x, normalizedScreenCords.y,
-                0, 1);
+        Vector4f tmp = new Vector4f(currentX, currentY, 0, 1);
         Matrix4f inverseView = new Matrix4f(viewport.getInverseView());
         Matrix4f inverseProjection = new Matrix4f(viewport.getInverseProjection());
         tmp.mul(inverseView.mul(inverseProjection));
-
-
 
         return new Vector2f(tmp.x, tmp.y);
     }
@@ -195,13 +197,13 @@ public class MouseListener {
     }
 
     public static Vector2f getScreen() {
-        float currentX = getX() - get().gameViewportPos.x;
-        currentX = (currentX / get().gameViewportSize.x) * Window.getWidth();
-        float currentY = (getY() - get().gameViewportPos.y);
-        currentY = (1.0f - (currentY / get().gameViewportSize.y)) * Window.getHeight();
+        ImVec2 mousePos = new ImVec2();
+        ImGui.getMousePos(mousePos);
 
+        // Invert Y
+//       mousePos.y = Window.getHeight() - mousePos.y;
 
-        return new Vector2f(currentX, currentY);
+        return new Vector2f(mousePos.x, mousePos.y);
     }
 
     // get GameViewportSize

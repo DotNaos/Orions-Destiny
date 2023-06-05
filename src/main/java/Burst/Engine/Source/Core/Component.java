@@ -22,7 +22,7 @@ public abstract class Component {
   protected transient String filePath = null;
   private long ID = -1;
   private transient boolean started = false;
-  protected Map<String, Object> initialValues;
+  protected transient Map<String, Object> initialValues;
   private transient boolean imGuiEditable = true;
 
   public Component() {

@@ -22,8 +22,15 @@ public class Sprite extends Asset {
         this.height = 0;
     }
 
+    public Sprite(String filePath) {
+        super(filePath);
+        this.texture = new Texture(filePath);
+        this.width = texture.getWidth();
+        this.height = texture.getHeight();
+    }
+
     public Sprite(Texture texture, Vector2f[] texCoords, int spriteWidth, int spriteHeight) {
-        super("");
+        super(texture.getFilepath());
         this.texture = texture;
         this.texCoords = texCoords;
         this.width = spriteWidth;
@@ -81,6 +88,7 @@ public class Sprite extends Asset {
 
     public void setTexture(Texture texture) {
         this.texture = texture;
+        this.filepath = texture.getFilepath();
     }
 
     public void setTexCoords(Vector2f[] texCoords) {
