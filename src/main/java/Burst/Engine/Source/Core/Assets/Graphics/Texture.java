@@ -24,7 +24,7 @@ public class Texture extends Asset {
     }
 
     public Texture() {
-        super("");
+        super("Generated");
         texID = -1;
         width = -1;
         height = -1;

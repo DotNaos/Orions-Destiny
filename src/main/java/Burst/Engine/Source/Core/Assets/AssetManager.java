@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AssetManager {
-
+  public static final boolean showLoadingAssets = false;
   private static final List<Assets> assetsList = new ArrayList<>();
   public static void loadAllAssets() {
     DebugMessage.noDebug = false;
@@ -26,7 +26,7 @@ public class AssetManager {
     String assetDir = AssetConfig.DIR_OF_ASSETS;
     List<String> foundFiles;
 
-    assetsList.add(new Assets(Texture.class, AssetConfig.DIR_OF_TEXTURES, "png"));
+    assetsList.add(new Assets(Texture.class, AssetConfig.DIR_OF_IMAGES, "png"));
     assetsList.add(new Assets(SpriteSheet.class, AssetConfig.DIR_OF_SPRITESHEETS, "png"));
     assetsList.add(new Assets(Shader.class, Shader_Config.PATH, "glsl"));
     assetsList.add(new Assets(Sound.class, AssetConfig.DIR_OF_SOUNDS, "ogg"));
@@ -57,17 +57,23 @@ public class AssetManager {
               ((SpriteSheet) asset).setConfig(config);
               asset.build();
               assets.getAssets().put(assetPath, asset);
-              System.out.println("ADDING " + assets.getName().toUpperCase() + " : " + assetPath);
-              System.out.println("\\--------->" + " CONFIG : " + config.filePath + "\n");
+              if (showLoadingAssets)
+              {
+                System.out.println("ADDING " + assets.getName().toUpperCase() + " : " + assetPath);
+                System.out.println("\\--------->" + " CONFIG : " + config.filePath + "\n");
+              }
             }
           }
         } else {
-          System.out.println("ADDING " + assets.getName().toUpperCase() + " : " + assetPath);
+
+          if (showLoadingAssets)
+          {
+            System.out.println("ADDING " + assets.getName().toUpperCase() + " : " + assetPath);
+          }
+
           asset.build();
           assets.getAssets().put(assetPath, asset);
         }
-
-
       }
       DebugMessage.loadSuccess("Loaded " + assets.getAssets().size() + " " + assets.getName());
     }
@@ -96,15 +102,13 @@ public class AssetManager {
   }
 
   public static List<? extends Asset> getAllAssetsFromType(Class<? extends Asset> assetType) {
-
-
     for (Assets assets : assetsList) {
       if (assets.getAssetType().equals(assetType)) {
         return new ArrayList<>(assets.getAssets().values());
       }
     }
 
-    DebugMessage.notFound("Did not found AssetType: " + assetType.toString());
+    DebugMessage.notFound("Did not found any Asset from Type: " + assetType.toString());
     return null;
   }
 
@@ -123,8 +127,12 @@ public class AssetManager {
       }
     }
 
+    for (Assets assets : assetsList) {
+      System.out.println("AssetType:" + assets.getAssetType());
+    }
 
-    DebugMessage.notFound("Did not found AssetType: " + assetType);
+
+    DebugMessage.notFound("Did not found the Asset of Type: " + assetType);
     return null;
   }
 

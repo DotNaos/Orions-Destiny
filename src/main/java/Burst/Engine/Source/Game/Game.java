@@ -51,14 +51,18 @@ public class Game {
         DebugMessage.header("Game Panels");
         scene.addPanel(new ViewportPanel());
 
-        loadLevel();
         scene.getSceneInitializer().loadResources(this);
 
-        //  Show a debug image
+        loadLevel();
 
-         this.addActor(new Actor().setSprite(new Sprite().setTexture(AssetManager.getAssetFromType(AssetConfig.ICON_PLAYER, Texture.class))));
-         this.addActor(new Actor().setSprite(new Sprite().setTexture(new Texture("Assets/images/spritesheets/pipes.png"))));
+     //? Debug code
+//         this.addActor(new Actor().setSprite(new Sprite().setTexture(AssetManager.getAssetFromType(AssetConfig.ICON_PLAYER, Texture.class))));
+//         this.addActor(new Actor().setSprite(new Sprite().setTexture(new Texture("Assets/images/spritesheets/pipes.png"))));
+     //? End debug code
+
 //         saveLevel();
+
+
 
         for (Actor actor : actors) {
             actor.init();

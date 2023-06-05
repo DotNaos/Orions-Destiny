@@ -17,7 +17,7 @@ public class Sprite extends Asset {
     };
 
     public Sprite() {
-        super("");
+        super("Generated");
         this.width = 0;
         this.height = 0;
     }

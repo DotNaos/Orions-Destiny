@@ -100,6 +100,13 @@ public class Actor {
             Sprite sprite = spriteRenderer.getSprite();
             if (sprite != null) {
 
+                // set the Texture to the sprite
+                if(sprite.getTexture() == null)
+                {
+                    Texture texture = AssetManager.getAssetFromType(sprite.getFilepath(), Texture.class);
+                    sprite.setTexture(texture);
+                }
+
                 float width = sprite.getWidth();
                 float height = sprite.getHeight();
 
