@@ -18,6 +18,7 @@ import Burst.Engine.Source.Core.Saving.ComponentDeserializer;
 import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Core.Util.Util;
 import Orion.res.AssetConfig;
+import imgui.ImGui;
 
 
 /**
@@ -154,16 +155,6 @@ public class Actor {
         }
     }
 
-    /**
-     * Calls the updateEditor() method of all components attached to this actor.
-     *
-     * @param dt The time elapsed since the last frame in seconds.
-     */
-    public void updateEditor(float dt) {
-        for (Component component : components) {
-            component.updateEditor(dt);
-        }
-    }
 
     //!====================================================================================================
     //!|=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
@@ -336,7 +327,8 @@ public class Actor {
         // TODO: Fix Component imgui
         for (Component c : components) {
             // If the Component's header is expanded, calls its imgui method
-            // if (ImGui.collapsingHeader(c.getClass().getSimpleName())) c.imgui();
+             if (ImGui.collapsingHeader(c.getClass().getSimpleName()))
+                 c.imgui();
         }
     }
 

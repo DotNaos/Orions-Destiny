@@ -12,14 +12,6 @@ public class FontRenderer extends ActorComponent {
     }
 
     @Override
-    public void start() {
-        super.start();
-        if (actor.getComponent(SpriteRenderer.class) != null) {
-            System.out.println("Found Font Renderer!");
-        }
-    }
-
-    @Override
     public void update(float dt) {
 
     }

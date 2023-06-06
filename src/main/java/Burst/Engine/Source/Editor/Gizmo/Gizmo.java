@@ -63,6 +63,7 @@ public class Gizmo extends ActorComponent {
 
     @Override
     public void start() {
+        super.start();
         this.xAxisObject.getTransform().zIndex = 100;
         this.yAxisObject.getTransform().zIndex = 100;
         this.xAxisObject.setNotSerializable();

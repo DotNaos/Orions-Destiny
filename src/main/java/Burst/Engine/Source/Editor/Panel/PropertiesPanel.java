@@ -88,8 +88,7 @@ public class PropertiesPanel extends ImGuiPanel {
     }
 
     public Actor getActiveGameObject() {
-        return activeActors.size() == 1 ? this.activeActors.get(0) :
-                null;
+        return activeActors.size() == 1 ? this.activeActors.get(0) : null;
     }
 
     public void setActiveGameObject(Actor actor) {
@@ -122,7 +121,7 @@ public class PropertiesPanel extends ImGuiPanel {
         SpriteRenderer spr = actor.getComponent(SpriteRenderer.class);
         if (spr != null) {
             this.activeGameObjectsOgColor.add(new Vector4f(spr.getColor()));
-            spr.setColor(new Vector4f(0.8f, 0.8f, 0.0f, 0.8f));
+            spr.setColor(new Vector4f(0.8f, 0.8f, 0.0f, 0.1f));
         } else {
             this.activeGameObjectsOgColor.add(new Vector4f());
         }

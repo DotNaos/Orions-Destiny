@@ -78,6 +78,7 @@ public class MouseControls extends Component {
         PickingTexture pickingTexture = propertiesPanel.getPickingTexture();
         Game game = Window.getScene().getGame();
 
+        // * Current actor
         if (holdingActor != null)
         {
             float x = MouseListener.getWorldX();
@@ -105,27 +106,25 @@ public class MouseControls extends Component {
             }
         }
 
-
+        // * Clicking on objects
         else if (!MouseListener.isDragging() && MouseListener.mouseButtonDown(GLFW_MOUSE_BUTTON_LEFT) && debounce < 0)
         {
             int x = (int) MouseListener.getViewX();
             int y = (int) MouseListener.getViewY();
-            int gameObjectId = pickingTexture.readPixel(x, y);
+            int actorID = pickingTexture.readPixel(x, y);
 
-            Actor pickedObj = game.getActor(gameObjectId);
+            Actor pickedActor = game.getActor(actorID);
+            if (pickedActor != null && pickedActor.getComponent(NonPickable.class) == null) {
+                propertiesPanel.setActiveGameObject(pickedActor);
 
-            if (pickedObj != null)
-                propertiesPanel.setActiveGameObject(pickedObj);
-
-            if (pickedObj != null && pickedObj.getComponent(NonPickable.class) == null) {
-                propertiesPanel.setActiveGameObject(pickedObj);
-            } else if (pickedObj == null && !MouseListener.isDragging()) {
+            } else if (pickedActor == null && !MouseListener.isDragging()) {
                 propertiesPanel.clearSelected();
             }
             this.debounce = 0.2f;
         }
 
 
+        // * Box select
         else if (MouseListener.isDragging() && MouseListener.mouseButtonDown(GLFW_MOUSE_BUTTON_LEFT))
         {
             if (!boxSelectSet) {
@@ -143,10 +142,10 @@ public class MouseControls extends Component {
                     (new Vector2f(boxSelectStartWorld)).add(halfSize),
                     new Vector2f(halfSize).mul(2.0f),
                     0.0f);
-
         }
 
 
+        // * Box select end
         else if (boxSelectSet)
         {
             boxSelectSet = false;

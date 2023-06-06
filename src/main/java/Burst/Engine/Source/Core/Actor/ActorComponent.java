@@ -27,8 +27,4 @@ public class ActorComponent extends Component {
   public void postSolve(Actor collidinactorbject, Contact contact, Vector2f hitNormal) {
 
   }
-    @Override
-    public void start() {
-      started = true;
-    }
 }

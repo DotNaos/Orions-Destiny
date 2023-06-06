@@ -3,6 +3,8 @@ package Burst.Engine.Source.Core.Physics.Components;
 import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Actor.ActorComponent;
 import Burst.Engine.Source.Core.UI.ImGui.BImGui;
+import imgui.ImGui;
+import imgui.flag.ImGuiInputTextFlags;
 import org.joml.Vector2f;
 
 public class Transform extends ActorComponent {
@@ -14,7 +16,6 @@ public class Transform extends ActorComponent {
   private Vector2f scaledSize = new Vector2f(size).mul(new Vector2f(scale));
   public float rotation = 0.0f;
   public int zIndex = 0;
-  private Actor actor = null;
 
   public Transform() {
     super(null);
@@ -64,15 +65,17 @@ public class Transform extends ActorComponent {
     return new Transform(this.actor, new Vector2f(this.position), new Vector2f(this.scale), this.rotation);
   }
 
-  public void imgui() {
-    actor.setName(BImGui.inputText("Name: ", actor.getName()));
-    BImGui.drawVec2Control("Position", this.position, new Vector2f(0));
-    BImGui.drawVec2Control("Size", this.size, new Vector2f(1));
-    BImGui.drawVec2Control("Scale", this.scale, new Vector2f(1));
-    this.rotation = BImGui.dragFloat("Rotation", this.rotation, 0.1f);
-    this.zIndex = BImGui.dragInt("Z-Index", this.zIndex, 1);
-    this.scaledSize = new Vector2f(size).mul(new Vector2f(scale));
-  }
+//  @Override
+//  public void imgui() {
+//    actor.setName(BImGui.inputText("Name: ", actor.getName()));
+//    BImGui.drawVec2Control("Position", this.position, new Vector2f(0));
+//    BImGui.drawVec2Control("Size", this.size, new Vector2f(1));
+//    BImGui.drawVec2Control("Scale", this.scale, new Vector2f(1));
+//    this.rotation = BImGui.dragFloat("Rotation", this.rotation, 0.1f);
+//    this.zIndex = BImGui.dragInt("Z-Index", this.zIndex, 1);
+//    this.scaledSize = new Vector2f(size).mul(new Vector2f(scale));
+//    ImGui.inputFloat2("Scaled Size", new float[]{scaledSize.x, scaledSize.y}, "%.2f", ImGuiInputTextFlags.ReadOnly);
+//  }
 
   public Transform copy(Transform from) {
     this.position.set(from.position);

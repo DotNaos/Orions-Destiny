@@ -79,8 +79,6 @@ public class PickingTexture extends Component {
 
         float pixels[] = new float[4];
         glReadPixels(x, y, 1, 1, GL_RGBA, GL_FLOAT, pixels);
-        System.out.println("Pixel: " + pixels[0] + ", X: " + x + ", Y: " + y);
-
         return (int) (pixels[0]) - 1;
     }
 
