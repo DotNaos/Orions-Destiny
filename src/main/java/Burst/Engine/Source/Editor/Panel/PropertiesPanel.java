@@ -20,7 +20,6 @@ public class PropertiesPanel extends ImGuiPanel {
     private List<Vector4f> activeGameObjectsOgColor;
     private Actor activeActor = null;
     private PickingTexture pickingTexture;
-    private boolean showPickingTexture = true;
 
     public PropertiesPanel(PickingTexture pickingTexture) {
         super();
@@ -31,26 +30,6 @@ public class PropertiesPanel extends ImGuiPanel {
 
     @Override
     public void imgui() {
-        ImGui.begin("pickingTexture Debug");
-        // Read all the pixels from the picking texture
-        if(ImGui.checkbox("Show Picking Texture", showPickingTexture)) {
-            showPickingTexture = !showPickingTexture;
-        }
-        if (this.pickingTexture != null && showPickingTexture)
-        {
-            // Load the pixels into a buffer
-            float[] pixelBuffer = pickingTexture.getPickingActorBuffer();
-
-            // Generate a Texture from the pixels with OpenGL
-            Texture texture = new Texture(pixelBuffer, Window.getWidth(), Window.getHeight());
-
-            // Display the texture in ImGui
-            ImGui.image(texture.getTexID(), 600, 400);
-        }
-
-
-        ImGui.end();
-
         if (activeActors.size() == 1 && activeActors.get(0) != null) {
             activeActor = activeActors.get(0);
             ImGui.begin("Properties");
@@ -87,6 +66,25 @@ public class PropertiesPanel extends ImGuiPanel {
 
             ImGui.end();
         }
+    }
+
+    private void pickingTexturePreview() {
+        ImGui.begin("Picking Texture Preview");
+        // Read all the pixels from the picking texture
+        if (this.pickingTexture != null)
+        {
+            // Load the pixels into a buffer
+            float[] pixelBuffer = pickingTexture.getPickingActorBuffer();
+
+            // Generate a Texture from the pixels with OpenGL
+            Texture texture = new Texture(pixelBuffer, Window.getWidth(), Window.getHeight());
+
+            // Display the texture in ImGui
+            ImGui.image(texture.getTexID(), 600, 400);
+        }
+
+
+        ImGui.end();
     }
 
     public Actor getActiveGameObject() {

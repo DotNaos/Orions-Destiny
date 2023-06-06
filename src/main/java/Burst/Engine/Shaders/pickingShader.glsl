@@ -21,10 +21,8 @@ void main()
     fTexId = aTexId;
     fEntityId = aEntityId;
 
-    // flip the view on the y axis
-
-
-    gl_Position = uProjection * uView * vec4(aPos, 1.0);
+    // Calculate the position of the viewport and flipping the y axis
+    gl_Position = uProjection * uView * vec4(aPos, 1.0) * vec4(1.0, -1.0, 1.0, 1.0);
 }
 
 #type fragment
