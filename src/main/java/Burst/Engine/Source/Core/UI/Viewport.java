@@ -9,6 +9,7 @@ import org.joml.Vector3f;
 import Burst.Engine.Source.Editor.Panel.ViewportPanel;
 
 public class Viewport {
+
     /**
      * The position of the center of the viewport in world units.
      */
@@ -20,7 +21,10 @@ public class Viewport {
     private float zoom = 10.0f;
 
     public Viewport() {
-        this.position = new Vector2f();
+        this.position = new Vector2f(2,3);
+        // TODO: REMOVE RANDOM VIEWPORT POSITION
+//        this.position = new Vector2f();
+
         this.size = new Vector2f();
         this.projectionMatrix = new Matrix4f();
         this.viewMatrix = new Matrix4f();
@@ -58,11 +62,18 @@ public class Viewport {
         inverseProjection = new Matrix4f(projectionMatrix).invert();
     }
 
-    public Matrix4f getViewMatrix() {
+    public Matrix4f getViewMatrix()
+    {
+        return getViewMatrix(false);
+    }
+
+    public Matrix4f getViewMatrix(boolean flipY)
+    {
         viewMatrix.identity();
-        
-        Vector3f cameraFront = new Vector3f(0.0f, 0.0f, -1.0f);
+
+        Vector3f cameraFront = new Vector3f(0.0f, 0.0f, flipY ? -1.0f : 1.0f);
         Vector3f cameraUp = new Vector3f(0.0f, 1.0f, 0.0f);
+
 
         viewMatrix.lookAt(new Vector3f(position.x, position.y, 20.0f), cameraFront.add(position.x, position.y, 0.0f),
                 cameraUp);

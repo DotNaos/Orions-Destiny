@@ -17,6 +17,8 @@ void main()
     fColor = aColor;
             // flip vertical
     fTexCoord = aTexCoord * vec2(1.0, -1.0) + vec2(0.0, 1.0);
+//    fTexCoord = aTexCoord;
+
     fTexID = aTexID;
 
     gl_Position = uProjection * uView * vec4(aPos, 1.0);
@@ -35,15 +37,16 @@ out vec4 color;
 
 void main()
 {
+
     if (fTexID > 0.0)
     {
+
         int id = int(fTexID);
-//        color = fColor * texture(uTextures[id], fTexCoord);
         color = texture(uTextures[id], fTexCoord);
-//        color = vec4(1.0, 0, 1.0, 0.05);
     }
     else
     {
         color = fColor;
     }
+
 }

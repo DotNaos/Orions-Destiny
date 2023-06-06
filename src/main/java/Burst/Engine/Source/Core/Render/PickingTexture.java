@@ -1,16 +1,13 @@
 package Burst.Engine.Source.Core.Render;
 
 import Burst.Engine.Source.Core.Component;
-import Burst.Engine.Source.Core.Input.MouseListener;
-import Burst.Engine.Source.Core.Render.Debug.DebugDraw;
 import Burst.Engine.Source.Core.UI.Window;
-import org.joml.Vector2f;
+import Burst.Engine.Source.Core.Util.Util;
 import org.joml.Vector2i;
-import org.joml.Vector3f;
-import org.lwjgl.system.CallbackI;
 
 import static org.lwjgl.opengl.GL11.GL_TEXTURE_2D;
 import static org.lwjgl.opengl.GL30.*;
+import static org.lwjgl.stb.STBImage.stbi_set_flip_vertically_on_load;
 
 public class PickingTexture extends Component {
     private int pickingTextureId;
@@ -87,7 +84,7 @@ public class PickingTexture extends Component {
         return (int) (pixels[0]) - 1;
     }
 
-    public float[] readPixels(Vector2i start, Vector2i end) {
+    public float[] getPickingActorBuffer(Vector2i start, Vector2i end) {
         glBindFramebuffer(GL_READ_FRAMEBUFFER, fbo);
         glReadBuffer(GL_COLOR_ATTACHMENT0);
 
@@ -103,15 +100,45 @@ public class PickingTexture extends Component {
         return pixels;
     }
 
-    // return a buffer of all the pixels
-    public float[] readPixels() {
+
+    /**
+     * Modifies the pixels of the picking texture to represent the actor id
+     * Add a unique color for each actor
+     * @return Buffer of all pixels in the picking texture
+     */
+    public float[] getPickingActorBuffer() {
         glBindFramebuffer(GL_READ_FRAMEBUFFER, fbo);
         glReadBuffer(GL_COLOR_ATTACHMENT0);
 
-        float pixels[] = new float[Window.getWidth() * Window.getHeight() * 3];
-        glReadPixels(0, 0, Window.getWidth(), Window.getHeight(), GL_RGB, GL_FLOAT, pixels);
+        float pixels[] = new float[Window.getWidth() * Window.getHeight() * 4];
+        glReadPixels(0, 0, Window.getWidth(), Window.getHeight(), GL_RGBA, GL_FLOAT, pixels);
         for (int i = 0; i < pixels.length; i++) {
-            pixels[i] -= 1;
+            final int channel = i % 4 + 1;
+
+            final int red = 1;
+            final int green = 2;
+            final int blue = 3;
+            final int alpha = 4;
+
+            final boolean isRed = channel == red;
+            final boolean isGreen = channel == green;
+            final boolean isBlue = channel == blue;
+            final boolean isAlpha = channel == alpha;
+
+            // set background to white
+            if (pixels[i] == 0) {
+                pixels[i] = 1;
+                continue;
+            }
+
+            if (isAlpha) {
+                pixels[i] -= 1;
+            }
+            else
+            {
+                pixels[i] = Util.generateUniqueColorValue((float) (pixels[i] * Math.sin(channel)), 1);
+            }
+
         }
 
 

@@ -10,7 +10,6 @@ import Burst.Engine.Source.Core.Physics.Components.Rigidbody2D;
 import Burst.Engine.Source.Core.UI.ImGui.ImGuiPanel;
 import Burst.Engine.Source.Core.UI.Window;
 import imgui.ImGui;
-import org.joml.Vector2f;
 import org.joml.Vector4f;
 
 import java.util.ArrayList;
@@ -21,6 +20,7 @@ public class PropertiesPanel extends ImGuiPanel {
     private List<Vector4f> activeGameObjectsOgColor;
     private Actor activeActor = null;
     private PickingTexture pickingTexture;
+    private boolean showPickingTexture = true;
 
     public PropertiesPanel(PickingTexture pickingTexture) {
         super();
@@ -33,11 +33,13 @@ public class PropertiesPanel extends ImGuiPanel {
     public void imgui() {
         ImGui.begin("pickingTexture Debug");
         // Read all the pixels from the picking texture
-        ImGui.text("pickingtexture");
-        if (this.pickingTexture != null)
+        if(ImGui.checkbox("Show Picking Texture", showPickingTexture)) {
+            showPickingTexture = !showPickingTexture;
+        }
+        if (this.pickingTexture != null && showPickingTexture)
         {
             // Load the pixels into a buffer
-            float[] pixelBuffer = pickingTexture.readPixels();
+            float[] pixelBuffer = pickingTexture.getPickingActorBuffer();
 
             // Generate a Texture from the pixels with OpenGL
             Texture texture = new Texture(pixelBuffer, Window.getWidth(), Window.getHeight());

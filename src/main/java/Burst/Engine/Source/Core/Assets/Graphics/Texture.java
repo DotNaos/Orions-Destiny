@@ -46,8 +46,8 @@ public class Texture extends Asset {
         // When shrinking an image, pixelate
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height,
-                0, GL_RGB, GL_FLOAT, pixelBuffer);
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height,
+                0, GL_RGBA, GL_FLOAT, pixelBuffer);
     }
 
 

@@ -1,9 +1,11 @@
 package Burst.Engine.Source.Core.Render;
 
+import Burst.Engine.Config.Shader_Config;
 import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Assets.Graphics.Shader;
 import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Burst.Engine.Source.Core.UI.Window;
+import Orion.res.AssetConfig;
 import org.joml.Matrix4f;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
@@ -150,8 +152,12 @@ public class RenderBatch implements Comparable<RenderBatch> {
 
         // Use shader
         Shader shader = ViewportRenderer.getBoundShader();
-        shader.uploadMat4f("uProjection", Window.getScene().getViewport().getProjectionMatrix());
-        shader.uploadMat4f("uView", Window.getScene().getViewport().getViewMatrix());
+        Matrix4f projectionMatrix = Window.getScene().getViewport().getProjectionMatrix();
+
+        Matrix4f viewMatrix = Window.getScene().getViewport().getViewMatrix();
+
+        shader.uploadMat4f("uProjection", projectionMatrix);
+        shader.uploadMat4f("uView", viewMatrix);
         for (int i = 0; i < textures.size(); i++) {
             glActiveTexture(GL_TEXTURE0 + i + 1);
             textures.get(i).bind();

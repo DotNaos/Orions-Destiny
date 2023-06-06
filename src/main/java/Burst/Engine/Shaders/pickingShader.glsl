@@ -46,5 +46,9 @@ void main()
     if (texColor.a < 0.5) {
         discard;
     }
-    color = vec4(fEntityId, fEntityId, fEntityId, 0);
+
+
+    color = vec4(fEntityId, fEntityId, fEntityId, fEntityId);
+
+
 }

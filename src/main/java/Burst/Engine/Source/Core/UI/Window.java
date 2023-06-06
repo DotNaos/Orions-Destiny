@@ -238,16 +238,14 @@ public class Window implements Observer {
             glClearColor(clearColor.x, clearColor.y, clearColor.z, clearColor.w);
             glClear(GL_COLOR_BUFFER_BIT);
 
-            boolean shouldRender = true;
-            if (shouldRender) {
-                if (dt >= 0) {
-                    ViewportRenderer.bindShader(defaultShader);
-                    currentScene.update(dt);
-                    currentScene.render();
-                    DebugDraw.draw();
-                }
-                this.framebuffer.unbind();
+            if (dt >= 0) {
+                ViewportRenderer.bindShader(defaultShader);
+                currentScene.update(dt);
+                currentScene.render();
+                DebugDraw.draw();
             }
+            this.framebuffer.unbind();
+
 
 
             imguiActive = true;
