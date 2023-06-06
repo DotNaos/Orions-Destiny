@@ -61,16 +61,14 @@ public class ViewportPanel extends ImGuiPanel {
             // Show the current mouse position in the viewport and screen
             // in the center of the menu bar
             ImGui.sameLine(ImGui.getContentRegionAvailX() / 2 - 100);
-            Vector2i worldPos = new Vector2i((int)MouseListener.getWorldX(), (int)MouseListener.getWorldY());
-            Vector2i screenPos = new Vector2i((int)MouseListener.getScreenX(), (int)MouseListener.getScreenY());
 
             // World
-            ImGui.text("World | X: " + worldPos.x + " Y: " + worldPos.y + " | " + "\t");
+            ImGui.text("World | X: " + MouseListener.getWorldX() + " Y: " + MouseListener.getWorldY() + " | " + "\t");
 
             ImGui.sameLine();
 
             // Screen
-            ImGui.text("Screen | X: " + (int) screenPos.x + " Y: " + (int) screenPos.y + " | ");
+//            ImGui.text("Screen | X: " + (int) screenPos.x + " Y: " + (int) screenPos.y + " | ");
 
                 // Viewport
             ImGui.text("Viewport | X: " + MouseListener.getViewX() + " Y: " + MouseListener.getViewY() + " | ");

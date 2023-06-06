@@ -82,6 +82,7 @@ public class PickingTexture extends Component {
 
         float pixels[] = new float[4];
         glReadPixels(x, y, 1, 1, GL_RGBA, GL_FLOAT, pixels);
+        System.out.println("Pixel: " + pixels[0] + ", X: " + x + ", Y: " + y);
 
         return (int) (pixels[0]) - 1;
     }
@@ -97,17 +98,22 @@ public class PickingTexture extends Component {
         for (int i = 0; i < pixels.length; i++) {
             pixels[i] -= 1;
             // DebugDraw a box around every pixel with a value
-            if (pixels[i] > 0) {
-                int x = i % (size.x * 4);
-                int y = i / (size.x * 4);
-                // convert to world space
-                x = (int) MouseListener.viewToWorld(new Vector2f(x, y)).x;
-                y = (int) MouseListener.viewToWorld(new Vector2f(x, y)).y;
-
-//                System.out.println("x: " + x + " y: " + y);
-//                DebugDraw.addBox(new Vector2f(x, y), new Vector2f(1, 1), 0, new Vector3f(1, 0, 0), 10000);
-            }
         }
+
+        return pixels;
+    }
+
+    // return a buffer of all the pixels
+    public float[] readPixels() {
+        glBindFramebuffer(GL_READ_FRAMEBUFFER, fbo);
+        glReadBuffer(GL_COLOR_ATTACHMENT0);
+
+        float pixels[] = new float[Window.getWidth() * Window.getHeight() * 3];
+        glReadPixels(0, 0, Window.getWidth(), Window.getHeight(), GL_RGB, GL_FLOAT, pixels);
+        for (int i = 0; i < pixels.length; i++) {
+            pixels[i] -= 1;
+        }
+
 
         return pixels;
     }

@@ -30,6 +30,26 @@ public class Texture extends Asset {
         height = -1;
     }
 
+    public Texture(float[] pixelBuffer, int width, int height)
+    {
+        super("Generated");
+        texID = glGenTextures();
+        glBindTexture(GL_TEXTURE_2D, texID);
+
+        // Repeat image in both directions
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+
+        // When stretching the image, pixelate
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+
+        // When shrinking an image, pixelate
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height,
+                0, GL_RGB, GL_FLOAT, pixelBuffer);
+    }
+
 
     public Texture(int width, int height) {
         super("Generated");

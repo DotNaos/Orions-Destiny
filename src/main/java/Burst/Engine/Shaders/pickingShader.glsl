@@ -18,7 +18,6 @@ void main()
 {
     fColor = aColor;
     fTexCoords = aTexCoords;
-//    fTexCoord = aTexCoord * vec2(1.0, -1.0) + vec2(0.0, 1.0);
     fTexId = aTexId;
     fEntityId = aEntityId;
 

@@ -1,13 +1,16 @@
 package Burst.Engine.Source.Editor.Panel;
 
 import Burst.Engine.Source.Core.Actor.Actor;
+import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Burst.Engine.Source.Core.Render.PickingTexture;
 import Burst.Engine.Source.Core.Render.SpriteRenderer;
 import Burst.Engine.Source.Core.Physics.Components.Box2DCollider;
 import Burst.Engine.Source.Core.Physics.Components.CircleCollider;
 import Burst.Engine.Source.Core.Physics.Components.Rigidbody2D;
 import Burst.Engine.Source.Core.UI.ImGui.ImGuiPanel;
+import Burst.Engine.Source.Core.UI.Window;
 import imgui.ImGui;
+import org.joml.Vector2f;
 import org.joml.Vector4f;
 
 import java.util.ArrayList;
@@ -28,6 +31,24 @@ public class PropertiesPanel extends ImGuiPanel {
 
     @Override
     public void imgui() {
+        ImGui.begin("pickingTexture Debug");
+        // Read all the pixels from the picking texture
+        ImGui.text("pickingtexture");
+        if (this.pickingTexture != null)
+        {
+            // Load the pixels into a buffer
+            float[] pixelBuffer = pickingTexture.readPixels();
+
+            // Generate a Texture from the pixels with OpenGL
+            Texture texture = new Texture(pixelBuffer, Window.getWidth(), Window.getHeight());
+
+            // Display the texture in ImGui
+            ImGui.image(texture.getTexID(), 512, 512);
+        }
+
+
+        ImGui.end();
+
         if (activeActors.size() == 1 && activeActors.get(0) != null) {
             activeActor = activeActors.get(0);
             ImGui.begin("Properties");
