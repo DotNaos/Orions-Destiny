@@ -69,12 +69,10 @@ public class Scene {
         switch (openScene) {
             case GAME -> {
                 if (!isPaused) {
-                    this.viewportRenderer.render();
                     this.game.update(dt);
                 }
             }
             case EDITOR -> {
-                this.viewportRenderer.render();
                 this.editor.update(dt);
             }
         }

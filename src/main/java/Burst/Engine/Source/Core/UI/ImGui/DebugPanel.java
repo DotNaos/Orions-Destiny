@@ -47,15 +47,6 @@ import java.util.*;
  * Finally, call the <code>display</code> method to show all the registered
  * debug panels in an ImGui window.
  * </p>
- * 
- * @param plotValue          method used to add a new value to a plot
- * @param plotValues         method used to plot multiple values on a graph with
- *                           the same plot name
- * @param registerDebugPanel method used to register a new debug panel
- * @param update             method used to update all the registered debug
- *                           panels
- * @param display            method used to show all the registered debug panels
- *                           in an ImGui window
  */
 public class DebugPanel {
     /**

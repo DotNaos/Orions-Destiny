@@ -42,12 +42,14 @@ public class ViewportRenderer extends Renderer {
 
     public void add(Actor actor) {
         SpriteRenderer spr = actor.getComponent(SpriteRenderer.class);
+
         if (spr != null) {
             add(spr);
         }
     }
 
     private void add(SpriteRenderer sprite) {
+        // TODO: FIX DUPLICATE SPRITE RENDERER
         boolean added = false;
         for (RenderBatch batch : batches) {
             if (batch.hasRoom() && batch.zIndex() == sprite.actor.getTransform().zIndex) {

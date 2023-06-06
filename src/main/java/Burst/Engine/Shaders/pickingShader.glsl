@@ -21,6 +21,9 @@ void main()
     fTexId = aTexId;
     fEntityId = aEntityId;
 
+    // flip the view on the y axis
+
+
     gl_Position = uProjection * uView * vec4(aPos, 1.0);
 }
 

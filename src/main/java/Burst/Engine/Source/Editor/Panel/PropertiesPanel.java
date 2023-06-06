@@ -45,7 +45,7 @@ public class PropertiesPanel extends ImGuiPanel {
             Texture texture = new Texture(pixelBuffer, Window.getWidth(), Window.getHeight());
 
             // Display the texture in ImGui
-            ImGui.image(texture.getTexID(), 512, 512);
+            ImGui.image(texture.getTexID(), 600, 400);
         }
 
 

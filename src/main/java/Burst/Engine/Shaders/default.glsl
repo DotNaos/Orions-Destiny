@@ -21,7 +21,10 @@ void main()
 
     fTexID = aTexID;
 
-    gl_Position = uProjection * uView * vec4(aPos, 1.0);
+    gl_Position = uProjection * uView
+    * vec4(aPos, 1.0)
+//    * vec4(1.0, -1.0, 1.0, 1.0)
+    ;
 }
 
 #type fragment
