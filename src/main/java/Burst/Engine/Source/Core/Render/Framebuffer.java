@@ -5,7 +5,7 @@ import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import static org.lwjgl.opengl.GL30.*;
 
 public class Framebuffer {
-    private int fboID = 0;
+    private int fboID;
     private Texture texture = null;
 
     public Framebuffer(int width, int height) {

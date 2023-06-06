@@ -64,9 +64,22 @@ public class ViewportPanel extends ImGuiPanel {
             Vector2i worldPos = new Vector2i((int)MouseListener.getWorldX(), (int)MouseListener.getWorldY());
             Vector2i screenPos = new Vector2i((int)MouseListener.getScreenX(), (int)MouseListener.getScreenY());
 
+            // World
             ImGui.text("World | X: " + worldPos.x + " Y: " + worldPos.y + " | " + "\t");
+
             ImGui.sameLine();
-            ImGui.text("Screen | X: " + screenPos.x + " Y: " + screenPos.y + " | ");
+
+            // Screen
+            ImGui.text("Screen | X: " + (int) screenPos.x + " Y: " + (int) screenPos.y + " | ");
+
+                // Viewport
+            ImGui.text("Viewport | X: " + MouseListener.getViewX() + " Y: " + MouseListener.getViewY() + " | ");
+
+            // ViewToWorld
+//            ImGui.text("ViewToWorld | X: " + MouseListener.viewToWorld(MouseListener.getView()).x + " Y: " + MouseListener.viewToWorld(MouseListener.getView()).y + " | ");
+
+            // ViewToScreen
+//            ImGui.text("ViewToScreen | X: " + (int) MouseListener.viewToScreen(MouseListener.getView()).x + " Y: " + (int) MouseListener.viewToScreen(MouseListener.getView()).y + " | ");
 
             ImGui.endMenuBar();
         }

@@ -221,7 +221,7 @@ public class Window implements Observer {
             pickingTexture.enableWriting();
 
             glViewport(0, 0, Window.getWidth() , Window.getHeight());
-            glClearColor(0, 0, 0, 1);
+            glClearColor(0, 0, 0, 0);
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
             ViewportRenderer.bindShader(pickingShader);
@@ -238,13 +238,17 @@ public class Window implements Observer {
             glClearColor(clearColor.x, clearColor.y, clearColor.z, clearColor.w);
             glClear(GL_COLOR_BUFFER_BIT);
 
-            if (dt >= 0) {
-                ViewportRenderer.bindShader(defaultShader);
-                currentScene.update(dt);
-                currentScene.render();
-                DebugDraw.draw();
+            boolean shouldRender = true;
+            if (shouldRender) {
+                if (dt >= 0) {
+                    ViewportRenderer.bindShader(defaultShader);
+                    currentScene.update(dt);
+                    currentScene.render();
+                    DebugDraw.draw();
+                }
+                this.framebuffer.unbind();
             }
-            this.framebuffer.unbind();
+
 
             imguiActive = true;
             this.imguiLayer.update(dt, currentScene);
@@ -264,20 +268,22 @@ public class Window implements Observer {
         glfwSetCursor(glfwWindow, cursor);
     }
 
+    public PickingTexture getPickingTexture() {
+        return get().pickingTexture;
+    }
+
     @Override
     public void onNotify(Actor object, Event event) {
         switch (event.type) {
             case GameEngineStartPlay -> {
                 isPlaying = true;
-                currentScene.getGame().saveLevel();
-                Window.changeScene(SceneType.GAME);
+//                currentScene.getEditor().setPlaying(true);
             }
             case GameEngineStopPlay -> {
                 isPlaying = false;
-                Window.changeScene(SceneType.EDITOR);
             }
             case LoadLevel -> {
-                Window.changeScene(SceneType.GAME);
+//                Window.changeScene(SceneType.GAME);
             }
             case SaveLevel -> {
                 assert currentScene.getGame() != null;

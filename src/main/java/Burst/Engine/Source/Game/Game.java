@@ -60,10 +60,6 @@ public class Game {
 //         this.addActor(new Actor().setSprite(new Sprite().setTexture(new Texture("Assets/images/spritesheets/pipes.png"))));
      //? End debug code
 
-//         saveLevel();
-
-
-
         for (Actor actor : actors) {
             actor.init();
         }
@@ -119,7 +115,7 @@ public class Game {
 
         // Save the level if the actor is a serialized actor
         if (!actor.isSerializedActor()) return;
-        // saveLevel();
+        saveLevel();
     }
 
     //! ====================================================================================================

@@ -18,6 +18,7 @@ void main()
 {
     fColor = aColor;
     fTexCoords = aTexCoords;
+//    fTexCoord = aTexCoord * vec2(1.0, -1.0) + vec2(0.0, 1.0);
     fTexId = aTexId;
     fEntityId = aEntityId;
 
@@ -34,7 +35,7 @@ in float fEntityId;
 
 uniform sampler2D uTextures[8];
 
-out vec3 color;
+out vec4 color;
 
 void main()
 {
@@ -43,9 +44,8 @@ void main()
         int id = int(fTexId);
         texColor = fColor * texture(uTextures[id], fTexCoords);
     }
-
     if (texColor.a < 0.5) {
         discard;
     }
-    color = vec3(fEntityId, fEntityId, fEntityId);
+    color = vec4(fEntityId, fEntityId, fEntityId, 0);
 }

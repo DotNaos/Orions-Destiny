@@ -3,6 +3,7 @@ package Burst.Engine.Source.Editor;
 import Burst.Engine.Config.ImGuiStyleConfig;
 import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Component;
+import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Core.Util.DebugMessage;
 import Burst.Engine.Source.Game.Game;
 import Burst.Engine.Source.Editor.Components.KeyControls;
@@ -26,7 +27,7 @@ public class Editor extends Game {
         super.init();
 
         // Variables
-        this.components.add(new PickingTexture());
+        this.components.add(Window.get().getPickingTexture());
         this.components.add(new EditorCamera(this.scene.getViewport()));
 
         // Panels

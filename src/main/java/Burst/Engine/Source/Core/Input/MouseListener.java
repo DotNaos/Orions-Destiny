@@ -1,5 +1,6 @@
 package Burst.Engine.Source.Core.Input;
 
+import Burst.Engine.Source.Core.Render.Debug.DebugDraw;
 import Burst.Engine.Source.Core.UI.ImGui.DebugPanel;
 import Burst.Engine.Source.Core.UI.Viewport;
 import Burst.Engine.Source.Core.UI.Window;
@@ -25,7 +26,6 @@ public class MouseListener {
     private boolean isDragging;
 
     private int mouseButtonDown = 0;
-
 
     private Vector2f gameViewportPos = new Vector2f();
     private Vector2f gameViewportSize = new Vector2f();
@@ -175,6 +175,15 @@ public class MouseListener {
         return new Vector2f(tmp.x, tmp.y);
     }
 
+    public static Vector2f viewToWorld(Vector2f viewCoords) {
+        // first convert to screen coords
+        Vector2f screenCoords = new Vector2f(viewToScreen(viewCoords));
+
+        // then convert to world coords
+        return new Vector2f(screenToWorld(screenCoords));
+    }
+
+
     public static Vector2f worldToScreen(Vector2f worldCoords) {
         Viewport viewport = Window.getScene().getViewport();
         Vector4f ndcSpacePos = new Vector4f(worldCoords.x, worldCoords.y, 0, 1);
@@ -205,6 +214,50 @@ public class MouseListener {
 
         return new Vector2f(mousePos.x, mousePos.y);
     }
+
+    public static float getViewX() {
+        return getView().x;
+    }
+
+    public static float getViewY() {
+        return getView().y;
+    }
+
+    /**
+     * @return the position of the mouse in the viewport in pixels
+     */
+    public static Vector2f getView() {
+        float currentX = getX() - get().gameViewportPos.x;
+        currentX = (currentX / get().gameViewportSize.x) * Window.getWidth();
+        float currentY = (getY() - get().gameViewportPos.y);
+        currentY = (1.0f - (currentY / get().gameViewportSize.y)) * Window.getHeight();
+        // Invert Y
+        currentY = 1080.0f - currentY;
+        return new Vector2f(currentX, currentY);
+    }
+
+
+    public static Vector2f viewToScreen(Vector2f viewCoords) {
+        float currentX = viewCoords.x;
+        float currentY = viewCoords.y;
+
+
+        // calculate the percentage position in the viewport
+        currentX = currentX / Window.getWidth();
+        currentY = currentY / Window.getHeight();
+
+
+        // calculate the position in the viewport
+        currentX = (currentX * get().gameViewportSize.x);
+        currentY = (currentY * get().gameViewportSize.y);
+
+        // offset by the viewport position
+        currentX = currentX + get().gameViewportPos.x;
+        currentY = (currentY + get().gameViewportPos.y) + 23;
+
+        return new Vector2f(currentX, currentY);
+    }
+
 
     // get GameViewportSize
     public static Vector2f getGameViewportSize() {

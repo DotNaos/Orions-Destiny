@@ -69,12 +69,16 @@ public class MouseControls extends Component {
     public void update(float dt) {
         this.gizmoSystem.update(dt);
         debounce -= dt;
+
+        handleInput();
+    }
+
+    private void handleInput() {
         PropertiesPanel propertiesPanel = Window.getScene().getPanel(PropertiesPanel.class);
         PickingTexture pickingTexture = propertiesPanel.getPickingTexture();
         Game game = Window.getScene().getGame();
 
-
-        if (holdingActor != null) 
+        if (holdingActor != null)
         {
             float x = MouseListener.getWorldX();
             float y = MouseListener.getWorldY();
@@ -99,36 +103,39 @@ public class MouseControls extends Component {
                 holdingActor.destroy();
                 holdingActor = null;
             }
-        } 
-        
-        
+        }
+
+
         else if (!MouseListener.isDragging() && MouseListener.mouseButtonDown(GLFW_MOUSE_BUTTON_LEFT) && debounce < 0)
         {
-            int x = (int) MouseListener.getScreenX();
-            int y = (int) MouseListener.getScreenY();
+            int x = (int) MouseListener.getViewX();
+            int y = (int) MouseListener.getViewY();
             int gameObjectId = pickingTexture.readPixel(x, y);
 
             Actor pickedObj = game.getActor(gameObjectId);
+
+            if (pickedObj != null)
+                propertiesPanel.setActiveGameObject(pickedObj);
+
             if (pickedObj != null && pickedObj.getComponent(NonPickable.class) == null) {
                 propertiesPanel.setActiveGameObject(pickedObj);
             } else if (pickedObj == null && !MouseListener.isDragging()) {
                 propertiesPanel.clearSelected();
             }
             this.debounce = 0.2f;
-        } 
-        
-        
-        else if (MouseListener.isDragging() && MouseListener.mouseButtonDown(GLFW_MOUSE_BUTTON_LEFT)) 
+        }
+
+
+        else if (MouseListener.isDragging() && MouseListener.mouseButtonDown(GLFW_MOUSE_BUTTON_LEFT))
         {
             if (!boxSelectSet) {
                 propertiesPanel.clearSelected();
-                boxSelectStart = MouseListener.getScreen();
-//                System.out.println("Box Select Start: " + boxSelectStart);
+                boxSelectStart = MouseListener.getView();
                 boxSelectSet = true;
             }
-            boxSelectEnd = MouseListener.getScreen();
-            Vector2f boxSelectStartWorld = MouseListener.screenToWorld(boxSelectStart);
-            Vector2f boxSelectEndWorld = MouseListener.screenToWorld(boxSelectEnd);
+            boxSelectEnd = MouseListener.getView();
+            Vector2f boxSelectStartWorld = MouseListener.viewToWorld(boxSelectStart);
+            Vector2f boxSelectEndWorld = MouseListener.viewToWorld(boxSelectEnd);
 
             Vector2f halfSize =
                     (new Vector2f(boxSelectEndWorld).sub(boxSelectStartWorld)).mul(0.5f);
@@ -140,7 +147,7 @@ public class MouseControls extends Component {
         }
 
 
-        else if (boxSelectSet) 
+        else if (boxSelectSet)
         {
             boxSelectSet = false;
             int screenStartX = (int) boxSelectStart.x;
@@ -177,6 +184,8 @@ public class MouseControls extends Component {
                     propertiesPanel.addActiveGameObject(pickedObj);
                 }
             }
+
+
         }
     }
 

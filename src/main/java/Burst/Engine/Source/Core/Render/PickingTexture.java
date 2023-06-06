@@ -1,8 +1,13 @@
 package Burst.Engine.Source.Core.Render;
 
 import Burst.Engine.Source.Core.Component;
+import Burst.Engine.Source.Core.Input.MouseListener;
+import Burst.Engine.Source.Core.Render.Debug.DebugDraw;
 import Burst.Engine.Source.Core.UI.Window;
+import org.joml.Vector2f;
 import org.joml.Vector2i;
+import org.joml.Vector3f;
+import org.lwjgl.system.CallbackI;
 
 import static org.lwjgl.opengl.GL11.GL_TEXTURE_2D;
 import static org.lwjgl.opengl.GL30.*;
@@ -38,7 +43,7 @@ public class PickingTexture extends Component {
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB32F, width, height, 0, GL_RGB, GL_FLOAT, 0);
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA32F, width, height, 0, GL_RGBA, GL_FLOAT, 0);
         glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, this.pickingTextureId, 0);
 
         // Create the texture object for the depth buffer
@@ -75,9 +80,8 @@ public class PickingTexture extends Component {
         glBindFramebuffer(GL_READ_FRAMEBUFFER, fbo);
         glReadBuffer(GL_COLOR_ATTACHMENT0);
 
-        float pixels[] = new float[3];
-        glReadPixels(x, y, 1, 1, GL_RGB, GL_FLOAT, pixels);
-        System.out.println(pixels[0]+ " " + pixels[1] + " " + pixels[2]);
+        float pixels[] = new float[4];
+        glReadPixels(x, y, 1, 1, GL_RGBA, GL_FLOAT, pixels);
 
         return (int) (pixels[0]) - 1;
     }
@@ -88,10 +92,21 @@ public class PickingTexture extends Component {
 
         Vector2i size = new Vector2i(end).sub(start).absolute();
         int numPixels = size.x * size.y;
-        float pixels[] = new float[3 * numPixels];
-        glReadPixels(start.x, start.y, size.x, size.y, GL_RGB, GL_FLOAT, pixels);
+        float pixels[] = new float[4 * numPixels];
+        glReadPixels(start.x, start.y, size.x, size.y, GL_RGBA, GL_FLOAT, pixels);
         for (int i = 0; i < pixels.length; i++) {
             pixels[i] -= 1;
+            // DebugDraw a box around every pixel with a value
+            if (pixels[i] > 0) {
+                int x = i % (size.x * 4);
+                int y = i / (size.x * 4);
+                // convert to world space
+                x = (int) MouseListener.viewToWorld(new Vector2f(x, y)).x;
+                y = (int) MouseListener.viewToWorld(new Vector2f(x, y)).y;
+
+//                System.out.println("x: " + x + " y: " + y);
+//                DebugDraw.addBox(new Vector2f(x, y), new Vector2f(1, 1), 0, new Vector3f(1, 0, 0), 10000);
+            }
         }
 
         return pixels;
