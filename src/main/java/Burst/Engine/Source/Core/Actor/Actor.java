@@ -1,9 +1,13 @@
 package Burst.Engine.Source.Core.Actor;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import Burst.Engine.Source.Core.UI.ImGui.BImGui;
 import Burst.Engine.Source.Core.Util.DebugMessage;
 import Burst.Engine.Source.Core.Util.ImGuiValueManager;
 import com.google.gson.Gson;
@@ -21,13 +25,22 @@ import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Core.Util.Util;
 import Orion.res.AssetConfig;
 import imgui.ImGui;
+import imgui.ImVec2;
+import imgui.ImVec4;
+import imgui.flag.ImGuiCol;
+import imgui.flag.ImGuiStyleVar;
+import imgui.flag.ImGuiTableColumnFlags;
+import imgui.type.ImInt;
+import org.joml.Vector2f;
+import org.joml.Vector3f;
+import org.joml.Vector4f;
 
 /**
  * Represents an object in the game world that can have Components attached to
  * it.
  */
 public class Actor implements ImGuiValueManager {
-    public static final transient Texture icon = AssetManager.getAssetFromType(AssetConfig.ICON_ACTOR,Texture.class);
+    public static final Texture icon = AssetManager.getAssetFromType(AssetConfig.ICON_ACTOR,Texture.class);
 
     /**
      * The ID of the actor.
@@ -51,7 +64,9 @@ public class Actor implements ImGuiValueManager {
      * Whether this actor is serialized when saving and loading.
      */
     private boolean serializedActor = true;
-    private transient boolean started = false;
+    Map<String, Object> initialValues = new HashMap<>();
+
+    private transient List<String> ignoreFields = new ArrayList<>();
 
     //!====================================================================================================
     //!|=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
@@ -130,6 +145,9 @@ public class Actor implements ImGuiValueManager {
 
             }
         }
+
+        ignoreFields.add("initialValues");
+        ignoreFields.add("components");
 
         getInitialValues();
     }
@@ -323,20 +341,30 @@ public class Actor implements ImGuiValueManager {
      * @see Component#imgui()
      */
     public void imgui() {
-        // Show all fields of the Actor
-//        ImGuiShowFields();
-        for (String field : initialValues.keySet()) {
-            ImGui.text(field);
+        if(ImGui.beginTable("ActorFields", 2)){
+            // The second column is max 2/3 of the size of the first column
+            ImGui.tableSetupColumn("", ImGuiTableColumnFlags.WidthStretch, 0.5f);
+
+            ImGui.pushStyleColor(ImGuiCol.Border, 1.0f, 1.0f, 1.0f, 0.2f);
+            ImGui.pushStyleVar(ImGuiStyleVar.FrameBorderSize, 1.0f);
+            ImGui.pushStyleVar(ImGuiStyleVar.ItemSpacing, 20f, 20f);
+
+                ImGuiShowFields();
+
+            ImGui.popStyleColor();
+            ImGui.popStyleVar(2);
+            ImGui.endTable();
         }
+
 
 
         // Iterates through each Component in the components list
         // TODO: Fix Component imgui
-        for (Component c : components) {
-            // If the Component's header is expanded, calls its imgui method
-             if (ImGui.collapsingHeader(c.getClass().getSimpleName()))
-                 c.imgui();
-        }
+//        for (Component c : components) {
+//            // If the Component's header is expanded, calls its imgui method
+//             if (ImGui.collapsingHeader(c.getClass().getSimpleName()))
+//                 c.imgui();
+//        }
     }
 
     //!====================================================================================================
@@ -397,5 +425,173 @@ public class Actor implements ImGuiValueManager {
     public Actor setNotSerializable() {
         this.serializedActor = false;
         return this;
+    }
+
+    /**
+     *
+     */
+    @Override
+    public void ImGuiShowFields() {
+        try {
+            Field[] fields = this.getClass().getDeclaredFields();
+            for (Field field : fields) {
+                boolean isTransient = Modifier.isTransient(field.getModifiers());
+                if (isTransient) {
+                    continue;
+                }
+
+                boolean isPrivate = Modifier.isPrivate(field.getModifiers());
+                if (isPrivate) {
+                    field.setAccessible(true);
+                }
+
+                Class type = field.getType();
+                Object value = field.get(this);
+                String name = field.getName();
+
+                // Do not show assertion field
+                if (name.equals("$assertionsDisabled")) {
+                    continue;
+                }
+
+                // Also don't show fields specified in the ignore list
+                if (ignoreFields.contains(name)) {
+                    continue;
+                }
+
+                ImGui.tableNextColumn();
+                ImGui.text(name);
+                ImGui.tableNextColumn();
+                if (type.equals(int.class)) {
+                    int val = (int) value;
+                    field.set(this, BImGui.dragInt(name, val, (int) initialValues.get(field.getName())));
+                }
+                else if (type.equals(float.class))
+                {
+                    float val =  (float) value;
+                    field.set(this, BImGui.dragFloat(name, val, (float) initialValues.get(field.getName())));
+                }
+                else if (type.equals(double.class))
+                {
+                    double val = (double) value;
+                    field.set(this, BImGui.dragDouble(name, val, (double) initialValues.get(field.getName())));
+                }
+                else if (type.equals(long.class))
+                {
+                    long val = (long) value;
+                    ImGui.text(String.valueOf(val));
+                }
+                else if (type.equals(boolean.class))
+                {
+                    boolean val = (boolean) value;
+                    ImGui.pushID(name);
+                    if (ImGui.checkbox("", val))
+                    {
+                        field.set(this, !val);
+                    }
+                    ImGui.popID();
+                }
+                else if (type.equals(Vector2f.class))
+                {
+                    Vector2f val = (Vector2f) value;
+
+                    BImGui.drawVec2Control(name, val, new Vector2f((Vector2f) initialValues.get(field.getName())));
+                }
+                else if (type.equals(Vector3f.class))
+                {
+                    Vector3f val = (Vector3f) value;
+                    BImGui.drawVec3Control(name, val);
+                }
+                else if (type.equals(Vector4f.class))
+                {
+                    Vector4f val = (Vector4f) value;
+                    BImGui.colorPicker4(name, val);
+                }
+                else if (type.equals(Texture.class))
+                {
+                    Texture val = (Texture) value;
+                    // if hovered show preview of texture
+                    // Also show file path below
+                    ImGui.image(val.getTexID(), 64, 64);
+                    if (ImGui.isItemHovered())
+                    {
+                        ImGui.beginTooltip();
+                        ImGui.image(val.getTexID(), 128, 128);
+                        ImGui.text(val.getFilepath());
+                        ImGui.endTooltip();
+                    }
+                }
+                else if (type.isEnum())
+                {
+                    String[] enumValues = getEnumValues(type);
+                    String enumType = ((Enum) value).name();
+                    ImInt index = new ImInt(indexOf(enumType, enumValues));
+
+                    if (ImGui.combo(field.getName(), index, enumValues, enumValues.length))
+                    {
+                        field.set(this, type.getEnumConstants()[index.get()]);
+                    }
+                }
+                else if (type == String.class)
+                {
+                    field.set(this, BImGui.inputText(field.getName() + ": ", (String) value));
+                }
+
+                ImGui.tableNextRow();
+
+                if (isPrivate) {
+                    field.setAccessible(false);
+                }
+
+            }
+        } catch (IllegalAccessException e) {
+//      System.out.println("Error: Could not access field: " + e.getMessage());
+        }
+
+    }
+
+    /**
+     *
+     */
+    @Override
+    public void getInitialValues() {
+        Field[] fields = this.getClass().getDeclaredFields();
+        for (Field field : fields) {
+            boolean isTransient = Modifier.isTransient(field.getModifiers());
+            if (isTransient) {
+                continue;
+            }
+
+            boolean isPrivate = Modifier.isPrivate(field.getModifiers());
+            if (isPrivate) {
+                field.setAccessible(true);
+            }
+
+            try {
+                Object value = field.get(this);
+
+                // Make a copy of the value
+                if (value instanceof Vector2f) {
+                    value = new Vector2f((Vector2f) value);
+                } else if (value instanceof Vector3f) {
+                    value = new Vector3f((Vector3f) value);
+                } else if (value instanceof Vector4f) {
+                    value = new Vector4f((Vector4f) value);
+                } else if (value instanceof ImInt) {
+                    value = new ImInt((ImInt) value);
+                } else if (value instanceof ImVec2) {
+                    value = new ImVec2((ImVec2) value);
+                } else if (value instanceof ImVec4) {
+                    value = new ImVec4((ImVec4) value);
+                }
+                initialValues.put(field.getName(), value);
+            } catch (IllegalAccessException e) {
+                DebugMessage.loadFail("Failed to get initial value of field: " + field.getName());
+            }
+
+            if (isPrivate) {
+                field.setAccessible(false);
+            }
+        }
     }
 }

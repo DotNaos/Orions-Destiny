@@ -21,7 +21,14 @@ public class KeyControls extends Component {
 
 
     public void update(float dt) {
-        debounce -= dt;
+        if (debounce > -1000.0f)
+        {
+            debounce -= dt;
+        }
+        else
+        {
+            debounce = -1.0f;
+        }
 
         PropertiesPanel propertiesPanel = Window.getScene().getPanel(PropertiesPanel.class);
         Actor activeActor = propertiesPanel.getActiveGameObject();

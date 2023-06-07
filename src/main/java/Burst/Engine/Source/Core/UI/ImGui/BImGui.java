@@ -18,44 +18,41 @@ import org.joml.Vector4f;
  * This class has various methods to draw ImGui controls.
  */
 public class BImGui {
-
-    private static float defaultColumnWidth = 220.0f;
+    private static Vector2f defaultItemSpacing = new Vector2f(5.0f, 0.0f);
+    private static Vector2f defaultButtonSize = new Vector2f(18, 18);
+    private static Vector2f defaultTextBoxSize = new Vector2f(100, 18);
 
     public static void drawVec2Control(String label, Vector2f values) {
-        drawVec2Control(label, values, new Vector2f(), defaultColumnWidth);
+        drawVec2Control(label, values, new Vector2f());
     }
 
     public static void drawVec2Control(String label, Vector2f values, Vector2f resetValue) {
-        drawVec2Control(label, values, resetValue, defaultColumnWidth);
-    }
-
-    public static void drawVec2Control(String label, Vector2f values, Vector2f resetValue, float columnWidth) {
         ImGui.pushID(label);
-        ImGui.pushStyleVar(ImGuiStyleVar.ItemSpacing, 0, 0);
+        ImGui.pushStyleVar(ImGuiStyleVar.ItemSpacing, defaultItemSpacing.x, defaultItemSpacing.y);
 
-        float lineHeight = ImGui.getFontSize() + ImGui.getStyle().getFramePaddingY() * 2.0f;
-        Vector2f buttonSize = new Vector2f(lineHeight + 3.0f, lineHeight);
-        float widthEach = (ImGui.calcItemWidth() - buttonSize.x * 2.0f) / 2.0f;
-
-        if (resetButton("X", widthEach, buttonSize, Color_Config.RED)){
+        if (resetButton(defaultButtonSize, "Red")){
             values.x = resetValue.x;
         }
 
 
         ImGui.sameLine();
         float[] vecValuesX = {values.x};
+        ImGui.pushItemWidth(defaultTextBoxSize.x);
         ImGui.dragFloat("##X", vecValuesX, 0.1f);
         ImGui.popItemWidth();
+        
         ImGui.sameLine();
 
-        if (resetButton("Y", widthEach, buttonSize, Color_Config.GREEN)) {
+        if (resetButton(defaultButtonSize, "Green")){
             values.y = resetValue.y;
         }
 
         ImGui.sameLine();
         float[] vecValuesY = {values.y};
+        ImGui.pushItemWidth(defaultTextBoxSize.x);
         ImGui.dragFloat("##Y", vecValuesY, 0.1f);
         ImGui.popItemWidth();
+        
 
         values.x = vecValuesX[0];
         values.y = vecValuesY[0];
@@ -65,51 +62,50 @@ public class BImGui {
     }
 
     public static void drawVec3Control(String label, Vector3f values) {
-        drawVec3Control(label, values, new Vector3f(), defaultColumnWidth);
+        drawVec3Control(label, values, new Vector3f());
     }
 
     public static void drawVec3Control(String label, Vector3f values, Vector3f resetValue) {
-        drawVec3Control(label, values, resetValue, defaultColumnWidth);
-    }
-
-    public static void drawVec3Control(String label, Vector3f values, Vector3f resetValue, float columnWidth) {
         ImGui.pushID(label);
-        ImGui.pushStyleVar(ImGuiStyleVar.ItemSpacing, 0, 0);
+        ImGui.pushStyleVar(ImGuiStyleVar.ItemSpacing, defaultItemSpacing.x, defaultItemSpacing.y);
 
-        float lineHeight = ImGui.getFontSize() + ImGui.getStyle().getFramePaddingY() * 2.0f;
-        Vector2f buttonSize = new Vector2f(lineHeight + 3.0f, lineHeight);
-        float widthEach = (ImGui.calcItemWidth() - buttonSize.x * 2.0f) / 2.0f;
 
-        if (resetButton("X", widthEach, buttonSize, Color_Config.RED)){
+        if (resetButton(defaultButtonSize, "Red")){
             values.x = resetValue.x;
         }
 
 
         ImGui.sameLine();
         float[] vecValuesX = {values.x};
+        ImGui.pushItemWidth(defaultTextBoxSize.x);
         ImGui.dragFloat("##X", vecValuesX, 0.1f);
         ImGui.popItemWidth();
+        
         ImGui.sameLine();
 
-        if (resetButton("Y", widthEach, buttonSize, Color_Config.GREEN)) {
+        if (resetButton(defaultButtonSize, "Green")){
             values.y = resetValue.y;
         }
 
         ImGui.sameLine();
         float[] vecValuesY = {values.y};
+        ImGui.pushItemWidth(defaultTextBoxSize.x);
         ImGui.dragFloat("##Y", vecValuesY, 0.1f);
         ImGui.popItemWidth();
+        
         ImGui.columns(1);
         ImGui.sameLine();
 
-        if (resetButton("Z", widthEach, buttonSize, Color_Config.BLUE)) {
+        if (resetButton(defaultButtonSize, "Blue")){
             values.z = resetValue.z;
         }
 
         ImGui.sameLine();
         float[] vecValuesZ = {values.z};
+        ImGui.pushItemWidth(defaultTextBoxSize.x);
         ImGui.dragFloat("##Z", vecValuesZ, 0.1f);
         ImGui.popItemWidth();
+        
 
         values.x = vecValuesX[0];
         values.y = vecValuesY[0];
@@ -121,18 +117,16 @@ public class BImGui {
 
     public static float dragFloat(String label, float value, float resetValue) {
         ImGui.pushID(label);
-        ImGui.pushStyleVar(ImGuiStyleVar.ItemSpacing, 0, 0);
+        ImGui.pushStyleVar(ImGuiStyleVar.ItemSpacing, defaultItemSpacing.x, defaultItemSpacing.y);
 
-        float lineHeight = ImGui.getFontSize() + ImGui.getStyle().getFramePaddingY() * 2.0f;
-        Vector2f buttonSize = new Vector2f(lineHeight + 3.0f, lineHeight);
-        float widthEach = (ImGui.calcItemWidth() - buttonSize.x * 2.0f) / 2.0f;
-
-        boolean reset = resetButton("*", widthEach, buttonSize);
+        boolean reset = resetButton(defaultButtonSize);
 
         ImGui.sameLine();
         float[] valArr = {value};
+        ImGui.pushItemWidth(defaultTextBoxSize.x);
         ImGui.dragFloat("##*", valArr, 0.1f);
         ImGui.popItemWidth();
+        
 
         ImGui.popStyleVar();
         ImGui.popID();
@@ -140,19 +134,21 @@ public class BImGui {
         return reset ? resetValue : valArr[0];
     }
 
+    public static double dragDouble(String label, double value, double resetValue) {
+        return dragFloat(label, (float) value, (float) resetValue);
+    }
+
     public static int dragInt(String label, int value, int resetValue)
     {
         ImGui.pushID(label);
-        ImGui.pushStyleVar(ImGuiStyleVar.ItemSpacing, 0, 0);
+        ImGui.pushStyleVar(ImGuiStyleVar.ItemSpacing, defaultItemSpacing.x, defaultItemSpacing.y);
 
-        float lineHeight = ImGui.getFontSize() + ImGui.getStyle().getFramePaddingY() * 2.0f;
-        Vector2f buttonSize = new Vector2f(lineHeight + 3.0f, lineHeight);
-        float widthEach = (ImGui.calcItemWidth() - buttonSize.x * 2.0f) / 2.0f;
-
-        boolean reset = resetButton("*", widthEach, buttonSize);
+        boolean reset = resetButton(defaultButtonSize);
 
         ImGui.sameLine();
         int[] valArr = {value};
+        // Set the Width of the DragInt to a fixed value
+        ImGui.pushItemWidth(defaultTextBoxSize.x);
         ImGui.dragInt("##*", valArr, 0.1f);
         ImGui.popItemWidth();
 
@@ -162,21 +158,64 @@ public class BImGui {
         return reset ? resetValue : valArr[0];
     }
 
-    private static boolean resetButton(String label, float widthEach, Vector2f buttonSize) {
-        ImGui.pushItemWidth(widthEach);
+
+    /**
+     * <p>
+     *   Calculates the position of the sprite based on the color
+     * </p>
+     * @param Color
+     * <ul>
+     *  <li>(Blue) : 1 <br>X : 3 | Y : 10</li>
+     *  <li>(Black) : 2 <br>X : 3 | Y : 4</li>
+     *  <li>(Yellow) : 3 <br>X : 6 | Y : 4</li>
+     *  <li>(Cyan) : 4 <br>X : 6 | Y : 10</li>
+     *  <li>(Red) : 5 <br>X : 9 | Y : 4</li>
+     *  <li>(Pink) : 6 <br>X : 9 | Y : 10</li>
+     *  <li>(Green) : 7 <br>X : 12 | Y : 4</li>
+     *  <li>(Purple) : 8 <br>X : 12 | Y : 10</li>
+     * </ul>
+     * @param size Size of the button
+     * @return
+     */
+    private static boolean resetButton(Vector2f size, int Color) {
         SpriteSheet sprites = AssetManager.getAssetFromType(AssetConfig.BUTTONS, SpriteSheet.class);
-        Sprite sprite = sprites.getSprite(3 , 10);
+
+        if (Color > 8) {
+            Color = 8;
+        } else if (Color < 1) {
+            Color = 1;
+        }
+
+        int col = Color % 2 == 0 ? 10 : 4;
+        int colorRow = Color % 2 == 0 ? Color / 2 : (Color + 1) / 2;
+        int row = colorRow * 3;
+
+
+        Sprite sprite = sprites.getSprite(row , col);
         Vector2f[] texCoords = sprite.getTexCoords();
-        boolean reset = ImGui.imageButton(sprite.getTexId(), buttonSize.x / 2f, buttonSize.y / 1.5f, texCoords[2].x, texCoords[0].y, texCoords[0].x, texCoords[2].y);
+        boolean reset = ImGui.imageButton(sprite.getTexId(), size.x, size.y, texCoords[2].x, texCoords[0].y, texCoords[0].x, texCoords[2].y);
         return reset;
     }
 
-    private static boolean resetButton(String label, float widthEach, Vector2f buttonSize, Vector4f color) {
-        ImGui.pushItemWidth(widthEach);
-        buttonColor(color);
-        boolean reset = ImGui.button(label, buttonSize.x, buttonSize.y);
-        ImGui.popStyleColor(3);
-        return reset;
+    private static boolean resetButton(Vector2f size) {
+        return resetButton(size, 2);
+    }
+
+    private static boolean resetButton(Vector2f size, String Color) {
+        return switch (Color) {
+            case "Blue" -> resetButton(size, 1);
+            case "Black" -> resetButton(size, 2);
+            case "Yellow" -> resetButton(size, 3);
+            case "Cyan" -> resetButton(size, 4);
+            case "Red" -> resetButton(size, 5);
+            case "Pink" -> resetButton(size, 6);
+            case "Green" -> resetButton(size, 7);
+            case "Purple" -> resetButton(size, 8);
+
+            // Defaults to black
+            default -> resetButton(size, 2);
+        };
+
     }
     private static void buttonColor(Vector4f color) {
         ImGui.pushStyleColor(ImGuiCol.Button, color.x * 0.8f, color.y * 0.8f, color.z * 0.8f, color.w);
@@ -218,8 +257,8 @@ public class BImGui {
         }
 
         ImGui.popID();
-
         return text;
     }
+
 
 }

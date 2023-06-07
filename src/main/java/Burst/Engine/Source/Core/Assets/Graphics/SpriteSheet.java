@@ -88,7 +88,20 @@ public class SpriteSheet extends Asset {
 
     public Sprite getSprite(int row, int col) {
         int rowOfSprite = ((row - 1) * this.cols);
-        return this.sprites.get(rowOfSprite + col - 1);
+
+        int index = rowOfSprite + col - 1;
+
+        // Check if the sprite is out of bounds
+        // Then return the last sprite
+        if (index >= this.sprites.size()) {
+            DebugMessage.printWarning("Sprite index out of bounds: " + index);
+            index = this.sprites.size() - 1;
+        } else if (index < 0) {
+            DebugMessage.printWarning("Sprite index out of bounds: " + index);
+            index = 0;
+        }
+
+        return this.sprites.get(index);
     }
 
 

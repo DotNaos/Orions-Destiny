@@ -26,6 +26,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Timer;
 
 
 public class Game {
@@ -34,6 +35,9 @@ public class Game {
     protected List<Component> components;
     protected Physics2D physics2D;
     protected Scene scene;
+
+    // Timer for saving
+    private Timer timer = new Timer();
 
     public Game(Scene scene) {
         this.scene = scene;
@@ -60,10 +64,20 @@ public class Game {
 //         this.addActor(new Actor().setSprite(new Sprite().setTexture(new Texture("Assets/images/spritesheets/pipes.png"))));
      //? End debug code
 
+//        saveLevel();
+
         for (Actor actor : actors) {
             actor.init();
         }
         start();
+
+        // Save the level every 5 seconds
+        timer.scheduleAtFixedRate(new java.util.TimerTask() {
+            @Override
+            public void run() {
+                saveLevel();
+            }
+        }, 0, 1000);
     }
 
     //! ====================================================================================================
@@ -220,17 +234,19 @@ public class Game {
     }
 
     public void saveLevel() {
+
         try {
-            FileWriter writer = new FileWriter(".\\levels\\level.json");
+//            FileWriter writer = new FileWriter(".\\levels\\level.json");
             List<Actor> actorsToSerialize = new ArrayList<>();
             for (Actor actor : this.actors) {
                 if (actor.isSerializedActor()) {
                     actorsToSerialize.add(actor);
+//                    System.out.println("Added actor to serialize " + actor.getName());
                 }
             }
-            writer.write(gsonBuilder().toJson(actorsToSerialize));
-            writer.close();
-        } catch (IOException e) {
+//            writer.write(gsonBuilder().toJson(actorsToSerialize));
+//            writer.close();
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
