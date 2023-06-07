@@ -2,8 +2,10 @@ package Burst.Engine.Source.Core.Actor;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import Burst.Engine.Source.Core.Util.DebugMessage;
+import Burst.Engine.Source.Core.Util.ImGuiValueManager;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -20,12 +22,11 @@ import Burst.Engine.Source.Core.Util.Util;
 import Orion.res.AssetConfig;
 import imgui.ImGui;
 
-
 /**
  * Represents an object in the game world that can have Components attached to
  * it.
  */
-public class Actor {
+public class Actor implements ImGuiValueManager {
     public static final transient Texture icon = AssetManager.getAssetFromType(AssetConfig.ICON_ACTOR,Texture.class);
 
     /**
@@ -50,6 +51,7 @@ public class Actor {
      * Whether this actor is serialized when saving and loading.
      */
     private boolean serializedActor = true;
+    private transient boolean started = false;
 
     //!====================================================================================================
     //!|=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
@@ -89,7 +91,6 @@ public class Actor {
      * </p>
      *
      * @see #destroy()
-     * @see #start()
      */
     public void init() {
         // Get the transform component
@@ -130,10 +131,9 @@ public class Actor {
             }
         }
 
+        getInitialValues();
     }
 
-    public void start() {
-    }
 
     //!====================================================================================================
     //!|=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
@@ -323,6 +323,13 @@ public class Actor {
      * @see Component#imgui()
      */
     public void imgui() {
+        // Show all fields of the Actor
+//        ImGuiShowFields();
+        for (String field : initialValues.keySet()) {
+            ImGui.text(field);
+        }
+
+
         // Iterates through each Component in the components list
         // TODO: Fix Component imgui
         for (Component c : components) {

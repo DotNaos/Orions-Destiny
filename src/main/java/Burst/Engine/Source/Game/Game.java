@@ -74,7 +74,6 @@ public class Game {
 
     public void start() {
         for (Actor actor : actors) {
-            actor.start();
             scene.getViewportRenderer().add(actor);
             this.physics2D.add(actor);
         }
@@ -304,13 +303,7 @@ public class Game {
     //! |=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
     //! ====================================================================================================
 
-    public void imgui() {
-
-
-        for (Actor actor : actors) {
-            actor.imgui();
-        }
-
-
+    public void imgui(){
+        // TODO: MAYBE ADD FUNCTIONALITY HERE
     }
 }
