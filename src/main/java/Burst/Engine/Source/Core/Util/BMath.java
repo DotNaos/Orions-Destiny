@@ -1,10 +1,10 @@
 package Burst.Engine.Source.Core.Util;
 
-import org.joml.Vector3f;
+import org.joml.Vector2f;
 
 public class BMath {
 
-    public static void rotate(Vector3f vec, float angleDeg, Vector3f origin) {
+    public static void rotate(Vector2f vec, float angleDeg, Vector2f origin) {
         float x = vec.x - origin.x;
         float y = vec.y - origin.y;
 
@@ -25,7 +25,7 @@ public class BMath {
         return Math.abs(x - y) <= epsilon * Math.max(1.0f, Math.max(Math.abs(x), Math.abs(y)));
     }
 
-    public static boolean compare(Vector3f vec1, Vector3f vec2, float epsilon) {
+    public static boolean compare(Vector2f vec1, Vector2f vec2, float epsilon) {
         return compare(vec1.x, vec2.x, epsilon) && compare(vec1.y, vec2.y, epsilon);
     }
 
@@ -33,7 +33,7 @@ public class BMath {
         return Math.abs(x - y) <= Float.MIN_VALUE * Math.max(1.0f, Math.max(Math.abs(x), Math.abs(y)));
     }
 
-    public static boolean compare(Vector3f vec1, Vector3f vec2) {
+    public static boolean compare(Vector2f vec1, Vector2f vec2) {
         return compare(vec1.x, vec2.x) && compare(vec1.y, vec2.y);
     }
 }

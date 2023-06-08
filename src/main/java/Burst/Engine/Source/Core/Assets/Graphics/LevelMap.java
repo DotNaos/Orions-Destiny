@@ -7,4 +7,9 @@ public class LevelMap extends Asset {
     public LevelMap(String filepath) {
         super(filepath);
     }
+
+    @Override
+    public Asset build() {
+        return this;
+    }
 }

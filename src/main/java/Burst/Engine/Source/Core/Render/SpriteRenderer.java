@@ -9,6 +9,7 @@ import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.Physics.Components.Transform;
 import Burst.Engine.Source.Core.UI.ImGui.BImGui;
+import org.joml.Vector2f;
 import org.joml.Vector3f;
 import org.joml.Vector4f;
 
@@ -26,33 +27,25 @@ public class SpriteRenderer extends ActorComponent {
 
     @Override
     public void start() {
-        if (this.sprite.getTexture() != null) {
-            this.sprite.setTexture(AssetManager.getAssetFromType(this.sprite.getTexture().getFilepath(), Texture.class));
-        }
-        this.lastTransform = actor.transform.copy();
+        super.start();
+        this.sprite.setTexture(AssetManager.getAssetFromType(this.sprite.getFilepath(), Texture.class));
+        this.lastTransform = actor.getTransform().copy();
     }
 
     @Override
     public void update(float dt) {
         if (this.lastTransform == null) start();
-        if (!this.lastTransform.equals(this.actor.transform)) {
-            this.actor.transform.copy(this.lastTransform);
+        if (!this.lastTransform.equals(this.actor.getTransform())) {
+            this.actor.getTransform().copy(this.lastTransform);
             isDirty = true;
         }
     }
 
     @Override
     public void updateEditor(float dt) {
-        if (!this.lastTransform.equals(this.actor.transform)) {
-            this.actor.transform.copy(this.lastTransform);
+        if (!this.lastTransform.equals(this.actor.getTransform())) {
+            this.actor.getTransform().copy(this.lastTransform);
             isDirty = true;
-        }
-    }
-
-    @Override
-    public void imgui() {
-        if (BImGui.colorPicker4("Color Picker", this.color)) {
-            this.isDirty = true;
         }
     }
 
@@ -74,12 +67,15 @@ public class SpriteRenderer extends ActorComponent {
     public Texture getTexture() {
         return sprite.getTexture();
     }
+    public Sprite getSprite() {
+        return sprite;
+    }
 
     public void setTexture(Texture texture) {
         this.sprite.setTexture(texture);
     }
 
-    public Vector3f[] getTexCoords() {
+    public Vector2f[] getTexCoords() {
         return sprite.getTexCoords();
     }
 

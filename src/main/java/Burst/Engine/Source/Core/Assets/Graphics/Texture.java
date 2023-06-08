@@ -1,9 +1,11 @@
 package Burst.Engine.Source.Core.Assets.Graphics;
 
 import Burst.Engine.Source.Core.Assets.Asset;
+import Burst.Engine.Source.Core.UI.Window;
 import org.joml.Vector2i;
 import org.lwjgl.BufferUtils;
 
+import javax.swing.plaf.TextUI;
 import java.nio.ByteBuffer;
 import java.nio.IntBuffer;
 
@@ -15,17 +17,39 @@ import static org.lwjgl.stb.STBImage.*;
 public class Texture extends Asset {
     private transient int texID;
     private int width, height;
+    private transient boolean initialized = false;
 
     public Texture(String filepath) {
         super(filepath);
     }
 
     public Texture() {
-        super("");
+        super("Generated");
         texID = -1;
         width = -1;
         height = -1;
     }
+
+    public Texture(float[] pixelBuffer, int width, int height)
+    {
+        super("Generated");
+        texID = glGenTextures();
+        glBindTexture(GL_TEXTURE_2D, texID);
+
+        // Repeat image in both directions
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+
+        // When stretching the image, pixelate
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+
+        // When shrinking an image, pixelate
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height,
+                0, GL_RGBA, GL_FLOAT, pixelBuffer);
+    }
+
 
     public Texture(int width, int height) {
         super("Generated");
@@ -39,7 +63,6 @@ public class Texture extends Asset {
 
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height,
                 0, GL_RGB, GL_UNSIGNED_BYTE, 0);
-
     }
 
     @Override
@@ -52,15 +75,22 @@ public class Texture extends Asset {
         // Repeat image in both directions
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+
         // When stretching the image, pixelate
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+
         // When shrinking an image, pixelate
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+
+
+
+
 
         IntBuffer width = BufferUtils.createIntBuffer(1);
         IntBuffer height = BufferUtils.createIntBuffer(1);
         IntBuffer channels = BufferUtils.createIntBuffer(1);
-        stbi_set_flip_vertically_on_load(true);
+
+        stbi_set_flip_vertically_on_load(false);
         ByteBuffer image = stbi_load(filepath, width, height, channels, 0);
 
         if (image != null) {
@@ -68,10 +98,10 @@ public class Texture extends Asset {
             this.height = height.get(0);
 
             if (channels.get(0) == 3) {
-                glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width.get(0), height.get(0),
+                glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, this.width, this.height,
                         0, GL_RGB, GL_UNSIGNED_BYTE, image);
             } else if (channels.get(0) == 4) {
-                glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width.get(0), height.get(0),
+                glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, this.width, this.height,
                         0, GL_RGBA, GL_UNSIGNED_BYTE, image);
             } else {
                 assert false : "Error: (Texture) Unknown number of channels '" + channels.get(0) + "'";
@@ -82,6 +112,7 @@ public class Texture extends Asset {
         }
 
         stbi_image_free(image);
+        initialized = true;
     }
 
     public void bind() {
@@ -142,5 +173,14 @@ public class Texture extends Asset {
         }
 
         return pixels;
+    }
+
+    @Override
+    public Asset build() {
+        return this;
+    }
+
+    public boolean isInitialized() {
+        return initialized;
     }
 }

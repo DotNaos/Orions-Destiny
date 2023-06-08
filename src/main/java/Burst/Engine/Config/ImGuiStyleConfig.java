@@ -1,25 +1,25 @@
 package Burst.Engine.Config;
 
+import static Burst.Engine.Source.Core.Util.Util.hexToVec4f;
+
+import org.joml.Vector2f;
+import org.joml.Vector4f;
+
 import Burst.Engine.Source.Core.Component;
 import imgui.ImGui;
 import imgui.ImGuiStyle;
 import imgui.flag.ImGuiCol;
 import imgui.flag.ImGuiDir;
-import imgui.flag.ImGuiMouseCursor;
-import org.joml.Vector2f;
-import org.joml.Vector4f;
-
-import static Burst.Engine.Source.Core.Util.Util.hexToVec4f;
 
 public class ImGuiStyleConfig extends Component {
   private static transient ImGuiStyleConfig instance = new ImGuiStyleConfig();
   private transient boolean active = true;
   private boolean dark = true;
-  //=========================================================================
-  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  //------------------------------[Style Vars]-------------------------------
-  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  //=========================================================================
+  //!=========================================================================
+  //!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //!------------------------------[Style Vars]-------------------------------
+  //!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //!=========================================================================
   private float frameRounding = 2.5f;
   private float childBorderSize = 1.0f;
   private float alpha = 1.0f;
@@ -36,7 +36,7 @@ public class ImGuiStyleConfig extends Component {
   private Vector2f displaySafeAreaPadding = new Vector2f(3.0f, 3.0f);
   private Vector2f displayWindowPadding = new Vector2f(4.0f, 4.0f);
   private float frameBorderSize = 1.0f;
-  private Vector2f framePadding = new Vector2f(8.0f, 4.0f);
+  private Vector2f framePadding = new Vector2f(4.0f, 4.0f);
   private float grabMinSize = 10.0f;
   private float grabRounding = 0.0f;
   private float indentSpacing = 21.0f;
@@ -60,11 +60,11 @@ public class ImGuiStyleConfig extends Component {
   private float windowRounding = 0.0f;
   private Vector2f windowTitleAlign = new Vector2f(0.0f, 0.5f);
 
-  //=========================================================================
-  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  //-------------------------------[Colors]----------------------------------
-  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  //=========================================================================
+  //!=========================================================================
+  //!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //!-------------------------------[Colors]----------------------------------
+  //!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //!=========================================================================
 
   private Vector4f Text = hexToVec4f(0xffffffff);
   private Vector4f TextDisabled = hexToVec4f(0x000001ff);
@@ -174,15 +174,12 @@ public class ImGuiStyleConfig extends Component {
     return instance;
   }
 
-  //=========================================================================
-  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  //-------------------------------------------------------------------------
-  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  //=========================================================================
-  @Override
-  public void imgui() {
-    super.imgui();
-  }
+  //!=========================================================================
+  //!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //!-------------------------------------------------------------------------
+  //!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //!=========================================================================
+
 
   public void style() {
     if (!active) return;
@@ -288,5 +285,9 @@ public class ImGuiStyleConfig extends Component {
     style.setColor(ImGuiCol.NavWindowingDimBg, this.NavWindowingDimBg.x, this.NavWindowingDimBg.y, this.NavWindowingDimBg.z, this.NavWindowingDimBg.w);
     style.setColor(ImGuiCol.ModalWindowDimBg, this.ModalWindowDimBg.x, this.ModalWindowDimBg.y, this.ModalWindowDimBg.z, this.ModalWindowDimBg.w);
 
+  }
+
+  public Vector2f getWindowPadding() {
+    return new Vector2f(this.windowPadding);
   }
 }

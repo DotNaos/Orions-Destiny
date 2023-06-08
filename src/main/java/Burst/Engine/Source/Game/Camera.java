@@ -2,12 +2,16 @@ package Burst.Engine.Source.Game;
 
 import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Actor.PlayerController;
+import Burst.Engine.Source.Core.Assets.AssetManager;
+import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Burst.Engine.Source.Core.UI.Viewport;
 import Burst.Engine.Source.Core.UI.Window;
+import Orion.res.AssetConfig;
 import org.joml.Vector3f;
 import org.joml.Vector4f;
 
 public class Camera extends Actor {
+    public static final transient Texture icon = AssetManager.getAssetFromType(AssetConfig.ICON_CAMERA, Texture.class);
     private final transient Viewport viewport;
 
     /**
@@ -20,14 +24,15 @@ public class Camera extends Actor {
     private Actor player;
 
 
-    public Camera(Viewport viewport) {
-        super("GameCamera");
-        this.viewport = viewport;
+    public Camera() {
+        super();
+        this.name = "Game Camera";
+        this.viewport = Window.getScene().getViewport();
     }
 
     @Override
-    public void start() {
-        this.player = Window.getScene().getGame().getActorWith(PlayerController.class);
+    public void init() {
+        this.player = Window.getScene().getEditor().getActorWith(PlayerController.class);
         this.viewport.clearColor.set(backgroundColor);
     }
 
@@ -36,7 +41,7 @@ public class Camera extends Actor {
         if (player == null) return;
 
         // viewport.position.x = player.transform.position.x;
-        viewport.position.x = player.transform.position.x;
-        viewport.position.y = player.transform.position.y;
+        viewport.position.x = player.getTransform().position.x;
+        viewport.position.y = player.getTransform().position.y;
     }
 }

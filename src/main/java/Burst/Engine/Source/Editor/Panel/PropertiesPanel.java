@@ -1,12 +1,14 @@
 package Burst.Engine.Source.Editor.Panel;
 
 import Burst.Engine.Source.Core.Actor.Actor;
+import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Burst.Engine.Source.Core.Render.PickingTexture;
 import Burst.Engine.Source.Core.Render.SpriteRenderer;
 import Burst.Engine.Source.Core.Physics.Components.Box2DCollider;
 import Burst.Engine.Source.Core.Physics.Components.CircleCollider;
 import Burst.Engine.Source.Core.Physics.Components.Rigidbody2D;
 import Burst.Engine.Source.Core.UI.ImGui.ImGuiPanel;
+import Burst.Engine.Source.Core.UI.Window;
 import imgui.ImGui;
 import org.joml.Vector4f;
 
@@ -28,6 +30,8 @@ public class PropertiesPanel extends ImGuiPanel {
 
     @Override
     public void imgui() {
+//        pickingTexturePreview();
+
         if (activeActors.size() == 1 && activeActors.get(0) != null) {
             activeActor = activeActors.get(0);
             ImGui.begin("Properties");
@@ -57,13 +61,36 @@ public class PropertiesPanel extends ImGuiPanel {
             }
 
             activeActor.imgui();
+
+            // Update the position of the Panel
+            this.position.x = ImGui.getWindowPosX();
+            this.position.y = ImGui.getWindowPosY();
+
             ImGui.end();
         }
     }
 
+    private void pickingTexturePreview() {
+        ImGui.begin("Picking Texture Preview");
+        // Read all the pixels from the picking texture
+        if (this.pickingTexture != null)
+        {
+            // Load the pixels into a buffer
+            float[] pixelBuffer = pickingTexture.getPickingActorBuffer();
+
+            // Generate a Texture from the pixels with OpenGL
+            Texture texture = new Texture(pixelBuffer, Window.getWidth(), Window.getHeight());
+
+            // Display the texture in ImGui
+            ImGui.image(texture.getTexID(), 600, 400);
+        }
+
+
+        ImGui.end();
+    }
+
     public Actor getActiveGameObject() {
-        return activeActors.size() == 1 ? this.activeActors.get(0) :
-                null;
+        return activeActors.size() == 1 ? this.activeActors.get(0) : null;
     }
 
     public void setActiveGameObject(Actor actor) {
@@ -96,7 +123,7 @@ public class PropertiesPanel extends ImGuiPanel {
         SpriteRenderer spr = actor.getComponent(SpriteRenderer.class);
         if (spr != null) {
             this.activeGameObjectsOgColor.add(new Vector4f(spr.getColor()));
-            spr.setColor(new Vector4f(0.8f, 0.8f, 0.0f, 0.8f));
+            spr.setColor(new Vector4f(0.8f, 0.8f, 0.0f, 0.1f));
         } else {
             this.activeGameObjectsOgColor.add(new Vector4f());
         }

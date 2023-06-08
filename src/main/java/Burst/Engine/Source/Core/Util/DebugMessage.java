@@ -1,5 +1,9 @@
 package Burst.Engine.Source.Core.Util;
 
+import org.joml.Matrix2f;
+import org.joml.Matrix3f;
+import org.joml.Matrix4f;
+
 public class DebugMessage {
     private static final String seperator = "-";
     public static boolean noDebug = false;
@@ -66,4 +70,119 @@ public class DebugMessage {
         leftChar = 'i';
         DebugPrint(s);
     }
+
+    // Matrix Debug
+
+    // 2D Matrix
+    public static void printMatrix(float[][] matrix) {
+        if (noDebug) return;
+        System.out.println("\n");
+        for (int i = 0; i < matrix.length; i++) {
+            System.out.print("| ");
+            for (int j = 0; j < matrix[i].length; j++) {
+                System.out.print(matrix[i][j] + " ");
+                if ((j + 1) % 4 == 0) System.out.print("| ");
+            }
+            System.out.println();
+        }
+        System.out.println("\n");
+    }
+
+    // 3D Matrix
+    public static void printMatrix(float[][][] matrix) {
+        if (noDebug) return;
+        System.out.println("\n");
+        for (int i = 0; i < matrix.length; i++) {
+            System.out.println("Matrix " + i);
+            for (int j = 0; j < matrix[i].length; j++) {
+                System.out.print("| ");
+                for (int k = 0; k < matrix[i][j].length; k++) {
+                    System.out.print(matrix[i][j][k] + " ");
+                    if ((k + 1) % 4 == 0) System.out.print("| ");
+                }
+                System.out.println();
+            }
+            System.out.println();
+        }
+        System.out.println("\n");
+    }
+
+    // 2x2 Matrix (JOML)
+    public static void printMatrix(Matrix2f matrix) {
+        if (noDebug) return;
+        System.out.println("\n");
+        for (int i = 0; i < 2; i++) {
+            System.out.print("| ");
+            for (int j = 0; j < 2; j++) {
+                System.out.print(matrix.get(i, j) + " ");
+                if ((j + 1) % 4 == 0) System.out.print("| ");
+            }
+            System.out.println();
+        }
+        System.out.println("\n");
+    }
+
+    // 3x3 Matrix (JOML)
+    public static void printMatrix(Matrix3f matrix) {
+        if (noDebug) return;
+        System.out.println("\n");
+        for (int i = 0; i < 3; i++) {
+            System.out.print("| ");
+            for (int j = 0; j < 3; j++) {
+                System.out.print(matrix.get(i, j) + " ");
+                if ((j + 1) % 4 == 0) System.out.print("| ");
+            }
+            System.out.println();
+        }
+        System.out.println("\n");
+    }
+
+
+
+    // 4x4 Matrix (JOML)
+    public static void printMatrix(Matrix4f matrix) {
+        if (noDebug) return;
+        System.out.println("\n");
+        for (int i = 0; i < 4; i++) {
+            System.out.print("| ");
+            for (int j = 0; j < 4; j++) {
+                System.out.print("(" + matrix.get(i, j) + ") ");
+                if ((j + 1) % 4 == 0) System.out.print("| ");
+            }
+            System.out.println();
+        }
+        System.out.println("\n");
+    }
+
+    // Matrices with names
+    public static void printMatrix(float[][] matrix, String name) {
+        if (noDebug) return;
+        header(name);
+        printMatrix(matrix);
+    }
+
+    public static void printMatrix(float[][][] matrix, String name) {
+        if (noDebug) return;
+        header(name);
+        printMatrix(matrix);
+    }
+
+    public static void printMatrix(Matrix2f matrix, String name) {
+        if (noDebug) return;
+        header(name);
+        printMatrix(matrix);
+    }
+
+    public static void printMatrix(Matrix3f matrix, String name) {
+        if (noDebug) return;
+        header(name);
+        printMatrix(matrix);
+    }
+
+    public static void printMatrix(Matrix4f matrix, String name) {
+        if (noDebug) return;
+        header(name);
+        printMatrix(matrix);
+    }
+
 }

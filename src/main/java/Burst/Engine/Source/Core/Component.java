@@ -1,33 +1,37 @@
 package Burst.Engine.Source.Core;
 
-import Burst.Engine.Source.Core.Actor.Actor;
-import Burst.Engine.Source.Core.Assets.AssetManager;
-import Burst.Engine.Source.Core.UI.ImGui.BImGui;
-import Burst.Engine.Source.Core.Util.DebugMessage;
-import Burst.Engine.Source.Core.Util.Util;
+import java.io.Serializable;
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import Burst.Engine.Source.Core.Util.ImGuiValueManager;
 import imgui.ImGui;
-import imgui.ImVec2;
-import imgui.ImVec4;
-import imgui.type.ImInt;
-import org.jbox2d.dynamics.contacts.Contact;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
 import org.joml.Vector4f;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
-import java.util.HashMap;
-import java.util.Map;
+import Burst.Engine.Source.Core.Util.DebugMessage;
+import Burst.Engine.Source.Core.Util.Util;
+import imgui.ImVec2;
+import imgui.ImVec4;
+import imgui.type.ImInt;
 
-public abstract class Component {
-  protected transient String filePath = null;
+public abstract class Component implements ImGuiValueManager {
   private long ID = -1;
-  private transient boolean started = false;
-  protected Map<String, Object> initialValues;
+
+  protected String name = "Component";
+  protected transient boolean started = false;
   private transient boolean imGuiEditable = true;
+  private transient Map<String, Object> initialValues = new HashMap<>();
+  private transient List<String> ignoreFields = new ArrayList<>();
 
   public Component() {
-    this.ID = Util.generateUniqueID();
+      this.ID = Util.generateHashID(this.getClass().getName());
+      this.name = this.getClass().getSimpleName();
   }
 
   public Component(boolean imGuiEditable) {
@@ -36,49 +40,20 @@ public abstract class Component {
   }
 
   public void start() {
-    // get the filepath of this component
-    this.filePath = AssetManager.getFilePath(this);
     // get the initial values of this component
-    this.initialValues = new HashMap<>();
-
-    Field[] fields = this.getClass().getDeclaredFields();
-    for (Field field : fields) {
-      boolean isTransient = Modifier.isTransient(field.getModifiers());
-      if (isTransient) {
-        continue;
-      }
-
-      boolean isPrivate = Modifier.isPrivate(field.getModifiers());
-      if (isPrivate) {
-        field.setAccessible(true);
-      }
-
-      try {
-        Object value = field.get(this);
-
-        // Make a copy of the value
-        if (value instanceof Vector2f) {
-          value = new Vector2f((Vector2f) value);
-        } else if (value instanceof Vector3f) {
-          value = new Vector3f((Vector3f) value);
-        } else if (value instanceof Vector4f) {
-          value = new Vector4f((Vector4f) value);
-        } else if (value instanceof ImInt) {
-          value = new ImInt((ImInt) value);
-        } else if (value instanceof ImVec2) {
-          value = new ImVec2((ImVec2) value);
-        } else if (value instanceof ImVec4) {
-          value = new ImVec4((ImVec4) value);
-        }
-        initialValues.put(field.getName(), value);
-      } catch (IllegalAccessException e) {
-        DebugMessage.loadFail("Failed to get initial value of field: " + field.getName());
-      }
-
-      if (isPrivate) {
-        field.setAccessible(false);
-      }
+    if (this.initialValues == null) {
+      this.initialValues = new HashMap<>();
     }
+    if (this.ignoreFields == null) {
+      this.ignoreFields = new ArrayList<>();
+    }
+    try {
+      getInitialValues(this, this.ignoreFields, this.initialValues);
+    } catch (IllegalAccessException e) {
+        e.printStackTrace();
+    }
+
+    started = true;
   }
 
 
@@ -90,8 +65,6 @@ public abstract class Component {
 
   }
 
-
-
   public void imgui() {
     if (!started)
     {
@@ -99,116 +72,19 @@ public abstract class Component {
       start();
     }
 
-    try {
-      Field[] fields = this.getClass().getDeclaredFields();
-      for (Field field : fields) {
-        boolean isTransient = Modifier.isTransient(field.getModifiers());
-        if (isTransient) {
-          continue;
-        }
-
-        boolean isPrivate = Modifier.isPrivate(field.getModifiers());
-        if (isPrivate) {
-          field.setAccessible(true);
-        }
-
-        Class type = field.getType();
-        Object value = field.get(this);
-        String name = field.getName();
-
-        ImGui.tableNextColumn();
-        ImGui.text(field.getName());
-        ImGui.tableNextColumn();
-        if (type.equals(int.class)) {
-          int val = (int) value;
-          field.set(this, BImGui.dragInt(name, val, (int) initialValues.get(field.getName())));
-        }
-        else if (type.equals(float.class))
-        {
-          float val =  (float)value;
-          field.set(this, BImGui.dragFloat(name, val, (float) initialValues.get(field.getName())));
-        }
-        else if (type.equals(boolean.class))
-        {
-          boolean val = (boolean) value;
-          ImGui.pushID(name);
-          if (ImGui.checkbox("", val))
-          {
-            field.set(this, !val);
-          }
-          ImGui.popID();
-        }
-        else if (type.equals(Vector2f.class))
-        {
-          Vector2f val = (Vector2f) value;
-
-          BImGui.drawVec2Control(name, val, new Vector2f((Vector2f) initialValues.get(field.getName())));
-        }
-        else if (type.equals(Vector3f.class))
-        {
-          Vector3f val = (Vector3f) value;
-          BImGui.drawVec3Control(name, val);
-        }
-        else if (type.equals(Vector4f.class))
-        {
-          Vector4f val = (Vector4f) value;
-          BImGui.colorPicker4(name, val);
-        }
-        else if (type.isEnum())
-        {
-          String[] enumValues = getEnumValues(type);
-          String enumType = ((Enum) value).name();
-          ImInt index = new ImInt(indexOf(enumType, enumValues));
-
-          if (ImGui.combo(field.getName(), index, enumValues, enumValues.length))
-          {
-            field.set(this, type.getEnumConstants()[index.get()]);
-          }
-        }
-        else if (type == String.class)
-        {
-          field.set(this, BImGui.inputText(field.getName() + ": ", (String) value));
-        }
-
-        ImGui.tableNextRow();
-
-        if (isPrivate) {
-          field.setAccessible(false);
-        }
-      }
-    } catch (IllegalAccessException e) {
-//      System.out.println("Error: Could not access field: " + e.getMessage());
-    }
+    ImGuiShowFields(this, this.ignoreFields, this.initialValues);
   }
 
   public void generateId() {
     if (this.ID == -1) {
-      this.ID = Util.generateUniqueID();
-    }
-  }
+      // Generate a unique ID for components that are different to actor ids
 
-  private <T extends Enum<T>> String[] getEnumValues(Class<T> enumType) {
-    String[] enumValues = new String[enumType.getEnumConstants().length];
-    int i = 0;
-    for (T enumIntegerValue : enumType.getEnumConstants()) {
-      enumValues[i] = enumIntegerValue.name();
-      i++;
+       this.ID = Util.generateHashID(this.getClass().getName());
     }
-    return enumValues;
-  }
-
-  private int indexOf(String str, String[] arr) {
-    for (int i = 0; i < arr.length; i++) {
-      if (str.equals(arr[i])) {
-        return i;
-      }
-    }
-
-    return -1;
   }
 
   public void destroy() {
-
+    //TODO: Destroy component
   }
 
   public long getID() {
@@ -221,5 +97,9 @@ public abstract class Component {
 
   public void setImGuiNotEditable() {
     this.imGuiEditable = false;
+  }
+
+  public boolean isStarted() {
+    return started;
   }
 }

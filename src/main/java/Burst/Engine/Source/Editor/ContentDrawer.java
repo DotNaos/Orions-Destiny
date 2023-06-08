@@ -1,48 +1,41 @@
 package Burst.Engine.Source.Editor;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+import java.util.List;
+
 import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Assets.AssetManager;
-import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
 import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheetUsage;
-import Burst.Engine.Source.Core.Assets.Graphics.Spritesheet;
+import Burst.Engine.Source.Core.Assets.Graphics.Texture;
+import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheet;
 import Burst.Engine.Source.Core.UI.ImGui.ImGuiPanel;
+import Burst.Engine.Source.Core.UI.Window;
+import Burst.Engine.Source.Core.Util.ClassDerivativeSearch;
+import Burst.Engine.Source.Core.Util.DebugMessage;
 import imgui.ImGui;
 import imgui.ImVec2;
+import imgui.flag.ImGuiCol;
+import imgui.flag.ImGuiStyleVar;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.joml.Vector3f;
 
 public class ContentDrawer extends ImGuiPanel {
-    private List<List<Spritesheet>> categories = new ArrayList<>();
-    private List<SpriteSheetUsage> usages = new ArrayList<>();
+    private final List<Class<?>> actors;
 
     public ContentDrawer() {
         super();
 
-        SpriteSheetUsage usage = SpriteSheetUsage.ACTOR;
+        // Searching for all Actors in the Burst and Orion packages
+        ClassDerivativeSearch actorSearcher = new ClassDerivativeSearch(Actor.class);
+        actorSearcher.addPackage("Burst");
+        actorSearcher.addPackage("Orion");
 
-        List<Spritesheet> actors = AssetManager.getSpriteSheets(usage);
-        categories.add(actors);
-        usages.add(usage);
-
-        usage = SpriteSheetUsage.BLOCK;
-        List<Spritesheet> blocks = AssetManager.getSpriteSheets(usage);
-        categories.add(blocks);
-        usages.add(usage);
-
-        usage = SpriteSheetUsage.ITEM;
-        List<Spritesheet> items = AssetManager.getSpriteSheets(usage);
-        categories.add(items);
-        usages.add(usage);
-
-        usage = SpriteSheetUsage.PLAYER;
-        List<Spritesheet> players = AssetManager.getSpriteSheets(usage);
-        categories.add(players);
-        usages.add(usage);
+        this.actors = actorSearcher.search();
+        // Print all found actors
+        for (Class<?> actor : actors) {
+            System.out.println(actor.getSimpleName());
+        }
     }
 
     /**
@@ -50,64 +43,77 @@ public class ContentDrawer extends ImGuiPanel {
      */
     @Override
     public void imgui() {
+        ImGui.pushStyleColor(ImGuiCol.ChildBg, 0.125f, 0.125f,0.125f, 0.75f);
         ImGui.begin("Content Drawer");
-        if (ImGui.beginTabBar("WindowTabBar")) {
-            for (int n = 0; n < categories.size(); n++) {
-                if (ImGui.beginTabItem(usages.get(n).toString()))
-                {
-                    // Add all Spritesheets to the tab
-                    ImVec2 windowPos = new ImVec2();
-                    ImGui.getWindowPos(windowPos);
-                    ImVec2 windowSize = new ImVec2();
-                    ImGui.getWindowSize(windowSize);
-                    ImVec2 itemSpacing = new ImVec2();
-                    ImGui.getStyle().getItemSpacing(itemSpacing);
-                    
-                    float windowX2 = windowPos.x + windowSize.x;
-                    for (Spritesheet sprites : categories.get(n))
+
+            float windowWidth = ImGui.getWindowWidth();
+            float windowHeight = ImGui.getWindowHeight();
+            float iconSize = Math.max(128, Math.min(windowWidth / 4, windowHeight / 4));
+
+            // Add a border around the window
+            ImGui.pushStyleColor(ImGuiCol.Border, 0.3f, 0.3f, 0.3f, 0.5f);
+            // Add a padding between the border and the content
+            ImGui.pushStyleVar(ImGuiStyleVar.ItemSpacing, 10, 10);
+            ImGui.columns(Math.max((int)(ImGui.getContentRegionAvailX() / iconSize) -1 , 1), "", false);
+
+            // Show all actors in a Grid Layout
+            for (Class<?> actor : actors) {
+                try {
+                    // Get the icon field of the actor class
+                    Field iconField = actor.getDeclaredField("icon");
+                    iconField.setAccessible(true);
+
+                    // Get the value of the icon field from the actor object
+                    Object iconValue = iconField.get(actor);
+                    if (iconValue == null) {
+                        // If the icon field is null, skip this actor
+                        // And add a debug message
+                        continue;
+                    }
+
+                    // Button colors
+                    ImGui.pushStyleColor(ImGuiCol.Button, 0.5f, 0.5f, 0.5f, 0.3f);
+                    ImGui.pushStyleColor(ImGuiCol.ButtonHovered, 0.5f, 0.5f, 0.5f, 0.5f);
+                    ImGui.pushStyleColor(ImGuiCol.ButtonActive, 0.5f, 0.5f, 0.5f, 1f);
+
+                    Texture texture = (Texture) iconValue;
+
+                    if (ImGui.imageButton(texture.getTexID(), iconSize, iconSize))
                     {
-                        // Add all Sprites of the Spritesheet to the tab
-                        for (int i = 0; i < sprites.size(); i++) {
-                            Sprite sprite = sprites.getSprite(i);
-                            float spriteWidth = sprite.getWidth() * 4;
-                            float spriteHeight = sprite.getHeight() * 4;
-                            int id = sprite.getTexId();
-                            Vector3f[] texCoords = sprite.getTexCoords();
-                            ImGui.pushID(i);
-                            if (ImGui.imageButton(id, spriteWidth, spriteHeight, texCoords[2].x, texCoords[0].y, texCoords[0].x, texCoords[2].y)) {
-                                // While dragging the mouse, show the sprite next to the cursor
-                                // TODO: ContentDrawer Pickup Object
-                                Actor actor = new Actor(sprite);
-
-                                // Make the actor non-pickable
-                                actor.addComponent(new NonPickable());
-                            }
-                            ImGui.popID();
-                            
-
-                                                ImVec2 lastButtonPos = new ImVec2();
-                    ImGui.getItemRectMax(lastButtonPos);
-                    float lastButtonX2 = lastButtonPos.x;
-                    float nextButtonX2 = lastButtonX2 + itemSpacing.x + spriteWidth;
-                    if (i + 1 < sprites.size() && nextButtonX2 < windowX2) {
-                        ImGui.sameLine();
-                    }
+                        // If the button is clicked, create a new actor of the type
+//                        Window.getScene().getGame().addActor((Actor)actor.getDeclaredConstructor().newInstance());
                     }
 
-                    }
+                    // Stop using the button colorss
+                    ImGui.popStyleColor(3);
 
-                    ImGui.endTabItem();
+                    // Center the text below the image
+                    ImVec2 textSize = new ImVec2();
+                    ImGui.calcTextSize(textSize, actor.getSimpleName());
+                    ImGui.setCursorPosX(ImGui.getCursorPosX() + (iconSize - textSize.x) / 2);
+
+                    // Shows a text below the image
+                    ImGui.text(actor.getSimpleName());
+                  
+
+                    // Move to the next column
+                    ImGui.nextColumn();
+                } catch (NoSuchFieldException | IllegalAccessException e) {
+                     System.out.println("No icon field found for class: " + actor.getSimpleName() );
                 }
-            
-                // Show a text if there are no Spritesheets in the category
-                if (categories.get(n).isEmpty()) {
-                    ImGui.text("No Spritesheets in this category");
-                }
+
             }
-            
-            
-            ImGui.endTabBar();
-        }
+            // Resets columns and Style/Color changes
+            ImGui.columns(1, "", false);
+            ImGui.popStyleColor();
+            ImGui.popStyleVar();
+
+
+        // Update the position of the Panel
+        this.position.x =ImGui.getWindowPosX();
+        this.position.y = ImGui.getWindowPosY();
+
         ImGui.end();
+        ImGui.popStyleColor();
     }
 }

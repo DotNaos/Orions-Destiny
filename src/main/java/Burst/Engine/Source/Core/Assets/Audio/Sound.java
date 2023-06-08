@@ -99,4 +99,10 @@ public class Sound extends Asset {
         }
         return isPlaying;
     }
+
+    @Override
+    public Asset build() {
+        return this;
+
+    }
 }

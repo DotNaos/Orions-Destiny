@@ -1,15 +1,24 @@
 package Orion.res;
 
+<<<<<<< HEAD
 import Burst.Engine.Source.Core.Assets.AssetManager;
 import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheetUsage;
 import Burst.Engine.Source.Core.Assets.Graphics.Spritesheet;
 import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Orion.abilities.UltimateAbility.LightAbilityOne;
+=======
+import java.util.HashMap;
+import java.util.Map;
+>>>>>>> main
 
-import java.util.List;
+import Burst.Engine.Source.Core.Assets.Asset;
 
 public class Assets {
+  private String dir = AssetConfig.DIR_OF_ASSETS;
+  private String fileType;
+  private Class<? extends Asset> assetType = Asset.class;
 
+<<<<<<< HEAD
     // Images
     public static final String SPRITESHEETS = "Assets/images/spritesheets/";
     public static final String ABILITIES = "Abilities/";
@@ -86,5 +95,34 @@ public class Assets {
     //Plant Ability
     public static final String plantAbility = SPRITESHEETS+ABILITIES+"Poison_FX/PlantAbility";
     public static final Spritesheet plantAbolitySpritesheet = new Spritesheet(AssetManager.getAssetFromType(plantAbility,Texture.class), SpriteSheetUsage.ANIMATION,96,96,0);
+=======
+  private Map<String, Asset> assets = new HashMap<>();
 
+    public String getDir() {
+    return dir;
+  }
+  public String getFileType() {
+    return fileType;
+  }
+
+  public Map<String, Asset> getAssets() {
+    return assets;
+  }
+
+  public String getName() {
+    // The name of the ClassType T
+    return assetType.getSimpleName();
+  }
+
+  public Class<? extends Asset> getAssetType() {
+    return assetType;
+  }
+>>>>>>> main
+
+  public Assets(Class<? extends Asset> assetType, String dir, String fileType)
+  {
+    this.assetType = assetType;
+    this.dir = dir;
+    this.fileType = fileType;
+  }
 }

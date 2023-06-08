@@ -1,33 +1,39 @@
 package Burst.Engine.Source.Core.Actor;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+
+import Burst.Engine.Source.Core.Util.DebugMessage;
+import Burst.Engine.Source.Core.Util.ImGuiValueManager;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.Assets.AssetManager;
 import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
 import Burst.Engine.Source.Core.Assets.Graphics.Texture;
-import Burst.Engine.Source.Core.Component;
-import Burst.Engine.Source.Core.Render.SpriteRenderer;
 import Burst.Engine.Source.Core.Physics.Components.Transform;
+import Burst.Engine.Source.Core.Render.SpriteRenderer;
 import Burst.Engine.Source.Core.Saving.ActorDeserializer;
 import Burst.Engine.Source.Core.Saving.ComponentDeserializer;
 import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Core.Util.Util;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import org.joml.Vector3f;
-
-import java.util.ArrayList;
-import java.util.List;
+import Orion.res.AssetConfig;
+import imgui.ImGui;
+import imgui.flag.ImGuiCol;
+import imgui.flag.ImGuiStyleVar;
+import imgui.flag.ImGuiTableColumnFlags;
 
 /**
  * Represents an object in the game world that can have Components attached to
  * it.
  */
-public class Actor {
-    /**
-     * The Transform component attached to this actor.
-     * This is automatically added when the actor is created.
-     */
-    public transient Transform transform;
+public class Actor implements ImGuiValueManager {
+    public static final Texture icon = AssetManager.getAssetFromType(AssetConfig.ICON_ACTOR,Texture.class);
+
     /**
      * The ID of the actor.
      * This is set to -1 by default, and is set to a unique ID when the actor is
@@ -50,38 +56,28 @@ public class Actor {
      * Whether this actor is serialized when saving and loading.
      */
     private boolean serializedActor = true;
+    private transient Map<String, Object> initialValues = new HashMap<>();
 
-    // ====================================================================================================
-    // |=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
-    // |--------------------------------------[ Initialization
-    // ]-----------------------------------------|
-    // |=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
-    // ====================================================================================================
+    private transient List<String> ignoreFields = new ArrayList<>();
+
+    //!====================================================================================================
+    //!|=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
+    //!|--------------------------------------[ Initialization ]-----------------------------------------|
+    //!|=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
+    //!====================================================================================================
 
     /**
      * Creates a new Actor instance with default values.
      * Automatically generates a unique ID and creates a new Transform component.
      */
-    public Actor(String name) {
-        this.name = name;
+
+    public Actor()
+    {
+        this.name = "Actor: " + (Window.getScene().getEditor().getActors().size() + 1);
         this.ID = Util.generateUniqueID();
         this.components = new ArrayList<>();
-        this.transform = new Transform(this);
+        this.addComponent(new Transform(this));
     }
-
-    public Actor(Sprite sprite) {
-        this("Actor: " + (Window.getScene().getGame().getActors().size() + 1));
-        this.addComponent(new SpriteRenderer(this));
-        this.getComponent(SpriteRenderer.class).setSprite(sprite);
-    }
-
-    public Actor(Sprite sprite, Transform transform)
-    {
-        this(sprite);
-        this.transform = new Transform(this).copy(transform);
-    }
-
-
 
     /**
      * Initializes the object.
@@ -102,20 +98,71 @@ public class Actor {
      * </p>
      *
      * @see #destroy()
-     * @see #start()
      */
     public void init() {
+        // Get the transform component
+        Transform transform = getComponent(Transform.class);
+        // Adjust the actors size to match the sprite size
+
+        SpriteRenderer spriteRenderer = getComponent(SpriteRenderer.class);
+        if (spriteRenderer != null) {
+            Sprite sprite = spriteRenderer.getSprite();
+            if (sprite != null) {
+
+                // set the Texture to the sprite
+                if(sprite.getTexture() == null)
+                {
+                    Texture texture = AssetManager.getAssetFromType(sprite.getFilepath(), Texture.class);
+                    sprite.setTexture(texture);
+                }
+
+                float width = sprite.getWidth();
+                float height = sprite.getHeight();
+
+
+                // If aspect ratio is not 1:1, adjust the size
+                if (width != height)
+                {
+                    if(width > height)
+                    {
+                        transform.size.x *= sprite.getWidth() / sprite.getHeight();
+                    }
+                    else
+                    {
+                        transform.size.y *= sprite.getHeight() / sprite.getWidth();
+                    }
+                    DebugMessage.info("Adjusting size of '" + name + "' to: 'X = " + transform.size.x + "' and 'Y = " + transform.size.y + "' | Sprite resolution: 'X = " + width + "' 'Y = " + height + "'");
+
+                }
+
+            }
+        }
+
+        ignoreFields.add("initialValues");
+        ignoreFields.add("components");
+
+        if (this.initialValues == null) {
+            this.initialValues = new HashMap<>();
+        }
+        if (this.ignoreFields == null) {
+            this.ignoreFields = new ArrayList<>();
+        }
+        try{
+            getInitialValues(this, this.ignoreFields, this.initialValues);
+        } catch (
+                IllegalAccessException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
-    public void start() {
-    }
 
-    // ====================================================================================================
-    // |=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
-    // |--------------------------------------[ Updating
-    // ]------------------------------------------------|
-    // |=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
-    // ====================================================================================================
+    //!====================================================================================================
+    //!|=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
+    //!|--------------------------------------[ Updating ]------------------------------------------------|
+    //!|=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
+    //!====================================================================================================
 
     /**
      * Calls the update() method of all components attached to this actor.
@@ -124,27 +171,19 @@ public class Actor {
      */
     public void update(float dt) {
         for (Component component : components) {
-            component.update(dt);
+            if (!component.isStarted())
+                component.start();
+            else
+                component.update(dt);
         }
     }
 
-    /**
-     * Calls the updateEditor() method of all components attached to this actor.
-     *
-     * @param dt The time elapsed since the last frame in seconds.
-     */
-    public void updateEditor(float dt) {
-        for (Component component : components) {
-            component.updateEditor(dt);
-        }
-    }
 
-    // ====================================================================================================
-    // |=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
-    // |--------------------------------------[ Operations
-    // ]---------------------------------------------|
-    // |=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
-    // ====================================================================================================
+    //!====================================================================================================
+    //!|=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
+    //!|--------------------------------------[ Operations ]-----------------------------------------------|
+    //!|=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
+    //!====================================================================================================
 
     /**
      * Calls the destroy() method of all components attached to this actor.
@@ -163,7 +202,7 @@ public class Actor {
     public Actor copy() {
         // TODO: come up with cleaner solution
         Gson gson = new GsonBuilder()
-                .registerTypeAdapter(Component.class, new ComponentDeserializer())
+                .registerTypeAdapter(ActorComponent.class, new ComponentDeserializer())
                 .registerTypeAdapter(Actor.class, new ActorDeserializer())
                 .enableComplexMapKeySerialization()
                 .create();
@@ -184,12 +223,11 @@ public class Actor {
         return obj;
     }
 
-    // ====================================================================================================
-    // |=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
-    // |--------------------------------------[ Component System
-    // ]---------------------------------------|
-    // |=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
-    // ====================================================================================================
+    //!====================================================================================================
+    //!|=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
+    //!|--------------------------------------[ Component System ]----------------------------------------|
+    //!|=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
+    //!====================================================================================================
 
     /**
      * Adds a {@link Component} to this actor's list of components, generates an ID
@@ -198,7 +236,7 @@ public class Actor {
      * @param ac the component to add to this actor's list of components
      * @throws NullPointerException if the specified component is {@code null}
      */
-    public void addComponent(ActorComponent ac) throws NullPointerException {
+    public ActorComponent addComponent(ActorComponent ac) throws NullPointerException {
         // Check if component is null
         if (ac == null) {
             throw new NullPointerException("Cannot add null component to actor.");
@@ -206,13 +244,15 @@ public class Actor {
 
         // Check if actor already has component
         if (hasComponent(ac.getClass())) {
-            return;
+            return getComponent(ac.getClass());
         }
         ac.generateId();
         this.components.add(ac);
         ac.actor = this;
 
         ac.start();
+
+        return ac;
     }
 
     private boolean hasComponent(Class<? extends Component> aClass) {
@@ -286,12 +326,11 @@ public class Actor {
         return this.components;
     }
 
-    // ====================================================================================================
-    // |=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
-    // |----------------------------------------[ ImGui
-    // ]------------------------------------------------|
-    // |=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
-    // ====================================================================================================
+    //!====================================================================================================
+    //!|=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
+    //!|----------------------------------------[ ImGui ]-------------------------------------------------|
+    //!|=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
+    //!====================================================================================================
 
     /**
      * Generates an imgui interface for each Component in the components list that
@@ -307,49 +346,104 @@ public class Actor {
      * @see Component#imgui()
      */
     public void imgui() {
-        // Iterates through each Component in the components list
-        // TODO: Fix Component imgui
+        if(ImGui.beginTable("ActorFields", 2)){
+            // The second column is max 2/3 of the size of the first column
+            ImGui.tableSetupColumn("", ImGuiTableColumnFlags.WidthStretch, 0.5f);
+
+            ImGui.pushStyleColor(ImGuiCol.Border, 1.0f, 1.0f, 1.0f, 0.2f);
+            ImGui.pushStyleVar(ImGuiStyleVar.FrameBorderSize, 1.0f);
+            ImGui.pushStyleVar(ImGuiStyleVar.ItemSpacing, 20f, 20f);
+
+            ImGuiShowFields(this, this.ignoreFields, this.initialValues);
+
+            ImGui.popStyleColor();
+            ImGui.popStyleVar(2);
+            ImGui.endTable();
+        }
+
+
         for (Component c : components) {
             // If the Component's header is expanded, calls its imgui method
-            // if (ImGui.collapsingHeader(c.getClass().getSimpleName())) c.imgui();
+            if (ImGui.collapsingHeader(c.getClass().getSimpleName())) {
+                if (ImGui.beginTable("ActorComponents", 2)) {
+                    // The second column is max 2/3 of the size of the first column
+                    ImGui.tableSetupColumn("", ImGuiTableColumnFlags.WidthStretch, 0.5f);
+
+                    ImGui.pushStyleColor(ImGuiCol.Border, 1.0f, 1.0f, 1.0f, 0.2f);
+                    ImGui.pushStyleVar(ImGuiStyleVar.FrameBorderSize, 1.0f);
+                    ImGui.pushStyleVar(ImGuiStyleVar.ItemSpacing, 20f, 20f);
+                    c.imgui();
+                    ImGui.popStyleColor();
+                    ImGui.popStyleVar(2);
+                    ImGui.endTable();
+                }
+            }
         }
+
+
     }
 
-    // ====================================================================================================
-    // |=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
-    // |----------------------------------------[ Getters
-    // ]---------------------------------------------|
-    // |=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
-    // |----------------------------------------[ Setters
-    // ]---------------------------------------------|
-    // |=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
-    // ====================================================================================================
+    //!====================================================================================================
+    //!|=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
+    //!|----------------------------------------[ Getters ]------------------------------------------------|
+    //!|=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
+    //!|----------------------------------------[ Setters ]------------------------------------------------|
+    //!|=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
+    //!====================================================================================================
 
     /**
      * @return the unique identifier of the object.
      */
     public long getID() {
-        return this.ID;
-    }
-    public void generateId() {
         if (this.ID == -1) {
             this.ID = Util.generateUniqueID();
         }
+        return this.ID;
+    }
+    public Transform getTransform() {
+        if (getComponent(Transform.class) == null) {
+            addComponent(new Transform(this));
+        }
+        return getComponent(Transform.class);
     }
 
     public String getName() {
         return this.name;
     }
 
-    public void setName(String name) {
+
+    public Actor setName(String name) {
         this.name = name;
+        return this;
+    }
+
+    /**
+     * Adds a SpriteRenderer if not there 
+     * and sets the sprite of the SpriteRenderer 
+     * @param sprite the sprite to set
+     */
+    public Actor setSprite(Sprite sprite)
+    {
+        if (this.getComponent(SpriteRenderer.class) == null)
+        {
+            this.addComponent(new SpriteRenderer(this));
+        }
+        
+        this.getComponent(SpriteRenderer.class).setSprite(sprite);
+
+        return this;
     }
 
     public boolean isSerializedActor() {
         return this.serializedActor;
     }
 
-    public void setNotSerializable() {
+    public Actor setNotSerializable() {
         this.serializedActor = false;
+        return this;
     }
+
+
+
+
 }

@@ -59,9 +59,9 @@ public class Shader extends Asset {
     }
 
     public void compile() {
-        // ============================================================
+        //!============================================================
         // Compile and link shaders
-        // ============================================================
+        //!============================================================
         int vertexID, fragmentID;
 
         // First load and compile the vertex shader
@@ -179,5 +179,12 @@ public class Shader extends Asset {
         int varLocation = glGetUniformLocation(shaderProgramID, varName);
         use();
         glUniform1iv(varLocation, array);
+    }
+
+    @Override
+    public Asset build() {
+        compile();
+        
+        return this;  
     }
 }

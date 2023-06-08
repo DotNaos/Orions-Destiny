@@ -4,6 +4,7 @@ import Burst.Engine.Source.Core.Scene.Scene;
 import Burst.Engine.Source.Core.Scene.SceneType;
 import Burst.Engine.Source.Core.UI.ImGui.Menu;
 import Burst.Engine.Source.Core.UI.Window;
+import Burst.Engine.Source.Game.Game;
 import imgui.ImGui;
 import imgui.ImGuiViewport;
 import imgui.flag.ImGuiCol;
@@ -43,8 +44,6 @@ public class StartMenuInitializer extends MenuInitializer {
         ImGui.setWindowSize(Window.getWidth(), Window.getHeight());
 
         // Window color
-
-
         // Bordereinstellungen
         ImGui.pushStyleVar(ImGuiStyleVar.FrameRounding, 10);
         ImGui.pushStyleVar(ImGuiStyleVar.FrameBorderSize, 1);
@@ -72,18 +71,21 @@ public class StartMenuInitializer extends MenuInitializer {
 
         Menu buttonMenu = new Menu(2, 2, buttonSize, alignment, buttonSpacing, margin);
         if (ImGui.button("Editor", buttonSize.x, buttonSize.y)) {
+            System.out.println("Editor");
             Window.changeScene(SceneType.EDITOR);
         }
 
 
         buttonMenu.nextColumn();
         if (ImGui.button("Play", buttonSize.x, buttonSize.y)) {
+            System.out.println("Play");
             Window.changeScene(SceneType.GAME);
         }
 
 
         buttonMenu.nextRow();
         if (ImGui.button("Settings", buttonSize.x, buttonSize.y)) {
+            System.out.println("Settings");
             Window.changeScene(SceneType.SETTINGS_MENU);
         }
 
@@ -91,6 +93,12 @@ public class StartMenuInitializer extends MenuInitializer {
         ImGui.popStyleColor(3);
         ImGui.popStyleVar(2);
         ImGui.end();
+
+    }
+
+    @Override
+    public void loadResources(Game scene) {
+        // TODO Auto-generated method stub
 
     }
 

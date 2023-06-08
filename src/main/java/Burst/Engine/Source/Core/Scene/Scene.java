@@ -2,7 +2,6 @@ package Burst.Engine.Source.Core.Scene;
 
 import Burst.Engine.Source.Game.Game;
 import Burst.Engine.Source.Core.Input.MouseListener;
-import Burst.Engine.Source.Core.Render.ViewportRenderer;
 import Burst.Engine.Source.Core.Scene.Initializer.*;
 import Burst.Engine.Source.Core.UI.ImGui.ImGuiPanel;
 import Burst.Engine.Source.Core.UI.Viewport;
@@ -16,12 +15,11 @@ import java.util.List;
 public class Scene {
     private SceneInitializer sceneInitializer;
     private List<ImGuiPanel> panels = new ArrayList<>();
-    private Viewport viewport;
-    private ViewportRenderer viewportRenderer;
     private boolean isPaused = false;
-    private SceneType openScene = SceneType.NONE;
+    private SceneType openScene;
     private Editor editor;
-    private Game game;
+//    private Game game;
+    private Viewport viewport;
 
     public Scene() {
 
@@ -29,27 +27,16 @@ public class Scene {
 
     public void init(SceneType sceneType) {
         this.viewport = new Viewport();
-        this.viewportRenderer = new ViewportRenderer();
-        this.openScene = SceneType.EDITOR;
-        switch (openScene) {
-            case GAME -> {
-                this.game = new Game(this);
-                this.sceneInitializer = new GameInitializer(this);
-                this.game.init();
-            }
+        this.openScene = sceneType;
+        switch (sceneType) {
+            case GAME, EDITOR -> {
+//                this.game = new Game(this);
+//                this.sceneInitializer = new GameInitializer(this);
+//                this.game.init();
 
-            case EDITOR -> {
                 this.editor = new Editor(this);
                 this.sceneInitializer = new EditorInitializer(this);
                 this.editor.init();
-            }
-
-            case MENU -> {
-                this.sceneInitializer = new MenuInitializer(this);
-            }
-
-            case START_MENU -> {
-                this.sceneInitializer = new StartMenuInitializer(this);
             }
 
             case SETTINGS_MENU -> {
@@ -57,7 +44,7 @@ public class Scene {
             }
 
             default -> {
-                this.sceneInitializer = new SceneInitializer(this);
+                this.sceneInitializer = new StartMenuInitializer(this);
             }
         }
 
@@ -65,17 +52,13 @@ public class Scene {
     }
 
 
+
     public void update(float dt) {
         switch (openScene) {
-            case GAME -> {
+            case GAME, EDITOR -> {
                 if (!isPaused) {
-                    this.viewportRenderer.render();
-                    this.game.update(dt);
+                    this.editor.update(dt);
                 }
-            }
-            case EDITOR -> {
-                this.viewportRenderer.render();
-                this.editor.update(dt);
             }
         }
     }
@@ -95,22 +78,24 @@ public class Scene {
         }
         this.sceneInitializer.imgui();
 
-        if (this.game != null && this.openScene == SceneType.GAME) {
-            this.game.imgui();
-        }
-
-        if (this.editor != null && this.openScene == SceneType.EDITOR) {
-            this.editor.imgui();
+        switch (openScene) {
+            case GAME, EDITOR -> {
+                this.editor.imgui();
+            }
         }
     }
 
     public void render() {
-        this.viewportRenderer.render();
+        switch (openScene) {
+            case GAME, EDITOR -> {
+                this.editor.render();
+            }
+        }
     }
 
-    //====================================================================================================
-    // All Mouse and Keyboard callbacks
-    //====================================================================================================
+    //!====================================================================================================
+    //! All Mouse and Keyboard callbacks
+    //!====================================================================================================
 
     public void keyCallback(long window, int key, int scancode, int action, int mods) {
     }
@@ -137,12 +122,9 @@ public class Scene {
     }
 
 
-    //====================================================================================================
-    // All getters and setters
-    //====================================================================================================
-    public Viewport getViewport() {
-        return this.viewport;
-    }
+    //!====================================================================================================
+    //! All getters and setters
+    //!====================================================================================================
 
     public SceneInitializer getSceneInitializer() {
         return this.sceneInitializer;
@@ -152,20 +134,10 @@ public class Scene {
         return this.openScene;
     }
 
-    public ViewportRenderer getViewportRenderer() {
-        return this.viewportRenderer;
-    }
-
-    public Game getGame() {
-        if (this.game == null) {
-            return this.editor;
-        }
-        return this.game;
-    }
-
-    public Editor getEditor() {
+    public Game getEditor() {
         return this.editor;
     }
+
 
     public void addPanel(ImGuiPanel panel) {
         DebugMessage.info("Adding panel: " + panel.getClass().getSimpleName());
@@ -183,5 +155,7 @@ public class Scene {
     public void destroy() {
     }
 
-
+    public Viewport getViewport() {
+        return this.viewport;
+    }
 }

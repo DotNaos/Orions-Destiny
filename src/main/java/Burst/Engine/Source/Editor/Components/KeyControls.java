@@ -12,27 +12,33 @@ import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.lwjgl.glfw.GLFW.*;
-
 public class KeyControls extends Component {
     protected float debounceTime = 0.2f;
     protected float debounce = 0.0f;
 
 
     public void update(float dt) {
-        debounce -= dt;
+        if (debounce > -1000.0f)
+        {
+            debounce -= dt;
+        }
+        else
+        {
+            debounce = -1.0f;
+        }
 
         PropertiesPanel propertiesPanel = Window.getScene().getPanel(PropertiesPanel.class);
         Actor activeActor = propertiesPanel.getActiveGameObject();
         List<Actor> activeActors = propertiesPanel.getActiveGameObjects();
         float multiplier = KeyListener.isKeyPressed(HotKeys.get().Modifier_EditorSlow) ? 0.1f : 1.0f;
 
+
         if (KeyListener.isKeyPressed(HotKeys.get().Shortcut_EditorDuplicate.first) &&
                 KeyListener.keyBeginPress(HotKeys.get().Shortcut_EditorDuplicate.second) && activeActor != null) {
             Actor newObj = activeActor.copy();
-            assert Window.getScene().getGame() != null;
-            Window.getScene().getGame().addActor(newObj);
-            newObj.transform.position.add(GridLines_Config.SIZE, 0.0f, 0);
+            assert Window.getScene().getEditor() != null;
+            Window.getScene().getEditor().addActor(newObj);
+            newObj.getTransform().position.add(GridLines_Config.SIZE, 0.0f);
             propertiesPanel.setActiveGameObject(newObj);
             if (newObj.getComponent(StateMachine.class) != null) {
                 newObj.getComponent(StateMachine.class).refreshTextures();
@@ -43,8 +49,8 @@ public class KeyControls extends Component {
             propertiesPanel.clearSelected();
             for (Actor actor : actors) {
                 Actor copy = actor.copy();
-                assert Window.getScene().getGame() != null;
-                Window.getScene().getGame().addActor(copy);
+                assert Window.getScene().getEditor() != null;
+                Window.getScene().getEditor().addActor(copy);
                 propertiesPanel.addActiveGameObject(copy);
                 if (copy.getComponent(StateMachine.class) != null) {
                     copy.getComponent(StateMachine.class).refreshTextures();
@@ -58,32 +64,32 @@ public class KeyControls extends Component {
         } else if (KeyListener.isKeyPressed(HotKeys.get().EditorMoveZToBack) && debounce < 0) {
             debounce = debounceTime;
             for (Actor actor : activeActors) {
-                actor.transform.zIndex--;
+                actor.getTransform().zIndex--;
             }
         } else if (KeyListener.isKeyPressed(HotKeys.get().EditorMoveZToFront) && debounce < 0) {
             debounce = debounceTime;
             for (Actor actor : activeActors) {
-                actor.transform.zIndex++;
+                actor.getTransform().zIndex++;
             }
         } else if (KeyListener.isKeyPressed(HotKeys.get().EditorMoveUp) && debounce < 0) {
             debounce = debounceTime;
             for (Actor actor : activeActors) {
-                actor.transform.position.y += GridLines_Config.SIZE * multiplier;
+                actor.getTransform().position.y += GridLines_Config.SIZE * multiplier;
             }
         } else if (KeyListener.isKeyPressed(HotKeys.get().EditorMoveLeft) && debounce < 0) {
             debounce = debounceTime;
             for (Actor actor : activeActors) {
-                actor.transform.position.x -= GridLines_Config.SIZE * multiplier;
+                actor.getTransform().position.x -= GridLines_Config.SIZE * multiplier;
             }
         } else if (KeyListener.isKeyPressed(HotKeys.get().EditorMoveRight) && debounce < 0) {
             debounce = debounceTime;
             for (Actor actor : activeActors) {
-                actor.transform.position.x += GridLines_Config.SIZE * multiplier;
+                actor.getTransform().position.x += GridLines_Config.SIZE * multiplier;
             }
         } else if (KeyListener.isKeyPressed(HotKeys.get().EditorMoveDown) && debounce < 0) {
             debounce = debounceTime;
             for (Actor actor : activeActors) {
-                actor.transform.position.y -= GridLines_Config.SIZE * multiplier;
+                actor.getTransform().position.y -= GridLines_Config.SIZE * multiplier;
             }
         }
     }

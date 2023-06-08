@@ -6,9 +6,9 @@ import Burst.Engine.Source.Core.Util.Util;
 /**
  * Every asset in the engine is a subclass of this class.
  */
-public class Asset {
+public abstract class Asset {
     protected String filepath;
-    protected long id;
+    protected long ID;
 
     /**
      * Creates an asset with the given filepath.
@@ -18,7 +18,7 @@ public class Asset {
 
     public Asset(String filepath) {
         this.filepath = filepath;
-        this.id = Util.generateHashID(filepath);
+        this.ID = Util.generateHashID(filepath);
         init();
     }
 
@@ -30,8 +30,8 @@ public class Asset {
     }
 
     public long getID() {
-        return this.id;
+        return this.ID;
     }
 
-
+    public abstract Asset build();
 }

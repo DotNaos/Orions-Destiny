@@ -1,8 +1,15 @@
 package Orion.characters;
 
+import Burst.Engine.Source.Core.Assets.AssetManager;
+import Burst.Engine.Source.Core.Assets.Graphics.Texture;
+import Orion.res.AssetConfig;
+
 public class Helix extends PlayerCharacter {
+    public static final transient Texture icon = AssetManager.getAssetFromType(AssetConfig.ICON_PLAYER,Texture.class);
     public Helix() {
-        super("Helix");
+        super();
+        this.name = "Helix";
+        // this.sprite = new Sprite("assets/textures/characters/helix.png");
         this.description = """
                         Helix is a wise and enigmatic character, possessing a mastery over the flow of time itself.\s
                         His abilities allow him to manipulate time in various ways, such as slowing it down, speeding it up,\s
@@ -12,5 +19,13 @@ public class Helix extends PlayerCharacter {
                         In addition, his regenerative abilities make him difficult to defeat,\s
                         as he can quickly heal from even the most severe injuries.\s
                 """;
+        this.name ="Helix";
+        this.HP = 0;
+        this.DEF = 0;
+        this.ATK = 0;
+        this.SPD = 0;
+        this.STAMINA = 0;
+        this.LVL = 0;
+        this.EXP = 0;
     }
 }

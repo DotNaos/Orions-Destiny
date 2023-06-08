@@ -1,17 +1,23 @@
 package Burst.Engine.Source.Editor.Panel;
 
+import Burst.Engine.Config.ImGuiStyleConfig;
 import Burst.Engine.Source.Core.Input.MouseListener;
 import Burst.Engine.Source.Core.EventSystem.EventSystem;
 import Burst.Engine.Source.Core.EventSystem.Events.Event;
 import Burst.Engine.Source.Core.EventSystem.Events.EventType;
+import Burst.Engine.Source.Core.Render.Debug.DebugDraw;
 import Burst.Engine.Source.Core.Scene.SceneType;
 import Burst.Engine.Source.Core.UI.ImGui.ImGuiPanel;
 import Burst.Engine.Source.Core.UI.Window;
 import imgui.ImGui;
 import imgui.ImGuiViewport;
 import imgui.ImVec2;
+import imgui.flag.ImGuiCol;
 import imgui.flag.ImGuiCond;
+import imgui.flag.ImGuiTableColumnFlags;
 import imgui.flag.ImGuiWindowFlags;
+import org.joml.Vector2f;
+import org.joml.Vector2i;
 import org.joml.Vector3f;
 
 public class ViewportPanel extends ImGuiPanel {
@@ -29,6 +35,7 @@ public class ViewportPanel extends ImGuiPanel {
         boolean inGame = Window.getScene().getOpenScene() == SceneType.GAME;
         int inGameFlags = 0;
 
+
         if (inGame) {
             // The next window is displayed in the center of the screen in the viewport
             ImGuiViewport mainViewport = ImGui.getMainViewport();
@@ -43,16 +50,42 @@ public class ViewportPanel extends ImGuiPanel {
         ImGui.begin("Viewport", ImGuiWindowFlags.NoTitleBar | ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoScrollWithMouse | ImGuiWindowFlags.MenuBar | inGameFlags);
 
         if (!inGame) {
-            ImGui.beginMenuBar();
-            if (ImGui.menuItem("Play", "", isPlaying, !isPlaying)) {
-                isPlaying = true;
-                EventSystem.notify(null, new Event(EventType.GameEngineStartPlay));
-            }
-            if (ImGui.menuItem("Stop", "", !isPlaying, isPlaying)) {
-                isPlaying = false;
-                EventSystem.notify(null, new Event(EventType.GameEngineStopPlay));
-            }
+            if (ImGui.beginMenuBar())
+            {
+
+                if (ImGui.menuItem("Play", "", isPlaying, !isPlaying)) {
+                    isPlaying = true;
+                    EventSystem.notify(null, new Event(EventType.GameEngineStartPlay));
+                }
+                if (ImGui.menuItem("Stop", "", !isPlaying, isPlaying)) {
+                    isPlaying = false;
+                    EventSystem.notify(null, new Event(EventType.GameEngineStopPlay));
+                }
+
+                // Show the current mouse position in the viewport and screen
+                // in the center of the menu bar
+                ImGui.sameLine(ImGui.getContentRegionAvailX() / 2 - 100);
+
+                // World
+                ImGui.text("World | X: " + MouseListener.getWorldX() + " Y: " + MouseListener.getWorldY() + " | " + "\t");
+
+                ImGui.sameLine();
+
+                // Screen
+                ImGui.text("Screen | X: " + (int) MouseListener.getScreenX() + " Y: " + (int) MouseListener.getScreenY() + " | ");
+
+                // Viewport
+//                ImGui.text("Viewport | X: " + MouseListener.getViewX() + " Y: " + MouseListener.getViewY() + " | ");
+
+                // ViewToWorld
+//            ImGui.text("ViewToWorld | X: " + MouseListener.viewToWorld(MouseListener.getView()).x + " Y: " + MouseListener.viewToWorld(MouseListener.getView()).y + " | ");
+
+                // ViewToScreen
+//            ImGui.text("ViewToScreen | X: " + (int) MouseListener.viewToScreen(MouseListener.getView()).x + " Y: " + (int) MouseListener.viewToScreen(MouseListener.getView()).y + " | ");
+
+
             ImGui.endMenuBar();
+            }
         }
 
 
@@ -67,8 +100,15 @@ public class ViewportPanel extends ImGuiPanel {
         ImGui.imageButton(textureId, windowSize.x, windowSize.y, 0, 1, 1, 0);
         windowIsHovered = ImGui.isItemHovered();
 
-        MouseListener.setGameViewportPos(new Vector3f(windowPos.x + 10, windowPos.y, 0));
-        MouseListener.setGameViewportSize(new Vector3f(windowSize.x, windowSize.y, 0));
+        // Update the position of the Panel
+        this.position.x = ImGui.getWindowPosX() + ImGuiStyleConfig.get().getWindowPadding().x;
+        // + 2x padding because of the menu bar
+        this.position.y = ImGui.getWindowPosY() + ImGuiStyleConfig.get().getWindowPadding().y * (ImGui.isWindowDocked() ? 5 : 2);
+
+        MouseListener.setGameViewportPos(new Vector2f(this.position.x, this.position.y));
+
+        // + 8 because of the padding
+        MouseListener.setGameViewportSize(new Vector2f(windowSize.x + 8, windowSize.y));
 
         ImGui.end();
     }
