@@ -1,14 +1,11 @@
 package Burst.Engine.Source.Core.Render;
 
-import Burst.Engine.Config.Shader_Config;
 import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Assets.Graphics.Shader;
 import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Burst.Engine.Source.Core.UI.Window;
-import Orion.res.AssetConfig;
 import org.joml.Matrix4f;
 import org.joml.Vector2f;
-import org.joml.Vector3f;
 import org.joml.Vector4f;
 
 import java.util.ArrayList;
@@ -130,7 +127,7 @@ public class RenderBatch implements Comparable<RenderBatch> {
             if (spr.isDirty()) {
                 if (!hasTexture(spr.getTexture())) {
                     this.viewportRenderer.destroyActor(spr.actor);
-                    this.viewportRenderer.add(spr.actor);
+                    this.viewportRenderer.addActor(spr.actor);
                 } else {
                     loadVertexProperties(i);
                     spr.setClean();
@@ -141,7 +138,7 @@ public class RenderBatch implements Comparable<RenderBatch> {
             // TODO: get better solution for this
             if (spr.actor.getTransform().zIndex != this.zIndex) {
                 destroyIfExists(spr.actor);
-                viewportRenderer.add(spr.actor);
+                viewportRenderer.addActor(spr.actor);
                 i--;
             }
         }

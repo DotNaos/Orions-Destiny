@@ -1,8 +1,10 @@
 package Burst.Engine.Source.Core.Render;
 
+import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Core.Util.Util;
+import imgui.ImGui;
 import org.joml.Vector2i;
 
 import static org.lwjgl.opengl.GL11.GL_TEXTURE_2D;
@@ -13,6 +15,7 @@ public class PickingTexture extends Component {
     private int pickingTextureId;
     private int fbo;
     private int depthTexture;
+    private boolean showDebug = false;
 
     public PickingTexture(int width, int height) {
         super();
@@ -97,7 +100,23 @@ public class PickingTexture extends Component {
 
         return pixels;
     }
+    private void pickingTexturePreview() {
+        ImGui.tableNextRow();
 
+        ImGui.tableSetColumnIndex(0);
+        ImGui.text("Picking Texture Preview");
+        ImGui.tableSetColumnIndex(1);
+        // Read all the pixels from the picking texture
+
+        // Load the pixels into a buffer
+        float[] pixelBuffer = getPickingActorBuffer();
+
+        // Generate a Texture from the pixels with OpenGL
+        Texture texture = new Texture(pixelBuffer, Window.getWidth(), Window.getHeight());
+
+        // Display the texture in ImGui
+        ImGui.image(texture.getTexID(), 600, 400);
+    }
 
     /**
      * Modifies the pixels of the picking texture to represent the actor id
@@ -141,5 +160,12 @@ public class PickingTexture extends Component {
 
 
         return pixels;
+    }
+
+    public void imgui() {
+        super.imgui();
+        if (showDebug) {
+            pickingTexturePreview();
+        }
     }
 }
