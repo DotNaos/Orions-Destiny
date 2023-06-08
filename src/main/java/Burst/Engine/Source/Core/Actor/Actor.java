@@ -360,11 +360,26 @@ public class Actor implements ImGuiValueManager {
 
         // Iterates through each Component in the components list
         // TODO: Fix Component imgui
-//        for (Component c : components) {
-//            // If the Component's header is expanded, calls its imgui method
-//             if (ImGui.collapsingHeader(c.getClass().getSimpleName()))
-//                 c.imgui();
-//        }
+
+        for (Component c : components) {
+            // If the Component's header is expanded, calls its imgui method
+            if (ImGui.collapsingHeader(c.getClass().getSimpleName())) {
+                if (ImGui.beginTable("ActorComponents", 2)) {
+                    // The second column is max 2/3 of the size of the first column
+                    ImGui.tableSetupColumn("", ImGuiTableColumnFlags.WidthStretch, 0.5f);
+
+                    ImGui.pushStyleColor(ImGuiCol.Border, 1.0f, 1.0f, 1.0f, 0.2f);
+                    ImGui.pushStyleVar(ImGuiStyleVar.FrameBorderSize, 1.0f);
+                    ImGui.pushStyleVar(ImGuiStyleVar.ItemSpacing, 20f, 20f);
+                    c.imgui();
+                    ImGui.popStyleColor();
+                    ImGui.popStyleVar(2);
+                    ImGui.endTable();
+                }
+            }
+        }
+
+
     }
 
     //!====================================================================================================
