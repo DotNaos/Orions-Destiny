@@ -65,7 +65,7 @@ public class Actor implements ImGuiValueManager {
      * Whether this actor is serialized when saving and loading.
      */
     private boolean serializedActor = true;
-    private Map<String, Object> initialValues = new HashMap<>();
+    private transient Map<String, Object> initialValues = new HashMap<>();
 
     private transient List<String> ignoreFields = new ArrayList<>();
 

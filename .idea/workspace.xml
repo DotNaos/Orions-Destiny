@@ -9,13 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="ValueManager vereinfacht und fix für ResetButton">
+    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="Initialvalues mit Object Copy">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/Actor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/Actor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Component.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Component.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Physics/Components/Transform.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Physics/Components/Transform.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Util/ImGuiValueManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Util/ImGuiValueManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Util/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Util/Util.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Game/Game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -226,14 +223,7 @@
       <workItem from="1686160597073" duration="603000" />
       <workItem from="1686181560042" duration="1634000" />
       <workItem from="1686209302024" duration="599000" />
-      <workItem from="1686227606156" duration="11221000" />
-    </task>
-    <task id="LOCAL-00006" summary="Generating Actors updated">
-      <created>1683885219846</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1683885219846</updated>
+      <workItem from="1686227606156" duration="11859000" />
     </task>
     <task id="LOCAL-00007" summary="Levels Dir">
       <created>1683885251977</created>
@@ -571,14 +561,20 @@
       <option name="project" value="LOCAL" />
       <updated>1686234843975</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="Initialvalues mit Object Copy">
+      <created>1686243905693</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1686243905693</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Mehr Colors und Table" />
     <MESSAGE value="Copy On changing color" />
     <MESSAGE value="Components angezeigt in Fenster" />
     <MESSAGE value="ViewportSize extra und HotKeys in eigener Datei" />
@@ -603,7 +599,8 @@
     <MESSAGE value="Properties Panel und Actor Eigenschaften" />
     <MESSAGE value="Components Properties" />
     <MESSAGE value="ValueManager vereinfacht und fix für ResetButton" />
-    <option name="LAST_COMMIT_MESSAGE" value="ValueManager vereinfacht und fix für ResetButton" />
+    <MESSAGE value="Initialvalues mit Object Copy" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initialvalues mit Object Copy" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -615,6 +612,10 @@
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.nio.BufferUnderflowException" package="java.nio" />
           <option name="timeStamp" value="8" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.StackOverflowError" package="java.lang" />
+          <option name="timeStamp" value="11" />
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>

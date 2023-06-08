@@ -65,20 +65,13 @@ public class Game {
          this.addActor(new Actor().setSprite(AssetManager.getAssetFromType(AssetConfig.BLOCKS, SpriteSheet.class).getSprite(10)));
      //? End debug code
 
-//        saveLevel();
 
-        for (Actor actor : actors) {
-            actor.init();
-        }
-        start();
+    for (Actor actor : actors) {
+        actor.init();
+    }
+    start();
 
         // Save the level every 5 seconds
-        timer.scheduleAtFixedRate(new java.util.TimerTask() {
-            @Override
-            public void run() {
-                saveLevel();
-            }
-        }, 0, 1000);
     }
 
     //! ====================================================================================================
@@ -92,6 +85,13 @@ public class Game {
             scene.getViewportRenderer().add(actor);
             this.physics2D.add(actor);
         }
+        timer.scheduleAtFixedRate(new java.util.TimerTask() {
+            @Override
+            public void run() {
+//                System.out.println("Saving level...");
+                saveLevel();
+            }
+        }, 1000, 1000);
     }
 
 
@@ -237,16 +237,16 @@ public class Game {
     public void saveLevel() {
 
         try {
-//            FileWriter writer = new FileWriter(".\\levels\\level.json");
+            FileWriter writer = new FileWriter(".\\levels\\level.json");
             List<Actor> actorsToSerialize = new ArrayList<>();
             for (Actor actor : this.actors) {
                 if (actor.isSerializedActor()) {
                     actorsToSerialize.add(actor);
-                    System.out.println("Added actor to serialize " + actor.getName());
+//                    System.out.println("Added actor to serialize " + actor.getName());
                 }
             }
-//            writer.write(gsonBuilder().toJson(actorsToSerialize));
-//            writer.close();
+            writer.write(gsonBuilder().toJson(actorsToSerialize));
+            writer.close();
         } catch (Exception e) {
             e.printStackTrace();
         }

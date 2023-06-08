@@ -26,7 +26,7 @@ public abstract class Component implements ImGuiValueManager {
   protected String name = "Component";
   protected transient boolean started = false;
   private transient boolean imGuiEditable = true;
-  Map<String, Object> initialValues = new HashMap<>();
+  private transient Map<String, Object> initialValues = new HashMap<>();
   private transient List<String> ignoreFields = new ArrayList<>();
 
   public Component() {
