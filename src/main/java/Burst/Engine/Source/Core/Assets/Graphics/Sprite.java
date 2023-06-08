@@ -2,13 +2,23 @@ package Burst.Engine.Source.Core.Assets.Graphics;
 
 import Burst.Engine.Source.Core.Assets.Asset;
 import org.joml.Vector2f;
-import org.joml.Vector3f;
 
 public class Sprite extends Asset {
 
     private float width, height;
 
-    private Texture texture = null;
+    private transient Texture texture = null;
+    /**
+     * The texture coordinates of the sprite
+     * <p>
+     *   The texture coordinates are in the following order:
+     * <p>
+     *   1, 1 | 1, 0
+     * <p>
+     *   0, 0 | 0, 1
+     * <p>
+     *
+     */
     private Vector2f[] texCoords = {
             new Vector2f(1, 1),
             new Vector2f(1, 0),
@@ -17,13 +27,20 @@ public class Sprite extends Asset {
     };
 
     public Sprite() {
-        super("");
+        super("Generated");
         this.width = 0;
         this.height = 0;
     }
 
+    public Sprite(String filePath) {
+        super(filePath);
+        this.texture = new Texture(filePath);
+        this.width = texture.getWidth();
+        this.height = texture.getHeight();
+    }
+
     public Sprite(Texture texture, Vector2f[] texCoords, int spriteWidth, int spriteHeight) {
-        super("");
+        super(texture.getFilepath());
         this.texture = texture;
         this.texCoords = texCoords;
         this.width = spriteWidth;
@@ -75,12 +92,21 @@ public class Sprite extends Asset {
         this.height = height;
     }
 
-    public int getTexId() {
+    public int getTexID() {
         return texture == null ? -1 : texture.getTexID();
     }
 
-    public void setTexture(Texture texture) {
+    public Sprite setTexture(Texture texture) {
+        if (texture == null) return this;
+
         this.texture = texture;
+        if(!this.texture.isInitialized()) this.texture.init();
+        this.filepath = texture.getFilepath();
+
+        this.width = texture.getWidth();
+        this.height = texture.getHeight();
+
+        return this;
     }
 
     public void setTexCoords(Vector2f[] texCoords) {

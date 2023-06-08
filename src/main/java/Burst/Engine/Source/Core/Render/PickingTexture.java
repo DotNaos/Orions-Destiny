@@ -2,10 +2,12 @@ package Burst.Engine.Source.Core.Render;
 
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.UI.Window;
+import Burst.Engine.Source.Core.Util.Util;
 import org.joml.Vector2i;
 
 import static org.lwjgl.opengl.GL11.GL_TEXTURE_2D;
 import static org.lwjgl.opengl.GL30.*;
+import static org.lwjgl.stb.STBImage.stbi_set_flip_vertically_on_load;
 
 public class PickingTexture extends Component {
     private int pickingTextureId;
@@ -38,7 +40,7 @@ public class PickingTexture extends Component {
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB32F, width, height, 0, GL_RGB, GL_FLOAT, 0);
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA32F, width, height, 0, GL_RGBA, GL_FLOAT, 0);
         glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, this.pickingTextureId, 0);
 
         // Create the texture object for the depth buffer
@@ -75,23 +77,68 @@ public class PickingTexture extends Component {
         glBindFramebuffer(GL_READ_FRAMEBUFFER, fbo);
         glReadBuffer(GL_COLOR_ATTACHMENT0);
 
-        float pixels[] = new float[3];
-        glReadPixels(x, y, 1, 1, GL_RGB, GL_FLOAT, pixels);
-
+        float pixels[] = new float[4];
+        glReadPixels(x, y, 1, 1, GL_RGBA, GL_FLOAT, pixels);
         return (int) (pixels[0]) - 1;
     }
 
-    public float[] readPixels(Vector2i start, Vector2i end) {
+    public float[] getPickingActorBuffer(Vector2i start, Vector2i end) {
         glBindFramebuffer(GL_READ_FRAMEBUFFER, fbo);
         glReadBuffer(GL_COLOR_ATTACHMENT0);
 
         Vector2i size = new Vector2i(end).sub(start).absolute();
         int numPixels = size.x * size.y;
-        float pixels[] = new float[3 * numPixels];
-        glReadPixels(start.x, start.y, size.x, size.y, GL_RGB, GL_FLOAT, pixels);
+        float pixels[] = new float[4 * numPixels];
+        glReadPixels(start.x, start.y, size.x, size.y, GL_RGBA, GL_FLOAT, pixels);
         for (int i = 0; i < pixels.length; i++) {
             pixels[i] -= 1;
+            // DebugDraw a box around every pixel with a value
         }
+
+        return pixels;
+    }
+
+
+    /**
+     * Modifies the pixels of the picking texture to represent the actor id
+     * Add a unique color for each actor
+     * @return Buffer of all pixels in the picking texture
+     */
+    public float[] getPickingActorBuffer() {
+        glBindFramebuffer(GL_READ_FRAMEBUFFER, fbo);
+        glReadBuffer(GL_COLOR_ATTACHMENT0);
+
+        float pixels[] = new float[Window.getWidth() * Window.getHeight() * 4];
+        glReadPixels(0, 0, Window.getWidth(), Window.getHeight(), GL_RGBA, GL_FLOAT, pixels);
+        for (int i = 0; i < pixels.length; i++) {
+            final int channel = i % 4 + 1;
+
+            final int red = 1;
+            final int green = 2;
+            final int blue = 3;
+            final int alpha = 4;
+
+            final boolean isRed = channel == red;
+            final boolean isGreen = channel == green;
+            final boolean isBlue = channel == blue;
+            final boolean isAlpha = channel == alpha;
+
+            // set background to white
+            if (pixels[i] == 0) {
+                pixels[i] = 1;
+                continue;
+            }
+
+            if (isAlpha) {
+                pixels[i] -= 1;
+            }
+            else
+            {
+                pixels[i] = Util.generateUniqueColorValue((float) (pixels[i] * Math.sin(channel)), 1);
+            }
+
+        }
+
 
         return pixels;
     }

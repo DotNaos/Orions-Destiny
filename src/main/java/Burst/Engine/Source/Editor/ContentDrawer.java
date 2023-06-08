@@ -43,7 +43,6 @@ public class ContentDrawer extends ImGuiPanel {
      */
     @Override
     public void imgui() {
-
         ImGui.pushStyleColor(ImGuiCol.ChildBg, 0.125f, 0.125f,0.125f, 0.75f);
         ImGui.begin("Content Drawer");
 
@@ -77,8 +76,9 @@ public class ContentDrawer extends ImGuiPanel {
                     ImGui.pushStyleColor(ImGuiCol.ButtonHovered, 0.5f, 0.5f, 0.5f, 0.5f);
                     ImGui.pushStyleColor(ImGuiCol.ButtonActive, 0.5f, 0.5f, 0.5f, 1f);
 
+                    Texture texture = (Texture) iconValue;
 
-                    if (ImGui.imageButton(((Texture) iconValue).getTexID(), iconSize, iconSize))
+                    if (ImGui.imageButton(texture.getTexID(), iconSize, iconSize))
                     {
                         // If the button is clicked, create a new actor of the type
 //                        Window.getScene().getGame().addActor((Actor)actor.getDeclaredConstructor().newInstance());

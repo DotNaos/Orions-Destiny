@@ -1,7 +1,10 @@
 package Burst.Engine.Source.Game;
 
 import Burst.Engine.Source.Core.Actor.Actor;
+import Burst.Engine.Source.Core.Actor.ActorComponent;
+import Burst.Engine.Source.Core.Assets.AssetManager;
 import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
+import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheet;
 import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.Physics.Physics2D;
@@ -11,6 +14,8 @@ import Burst.Engine.Source.Core.Saving.ComponentDeserializer;
 import Burst.Engine.Source.Core.Scene.Scene;
 import Burst.Engine.Source.Core.Util.DebugMessage;
 import Burst.Engine.Source.Editor.Panel.ViewportPanel;
+import Orion.res.AssetConfig;
+import Orion.res.Assets;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -22,6 +27,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Timer;
 
 
 public class Game {
@@ -30,6 +36,9 @@ public class Game {
     protected List<Component> components;
     protected Physics2D physics2D;
     protected Scene scene;
+
+    // Timer for saving
+    private Timer timer = new Timer();
 
     public Game(Scene scene) {
         this.scene = scene;
@@ -47,17 +56,22 @@ public class Game {
         DebugMessage.header("Game Panels");
         scene.addPanel(new ViewportPanel());
 
-        loadLevel();
         scene.getSceneInitializer().loadResources(this);
-        start();
 
-        //  Show a debug image
-         Texture tex = new Texture("assets/images/debug/blendImage1.png");
-         Sprite sprite = new Sprite();
-         sprite.setTexture(tex);
+        loadLevel();
 
-         this.addActor(new Actor().setSprite(sprite));
-         saveLevel();
+     //? Debug code
+//         this.addActor(new Actor().setSprite(new Sprite().setTexture(AssetManager.getAssetFromType(AssetConfig.ICON_PLAYER, Texture.class))));
+         this.addActor(new Actor().setSprite(AssetManager.getAssetFromType(AssetConfig.BLOCKS, SpriteSheet.class).getSprite(10)));
+     //? End debug code
+
+
+    for (Actor actor : actors) {
+        actor.init();
+    }
+    start();
+
+        // Save the level every 5 seconds
     }
 
     //! ====================================================================================================
@@ -68,10 +82,16 @@ public class Game {
 
     public void start() {
         for (Actor actor : actors) {
-            actor.start();
             scene.getViewportRenderer().add(actor);
             this.physics2D.add(actor);
         }
+        timer.scheduleAtFixedRate(new java.util.TimerTask() {
+            @Override
+            public void run() {
+//                System.out.println("Saving level...");
+                saveLevel();
+            }
+        }, 1000, 1000);
     }
 
 
@@ -91,7 +111,6 @@ public class Game {
 
         for (Actor actor : actors) {
             actor.update(dt);
-            scene.getViewportRenderer().render();
         }
     }
 
@@ -109,7 +128,7 @@ public class Game {
 
         // Save the level if the actor is a serialized actor
         if (!actor.isSerializedActor()) return;
-        // saveLevel();
+        saveLevel();
     }
 
     //! ====================================================================================================
@@ -209,24 +228,26 @@ public class Game {
     private Gson gsonBuilder() {
         return new GsonBuilder()
         .setPrettyPrinting()
-        .registerTypeAdapter(Component.class, new ComponentDeserializer())
+        .registerTypeAdapter(ActorComponent.class, new ComponentDeserializer())
         .registerTypeAdapter(Actor.class, new ActorDeserializer())
         .enableComplexMapKeySerialization()
         .create();
     }
 
     public void saveLevel() {
+
         try {
             FileWriter writer = new FileWriter(".\\levels\\level.json");
             List<Actor> actorsToSerialize = new ArrayList<>();
             for (Actor actor : this.actors) {
                 if (actor.isSerializedActor()) {
                     actorsToSerialize.add(actor);
+//                    System.out.println("Added actor to serialize " + actor.getName());
                 }
             }
             writer.write(gsonBuilder().toJson(actorsToSerialize));
             writer.close();
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -299,13 +320,7 @@ public class Game {
     //! |=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
     //! ====================================================================================================
 
-    public void imgui() {
-
-
-        for (Actor actor : actors) {
-            actor.imgui();
-        }
-
-
+    public void imgui(){
+        // TODO: MAYBE ADD FUNCTIONALITY HERE
     }
 }

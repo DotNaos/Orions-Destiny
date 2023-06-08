@@ -9,9 +9,6 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="787a90ad-2c32-4237-9403-4ac402e3150a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/EnergyAbility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/EnergyAbility.java" afterDir="false" />
     </list>
     <list id="25a488fd-f17c-453d-94a6-413269d6c7ff" name="Changes by schue" comment="Changes by schue" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,9 +44,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
-        <option value="Enum" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -83,6 +79,7 @@
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
+    <option name="showPreview" value="true" />
   </component>
   <component name="ProjectId" id="2N8vyMs6taPavLqmrUsOfuJtA5a" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -101,20 +98,11 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;TODO_SCOPE&quot;: &quot;All Places&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;deletionFromPopupRequiresConfirmation&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Rebasing main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/schue/Documents/Dev/Java/Orions-Destiny&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;settings.editor.splitter.proportion&quot;: &quot;0.30120483&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -220,9 +208,7 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.Orions-Destiny [dependencies]" />
-        <item itemvalue="Gradle.CollisionDetectorTests" />
-        <item itemvalue="Application.Main" />
+
       </list>
     </recent_temporary>
   </component>
@@ -233,213 +219,6 @@
       <created>1679058777659</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1679058777659</updated>
-      <workItem from="1679058779724" duration="588000" />
-      <workItem from="1679059703329" duration="1728000" />
-      <workItem from="1679066886617" duration="114000" />
-      <workItem from="1679067012339" duration="12016000" />
-      <workItem from="1679375081128" duration="2147000" />
-      <workItem from="1679489515119" duration="7671000" />
-      <workItem from="1679558289366" duration="642000" />
-      <workItem from="1679558985465" duration="4242000" />
-      <workItem from="1679579827221" duration="12934000" />
-      <workItem from="1679635119400" duration="116000" />
-      <workItem from="1679635247114" duration="191000" />
-      <workItem from="1679635450687" duration="81000" />
-      <workItem from="1679635545820" duration="50000" />
-      <workItem from="1679635608915" duration="804000" />
-      <workItem from="1679668325979" duration="3474000" />
-      <workItem from="1679722140819" duration="23435000" />
-      <workItem from="1679817462432" duration="3368000" />
-      <workItem from="1679823976681" duration="14763000" />
-      <workItem from="1679845183392" duration="3482000" />
-      <workItem from="1679910314763" duration="3445000" />
-      <workItem from="1680072877658" duration="1545000" />
-      <workItem from="1680115001915" duration="343000" />
-      <workItem from="1680115535769" duration="688000" />
-      <workItem from="1680193932872" duration="696000" />
-      <workItem from="1680265982513" duration="5191000" />
-      <workItem from="1680336181951" duration="30000" />
-      <workItem from="1680336222763" duration="11213000" />
-      <workItem from="1680501689052" duration="7975000" />
-      <workItem from="1680588376615" duration="215000" />
-      <workItem from="1680611491499" duration="640000" />
-      <workItem from="1680613480911" duration="31000" />
-      <workItem from="1680618880610" duration="15000" />
-      <workItem from="1680618908032" duration="1899000" />
-      <workItem from="1680688274848" duration="702000" />
-      <workItem from="1680798665574" duration="3304000" />
-      <workItem from="1680878850220" duration="6286000" />
-      <workItem from="1680944076420" duration="15304000" />
-      <workItem from="1681110685501" duration="2362000" />
-      <workItem from="1681464076646" duration="3840000" />
-      <workItem from="1681557032236" duration="1705000" />
-      <workItem from="1681561515497" duration="2581000" />
-      <workItem from="1681749515438" duration="201000" />
-      <workItem from="1681752683636" duration="43000" />
-      <workItem from="1681885641387" duration="641000" />
-      <workItem from="1681888094692" duration="2548000" />
-      <workItem from="1681893523381" duration="1971000" />
-      <workItem from="1681898337919" duration="9355000" />
-      <workItem from="1681923543237" duration="1543000" />
-      <workItem from="1681970091188" duration="4086000" />
-      <workItem from="1681984814772" duration="2687000" />
-      <workItem from="1682090448527" duration="973000" />
-      <workItem from="1682145300048" duration="11215000" />
-      <workItem from="1682164069636" duration="1932000" />
-      <workItem from="1682409617049" duration="14274000" />
-      <workItem from="1682480553772" duration="736000" />
-      <workItem from="1682481607558" duration="371000" />
-      <workItem from="1682512052789" duration="9584000" />
-      <workItem from="1682617282050" duration="793000" />
-      <workItem from="1682618918737" duration="1830000" />
-      <workItem from="1682621532001" duration="115000" />
-      <workItem from="1682622160054" duration="120000" />
-      <workItem from="1682840503792" duration="9211000" />
-      <workItem from="1682929826837" duration="2803000" />
-      <workItem from="1682938365187" duration="6982000" />
-      <workItem from="1682954829442" duration="276000" />
-      <workItem from="1682956651753" duration="646000" />
-      <workItem from="1682958492265" duration="1093000" />
-      <workItem from="1683008973937" duration="6173000" />
-      <workItem from="1683015319184" duration="7179000" />
-      <workItem from="1683122686887" duration="8480000" />
-      <workItem from="1683135871687" duration="3284000" />
-      <workItem from="1683142813884" duration="17740000" />
-      <workItem from="1683279994213" duration="757000" />
-      <workItem from="1683280773645" duration="5777000" />
-      <workItem from="1683363528519" duration="24735000" />
-      <workItem from="1683435059695" duration="28934000" />
-      <workItem from="1683527278554" duration="8483000" />
-      <workItem from="1683610940266" duration="3829000" />
-      <workItem from="1683698786637" duration="3947000" />
-      <workItem from="1683783341158" duration="948000" />
-      <workItem from="1683787686801" duration="2578000" />
-      <workItem from="1684172527914" duration="189000" />
-      <workItem from="1684237959885" duration="4688000" />
-      <workItem from="1684261469592" duration="531000" />
-      <workItem from="1684303345508" duration="2953000" />
-      <workItem from="1684842746734" duration="691000" />
-      <workItem from="1684843523833" duration="62000" />
-      <workItem from="1684843956595" duration="3765000" />
-      <workItem from="1684908530126" duration="4535000" />
-      <workItem from="1684913108995" duration="39000" />
-      <workItem from="1684997758560" duration="1581000" />
-      <workItem from="1684999361747" duration="95000" />
-      <workItem from="1685897377177" duration="2302000" />
-      <workItem from="1686240464628" duration="3490000" />
-    </task>
-    <task id="LOCAL-00058" summary="Circle Collision">
-      <created>1682481969730</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1682481969730</updated>
-    </task>
-    <task id="LOCAL-00059" summary="Force Generators">
-      <created>1682515242094</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1682515242094</updated>
-    </task>
-    <task id="LOCAL-00060" summary="Gravity">
-      <created>1682517553804</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1682517553804</updated>
-    </task>
-    <task id="LOCAL-00061" summary="CollisionManifolds">
-      <created>1682520103256</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1682520103256</updated>
-    </task>
-    <task id="LOCAL-00062" summary="PHYSIK FERTIG ENDLICH">
-      <created>1682523014005</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1682523014005</updated>
-    </task>
-    <task id="LOCAL-00063" summary="Physik engine in Müll, jetzt wird Box2D verwendet">
-      <created>1682621162567</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1682621162567</updated>
-    </task>
-    <task id="LOCAL-00064" summary="Refactor, Event-handler, Box2D integration, Start-Stop Editor">
-      <created>1682879599199</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1682879599199</updated>
-    </task>
-    <task id="LOCAL-00065" summary="Blablabla">
-      <created>1682938738613</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1682938738613</updated>
-    </task>
-    <task id="LOCAL-00066" summary="Engine Fertig, !!!!!VIELE BUGS!!!!">
-      <created>1682959556458</created>
-      <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL-00066" />
-      <option name="project" value="LOCAL" />
-      <updated>1682959556459</updated>
-    </task>
-    <task id="LOCAL-00067" summary="Asset fixes">
-      <created>1683014260390</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1683014260391</updated>
-    </task>
-    <task id="LOCAL-00068" summary="AssetPool Javadoc and Search for files">
-      <created>1683016644625</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1683016644626</updated>
-    </task>
-    <task id="LOCAL-00069" summary="AssetPool Javadoc and Search for files">
-      <created>1683016677146</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1683016677146</updated>
-    </task>
-    <task id="LOCAL-00070" summary="AssetHolder für die Directories der Assets">
-      <created>1683017617146</created>
-      <option name="number" value="00070" />
-      <option name="presentableId" value="LOCAL-00070" />
-      <option name="project" value="LOCAL" />
-      <updated>1683017617146</updated>
-    </task>
-    <task id="LOCAL-00071" summary="Optimieren">
-      <created>1683020466173</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1683020466173</updated>
-    </task>
-    <task id="LOCAL-00072" summary="Ordner">
-      <created>1683024835377</created>
-      <option name="number" value="00072" />
-      <option name="presentableId" value="LOCAL-00072" />
-      <option name="project" value="LOCAL" />
-      <updated>1683024835377</updated>
-    </task>
-    <task id="LOCAL-00073" summary="Ordner">
-      <created>1683024932137</created>
-      <option name="number" value="00073" />
-      <option name="presentableId" value="LOCAL-00073" />
-      <option name="project" value="LOCAL" />
-      <updated>1683024932137</updated>
     </task>
     <task id="LOCAL-00074" summary="Für Dominik">
       <created>1683032198138</created>
@@ -672,82 +451,6 @@
       <option name="project" value="LOCAL" />
       <updated>1684913140033</updated>
     </task>
-    <option name="localTasksCounter" value="107" />
-    <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="RECENT_FILTERS">
-      <map>
-        <entry key="Branch">
-          <value>
-            <list>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="origin/Dominik" />
-                </option>
-              </RecentGroup>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="origin/Dev" />
-                </option>
-              </RecentGroup>
-            </list>
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="main" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Optimieren" />
-    <MESSAGE value="Ordner" />
-    <MESSAGE value="Für Dominik" />
-    <MESSAGE value="GameViewPortSize" />
-    <MESSAGE value="SOunds auskommentiert" />
-    <MESSAGE value="Sounds aus" />
-    <MESSAGE value="PHYSICS2D TEMP REMOVED - Refactor" />
-    <MESSAGE value="Serialize fix" />
-    <MESSAGE value="Zwischenspeichern in StartMenu" />
-    <MESSAGE value="Menu Creator Klasse für ButtonGUIs" />
-    <MESSAGE value="Scenes und Assets verbessert" />
-    <MESSAGE value="Asset Types und zentraler Getter für alle Assets" />
-    <MESSAGE value="Asset Types und zentraler Getter für alle Assets mit Template" />
-    <MESSAGE value="Game und Editor nicht mehr eigenständige Szene" />
-    <MESSAGE value="Playercharacter und VIEL refactoring der GameScene, EditorScene.&#10;Scene kann jetzt auch im Menu verwendet werden" />
-    <MESSAGE value="Fixed Errors von letztem Commit + Paar Dateien entfernt" />
-    <MESSAGE value="Debuggen start von ALLEM" />
-    <MESSAGE value="Fix für ImGUI" />
-    <MESSAGE value="Texture FIX" />
-    <MESSAGE value="Assets DebugMessage fürs Laden" />
-    <MESSAGE value="Referenz auf Scene erst nach initialisierung von currentscene in Window.&#10;Deshalb nimmt man .init() Methoden" />
-    <MESSAGE value="Refactoring und wieder paar Errors gefixt" />
-    <MESSAGE value="JavaDoc für Actor und wieder Refactoring" />
-    <MESSAGE value="Ende für Heute" />
-    <MESSAGE value="Content drawer fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Content drawer fix" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

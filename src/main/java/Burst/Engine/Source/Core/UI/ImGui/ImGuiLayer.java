@@ -195,7 +195,9 @@ public class ImGuiLayer {
         ImGuiStyleConfig.get().style();
         setupDockspace();
         currentScene.imgui();
-        ImGui.showDemoWindow();
+
+//        ImGui.showDemoWindow();
+
         DebugPanel.imgui();
         endFrame();
     }

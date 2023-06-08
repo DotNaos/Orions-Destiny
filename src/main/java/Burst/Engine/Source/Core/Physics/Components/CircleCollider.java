@@ -35,7 +35,7 @@ public class CircleCollider extends ActorComponent {
 
     @Override
     public void updateEditor(float dt) {
-        Vector2f center = new Vector2f(this.actor.transform.position).add(this.offset);
+        Vector2f center = new Vector2f(this.actor.getTransform().position).add(this.offset);
         DebugDraw.addCircle(center, this.radius);
 
         if (resetFixtureNextFrame) {

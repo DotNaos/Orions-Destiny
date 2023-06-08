@@ -1,7 +1,16 @@
 package Burst.Engine.Source.Core.Util;
 
+import imgui.ImVec2;
+import imgui.ImVec4;
+import imgui.type.ImInt;
+import org.joml.Vector2f;
+import org.joml.Vector3f;
 import org.joml.Vector4f;
 
+import java.io.*;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 import java.util.concurrent.atomic.AtomicLong;
 
 public class Util {
@@ -24,4 +33,54 @@ public class Util {
         float a = ((HEX) & 0xFF) / 255f;
         return new Vector4f(r, g, b, a);
     }
+
+    /**
+     * @param seed The value of a color channel from which to generate a new color value.
+     * @param range The maximum value of a color channel. Starts at 0.
+     * @return a new color value that is unique to the given value, but deterministic.
+     */
+    public static float generateUniqueColorValue(float seed, int range) {
+        float colorValue = (seed * 0.618033988749895f) % 1;
+
+        // map value in the given range
+        colorValue = colorValue * range;
+
+        return colorValue;
+    }
+
+    public static Object copy(Object value) {
+
+        // Check if the value is a primitive type
+        if (value.getClass().isPrimitive()) {
+            return value;
+        }
+
+        try {
+            Class<?> clazz = value.getClass();
+
+            Constructor<?> constructor = clazz.getConstructor();
+
+            Object copy = constructor.newInstance();
+
+            Field[] fields = clazz.getDeclaredFields();
+            for (Field field : fields) {
+                if (Modifier.isStatic(field.getModifiers()) || Modifier.isFinal(field.getModifiers())) {
+                    continue;
+                }
+                field.setAccessible(true);
+                Object fieldValue = field.get(value);
+                field.set(copy, fieldValue);
+            }
+
+            return copy;
+        } catch (Exception e) {
+            return value;
+        }
+    }
+
+
+
+
+
+
 }

@@ -21,7 +21,8 @@ void main()
     fTexId = aTexId;
     fEntityId = aEntityId;
 
-    gl_Position = uProjection * uView * vec4(aPos, 1.0);
+    // Calculate the position of the viewport and flipping the y axis
+    gl_Position = uProjection * uView * vec4(aPos, 1.0) * vec4(1.0, -1.0, 1.0, 1.0);
 }
 
 #type fragment
@@ -34,7 +35,7 @@ in float fEntityId;
 
 uniform sampler2D uTextures[8];
 
-out vec3 color;
+out vec4 color;
 
 void main()
 {
@@ -43,9 +44,12 @@ void main()
         int id = int(fTexId);
         texColor = fColor * texture(uTextures[id], fTexCoords);
     }
-
     if (texColor.a < 0.5) {
         discard;
     }
-    color = vec3(fEntityId, fEntityId, fEntityId);
+
+
+    color = vec4(fEntityId, fEntityId, fEntityId, fEntityId);
+
+
 }

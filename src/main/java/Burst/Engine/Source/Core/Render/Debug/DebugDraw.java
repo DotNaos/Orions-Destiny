@@ -11,6 +11,7 @@ import org.joml.Vector2f;
 import org.joml.Vector3f;
 import org.joml.Vector4f;
 
+import java.nio.FloatBuffer;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -84,7 +85,7 @@ public class DebugDraw {
                 // Load position
                 vertexArray[index] = position.x;
                 vertexArray[index + 1] = position.y;
-                vertexArray[index + 2] = 0.0f;
+                vertexArray[index + 2] = 10.0f;
 
                 // Load the color
                 vertexArray[index + 3] = color.x;
@@ -120,8 +121,9 @@ public class DebugDraw {
         shader.detach();
     }
 
+ 
     //!==================================================
-    // Add line2D methods
+    //! Add line2D methods
     //!==================================================
     public static void addLine(Vector2f from, Vector2f to) {
         addLine(from, to, new Vector4f(Color_Config.GREEN));

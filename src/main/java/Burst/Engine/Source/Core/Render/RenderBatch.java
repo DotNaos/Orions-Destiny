@@ -1,9 +1,11 @@
 package Burst.Engine.Source.Core.Render;
 
+import Burst.Engine.Config.Shader_Config;
 import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Assets.Graphics.Shader;
 import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Burst.Engine.Source.Core.UI.Window;
+import Orion.res.AssetConfig;
 import org.joml.Matrix4f;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
@@ -137,7 +139,7 @@ public class RenderBatch implements Comparable<RenderBatch> {
             }
 
             // TODO: get better solution for this
-            if (spr.actor.transform.zIndex != this.zIndex) {
+            if (spr.actor.getTransform().zIndex != this.zIndex) {
                 destroyIfExists(spr.actor);
                 viewportRenderer.add(spr.actor);
                 i--;
@@ -150,8 +152,12 @@ public class RenderBatch implements Comparable<RenderBatch> {
 
         // Use shader
         Shader shader = ViewportRenderer.getBoundShader();
-        shader.uploadMat4f("uProjection", Window.getScene().getViewport().getProjectionMatrix());
-        shader.uploadMat4f("uView", Window.getScene().getViewport().getViewMatrix());
+        Matrix4f projectionMatrix = Window.getScene().getViewport().getProjectionMatrix();
+
+        Matrix4f viewMatrix = Window.getScene().getViewport().getViewMatrix();
+
+        shader.uploadMat4f("uProjection", projectionMatrix);
+        shader.uploadMat4f("uView", viewMatrix);
         for (int i = 0; i < textures.size(); i++) {
             glActiveTexture(GL_TEXTURE0 + i + 1);
             textures.get(i).bind();
@@ -209,12 +215,12 @@ public class RenderBatch implements Comparable<RenderBatch> {
             }
         }
 
-        boolean isRotated = sprite.actor.transform.rotation != 0.0f;
+        boolean isRotated = sprite.actor.getTransform().rotation != 0.0f;
         Matrix4f transformMatrix = new Matrix4f().identity();
         if (isRotated) {
-            transformMatrix.translate(sprite.actor.transform.position.x, sprite.actor.transform.position.y, 0f);
-            transformMatrix.rotate((float) Math.toRadians(sprite.actor.transform.rotation), 0, 0, 1);
-            transformMatrix.scale(sprite.actor.transform.size.x, sprite.actor.transform.size.y, 1);
+            transformMatrix.translate(sprite.actor.getTransform().position.x, sprite.actor.getTransform().position.y, 0f);
+            transformMatrix.rotate((float) Math.toRadians(sprite.actor.getTransform().rotation), 0, 0, 1);
+            transformMatrix.scale(sprite.actor.getTransform().size.x, sprite.actor.getTransform().size.y, 1);
         }
 
         // Add vertices with the appropriate properties
@@ -229,7 +235,7 @@ public class RenderBatch implements Comparable<RenderBatch> {
                 yAdd = 0.5f;
             }
 
-            Vector4f currentPos = new Vector4f(sprite.actor.transform.position.x + (xAdd * sprite.actor.transform.size.x), sprite.actor.transform.position.y + (yAdd * sprite.actor.transform.size.y), 0, 1);
+            Vector4f currentPos = new Vector4f(sprite.actor.getTransform().position.x + (xAdd * sprite.actor.getTransform().size.x), sprite.actor.getTransform().position.y + (yAdd * sprite.actor.getTransform().size.y), 0, 1);
             if (isRotated) {
                 currentPos = new Vector4f(xAdd, yAdd, 0, 1).mul(transformMatrix);
             }

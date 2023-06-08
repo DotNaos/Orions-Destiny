@@ -2,6 +2,7 @@ package Burst.Engine.Source.Core.UI;
 
 import Burst.Engine.Config.Shader_Config;
 import Burst.Engine.Source.Core.Actor.Actor;
+import Burst.Engine.Source.Core.Assets.Asset;
 import Burst.Engine.Source.Core.Assets.AssetManager;
 import Burst.Engine.Source.Core.Assets.Graphics.Shader;
 import Burst.Engine.Source.Core.Render.Debug.DebugDraw;
@@ -36,6 +37,7 @@ import static org.lwjgl.system.MemoryUtil.NULL;
 
 public class Window implements Observer {
     private static boolean isPlaying = false;
+    private static boolean imguiActive = false;
     private static Window window = null;
     private static Scene currentScene;
     private final String title;
@@ -103,6 +105,10 @@ public class Window implements Observer {
 
     public static ImGuiLayer getImguiLayer() {
         return get().imguiLayer;
+    }
+
+    public static boolean isImguiActive() {
+        return imguiActive;
     }
 
     public void run() {
@@ -190,6 +196,7 @@ public class Window implements Observer {
         this.pickingTexture = new PickingTexture(ViewportRenderer.getViewportSize().x, ViewportRenderer.getViewportSize().y);
         glViewport(0, 0, ViewportRenderer.getViewportSize().x, ViewportRenderer.getViewportSize().y);
 
+
         this.imguiLayer = new ImGuiLayer(glfwWindow);
         this.imguiLayer.initImGui();
 
@@ -214,7 +221,7 @@ public class Window implements Observer {
             pickingTexture.enableWriting();
 
             glViewport(0, 0, Window.getWidth() , Window.getHeight());
-            glClearColor(0, 0, 0, 1);
+            glClearColor(0, 0, 0, 0);
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
             ViewportRenderer.bindShader(pickingShader);
@@ -239,7 +246,11 @@ public class Window implements Observer {
             }
             this.framebuffer.unbind();
 
+
+
+            imguiActive = true;
             this.imguiLayer.update(dt, currentScene);
+            imguiActive = false;
 
             KeyListener.endFrame();
             MouseListener.endFrame();
@@ -255,20 +266,22 @@ public class Window implements Observer {
         glfwSetCursor(glfwWindow, cursor);
     }
 
+    public PickingTexture getPickingTexture() {
+        return get().pickingTexture;
+    }
+
     @Override
     public void onNotify(Actor object, Event event) {
         switch (event.type) {
             case GameEngineStartPlay -> {
                 isPlaying = true;
-                currentScene.getGame().saveLevel();
-                Window.changeScene(SceneType.GAME);
+//                currentScene.getEditor().setPlaying(true);
             }
             case GameEngineStopPlay -> {
                 isPlaying = false;
-                Window.changeScene(SceneType.EDITOR);
             }
             case LoadLevel -> {
-                Window.changeScene(SceneType.GAME);
+//                Window.changeScene(SceneType.GAME);
             }
             case SaveLevel -> {
                 assert currentScene.getGame() != null;

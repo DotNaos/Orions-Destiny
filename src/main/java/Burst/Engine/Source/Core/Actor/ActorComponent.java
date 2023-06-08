@@ -6,6 +6,7 @@ import org.joml.Vector2f;
 
 public class ActorComponent extends Component {
   public transient Actor actor = null;
+
   public ActorComponent(Actor actor) {
     super();
     this.actor = actor;
@@ -26,4 +27,15 @@ public class ActorComponent extends Component {
   public void postSolve(Actor collidinactorbject, Contact contact, Vector2f hitNormal) {
 
   }
+
+  @Override
+  public void update(float dt) {
+    super.update(dt);
+  }
+
+    @Override
+  public void imgui() {
+    super.imgui();
+  }
+
 }

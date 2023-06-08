@@ -114,8 +114,5 @@ public class GridLines extends Component {
     }
   }
 
-  public void imgui() {
-    super.imgui();
-  }
 }
 

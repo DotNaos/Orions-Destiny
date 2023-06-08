@@ -35,7 +35,7 @@ public class PlayerController extends ActorComponent {
     @Override
     public void update(float dt) {
         if (KeyListener.isKeyPressed(HotKeys.get().PlayerMoveRight)) {
-            this.actor.transform.size.x = playerWidth;
+            this.actor.getTransform().size.x = playerWidth;
             this.acceleration.x = walkSpeed;
 
             if (this.velocity.x < 0) {
@@ -45,7 +45,7 @@ public class PlayerController extends ActorComponent {
                 this.stateMachine.trigger("startRunning");
             }
         } else if (KeyListener.isKeyPressed(HotKeys.get().PlayerMoveLeft)) {
-            this.actor.transform.size.x = -playerWidth;
+            this.actor.getTransform().size.x = -playerWidth;
             this.acceleration.x = -walkSpeed;
 
             if (this.velocity.x > 0) {
@@ -82,12 +82,12 @@ public class PlayerController extends ActorComponent {
     }
 
     public void move(Vector2f amount) {
-        this.actor.transform.position.add(amount);
-        this.rb.setPosition(this.actor.transform.position);
+        this.actor.getTransform().position.add(amount);
+        this.rb.setPosition(this.actor.getTransform().position);
     }
 
     public void setPosition(Vector2f newPos) {
-        this.actor.transform.position.set(newPos);
+        this.actor.getTransform().position.set(newPos);
         this.rb.setPosition(newPos);
     }
 

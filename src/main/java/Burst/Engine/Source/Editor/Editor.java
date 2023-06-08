@@ -3,6 +3,7 @@ package Burst.Engine.Source.Editor;
 import Burst.Engine.Config.ImGuiStyleConfig;
 import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Component;
+import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Core.Util.DebugMessage;
 import Burst.Engine.Source.Game.Game;
 import Burst.Engine.Source.Editor.Components.KeyControls;
@@ -15,6 +16,7 @@ import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
 import imgui.ImGui;
 import imgui.flag.ImGuiCol;
 import imgui.flag.ImGuiStyleVar;
+import imgui.flag.ImGuiTableColumnFlags;
 
 public class Editor extends Game {
 
@@ -26,7 +28,7 @@ public class Editor extends Game {
         super.init();
 
         // Variables
-        this.components.add(new PickingTexture());
+        this.components.add(Window.get().getPickingTexture());
         this.components.add(new EditorCamera(this.scene.getViewport()));
 
         // Panels
@@ -40,6 +42,7 @@ public class Editor extends Game {
         this.components.add(new MouseControls());
         this.components.add(new KeyControls());
         this.components.add(new GridLines());
+
     }
 
     @Override
@@ -61,18 +64,25 @@ public class Editor extends Game {
         if (ImGui.beginTabBar("EditorTabs")) {
             if (ImGui.beginTabItem("Style"))
             {
-                ImGui.beginTable("EditorTable", 2);
-                ImGui.pushStyleColor(ImGuiCol.Border, 1.0f, 1.0f, 1.0f, 0.2f);
-                ImGui.pushStyleVar(ImGuiStyleVar.FrameBorderSize, 1.0f);
-                ImGui.pushStyleVar(ImGuiStyleVar.ItemSpacing, 20f, 20f);
-                ImGuiStyleConfig.get().imgui();
+                if(ImGui.beginTable("EditorStyle", 2))
+                {
 
-                ImGui.popStyleColor();
-                ImGui.popStyleVar(2);
+                    // The second column is max 2/3 of the size of the first column
+                    ImGui.tableSetupColumn("", ImGuiTableColumnFlags.WidthStretch, 0.5f);
 
-                ImGui.endTable();
-                ImGui.endTabItem();
+                    ImGui.pushStyleColor(ImGuiCol.Border, 1.0f, 1.0f, 1.0f, 0.2f);
+                    ImGui.pushStyleVar(ImGuiStyleVar.FrameBorderSize, 1.0f);
+                    ImGui.pushStyleVar(ImGuiStyleVar.ItemSpacing, 20f, 20f);
+                    ImGuiStyleConfig.get().imgui();
 
+                    ImGui.popStyleColor();
+                    ImGui.popStyleVar(2);
+
+
+
+                    ImGui.endTable();
+                    ImGui.endTabItem();
+                }
             }
 
             // Components imgui
@@ -80,20 +90,24 @@ public class Editor extends Game {
             {
 
                 for (Component component : components) {
-
                     if (!component.isEditableInImGui()) continue;
                     if(ImGui.collapsingHeader(component.getClass().getSimpleName())) {
-                        ImGui.beginTable("EditorTable", 2);
-                        ImGui.pushStyleColor(ImGuiCol.Border, 1.0f, 1.0f, 1.0f, 0.2f);
-                        ImGui.pushStyleVar(ImGuiStyleVar.FrameBorderSize, 1.0f);
-                        ImGui.pushStyleVar(ImGuiStyleVar.ItemSpacing, 20f, 20f);
+                        if(ImGui.beginTable("EditorComponents", 2))
+                        {
+                            // The second column is max 2/3 of the size of the first column
+                            ImGui.tableSetupColumn("", ImGuiTableColumnFlags.WidthStretch, 0.5f);
 
-                        component.imgui();
+                            ImGui.pushStyleColor(ImGuiCol.Border, 1.0f, 1.0f, 1.0f, 0.2f);
+                            ImGui.pushStyleVar(ImGuiStyleVar.FrameBorderSize, 1.0f);
+                            ImGui.pushStyleVar(ImGuiStyleVar.ItemSpacing, 20f, 20f);
 
-                        ImGui.popStyleColor();
-                        ImGui.popStyleVar(2);
+                            component.imgui();
 
-                        ImGui.endTable();
+                            ImGui.popStyleColor();
+                            ImGui.popStyleVar(2);
+
+                            ImGui.endTable();
+                        }
                     }
                 }
                 ImGui.endTabItem();

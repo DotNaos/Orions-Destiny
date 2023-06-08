@@ -12,9 +12,12 @@ import Burst.Engine.Source.Core.UI.Window;
 import imgui.ImGui;
 import imgui.ImGuiViewport;
 import imgui.ImVec2;
+import imgui.flag.ImGuiCol;
 import imgui.flag.ImGuiCond;
+import imgui.flag.ImGuiTableColumnFlags;
 import imgui.flag.ImGuiWindowFlags;
 import org.joml.Vector2f;
+import org.joml.Vector2i;
 import org.joml.Vector3f;
 
 public class ViewportPanel extends ImGuiPanel {
@@ -47,16 +50,42 @@ public class ViewportPanel extends ImGuiPanel {
         ImGui.begin("Viewport", ImGuiWindowFlags.NoTitleBar | ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoScrollWithMouse | ImGuiWindowFlags.MenuBar | inGameFlags);
 
         if (!inGame) {
-            ImGui.beginMenuBar();
-            if (ImGui.menuItem("Play", "", isPlaying, !isPlaying)) {
-                isPlaying = true;
-                EventSystem.notify(null, new Event(EventType.GameEngineStartPlay));
-            }
-            if (ImGui.menuItem("Stop", "", !isPlaying, isPlaying)) {
-                isPlaying = false;
-                EventSystem.notify(null, new Event(EventType.GameEngineStopPlay));
-            }
+            if (ImGui.beginMenuBar())
+            {
+
+                if (ImGui.menuItem("Play", "", isPlaying, !isPlaying)) {
+                    isPlaying = true;
+                    EventSystem.notify(null, new Event(EventType.GameEngineStartPlay));
+                }
+                if (ImGui.menuItem("Stop", "", !isPlaying, isPlaying)) {
+                    isPlaying = false;
+                    EventSystem.notify(null, new Event(EventType.GameEngineStopPlay));
+                }
+
+                // Show the current mouse position in the viewport and screen
+                // in the center of the menu bar
+                ImGui.sameLine(ImGui.getContentRegionAvailX() / 2 - 100);
+
+                // World
+                ImGui.text("World | X: " + MouseListener.getWorldX() + " Y: " + MouseListener.getWorldY() + " | " + "\t");
+
+                ImGui.sameLine();
+
+                // Screen
+                ImGui.text("Screen | X: " + (int) MouseListener.getScreenX() + " Y: " + (int) MouseListener.getScreenY() + " | ");
+
+                // Viewport
+//                ImGui.text("Viewport | X: " + MouseListener.getViewX() + " Y: " + MouseListener.getViewY() + " | ");
+
+                // ViewToWorld
+//            ImGui.text("ViewToWorld | X: " + MouseListener.viewToWorld(MouseListener.getView()).x + " Y: " + MouseListener.viewToWorld(MouseListener.getView()).y + " | ");
+
+                // ViewToScreen
+//            ImGui.text("ViewToScreen | X: " + (int) MouseListener.viewToScreen(MouseListener.getView()).x + " Y: " + (int) MouseListener.viewToScreen(MouseListener.getView()).y + " | ");
+
+
             ImGui.endMenuBar();
+            }
         }
 
 

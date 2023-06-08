@@ -27,7 +27,7 @@ public class Physics2D {
             Actor actor,
             float innerPlayerWidth,
             float height) {
-        Vector2f raycastBegin = new Vector2f(actor.transform.position);
+        Vector2f raycastBegin = new Vector2f(actor.getTransform().position);
         raycastBegin.sub(innerPlayerWidth / 2.0f, 0.0f);
         Vector2f raycastEnd = new Vector2f(raycastBegin).add(0.0f, height);
 
@@ -48,7 +48,7 @@ public class Physics2D {
     public void add(Actor actor) {
         Rigidbody2D rb = actor.getComponent(Rigidbody2D.class);
         if (rb != null && rb.getRawBody() == null) {
-            Transform transform = actor.transform;
+            Transform transform = actor.getTransform();
 
             BodyDef bodyDef = new BodyDef();
             bodyDef.angle = (float) Math.toRadians(transform.rotation);
