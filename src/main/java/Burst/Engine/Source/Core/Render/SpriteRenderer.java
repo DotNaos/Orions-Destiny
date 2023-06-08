@@ -49,13 +49,6 @@ public class SpriteRenderer extends ActorComponent {
         }
     }
 
-    @Override
-    public void imgui() {
-        if (BImGui.colorPicker4("Color Picker", this.color)) {
-            this.isDirty = true;
-        }
-    }
-
     public void setDirty() {
         this.isDirty = true;
     }

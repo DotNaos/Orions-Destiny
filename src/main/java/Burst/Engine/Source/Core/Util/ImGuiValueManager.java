@@ -1,10 +1,11 @@
 package Burst.Engine.Source.Core.Util;
 
+import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
 import Burst.Engine.Source.Core.Assets.Graphics.Texture;
-import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.UI.ImGui.BImGui;
-import com.google.gson.JsonArray;
 import imgui.ImGui;
+import imgui.ImVec2;
+import imgui.ImVec4;
 import imgui.type.ImInt;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
@@ -12,26 +13,71 @@ import org.joml.Vector4f;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public interface ImGuiValueManager {
-    void getInitialValues();
-    void ImGuiShowFields();
 
-    default void displayField(Field field, Component c, Map<String, Object> initialValues) throws IllegalAccessException {
+  private boolean shouldAccess(Field field) throws IllegalAccessException {
+      // Check if the field has no modifiers -> notify the developer
+      boolean noModifiers = field.getModifiers() == 0;
+      if (noModifiers) {
+        throw new IllegalAccessException("Field '" + field.getName() + "' has no modifiers");
+      }
+
       boolean isTransient = Modifier.isTransient(field.getModifiers());
       if (isTransient) {
-        return;
+        return false;
       }
 
       boolean isPrivate = Modifier.isPrivate(field.getModifiers());
       boolean isProtected = Modifier.isProtected(field.getModifiers());
       boolean isStatic = Modifier.isStatic(field.getModifiers());
       if (isPrivate || isProtected ||isStatic) {
-          field.setAccessible(true);
+        field.setAccessible(true);
       }
 
-      Object value = field.get(c);
+      return true;
+    }
+
+  default void getInitialValues(Object obj, List<String> ignoreFields, Map<String, Object> initialValues) throws IllegalAccessException {
+    initialValues.clear();
+
+    Field[] fields = obj.getClass().getDeclaredFields();
+    for (Field field : fields) {
+      shouldAccess(field);
+
+      try {
+        Object value = field.get(obj);
+
+        // Make a copy of the value
+        if (value instanceof Vector2f) {
+          value = new Vector2f((Vector2f) value);
+        } else if (value instanceof Vector3f) {
+          value = new Vector3f((Vector3f) value);
+        } else if (value instanceof Vector4f) {
+          value = new Vector4f((Vector4f) value);
+        } else if (value instanceof ImInt) {
+          value = new ImInt((ImInt) value);
+        } else if (value instanceof ImVec2) {
+          value = new ImVec2((ImVec2) value);
+        } else if (value instanceof ImVec4) {
+          value = new ImVec4((ImVec4) value);
+        }
+        initialValues.put(field.getName(), value);
+      } catch (IllegalAccessException e) {
+        DebugMessage.loadFail("Failed to get initial value of field: " + field.getName());
+      }
+
+      revertAccess(field);
+    }
+  }
+  default void displayField(Field field, Object obj, Map<String, Object> initialValues) throws IllegalAccessException {
+      if (!shouldAccess(field)) return;
+
+
+      Object value = field.get(obj);
       Class type = field.getType();
       String name = field.getName();
 
@@ -46,17 +92,17 @@ public interface ImGuiValueManager {
       ImGui.tableNextColumn();
       if (type.equals(int.class)) {
         int val = (int) value;
-        field.set(this, BImGui.dragInt(name, val, (int) initialValue));
+        field.set(obj, BImGui.dragInt(name, val, (int) initialValue));
       }
       else if (type.equals(float.class))
       {
         float val =  (float) value;
-        field.set(this, BImGui.dragFloat(name, val, (float) initialValue));
+        field.set(obj, BImGui.dragFloat(name, val, (float) initialValue));
       }
       else if (type.equals(double.class))
       {
         double val = (double) value;
-        field.set(this, BImGui.dragDouble(name, val, (double) initialValue));
+        field.set(obj, BImGui.dragDouble(name, val, (double) initialValue));
       }
       else if (type.equals(long.class))
       {
@@ -69,7 +115,7 @@ public interface ImGuiValueManager {
         ImGui.pushID(name);
         if (ImGui.checkbox("", val))
         {
-          field.set(this, !val);
+          field.set(obj, !val);
         }
         ImGui.popID();
       }
@@ -92,13 +138,54 @@ public interface ImGuiValueManager {
       else if (type.equals(Texture.class))
       {
         Texture val = (Texture) value;
+
+        int defaultSpriteWidth = 128;
+
+        float textureWidth = val.getWidth();
+        float textureHeight = val.getHeight();
+
+        float spriteWidthRatio = textureWidth / defaultSpriteWidth;
+
+        Vector2f textureSize = new Vector2f(defaultSpriteWidth,  textureHeight / spriteWidthRatio);
+
         // if hovered show preview of texture
         // Also show file path below
-        ImGui.image(val.getTexID(), 64, 64);
+        ImGui.image(val.getTexID(), textureSize.x, textureSize.y);
         if (ImGui.isItemHovered())
         {
           ImGui.beginTooltip();
-          ImGui.image(val.getTexID(), 128, 128);
+          ImGui.image(val.getTexID(), textureSize.x * 1.5f, textureSize.y * 1.5f);
+          ImGui.text(val.getFilepath());
+          ImGui.endTooltip();
+        }
+      }
+      else if (type.equals(Sprite.class))
+      {
+        Sprite val = (Sprite) value;
+        Vector2f[] texCoords = val.getTexCoords();
+
+        float uv0X = texCoords[1].x;
+        float uv0Y = texCoords[1].y;
+        float uv1X = texCoords[3].x;
+        float uv1Y  = texCoords[3].y;
+
+        int defaultSpriteWidth = 256;
+
+        float spriteWidth = val.getWidth();
+        float spriteHeight = val.getHeight();
+
+        float spriteWidthRatio = spriteWidth / defaultSpriteWidth;
+
+        Vector2f spriteSize = new Vector2f(defaultSpriteWidth,  spriteHeight / spriteWidthRatio);
+
+
+        // if hovered show preview of texture
+        // Also show file path below
+        ImGui.image(val.getTexID(), spriteSize.x, spriteSize.y, uv0X, uv0Y, uv1X, uv1Y);
+        if (ImGui.isItemHovered())
+        {
+          ImGui.beginTooltip();
+          ImGui.image(val.getTexID(), spriteSize.x * 1.5f, spriteSize.y * 1.5f, uv0X, uv0Y, uv1X, uv1Y);
           ImGui.text(val.getFilepath());
           ImGui.endTooltip();
         }
@@ -111,21 +198,40 @@ public interface ImGuiValueManager {
 
         if (ImGui.combo(field.getName(), index, enumValues, enumValues.length))
         {
-          field.set(this, type.getEnumConstants()[index.get()]);
+          field.set(obj, type.getEnumConstants()[index.get()]);
         }
       }
       else if (type == String.class)
       {
-        field.set(this, BImGui.inputText(field.getName() + ": ", (String) value));
+        field.set(obj, BImGui.inputText(field.getName() + ": ", (String) value));
       }
 
       ImGui.tableNextRow();
 
-      if (isPrivate) {
-        field.setAccessible(false);
-      }
+      revertAccess(field);
     }
 
+  private static void revertAccess(Field field) {
+    boolean isPublic = Modifier.isPublic(field.getModifiers());
+    if (!isPublic) {
+      field.setAccessible(false);
+    }
+  }
+
+  default void ImGuiShowFields(Object obj, List<String> ignoreFields,  Map<String, Object> initialValues) {
+      try {
+        Field[] fields = obj.getClass().getDeclaredFields();
+        for (Field field : fields) {
+
+          // Do not display ignored fields
+          if (ignoreFields.contains(field.getName()) || field.getName().equals("$assertionsDisabled")) continue;
+
+          displayField(field, obj, initialValues);
+        }
+      } catch (IllegalAccessException e) {
+        e.printStackTrace();
+      }
+    }
     default  <T extends Enum<T>> String[] getEnumValues(Class<T> enumType) {
       String[] enumValues = new String[enumType.getEnumConstants().length];
       int i = 0;

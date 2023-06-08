@@ -27,4 +27,15 @@ public class ActorComponent extends Component {
   public void postSolve(Actor collidinactorbject, Contact contact, Vector2f hitNormal) {
 
   }
+
+  @Override
+  public void update(float dt) {
+    super.update(dt);
+  }
+
+    @Override
+  public void imgui() {
+    super.imgui();
+  }
+
 }

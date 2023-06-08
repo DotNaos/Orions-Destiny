@@ -1,6 +1,5 @@
 package Burst.Engine.Source.Core.UI.ImGui;
 
-import Burst.Engine.Config.Constants.Color_Config;
 import Burst.Engine.Source.Core.Assets.AssetManager;
 import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
 import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheet;
@@ -193,7 +192,9 @@ public class BImGui {
 
         Sprite sprite = sprites.getSprite(row , col);
         Vector2f[] texCoords = sprite.getTexCoords();
-        boolean reset = ImGui.imageButton(sprite.getTexId(), size.x, size.y, texCoords[2].x, texCoords[0].y, texCoords[0].x, texCoords[2].y);
+        ImGui.pushID("ResetButton" + Color);
+        boolean reset = ImGui.imageButton(sprite.getTexID(), size.x, size.y, texCoords[2].x, texCoords[0].y, texCoords[0].x, texCoords[2].y);
+        ImGui.popID();
         return reset;
     }
 
@@ -237,7 +238,12 @@ public class BImGui {
                     (int) (color.y * 255),
                     (int) (color.z * 255),
                     (int) (color.w * 255));
-            ImGui.setClipboardText(hex);
+            try {
+                ImGui.setClipboardText(hex);
+            } catch (Exception e) {
+                System.out.println("Failed to copy to clipboard");
+            }
+
 
             res = true;
         }

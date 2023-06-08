@@ -43,7 +43,6 @@ public class ContentDrawer extends ImGuiPanel {
      */
     @Override
     public void imgui() {
-
         ImGui.pushStyleColor(ImGuiCol.ChildBg, 0.125f, 0.125f,0.125f, 0.75f);
         ImGui.begin("Content Drawer");
 

@@ -67,6 +67,7 @@ public class Transform extends ActorComponent {
 
 //  @Override
 //  public void imgui() {
+//    ImGui.tableNextColumn();
 //    actor.setName(BImGui.inputText("Name: ", actor.getName()));
 //    BImGui.drawVec2Control("Position", this.position, new Vector2f(0));
 //    BImGui.drawVec2Control("Size", this.size, new Vector2f(1));

@@ -4,6 +4,7 @@ import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Actor.ActorComponent;
 import Burst.Engine.Source.Core.Assets.AssetManager;
 import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
+import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheet;
 import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.Physics.Physics2D;
@@ -61,7 +62,7 @@ public class Game {
 
      //? Debug code
 //         this.addActor(new Actor().setSprite(new Sprite().setTexture(AssetManager.getAssetFromType(AssetConfig.ICON_PLAYER, Texture.class))));
-//         this.addActor(new Actor().setSprite(new Sprite().setTexture(new Texture("Assets/images/spritesheets/pipes.png"))));
+         this.addActor(new Actor().setSprite(AssetManager.getAssetFromType(AssetConfig.BLOCKS, SpriteSheet.class).getSprite(10)));
      //? End debug code
 
 //        saveLevel();

@@ -2,13 +2,23 @@ package Burst.Engine.Source.Core.Assets.Graphics;
 
 import Burst.Engine.Source.Core.Assets.Asset;
 import org.joml.Vector2f;
-import org.joml.Vector3f;
 
 public class Sprite extends Asset {
 
     private float width, height;
 
     private transient Texture texture = null;
+    /**
+     * The texture coordinates of the sprite
+     * <p>
+     *   The texture coordinates are in the following order:
+     * <p>
+     *   1, 1 | 1, 0
+     * <p>
+     *   0, 0 | 0, 1
+     * <p>
+     *
+     */
     private Vector2f[] texCoords = {
             new Vector2f(1, 1),
             new Vector2f(1, 0),
@@ -82,7 +92,7 @@ public class Sprite extends Asset {
         this.height = height;
     }
 
-    public int getTexId() {
+    public int getTexID() {
         return texture == null ? -1 : texture.getTexID();
     }
 

@@ -112,6 +112,7 @@ public class StateMachine extends ActorComponent {
 
     @Override
     public void imgui() {
+        super.imgui();
         for (AnimationState state : states) {
             ImString title = new ImString(state.title);
             ImGui.inputText("State: ", title);
