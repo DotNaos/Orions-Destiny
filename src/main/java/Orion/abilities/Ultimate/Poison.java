@@ -1,6 +1,6 @@
 package Orion.abilities.Ultimate;
 
-import Orion.abilities.UltimateAbility;
+
 
 public class Poison extends UltimateAbility {
     public float actualDmg;

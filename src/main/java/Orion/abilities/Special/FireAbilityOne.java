@@ -1,4 +1,4 @@
-package Orion.abilities.SpecialAbility;
+package Orion.abilities.Special;
 
 public class FireAbilityOne extends SpecialAbility {
 

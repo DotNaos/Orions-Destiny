@@ -1,5 +1,6 @@
-package Orion.abilities;
+package Orion.abilities.Ultimate;
 
+import Orion.abilities.Ability;
 import org.joml.Vector2f;
 
 public class UltimateAbility extends Ability {
@@ -13,7 +14,7 @@ public class UltimateAbility extends Ability {
     protected float dmg;
     protected float dmgArea;
     protected float heal;
-//    protected float healArea;
+    //    protected float healArea;
     protected float knockback;
     protected float slowDown;
     protected float staminaCost;

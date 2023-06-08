@@ -1,4 +1,4 @@
-package Orion.abilities.UltimateAbility;
+package Orion.abilities.Special;
 
 import Orion.abilities.Ability;
 
@@ -40,6 +40,14 @@ public class PoisonAbility extends Ability {
      */
     @Override
     public void activate() {
+
+    }
+
+    /**
+     *
+     */
+    @Override
+    public void init() {
 
     }
 }

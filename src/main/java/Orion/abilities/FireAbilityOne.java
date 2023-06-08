@@ -1,5 +1,6 @@
 package Orion.abilities;
 
+import Orion.abilities.Special.SpecialAbility;
 import Orion.characters.PlayerCharacter;
 
 public class FireAbilityOne extends SpecialAbility {
@@ -11,9 +12,7 @@ public class FireAbilityOne extends SpecialAbility {
     private float animationLength;
     private boolean collision;
 
-    public FireAbilityOne(PlayerCharacter playerCharacter) {
-        super(playerCharacter);
-    }
+
 
     public float getDamage(){
         return this.damage;

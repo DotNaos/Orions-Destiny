@@ -1,6 +1,4 @@
-package Orion.abilities.SpecialAbility;
-
-import java.util.ArrayList;
+package Orion.abilities.Special;
 
 import Orion.abilities.Ability;
 import org.joml.Vector2f;
@@ -9,7 +7,7 @@ import org.joml.Vector2f;
 import static org.joml.Math.sin;
 
 
-public class FireAbility extends Ability
+public class FireAbility extends SpecialAbility
 {
     // creates a fire vortex around enemies and damages them
     // causes damage over time
@@ -21,7 +19,7 @@ public class FireAbility extends Ability
     private Vector2f direction;
 
     // Constructor
-    public FireAbility(String name, String description, int cost) {
+    public FireAbility() {
 
         position = new Vector2f(
             0, 0

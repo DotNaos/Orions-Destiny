@@ -1,11 +1,9 @@
 package Orion.abilities.Ultimate;
 
-import Orion.abilities.UltimateAbility;
-
-public class EnergyAbility extends UltimateAbility {
+public class Energy extends UltimateAbility {
     public float actualDmg;
 
-    public EnergyAbility()
+    public Energy()
     {
       super();
       this.bulletSize = 0;

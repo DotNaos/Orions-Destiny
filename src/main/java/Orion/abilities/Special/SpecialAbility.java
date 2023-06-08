@@ -1,14 +1,13 @@
-package Orion.abilities;
+package Orion.abilities.Special;
 
 import Burst.Engine.Source.Core.Input.KeyListener;
+import Orion.abilities.Ability;
 import Orion.characters.PlayerCharacter;
 
-public class SpecialAbility extends Ability{
+public class SpecialAbility extends Ability {
 
 
-    public SpecialAbility(PlayerCharacter playerCharacter) {
 
-    }
 
     /**
      * kjlkslghsglh

@@ -1,4 +1,5 @@
-package Orion.abilities.SpecialAbility;
+package Orion.abilities.Special;
+
 
 import Orion.abilities.Ability;
 
@@ -17,6 +18,14 @@ public class DarkAbility extends Ability {
      */
     @Override
     public void activate() {
+
+    }
+
+    /**
+     *
+     */
+    @Override
+    public void init() {
 
     }
 }

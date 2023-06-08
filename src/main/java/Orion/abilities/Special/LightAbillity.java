@@ -1,4 +1,4 @@
-package Orion.abilities.UltimateAbility;
+package Orion.abilities.Special;
 
 import java.util.ArrayList;
 
@@ -75,4 +75,12 @@ public class LightAbillity extends Ability
      public void activate() {
 
      }
+
+   /**
+    *
+    */
+   @Override
+   public void init() {
+
+   }
  }

@@ -1,23 +1,24 @@
-package Orion.abilities.SpecialAbility;
+package Orion.abilities.Special;
 
-import Orion.abilities.Ability;
-
-public class IceAbilityOne extends Ability{
-
+public class IceAbilityTwo {
     private float damage;
     private float speedSlow;
+    private float travellingSpeed;
     private float animationLength;
     private boolean collision;
 
-
-    public float getDamage() {
-        return this.damage;
+    public float getDamage(float damage) {
+        damage = 35;
+        return damage;
     }
 
     public float getSpeedSlow() {
         return this.speedSlow;
     }
 
+    public float getTravellingSpeed() {
+        return this.travellingSpeed;
+    }
 
     public float getAnimationLength() {
         return this.animationLength;
@@ -26,9 +27,4 @@ public class IceAbilityOne extends Ability{
     public boolean isCollision() {
         return this.collision;
     }
-
-        @Override
-        public void activate() {
-
-        }
 }

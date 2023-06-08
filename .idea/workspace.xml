@@ -9,18 +9,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="Viewport in Game und Loading">
+    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="Dominik Merge">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Abilities/AbilityDraw.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Game/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ability.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ability.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/FireAbilityOne.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/FireAbilityOne.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/PassiveAbility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/PassiveAbility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/SpecialAbility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/SpecialAbility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/PassiveAbility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/passive/PassiveAbility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/PassiveAbility/PassiveAbility.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/SpecialAbility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/Special/SpecialAbility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/SpecialAbility/DarkAbility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/Special/DarkAbility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/SpecialAbility/FireAbility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/Special/FireAbility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/SpecialAbility/FireAbilityOne.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/Special/FireAbilityOne.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/SpecialAbility/IceAbilityOne.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/Special/IceAbilityOne.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/SpecialAbility/IceAbilityTwo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/Special/IceAbilityTwo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/SpecialAbility/SpecialAbility.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/EnergyAbility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/EnergyAbility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/UltimateAbility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/UltimateAbility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/characters/Apex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/characters/Apex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/characters/Aura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/characters/Aura.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/Explosion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/Explosion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/Fire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/Fire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/Heal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/Heal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/Ice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/Ice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/UltimateAbility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/UltimateAbility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/UltimateAbility/LightAbilityOne.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/LightAbilityOne.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/UltimateAbility/LightAbillity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/LightAbillity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/UltimateAbility/PoisonAbility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/PoisonAbility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/UltimateAbility/UltimateAbility.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,29 +89,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;OverrideImplement.generate.javadoc&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;A:/litiengine&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15179856&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "OverrideImplement.generate.javadoc": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "A:/Orions-Destiny/src/main/java/Orion/abilities",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15179856",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="A:\Orions-Destiny\src\main\java\Orion\abilities" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="A:\Orions-Destiny\src\main\java\Orion\abilities" />
       <recent name="A:\Orions-Destiny\Assets\images\textures\icons" />
       <recent name="D:\Projects\Java\Orions-Destiny\Assets\images\spritesheets" />
       <recent name="D:\Projects\Java\Orions-Destiny\Assets\fonts" />
@@ -231,14 +245,7 @@
       <workItem from="1686160597073" duration="603000" />
       <workItem from="1686181560042" duration="1634000" />
       <workItem from="1686209302024" duration="599000" />
-      <workItem from="1686227606156" duration="20482000" />
-    </task>
-    <task id="LOCAL-00009" summary="Formatting of files mit Strg+Alt+L">
-      <created>1683905798771</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1683905798771</updated>
+      <workItem from="1686227606156" duration="21828000" />
     </task>
     <task id="LOCAL-00010" summary="Scrolling im Editor geht wieder">
       <created>1683910843149</created>
@@ -576,14 +583,20 @@
       <option name="project" value="LOCAL" />
       <updated>1686251203117</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="Dominik Merge">
+      <created>1686253286499</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1686253286499</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="ViewportSize extra und HotKeys in eigener Datei" />
     <MESSAGE value="Assets Updated. Sehr gut" />
     <MESSAGE value="Highlighted Sections" />
     <MESSAGE value="CMD output besser" />
@@ -608,7 +621,8 @@
     <MESSAGE value="Initialvalues mit Object Copy" />
     <MESSAGE value="Saving Level Mit Timer. Problem war rekursion in initialValues. Fix: Transient" />
     <MESSAGE value="Viewport in Game und Loading" />
-    <option name="LAST_COMMIT_MESSAGE" value="Viewport in Game und Loading" />
+    <MESSAGE value="Dominik Merge" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dominik Merge" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -1,35 +1,42 @@
-package Orion.abilities.UltimateAbility;
+package Orion.abilities.Special;
 
 import Orion.abilities.Ability;
 
-public class LightAbilityOne extends Ability{
-    //Ultimate Ability die über die ganze map(sichtbaren bereich) geht?
+public class IceAbilityOne extends Ability{
+
     private float damage;
-    private float knockback;
+    private float speedSlow;
     private float animationLength;
     private boolean collision;
+
 
     public float getDamage() {
         return this.damage;
     }
 
-    public float getKnockback() {
-        return this.knockback;
+    public float getSpeedSlow() {
+        return this.speedSlow;
     }
+
 
     public float getAnimationLength() {
         return this.animationLength;
     }
 
-    public boolean getCollision() {
+    public boolean isCollision() {
         return this.collision;
     }
+
+        @Override
+        public void activate() {
+
+        }
 
     /**
      *
      */
     @Override
-    public void activate() {
+    public void init() {
 
     }
 }
