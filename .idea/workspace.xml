@@ -11,7 +11,7 @@
   <component name="ChangeListManager">
     <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="Introducing: enemies (warum machen wir unser projekt nicht so wie blizzard und brechen einfach ab?)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/enemies/EnemyCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/enemies/EnemyCharacter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/enemies/DarkMage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/enemies/DarkMage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -454,7 +454,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685737077960</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Introducing: enemies (warum machen wir unser projekt nicht so wie blizzard und brechen einfach ab?)">
+      <created>1686251156731</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1686251156732</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
