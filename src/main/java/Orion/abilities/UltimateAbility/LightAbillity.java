@@ -56,9 +56,27 @@ public class LightAbillity extends Ability
         // If it does, destroy the enemy
 
         // Get the enemies
+        ArrayList<Enemy> enemies = new ArrayList<Enemy>();
 
         // Loop through the enemies
+        for (Enemy enemy : enemies) {
+            // Get the enemy's position
+            Vector2f enemyPosition = new Vector2f();
 
+            // Get the enemy's rotation
+            float enemyRotation = 0;
+
+            // Get the enemy's size
+            float enemySize = 0;
+
+            // Get the enemy's bounding box
+
+            // Check if the light beam hits the enemy
+            // if (enemyBoundingBox.intersects(start, end)) {
+            //     // Destroy the enemy
+            //     // enemy.destroy();
+            // }
+        }
 
 
 
