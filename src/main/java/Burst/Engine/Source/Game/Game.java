@@ -33,12 +33,12 @@ import java.util.Timer;
 
 
 public class Game {
-    protected List<Actor> actors;
-    protected List<Actor> actorsToAdd;
-    protected List<Component> components;
-    protected Physics2D physics2D;
+    protected List<Actor> actors = new ArrayList<>();
+    protected List<Actor> actorsToAdd = new ArrayList<>();
+    protected List<Component> components = new ArrayList<>();
+    protected Physics2D physics2D = new Physics2D();
     protected Scene scene;
-    private ViewportRenderer viewportRenderer;
+    private ViewportRenderer viewportRenderer = new ViewportRenderer();
 
 
     // Timer for saving
@@ -49,12 +49,6 @@ public class Game {
     }
 
     public void init() {
-        this.viewportRenderer = new ViewportRenderer();
-        this.physics2D = new Physics2D();
-        this.actors = new ArrayList<>();
-        this.actorsToAdd = new ArrayList<>();
-        this.components = new ArrayList<>();
-
         DebugMessage.info("Game initializing...");
         DebugMessage.info("Opening Scene: " + scene.getOpenScene());
 
@@ -69,16 +63,13 @@ public class Game {
 //        Actor tmp = new Actor().setSprite(new Sprite().setTexture(AssetManager.getAssetFromType(AssetConfig.ICON_PLAYER, Texture.class)));
 //        tmp.getTransform().position.set(2, 0);
 //         this.addActor(tmp);
-         this.addActor(new Actor().setSprite(AssetManager.getAssetFromType(AssetConfig.BLOCKS, SpriteSheet.class).getSprite(10)));
      //? End debug code
 
 
-    for (Actor actor : actors) {
-        actor.init();
-    }
-    start();
-
-        // Save the level every 5 seconds
+        for (Actor actor : actors) {
+            actor.init();
+        }
+        start();
     }
 
     //! ====================================================================================================
@@ -132,10 +123,6 @@ public class Game {
         if (actor.getComponent(SpriteRenderer.class) != null) {
             this.viewportRenderer.add(actor);
         }
-
-        // Save the level if the actor is a serialized actor
-        if (!actor.isSerializedActor()) return;
-        saveLevel();
     }
 
     //! ====================================================================================================

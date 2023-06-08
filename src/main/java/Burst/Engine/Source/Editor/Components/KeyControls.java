@@ -28,8 +28,8 @@ public class KeyControls extends Component {
         }
 
         PropertiesPanel propertiesPanel = Window.getScene().getPanel(PropertiesPanel.class);
-        Actor activeActor = propertiesPanel.getActiveGameObject();
-        List<Actor> activeActors = propertiesPanel.getActiveGameObjects();
+        Actor activeActor = propertiesPanel.getActiveActor();
+        List<Actor> activeActors = propertiesPanel.getActiveActors();
         float multiplier = KeyListener.isKeyPressed(HotKeys.get().Modifier_EditorSlow) ? 0.1f : 1.0f;
 
 
@@ -39,7 +39,7 @@ public class KeyControls extends Component {
             assert Window.getScene().getEditor() != null;
             Window.getScene().getEditor().addActor(newObj);
             newObj.getTransform().position.add(GridLines_Config.SIZE, 0.0f);
-            propertiesPanel.setActiveGameObject(newObj);
+            propertiesPanel.setActiveActor(newObj);
             if (newObj.getComponent(StateMachine.class) != null) {
                 newObj.getComponent(StateMachine.class).refreshTextures();
             }
@@ -51,7 +51,7 @@ public class KeyControls extends Component {
                 Actor copy = actor.copy();
                 assert Window.getScene().getEditor() != null;
                 Window.getScene().getEditor().addActor(copy);
-                propertiesPanel.addActiveGameObject(copy);
+                propertiesPanel.addActiveActor(copy);
                 if (copy.getComponent(StateMachine.class) != null) {
                     copy.getComponent(StateMachine.class).refreshTextures();
                 }

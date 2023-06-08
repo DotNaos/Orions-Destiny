@@ -81,7 +81,7 @@ public class Gizmo extends ActorComponent {
     public void updateEditor(float dt) {
         if (!using) return;
 
-        this.activeActor = propertiesPanel.getActiveGameObject();
+        this.activeActor = propertiesPanel.getActiveActor();
         if (this.activeActor != null) {
             this.setActive();
         } else {

@@ -4,20 +4,19 @@ package Orion.abilities;
 import Orion.characters.PlayerCharacter;
 
 public abstract class Ability {
-    protected String name;
-    protected PlayerCharacter playerCharacter;
-    protected String description;
-    protected int cooldown;
-    protected int duration;
-
-    public Ability (){
-
-    }
+  protected String name;
+  protected PlayerCharacter playerCharacter;
+  protected String description;
+  protected int cooldown;
+  protected int duration;
+  private int activationInput;
 
 
-    private int activationInput;
+  public Ability() {
 
-    public abstract void activate();
+  }
 
-    public abstract void init ();
+  public abstract void activate();
+
+  public abstract void init();
 }

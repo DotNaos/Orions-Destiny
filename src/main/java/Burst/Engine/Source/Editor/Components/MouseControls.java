@@ -115,7 +115,7 @@ public class MouseControls extends Component {
 
             Actor pickedActor = game.getActor(actorID);
             if (pickedActor != null && pickedActor.getComponent(NonPickable.class) == null) {
-                propertiesPanel.setActiveGameObject(pickedActor);
+                propertiesPanel.setActiveActor(pickedActor);
 
             } else if (pickedActor == null && !MouseListener.isDragging()) {
                 propertiesPanel.clearSelected();
@@ -180,7 +180,7 @@ public class MouseControls extends Component {
             for (Integer gameObjectId : uniqueGameObjectIds) {
                 Actor pickedObj = game.getActor(gameObjectId);
                 if (pickedObj != null && pickedObj.getComponent(NonPickable.class) == null) {
-                    propertiesPanel.addActiveGameObject(pickedObj);
+                    propertiesPanel.addActiveActor(pickedObj);
                 }
             }
 

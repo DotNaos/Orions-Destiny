@@ -27,8 +27,12 @@ public class OutlinerPanel extends ImGuiPanel {
                 continue;
             }
 
-            boolean treeNodeOpen = doTreeNode(actor, index);
-            if (treeNodeOpen) {
+
+            if (doTreeNode(actor, index)) {
+                // Set active actor
+                if (ImGui.isItemClicked()) {
+                    Window.getScene().getPanel(PropertiesPanel.class).setActiveActor(actor);
+                }
                 ImGui.treePop();
             }
             index++;

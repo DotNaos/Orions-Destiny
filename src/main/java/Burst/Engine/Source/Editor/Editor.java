@@ -2,6 +2,8 @@ package Burst.Engine.Source.Editor;
 
 import Burst.Engine.Config.ImGuiStyleConfig;
 import Burst.Engine.Source.Core.Actor.Actor;
+import Burst.Engine.Source.Core.Assets.AssetManager;
+import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheet;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Core.Util.DebugMessage;
@@ -13,6 +15,7 @@ import Burst.Engine.Source.Core.Render.PickingTexture;
 import Burst.Engine.Source.Core.Scene.Scene;
 import Burst.Engine.Source.Editor.Panel.OutlinerPanel;
 import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
+import Orion.res.AssetConfig;
 import imgui.ImGui;
 import imgui.flag.ImGuiCol;
 import imgui.flag.ImGuiStyleVar;

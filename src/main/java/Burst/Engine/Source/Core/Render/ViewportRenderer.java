@@ -12,12 +12,12 @@ import java.util.List;
 public class ViewportRenderer extends Renderer {
     private static Shader currentShader;
     private final int MAX_BATCH_SIZE = 2000;
-    private List<RenderBatch> batches;
+    private List<RenderBatch> batches = new ArrayList<>();
 
     private static Vector2i viewportSize = new Vector2i(1920, 1080);
 
     public ViewportRenderer() {
-        this.batches = new ArrayList<>();
+
     }
 
     public static void bindShader(Shader shader) {

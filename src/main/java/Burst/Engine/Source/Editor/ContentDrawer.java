@@ -14,6 +14,8 @@ import Burst.Engine.Source.Core.UI.ImGui.ImGuiPanel;
 import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Core.Util.ClassDerivativeSearch;
 import Burst.Engine.Source.Core.Util.DebugMessage;
+import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
+import Orion.res.AssetConfig;
 import imgui.ImGui;
 import imgui.ImVec2;
 import imgui.flag.ImGuiCol;
@@ -78,11 +80,17 @@ public class ContentDrawer extends ImGuiPanel {
 
                     Texture texture = (Texture) iconValue;
 
+                    ImGui.pushID(actor.getSimpleName());
                     if (ImGui.imageButton(texture.getTexID(), iconSize, iconSize))
                     {
                         // If the button is clicked, create a new actor of the type
 //                        Window.getScene().getGame().addActor((Actor)actor.getDeclaredConstructor().newInstance());
+
+                       Actor obj = new Actor().setSprite(AssetManager.getAssetFromType(AssetConfig.BLOCKS, SpriteSheet.class).getSprite(10));
+                        Window.getScene().getEditor().addActor(obj);
+                        Window.getScene().getPanel(PropertiesPanel.class).setActiveActor(obj);
                     }
+                    ImGui.popID();
 
                     // Stop using the button colorss
                     ImGui.popStyleColor(3);

@@ -1,26 +1,26 @@
 package Orion.abilities.Ultimate;
 
 public class Energy extends UltimateAbility {
-    public float actualDmg;
+  public float actualDmg;
 
-    public Energy()
-    {
-      super();
-      this.bulletSize = 0;
-        this.dmg = 5;
-        this.heal = 0;
-        this.knockback = 0;
-        this.slowDown = 0;
-        this.staminaCost = 0;
-        this.traveltime = 0;
-        this.duration = 0;
-        this.cooldown = 0;
-        String animation;
-    }
- @Override
- public void activate() {
-        dmgArea = (enemyDistance*bulletDistanceEnemy);
-        actualDmg = dmg+dmgArea;
- }
+  public Energy() {
+    super();
+    this.bulletSize = 0;
+    this.dmg = 5;
+    this.heal = 0;
+    this.knockback = 0;
+    this.slowDown = 0;
+    this.staminaCost = 0;
+    this.traveltime = 0;
+    this.duration = 0;
+    this.cooldown = 0;
+    String animation;
+  }
+
+  @Override
+  public void activate() {
+    dmgArea = (enemyDistance * bulletDistanceEnemy);
+    actualDmg = dmg + dmgArea;
+  }
 
 }

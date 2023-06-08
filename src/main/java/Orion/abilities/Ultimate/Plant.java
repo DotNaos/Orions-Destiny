@@ -1,26 +1,25 @@
 package Orion.abilities.Ultimate;
 
 
-
 public class Plant extends UltimateAbility {
-    public float actualDmg;
+  public float actualDmg;
 
-    public Plant() {
-        this.bulletSize = 0;
-        this.dmg = 5; //Damage depends on distance to player and distance to enemy
-        this.heal = 0;
-        this.knockback = 0;
-        this.slowDown = 0;
-        this.staminaCost = 0;
-        this.traveltime = 0;
-        this.duration = 0;
-        this.cooldown = 0;
-        String animation;
-    }
+  public Plant() {
+    this.bulletSize = 0;
+    this.dmg = 5; //Damage depends on distance to player and distance to enemy
+    this.heal = 0;
+    this.knockback = 0;
+    this.slowDown = 0;
+    this.staminaCost = 0;
+    this.traveltime = 0;
+    this.duration = 0;
+    this.cooldown = 0;
+    String animation;
+  }
 
-    @Override
-    public void activate() {
-        dmgArea = (enemyDistance * bulletDistanceEnemy);
-        actualDmg = dmg + dmgArea;
-    }
+  @Override
+  public void activate() {
+    dmgArea = (enemyDistance * bulletDistanceEnemy);
+    actualDmg = dmg + dmgArea;
+  }
 }

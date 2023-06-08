@@ -89,18 +89,18 @@ public class PropertiesPanel extends ImGuiPanel {
         ImGui.end();
     }
 
-    public Actor getActiveGameObject() {
+    public Actor getActiveActor() {
         return activeActors.size() == 1 ? this.activeActors.get(0) : null;
     }
 
-    public void setActiveGameObject(Actor actor) {
+    public void setActiveActor(Actor actor) {
         if (actor != null) {
             clearSelected();
             this.activeActors.add(actor);
         }
     }
 
-    public List<Actor> getActiveGameObjects() {
+    public List<Actor> getActiveActors() {
         return this.activeActors;
     }
 
@@ -119,7 +119,7 @@ public class PropertiesPanel extends ImGuiPanel {
         this.activeGameObjectsOgColor.clear();
     }
 
-    public void addActiveGameObject(Actor actor) {
+    public void addActiveActor(Actor actor) {
         SpriteRenderer spr = actor.getComponent(SpriteRenderer.class);
         if (spr != null) {
             this.activeGameObjectsOgColor.add(new Vector4f(spr.getColor()));
