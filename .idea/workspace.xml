@@ -9,36 +9,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="Vector3f to Vector2f bei TexCords. Resetbutton sprite anderer index">
+    <list default="true" id="787a90ad-2c32-4237-9403-4ac402e3150a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Config/ImGuiStyleConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Config/ImGuiStyleConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/Actor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/Actor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/ActorComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/ActorComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/PlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/PlayerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/AssetManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/AssetManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Input/MouseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Input/MouseListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Physics/BurstContactListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Physics/BurstContactListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Physics/Components/Box2DCollider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Physics/Components/Box2DCollider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Physics/Components/CircleCollider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Physics/Components/CircleCollider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Physics/Components/PillboxCollider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Physics/Components/PillboxCollider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Physics/Components/Rigidbody2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Physics/Components/Rigidbody2D.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Physics/Components/Transform.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Physics/Components/Transform.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Physics/Physics2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Physics/Physics2D.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Render/Debug/DebugDraw.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Render/Debug/DebugDraw.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Render/Debug/Line2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Render/Debug/Line2D.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/Viewport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/Viewport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Util/BMath.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Util/BMath.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Components/GridLines.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Components/GridLines.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Components/KeyControls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Components/KeyControls.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Components/MouseControls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Components/MouseControls.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/ContentDrawer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/ContentDrawer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/EditorCamera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/EditorCamera.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Gizmo/Gizmo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Gizmo/Gizmo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Panel/OutlinerPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Panel/OutlinerPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Panel/PropertiesPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Panel/PropertiesPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Panel/ViewportPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Panel/ViewportPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Game/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/Explosion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/Explosion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/Fire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/Fire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/Heal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/Heal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/Ice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/Ice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/Light.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/Light.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/Plant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/Plant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/Poison.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/Poison.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/Shadow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/Shadow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/Time.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/Time.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/Water.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ultimate/Water.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/characters/Apex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/characters/Apex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/characters/Aura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/characters/Aura.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/characters/Genesis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/characters/Genesis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/characters/Helix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/characters/Helix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/characters/Solaris.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/characters/Solaris.java" afterDir="false" />
     </list>
+    <list id="25a488fd-f17c-453d-94a6-413269d6c7ff" name="Changes by schue" comment="Changes by schue" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -73,12 +62,35 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Dev" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="8c9961ee-c93d-416e-b93f-754b6d62768b" />
+        <option name="url" value="https://github.com/DotNaos/Orions-Destiny.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/physics2d/rigidbody/Rigidbody2D.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -86,8 +98,9 @@
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
-  <component name="ProjectId" id="2PadRlaUZc0wQ2NHs70GsSQiE87" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectId" id="2N8vyMs6taPavLqmrUsOfuJtA5a" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="false" id="Update" />
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -96,51 +109,107 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;OverrideImplement.generate.javadoc&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;TODO_SCOPE&quot;: &quot;All Places&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Projects/Java/MarioYoutube&quot;,
+    &quot;deletionFromPopupRequiresConfirmation&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Timon&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/schue/Documents/Dev/Java/Orions-Destiny&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15179856&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.splitter.proportion&quot;: &quot;0.30120483&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="Burst.Engine.Source.Core.Scene" />
+      <recent name="Burst.Engine.Source.Core.Assets" />
+      <recent name="Engine" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Projects\Java\Orions-Destiny\Assets\images" />
+      <recent name="D:\Projects\Java\Orions-Destiny\Assets\images\gizmos" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="A:\Orions-Destiny\Assets\images\textures\icons" />
-      <recent name="D:\Projects\Java\Orions-Destiny\Assets\images\spritesheets" />
-      <recent name="D:\Projects\Java\Orions-Destiny\Assets\fonts" />
+      <recent name="D:\Projects\Java\Orions-Destiny\src\main\java\Orion" />
+      <recent name="D:\Projects\Java\Orions-Destiny\src\main\java\Burst\Engine\Source\core" />
+      <recent name="D:\Projects\Java\Orions-Destiny\src\main\java\Burst\Engine\Shaders" />
+      <recent name="C:\Users\schue\Documents\Dev\Java\Orions-Destiny\Assets\images\textures" />
+      <recent name="C:\Users\schue\Documents\Dev\Java\Orions-Destiny\Assets\images\spritesheets" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="Main" type="Application" factoryName="Application" activateToolWindowBeforeRun="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Burst.Engine.Source.Main" />
       <module name="Orions-Destiny.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Burst.Engine.Source.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="CollisionDetectorTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;physics2d.CollisionDetectorTests&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <ForceTestExec>true</ForceTestExec>
+      <method v="2" />
+    </configuration>
+    <configuration name="Orions-Destiny [:Main.main()]" type="GradleRunConfiguration" factoryName="Gradle" activateToolWindowBeforeRun="false">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--scan --stacktrace" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":Main.main()" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <ForceTestExec>false</ForceTestExec>
+      <method v="2" />
     </configuration>
     <configuration name="Orions-Destiny [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
+        <option name="scriptParameters" value="" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -157,55 +226,16 @@
       <ForceTestExec>false</ForceTestExec>
       <method v="2" />
     </configuration>
-    <configuration name="Orions-Destiny [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--scan" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="jar" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <ForceTestExec>false</ForceTestExec>
-      <method v="2" />
-    </configuration>
-    <configuration name="Orions-Destiny [shadowJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="shadowJar" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <ForceTestExec>false</ForceTestExec>
-      <method v="2" />
-    </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Gradle.Orions-Destiny [:Main.main()]" />
+      <item itemvalue="Gradle.CollisionDetectorTests" />
+      <item itemvalue="Gradle.Orions-Destiny [dependencies]" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.Orions-Destiny [dependencies]" />
-        <item itemvalue="Gradle.Orions-Destiny [shadowJar]" />
-        <item itemvalue="Gradle.Orions-Destiny [jar]" />
+        <item itemvalue="Gradle.CollisionDetectorTests" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -213,349 +243,524 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="" />
-      <created>1683699124571</created>
+      <changelist id="787a90ad-2c32-4237-9403-4ac402e3150a" name="Changes" comment="" />
+      <created>1679058777659</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1683699124571</updated>
-      <workItem from="1683699128871" duration="5441000" />
-      <workItem from="1683727034787" duration="14307000" />
-      <workItem from="1683974186339" duration="15713000" />
-      <workItem from="1684333118706" duration="770000" />
-      <workItem from="1684334578947" duration="5518000" />
-      <workItem from="1684341084673" duration="14895000" />
-      <workItem from="1684390126193" duration="40517000" />
-      <workItem from="1684577065778" duration="1222000" />
-      <workItem from="1684585131382" duration="12724000" />
-      <workItem from="1684910728300" duration="761000" />
-      <workItem from="1684912517239" duration="101000" />
-      <workItem from="1685381057571" duration="1340000" />
-      <workItem from="1685632750986" duration="5612000" />
-      <workItem from="1685639644841" duration="10177000" />
-      <workItem from="1685705799370" duration="4800000" />
-      <workItem from="1685733683602" duration="3630000" />
-      <workItem from="1685793878068" duration="7483000" />
+      <updated>1679058777659</updated>
+      <workItem from="1679058779724" duration="588000" />
+      <workItem from="1679059703329" duration="1728000" />
+      <workItem from="1679066886617" duration="114000" />
+      <workItem from="1679067012339" duration="12016000" />
+      <workItem from="1679375081128" duration="2147000" />
+      <workItem from="1679489515119" duration="7671000" />
+      <workItem from="1679558289366" duration="642000" />
+      <workItem from="1679558985465" duration="4242000" />
+      <workItem from="1679579827221" duration="12934000" />
+      <workItem from="1679635119400" duration="116000" />
+      <workItem from="1679635247114" duration="191000" />
+      <workItem from="1679635450687" duration="81000" />
+      <workItem from="1679635545820" duration="50000" />
+      <workItem from="1679635608915" duration="804000" />
+      <workItem from="1679668325979" duration="3474000" />
+      <workItem from="1679722140819" duration="23435000" />
+      <workItem from="1679817462432" duration="3368000" />
+      <workItem from="1679823976681" duration="14763000" />
+      <workItem from="1679845183392" duration="3482000" />
+      <workItem from="1679910314763" duration="3445000" />
+      <workItem from="1680072877658" duration="1545000" />
+      <workItem from="1680115001915" duration="343000" />
+      <workItem from="1680115535769" duration="688000" />
+      <workItem from="1680193932872" duration="696000" />
+      <workItem from="1680265982513" duration="5191000" />
+      <workItem from="1680336181951" duration="30000" />
+      <workItem from="1680336222763" duration="11213000" />
+      <workItem from="1680501689052" duration="7975000" />
+      <workItem from="1680588376615" duration="215000" />
+      <workItem from="1680611491499" duration="640000" />
+      <workItem from="1680613480911" duration="31000" />
+      <workItem from="1680618880610" duration="15000" />
+      <workItem from="1680618908032" duration="1899000" />
+      <workItem from="1680688274848" duration="702000" />
+      <workItem from="1680798665574" duration="3304000" />
+      <workItem from="1680878850220" duration="6286000" />
+      <workItem from="1680944076420" duration="15304000" />
+      <workItem from="1681110685501" duration="2362000" />
+      <workItem from="1681464076646" duration="3840000" />
+      <workItem from="1681557032236" duration="1705000" />
+      <workItem from="1681561515497" duration="2581000" />
+      <workItem from="1681749515438" duration="201000" />
+      <workItem from="1681752683636" duration="43000" />
+      <workItem from="1681885641387" duration="641000" />
+      <workItem from="1681888094692" duration="2548000" />
+      <workItem from="1681893523381" duration="1971000" />
+      <workItem from="1681898337919" duration="9355000" />
+      <workItem from="1681923543237" duration="1543000" />
+      <workItem from="1681970091188" duration="4086000" />
+      <workItem from="1681984814772" duration="2687000" />
+      <workItem from="1682090448527" duration="973000" />
+      <workItem from="1682145300048" duration="11215000" />
+      <workItem from="1682164069636" duration="1932000" />
+      <workItem from="1682409617049" duration="14274000" />
+      <workItem from="1682480553772" duration="736000" />
+      <workItem from="1682481607558" duration="371000" />
+      <workItem from="1682512052789" duration="9584000" />
+      <workItem from="1682617282050" duration="793000" />
+      <workItem from="1682618918737" duration="1830000" />
+      <workItem from="1682621532001" duration="115000" />
+      <workItem from="1682622160054" duration="120000" />
+      <workItem from="1682840503792" duration="9211000" />
+      <workItem from="1682929826837" duration="2803000" />
+      <workItem from="1682938365187" duration="6982000" />
+      <workItem from="1682954829442" duration="276000" />
+      <workItem from="1682956651753" duration="646000" />
+      <workItem from="1682958492265" duration="1093000" />
+      <workItem from="1683008973937" duration="6173000" />
+      <workItem from="1683015319184" duration="7179000" />
+      <workItem from="1683122686887" duration="8480000" />
+      <workItem from="1683135871687" duration="3284000" />
+      <workItem from="1683142813884" duration="17740000" />
+      <workItem from="1683279994213" duration="757000" />
+      <workItem from="1683280773645" duration="5777000" />
+      <workItem from="1683363528519" duration="24735000" />
+      <workItem from="1683435059695" duration="28934000" />
+      <workItem from="1683527278554" duration="8483000" />
+      <workItem from="1683610940266" duration="3829000" />
+      <workItem from="1683698786637" duration="3947000" />
+      <workItem from="1683783341158" duration="948000" />
+      <workItem from="1683787686801" duration="2578000" />
+      <workItem from="1684172527914" duration="189000" />
+      <workItem from="1684237959885" duration="4688000" />
+      <workItem from="1684261469592" duration="531000" />
+      <workItem from="1684303345508" duration="2953000" />
+      <workItem from="1684842746734" duration="691000" />
+      <workItem from="1684843523833" duration="62000" />
+      <workItem from="1684843956595" duration="3765000" />
+      <workItem from="1684908530126" duration="4535000" />
+      <workItem from="1684913108995" duration="39000" />
+      <workItem from="1684997758560" duration="1581000" />
+      <workItem from="1684999361747" duration="95000" />
+      <workItem from="1685897377177" duration="2302000" />
     </task>
-    <task id="LOCAL-00001" summary="Refactoring vom Editor">
-      <created>1683701936326</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
+    <task id="LOCAL-00058" summary="Circle Collision">
+      <created>1682481969730</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
       <option name="project" value="LOCAL" />
-      <updated>1683701936327</updated>
+      <updated>1682481969730</updated>
     </task>
-    <task id="LOCAL-00002" summary="Irgendwas mit Actor">
-      <created>1683704069628</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
+    <task id="LOCAL-00059" summary="Force Generators">
+      <created>1682515242094</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
       <option name="project" value="LOCAL" />
-      <updated>1683704069628</updated>
+      <updated>1682515242094</updated>
     </task>
-    <task id="LOCAL-00003" summary="UI sieht besser aus und Start Menu endlich im Viewport.&#10;GameFont hinzugefügt">
-      <created>1683732148626</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
+    <task id="LOCAL-00060" summary="Gravity">
+      <created>1682517553804</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
       <option name="project" value="LOCAL" />
-      <updated>1683732148626</updated>
+      <updated>1682517553804</updated>
     </task>
-    <task id="LOCAL-00004" summary="Docking Farbe, Level Editor Stuff gelöscht">
-      <created>1683732631138</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
+    <task id="LOCAL-00061" summary="CollisionManifolds">
+      <created>1682520103256</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
       <option name="project" value="LOCAL" />
-      <updated>1683732631138</updated>
+      <updated>1682520103256</updated>
     </task>
-    <task id="LOCAL-00005" summary="Saving Actors">
-      <created>1683873957520</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
+    <task id="LOCAL-00062" summary="PHYSIK FERTIG ENDLICH">
+      <created>1682523014005</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
       <option name="project" value="LOCAL" />
-      <updated>1683873957520</updated>
+      <updated>1682523014005</updated>
     </task>
-    <task id="LOCAL-00006" summary="Generating Actors updated">
-      <created>1683885219846</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
+    <task id="LOCAL-00063" summary="Physik engine in Müll, jetzt wird Box2D verwendet">
+      <created>1682621162567</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
       <option name="project" value="LOCAL" />
-      <updated>1683885219846</updated>
+      <updated>1682621162567</updated>
     </task>
-    <task id="LOCAL-00007" summary="Levels Dir">
-      <created>1683885251977</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
+    <task id="LOCAL-00064" summary="Refactor, Event-handler, Box2D integration, Start-Stop Editor">
+      <created>1682879599199</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
       <option name="project" value="LOCAL" />
-      <updated>1683885251977</updated>
+      <updated>1682879599199</updated>
     </task>
-    <task id="LOCAL-00008" summary="FilePath fix">
-      <created>1683903897067</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
+    <task id="LOCAL-00065" summary="Blablabla">
+      <created>1682938738613</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
       <option name="project" value="LOCAL" />
-      <updated>1683903897067</updated>
+      <updated>1682938738613</updated>
     </task>
-    <task id="LOCAL-00009" summary="Formatting of files mit Strg+Alt+L">
-      <created>1683905798771</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
+    <task id="LOCAL-00066" summary="Engine Fertig, !!!!!VIELE BUGS!!!!">
+      <created>1682959556458</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
       <option name="project" value="LOCAL" />
-      <updated>1683905798771</updated>
+      <updated>1682959556459</updated>
     </task>
-    <task id="LOCAL-00010" summary="Scrolling im Editor geht wieder">
-      <created>1683910843149</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
+    <task id="LOCAL-00067" summary="Asset fixes">
+      <created>1683014260390</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
       <option name="project" value="LOCAL" />
-      <updated>1683910843149</updated>
+      <updated>1683014260391</updated>
     </task>
-    <task id="LOCAL-00011" summary="Bugfix Nullpointer">
-      <created>1683911346890</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
+    <task id="LOCAL-00068" summary="AssetPool Javadoc and Search for files">
+      <created>1683016644625</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
       <option name="project" value="LOCAL" />
-      <updated>1683911346890</updated>
+      <updated>1683016644626</updated>
     </task>
-    <task id="LOCAL-00012" summary="Zoom in center">
-      <created>1683986904574</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
+    <task id="LOCAL-00069" summary="AssetPool Javadoc and Search for files">
+      <created>1683016677146</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
       <option name="project" value="LOCAL" />
-      <updated>1683986904574</updated>
+      <updated>1683016677146</updated>
     </task>
-    <task id="LOCAL-00013" summary="Mehrere Plots gleichzeitig">
-      <created>1683989593903</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
+    <task id="LOCAL-00070" summary="AssetHolder für die Directories der Assets">
+      <created>1683017617146</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
       <option name="project" value="LOCAL" />
-      <updated>1683989593903</updated>
+      <updated>1683017617146</updated>
     </task>
-    <task id="LOCAL-00014" summary="plotValues mit variabler Länge">
-      <created>1683990957108</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
+    <task id="LOCAL-00071" summary="Optimieren">
+      <created>1683020466173</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
       <option name="project" value="LOCAL" />
-      <updated>1683990957108</updated>
+      <updated>1683020466173</updated>
     </task>
-    <task id="LOCAL-00015" summary="JAR build config">
-      <created>1684337300926</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
+    <task id="LOCAL-00072" summary="Ordner">
+      <created>1683024835377</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
       <option name="project" value="LOCAL" />
-      <updated>1684337300926</updated>
+      <updated>1683024835377</updated>
     </task>
-    <task id="LOCAL-00016" summary="Viewport World Koordinaten">
-      <created>1684344148349</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
+    <task id="LOCAL-00073" summary="Ordner">
+      <created>1683024932137</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
       <option name="project" value="LOCAL" />
-      <updated>1684344148349</updated>
+      <updated>1683024932137</updated>
     </task>
-    <task id="LOCAL-00017" summary="GridLines funktionieren">
-      <created>1684346127623</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
+    <task id="LOCAL-00074" summary="Für Dominik">
+      <created>1683032198138</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
       <option name="project" value="LOCAL" />
-      <updated>1684346127623</updated>
+      <updated>1683032198138</updated>
     </task>
-    <task id="LOCAL-00018" summary="GridLines pixelSize">
-      <created>1684348446405</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
+    <task id="LOCAL-00075" summary="GameViewPortSize">
+      <created>1683095701960</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
       <option name="project" value="LOCAL" />
-      <updated>1684348446405</updated>
+      <updated>1683095701960</updated>
     </task>
-    <task id="LOCAL-00019" summary="GridLines align with sprites">
-      <created>1684354121830</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
+    <task id="LOCAL-00076" summary="SOunds auskommentiert">
+      <created>1683097129116</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
       <option name="project" value="LOCAL" />
-      <updated>1684354121830</updated>
+      <updated>1683097129116</updated>
     </task>
-    <task id="LOCAL-00020" summary="Editor Components ImGuiPanel with ResetButton">
-      <created>1684357398547</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
+    <task id="LOCAL-00077" summary="Sounds aus">
+      <created>1683097480594</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
       <option name="project" value="LOCAL" />
-      <updated>1684357398547</updated>
+      <updated>1683097480594</updated>
     </task>
-    <task id="LOCAL-00021" summary="Refactoring. Projekt ist auf einem guten Niveau aufgebaut">
-      <created>1684358763200</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
+    <task id="LOCAL-00078" summary="PHYSICS2D TEMP REMOVED - Refactor">
+      <created>1683124576351</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
       <option name="project" value="LOCAL" />
-      <updated>1684358763200</updated>
+      <updated>1683124576351</updated>
     </task>
-    <task id="LOCAL-00022" summary="Refactoring. Projekt ist auf einem guten Niveau aufgebaut">
-      <created>1684358810764</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
+    <task id="LOCAL-00079" summary="Serialize fix">
+      <created>1683195282309</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
       <option name="project" value="LOCAL" />
-      <updated>1684358810764</updated>
+      <updated>1683195282309</updated>
     </task>
-    <task id="LOCAL-00023" summary="Editor Components, in ImGui">
-      <created>1684415748065</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
+    <task id="LOCAL-00080" summary="Zwischenspeichern in StartMenu">
+      <created>1683217655608</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
       <option name="project" value="LOCAL" />
-      <updated>1684415748065</updated>
+      <updated>1683217655608</updated>
     </task>
-    <task id="LOCAL-00024" summary="Diagramme">
-      <created>1684424822077</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
+    <task id="LOCAL-00081" summary="Menu Creator Klasse für ButtonGUIs">
+      <created>1683285473550</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
       <option name="project" value="LOCAL" />
-      <updated>1684424822077</updated>
+      <updated>1683285473550</updated>
     </task>
-    <task id="LOCAL-00025" summary="Diagramm fertig">
-      <created>1684425303776</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
+    <task id="LOCAL-00082" summary="Scenes und Assets verbessert">
+      <created>1683374762232</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
       <option name="project" value="LOCAL" />
-      <updated>1684425303776</updated>
+      <updated>1683374762233</updated>
     </task>
-    <task id="LOCAL-00026" summary="Editor">
-      <created>1684428878100</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
+    <task id="LOCAL-00083" summary="Asset Types und zentraler Getter für alle Assets mit Template">
+      <created>1683386389600</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
       <option name="project" value="LOCAL" />
-      <updated>1684428878100</updated>
+      <updated>1683386389600</updated>
     </task>
-    <task id="LOCAL-00027" summary="Editor mit Component Tabs">
-      <created>1684429091364</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
+    <task id="LOCAL-00084" summary="Game und Editor nicht mehr eigenständige Szene">
+      <created>1683388438415</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
       <option name="project" value="LOCAL" />
-      <updated>1684429091364</updated>
+      <updated>1683388438415</updated>
     </task>
-    <task id="LOCAL-00028" summary="All Style Variables">
-      <created>1684431159847</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
+    <task id="LOCAL-00085" summary="Playercharacter und VIEL refactoring der GameScene, EditorScene.&#10;Scene kann jetzt auch im Menu verwendet werden">
+      <created>1683466307318</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
       <option name="project" value="LOCAL" />
-      <updated>1684431159847</updated>
+      <updated>1683466307318</updated>
     </task>
-    <task id="LOCAL-00029" summary="Sprites for UI, Unreal Engine Colors (Window), Fixed Object reset value">
-      <created>1684444995164</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
+    <task id="LOCAL-00086" summary="Fixed Errors von letztem Commit + Paar Dateien entfernt">
+      <created>1683467763155</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
       <option name="project" value="LOCAL" />
-      <updated>1684444995164</updated>
+      <updated>1683467763155</updated>
     </task>
-    <task id="LOCAL-00030" summary="Mehr Colors und Table">
-      <created>1684448399505</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
+    <task id="LOCAL-00087" summary="Debuggen start von ALLEM">
+      <created>1683469951875</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
       <option name="project" value="LOCAL" />
-      <updated>1684448399505</updated>
+      <updated>1683469951875</updated>
     </task>
-    <task id="LOCAL-00031" summary="Copy On changing color">
-      <created>1684586799033</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
+    <task id="LOCAL-00088" summary="Fix für ImGUI">
+      <created>1683471171432</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
       <option name="project" value="LOCAL" />
-      <updated>1684586799033</updated>
+      <updated>1683471171432</updated>
     </task>
-    <task id="LOCAL-00032" summary="Components angezeigt in Fenster">
-      <created>1684589225141</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
+    <task id="LOCAL-00089" summary="Texture FIX">
+      <created>1683472959597</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
       <option name="project" value="LOCAL" />
-      <updated>1684589225141</updated>
+      <updated>1683472959598</updated>
     </task>
-    <task id="LOCAL-00033" summary="ViewportSize extra und HotKeys in eigener Datei">
-      <created>1684596433196</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
+    <task id="LOCAL-00090" summary="Assets DebugMessage fürs Laden">
+      <created>1683475230626</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
       <option name="project" value="LOCAL" />
-      <updated>1684596433196</updated>
+      <updated>1683475230626</updated>
     </task>
-    <task id="LOCAL-00034" summary="Assets Updated. Sehr gut">
-      <created>1685638566536</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
+    <task id="LOCAL-00091" summary="Referenz auf Scene erst nach initialisierung von currentscene in Window.&#10;Deshalb nimmt man .init() Methoden">
+      <created>1683478299740</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
       <option name="project" value="LOCAL" />
-      <updated>1685638566536</updated>
+      <updated>1683478299740</updated>
     </task>
-    <task id="LOCAL-00035" summary="Highlighted Sections">
-      <created>1685639554671</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
+    <task id="LOCAL-00092" summary="Refactoring und wieder paar Errors gefixt">
+      <created>1683482030710</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
       <option name="project" value="LOCAL" />
-      <updated>1685639554671</updated>
+      <updated>1683482030710</updated>
     </task>
-    <task id="LOCAL-00036" summary="CMD output besser">
-      <created>1685643762251</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
+    <task id="LOCAL-00093" summary="Refactoring und wieder paar Errors gefixt">
+      <created>1683483934198</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
       <option name="project" value="LOCAL" />
-      <updated>1685643762251</updated>
+      <updated>1683483934198</updated>
     </task>
-    <task id="LOCAL-00037" summary="Icons update">
-      <created>1685649524176</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
+    <task id="LOCAL-00094" summary="JavaDoc für Actor und wieder Refactoring">
+      <created>1683568945205</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
       <option name="project" value="LOCAL" />
-      <updated>1685649524177</updated>
+      <updated>1683568945205</updated>
     </task>
-    <task id="LOCAL-00038" summary="Schöner Contentdrawer mit background">
-      <created>1685652161353</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
+    <task id="LOCAL-00095" summary="Ende für Heute">
+      <created>1683570969617</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
       <option name="project" value="LOCAL" />
-      <updated>1685652161353</updated>
+      <updated>1683570969617</updated>
     </task>
-    <task id="LOCAL-00039" summary="Vector3f to Vector2f bei TexCords. Resetbutton sprite anderer index">
-      <created>1685710356904</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
+    <task id="LOCAL-00096" summary="Content drawer fix">
+      <created>1683615219622</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
       <option name="project" value="LOCAL" />
-      <updated>1685710356904</updated>
+      <updated>1683615219622</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00097" summary="Content drawer fix">
+      <created>1683699056882</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1683699056882</updated>
+    </task>
+    <task id="LOCAL-00098" summary="Content drawer fix">
+      <created>1683788205603</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1683788205603</updated>
+    </task>
+    <task id="LOCAL-00099" summary="Content drawer fix">
+      <created>1684172539372</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1684172539372</updated>
+    </task>
+    <task id="LOCAL-00100" summary="Content drawer fix">
+      <created>1684238032896</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1684238032898</updated>
+    </task>
+    <task id="LOCAL-00101" summary="Content drawer fix">
+      <created>1684261655358</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1684261655359</updated>
+    </task>
+    <task id="LOCAL-00102" summary="Content drawer fix">
+      <created>1684305967569</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1684305967570</updated>
+    </task>
+    <task id="LOCAL-00103" summary="Content drawer fix">
+      <created>1684843250546</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1684843250547</updated>
+    </task>
+    <task id="LOCAL-00104" summary="Content drawer fix">
+      <created>1684847715020</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1684847715021</updated>
+    </task>
+    <task id="LOCAL-00105" summary="Content drawer fix">
+      <created>1684908613938</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1684908613939</updated>
+    </task>
+    <task id="LOCAL-00106" summary="Content drawer fix">
+      <created>1684913140032</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1684913140033</updated>
+    </task>
+    <option name="localTasksCounter" value="107" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="plotValues mit variabler Länge" />
-    <MESSAGE value="JAR build config" />
-    <MESSAGE value="Viewport World Koordinaten" />
-    <MESSAGE value="GridLines funktionieren" />
-    <MESSAGE value="GridLines pixelSize" />
-    <MESSAGE value="GridLines align with sprites" />
-    <MESSAGE value="Editor Components ImGuiPanel with ResetButton" />
-    <MESSAGE value="Refactoring. Projekt ist auf einem guten Niveau aufgebaut" />
-    <MESSAGE value="Editor Components, in ImGui" />
-    <MESSAGE value="Diagramme" />
-    <MESSAGE value="Diagramm fertig" />
-    <MESSAGE value="Editor" />
-    <MESSAGE value="Editor mit Component Tabs" />
-    <MESSAGE value="All Style Variables" />
-    <MESSAGE value="Sprites for UI, Unreal Engine Colors (Window), Fixed Object reset value" />
-    <MESSAGE value="Mehr Colors und Table" />
-    <MESSAGE value="Copy On changing color" />
-    <MESSAGE value="Components angezeigt in Fenster" />
-    <MESSAGE value="ViewportSize extra und HotKeys in eigener Datei" />
-    <MESSAGE value="Assets Updated. Sehr gut" />
-    <MESSAGE value="Highlighted Sections" />
-    <MESSAGE value="CMD output besser" />
-    <MESSAGE value="Icons update" />
-    <MESSAGE value="Schöner Contentdrawer mit background" />
-    <MESSAGE value="Vector3f to Vector2f bei TexCords. Resetbutton sprite anderer index" />
-    <option name="LAST_COMMIT_MESSAGE" value="Vector3f to Vector2f bei TexCords. Resetbutton sprite anderer index" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/Dominik" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/Dev" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.ExceptionInInitializerError" package="java.lang" />
-          <option name="timeStamp" value="7" />
-        </breakpoint>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.nio.BufferUnderflowException" package="java.nio" />
-          <option name="timeStamp" value="8" />
-        </breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Optimieren" />
+    <MESSAGE value="Ordner" />
+    <MESSAGE value="Für Dominik" />
+    <MESSAGE value="GameViewPortSize" />
+    <MESSAGE value="SOunds auskommentiert" />
+    <MESSAGE value="Sounds aus" />
+    <MESSAGE value="PHYSICS2D TEMP REMOVED - Refactor" />
+    <MESSAGE value="Serialize fix" />
+    <MESSAGE value="Zwischenspeichern in StartMenu" />
+    <MESSAGE value="Menu Creator Klasse für ButtonGUIs" />
+    <MESSAGE value="Scenes und Assets verbessert" />
+    <MESSAGE value="Asset Types und zentraler Getter für alle Assets" />
+    <MESSAGE value="Asset Types und zentraler Getter für alle Assets mit Template" />
+    <MESSAGE value="Game und Editor nicht mehr eigenständige Szene" />
+    <MESSAGE value="Playercharacter und VIEL refactoring der GameScene, EditorScene.&#10;Scene kann jetzt auch im Menu verwendet werden" />
+    <MESSAGE value="Fixed Errors von letztem Commit + Paar Dateien entfernt" />
+    <MESSAGE value="Debuggen start von ALLEM" />
+    <MESSAGE value="Fix für ImGUI" />
+    <MESSAGE value="Texture FIX" />
+    <MESSAGE value="Assets DebugMessage fürs Laden" />
+    <MESSAGE value="Referenz auf Scene erst nach initialisierung von currentscene in Window.&#10;Deshalb nimmt man .init() Methoden" />
+    <MESSAGE value="Refactoring und wieder paar Errors gefixt" />
+    <MESSAGE value="JavaDoc für Actor und wieder Refactoring" />
+    <MESSAGE value="Ende für Heute" />
+    <MESSAGE value="Content drawer fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Content drawer fix" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -19,5 +19,13 @@ public class Helix extends PlayerCharacter {
                         In addition, his regenerative abilities make him difficult to defeat,\s
                         as he can quickly heal from even the most severe injuries.\s
                 """;
+        this.name ="Helix";
+        this.HP = 0;
+        this.DEF = 0;
+        this.ATK = 0;
+        this.SPD = 0;
+        this.STAMINA = 0;
+        this.LVL = 0;
+        this.EXP = 0;
     }
 }
