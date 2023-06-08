@@ -10,8 +10,8 @@ public abstract class Ability {
     protected int cooldown;
     protected int duration;
 
-    public Ability (PlayerCharacter playerCharacter){
-        this.playerCharacter = playerCharacter;
+    public Ability (){
+
     }
 
 

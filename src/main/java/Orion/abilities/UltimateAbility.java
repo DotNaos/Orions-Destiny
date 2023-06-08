@@ -22,21 +22,26 @@ public class UltimateAbility extends Ability {
     protected float cooldown;
     protected String animation;
 
+    public UltimateAbility() {
+        super();
+
+    }
+
     /**
      *
      */
     @Override
     public void activate() {
-        float playerPosX = .getXPos;
-        float playerPosY = .getYPos;
+        float playerPosX = 0;//= .getXPos;
+        float playerPosY = 0;//= .getYPos;
 
-        float enemyPosX = .getXPos;
-        float enemyPosY = .getYPos;
+        float enemyPosX = 0; //= .getXPos;
+        float enemyPosY = 0; //= .getYPos;
 
-        float bulletPosX = .getXPos;        //Detonation Position of the Bullet
-        float bulletPosY = .getYPos;
+        float bulletPosX = 0; // = .getXPos;        //Detonation Position of the Bullet
+        float bulletPosY = 0; // = .getYPos;
 
-        float enemyDefence = .get;
+        float enemyDefence; // = .get;
 
         float a;
         float b;

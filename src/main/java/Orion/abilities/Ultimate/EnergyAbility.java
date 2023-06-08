@@ -7,7 +7,8 @@ public class EnergyAbility extends UltimateAbility {
 
     public EnergyAbility()
     {
-        this.bulletSize = 0;
+      super();
+      this.bulletSize = 0;
         this.dmg = 5;
         this.heal = 0;
         this.knockback = 0;
