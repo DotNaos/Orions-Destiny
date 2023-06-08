@@ -17,5 +17,13 @@ public class Aura extends PlayerCharacter {
                         and she uses her skills to protect and defend those she cares about.
                         Despite her seemingly carefree nature, Aura is a formidable force, and her powers are not to be underestimated.\s
                 """;
+        this.name ="Aura";
+        this.HP = 0;
+        this.DEF = 0;
+        this.ATK = 0;
+        this.SPD = 0;
+        this.STAMINA = 0;
+        this.LVL = 0;
+        this.EXP = 0;
     }
 }
