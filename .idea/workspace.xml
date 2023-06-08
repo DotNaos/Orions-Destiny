@@ -9,12 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="Initialvalues mit Object Copy">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/Actor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/Actor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Component.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Component.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Game/Game.java" afterDir="false" />
     </list>
+    <list id="25a488fd-f17c-453d-94a6-413269d6c7ff" name="Changes by schue" comment="Changes by schue" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -54,7 +50,29 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Dev" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="8c9961ee-c93d-416e-b93f-754b6d62768b" />
+        <option name="url" value="https://github.com/DotNaos/Orions-Destiny.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/physics2d/rigidbody/Rigidbody2D.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -63,8 +81,9 @@
     <option name="selectedTabId" value="CurrentFile" />
     <option name="showPreview" value="true" />
   </component>
-  <component name="ProjectId" id="2PadRlaUZc0wQ2NHs70GsSQiE87" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectId" id="2N8vyMs6taPavLqmrUsOfuJtA5a" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="false" id="Update" />
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -73,52 +92,98 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;OverrideImplement.generate.javadoc&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;TODO_SCOPE&quot;: &quot;All Places&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;A:/litiengine&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15179856&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="Burst.Engine.Source.Core.Scene" />
+      <recent name="Burst.Engine.Source.Core.Assets" />
+      <recent name="Engine" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Projects\Java\Orions-Destiny\Assets\images" />
+      <recent name="D:\Projects\Java\Orions-Destiny\Assets\images\gizmos" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="A:\Orions-Destiny\Assets\images\textures\icons" />
-      <recent name="D:\Projects\Java\Orions-Destiny\Assets\images\spritesheets" />
-      <recent name="D:\Projects\Java\Orions-Destiny\Assets\fonts" />
+      <recent name="D:\Projects\Java\Orions-Destiny\src\main\java\Orion" />
+      <recent name="D:\Projects\Java\Orions-Destiny\src\main\java\Burst\Engine\Source\core" />
+      <recent name="D:\Projects\Java\Orions-Destiny\src\main\java\Burst\Engine\Shaders" />
+      <recent name="C:\Users\schue\Documents\Dev\Java\Orions-Destiny\Assets\images\textures" />
+      <recent name="C:\Users\schue\Documents\Dev\Java\Orions-Destiny\Assets\images\spritesheets" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="Main" type="Application" factoryName="Application" activateToolWindowBeforeRun="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Burst.Engine.Source.Main" />
       <module name="Orions-Destiny.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Burst.Engine.Source.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="CollisionDetectorTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;physics2d.CollisionDetectorTests&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <ForceTestExec>true</ForceTestExec>
+      <method v="2" />
+    </configuration>
+    <configuration name="Orions-Destiny [:Main.main()]" type="GradleRunConfiguration" factoryName="Gradle" activateToolWindowBeforeRun="false">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--scan --stacktrace" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":Main.main()" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <ForceTestExec>false</ForceTestExec>
+      <method v="2" />
     </configuration>
     <configuration name="Orions-Destiny [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
+        <option name="scriptParameters" value="" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -135,496 +200,257 @@
       <ForceTestExec>false</ForceTestExec>
       <method v="2" />
     </configuration>
-    <configuration name="Orions-Destiny [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--scan" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="jar" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <ForceTestExec>false</ForceTestExec>
-      <method v="2" />
-    </configuration>
-    <configuration name="Orions-Destiny [shadowJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="shadowJar" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <ForceTestExec>false</ForceTestExec>
-      <method v="2" />
-    </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Gradle.Orions-Destiny [:Main.main()]" />
+      <item itemvalue="Gradle.CollisionDetectorTests" />
+      <item itemvalue="Gradle.Orions-Destiny [dependencies]" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Gradle.Orions-Destiny [shadowJar]" />
-        <item itemvalue="Gradle.Orions-Destiny [jar]" />
-        <item itemvalue="Gradle.Orions-Destiny [dependencies]" />
+
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="" />
-      <created>1683699124571</created>
+      <changelist id="787a90ad-2c32-4237-9403-4ac402e3150a" name="Changes" comment="" />
+      <created>1679058777659</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1683699124571</updated>
-      <workItem from="1683699128871" duration="5441000" />
-      <workItem from="1683727034787" duration="14307000" />
-      <workItem from="1683974186339" duration="15713000" />
-      <workItem from="1684333118706" duration="770000" />
-      <workItem from="1684334578947" duration="5518000" />
-      <workItem from="1684341084673" duration="14895000" />
-      <workItem from="1684390126193" duration="40517000" />
-      <workItem from="1684577065778" duration="1222000" />
-      <workItem from="1684585131382" duration="12724000" />
-      <workItem from="1684910728300" duration="761000" />
-      <workItem from="1684912517239" duration="101000" />
-      <workItem from="1685381057571" duration="1340000" />
-      <workItem from="1685632750986" duration="5612000" />
-      <workItem from="1685639644841" duration="10177000" />
-      <workItem from="1685705799370" duration="4800000" />
-      <workItem from="1685733683602" duration="3630000" />
-      <workItem from="1685793878068" duration="7685000" />
-      <workItem from="1685821015094" duration="34000" />
-      <workItem from="1685821063037" duration="1852000" />
-      <workItem from="1685861678164" duration="2524000" />
-      <workItem from="1685947760653" duration="30904000" />
-      <workItem from="1686052404693" duration="23832000" />
-      <workItem from="1686080148755" duration="3932000" />
-      <workItem from="1686115299670" duration="16662000" />
-      <workItem from="1686160597073" duration="603000" />
-      <workItem from="1686181560042" duration="1634000" />
-      <workItem from="1686209302024" duration="599000" />
-      <workItem from="1686227606156" duration="11859000" />
     </task>
-    <task id="LOCAL-00007" summary="Levels Dir">
-      <created>1683885251977</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
+    <task id="LOCAL-00074" summary="Für Dominik">
+      <created>1683032198138</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
       <option name="project" value="LOCAL" />
-      <updated>1683885251977</updated>
+      <updated>1683032198138</updated>
     </task>
-    <task id="LOCAL-00008" summary="FilePath fix">
-      <created>1683903897067</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
+    <task id="LOCAL-00075" summary="GameViewPortSize">
+      <created>1683095701960</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
       <option name="project" value="LOCAL" />
-      <updated>1683903897067</updated>
+      <updated>1683095701960</updated>
     </task>
-    <task id="LOCAL-00009" summary="Formatting of files mit Strg+Alt+L">
-      <created>1683905798771</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
+    <task id="LOCAL-00076" summary="SOunds auskommentiert">
+      <created>1683097129116</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
       <option name="project" value="LOCAL" />
-      <updated>1683905798771</updated>
+      <updated>1683097129116</updated>
     </task>
-    <task id="LOCAL-00010" summary="Scrolling im Editor geht wieder">
-      <created>1683910843149</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
+    <task id="LOCAL-00077" summary="Sounds aus">
+      <created>1683097480594</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
       <option name="project" value="LOCAL" />
-      <updated>1683910843149</updated>
+      <updated>1683097480594</updated>
     </task>
-    <task id="LOCAL-00011" summary="Bugfix Nullpointer">
-      <created>1683911346890</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
+    <task id="LOCAL-00078" summary="PHYSICS2D TEMP REMOVED - Refactor">
+      <created>1683124576351</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
       <option name="project" value="LOCAL" />
-      <updated>1683911346890</updated>
+      <updated>1683124576351</updated>
     </task>
-    <task id="LOCAL-00012" summary="Zoom in center">
-      <created>1683986904574</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
+    <task id="LOCAL-00079" summary="Serialize fix">
+      <created>1683195282309</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
       <option name="project" value="LOCAL" />
-      <updated>1683986904574</updated>
+      <updated>1683195282309</updated>
     </task>
-    <task id="LOCAL-00013" summary="Mehrere Plots gleichzeitig">
-      <created>1683989593903</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
+    <task id="LOCAL-00080" summary="Zwischenspeichern in StartMenu">
+      <created>1683217655608</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
       <option name="project" value="LOCAL" />
-      <updated>1683989593903</updated>
+      <updated>1683217655608</updated>
     </task>
-    <task id="LOCAL-00014" summary="plotValues mit variabler Länge">
-      <created>1683990957108</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
+    <task id="LOCAL-00081" summary="Menu Creator Klasse für ButtonGUIs">
+      <created>1683285473550</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
       <option name="project" value="LOCAL" />
-      <updated>1683990957108</updated>
+      <updated>1683285473550</updated>
     </task>
-    <task id="LOCAL-00015" summary="JAR build config">
-      <created>1684337300926</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
+    <task id="LOCAL-00082" summary="Scenes und Assets verbessert">
+      <created>1683374762232</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
       <option name="project" value="LOCAL" />
-      <updated>1684337300926</updated>
+      <updated>1683374762233</updated>
     </task>
-    <task id="LOCAL-00016" summary="Viewport World Koordinaten">
-      <created>1684344148349</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
+    <task id="LOCAL-00083" summary="Asset Types und zentraler Getter für alle Assets mit Template">
+      <created>1683386389600</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
       <option name="project" value="LOCAL" />
-      <updated>1684344148349</updated>
+      <updated>1683386389600</updated>
     </task>
-    <task id="LOCAL-00017" summary="GridLines funktionieren">
-      <created>1684346127623</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
+    <task id="LOCAL-00084" summary="Game und Editor nicht mehr eigenständige Szene">
+      <created>1683388438415</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
       <option name="project" value="LOCAL" />
-      <updated>1684346127623</updated>
+      <updated>1683388438415</updated>
     </task>
-    <task id="LOCAL-00018" summary="GridLines pixelSize">
-      <created>1684348446405</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
+    <task id="LOCAL-00085" summary="Playercharacter und VIEL refactoring der GameScene, EditorScene.&#10;Scene kann jetzt auch im Menu verwendet werden">
+      <created>1683466307318</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
       <option name="project" value="LOCAL" />
-      <updated>1684348446405</updated>
+      <updated>1683466307318</updated>
     </task>
-    <task id="LOCAL-00019" summary="GridLines align with sprites">
-      <created>1684354121830</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
+    <task id="LOCAL-00086" summary="Fixed Errors von letztem Commit + Paar Dateien entfernt">
+      <created>1683467763155</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
       <option name="project" value="LOCAL" />
-      <updated>1684354121830</updated>
+      <updated>1683467763155</updated>
     </task>
-    <task id="LOCAL-00020" summary="Editor Components ImGuiPanel with ResetButton">
-      <created>1684357398547</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
+    <task id="LOCAL-00087" summary="Debuggen start von ALLEM">
+      <created>1683469951875</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
       <option name="project" value="LOCAL" />
-      <updated>1684357398547</updated>
+      <updated>1683469951875</updated>
     </task>
-    <task id="LOCAL-00021" summary="Refactoring. Projekt ist auf einem guten Niveau aufgebaut">
-      <created>1684358763200</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
+    <task id="LOCAL-00088" summary="Fix für ImGUI">
+      <created>1683471171432</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
       <option name="project" value="LOCAL" />
-      <updated>1684358763200</updated>
+      <updated>1683471171432</updated>
     </task>
-    <task id="LOCAL-00022" summary="Refactoring. Projekt ist auf einem guten Niveau aufgebaut">
-      <created>1684358810764</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
+    <task id="LOCAL-00089" summary="Texture FIX">
+      <created>1683472959597</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
       <option name="project" value="LOCAL" />
-      <updated>1684358810764</updated>
+      <updated>1683472959598</updated>
     </task>
-    <task id="LOCAL-00023" summary="Editor Components, in ImGui">
-      <created>1684415748065</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
+    <task id="LOCAL-00090" summary="Assets DebugMessage fürs Laden">
+      <created>1683475230626</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
       <option name="project" value="LOCAL" />
-      <updated>1684415748065</updated>
+      <updated>1683475230626</updated>
     </task>
-    <task id="LOCAL-00024" summary="Diagramme">
-      <created>1684424822077</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
+    <task id="LOCAL-00091" summary="Referenz auf Scene erst nach initialisierung von currentscene in Window.&#10;Deshalb nimmt man .init() Methoden">
+      <created>1683478299740</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
       <option name="project" value="LOCAL" />
-      <updated>1684424822077</updated>
+      <updated>1683478299740</updated>
     </task>
-    <task id="LOCAL-00025" summary="Diagramm fertig">
-      <created>1684425303776</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
+    <task id="LOCAL-00092" summary="Refactoring und wieder paar Errors gefixt">
+      <created>1683482030710</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
       <option name="project" value="LOCAL" />
-      <updated>1684425303776</updated>
+      <updated>1683482030710</updated>
     </task>
-    <task id="LOCAL-00026" summary="Editor">
-      <created>1684428878100</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
+    <task id="LOCAL-00093" summary="Refactoring und wieder paar Errors gefixt">
+      <created>1683483934198</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
       <option name="project" value="LOCAL" />
-      <updated>1684428878100</updated>
+      <updated>1683483934198</updated>
     </task>
-    <task id="LOCAL-00027" summary="Editor mit Component Tabs">
-      <created>1684429091364</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
+    <task id="LOCAL-00094" summary="JavaDoc für Actor und wieder Refactoring">
+      <created>1683568945205</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
       <option name="project" value="LOCAL" />
-      <updated>1684429091364</updated>
+      <updated>1683568945205</updated>
     </task>
-    <task id="LOCAL-00028" summary="All Style Variables">
-      <created>1684431159847</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
+    <task id="LOCAL-00095" summary="Ende für Heute">
+      <created>1683570969617</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
       <option name="project" value="LOCAL" />
-      <updated>1684431159847</updated>
+      <updated>1683570969617</updated>
     </task>
-    <task id="LOCAL-00029" summary="Sprites for UI, Unreal Engine Colors (Window), Fixed Object reset value">
-      <created>1684444995164</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
+    <task id="LOCAL-00096" summary="Content drawer fix">
+      <created>1683615219622</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
       <option name="project" value="LOCAL" />
-      <updated>1684444995164</updated>
+      <updated>1683615219622</updated>
     </task>
-    <task id="LOCAL-00030" summary="Mehr Colors und Table">
-      <created>1684448399505</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
+    <task id="LOCAL-00097" summary="Content drawer fix">
+      <created>1683699056882</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
       <option name="project" value="LOCAL" />
-      <updated>1684448399505</updated>
+      <updated>1683699056882</updated>
     </task>
-    <task id="LOCAL-00031" summary="Copy On changing color">
-      <created>1684586799033</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
+    <task id="LOCAL-00098" summary="Content drawer fix">
+      <created>1683788205603</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
       <option name="project" value="LOCAL" />
-      <updated>1684586799033</updated>
+      <updated>1683788205603</updated>
     </task>
-    <task id="LOCAL-00032" summary="Components angezeigt in Fenster">
-      <created>1684589225141</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
+    <task id="LOCAL-00099" summary="Content drawer fix">
+      <created>1684172539372</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
       <option name="project" value="LOCAL" />
-      <updated>1684589225141</updated>
+      <updated>1684172539372</updated>
     </task>
-    <task id="LOCAL-00033" summary="ViewportSize extra und HotKeys in eigener Datei">
-      <created>1684596433196</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
+    <task id="LOCAL-00100" summary="Content drawer fix">
+      <created>1684238032896</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
       <option name="project" value="LOCAL" />
-      <updated>1684596433196</updated>
+      <updated>1684238032898</updated>
     </task>
-    <task id="LOCAL-00034" summary="Assets Updated. Sehr gut">
-      <created>1685638566536</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
+    <task id="LOCAL-00101" summary="Content drawer fix">
+      <created>1684261655358</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
       <option name="project" value="LOCAL" />
-      <updated>1685638566536</updated>
+      <updated>1684261655359</updated>
     </task>
-    <task id="LOCAL-00035" summary="Highlighted Sections">
-      <created>1685639554671</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
+    <task id="LOCAL-00102" summary="Content drawer fix">
+      <created>1684305967569</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
       <option name="project" value="LOCAL" />
-      <updated>1685639554671</updated>
+      <updated>1684305967570</updated>
     </task>
-    <task id="LOCAL-00036" summary="CMD output besser">
-      <created>1685643762251</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
+    <task id="LOCAL-00103" summary="Content drawer fix">
+      <created>1684843250546</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
       <option name="project" value="LOCAL" />
-      <updated>1685643762251</updated>
+      <updated>1684843250547</updated>
     </task>
-    <task id="LOCAL-00037" summary="Icons update">
-      <created>1685649524176</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
+    <task id="LOCAL-00104" summary="Content drawer fix">
+      <created>1684847715020</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
       <option name="project" value="LOCAL" />
-      <updated>1685649524177</updated>
+      <updated>1684847715021</updated>
     </task>
-    <task id="LOCAL-00038" summary="Schöner Contentdrawer mit background">
-      <created>1685652161353</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
+    <task id="LOCAL-00105" summary="Content drawer fix">
+      <created>1684908613938</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
       <option name="project" value="LOCAL" />
-      <updated>1685652161353</updated>
+      <updated>1684908613939</updated>
     </task>
-    <task id="LOCAL-00039" summary="Vector3f to Vector2f bei TexCords. Resetbutton sprite anderer index">
-      <created>1685710356904</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
+    <task id="LOCAL-00106" summary="Content drawer fix">
+      <created>1684913140032</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
       <option name="project" value="LOCAL" />
-      <updated>1685710356904</updated>
+      <updated>1684913140033</updated>
     </task>
-    <task id="LOCAL-00040" summary="Mouse world position ist nun PERFEKT. &#10;Wieder zu Vector2f gewechselt.">
-      <created>1685810003044</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1685810003044</updated>
-    </task>
-    <task id="LOCAL-00041" summary="Screen und World coordinates gefixt">
-      <created>1685974767068</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1685974767068</updated>
-    </task>
-    <task id="LOCAL-00042" summary="Texture flipping gefixt">
-      <created>1685983912457</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1685983912457</updated>
-    </task>
-    <task id="LOCAL-00043" summary="Scaling adjusted to Aspect Ratio of Sprite">
-      <created>1685988147029</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1685988147029</updated>
-    </task>
-    <task id="LOCAL-00044" summary="Serialization funktioniert endlich">
-      <created>1685990528693</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1685990528693</updated>
-    </task>
-    <task id="LOCAL-00045" summary="ViewToScreen">
-      <created>1686066115735</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1686066115735</updated>
-    </task>
-    <task id="LOCAL-00046" summary="Picking funktioniert endlich">
-      <created>1686068710991</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1686068710991</updated>
-    </task>
-    <task id="LOCAL-00047" summary="Picking Texture Debug Imgui">
-      <created>1686076743420</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1686076743421</updated>
-    </task>
-    <task id="LOCAL-00048" summary="Picking Texture Flipped Fix (BEFORE)">
-      <created>1686080681183</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1686080681183</updated>
-    </task>
-    <task id="LOCAL-00049" summary="PickingTexture ist jetzt ENDLICH an der Richtigen position.&#10;&#10;Preview Panel für PickingTexture: &quot;void pickingTexturePreview()&quot;">
-      <created>1686081277107</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1686081277107</updated>
-    </task>
-    <task id="LOCAL-00050" summary="Am PropertiesPanel arbeiten">
-      <created>1686087725168</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1686087725168</updated>
-    </task>
-    <task id="LOCAL-00051" summary="InitialValues interface">
-      <created>1686121528345</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1686121528345</updated>
-    </task>
-    <task id="LOCAL-00052" summary="Properties Panel und Actor Eigenschaften">
-      <created>1686145026078</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1686145026078</updated>
-    </task>
-    <task id="LOCAL-00053" summary="Components Properties">
-      <created>1686183790951</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1686183790952</updated>
-    </task>
-    <task id="LOCAL-00054" summary="ValueManager vereinfacht und fix für ResetButton">
-      <created>1686234843975</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1686234843975</updated>
-    </task>
-    <task id="LOCAL-00055" summary="Initialvalues mit Object Copy">
-      <created>1686243905693</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1686243905693</updated>
-    </task>
-    <option name="localTasksCounter" value="56" />
-    <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Copy On changing color" />
-    <MESSAGE value="Components angezeigt in Fenster" />
-    <MESSAGE value="ViewportSize extra und HotKeys in eigener Datei" />
-    <MESSAGE value="Assets Updated. Sehr gut" />
-    <MESSAGE value="Highlighted Sections" />
-    <MESSAGE value="CMD output besser" />
-    <MESSAGE value="Icons update" />
-    <MESSAGE value="Schöner Contentdrawer mit background" />
-    <MESSAGE value="Vector3f to Vector2f bei TexCords. Resetbutton sprite anderer index" />
-    <MESSAGE value="Mouse world position ist nun PERFEKT. &#10;Wieder zu Vector2f gewechselt." />
-    <MESSAGE value="Screen und World coordinates gefixt" />
-    <MESSAGE value="Texture flipping gefixt" />
-    <MESSAGE value="Scaling adjusted to Aspect Ratio of Sprite" />
-    <MESSAGE value="Serialization funktioniert endlich" />
-    <MESSAGE value="ViewToScreen" />
-    <MESSAGE value="Picking funktioniert endlich" />
-    <MESSAGE value="Picking Texture Debug Imgui" />
-    <MESSAGE value="Picking Texture Flipped Fix (BEFORE)" />
-    <MESSAGE value="PickingTexture ist jetzt ENDLICH an der Richtigen position.&#10;&#10;Preview Panel für PickingTexture: &quot;void pickingTexturePreview()&quot;" />
-    <MESSAGE value="Am PropertiesPanel arbeiten" />
-    <MESSAGE value="InitialValues interface" />
-    <MESSAGE value="Properties Panel und Actor Eigenschaften" />
-    <MESSAGE value="Components Properties" />
-    <MESSAGE value="ValueManager vereinfacht und fix für ResetButton" />
-    <MESSAGE value="Initialvalues mit Object Copy" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initialvalues mit Object Copy" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.ExceptionInInitializerError" package="java.lang" />
-          <option name="timeStamp" value="7" />
-        </breakpoint>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.nio.BufferUnderflowException" package="java.nio" />
-          <option name="timeStamp" value="8" />
-        </breakpoint>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.StackOverflowError" package="java.lang" />
-          <option name="timeStamp" value="11" />
-        </breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-    <pin-to-top-manager>
-      <pinned-members>
-        <PinnedItemInfo parentTag="Burst.Engine.Source.Core.Actor.Actor" memberName="serializedActor" />
-        <PinnedItemInfo parentTag="Burst.Engine.Source.Core.Actor.Actor" memberName="name" />
-      </pinned-members>
-    </pin-to-top-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
