@@ -1,7 +1,16 @@
 package Burst.Engine.Source.Core.Util;
 
+import imgui.ImVec2;
+import imgui.ImVec4;
+import imgui.type.ImInt;
+import org.joml.Vector2f;
+import org.joml.Vector3f;
 import org.joml.Vector4f;
 
+import java.io.*;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 import java.util.concurrent.atomic.AtomicLong;
 
 public class Util {
@@ -38,4 +47,40 @@ public class Util {
 
         return colorValue;
     }
+
+    public static Object copy(Object value) {
+
+        // Check if the value is a primitive type
+        if (value.getClass().isPrimitive()) {
+            return value;
+        }
+
+        try {
+            Class<?> clazz = value.getClass();
+
+            Constructor<?> constructor = clazz.getConstructor();
+
+            Object copy = constructor.newInstance();
+
+            Field[] fields = clazz.getDeclaredFields();
+            for (Field field : fields) {
+                if (Modifier.isStatic(field.getModifiers()) || Modifier.isFinal(field.getModifiers())) {
+                    continue;
+                }
+                field.setAccessible(true);
+                Object fieldValue = field.get(value);
+                field.set(copy, fieldValue);
+            }
+
+            return copy;
+        } catch (Exception e) {
+            return value;
+        }
+    }
+
+
+
+
+
+
 }

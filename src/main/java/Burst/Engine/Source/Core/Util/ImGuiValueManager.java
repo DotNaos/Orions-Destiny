@@ -46,28 +46,21 @@ public interface ImGuiValueManager {
 
     Field[] fields = obj.getClass().getDeclaredFields();
     for (Field field : fields) {
-      shouldAccess(field);
+
+      if (!shouldAccess(field)) continue;
 
       try {
         Object value = field.get(obj);
 
         // Make a copy of the value
-        if (value instanceof Vector2f) {
-          value = new Vector2f((Vector2f) value);
-        } else if (value instanceof Vector3f) {
-          value = new Vector3f((Vector3f) value);
-        } else if (value instanceof Vector4f) {
-          value = new Vector4f((Vector4f) value);
-        } else if (value instanceof ImInt) {
-          value = new ImInt((ImInt) value);
-        } else if (value instanceof ImVec2) {
-          value = new ImVec2((ImVec2) value);
-        } else if (value instanceof ImVec4) {
-          value = new ImVec4((ImVec4) value);
-        }
+        value = Util.copy(value);
+
         initialValues.put(field.getName(), value);
       } catch (IllegalAccessException e) {
+
+
         DebugMessage.loadFail("Failed to get initial value of field: " + field.getName());
+        e.printStackTrace();
       }
 
       revertAccess(field);

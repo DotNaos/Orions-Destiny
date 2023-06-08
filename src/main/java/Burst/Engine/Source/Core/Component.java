@@ -1,5 +1,6 @@
 package Burst.Engine.Source.Core;
 
+import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.ArrayList;
@@ -39,7 +40,7 @@ public abstract class Component implements ImGuiValueManager {
   }
 
   public void start() {
-    // get the initial values of this componen
+    // get the initial values of this component
     if (this.initialValues == null) {
       this.initialValues = new HashMap<>();
     }

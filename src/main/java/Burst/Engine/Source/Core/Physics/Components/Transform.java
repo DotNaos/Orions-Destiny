@@ -65,19 +65,6 @@ public class Transform extends ActorComponent {
     return new Transform(this.actor, new Vector2f(this.position), new Vector2f(this.scale), this.rotation);
   }
 
-//  @Override
-//  public void imgui() {
-//    ImGui.tableNextColumn();
-//    actor.setName(BImGui.inputText("Name: ", actor.getName()));
-//    BImGui.drawVec2Control("Position", this.position, new Vector2f(0));
-//    BImGui.drawVec2Control("Size", this.size, new Vector2f(1));
-//    BImGui.drawVec2Control("Scale", this.scale, new Vector2f(1));
-//    this.rotation = BImGui.dragFloat("Rotation", this.rotation, 0.1f);
-//    this.zIndex = BImGui.dragInt("Z-Index", this.zIndex, 1);
-//    this.scaledSize = new Vector2f(size).mul(new Vector2f(scale));
-//    ImGui.inputFloat2("Scaled Size", new float[]{scaledSize.x, scaledSize.y}, "%.2f", ImGuiInputTextFlags.ReadOnly);
-//  }
-
   public Transform copy(Transform from) {
     this.position.set(from.position);
     this.scale.set(from.scale);

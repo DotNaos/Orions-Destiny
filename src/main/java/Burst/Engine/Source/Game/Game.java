@@ -242,7 +242,7 @@ public class Game {
             for (Actor actor : this.actors) {
                 if (actor.isSerializedActor()) {
                     actorsToSerialize.add(actor);
-//                    System.out.println("Added actor to serialize " + actor.getName());
+                    System.out.println("Added actor to serialize " + actor.getName());
                 }
             }
 //            writer.write(gsonBuilder().toJson(actorsToSerialize));
