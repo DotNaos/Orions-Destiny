@@ -23,8 +23,6 @@ public class SceneInitializer {
     }
 
     public void loadResources(Game scene) {
-        AssetManager.loadAllAssets();
-
         for (Actor g : scene.getActors()) {
             if (g.getComponent(SpriteRenderer.class) != null) {
                 SpriteRenderer spr = g.getComponent(SpriteRenderer.class);

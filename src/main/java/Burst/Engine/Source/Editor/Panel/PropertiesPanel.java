@@ -30,6 +30,8 @@ public class PropertiesPanel extends ImGuiPanel {
 
     @Override
     public void imgui() {
+//        pickingTexturePreview();
+
         if (activeActors.size() == 1 && activeActors.get(0) != null) {
             activeActor = activeActors.get(0);
             ImGui.begin("Properties");

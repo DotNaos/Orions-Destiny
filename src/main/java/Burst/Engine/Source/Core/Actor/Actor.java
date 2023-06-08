@@ -1,8 +1,5 @@
 package Burst.Engine.Source.Core.Actor;
 
-import java.io.Serializable;
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -26,15 +23,9 @@ import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Core.Util.Util;
 import Orion.res.AssetConfig;
 import imgui.ImGui;
-import imgui.ImVec2;
-import imgui.ImVec4;
 import imgui.flag.ImGuiCol;
 import imgui.flag.ImGuiStyleVar;
 import imgui.flag.ImGuiTableColumnFlags;
-import imgui.type.ImInt;
-import org.joml.Vector2f;
-import org.joml.Vector3f;
-import org.joml.Vector4f;
 
 /**
  * Represents an object in the game world that can have Components attached to
@@ -82,7 +73,7 @@ public class Actor implements ImGuiValueManager {
 
     public Actor()
     {
-        this.name = "Actor: " + (Window.getScene().getGame().getActors().size() + 1);
+        this.name = "Actor: " + (Window.getScene().getEditor().getActors().size() + 1);
         this.ID = Util.generateUniqueID();
         this.components = new ArrayList<>();
         this.addComponent(new Transform(this));

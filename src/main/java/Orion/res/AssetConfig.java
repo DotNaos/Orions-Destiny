@@ -74,5 +74,5 @@ public class AssetConfig {
             new SpriteSheetConfig(GIZMOS, SpriteSheetUsage.UI, 24, 48, 0),
             new SpriteSheetConfig(BUTTONS, SpriteSheetUsage.UI, 16, 16, 0),
             new SpriteSheetConfig(BLOCKS, SpriteSheetUsage.BLOCK, 16, 16, 0, new int[]{16, 16, 4, 13, 10, 9, 7, 9, 14, 17, 18, 5, 21, 8, 3, 0, 7, 20, 15, 29, 32, 30, 32, 16, 16, 8, 5, 0, 0, 15, 15, 15})
-            );
+    );
 }

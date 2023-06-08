@@ -9,9 +9,11 @@ import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.Physics.Physics2D;
 import Burst.Engine.Source.Core.Render.SpriteRenderer;
+import Burst.Engine.Source.Core.Render.ViewportRenderer;
 import Burst.Engine.Source.Core.Saving.ActorDeserializer;
 import Burst.Engine.Source.Core.Saving.ComponentDeserializer;
 import Burst.Engine.Source.Core.Scene.Scene;
+import Burst.Engine.Source.Core.UI.Viewport;
 import Burst.Engine.Source.Core.Util.DebugMessage;
 import Burst.Engine.Source.Editor.Panel.ViewportPanel;
 import Orion.res.AssetConfig;
@@ -36,6 +38,8 @@ public class Game {
     protected List<Component> components;
     protected Physics2D physics2D;
     protected Scene scene;
+    private ViewportRenderer viewportRenderer;
+
 
     // Timer for saving
     private Timer timer = new Timer();
@@ -45,6 +49,7 @@ public class Game {
     }
 
     public void init() {
+        this.viewportRenderer = new ViewportRenderer();
         this.physics2D = new Physics2D();
         this.actors = new ArrayList<>();
         this.actorsToAdd = new ArrayList<>();
@@ -61,8 +66,10 @@ public class Game {
         loadLevel();
 
      //? Debug code
-//         this.addActor(new Actor().setSprite(new Sprite().setTexture(AssetManager.getAssetFromType(AssetConfig.ICON_PLAYER, Texture.class))));
-         this.addActor(new Actor().setSprite(AssetManager.getAssetFromType(AssetConfig.BLOCKS, SpriteSheet.class).getSprite(10)));
+//        Actor tmp = new Actor().setSprite(new Sprite().setTexture(AssetManager.getAssetFromType(AssetConfig.ICON_PLAYER, Texture.class)));
+//        tmp.getTransform().position.set(2, 0);
+//         this.addActor(tmp);
+//         this.addActor(new Actor().setSprite(AssetManager.getAssetFromType(AssetConfig.BLOCKS, SpriteSheet.class).getSprite(10)));
      //? End debug code
 
 
@@ -82,7 +89,7 @@ public class Game {
 
     public void start() {
         for (Actor actor : actors) {
-            scene.getViewportRenderer().add(actor);
+            this.viewportRenderer.add(actor);
             this.physics2D.add(actor);
         }
         timer.scheduleAtFixedRate(new java.util.TimerTask() {
@@ -123,7 +130,7 @@ public class Game {
 
         // Add the actor to the viewport renderer, if it has a sprite
         if (actor.getComponent(SpriteRenderer.class) != null) {
-            scene.getViewportRenderer().add(actor);
+            this.viewportRenderer.add(actor);
         }
 
         // Save the level if the actor is a serialized actor
@@ -323,4 +330,9 @@ public class Game {
     public void imgui(){
         // TODO: MAYBE ADD FUNCTIONALITY HERE
     }
+
+    public void render() {
+        this.viewportRenderer.render();
+    }
+
 }

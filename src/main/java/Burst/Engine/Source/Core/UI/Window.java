@@ -2,7 +2,6 @@ package Burst.Engine.Source.Core.UI;
 
 import Burst.Engine.Config.Shader_Config;
 import Burst.Engine.Source.Core.Actor.Actor;
-import Burst.Engine.Source.Core.Assets.Asset;
 import Burst.Engine.Source.Core.Assets.AssetManager;
 import Burst.Engine.Source.Core.Assets.Graphics.Shader;
 import Burst.Engine.Source.Core.Render.Debug.DebugDraw;
@@ -40,6 +39,8 @@ public class Window implements Observer {
     private static boolean imguiActive = false;
     private static Window window = null;
     private static Scene currentScene;
+
+    private static SceneType startScene = SceneType.EDITOR;
     private final String title;
     private int width, height;
     private long glfwWindow;
@@ -71,7 +72,7 @@ public class Window implements Observer {
     }
 
     public static Physics2D getPhysics() {
-        return currentScene.getGame().getPhysics();
+        return currentScene.getEditor().getPhysics();
     }
 
     public static Scene getScene() {
@@ -200,7 +201,9 @@ public class Window implements Observer {
         this.imguiLayer = new ImGuiLayer(glfwWindow);
         this.imguiLayer.initImGui();
 
-        Window.changeScene(SceneType.START_MENU);
+        AssetManager.loadAllAssets();
+
+        Window.changeScene(startScene);
     }
 
     public void loop() {
@@ -284,8 +287,8 @@ public class Window implements Observer {
 //                Window.changeScene(SceneType.GAME);
             }
             case SaveLevel -> {
-                assert currentScene.getGame() != null;
-                currentScene.getGame().saveLevel();
+                assert currentScene.getEditor() != null;
+                currentScene.getEditor().saveLevel();
             }
         }
     }

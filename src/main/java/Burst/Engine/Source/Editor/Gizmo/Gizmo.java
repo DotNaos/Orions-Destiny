@@ -3,14 +3,12 @@ package Burst.Engine.Source.Editor.Gizmo;
 import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Actor.ActorComponent;
 import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
-import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.Input.MouseListener;
 import Burst.Engine.Source.Core.Physics.Components.Transform;
 import Burst.Engine.Source.Core.Render.SpriteRenderer;
 import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Editor.NonPickable;
 import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
-import org.joml.Vector2f;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
 
@@ -57,8 +55,8 @@ public class Gizmo extends ActorComponent {
 
         this.propertiesPanel = Window.getScene().getPanel(PropertiesPanel.class);
 
-        Window.getScene().getGame().addActor(this.xAxisObject);
-        Window.getScene().getGame().addActor(this.yAxisObject);
+        Window.getScene().getEditor().addActor(this.xAxisObject);
+        Window.getScene().getEditor().addActor(this.yAxisObject);
     }
 
     @Override

@@ -20,7 +20,7 @@ public class OutlinerPanel extends ImGuiPanel {
     public void imgui() {
         ImGui.begin("Outliner");
 
-        List<Actor> actors = Window.getScene().getGame().getActors();
+        List<Actor> actors = Window.getScene().getEditor().getActors();
         int index = 0;
         for (Actor actor : actors) {
             if (!actor.isSerializedActor()) {

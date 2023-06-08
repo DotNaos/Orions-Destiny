@@ -8,12 +8,9 @@ import Burst.Engine.Source.Game.Animation.StateMachine;
 import Burst.Engine.Source.Core.Input.KeyListener;
 import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
-import org.joml.Vector2f;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.lwjgl.glfw.GLFW.*;
 
 public class KeyControls extends Component {
     protected float debounceTime = 0.2f;
@@ -39,8 +36,8 @@ public class KeyControls extends Component {
         if (KeyListener.isKeyPressed(HotKeys.get().Shortcut_EditorDuplicate.first) &&
                 KeyListener.keyBeginPress(HotKeys.get().Shortcut_EditorDuplicate.second) && activeActor != null) {
             Actor newObj = activeActor.copy();
-            assert Window.getScene().getGame() != null;
-            Window.getScene().getGame().addActor(newObj);
+            assert Window.getScene().getEditor() != null;
+            Window.getScene().getEditor().addActor(newObj);
             newObj.getTransform().position.add(GridLines_Config.SIZE, 0.0f);
             propertiesPanel.setActiveGameObject(newObj);
             if (newObj.getComponent(StateMachine.class) != null) {
@@ -52,8 +49,8 @@ public class KeyControls extends Component {
             propertiesPanel.clearSelected();
             for (Actor actor : actors) {
                 Actor copy = actor.copy();
-                assert Window.getScene().getGame() != null;
-                Window.getScene().getGame().addActor(copy);
+                assert Window.getScene().getEditor() != null;
+                Window.getScene().getEditor().addActor(copy);
                 propertiesPanel.addActiveGameObject(copy);
                 if (copy.getComponent(StateMachine.class) != null) {
                     copy.getComponent(StateMachine.class).refreshTextures();

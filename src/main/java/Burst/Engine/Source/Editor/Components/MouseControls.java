@@ -52,7 +52,7 @@ public class MouseControls extends Component {
         this.holdingActor.addComponent(new NonPickable());
         this.gizmoSystem = new GizmoSystem(gizmos, this.holdingActor);
 
-        Window.getScene().getGame().addActor(actor);
+        Window.getScene().getEditor().addActor(actor);
     }
 
     public void place() {
@@ -62,7 +62,7 @@ public class MouseControls extends Component {
         }
         newObj.getComponent(SpriteRenderer.class).setColor(new Vector4f(1, 1, 1, 1));
         newObj.removeComponent(NonPickable.class);
-        Window.getScene().getGame().addActor(newObj);
+        Window.getScene().getEditor().addActor(newObj);
     }
 
 
@@ -76,7 +76,7 @@ public class MouseControls extends Component {
     private void handleInput() {
         PropertiesPanel propertiesPanel = Window.getScene().getPanel(PropertiesPanel.class);
         PickingTexture pickingTexture = propertiesPanel.getPickingTexture();
-        Game game = Window.getScene().getGame();
+        Game game = Window.getScene().getEditor();
 
         // * Current actor
         if (holdingActor != null)
@@ -200,7 +200,7 @@ public class MouseControls extends Component {
 
         for (int i = 0; i < gameObjectIds.length; i++) {
             if (gameObjectIds[i] >= 0) {
-                Actor pickedObj = Window.getScene().getGame().getActor((int) gameObjectIds[i]);
+                Actor pickedObj = Window.getScene().getEditor().getActor((int) gameObjectIds[i]);
                 if (pickedObj.getComponent(NonPickable.class) == null) {
                     return true;
                 }
