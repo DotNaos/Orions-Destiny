@@ -9,16 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="Vollständige Vererbung der Ability Klassen mit Ability als Oberklasse">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Orion/enemies/DarkMage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Orion/enemies/DemonBoss.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Orion/enemies/EnemyCharacter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Orion/enemies/FireSkull.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Orion/enemies/Ghost.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Orion/enemies/Muelltonne.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Orion/enemies/Satan.java" afterDir="false" />
+    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="Introducing: enemies (warum machen wir unser projekt nicht so wie blizzard und brechen einfach ab?)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/characters/PlayerCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/characters/PlayerCharacter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/enemies/EnemyCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/enemies/EnemyCharacter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,26 +63,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;OverrideImplement.generate.javadoc&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/49151/OneDrive/Dokumente/IT/Orions-Destiny&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15179856&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.uml&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "OverrideImplement.generate.javadoc": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/49151/OneDrive/Dokumente/IT/Orions-Destiny",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15179856",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settings.ide.settings.uml",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\49151\OneDrive\Dokumente\IT\Orions-Destiny\src\main\java\Orion\abilities" />
@@ -453,7 +447,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685733304137</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Introducing: enemies (warum machen wir unser projekt nicht so wie blizzard und brechen einfach ab?)">
+      <created>1685737077960</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1685737077960</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -471,7 +472,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Bugfix Nullpointer" />
     <MESSAGE value="Zoom in center" />
     <MESSAGE value="Mehrere Plots gleichzeitig" />
     <MESSAGE value="plotValues mit variabler Länge" />
@@ -496,7 +496,8 @@
     <MESSAGE value="kaka" />
     <MESSAGE value="Ability Spritesheet Wichtig: Die Größe die oben rechts am rand von der png Datei steht muss nicht stimmen" />
     <MESSAGE value="Vollständige Vererbung der Ability Klassen mit Ability als Oberklasse" />
-    <option name="LAST_COMMIT_MESSAGE" value="Vollständige Vererbung der Ability Klassen mit Ability als Oberklasse" />
+    <MESSAGE value="Introducing: enemies (warum machen wir unser projekt nicht so wie blizzard und brechen einfach ab?)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Introducing: enemies (warum machen wir unser projekt nicht so wie blizzard und brechen einfach ab?)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
