@@ -2,10 +2,6 @@ package Burst.Engine.Source.Game;
 
 import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Actor.ActorComponent;
-import Burst.Engine.Source.Core.Assets.AssetManager;
-import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
-import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheet;
-import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.Physics.Physics2D;
 import Burst.Engine.Source.Core.Render.SpriteRenderer;
@@ -13,11 +9,8 @@ import Burst.Engine.Source.Core.Render.ViewportRenderer;
 import Burst.Engine.Source.Core.Saving.ActorDeserializer;
 import Burst.Engine.Source.Core.Saving.ComponentDeserializer;
 import Burst.Engine.Source.Core.Scene.Scene;
-import Burst.Engine.Source.Core.UI.Viewport;
 import Burst.Engine.Source.Core.Util.DebugMessage;
 import Burst.Engine.Source.Editor.Panel.ViewportPanel;
-import Orion.res.AssetConfig;
-import Orion.res.Assets;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -80,7 +73,7 @@ public class Game {
 
     public void start() {
         for (Actor actor : actors) {
-            this.viewportRenderer.add(actor);
+            this.viewportRenderer.addActor(actor);
             this.physics2D.add(actor);
         }
         timer.scheduleAtFixedRate(new java.util.TimerTask() {
@@ -121,7 +114,7 @@ public class Game {
 
         // Add the actor to the viewport renderer, if it has a sprite
         if (actor.getComponent(SpriteRenderer.class) != null) {
-            this.viewportRenderer.add(actor);
+            this.viewportRenderer.addActor(actor);
         }
     }
 
@@ -322,4 +315,8 @@ public class Game {
         this.viewportRenderer.render();
     }
 
+    public void removeActor(Actor actor) {
+        viewportRenderer.destroyActor(actor);
+        this.actors.remove(actor);
+    }
 }

@@ -17,7 +17,11 @@ public class AssetConfig {
   public static final String DIR_OF_IMAGES = "Assets/images/";
 
     public static final String DIR_OF_SPRITESHEETS = DIR_OF_IMAGES + "spritesheets/";
-    public static final String DIR_OF_ENEMIES = DIR_OF_SPRITESHEETS + "Enemy/";
+    public static final String DIR_OF_ENEMIES = DIR_OF_SPRITESHEETS + "enemy/";
+    public static final String DIR_OF_UI = DIR_OF_SPRITESHEETS + "ui/";
+
+    public static final String DIR_OF_ENVIRONMENT = DIR_OF_SPRITESHEETS + "environment/";
+    public static final String DIR_OF_TILES = DIR_OF_ENVIRONMENT + "tiles/";
 
     // Textures
     public static final String DIR_OF_TEXTURES = DIR_OF_IMAGES + "textures/";
@@ -27,7 +31,7 @@ public class AssetConfig {
     public static final String DIR_OF_DEBUG_TEXTURES = DIR_OF_IMAGES + "debug/";
 
     // Backgrounds
-    public static final String DIR_OF_BACKGROUNDS = DIR_OF_IMAGES + "backgrounds/";
+    public static final String DIR_OF_BACKGROUNDS = DIR_OF_IMAGES + "background/";
 
 
   // Audio
@@ -55,16 +59,17 @@ public class AssetConfig {
   //? =================== Images - SpriteSheets ==========================
 
     // Editor
-      public static final String GIZMOS = DIR_OF_SPRITESHEETS + "gizmos.png";
+      public static final String GIZMOS = DIR_OF_UI + "gizmos.png";
 
     // Enemies
       public static final String ENEMY_1 = DIR_OF_SPRITESHEETS + DIR_OF_ENEMIES + "enemy_1.png";
 
     // UI
-      public static final String BUTTONS = DIR_OF_SPRITESHEETS + "buttons.png";
+
+      public static final String BUTTONS = DIR_OF_UI + "buttons.png";
 
     // Level Blocks
-      public static final String BLOCKS = DIR_OF_SPRITESHEETS + "blocks.png";
+      public static final String BLOCKS = DIR_OF_TILES + "blocks.png";
 
 
     //!========================================================================

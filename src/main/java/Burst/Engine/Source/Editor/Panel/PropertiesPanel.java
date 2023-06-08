@@ -30,8 +30,6 @@ public class PropertiesPanel extends ImGuiPanel {
 
     @Override
     public void imgui() {
-//        pickingTexturePreview();
-
         if (activeActors.size() == 1 && activeActors.get(0) != null) {
             activeActor = activeActors.get(0);
             ImGui.begin("Properties");
@@ -70,24 +68,6 @@ public class PropertiesPanel extends ImGuiPanel {
         }
     }
 
-    private void pickingTexturePreview() {
-        ImGui.begin("Picking Texture Preview");
-        // Read all the pixels from the picking texture
-        if (this.pickingTexture != null)
-        {
-            // Load the pixels into a buffer
-            float[] pixelBuffer = pickingTexture.getPickingActorBuffer();
-
-            // Generate a Texture from the pixels with OpenGL
-            Texture texture = new Texture(pixelBuffer, Window.getWidth(), Window.getHeight());
-
-            // Display the texture in ImGui
-            ImGui.image(texture.getTexID(), 600, 400);
-        }
-
-
-        ImGui.end();
-    }
 
     public Actor getActiveActor() {
         return activeActors.size() == 1 ? this.activeActors.get(0) : null;
