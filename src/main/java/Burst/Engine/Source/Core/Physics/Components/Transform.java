@@ -14,7 +14,7 @@ public class Transform extends ActorComponent {
 
   public Vector2f size = new Vector2f(1f, 1f);
   private Vector2f scaledSize = new Vector2f(size).mul(new Vector2f(scale));
-  public float rotation = 0.0f;
+  public float rotation = 0;
   public int zIndex = 0;
 
   public Transform() {
@@ -59,6 +59,11 @@ public class Transform extends ActorComponent {
     this.position = position;
     this.scale = scale;
     this.rotation = rotation;
+  }
+
+  @Override
+  public void update(float dt) {
+    scaledSize = new Vector2f(size).mul(new Vector2f(scale));
   }
 
   public Transform copy() {

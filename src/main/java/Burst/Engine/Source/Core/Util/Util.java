@@ -1,24 +1,19 @@
 package Burst.Engine.Source.Core.Util;
 
-import imgui.ImVec2;
-import imgui.ImVec4;
-import imgui.type.ImInt;
-import org.joml.Vector2f;
-import org.joml.Vector3f;
 import org.joml.Vector4f;
 
-import java.io.*;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.concurrent.atomic.AtomicLong;
 
 public class Util {
-    private static final AtomicLong counter = new AtomicLong();
+    private static final AtomicLong idCounter = new AtomicLong();
+    private static final AtomicLong tempIDCounter = new AtomicLong();
 
 
     public static long generateUniqueID() {
-        return counter.incrementAndGet();
+        return idCounter.incrementAndGet();
     }
 
     public static long generateHashID(String filepath) {
@@ -46,6 +41,30 @@ public class Util {
         colorValue = colorValue * range;
 
         return colorValue;
+    }
+
+    public static float generateRandomColorValue(int range) {
+        float colorValue = (float) Math.random();
+
+        // map value in the given range
+        colorValue *= range;
+
+        return colorValue;
+    }
+    public static float generateRandomColorValue() {
+        return generateRandomColorValue(1);
+    }
+
+    public static Vector4f generateRandomColor(int range) {
+        float r = generateRandomColorValue(range);
+        float g = generateRandomColorValue(range);
+        float b = generateRandomColorValue(range);
+        float a = 1.0f;
+        return new Vector4f(r, g, b, a);
+    }
+
+    public static Vector4f generateRandomColor() {
+        return generateRandomColor(1);
     }
 
     public static Object copy(Object value) {
@@ -78,9 +97,7 @@ public class Util {
         }
     }
 
-
-
-
-
-
+  public static long generateTempID() {
+    return idCounter.incrementAndGet();
+  }
 }

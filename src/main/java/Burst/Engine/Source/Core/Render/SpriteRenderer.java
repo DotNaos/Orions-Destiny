@@ -12,10 +12,11 @@ import org.joml.Vector4f;
 
 public class SpriteRenderer extends ActorComponent {
 
-    private Vector4f color = new Vector4f(1, 1, 0, 1);
+    private Vector4f color = new Vector4f(1, 1, 1, 1);
+    private transient Vector4f lastColor = new Vector4f(color);
     private Sprite sprite = new Sprite();
     private transient Transform lastTransform;
-    private transient boolean isDirty = true;
+    private boolean isDirty = true;
 
     public SpriteRenderer(Actor actor) {
         super(actor);
@@ -37,10 +38,14 @@ public class SpriteRenderer extends ActorComponent {
             isDirty = true;
         }
 
-        //*=================== In Editor ===================*//
-        if (!this.lastTransform.equals(this.actor.getTransform())) {
-            this.actor.getTransform().copy(this.lastTransform);
+        if (this.lastColor == null) lastColor = new Vector4f(color);
+        if (!this.lastColor.equals(this.color)) {
+            this.lastColor.set(this.color);
             isDirty = true;
+        }
+        if (sprite.isDirty()) {
+            isDirty = true;
+            sprite.setClean();
         }
     }
 

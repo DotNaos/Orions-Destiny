@@ -13,8 +13,11 @@ public class AssetConfig {
 
   public static final String DIR_OF_ASSETS = "Assets/";
 
+  // Fonts
+  public static final String DIR_OF_FONTS = DIR_OF_ASSETS + "fonts/";
+
   // Images
-  public static final String DIR_OF_IMAGES = "Assets/images/";
+  public static final String DIR_OF_IMAGES = DIR_OF_ASSETS + "images/";
 
     public static final String DIR_OF_SPRITESHEETS = DIR_OF_IMAGES + "spritesheets/";
     public static final String DIR_OF_ENEMIES = DIR_OF_SPRITESHEETS + "enemy/";
@@ -45,6 +48,14 @@ public class AssetConfig {
   //!===================================================================
   //!========================  Asset Files  ============================
   //!===================================================================
+
+
+  //? ======================== Fonts - UI ==============================
+  public static final String FONT_INTER = DIR_OF_FONTS + "Inter.ttf";
+
+  //? ======================== Fonts - Game ==============================
+
+  public static final String FONT_PEABERRY = DIR_OF_FONTS + "Peaberry.ttf";
 
   //? ======================== Images - Icons ==========================
     public static final String ICON_ACTOR = DIR_OF_ICONS + "actor.png";
@@ -80,4 +91,6 @@ public class AssetConfig {
             new SpriteSheetConfig(BUTTONS, SpriteSheetUsage.UI, 16, 16, 0),
             new SpriteSheetConfig(BLOCKS, SpriteSheetUsage.BLOCK, 16, 16, 0, new int[]{16, 16, 4, 13, 10, 9, 7, 9, 14, 17, 18, 5, 21, 8, 3, 0, 7, 20, 15, 29, 32, 30, 32, 16, 16, 8, 5, 0, 0, 15, 15, 15})
     );
+
+
 }

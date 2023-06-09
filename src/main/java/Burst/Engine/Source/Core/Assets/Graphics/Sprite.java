@@ -4,6 +4,8 @@ import Burst.Engine.Source.Core.Assets.Asset;
 import Burst.Engine.Source.Core.Util.DebugMessage;
 import org.joml.Vector2f;
 
+import java.util.Arrays;
+
 public class Sprite extends Asset {
 
     private float width, height;
@@ -26,6 +28,9 @@ public class Sprite extends Asset {
             new Vector2f(0, 0),
             new Vector2f(0, 1)
     };
+
+    private Vector2f[] resetTexCoords = copyTexCoords(texCoords);
+
 
     @Override
     public void init()
@@ -53,6 +58,7 @@ public class Sprite extends Asset {
         super(texture.getFilepath());
         this.texture = texture;
         this.texCoords = texCoords;
+        this.resetTexCoords = copyTexCoords(texCoords);
         this.width = spriteWidth;
         this.height = spriteHeight;
     }
@@ -129,11 +135,29 @@ public class Sprite extends Asset {
 
     public void setTexCoords(Vector2f[] texCoords) {
         this.texCoords = texCoords;
+
+        // set it to dirty
+        this.isDirty = true;
     }
 
     @Override
     public Asset build() {
         return this;
     }
+
+  public void resetTexCoords() {
+    this.texCoords = copyTexCoords(resetTexCoords);
+  }
+
+  private Vector2f[] copyTexCoords(Vector2f[] texCoords) {
+    Vector2f[] newTexCoords = new Vector2f[texCoords.length];
+    for (int i = 0; i < texCoords.length; i++) {
+      newTexCoords[i] = new Vector2f(texCoords[i]);
+    }
+
+    return newTexCoords;
+  }
+
+
 }
       

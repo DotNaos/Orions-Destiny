@@ -8,6 +8,7 @@ import Burst.Engine.Source.Core.Render.ViewportRenderer;
 import Burst.Engine.Source.Core.Saving.ActorDeserializer;
 import Burst.Engine.Source.Core.Saving.ComponentDeserializer;
 import Burst.Engine.Source.Core.Scene.Scene;
+import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Core.Util.DebugMessage;
 import Burst.Engine.Source.Editor.Panel.ViewportPanel;
 import com.google.gson.Gson;
@@ -193,6 +194,8 @@ public class Game {
   }
 
   public void saveLevel() {
+    // return if a dialog is open
+    if (Window.isDialogOpen) return;
 
     try {
       FileWriter writer = new FileWriter(".\\levels\\level.json");
@@ -206,7 +209,8 @@ public class Game {
       writer.write(gsonBuilder().toJson(actorsToSerialize));
       writer.close();
     } catch (Exception e) {
-      e.printStackTrace();
+        DebugMessage.error("Error Saving Level");
+        e.printStackTrace();
     }
   }
 
