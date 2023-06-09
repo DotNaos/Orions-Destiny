@@ -9,13 +9,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="Maus auch registriert wenn Viewport nicht fokussiert">
+    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="MouseLister aus der Scene gelöscht. Jetzt funktioniert Window hovern richtig">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Input/KeyListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Input/KeyListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/Actor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/Actor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Input/MouseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Input/MouseListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Render/RenderBatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Render/RenderBatch.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/Scene.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/ImGui/ImGuiLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/ImGui/ImGuiLayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/Viewport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/Viewport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Components/MouseControls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Components/MouseControls.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Panel/PropertiesPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Panel/PropertiesPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Panel/ViewportPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Panel/ViewportPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -235,14 +237,7 @@
       <workItem from="1686209302024" duration="599000" />
       <workItem from="1686227606156" duration="22948000" />
       <workItem from="1686258220665" duration="9488000" />
-      <workItem from="1686304742078" duration="22181000" />
-    </task>
-    <task id="LOCAL-00018" summary="GridLines pixelSize">
-      <created>1684348446405</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1684348446405</updated>
+      <workItem from="1686304742078" duration="25278000" />
     </task>
     <task id="LOCAL-00019" summary="GridLines align with sprites">
       <created>1684354121830</created>
@@ -580,14 +575,20 @@
       <option name="project" value="LOCAL" />
       <updated>1686331742895</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="MouseLister aus der Scene gelöscht. Jetzt funktioniert Window hovern richtig">
+      <created>1686333097050</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1686333097050</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Texture flipping gefixt" />
     <MESSAGE value="Scaling adjusted to Aspect Ratio of Sprite" />
     <MESSAGE value="Serialization funktioniert endlich" />
     <MESSAGE value="ViewToScreen" />
@@ -612,7 +613,8 @@
     <MESSAGE value="ClipBoard copiert wieder farben. SpriteColor wird auch wieder angezeigt und geupdated" />
     <MESSAGE value="ClipBoard copiert wieder farben. SpriteColor wird auch wieder angezeigt und geupdated + Reset. &#10;&#10;TexCoords können bearbeitet werden." />
     <MESSAGE value="Maus auch registriert wenn Viewport nicht fokussiert" />
-    <option name="LAST_COMMIT_MESSAGE" value="Maus auch registriert wenn Viewport nicht fokussiert" />
+    <MESSAGE value="MouseLister aus der Scene gelöscht. Jetzt funktioniert Window hovern richtig" />
+    <option name="LAST_COMMIT_MESSAGE" value="MouseLister aus der Scene gelöscht. Jetzt funktioniert Window hovern richtig" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

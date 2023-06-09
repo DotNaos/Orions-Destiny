@@ -2,6 +2,7 @@ package Burst.Engine.Source.Core.Input;
 
 import Burst.Engine.Source.Core.UI.Viewport;
 import Burst.Engine.Source.Core.UI.Window;
+import Burst.Engine.Source.Editor.Panel.ViewportPanel;
 import imgui.ImGui;
 import imgui.ImVec2;
 import org.joml.Matrix4f;
@@ -60,12 +61,12 @@ public class MouseListener {
     }
 
     public static void mousePosCallback(long window, double xpos, double ypos) {
+        Window.getScene().mousePositionCallback(window, xpos, ypos);
+
 
         if (get().mouseButtonDown > 0) {
             get().isDragging = true;
         }
-
-
 
         get().lastX = get().xPos;
         get().lastY = get().yPos;

@@ -1,5 +1,6 @@
 package Burst.Engine.Source.Core.Scene;
 
+import Burst.Engine.Source.Core.Input.KeyListener;
 import Burst.Engine.Source.Game.Game;
 import Burst.Engine.Source.Core.Input.MouseListener;
 import Burst.Engine.Source.Core.Scene.Initializer.*;
@@ -130,4 +131,37 @@ public class Scene {
     public Viewport getViewport() {
         return this.viewport;
     }
+
+    public ViewportPanel getViewportPanel() {
+        return this.getPanel(ViewportPanel.class);
+    }
+
+    //!====================================================================================================
+    //! All Mouse and Keyboard callbacks
+    //!====================================================================================================
+
+    public void mousePositionCallback(long window, double xpos, double ypos) {
+        ViewportPanel viewportPanel = getViewportPanel();
+        if (viewportPanel == null) return;
+        if (viewportPanel.getWantCaptureMouse()) return;
+        MouseListener.clear();
+    }
+
+    public void mouseButtonCallback(long window, int button, int action, int mods) {
+        ViewportPanel viewportPanel = getViewportPanel();
+        if (viewportPanel == null) return;
+        if (!viewportPanel.getWantCaptureMouse()) return;
+        MouseListener.mouseButtonCallback(window, button, action, mods);
+    }
+
+    public void mouseScrollCallback(long w, double xOffset, double yOffset) {
+        MouseListener.mouseScrollCallback(w, xOffset, yOffset);
+    }
+
+    public void keyCallback(long w, int key, int scancode, int action, int mods) {
+    }
+
+    public void charCallback(long w, int c) {
+    }
+
 }

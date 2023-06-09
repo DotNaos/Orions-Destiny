@@ -100,8 +100,6 @@ public class Actor implements ImGuiValueManager {
      * @see #destroy()
      */
     protected void init() {
-        System.out.println("Initializing Actor: " + name);
-
         // Get the transform component
         Transform transform = getComponent(Transform.class);
         if (transform == null) {
@@ -455,6 +453,10 @@ public class Actor implements ImGuiValueManager {
     }
 
 
-
-
+    public void setDirty() {
+        SpriteRenderer sr = getComponent(SpriteRenderer.class);
+        if (sr != null) {
+            sr.setDirty();
+        }
+    }
 }

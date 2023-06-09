@@ -101,7 +101,7 @@ public class ViewportPanel extends ImGuiPanel {
 
 
         // If the mouse is out of the viewports bounds it's not hovered
-        this.windowIsHovered = (
+        this.windowIsHovered = !(
                 // Max viewport pos
                     (MouseListener.getViewX() > Window.getWidth() || MouseListener.getViewY() > Window.getHeight())
                 ||

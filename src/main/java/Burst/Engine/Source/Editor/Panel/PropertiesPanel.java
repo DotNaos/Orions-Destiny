@@ -73,6 +73,7 @@ public class PropertiesPanel extends ImGuiPanel {
         if (actor != null) {
             clearSelected();
             this.activeActors.add(actor);
+            actor.setDirty();
         }
     }
 
@@ -81,12 +82,16 @@ public class PropertiesPanel extends ImGuiPanel {
     }
 
     public void clearSelected() {
+        for (Actor actor : this.activeActors) {
+            actor.setDirty();
+        }
         this.activeActors.clear();
     }
 
     public void addActiveActor(Actor actor) {
         SpriteRenderer spr = actor.getComponent(SpriteRenderer.class);
         this.activeActors.add(actor);
+        actor.setDirty();
     }
 
      public boolean isActiveActor(Actor actor) {

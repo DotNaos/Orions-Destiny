@@ -75,14 +75,14 @@ public class ImGuiLayer {
                 KeyListener.keyCallback(w, key, scancode, action, mods);
             }
 
-           KeyListener.keyCallback(w, key, scancode, action, mods);
+            Window.getScene().keyCallback(w, key, scancode, action, mods);
         });
 
         glfwSetCharCallback(glfwWindow, (w, c) -> {
             if (c != GLFW_KEY_DELETE) {
                 io.addInputCharacter(c);
             }
-            KeyListener.charCallback(w, c);
+            Window.getScene().charCallback(w, c);
         });
 
         glfwSetMouseButtonCallback(glfwWindow, (w, button, action, mods) -> {
@@ -99,7 +99,8 @@ public class ImGuiLayer {
             if (!io.getWantCaptureMouse() && mouseDown[1]) {
                 ImGui.setWindowFocus(null);
             }
-            MouseListener.mouseButtonCallback(w, button, action, mods);
+
+            Window.getScene().mouseButtonCallback(w, button, action, mods);
         });
 
         glfwSetScrollCallback(glfwWindow, (w, xOffset, yOffset) -> {
@@ -112,7 +113,7 @@ public class ImGuiLayer {
                     MouseListener.clear();
                 }
             }
-            MouseListener.mouseScrollCallback(w, xOffset, yOffset);
+            Window.getScene().mouseScrollCallback(w, xOffset, yOffset);
         });
 
         io.setSetClipboardTextFn(new ImStrConsumer() {

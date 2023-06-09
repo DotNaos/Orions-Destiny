@@ -81,7 +81,7 @@ public class MouseControls extends Component {
         PickingTexture pickingTexture = propertiesPanel.getPickingTexture();
         Game game = Window.getScene().getEditor();
 
-        // * Current actor
+        // * Placing objects on release
         if (holdingActor != null)
         {
             float x = MouseListener.getWorldX();
@@ -130,7 +130,6 @@ public class MouseControls extends Component {
         // * Box select
         else if (MouseListener.isDragging() && MouseListener.mouseButtonDown(GLFW_MOUSE_BUTTON_LEFT))
         {
-
 
             if (!boxSelectSet) {
                 propertiesPanel.clearSelected();
