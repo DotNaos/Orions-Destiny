@@ -1,9 +1,11 @@
 package Burst.Engine.Source.Core.Render;
 
+import Burst.Engine.Config.Constants.Color_Config;
 import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Assets.Graphics.Shader;
 import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Burst.Engine.Source.Core.UI.Window;
+import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
 import org.joml.Matrix4f;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
@@ -195,11 +197,18 @@ public class RenderBatch implements Comparable<RenderBatch> {
 
     private void loadVertexProperties(int index) {
         SpriteRenderer sprite = this.sprites[index];
+        PropertiesPanel propertiesPanel = Window.getScene().getPanel(PropertiesPanel.class);
+
+        Vector4f actorColor = sprite.getColor();
+
+        if (propertiesPanel != null && propertiesPanel.isActiveActor(sprite.actor)) {
+            actorColor = new Vector4f(Color_Config.ACTIVE_ACTOR);
+        }
 
         // Find offset within array (4 vertices per sprite)
         int offset = index * 4 * VERTEX_SIZE;
 
-        Vector4f color = sprite.getColor();
+        Vector4f color = actorColor;
         Vector2f[] texCoords = sprite.getTexCoords();
 
         int texId = 0;

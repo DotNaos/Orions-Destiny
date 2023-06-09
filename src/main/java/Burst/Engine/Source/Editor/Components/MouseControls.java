@@ -17,6 +17,8 @@ import Burst.Engine.Source.Editor.Gizmo.GizmoSystem;
 import Burst.Engine.Source.Editor.NonPickable;
 import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
 import Orion.res.AssetConfig;
+import imgui.ImGui;
+import imgui.flag.ImGuiMouseButton;
 import org.joml.Vector2f;
 import org.joml.Vector2i;
 import org.joml.Vector4f;
@@ -128,6 +130,8 @@ public class MouseControls extends Component {
         // * Box select
         else if (MouseListener.isDragging() && MouseListener.mouseButtonDown(GLFW_MOUSE_BUTTON_LEFT))
         {
+
+
             if (!boxSelectSet) {
                 propertiesPanel.clearSelected();
                 boxSelectStart = MouseListener.getView();

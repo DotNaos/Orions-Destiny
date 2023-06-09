@@ -7,6 +7,7 @@ import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Core.Util.DebugMessage;
 import imgui.ImGui;
 import imgui.ImVec2;
+import imgui.flag.ImGuiMouseButton;
 import org.joml.Matrix4f;
 import org.joml.Vector2f;
 import org.joml.Vector2f;
@@ -67,9 +68,14 @@ public class MouseListener {
     public static void mousePosCallback(long window, double xpos, double ypos) {
         Window.getScene().mousePositionCallback(window, xpos, ypos);
 
+
         if (get().mouseButtonDown > 0) {
+            // TODO: REMOVE
+            System.out.println("Dragging");
             get().isDragging = true;
         }
+
+
 
         get().lastX = get().xPos;
         get().lastY = get().yPos;

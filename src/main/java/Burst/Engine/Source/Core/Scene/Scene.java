@@ -103,9 +103,6 @@ public class Scene {
     }
 
     public void mouseButtonCallback(long window, int button, int action, int mods) {
-        ViewportPanel viewportPanel = getPanel(ViewportPanel.class);
-        if (viewportPanel == null) return;
-        if (!viewportPanel.getWantCaptureMouse()) return;
         MouseListener.mouseButtonCallback(window, button, action, mods);
     }
 

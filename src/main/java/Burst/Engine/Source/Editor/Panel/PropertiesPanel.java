@@ -1,14 +1,12 @@
 package Burst.Engine.Source.Editor.Panel;
 
 import Burst.Engine.Source.Core.Actor.Actor;
-import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Burst.Engine.Source.Core.Render.PickingTexture;
 import Burst.Engine.Source.Core.Render.SpriteRenderer;
 import Burst.Engine.Source.Core.Physics.Components.Box2DCollider;
 import Burst.Engine.Source.Core.Physics.Components.CircleCollider;
 import Burst.Engine.Source.Core.Physics.Components.Rigidbody2D;
 import Burst.Engine.Source.Core.UI.ImGui.ImGuiPanel;
-import Burst.Engine.Source.Core.UI.Window;
 import imgui.ImGui;
 import org.joml.Vector4f;
 
@@ -17,7 +15,6 @@ import java.util.List;
 
 public class PropertiesPanel extends ImGuiPanel {
     private List<Actor> activeActors;
-    private List<Vector4f> activeGameObjectsOgColor;
     private Actor activeActor = null;
     private PickingTexture pickingTexture;
 
@@ -25,7 +22,6 @@ public class PropertiesPanel extends ImGuiPanel {
         super();
         this.activeActors = new ArrayList<>();
         this.pickingTexture = pickingTexture;
-        this.activeGameObjectsOgColor = new ArrayList<>();
     }
 
     @Override
@@ -85,29 +81,16 @@ public class PropertiesPanel extends ImGuiPanel {
     }
 
     public void clearSelected() {
-        if (activeGameObjectsOgColor.size() > 0) {
-            int i = 0;
-            for (Actor actor : activeActors) {
-                SpriteRenderer spr = actor.getComponent(SpriteRenderer.class);
-                if (spr != null) {
-                    spr.setColor(activeGameObjectsOgColor.get(i));
-                }
-                i++;
-            }
-        }
         this.activeActors.clear();
-        this.activeGameObjectsOgColor.clear();
     }
 
     public void addActiveActor(Actor actor) {
         SpriteRenderer spr = actor.getComponent(SpriteRenderer.class);
-        if (spr != null) {
-            this.activeGameObjectsOgColor.add(new Vector4f(spr.getColor()));
-            spr.setColor(new Vector4f(0.8f, 0.8f, 0.0f, 0.1f));
-        } else {
-            this.activeGameObjectsOgColor.add(new Vector4f());
-        }
         this.activeActors.add(actor);
+    }
+
+     public boolean isActiveActor(Actor actor) {
+        return this.activeActors.contains(actor);
     }
 
     public PickingTexture getPickingTexture() {

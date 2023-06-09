@@ -9,22 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="ClipBoard copiert wieder farben. SpriteColor wird auch wieder angezeigt und geupdated">
+    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="ClipBoard copiert wieder farben. SpriteColor wird auch wieder angezeigt und geupdated + Reset. &#10;&#10;TexCoords können bearbeitet werden.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Shaders/default.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Shaders/default.glsl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/Asset.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/Asset.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/Graphics/Font.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/Graphics/Font.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/Graphics/Sprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/Graphics/Sprite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Component.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Component.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Physics/Components/Transform.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Physics/Components/Transform.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Render/SpriteRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Render/SpriteRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Saving/ActorDeserializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Saving/ActorDeserializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/ImGui/BImGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/ImGui/BImGui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/Window.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Util/ImGuiValueManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Util/ImGuiValueManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Util/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Util/Util.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Game/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/res/AssetConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/res/AssetConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Config/Constants/Color_Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Config/Constants/Color_Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Input/MouseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Input/MouseListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Render/RenderBatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Render/RenderBatch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Components/MouseControls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Components/MouseControls.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Panel/PropertiesPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Panel/PropertiesPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -243,14 +234,7 @@
       <workItem from="1686209302024" duration="599000" />
       <workItem from="1686227606156" duration="22948000" />
       <workItem from="1686258220665" duration="9488000" />
-      <workItem from="1686304742078" duration="18196000" />
-    </task>
-    <task id="LOCAL-00016" summary="Viewport World Koordinaten">
-      <created>1684344148349</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1684344148349</updated>
+      <workItem from="1686304742078" duration="20655000" />
     </task>
     <task id="LOCAL-00017" summary="GridLines funktionieren">
       <created>1684346127623</created>
@@ -588,14 +572,20 @@
       <option name="project" value="LOCAL" />
       <updated>1686315357417</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="ClipBoard copiert wieder farben. SpriteColor wird auch wieder angezeigt und geupdated + Reset. &#10;&#10;TexCoords können bearbeitet werden.">
+      <created>1686327736998</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1686327736999</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Mouse world position ist nun PERFEKT. &#10;Wieder zu Vector2f gewechselt." />
     <MESSAGE value="Screen und World coordinates gefixt" />
     <MESSAGE value="Texture flipping gefixt" />
     <MESSAGE value="Scaling adjusted to Aspect Ratio of Sprite" />
@@ -620,7 +610,8 @@
     <MESSAGE value="Added Assets" />
     <MESSAGE value="Refactor von EditorUpdate und Sprites werden angezeigt nach laden: weil dirtyFlag" />
     <MESSAGE value="ClipBoard copiert wieder farben. SpriteColor wird auch wieder angezeigt und geupdated" />
-    <option name="LAST_COMMIT_MESSAGE" value="ClipBoard copiert wieder farben. SpriteColor wird auch wieder angezeigt und geupdated" />
+    <MESSAGE value="ClipBoard copiert wieder farben. SpriteColor wird auch wieder angezeigt und geupdated + Reset. &#10;&#10;TexCoords können bearbeitet werden." />
+    <option name="LAST_COMMIT_MESSAGE" value="ClipBoard copiert wieder farben. SpriteColor wird auch wieder angezeigt und geupdated + Reset. &#10;&#10;TexCoords können bearbeitet werden." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

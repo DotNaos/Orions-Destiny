@@ -99,6 +99,7 @@ public class ViewportPanel extends ImGuiPanel {
         int textureId = Window.getFramebuffer().getTextureId();
         ImGui.imageButton(textureId, windowSize.x, windowSize.y, 0, 1, 1, 0);
         windowIsHovered = ImGui.isItemHovered();
+        System.out.println(windowIsHovered);
 
         // Update the position of the Panel
         this.position.x = ImGui.getWindowPosX() + ImGuiStyleConfig.get().getWindowPadding().x;
