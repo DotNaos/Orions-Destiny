@@ -28,15 +28,15 @@ import static org.lwjgl.glfw.GLFW.GLFW_KEY_ESCAPE;
 import static org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT;
 
 public class MouseControls extends Component {
-    private Actor holdingActor = null;
-    private SpriteSheet gizmos = AssetManager.getAssetFromType(AssetConfig.GIZMOS, SpriteSheet.class);
+    private transient Actor holdingActor = null;
+    private transient SpriteSheet gizmos = AssetManager.getAssetFromType(AssetConfig.GIZMOS, SpriteSheet.class);
     private float debounceTime = 0.2f;
-    private float debounce = debounceTime;
-    private boolean boxSelectSet = false;
+    private transient float debounce = debounceTime;
+    private transient boolean boxSelectSet = false;
     private Vector2f boxSelectStart = new Vector2f();
     private Vector2f boxSelectEnd = new Vector2f();
     // Gizmos
-    private GizmoSystem gizmoSystem;
+    private transient GizmoSystem gizmoSystem;
 
     public MouseControls() {
         super();
@@ -67,6 +67,7 @@ public class MouseControls extends Component {
 
 
     public void update(float dt) {
+        super.update(dt);
         this.gizmoSystem.update(dt);
         debounce -= dt;
 

@@ -31,6 +31,7 @@ public class Rigidbody2D extends ActorComponent {
 
     @Override
     public void update(float dt) {
+        super.update(dt);
         if (rawBody != null) {
             if (this.bodyType == BodyType.Dynamic || this.bodyType == BodyType.Kinematic) {
                 this.actor.getTransform().position.set(

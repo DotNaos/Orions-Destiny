@@ -49,6 +49,7 @@ public class ViewportRenderer extends Renderer {
     }
 
     private void addSpriteRenderer(SpriteRenderer sprite) {
+
         boolean added = false;
         for (RenderBatch batch : batches) {
             if (batch.hasRoom() && batch.zIndex() == sprite.actor.getTransform().zIndex) {

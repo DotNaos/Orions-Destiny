@@ -86,7 +86,7 @@ public class ContentDrawer extends ImGuiPanel {
                         // If the button is clicked, create a new actor of the type
 //                        Window.getScene().getGame().addActor((Actor)actor.getDeclaredConstructor().newInstance());
 
-                       Actor obj = new Actor().setSprite(AssetManager.getAssetFromType(AssetConfig.BLOCKS, SpriteSheet.class).getSprite(10));
+                        Actor obj = new Actor().setSprite(AssetManager.getAssetFromType(AssetConfig.BLOCKS, SpriteSheet.class).getSprite(10));
                         Window.getScene().getEditor().addActor(obj);
                         Window.getScene().getPanel(PropertiesPanel.class).setActiveActor(obj);
                     }

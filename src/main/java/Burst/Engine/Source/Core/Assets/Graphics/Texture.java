@@ -2,6 +2,7 @@ package Burst.Engine.Source.Core.Assets.Graphics;
 
 import Burst.Engine.Source.Core.Assets.Asset;
 import Burst.Engine.Source.Core.UI.Window;
+import org.joml.Vector2f;
 import org.joml.Vector2i;
 import org.lwjgl.BufferUtils;
 
@@ -81,9 +82,6 @@ public class Texture extends Asset {
 
         // When shrinking an image, pixelate
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-
-
-
 
 
         IntBuffer width = BufferUtils.createIntBuffer(1);
@@ -182,5 +180,15 @@ public class Texture extends Asset {
 
     public boolean isInitialized() {
         return initialized;
+    }
+
+    public float[] getBuffer(Vector2f[] texCoords) {
+        float[] buffer = new float[texCoords.length * 3];
+        for (int i = 0; i < texCoords.length; i++) {
+            buffer[i * 3] = texCoords[i].x;
+            buffer[i * 3 + 1] = texCoords[i].y;
+            buffer[i * 3 + 2] = 0;
+        }
+        return buffer;
     }
 }

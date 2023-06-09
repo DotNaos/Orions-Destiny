@@ -22,15 +22,9 @@ public class SceneInitializer {
     public void imgui() {
     }
 
+    // TODO: FIX LOADRESOURCES IN SCENEINITIALIZER
     public void loadResources(Game scene) {
         for (Actor g : scene.getActors()) {
-            if (g.getComponent(SpriteRenderer.class) != null) {
-                SpriteRenderer spr = g.getComponent(SpriteRenderer.class);
-                if (spr.getTexture() != null) {
-                    spr.setTexture(AssetManager.getAssetFromType(spr.getTexture().getFilepath(), Texture.class));
-                }
-            }
-
             if (g.getComponent(StateMachine.class) != null) {
                 StateMachine stateMachine = g.getComponent(StateMachine.class);
                 stateMachine.refreshTextures();

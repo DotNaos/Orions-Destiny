@@ -16,6 +16,7 @@ public class ActorDeserializer implements JsonDeserializer<Actor> {
 
         JsonArray components = jsonObject.getAsJsonArray("components");
 
+
         Actor actor = new Actor();
         actor.setName(name);
         for (JsonElement e : components) {

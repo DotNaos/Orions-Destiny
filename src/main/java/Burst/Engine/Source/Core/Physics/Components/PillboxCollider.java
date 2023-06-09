@@ -19,7 +19,7 @@ public class PillboxCollider extends ActorComponent {
     }
 
     @Override
-    public void start() {
+    public void init() {
         this.bottomCircle = new CircleCollider(this.actor);
         this.box = new Box2DCollider(this.actor);
         this.bottomCircle.actor = this.actor;
@@ -27,19 +27,20 @@ public class PillboxCollider extends ActorComponent {
         recalculateColliders();
     }
 
-    @Override
-    public void updateEditor(float dt) {
-        bottomCircle.updateEditor(dt);
-        box.updateEditor(dt);
-        recalculateColliders();
-
-        if (resetFixtureNextFrame) {
-            resetFixture();
-        }
-    }
 
     @Override
     public void update(float dt) {
+        super.update(dt);
+        if (resetFixtureNextFrame) {
+            resetFixture();
+        }
+
+        //*=================== In Editor ===================*//
+
+        bottomCircle.update(dt);
+        box.update(dt);
+        recalculateColliders();
+
         if (resetFixtureNextFrame) {
             resetFixture();
         }

@@ -34,17 +34,16 @@ public class CircleCollider extends ActorComponent {
     }
 
     @Override
-    public void updateEditor(float dt) {
-        Vector2f center = new Vector2f(this.actor.getTransform().position).add(this.offset);
-        DebugDraw.addCircle(center, this.radius);
-
+    public void update(float dt) {
+        super.update(dt);
         if (resetFixtureNextFrame) {
             resetFixture();
         }
-    }
 
-    @Override
-    public void update(float dt) {
+        //*=================== In Editor ===================*//
+        Vector2f center = new Vector2f(this.actor.getTransform().position).add(this.offset);
+        DebugDraw.addCircle(center, this.radius);
+
         if (resetFixtureNextFrame) {
             resetFixture();
         }

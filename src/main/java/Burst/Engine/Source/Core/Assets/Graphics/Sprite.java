@@ -1,6 +1,7 @@
 package Burst.Engine.Source.Core.Assets.Graphics;
 
 import Burst.Engine.Source.Core.Assets.Asset;
+import Burst.Engine.Source.Core.Util.DebugMessage;
 import org.joml.Vector2f;
 
 public class Sprite extends Asset {
@@ -25,6 +26,15 @@ public class Sprite extends Asset {
             new Vector2f(0, 0),
             new Vector2f(0, 1)
     };
+
+    @Override
+    public void init()
+    {
+        if (this.texture == null)
+        {
+            this.texture = new Texture(this.filepath);
+        }
+    }
 
     public Sprite() {
         super("Generated");
@@ -53,14 +63,22 @@ public class Sprite extends Asset {
      * @return true if the sprite is empty, false otherwise
      */
     public static boolean isEmpty(Sprite sprite) {
-        for (int i = 0; i < sprite.getTexture().getWidth(); i++) {
-            for (int j = 0; j < sprite.getTexture().getHeight(); j++) {
-
-                return false;
-
-            }
+        if (sprite == null)
+        {
+            DebugMessage.info("Sprite is null");
+            return true;
         }
-        System.out.println("Transparent");
+
+        // Get the texture of the sprite
+        Texture texture = sprite.getTexture();
+
+        // Get a buffer of the texture with texture coordinates of the sprite
+        float[] buffer = texture.getBuffer(sprite.getTexCoords());
+
+        // Check if the buffer is empty
+        for (float pixel : buffer) {
+            if (pixel != 0) return false;
+        }
         return true;
     }
 

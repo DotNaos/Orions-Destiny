@@ -6,18 +6,14 @@ import Burst.Engine.Source.Core.Actor.ActorComponent;
 import Burst.Engine.Source.Core.Assets.AssetManager;
 import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
 import Burst.Engine.Source.Core.Assets.Graphics.Texture;
-import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.Physics.Components.Transform;
-import Burst.Engine.Source.Core.UI.ImGui.BImGui;
 import org.joml.Vector2f;
-import org.joml.Vector3f;
 import org.joml.Vector4f;
 
 public class SpriteRenderer extends ActorComponent {
 
-    private Vector4f color = new Vector4f(1, 1, 1, 1);
+    private Vector4f color = new Vector4f(1, 1, 0, 1);
     private Sprite sprite = new Sprite();
-
     private transient Transform lastTransform;
     private transient boolean isDirty = true;
 
@@ -26,23 +22,22 @@ public class SpriteRenderer extends ActorComponent {
     }
 
     @Override
-    public void start() {
-        super.start();
+    public void init() {
+        super.init();
         this.sprite.setTexture(AssetManager.getAssetFromType(this.sprite.getFilepath(), Texture.class));
         this.lastTransform = actor.getTransform().copy();
     }
 
     @Override
     public void update(float dt) {
-        if (this.lastTransform == null) start();
+        super.update(dt);
+        if (this.lastTransform == null) return;
         if (!this.lastTransform.equals(this.actor.getTransform())) {
             this.actor.getTransform().copy(this.lastTransform);
             isDirty = true;
         }
-    }
 
-    @Override
-    public void updateEditor(float dt) {
+        //*=================== In Editor ===================*//
         if (!this.lastTransform.equals(this.actor.getTransform())) {
             this.actor.getTransform().copy(this.lastTransform);
             isDirty = true;

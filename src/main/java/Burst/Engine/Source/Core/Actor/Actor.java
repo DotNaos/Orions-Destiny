@@ -8,6 +8,7 @@ import java.util.Map;
 
 import Burst.Engine.Source.Core.Util.DebugMessage;
 import Burst.Engine.Source.Core.Util.ImGuiValueManager;
+import Burst.Engine.Source.Editor.Editor;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -49,8 +50,8 @@ public class Actor implements ImGuiValueManager {
      * Besides being used to identify the actor, this is also used to display the
      * actor in the editor.
      */
-    protected String name = "New Actor";
-    private List<ActorComponent> components;
+    protected String name = "ACTOR";
+    private List<ActorComponent> components = new ArrayList<>();
 
     /**
      * Whether this actor is serialized when saving and loading.
@@ -59,6 +60,7 @@ public class Actor implements ImGuiValueManager {
     private transient Map<String, Object> initialValues = new HashMap<>();
 
     private transient List<String> ignoreFields = new ArrayList<>();
+    private transient boolean isInitialized = false;
 
     //!====================================================================================================
     //!|=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
@@ -73,10 +75,8 @@ public class Actor implements ImGuiValueManager {
 
     public Actor()
     {
-        this.name = "Actor: " + (Window.getScene().getEditor().getActors().size() + 1);
-        this.ID = Util.generateUniqueID();
-        this.components = new ArrayList<>();
-        this.addComponent(new Transform(this));
+        if (this.name.equals("ACTOR")) this.name = "Actor: " + (Window.getScene().getEditor().getActors().size() + 1);
+        if (this.ID == -1) this.ID = Util.generateUniqueID();
     }
 
     /**
@@ -99,11 +99,19 @@ public class Actor implements ImGuiValueManager {
      *
      * @see #destroy()
      */
-    public void init() {
+    protected void init() {
+        System.out.println("Initializing Actor: " + name);
+
         // Get the transform component
         Transform transform = getComponent(Transform.class);
-        // Adjust the actors size to match the sprite size
+        if (transform == null) {
+            // If the transform component does not exist, create it
+            transform = new Transform();
+            addComponent(transform);
+        }
 
+
+        // Adjust the actors size to match the sprite size
         SpriteRenderer spriteRenderer = getComponent(SpriteRenderer.class);
         if (spriteRenderer != null) {
             Sprite sprite = spriteRenderer.getSprite();
@@ -135,7 +143,9 @@ public class Actor implements ImGuiValueManager {
 
                 }
 
+                spriteRenderer.setDirty();
             }
+            isInitialized = true;
         }
 
         ignoreFields.add("initialValues");
@@ -154,6 +164,12 @@ public class Actor implements ImGuiValueManager {
             e.printStackTrace();
         }
 
+        Editor editor = Window.getScene().getEditor();
+
+        // Add actor to the render list
+        editor.getViewportRenderer().addActor(this);
+        // Add actor to the physics list
+        editor.getPhysics().add(this);
 
     }
 
@@ -170,10 +186,11 @@ public class Actor implements ImGuiValueManager {
      * @param dt The time elapsed since the last frame in seconds.
      */
     public void update(float dt) {
+        if(!isInitialized) {
+            init();
+            isInitialized = true;
+        }
         for (Component component : components) {
-            if (!component.isStarted())
-                component.start();
-            else
                 component.update(dt);
         }
     }
@@ -210,9 +227,6 @@ public class Actor implements ImGuiValueManager {
         Actor obj = gson.fromJson(objAsJson, Actor.class);
 
         obj.ID = Util.generateUniqueID();
-        for (Component c : obj.getAllComponents()) {
-            c.generateId();
-        }
 
         SpriteRenderer sprite = obj.getComponent(SpriteRenderer.class);
         if (sprite != null && sprite.getTexture() != null) {
@@ -246,11 +260,8 @@ public class Actor implements ImGuiValueManager {
         if (hasComponent(ac.getClass())) {
             return getComponent(ac.getClass());
         }
-        ac.generateId();
         this.components.add(ac);
         ac.actor = this;
-
-        ac.start();
 
         return ac;
     }

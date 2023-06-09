@@ -29,11 +29,12 @@ public class PlayerController extends ActorComponent {
     }
 
     @Override
-    public void start() {
+    public void init() {
     }
 
     @Override
     public void update(float dt) {
+        super.update(dt);
         if (KeyListener.isKeyPressed(HotKeys.get().PlayerMoveRight)) {
             this.actor.getTransform().size.x = playerWidth;
             this.acceleration.x = walkSpeed;

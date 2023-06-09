@@ -36,7 +36,6 @@ public class Scene {
 
                 this.editor = new Editor(this);
                 this.sceneInitializer = new EditorInitializer(this);
-                this.editor.init();
             }
 
             case SETTINGS_MENU -> {
@@ -134,7 +133,7 @@ public class Scene {
         return this.openScene;
     }
 
-    public Game getEditor() {
+    public Editor getEditor() {
         return this.editor;
     }
 

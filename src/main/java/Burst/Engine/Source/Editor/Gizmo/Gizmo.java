@@ -60,8 +60,8 @@ public class Gizmo extends ActorComponent {
     }
 
     @Override
-    public void start() {
-        super.start();
+    public void init() {
+        super.init();
         this.xAxisObject.getTransform().zIndex = 100;
         this.yAxisObject.getTransform().zIndex = 100;
         this.xAxisObject.setNotSerializable();
@@ -70,15 +70,13 @@ public class Gizmo extends ActorComponent {
 
     @Override
     public void update(float dt) {
+        super.update(dt);
         if (using) {
             this.setInactive();
         }
         this.xAxisObject.getComponent(SpriteRenderer.class).setColor(new Vector4f(0, 0, 0, 0));
         this.yAxisObject.getComponent(SpriteRenderer.class).setColor(new Vector4f(0, 0, 0, 0));
-    }
 
-    @Override
-    public void updateEditor(float dt) {
         if (!using) return;
 
         this.activeActor = propertiesPanel.getActiveActor();

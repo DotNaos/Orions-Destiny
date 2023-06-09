@@ -15,10 +15,11 @@ import java.util.List;
 
 public class KeyControls extends Component {
   protected float debounceTime = 0.2f;
-  protected float debounce = 0.0f;
+  protected transient float debounce = 0.0f;
 
 
   public void update(float dt) {
+    super.update(dt);
     if (debounce > -1000.0f) {
       debounce -= dt;
     } else {

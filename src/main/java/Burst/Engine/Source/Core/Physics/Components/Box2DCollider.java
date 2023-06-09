@@ -35,7 +35,8 @@ public class Box2DCollider extends ActorComponent {
     }
 
     @Override
-    public void updateEditor(float dt) {
+    public void update(float dt) {
+        super.update(dt);
         Vector2f center = new Vector2f(this.actor.getTransform().position).add(this.offset);
         DebugDraw.addBox(center, this.halfSize, this.actor.getTransform().rotation);
     }

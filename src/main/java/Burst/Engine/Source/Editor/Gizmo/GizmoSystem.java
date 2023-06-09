@@ -19,14 +19,15 @@ public class GizmoSystem extends ActorComponent {
     }
 
     @Override
-    public void start() {
+    public void init() {
         if (this.actor == null) return;
         actor.addComponent(new TranslateGizmo(gizmos.getSprite(1)));
         actor.addComponent(new ScaleGizmo(gizmos.getSprite(2)));
     }
 
     @Override
-    public void updateEditor(float dt) {
+    public void update(float dt) {
+        super.update(dt);
         if (this.actor == null) return;
         if (usingGizmo == 0) {
             actor.getComponent(TranslateGizmo.class).setUsing();

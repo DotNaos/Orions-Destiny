@@ -77,7 +77,7 @@ public class StateMachine extends ActorComponent {
     }
 
     @Override
-    public void start() {
+    public void init() {
         for (AnimationState state : states) {
             if (state.title.equals(defaultStateTitle)) {
                 currentState = state;
@@ -88,6 +88,7 @@ public class StateMachine extends ActorComponent {
 
     @Override
     public void update(float dt) {
+        super.update(dt);
         if (currentState != null) {
             currentState.update(dt);
             SpriteRenderer sprite = actor.getComponent(SpriteRenderer.class);
@@ -98,17 +99,7 @@ public class StateMachine extends ActorComponent {
         }
     }
 
-    @Override
-    public void updateEditor(float dt) {
-        if (currentState != null) {
-            currentState.update(dt);
-            SpriteRenderer sprite = actor.getComponent(SpriteRenderer.class);
-            if (sprite != null) {
-                sprite.setSprite(currentState.getCurrentSprite());
-                sprite.setTexture(currentState.getCurrentSprite().getTexture());
-            }
-        }
-    }
+
 
     @Override
     public void imgui() {

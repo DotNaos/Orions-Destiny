@@ -13,6 +13,6 @@ public class FontRenderer extends ActorComponent {
 
     @Override
     public void update(float dt) {
-
+        super.update(dt);
     }
 }

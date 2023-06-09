@@ -1,45 +1,26 @@
 package Burst.Engine.Source.Core;
 
-import java.io.Serializable;
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
+import Burst.Engine.Source.Core.Util.ImGuiValueManager;
+import Burst.Engine.Source.Core.Util.Util;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import Burst.Engine.Source.Core.Util.ImGuiValueManager;
-import imgui.ImGui;
-import org.joml.Vector2f;
-import org.joml.Vector3f;
-import org.joml.Vector4f;
-
-import Burst.Engine.Source.Core.Util.DebugMessage;
-import Burst.Engine.Source.Core.Util.Util;
-import imgui.ImVec2;
-import imgui.ImVec4;
-import imgui.type.ImInt;
-
 public abstract class Component implements ImGuiValueManager {
-  private long ID = -1;
-
   protected String name = "Component";
-  protected transient boolean started = false;
-  private transient boolean imGuiEditable = true;
+  protected transient boolean isInitialized = false;
+  private long ID = -1;
   private transient Map<String, Object> initialValues = new HashMap<>();
   private transient List<String> ignoreFields = new ArrayList<>();
 
   public Component() {
-      this.ID = Util.generateHashID(this.getClass().getName());
-      this.name = this.getClass().getSimpleName();
+    this.ID = Util.generateHashID(this.getClass().getName());
+    this.name = this.getClass().getSimpleName();
   }
 
-  public Component(boolean imGuiEditable) {
-    this();
-    this.imGuiEditable = imGuiEditable;
-  }
-
-  public void start() {
+  public void init() {
     // get the initial values of this component
     if (this.initialValues == null) {
       this.initialValues = new HashMap<>();
@@ -50,37 +31,27 @@ public abstract class Component implements ImGuiValueManager {
     try {
       getInitialValues(this, this.ignoreFields, this.initialValues);
     } catch (IllegalAccessException e) {
-        e.printStackTrace();
+      e.printStackTrace();
     }
 
-    started = true;
+    isInitialized = true;
   }
 
 
   public void update(float dt) {
-
-  }
-
-  public void updateEditor(float dt) {
-
+    if (!isInitialized) {
+      isInitialized = true;
+      init();
+    }
   }
 
   public void imgui() {
-    if (!started)
-    {
-      started = true;
-      start();
+    if (!isInitialized) {
+      isInitialized = true;
+      init();
     }
 
     ImGuiShowFields(this, this.ignoreFields, this.initialValues);
-  }
-
-  public void generateId() {
-    if (this.ID == -1) {
-      // Generate a unique ID for components that are different to actor ids
-
-       this.ID = Util.generateHashID(this.getClass().getName());
-    }
   }
 
   public void destroy() {
@@ -89,17 +60,5 @@ public abstract class Component implements ImGuiValueManager {
 
   public long getID() {
     return this.ID;
-  }
-
-  public boolean isEditableInImGui() {
-    return imGuiEditable;
-  }
-
-  public void setImGuiNotEditable() {
-    this.imGuiEditable = false;
-  }
-
-  public boolean isStarted() {
-    return started;
   }
 }

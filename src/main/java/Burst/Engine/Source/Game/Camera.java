@@ -31,7 +31,8 @@ public class Camera extends Actor {
     }
 
     @Override
-    public void init() {
+    protected void init() {
+        super.init();
         this.player = Window.getScene().getEditor().getActorWith(PlayerController.class);
         this.viewport.clearColor.set(backgroundColor);
     }
