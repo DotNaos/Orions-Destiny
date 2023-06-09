@@ -4,6 +4,7 @@ import Burst.Engine.Config.Constants.Color_Config;
 import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
 import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Burst.Engine.Source.Core.UI.ImGui.BImGui;
+import Burst.Engine.Source.Core.UI.Window;
 import imgui.ImGui;
 import imgui.flag.ImGuiStyleVar;
 import imgui.type.ImInt;
@@ -139,6 +140,7 @@ public interface ImGuiValueManager {
         ImGui.openPopup("Texture Preview");
       }
       if (ImGui.beginPopup("Texture Preview")) {
+        Window.openPopup();
         ImGui.image(val.getTexID(), textureSize.x * 1.5f, textureSize.y * 1.5f);
         // give the ability to change the texture
         if (ImGui.button("Change Texture")) {
@@ -152,6 +154,7 @@ public interface ImGuiValueManager {
 
         ImGui.text(val.getFilepath());
         ImGui.endPopup();
+        Window.closePopup();
       }
 
 
@@ -179,6 +182,7 @@ public interface ImGuiValueManager {
         ImGui.openPopup("Sprite Preview");
       }
       if (ImGui.beginPopup("Sprite Preview")) {
+        Window.openPopup();
 
         ImGui.image(val.getTexture().getTexID(), spriteSize.x * 1.5f, spriteSize.y * 1.5f, uv0X, uv0Y, uv1X, uv1Y);
 
@@ -223,6 +227,7 @@ public interface ImGuiValueManager {
 
         if (BImGui.resetButton(BImGui.getDefaultButtonSize(), "BLUE")) {
           val.setTexCoords(new Vector2f[]{new Vector2f(1, 1), new Vector2f(1, 0), new Vector2f(0, 0), new Vector2f(0, 1)});
+
         }
         ImGui.sameLine();
         ImGui.pushItemWidth(defaultTextBoxSize.x);
@@ -233,6 +238,7 @@ public interface ImGuiValueManager {
 
 
         ImGui.endPopup();
+        Window.closePopup();
       }
 
 

@@ -75,7 +75,7 @@ public class Actor implements ImGuiValueManager {
 
     public Actor()
     {
-        if (this.name.equals("ACTOR")) this.name = "Actor: " + (Window.getScene().getEditor().getActors().size() + 1);
+        if (this.name.equals("ACTOR")) this.name = "Actor " + (Window.getScene().getEditor().getActors().size() + 1);
         if (this.ID == -1) this.ID = Util.generateUniqueID();
     }
 
@@ -214,26 +214,20 @@ public class Actor implements ImGuiValueManager {
      *
      * @return A new Actor instance that is a copy of this actor.
      */
-    public Actor copy() {
-        // TODO: come up with cleaner solution
+    public Actor copy() {        // TODO: come up with cleaner solution
         Gson gson = new GsonBuilder()
                 .registerTypeAdapter(ActorComponent.class, new ComponentDeserializer())
                 .registerTypeAdapter(Actor.class, new ActorDeserializer())
                 .enableComplexMapKeySerialization()
                 .create();
         String objAsJson = gson.toJson(this);
-        Actor obj = gson.fromJson(objAsJson, Actor.class);
+        Actor copy = gson.fromJson(objAsJson, Actor.class).generateName();
 
-        obj.ID = Util.generateUniqueID();
+        return copy;
 
-        SpriteRenderer sprite = obj.getComponent(SpriteRenderer.class);
-        if (sprite != null && sprite.getTexture() != null) {
-            sprite.setTexture(
-                    (Texture) AssetManager.getAssetFromType(sprite.getTexture().getFilepath(), Texture.class));
-        }
 
-        return obj;
     }
+
 
     //!====================================================================================================
     //!|=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
@@ -423,6 +417,11 @@ public class Actor implements ImGuiValueManager {
 
     public Actor setName(String name) {
         this.name = name;
+        return this;
+    }
+
+    private Actor generateName() {
+        this.name = this.getClass().getSimpleName() + " " + (Window.getScene().getEditor().getActors().size() + 1);
         return this;
     }
 

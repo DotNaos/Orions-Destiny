@@ -35,7 +35,7 @@ public class SpriteRenderer extends ActorComponent {
         if (this.lastColor == null) lastColor = new Vector4f(color);
 
         if (!this.lastTransform.equals(this.actor.getTransform())) {
-            this.actor.getTransform().copy(this.lastTransform);
+           this.lastTransform.copy(this.actor.getTransform());
             isDirty = true;
         }
         else if (!this.lastColor.equals(this.color)) {

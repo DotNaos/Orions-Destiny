@@ -96,7 +96,14 @@ public class Sprite extends Asset {
 
 
     public Vector2f[] getTexCoords() {
-        return this.texCoords;
+        Vector2f[] texCoords = new Vector2f[] {
+                new Vector2f(this.texCoords[0]),
+                new Vector2f(this.texCoords[1]),
+                new Vector2f(this.texCoords[2]),
+                new Vector2f(this.texCoords[3])
+        };
+
+        return texCoords;
     }
 
 

@@ -35,7 +35,8 @@ import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.system.MemoryUtil.NULL;
 
 public class Window implements Observer {
-  public static boolean isDialogOpen;
+  private static boolean isDialogOpen;
+  private static boolean isPopupOpen;
   private static boolean isPlaying = false;
   private static boolean imguiActive = false;
   private static Window window = null;
@@ -111,6 +112,30 @@ public class Window implements Observer {
 
   public static boolean isImguiActive() {
     return imguiActive;
+  }
+
+  public static boolean isDialogOpen() {
+    return isDialogOpen;
+  }
+
+  public static void openDialog() {
+    Window.isDialogOpen = true;
+  }
+  public static void closeDialog() {
+    Window.isDialogOpen = false;
+  }
+
+
+  public static boolean isPopupOpen() {
+    return isPopupOpen;
+  }
+
+  public static void openPopup() {
+    Window.isPopupOpen = true;
+  }
+
+  public static void closePopup() {
+      Window.isPopupOpen = false;
   }
 
   public void run() {

@@ -5,7 +5,6 @@ import Burst.Engine.Source.Core.Assets.AssetManager;
 import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
 import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheet;
 import Burst.Engine.Source.Core.UI.Window;
-import Burst.Engine.Source.Core.Util.Util;
 import Orion.res.AssetConfig;
 import imgui.ImGui;
 import imgui.flag.ImGuiCol;
@@ -19,7 +18,6 @@ import org.joml.Vector4f;
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
-import java.util.Locale;
 
 /**
  * This class has various methods to draw ImGui controls.
@@ -333,7 +331,7 @@ public class BImGui {
 
 
     public static String openFile(String fileType) {
-        Window.isDialogOpen = true;
+        Window.openDialog();
         FileDialog dialog = new FileDialog((Frame) null, "Select File");
         dialog.setMode(FileDialog.LOAD);
         dialog.setVisible(true);
@@ -343,7 +341,7 @@ public class BImGui {
         if (file != null) {
             return dir + file;
         }
-        Window.isDialogOpen = false;
+        Window.closeDialog();
         return null;
     }
 }

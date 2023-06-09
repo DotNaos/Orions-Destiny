@@ -195,7 +195,7 @@ public class Game {
 
   public void saveLevel() {
     // return if a dialog is open
-    if (Window.isDialogOpen) return;
+    if (Window.isDialogOpen()) return;
 
     try {
       FileWriter writer = new FileWriter(".\\levels\\level.json");

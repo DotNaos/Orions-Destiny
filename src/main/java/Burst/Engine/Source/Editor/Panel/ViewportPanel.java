@@ -123,6 +123,9 @@ public class ViewportPanel extends ImGuiPanel {
     }
 
     public boolean getWantCaptureMouse() {
+        if (Window.isPopupOpen()) {
+            return false;
+        }
         return windowIsHovered;
     }
 

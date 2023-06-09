@@ -18,6 +18,7 @@ void main()
 {
     fColor = aColor;
     fTexCoords = aTexCoords;
+
     fTexId = aTexId;
     fEntityId = aEntityId;
 
@@ -43,6 +44,8 @@ void main()
     if (fTexId > 0) {
         int id = int(fTexId);
         texColor = fColor * texture(uTextures[id], fTexCoords);
+
+
     }
     if (texColor.a < 0.5) {
         discard;
