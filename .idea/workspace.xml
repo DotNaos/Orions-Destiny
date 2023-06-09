@@ -9,12 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="Transform ist jetzt so semi gekapselt, weil ich Java hasse und ich sonst nur oder keine Pointer habe">
+    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="Neu rendern bei reset">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Component.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Component.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Physics/Components/Transform.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Physics/Components/Transform.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Render/SpriteRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Render/SpriteRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/ContentDrawer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/ContentDrawer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Components/KeyControls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Components/KeyControls.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Panel/PropertiesPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Panel/PropertiesPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -233,14 +231,7 @@
       <workItem from="1686209302024" duration="599000" />
       <workItem from="1686227606156" duration="22948000" />
       <workItem from="1686258220665" duration="9488000" />
-      <workItem from="1686304742078" duration="30517000" />
-    </task>
-    <task id="LOCAL-00021" summary="Refactoring. Projekt ist auf einem guten Niveau aufgebaut">
-      <created>1684358763200</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1684358763200</updated>
+      <workItem from="1686304742078" duration="30997000" />
     </task>
     <task id="LOCAL-00022" summary="Refactoring. Projekt ist auf einem guten Niveau aufgebaut">
       <created>1684358810764</created>
@@ -578,14 +569,20 @@
       <option name="project" value="LOCAL" />
       <updated>1686339799584</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="Neu rendern bei reset">
+      <created>1686345231728</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1686345231728</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="ViewToScreen" />
     <MESSAGE value="Picking funktioniert endlich" />
     <MESSAGE value="Picking Texture Debug Imgui" />
     <MESSAGE value="Picking Texture Flipped Fix (BEFORE)" />
@@ -610,7 +607,8 @@
     <MESSAGE value="MouseLister aus der Scene gelöscht. Jetzt funktioniert Window hovern richtig" />
     <MESSAGE value="Ok, jetzt funktioniert es" />
     <MESSAGE value="Transform ist jetzt so semi gekapselt, weil ich Java hasse und ich sonst nur oder keine Pointer habe" />
-    <option name="LAST_COMMIT_MESSAGE" value="Transform ist jetzt so semi gekapselt, weil ich Java hasse und ich sonst nur oder keine Pointer habe" />
+    <MESSAGE value="Neu rendern bei reset" />
+    <option name="LAST_COMMIT_MESSAGE" value="Neu rendern bei reset" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

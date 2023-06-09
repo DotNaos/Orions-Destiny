@@ -58,7 +58,7 @@ public class KeyControls extends Component {
         Window.getScene().getEditor().removeActor(actor);
       }
       propertiesPanel.clearSelected();
-      Editor editor = (Editor) Window.getScene().getEditor();
+      Editor editor = Window.getScene().getEditor();
       if (editor.getActors().size() > 0) {
         propertiesPanel.addActiveActor(editor.getActors().get(editor.getActors().size() - 1));
       }
