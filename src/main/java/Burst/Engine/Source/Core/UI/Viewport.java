@@ -21,10 +21,7 @@ public class Viewport {
     private float zoom = 10.0f;
 
     public Viewport() {
-        this.position = new Vector2f(2,3);
-        // TODO: REMOVE RANDOM VIEWPORT POSITION
-//        this.position = new Vector2f();
-
+        this.position = new Vector2f();
         this.size = new Vector2f();
         this.projectionMatrix = new Matrix4f();
         this.viewMatrix = new Matrix4f();

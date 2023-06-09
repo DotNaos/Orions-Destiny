@@ -5,7 +5,6 @@ import Burst.Engine.Config.ImGuiStyleConfig;
 import Burst.Engine.Source.Core.Input.KeyListener;
 import Burst.Engine.Source.Core.Input.MouseListener;
 import Burst.Engine.Source.Core.Scene.Scene;
-import Burst.Engine.Source.Core.UI.ImGui.DebugPanel;
 import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Editor.Panel.ViewportPanel;
 import imgui.*;
@@ -76,14 +75,14 @@ public class ImGuiLayer {
                 KeyListener.keyCallback(w, key, scancode, action, mods);
             }
 
-            Window.getScene().keyCallback(w, key, scancode, action, mods);
+           KeyListener.keyCallback(w, key, scancode, action, mods);
         });
 
         glfwSetCharCallback(glfwWindow, (w, c) -> {
             if (c != GLFW_KEY_DELETE) {
                 io.addInputCharacter(c);
             }
-            Window.getScene().charCallback(w, c);
+            KeyListener.charCallback(w, c);
         });
 
         glfwSetMouseButtonCallback(glfwWindow, (w, button, action, mods) -> {
@@ -100,8 +99,7 @@ public class ImGuiLayer {
             if (!io.getWantCaptureMouse() && mouseDown[1]) {
                 ImGui.setWindowFocus(null);
             }
-
-            Window.getScene().mouseButtonCallback(w, button, action, mods);
+            MouseListener.mouseButtonCallback(w, button, action, mods);
         });
 
         glfwSetScrollCallback(glfwWindow, (w, xOffset, yOffset) -> {
@@ -114,7 +112,7 @@ public class ImGuiLayer {
                     MouseListener.clear();
                 }
             }
-            Window.getScene().scrollCallback(w, xOffset, yOffset);
+            MouseListener.mouseScrollCallback(w, xOffset, yOffset);
         });
 
         io.setSetClipboardTextFn(new ImStrConsumer() {

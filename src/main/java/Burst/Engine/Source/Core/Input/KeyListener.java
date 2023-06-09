@@ -38,6 +38,10 @@ public class KeyListener {
         }
     }
 
+    public static void charCallback(long window, int codepoint) {
+        //TODO: Implement char callback
+    }
+
     public static boolean isKeyPressed(int keyCode) {
         return get().keyPressed[keyCode];
     }

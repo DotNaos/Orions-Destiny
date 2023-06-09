@@ -9,13 +9,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="ClipBoard copiert wieder farben. SpriteColor wird auch wieder angezeigt und geupdated + Reset. &#10;&#10;TexCoords können bearbeitet werden.">
+    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="Maus auch registriert wenn Viewport nicht fokussiert">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Config/Constants/Color_Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Config/Constants/Color_Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Input/KeyListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Input/KeyListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Input/MouseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Input/MouseListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Render/RenderBatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Render/RenderBatch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Components/MouseControls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Components/MouseControls.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Panel/PropertiesPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Panel/PropertiesPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/Scene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/ImGui/ImGuiLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/ImGui/ImGuiLayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/Viewport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/Viewport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Panel/ViewportPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Panel/ViewportPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -234,14 +235,7 @@
       <workItem from="1686209302024" duration="599000" />
       <workItem from="1686227606156" duration="22948000" />
       <workItem from="1686258220665" duration="9488000" />
-      <workItem from="1686304742078" duration="20655000" />
-    </task>
-    <task id="LOCAL-00017" summary="GridLines funktionieren">
-      <created>1684346127623</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1684346127623</updated>
+      <workItem from="1686304742078" duration="22181000" />
     </task>
     <task id="LOCAL-00018" summary="GridLines pixelSize">
       <created>1684348446405</created>
@@ -579,14 +573,20 @@
       <option name="project" value="LOCAL" />
       <updated>1686327736999</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="Maus auch registriert wenn Viewport nicht fokussiert">
+      <created>1686331742895</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1686331742895</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Screen und World coordinates gefixt" />
     <MESSAGE value="Texture flipping gefixt" />
     <MESSAGE value="Scaling adjusted to Aspect Ratio of Sprite" />
     <MESSAGE value="Serialization funktioniert endlich" />
@@ -611,7 +611,8 @@
     <MESSAGE value="Refactor von EditorUpdate und Sprites werden angezeigt nach laden: weil dirtyFlag" />
     <MESSAGE value="ClipBoard copiert wieder farben. SpriteColor wird auch wieder angezeigt und geupdated" />
     <MESSAGE value="ClipBoard copiert wieder farben. SpriteColor wird auch wieder angezeigt und geupdated + Reset. &#10;&#10;TexCoords können bearbeitet werden." />
-    <option name="LAST_COMMIT_MESSAGE" value="ClipBoard copiert wieder farben. SpriteColor wird auch wieder angezeigt und geupdated + Reset. &#10;&#10;TexCoords können bearbeitet werden." />
+    <MESSAGE value="Maus auch registriert wenn Viewport nicht fokussiert" />
+    <option name="LAST_COMMIT_MESSAGE" value="Maus auch registriert wenn Viewport nicht fokussiert" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

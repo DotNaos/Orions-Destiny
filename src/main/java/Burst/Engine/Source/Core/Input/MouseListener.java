@@ -1,19 +1,13 @@
 package Burst.Engine.Source.Core.Input;
 
-import Burst.Engine.Source.Core.Render.Debug.DebugDraw;
-import Burst.Engine.Source.Core.UI.ImGui.DebugPanel;
 import Burst.Engine.Source.Core.UI.Viewport;
 import Burst.Engine.Source.Core.UI.Window;
-import Burst.Engine.Source.Core.Util.DebugMessage;
 import imgui.ImGui;
 import imgui.ImVec2;
-import imgui.flag.ImGuiMouseButton;
 import org.joml.Matrix4f;
-import org.joml.Vector2f;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
 
-import javax.swing.*;
 import java.util.Arrays;
 
 import static org.lwjgl.glfw.GLFW.GLFW_PRESS;
@@ -66,12 +60,8 @@ public class MouseListener {
     }
 
     public static void mousePosCallback(long window, double xpos, double ypos) {
-        Window.getScene().mousePositionCallback(window, xpos, ypos);
-
 
         if (get().mouseButtonDown > 0) {
-            // TODO: REMOVE
-            System.out.println("Dragging");
             get().isDragging = true;
         }
 
@@ -106,6 +96,9 @@ public class MouseListener {
         get().scrollX = xOffset;
         get().scrollY = yOffset;
     }
+
+
+
 
     public static float getX() {
         return (float) get().xPos;

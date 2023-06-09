@@ -98,8 +98,16 @@ public class ViewportPanel extends ImGuiPanel {
 
         int textureId = Window.getFramebuffer().getTextureId();
         ImGui.imageButton(textureId, windowSize.x, windowSize.y, 0, 1, 1, 0);
-        windowIsHovered = ImGui.isItemHovered();
-        System.out.println(windowIsHovered);
+
+
+        // If the mouse is out of the viewports bounds it's not hovered
+        this.windowIsHovered = (
+                // Max viewport pos
+                    (MouseListener.getViewX() > Window.getWidth() || MouseListener.getViewY() > Window.getHeight())
+                ||
+                // Min viewport pos
+                    (MouseListener.getViewX() < 0 || MouseListener.getViewY() < 0)
+        );
 
         // Update the position of the Panel
         this.position.x = ImGui.getWindowPosX() + ImGuiStyleConfig.get().getWindowPadding().x;

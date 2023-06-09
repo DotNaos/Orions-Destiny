@@ -92,30 +92,6 @@ public class Scene {
         }
     }
 
-    //!====================================================================================================
-    //! All Mouse and Keyboard callbacks
-    //!====================================================================================================
-
-    public void keyCallback(long window, int key, int scancode, int action, int mods) {
-    }
-
-    public void charCallback(long window, int codepoint) {
-    }
-
-    public void mouseButtonCallback(long window, int button, int action, int mods) {
-        MouseListener.mouseButtonCallback(window, button, action, mods);
-    }
-
-
-    public void mousePositionCallback(long window, double xpos, double ypos) {
-        ViewportPanel viewportPanel = getPanel(ViewportPanel.class);
-        if (viewportPanel == null) return;
-        if (viewportPanel.getWantCaptureMouse()) return;
-        MouseListener.clear();
-    }
-
-    public void scrollCallback(long window, double xOffset, double yOffset) {
-    }
 
 
     //!====================================================================================================
