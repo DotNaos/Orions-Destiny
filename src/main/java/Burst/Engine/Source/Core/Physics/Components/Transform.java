@@ -79,8 +79,8 @@ public class Transform extends ActorComponent {
     if (o == null) return false;
     if (!(o instanceof Transform t)) return false;
 
-    return t.getPosition().equals(this.getPosition()) && t.getScale().equals(this.getScale()) && t.getScaledSize().equals(this.getScaledSize()) &&
-            t.getRotation() == this.getRotation() && t.getZIndex() == this.getZIndex();
+    return t.position.equals(this.position) && t.scale.equals(this.scale) && t.size.equals(this.size) &&
+            t.rotation == this.rotation && t.zIndex == this.zIndex;
   }
 
     public void set(Transform transform) {

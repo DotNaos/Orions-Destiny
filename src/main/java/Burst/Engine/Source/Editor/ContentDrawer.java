@@ -23,17 +23,26 @@ import imgui.flag.ImGuiStyleVar;
 
 
 public class ContentDrawer extends ImGuiPanel {
-    private final List<Class<?>> actors;
+    private List<Class<?>> actors = new ArrayList<>();
+
+    private boolean searchForActors = true;
 
     public ContentDrawer() {
         super();
 
+        if (searchForActors) {
+            searchForActors();
+        }
+
+    }
+
+    private void searchForActors() {
         // Searching for all Actors in the Burst and Orion packages
         ClassDerivativeSearch actorSearcher = new ClassDerivativeSearch(Actor.class);
         actorSearcher.addPackage("Burst");
         actorSearcher.addPackage("Orion");
 
-        this.actors = actorSearcher.search();
+        this.actors.addAll(actorSearcher.search());
         // Print all found actors
         for (Class<?> actor : actors) {
             System.out.println(actor.getSimpleName());

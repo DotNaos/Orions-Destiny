@@ -14,6 +14,7 @@ public abstract class Component implements ImGuiValueManager {
   private long ID = -1;
   private transient Map<String, Object> initialValues = new HashMap<>();
   private transient List<String> ignoreFields = new ArrayList<>();
+  protected boolean isDirty = false;
 
   public Component() {
     this.ID = Util.generateHashID(this.getClass().getName());
@@ -60,5 +61,21 @@ public abstract class Component implements ImGuiValueManager {
 
   public long getID() {
     return this.ID;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public boolean isDirty() {
+    return this.isDirty;
+  }
+
+  public void setDirty() {
+    this.isDirty = true;
+  }
+
+  public void setClean() {
+    this.isDirty = false;
   }
 }

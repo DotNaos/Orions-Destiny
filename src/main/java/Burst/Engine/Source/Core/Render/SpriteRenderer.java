@@ -16,7 +16,6 @@ public class SpriteRenderer extends ActorComponent {
     private transient Vector4f lastColor = new Vector4f(color);
     private Sprite sprite = new Sprite();
     private transient Transform lastTransform;
-    private boolean isDirty = true;
 
     public SpriteRenderer(Actor actor) {
         super(actor);
@@ -33,25 +32,27 @@ public class SpriteRenderer extends ActorComponent {
     public void update(float dt) {
         super.update(dt);
         if (this.lastTransform == null) return;
+        if (this.lastColor == null) lastColor = new Vector4f(color);
+
         if (!this.lastTransform.equals(this.actor.getTransform())) {
             this.actor.getTransform().copy(this.lastTransform);
             isDirty = true;
         }
-
-        if (this.lastColor == null) lastColor = new Vector4f(color);
-        if (!this.lastColor.equals(this.color)) {
+        else if (!this.lastColor.equals(this.color)) {
             this.lastColor.set(this.color);
             isDirty = true;
         }
-        if (sprite.isDirty()) {
+        else if (sprite.isDirty()) {
             isDirty = true;
             sprite.setClean();
         }
+        else if (this.actor.getTransform().isDirty())
+        {
+            isDirty = true;
+            this.actor.getTransform().setClean();
+        }
     }
 
-    public void setDirty() {
-        this.isDirty = true;
-    }
 
     public Vector4f getColor() {
         return this.color;
@@ -82,13 +83,5 @@ public class SpriteRenderer extends ActorComponent {
     public void setSprite(Sprite sprite) {
         this.sprite = sprite;
         this.isDirty = true;
-    }
-
-    public boolean isDirty() {
-        return this.isDirty;
-    }
-
-    public void setClean() {
-        this.isDirty = false;
     }
 }
