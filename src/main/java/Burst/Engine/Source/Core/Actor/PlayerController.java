@@ -19,7 +19,6 @@ public class PlayerController extends ActorComponent {
     public transient boolean onGround = false;
     private transient Rigidbody2D rb;
     private transient StateMachine stateMachine;
-    private transient float playerWidth = 0.25f;
     private transient Vector2f acceleration = new Vector2f();
     private transient Vector2f velocity = new Vector2f();
     private transient boolean isDead = false;
@@ -35,8 +34,10 @@ public class PlayerController extends ActorComponent {
     @Override
     public void update(float dt) {
         super.update(dt);
+
         if (KeyListener.isKeyPressed(HotKeys.get().PlayerMoveRight)) {
-            this.actor.getTransform().size.x = playerWidth;
+            this.actor.getTransform().size.mul(1.0f, 1.0f);
+
             this.acceleration.x = walkSpeed;
 
             if (this.velocity.x < 0) {
@@ -46,7 +47,8 @@ public class PlayerController extends ActorComponent {
                 this.stateMachine.trigger("startRunning");
             }
         } else if (KeyListener.isKeyPressed(HotKeys.get().PlayerMoveLeft)) {
-            this.actor.getTransform().size.x = -playerWidth;
+            // When player is moving left, flip the sprite
+            this.actor.getTransform().size.mul(-1.0f, 1.0f);
             this.acceleration.x = -walkSpeed;
 
             if (this.velocity.x > 0) {
@@ -83,12 +85,12 @@ public class PlayerController extends ActorComponent {
     }
 
     public void move(Vector2f amount) {
-        this.actor.getTransform().position.add(amount);
-        this.rb.setPosition(this.actor.getTransform().position);
+        this.actor.getTransform().getPosition().add(amount);
+        this.rb.setPosition(this.actor.getTransform().getPosition());
     }
 
     public void setPosition(Vector2f newPos) {
-        this.actor.getTransform().position.set(newPos);
+        this.actor.getTransform().getPosition().set(newPos);
         this.rb.setPosition(newPos);
     }
 

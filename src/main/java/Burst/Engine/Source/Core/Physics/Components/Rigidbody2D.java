@@ -3,7 +3,6 @@ package Burst.Engine.Source.Core.Physics.Components;
 import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Actor.ActorComponent;
 import Burst.Engine.Source.Core.Physics.Enums.BodyType;
-import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.UI.Window;
 import org.jbox2d.common.Vec2;
 import org.jbox2d.dynamics.Body;
@@ -34,16 +33,16 @@ public class Rigidbody2D extends ActorComponent {
         super.update(dt);
         if (rawBody != null) {
             if (this.bodyType == BodyType.Dynamic || this.bodyType == BodyType.Kinematic) {
-                this.actor.getTransform().position.set(
+                this.actor.getTransform().getPosition().set(
                         rawBody.getPosition().x, rawBody.getPosition().y
                 );
-                this.actor.getTransform().rotation = (float) Math.toDegrees(rawBody.getAngle());
+                this.actor.getTransform().setRotation((float) Math.toDegrees(rawBody.getAngle()));
                 Vec2 vel = rawBody.getLinearVelocity();
                 this.velocity.set(vel.x, vel.y);
             } else if (this.bodyType == BodyType.Static) {
                 this.rawBody.setTransform(
-                        new Vec2(this.actor.getTransform().position.x, this.actor.getTransform().position.y),
-                        this.actor.getTransform().rotation
+                        new Vec2(this.actor.getTransform().getPosition().x, this.actor.getTransform().getPosition().y),
+                        this.actor.getTransform().getRotation()
                 );
             }
         }
@@ -74,7 +73,7 @@ public class Rigidbody2D extends ActorComponent {
 
     public void setPosition(Vector2f newPos) {
         if (rawBody != null) {
-            rawBody.setTransform(new Vec2(newPos.x, newPos.y), actor.getTransform().rotation);
+            rawBody.setTransform(new Vec2(newPos.x, newPos.y), actor.getTransform().getRotation());
         }
     }
 

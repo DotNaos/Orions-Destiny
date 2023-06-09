@@ -2,7 +2,6 @@ package Burst.Engine.Source.Core.Physics.Components;
 
 import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Actor.ActorComponent;
-import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.Render.Debug.DebugDraw;
 import Burst.Engine.Source.Core.UI.Window;
 import org.joml.Vector2f;
@@ -41,7 +40,7 @@ public class CircleCollider extends ActorComponent {
         }
 
         //*=================== In Editor ===================*//
-        Vector2f center = new Vector2f(this.actor.getTransform().position).add(this.offset);
+        Vector2f center = new Vector2f(this.actor.getTransform().getPosition()).add(this.offset);
         DebugDraw.addCircle(center, this.radius);
 
         if (resetFixtureNextFrame) {

@@ -1,11 +1,11 @@
 package Burst.Engine.Source.Core.Util;
 
+import Burst.Engine.Config.Constants.Color_Config;
 import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
 import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Burst.Engine.Source.Core.UI.ImGui.BImGui;
-import Orion.res.AssetConfig;
-import imgui.ImFont;
 import imgui.ImGui;
+import imgui.flag.ImGuiStyleVar;
 import imgui.type.ImInt;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
@@ -109,6 +109,9 @@ public interface ImGuiValueManager {
         field.set(obj, !val);
       }
       ImGui.popID();
+    } else if (type.equals(String.class)) {
+      String val = (String) value;
+      field.set(obj, BImGui.inputText(name, val));
     } else if (type.equals(Vector2f.class)) {
       Vector2f val = (Vector2f) value;
       BImGui.drawVec2Control(name, val, new Vector2f((Vector2f) initialValue));
@@ -141,8 +144,7 @@ public interface ImGuiValueManager {
         if (ImGui.button("Change Texture")) {
           String filepath = BImGui.openFile("png");
           if (filepath != null) {
-            if(val.setFilepath(filepath))
-            {
+            if (val.setFilepath(filepath)) {
               val.init();
             }
           }
@@ -171,50 +173,67 @@ public interface ImGuiValueManager {
 
       Vector2f spriteSize = new Vector2f(defaultSpriteWidth, spriteHeight / spriteWidthRatio);
 
-        // if hovered show preview of texture
-        // Also show file path below
-        if (ImGui.imageButton(val.getTexture().getTexID(), spriteSize.x, spriteSize.y, uv0X, uv0Y, uv1X, uv1Y))
-        {
-          ImGui.openPopup("Sprite Preview");
-        }
-        if (ImGui.beginPopup("Sprite Preview")) {
+      // if hovered show preview of texture
+      // Also show file path below
+      if (ImGui.imageButton(val.getTexture().getTexID(), spriteSize.x, spriteSize.y, uv0X, uv0Y, uv1X, uv1Y)) {
+        ImGui.openPopup("Sprite Preview");
+      }
+      if (ImGui.beginPopup("Sprite Preview")) {
 
-          ImGui.image(val.getTexture().getTexID(), spriteSize.x * 1.5f, spriteSize.y * 1.5f, uv0X, uv0Y, uv1X, uv1Y);
+        ImGui.image(val.getTexture().getTexID(), spriteSize.x * 1.5f, spriteSize.y * 1.5f, uv0X, uv0Y, uv1X, uv1Y);
 
-          // give the ability to change the texture
-          if (ImGui.button("Change Texture")) {
-            String filepath = BImGui.openFile("png");
-            if (filepath != null) {
-              val.setTexture(new Texture(filepath));
-            }
+        // give the ability to change the texture
+        if (ImGui.button("Change Texture")) {
+          String filepath = BImGui.openFile("png");
+          if (filepath != null) {
+            val.setTexture(new Texture(filepath));
           }
-
-          ImGui.text(val.getTexture().getFilepath());
-
-
-          // give the ability to change the texture coords
-
-          // Create a new Font
-
-          ImGui.text("Texture Coords");
-
-
-          BImGui.drawVec2Control("TexCord 1", texCoords[0]);
-          BImGui.drawVec2Control("TexCord 2", texCoords[1]);
-          BImGui.drawVec2Control("TexCord 3", texCoords[2]);
-          BImGui.drawVec2Control("TexCord 4", texCoords[3]);
-
-          val.setTexCoords(texCoords);
-
-
-          if (ImGui.button("Reset Texture Coords")) {
-            val.resetTexCoords();
-          }
-
-          ImGui.endPopup();
         }
 
+        ImGui.text(val.getTexture().getFilepath());
 
+
+        // give the ability to change the texture coords
+
+        // Create a new Font
+
+        ImGui.text("Texture Coords");
+
+
+        BImGui.drawVec2Control("TexCord 1", texCoords[0]);
+        BImGui.drawVec2Control("TexCord 2", texCoords[1]);
+        BImGui.drawVec2Control("TexCord 3", texCoords[2]);
+        BImGui.drawVec2Control("TexCord 4", texCoords[3]);
+
+        val.setTexCoords(texCoords);
+
+        Vector2f defaultItemSpacing = BImGui.getDefaultItemSpacing();
+        Vector2f defaultTextBoxSize = BImGui.getDefaultTextBoxSize();
+
+
+        ImGui.pushStyleVar(ImGuiStyleVar.ItemSpacing, defaultItemSpacing.x, defaultItemSpacing.y);
+
+        if (BImGui.resetButton(BImGui.getDefaultButtonSize(), "purple")) {
+          val.resetTexCoords();
+        }
+        ImGui.sameLine();
+        ImGui.pushItemWidth(defaultTextBoxSize.x);
+        ImGui.text("Reset");
+        ImGui.popItemWidth();
+
+        if (BImGui.resetButton(BImGui.getDefaultButtonSize(), "BLUE")) {
+          val.setTexCoords(new Vector2f[]{new Vector2f(1, 1), new Vector2f(1, 0), new Vector2f(0, 0), new Vector2f(0, 1)});
+        }
+        ImGui.sameLine();
+        ImGui.pushItemWidth(defaultTextBoxSize.x);
+        ImGui.text("Default");
+        ImGui.popItemWidth();
+
+        ImGui.popStyleVar();
+
+
+        ImGui.endPopup();
+      }
 
 
     } else if (type.isEnum()) {

@@ -19,14 +19,27 @@ import org.joml.Vector4f;
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
+import java.util.Locale;
 
 /**
  * This class has various methods to draw ImGui controls.
  */
 public class BImGui {
-    private static Vector2f defaultItemSpacing = new Vector2f(5.0f, 0.0f);
+    private static Vector2f defaultItemSpacing = new Vector2f(5.0f, 5.0f);
     private static Vector2f defaultButtonSize = new Vector2f(18, 18);
     private static Vector2f defaultTextBoxSize = new Vector2f(100, 18);
+
+    public static Vector2f getDefaultItemSpacing() {
+        return defaultItemSpacing;
+    }
+
+    public static Vector2f getDefaultButtonSize() {
+        return defaultButtonSize;
+    }
+
+    public static Vector2f getDefaultTextBoxSize() {
+        return defaultTextBoxSize;
+    }
 
     public static void drawVec2Control(String label, Vector2f values) {
         drawVec2Control(label, values, new Vector2f());
@@ -132,7 +145,6 @@ public class BImGui {
         ImGui.pushItemWidth(defaultTextBoxSize.x);
         ImGui.dragFloat("##*", valArr, 0.1f);
         ImGui.popItemWidth();
-        
 
         ImGui.popStyleVar();
         ImGui.popID();
@@ -205,7 +217,7 @@ public class BImGui {
         return reset;
     }
 
-    private static boolean resetButton(Vector2f size, Vector4f Color) {
+    public static boolean resetButton(Vector2f size, Vector4f Color) {
         SpriteSheet sprites = AssetManager.getAssetFromType(AssetConfig.BUTTONS, SpriteSheet.class);
 
 
@@ -219,20 +231,21 @@ public class BImGui {
         return reset;
     }
 
-    private static boolean resetButton(Vector2f size) {
+    public static boolean resetButton(Vector2f size) {
         return resetButton(size, 2);
     }
 
-    private static boolean resetButton(Vector2f size, String Color) {
+    public static boolean resetButton(Vector2f size, String Color) {
+        Color = Color.toLowerCase();
         return switch (Color) {
-            case "Blue" -> resetButton(size, 1);
-            case "Black" -> resetButton(size, 2);
-            case "Yellow" -> resetButton(size, 3);
-            case "Cyan" -> resetButton(size, 4);
-            case "Red" -> resetButton(size, 5);
-            case "Pink" -> resetButton(size, 6);
-            case "Green" -> resetButton(size, 7);
-            case "Purple" -> resetButton(size, 8);
+            case "blue" -> resetButton(size, 1);
+            case "black" -> resetButton(size, 2);
+            case "yellow" -> resetButton(size, 3);
+            case "cyan" -> resetButton(size, 4);
+            case "red" -> resetButton(size, 5);
+            case "pink" -> resetButton(size, 6);
+            case "green" -> resetButton(size, 7);
+            case "purple" -> resetButton(size, 8);
 
             // Defaults to black
             default -> resetButton(size, 2);

@@ -17,8 +17,6 @@ import Burst.Engine.Source.Editor.Gizmo.GizmoSystem;
 import Burst.Engine.Source.Editor.NonPickable;
 import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
 import Orion.res.AssetConfig;
-import imgui.ImGui;
-import imgui.flag.ImGuiMouseButton;
 import org.joml.Vector2f;
 import org.joml.Vector2i;
 import org.joml.Vector4f;
@@ -87,15 +85,15 @@ public class MouseControls extends Component {
             float x = MouseListener.getWorldX();
             float y = MouseListener.getWorldY();
 
-            holdingActor.getTransform().position.x = ((int) Math.floor(x / GridLines_Config.SIZE) * GridLines_Config.SIZE) + GridLines_Config.SIZE / 2.0f;
-            holdingActor.getTransform().position.y = ((int) Math.floor(y / GridLines_Config.SIZE) * GridLines_Config.SIZE) + GridLines_Config.SIZE / 2.0f;
+            holdingActor.getTransform().getPosition().x = ((int) Math.floor(x / GridLines_Config.SIZE) * GridLines_Config.SIZE) + GridLines_Config.SIZE / 2.0f;
+            holdingActor.getTransform().getPosition().y = ((int) Math.floor(y / GridLines_Config.SIZE) * GridLines_Config.SIZE) + GridLines_Config.SIZE / 2.0f;
 
             if (MouseListener.mouseButtonDown(GLFW_MOUSE_BUTTON_LEFT)) {
                 float halfWidth = GridLines_Config.SIZE / 2.0f;
                 float halfHeight = GridLines_Config.SIZE / 2.0f;
                 if (MouseListener.isDragging() &&
-                        !blockInSquare(holdingActor.getTransform().position.x - halfWidth,
-                                holdingActor.getTransform().position.y - halfHeight)) {
+                        !blockInSquare(holdingActor.getTransform().getPosition().x - halfWidth,
+                                holdingActor.getTransform().getPosition().y - halfHeight)) {
                     place();
                 } else if (!MouseListener.isDragging() && debounce < 0) {
                     place();

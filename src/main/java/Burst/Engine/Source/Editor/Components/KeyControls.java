@@ -36,7 +36,7 @@ public class KeyControls extends Component {
       Actor newObj = activeActor.copy();
       assert Window.getScene().getEditor() != null;
       Window.getScene().getEditor().addActor(newObj);
-      newObj.getTransform().position.add(GridLines_Config.SIZE, 0.0f);
+      newObj.getTransform().getPosition().add(GridLines_Config.SIZE, 0.0f);
       propertiesPanel.setActiveActor(newObj);
       if (newObj.getComponent(StateMachine.class) != null) {
         newObj.getComponent(StateMachine.class).refreshTextures();
@@ -65,32 +65,32 @@ public class KeyControls extends Component {
     } else if (KeyListener.isKeyPressed(HotKeys.get().EditorMoveZToBack) && debounce < 0) {
       debounce = debounceTime;
       for (Actor actor : activeActors) {
-        actor.getTransform().zIndex--;
+        actor.getTransform().setZIndex(actor.getTransform().getZIndex() - 1);
       }
     } else if (KeyListener.isKeyPressed(HotKeys.get().EditorMoveZToFront) && debounce < 0) {
       debounce = debounceTime;
       for (Actor actor : activeActors) {
-        actor.getTransform().zIndex++;
+        actor.getTransform().setZIndex(actor.getTransform().getZIndex() + 1);
       }
     } else if (KeyListener.isKeyPressed(HotKeys.get().EditorMoveUp) && debounce < 0) {
       debounce = debounceTime;
       for (Actor actor : activeActors) {
-        actor.getTransform().position.y += GridLines_Config.SIZE * multiplier;
+        actor.getTransform().getPosition().y += GridLines_Config.SIZE * multiplier;
       }
     } else if (KeyListener.isKeyPressed(HotKeys.get().EditorMoveLeft) && debounce < 0) {
       debounce = debounceTime;
       for (Actor actor : activeActors) {
-        actor.getTransform().position.x -= GridLines_Config.SIZE * multiplier;
+        actor.getTransform().getPosition().x -= GridLines_Config.SIZE * multiplier;
       }
     } else if (KeyListener.isKeyPressed(HotKeys.get().EditorMoveRight) && debounce < 0) {
       debounce = debounceTime;
       for (Actor actor : activeActors) {
-        actor.getTransform().position.x += GridLines_Config.SIZE * multiplier;
+        actor.getTransform().getPosition().x += GridLines_Config.SIZE * multiplier;
       }
     } else if (KeyListener.isKeyPressed(HotKeys.get().EditorMoveDown) && debounce < 0) {
       debounce = debounceTime;
       for (Actor actor : activeActors) {
-        actor.getTransform().position.y -= GridLines_Config.SIZE * multiplier;
+        actor.getTransform().getPosition().y -= GridLines_Config.SIZE * multiplier;
       }
     }
   }

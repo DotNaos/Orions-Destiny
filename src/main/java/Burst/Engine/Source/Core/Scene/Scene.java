@@ -155,13 +155,15 @@ public class Scene {
     }
 
     public void mouseScrollCallback(long w, double xOffset, double yOffset) {
-        MouseListener.mouseScrollCallback(w, xOffset, yOffset);
+        // TODO: Implement mouse scroll callback
     }
 
     public void keyCallback(long w, int key, int scancode, int action, int mods) {
+        // TODO: Implement key callback
     }
 
     public void charCallback(long w, int c) {
+        // TODO: Implement char callback
     }
 
 }

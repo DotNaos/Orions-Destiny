@@ -40,12 +40,12 @@ public class Gizmo extends ActorComponent {
         this.xAxisObject = new Actor();
         this.xAxisObject.setSprite(arrowSprite);
         this.xAxisObject.getTransform().set(new Transform(new Vector2f(0), new Vector2f(gizmoWidth, gizmoHeight), 90));
-        this.xAxisObject.getTransform().zIndex = 100;
+        this.xAxisObject.getTransform().setZIndex(100);
 
         this.yAxisObject = new Actor();
         this.yAxisObject.setSprite(arrowSprite);
         this.yAxisObject.getTransform().set(new Transform(new Vector2f(0), new Vector2f(gizmoWidth, gizmoHeight), 180));
-        this.yAxisObject.getTransform().zIndex = 100;
+        this.yAxisObject.getTransform().setZIndex(100);
 
         this.xAxisSprite = this.xAxisObject.getComponent(SpriteRenderer.class);
         this.yAxisSprite = this.yAxisObject.getComponent(SpriteRenderer.class);
@@ -62,8 +62,8 @@ public class Gizmo extends ActorComponent {
     @Override
     public void init() {
         super.init();
-        this.xAxisObject.getTransform().zIndex = 100;
-        this.yAxisObject.getTransform().zIndex = 100;
+        this.xAxisObject.getTransform().setZIndex(100);
+        this.yAxisObject.getTransform().setZIndex(100);
         this.xAxisObject.setNotSerializable();
         this.yAxisObject.setNotSerializable();
     }
@@ -102,10 +102,10 @@ public class Gizmo extends ActorComponent {
         }
 
         if (this.activeActor != null) {
-            this.xAxisObject.getTransform().position.set(this.activeActor.getTransform().position);
-            this.yAxisObject.getTransform().position.set(this.activeActor.getTransform().position);
-            this.xAxisObject.getTransform().position.add(this.xAxisOffset);
-            this.yAxisObject.getTransform().position.add(this.yAxisOffset);
+            this.xAxisObject.getTransform().getPosition().set(this.activeActor.getTransform().getPosition());
+            this.yAxisObject.getTransform().getPosition().set(this.activeActor.getTransform().getPosition());
+            this.xAxisObject.getTransform().getPosition().add(this.xAxisOffset);
+            this.yAxisObject.getTransform().getPosition().add(this.yAxisOffset);
         }
     }
 
@@ -122,7 +122,7 @@ public class Gizmo extends ActorComponent {
 
     private boolean checkXHoverState() {
         Vector2f mousePos = new Vector2f(MouseListener.getWorldX(), MouseListener.getWorldY());
-        if (mousePos.x <= xAxisObject.getTransform().position.x + (gizmoHeight / 2.0f) && mousePos.x >= xAxisObject.getTransform().position.x - (gizmoWidth / 2.0f) && mousePos.y >= xAxisObject.getTransform().position.y - (gizmoHeight / 2.0f) && mousePos.y <= xAxisObject.getTransform().position.y + (gizmoWidth / 2.0f)) {
+        if (mousePos.x <= xAxisObject.getTransform().getPosition().x + (gizmoHeight / 2.0f) && mousePos.x >= xAxisObject.getTransform().getPosition().x - (gizmoWidth / 2.0f) && mousePos.y >= xAxisObject.getTransform().getPosition().y - (gizmoHeight / 2.0f) && mousePos.y <= xAxisObject.getTransform().getPosition().y + (gizmoWidth / 2.0f)) {
             xAxisSprite.setColor(xAxisColorHover);
             return true;
         }
@@ -133,7 +133,7 @@ public class Gizmo extends ActorComponent {
 
     private boolean checkYHoverState() {
         Vector2f mousePos = new Vector2f(MouseListener.getWorldX(), MouseListener.getWorldY());
-        if (mousePos.x <= yAxisObject.getTransform().position.x + (gizmoWidth / 2.0f) && mousePos.x >= yAxisObject.getTransform().position.x - (gizmoWidth / 2.0f) && mousePos.y <= yAxisObject.getTransform().position.y + (gizmoHeight / 2.0f) && mousePos.y >= yAxisObject.getTransform().position.y - (gizmoHeight / 2.0f)) {
+        if (mousePos.x <= yAxisObject.getTransform().getPosition().x + (gizmoWidth / 2.0f) && mousePos.x >= yAxisObject.getTransform().getPosition().x - (gizmoWidth / 2.0f) && mousePos.y <= yAxisObject.getTransform().getPosition().y + (gizmoHeight / 2.0f) && mousePos.y >= yAxisObject.getTransform().getPosition().y - (gizmoHeight / 2.0f)) {
             yAxisSprite.setColor(yAxisColorHover);
             return true;
         }

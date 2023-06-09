@@ -131,7 +131,7 @@ public class Actor implements ImGuiValueManager {
                 {
                     if(width > height)
                     {
-                        transform.size.x *= sprite.getWidth() / sprite.getHeight();
+                        transform.size.x *= transform.size.x * sprite.getWidth() / sprite.getHeight();
                     }
                     else
                     {
