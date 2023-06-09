@@ -4,6 +4,7 @@ import Burst.Engine.Config.Constants.Color_Config;
 import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Assets.Graphics.Shader;
 import Burst.Engine.Source.Core.Assets.Graphics.Texture;
+import Burst.Engine.Source.Core.Physics.Components.Transform;
 import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
 import org.joml.Matrix4f;
@@ -224,12 +225,10 @@ public class RenderBatch implements Comparable<RenderBatch> {
     }
 
     Matrix4f transformMatrix = new Matrix4f().identity();
-    // flip y of transform matrix
-    transformMatrix.rotate((float) Math.toRadians(-180), 0, 0, 1);
 
     transformMatrix.translate(sprite.actor.getTransform().getPosition().x, sprite.actor.getTransform().getPosition().y, 0f);
     transformMatrix.rotate((float) Math.toRadians(sprite.actor.getTransform().getRotation()), 0, 0, 1);
-    transformMatrix.scale(sprite.actor.getTransform().getScaledSize().x, sprite.actor.getTransform().getScaledSize().y, 1);
+    transformMatrix.scale(sprite.actor.getTransform().getScaledSize().x, -sprite.actor.getTransform().getScaledSize().y, 1);
 
 
     // Add vertices with the appropriate properties

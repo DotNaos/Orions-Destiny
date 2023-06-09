@@ -25,17 +25,29 @@ public class SpriteRenderer extends ActorComponent {
     public void init() {
         super.init();
         this.sprite.setTexture(AssetManager.getAssetFromType(this.sprite.getFilepath(), Texture.class));
-        this.lastTransform = actor.getTransform().copy();
+        this.lastTransform = this.actor.getTransform().copy();
     }
 
     @Override
     public void update(float dt) {
         super.update(dt);
-        if (this.lastTransform == null) return;
+        if (this.lastTransform == null) lastTransform = this.actor.getTransform().copy();
         if (this.lastColor == null) lastColor = new Vector4f(color);
 
+        // Print values of transform and lastTransform side by side
+//        System.out.println(this.actor.getTransform().getPosition().x + " " + this.lastTransform.getPosition().x);
+//        System.out.println(this.actor.getTransform().getPosition().y + " " + this.lastTransform.getPosition().y);
+//        System.out.println(this.actor.getTransform().size.x + " " + this.lastTransform.size.x);
+//        System.out.println(this.actor.getTransform().size.y + " " + this.lastTransform.size.y);
+//        System.out.println(this.actor.getTransform().getScale().x + " " + this.lastTransform.getScale().x);
+//        System.out.println(this.actor.getTransform().getScale().y + " " + this.lastTransform.getScale().y);
+//        System.out.println(this.actor.getTransform().getRotation() + " " + this.lastTransform.getRotation());
+//
+//        System.out.println("\n");
+
+
         if (!this.lastTransform.equals(this.actor.getTransform())) {
-           this.lastTransform.copy(this.actor.getTransform());
+            lastTransform = this.actor.getTransform().copy();
             isDirty = true;
         }
         else if (!this.lastColor.equals(this.color)) {
@@ -51,6 +63,8 @@ public class SpriteRenderer extends ActorComponent {
             isDirty = true;
             this.actor.getTransform().setClean();
         }
+
+        this.lastTransform.copy(this.actor.getTransform());
     }
 
 

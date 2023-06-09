@@ -64,7 +64,14 @@ public class Transform extends ActorComponent {
   }
 
   public Transform copy() {
-    return new Transform(this.actor, new Vector2f(this.getPosition()), new Vector2f(this.getScale()), this.getRotation());
+    Transform t = new Transform(this.actor);
+    t.position = new Vector2f(this.position);
+    t.scale = new Vector2f(this.scale);
+    t.size = new Vector2f(this.size);
+    t.rotation = this.rotation;
+    t.zIndex = this.zIndex;
+
+    return t;
   }
 
   public Transform copy(Transform from) {
@@ -79,8 +86,11 @@ public class Transform extends ActorComponent {
     if (o == null) return false;
     if (!(o instanceof Transform t)) return false;
 
-    return t.position.equals(this.position) && t.scale.equals(this.scale) && t.size.equals(this.size) &&
-            t.rotation == this.rotation && t.zIndex == this.zIndex;
+    return t.position.x == this.position.x && t.position.y == this.position.y
+            && t.scale.x == this.scale.x && t.scale.y == this.scale.y
+            && t.size.x == this.size.x && t.size.y == this.size.y
+            && t.rotation == this.rotation
+            && t.zIndex == this.zIndex;
   }
 
     public void set(Transform transform) {
