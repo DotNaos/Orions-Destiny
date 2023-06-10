@@ -5,6 +5,8 @@ import org.joml.Vector4f;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
 public class Util {
@@ -70,6 +72,9 @@ public class Util {
 
     public static Object copy(Object value) {
 
+        if (value == null) {
+            return null;
+        }
         // Check if the value is a primitive type
         if (value.getClass().isPrimitive()) {
             return value;
@@ -82,7 +87,19 @@ public class Util {
 
             Object copy = constructor.newInstance();
 
-            Field[] fields = clazz.getDeclaredFields();
+
+            List<Field> fields = new ArrayList<>();
+
+            // Also add all superclass fields from all superclasses
+            Class<?> superClass = clazz.getSuperclass();
+            while (superClass.getSuperclass() != null)
+            {
+                fields.addAll(List.of(superClass.getDeclaredFields()));
+                superClass = superClass.getSuperclass();
+            }
+
+            fields.addAll(List.of(clazz.getDeclaredFields()));
+
             for (Field field : fields) {
                 if (Modifier.isStatic(field.getModifiers()) || Modifier.isFinal(field.getModifiers())) {
                     continue;
@@ -91,6 +108,7 @@ public class Util {
                 Object fieldValue = field.get(value);
                 field.set(copy, fieldValue);
             }
+
 
             return copy;
         } catch (Exception e) {

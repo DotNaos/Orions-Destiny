@@ -2,12 +2,12 @@ package Burst.Engine.Source.Core.Assets.Graphics;
 
 import Burst.Engine.Source.Core.Assets.Asset;
 import Burst.Engine.Source.Core.Util.DebugMessage;
+import Orion.res.AssetConfig;
 import org.joml.Vector2f;
 
 import java.util.Arrays;
 
 public class Sprite extends Asset {
-
     private float width, height;
 
     private transient Texture texture = null;

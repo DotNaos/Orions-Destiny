@@ -1,11 +1,10 @@
-package Orion.characters;
+package Orion.playercharacters;
 
 import Burst.Engine.Source.Core.Assets.AssetManager;
 import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Orion.res.AssetConfig;
 
 public class Apex extends PlayerCharacter {
-    public static final transient Texture icon = AssetManager.getAssetFromType(AssetConfig.ICON_PLAYER,Texture.class);
     public Apex() {
         this.description =
                 """
@@ -23,5 +22,11 @@ public class Apex extends PlayerCharacter {
         this.LVL = 0;
         this.EXP = 0;
 
+    }
+
+    @Override
+    public void imgui()
+    {
+        super.imgui();
     }
 }

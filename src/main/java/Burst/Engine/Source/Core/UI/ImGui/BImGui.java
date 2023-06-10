@@ -194,7 +194,7 @@ public class BImGui {
      * @return
      */
     private static boolean resetButton(Vector2f size, int Color) {
-        SpriteSheet sprites = AssetManager.getAssetFromType(AssetConfig.BUTTONS, SpriteSheet.class);
+        SpriteSheet sprites = AssetManager.getAssetFromType(AssetConfig.SPRITESHEET_BUTTONS, SpriteSheet.class);
 
         if (Color > 8) {
             Color = 8;
@@ -216,8 +216,7 @@ public class BImGui {
     }
 
     public static boolean resetButton(Vector2f size, Vector4f Color) {
-        SpriteSheet sprites = AssetManager.getAssetFromType(AssetConfig.BUTTONS, SpriteSheet.class);
-
+        SpriteSheet sprites = AssetManager.getAssetFromType(AssetConfig.SPRITESHEET_BUTTONS, SpriteSheet.class);
 
         Sprite sprite = sprites.getSprite(3 , 10);
         Vector2f[] texCoords = sprite.getTexCoords();

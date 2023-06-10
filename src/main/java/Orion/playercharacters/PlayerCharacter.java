@@ -1,15 +1,17 @@
-package Orion.characters;
-
-import java.lang.reflect.InvocationTargetException;
+package Orion.playercharacters;
 
 import Burst.Engine.Source.Core.Actor.Pawn;
 import Burst.Engine.Source.Core.Assets.AssetManager;
-import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
+import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheet;
 import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Orion.res.AssetConfig;
 
 public abstract class PlayerCharacter extends Pawn {
-    public static final transient Texture icon = AssetManager.getAssetFromType(AssetConfig.ICON_PLAYER,Texture.class);
+
+    protected SpriteSheet idleSprites;
+    protected SpriteSheet walkSprites;
+    protected SpriteSheet runSprites;
+    protected SpriteSheet jumpSprites;
     protected String description;
     protected int HP;
     protected int DEF;
@@ -22,11 +24,7 @@ public abstract class PlayerCharacter extends Pawn {
 
     public PlayerCharacter() {
         super();
-    }
-
-    public static <T extends PlayerCharacter> T getNewPlayerCharacter(Class<T> type) throws InstantiationException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
-        // Create a new instance of the specified type and return it
-        return type.getDeclaredConstructor().newInstance();
+        this.icon = AssetManager.getAssetFromType(AssetConfig.ICON_PLAYER,Texture.class);
     }
 
     public String getDescription() {
@@ -59,5 +57,11 @@ public abstract class PlayerCharacter extends Pawn {
 
     public int getEXP() {
         return this.EXP;
+    }
+
+    @Override
+    public void imgui()
+    {
+        super.imgui(this);
     }
 }

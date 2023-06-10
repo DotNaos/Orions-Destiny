@@ -24,7 +24,8 @@ public class SpriteRenderer extends ActorComponent {
     @Override
     public void init() {
         super.init();
-        this.sprite.setTexture(AssetManager.getAssetFromType(this.sprite.getFilepath(), Texture.class));
+        getSprite().setTexture(AssetManager.getAssetFromType(getSprite().getFilepath(), Texture.class));
+
         this.lastTransform = this.actor.getTransform().copy();
     }
 
@@ -68,22 +69,30 @@ public class SpriteRenderer extends ActorComponent {
     }
 
     public Texture getTexture() {
-        return sprite.getTexture();
+        return getSprite().getTexture();
     }
     public Sprite getSprite() {
+        if (sprite == null)
+        {
+            this.sprite = new Sprite();
+            this.sprite.setTexture(AssetManager.getAssetFromType(this.sprite.getFilepath(), Texture.class));
+        }
         return sprite;
     }
 
-    public void setTexture(Texture texture) {
+    public ActorComponent setTexture(Texture texture) {
         this.sprite.setTexture(texture);
+        this.isDirty = true;
+        return this;
     }
 
     public Vector2f[] getTexCoords() {
         return sprite.getTexCoords();
     }
 
-    public void setSprite(Sprite sprite) {
+    public SpriteRenderer setSprite(Sprite sprite) {
         this.sprite = sprite;
         this.isDirty = true;
+        return this;
     }
 }

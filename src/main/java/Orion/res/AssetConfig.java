@@ -57,6 +57,10 @@ public class AssetConfig {
 
   public static final String FONT_PEABERRY = DIR_OF_FONTS + "Peaberry.ttf";
 
+  //? ======================== Images - Debug ==========================
+  public static final String TEXTURE_DEBUG = DIR_OF_DEBUG_TEXTURES + "debug1.png";
+  public static final String TEXTURE_DEBUG2 = DIR_OF_DEBUG_TEXTURES + "debug2.png";
+
   //? ======================== Images - Icons ==========================
     public static final String ICON_ACTOR = DIR_OF_ICONS + "actor.png";
     public static final String ICON_PAWN = DIR_OF_ICONS + "pawn.png";
@@ -70,27 +74,28 @@ public class AssetConfig {
   //? =================== Images - SpriteSheets ==========================
 
     // Editor
-      public static final String GIZMOS = DIR_OF_UI + "gizmos.png";
+      public static final String SPRITESHEET_GIZMOS = DIR_OF_UI + "gizmos.png";
 
     // Enemies
-      public static final String ENEMY_1 = DIR_OF_SPRITESHEETS + DIR_OF_ENEMIES + "enemy_1.png";
+//      public static final String ENEMY_1 = DIR_OF_SPRITESHEETS + DIR_OF_ENEMIES + "enemy_1.png";
 
     // UI
 
-      public static final String BUTTONS = DIR_OF_UI + "buttons.png";
+      public static final String SPRITESHEET_BUTTONS = DIR_OF_UI + "buttons.png";
 
     // Level Blocks
-      public static final String BLOCKS = DIR_OF_TILES + "blocks.png";
+      public static final String SPRITESHEET_BLOCKS = DIR_OF_TILES + "blocks.png";
 
 
     //!========================================================================
     //!========================  SpriteSheet Configs  =========================
     //!========================================================================
     public static final List<SpriteSheetConfig> SPRITESHEETS_CONFIG = List.of(
-            new SpriteSheetConfig(GIZMOS, SpriteSheetUsage.UI, 24, 48, 0),
-            new SpriteSheetConfig(BUTTONS, SpriteSheetUsage.UI, 16, 16, 0),
-            new SpriteSheetConfig(BLOCKS, SpriteSheetUsage.BLOCK, 16, 16, 0, new int[]{16, 16, 4, 13, 10, 9, 7, 9, 14, 17, 18, 5, 21, 8, 3, 0, 7, 20, 15, 29, 32, 30, 32, 16, 16, 8, 5, 0, 0, 15, 15, 15})
+            new SpriteSheetConfig(SPRITESHEET_GIZMOS, SpriteSheetUsage.UI, 24, 48, 0),
+            new SpriteSheetConfig(SPRITESHEET_BUTTONS, SpriteSheetUsage.UI, 16, 16, 0),
+            new SpriteSheetConfig(SPRITESHEET_BLOCKS, SpriteSheetUsage.BLOCK, 16, 16, 0, new int[]{16, 16, 4, 13, 10, 9, 7, 9, 14, 17, 18, 5, 21, 8, 3, 0, 7, 20, 15, 29, 32, 30, 32, 16, 16, 8, 5, 0, 0, 15, 15, 15})
     );
+
 
 
 }

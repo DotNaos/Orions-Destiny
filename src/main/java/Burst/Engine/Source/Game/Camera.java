@@ -11,7 +11,6 @@ import org.joml.Vector3f;
 import org.joml.Vector4f;
 
 public class Camera extends Actor {
-    public static final transient Texture icon = AssetManager.getAssetFromType(AssetConfig.ICON_CAMERA, Texture.class);
     private final transient Viewport viewport;
 
     /**
@@ -26,23 +25,27 @@ public class Camera extends Actor {
 
     public Camera() {
         super();
-        this.name = "Game Camera";
+        this.name = "new Camera";
         this.viewport = Window.getScene().getViewport();
+        icon = AssetManager.getAssetFromType(AssetConfig.ICON_CAMERA, Texture.class);
     }
 
     @Override
     protected void init() {
         super.init();
         this.player = Window.getScene().getEditor().getActorWith(PlayerController.class);
-        this.viewport.clearColor.set(backgroundColor);
+
     }
 
     @Override
     public void update(float dt) {
+        super.update(dt);
+        this.viewport.clearColor.set(backgroundColor);
         if (player == null) return;
-
         // viewport.position.x = player.transform.position.x;
         viewport.position.x = player.getTransform().getPosition().x;
         viewport.position.y = player.getTransform().getPosition().y;
+
     }
+
 }

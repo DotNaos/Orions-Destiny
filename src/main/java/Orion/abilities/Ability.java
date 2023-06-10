@@ -1,7 +1,7 @@
 package Orion.abilities;
 
 
-import Orion.characters.PlayerCharacter;
+import Orion.playercharacters.PlayerCharacter;
 
 public abstract class Ability {
   protected String name;

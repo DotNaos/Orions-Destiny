@@ -14,6 +14,7 @@ import org.joml.Vector4f;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -51,7 +52,18 @@ public interface ImGuiValueManager {
   default void getInitialValues(Object obj, List<String> ignoreFields, Map<String, Object> initialValues) throws IllegalAccessException {
     initialValues.clear();
 
-    Field[] fields = obj.getClass().getDeclaredFields();
+    List<Field> fields = new ArrayList<>();
+    Class<?> clazz = obj.getClass();
+    // Also add all superclass fields from all superclasses
+    Class<?> superClass = clazz.getSuperclass();
+    while (superClass.getSuperclass() != null)
+    {
+      fields.addAll(List.of(superClass.getDeclaredFields()));
+      superClass = superClass.getSuperclass();
+    }
+
+    fields.addAll(List.of(clazz.getDeclaredFields()));
+
     for (Field field : fields) {
 
       if (!shouldAccess(field)) continue;
@@ -265,7 +277,18 @@ public interface ImGuiValueManager {
 
   default void ImGuiShowFields(Object obj, List<String> ignoreFields, Map<String, Object> initialValues) {
     try {
-      Field[] fields = obj.getClass().getDeclaredFields();
+      Class<?> clazz = obj.getClass();
+      List<Field> fields = new ArrayList<>();
+
+      // Also add all superclass fields from all superclasses
+      Class<?> superClass = clazz.getSuperclass();
+      while (superClass.getSuperclass() != null)
+      {
+        fields.addAll(List.of(superClass.getDeclaredFields()));
+        superClass = superClass.getSuperclass();
+      }
+
+      fields.addAll(List.of(clazz.getDeclaredFields()));
       for (Field field : fields) {
 
         // Do not display ignored fields

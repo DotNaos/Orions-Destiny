@@ -7,14 +7,17 @@ import java.util.List;
 
 import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Assets.AssetManager;
-import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheetUsage;
-import Burst.Engine.Source.Core.Assets.Graphics.Texture;
+import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
 import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheet;
+import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Burst.Engine.Source.Core.UI.ImGui.ImGuiPanel;
 import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Core.Util.ClassDerivativeSearch;
-import Burst.Engine.Source.Core.Util.DebugMessage;
 import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
+import Burst.Engine.Source.Game.Camera;
+import Orion.blocks.Block;
+import Orion.playercharacters.*;
+import Orion.items.Item;
 import Orion.res.AssetConfig;
 import imgui.ImGui;
 import imgui.ImVec2;
@@ -25,13 +28,33 @@ import imgui.flag.ImGuiStyleVar;
 public class ContentDrawer extends ImGuiPanel {
     private List<Class<?>> actors = new ArrayList<>();
 
-    private boolean searchForActors = true;
+    private boolean searchForActors = false;
 
     public ContentDrawer() {
         super();
 
         if (searchForActors) {
             searchForActors();
+        } else {
+            // Add all actors
+            actors.add(Actor.class);
+
+            // Add all blocks
+            actors.add(Block.class);
+            actors.add(Camera.class);
+
+            // Add all players
+            actors.add(Apex.class);
+            actors.add(Aura.class);
+            actors.add(Genesis.class);
+            actors.add(Helix.class);
+            actors.add(Solaris.class);
+
+            // Add all enemies
+//            actors.add(Enemy.class);
+
+            // Add all items
+            actors.add(Item.class);
         }
 
     }
@@ -70,34 +93,22 @@ public class ContentDrawer extends ImGuiPanel {
             // Show all actors in a Grid Layout
             for (Class<?> actor : actors) {
                 try {
-                    // Get the icon field of the actor class
-                    Field iconField = actor.getDeclaredField("icon");
-                    iconField.setAccessible(true);
-
-                    // Get the value of the icon field from the actor object
-                    Object iconValue = iconField.get(actor);
-                    if (iconValue == null) {
-                        // If the icon field is null, skip this actor
-                        // And add a debug message
-                        continue;
-                    }
 
                     // Button colors
                     ImGui.pushStyleColor(ImGuiCol.Button, 0.5f, 0.5f, 0.5f, 0.3f);
                     ImGui.pushStyleColor(ImGuiCol.ButtonHovered, 0.5f, 0.5f, 0.5f, 0.5f);
                     ImGui.pushStyleColor(ImGuiCol.ButtonActive, 0.5f, 0.5f, 0.5f, 1f);
 
-                    Texture texture = (Texture) iconValue;
+                    // Get the icon field from the actor
+                    Texture icon = ((Actor)actor.getConstructor().newInstance()).getIcon();
 
                     ImGui.pushID(actor.getSimpleName());
-                    if (ImGui.imageButton(texture.getTexID(), iconSize, iconSize))
+                    if (ImGui.imageButton(icon.getTexID(), iconSize, iconSize))
                     {
-                        // If the button is clicked, create a new actor of the type
-//                        Window.getScene().getGame().addActor((Actor)actor.getDeclaredConstructor().newInstance());
-
-                        Actor obj = new Actor().setSprite(AssetManager.getAssetFromType(AssetConfig.BLOCKS, SpriteSheet.class).getSprite(10));
-                        Window.getScene().getEditor().addActor(obj);
-                        Window.getScene().getPanel(PropertiesPanel.class).setActiveActor(obj);
+                        Actor newActor = (Actor) actor.getConstructor().newInstance();
+                        newActor.setSprite(new Sprite().setTexture(icon));
+                        Window.getScene().getEditor().addActor(newActor);
+                        Window.getScene().getPanel(PropertiesPanel.class).setActiveActor(newActor);
                     }
                     ImGui.popID();
 
@@ -115,8 +126,14 @@ public class ContentDrawer extends ImGuiPanel {
 
                     // Move to the next column
                     ImGui.nextColumn();
-                } catch (NoSuchFieldException | IllegalAccessException e) {
+                } catch (IllegalAccessException e) {
                      System.out.println("No icon field found for class: " + actor.getSimpleName() );
+                } catch (InvocationTargetException e) {
+                    throw new RuntimeException(e);
+                } catch (InstantiationException e) {
+                    throw new RuntimeException(e);
+                } catch (NoSuchMethodException e) {
+                    throw new RuntimeException(e);
                 }
 
             }

@@ -1,15 +1,13 @@
-package Orion.characters;
+package Orion.playercharacters;
 
 import Burst.Engine.Source.Core.Assets.AssetManager;
 import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Orion.res.AssetConfig;
 
 public class Solaris extends PlayerCharacter {
-    public static final transient Texture icon = AssetManager.getAssetFromType(AssetConfig.ICON_PLAYER,Texture.class);
     public Solaris() {
         super();
         this.name = "Solaris";
-        // this.sprite = new Sprite("assets/textures/characters/solaris.png");
         this.description = """
                        Solaris is a bright and energetic character, radiating heat and light wherever he actores.\s
                        His powers give him the ability to control fire,\s
@@ -24,5 +22,11 @@ public class Solaris extends PlayerCharacter {
         this.STAMINA = 0;
         this.LVL = 0;
         this.EXP = 0;
+    }
+
+    @Override
+    public void imgui()
+    {
+        super.imgui(this);
     }
 }

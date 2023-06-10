@@ -9,11 +9,120 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="MousebuttonDown negative bugfix">
+    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="Multiple Actor select and change, example: Transform">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Orion/enemies/Enemy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/debug/blendImage1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/debug/debug1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/debug/blendImage2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/debug/debug2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/enemy/enemy_gasMask/charge.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/enemy_gasMask/charge.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/enemy/enemy_gasMask/damaged.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/enemy_gasMask/damaged.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/enemy/enemy_gasMask/death.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/enemy_gasMask/death.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/enemy/enemy_gasMask/gas_dash.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/enemy_gasMask/gas_dash.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/enemy/enemy_gasMask/gas_dash_fx.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/enemy_gasMask/gas_dash_fx.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/enemy/enemy_gasMask/idle.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/enemy_gasMask/idle.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/enemy/enemy_gasMask/move_fx.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/enemy_gasMask/move_fx.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/enemy/enemy_gasMask/move_noFx.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/enemy_gasMask/move_noFx.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/enemy/enemy_gasMask/shoot.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/enemy_gasMask/shoot.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/enemy/enemy_gasMask/shoot_noFx.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/enemy_gasMask/shoot_noFx.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/enemy/enemy_gasMask/shot_fx.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/enemy_gasMask/shot_fx.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/enemy/enemy_gasMask/wake.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/enemy_gasMask/wake.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/enemy/enemy_gasMask/walk.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/enemy_gasMask/walk.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/enemy/enemy_gasMask/walk_noFx.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/enemy_gasMask/walk_noFx.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/enemy/hell_beast/raw/breath.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/hell_beast/raw/breath.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/enemy/hell_beast/raw/burn.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/hell_beast/raw/burn.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/enemy/hell_beast/raw/idle.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/hell_beast/raw/idle.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/enemy/hell_beast/shot.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/hell_beast/shot.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/enemy/hell_beast/stroke/breath.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/hell_beast/stroke/breath.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/enemy/hell_beast/stroke/burn.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/hell_beast/stroke/burn.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/enemy/hell_beast/stroke/idle.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/hell_beast/stroke/idle.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/back-jump/back-jump-1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/back-jump/back-jump-1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/back-jump/back-jump-2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/back-jump/back-jump-2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/back-jump/back-jump-3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/back-jump/back-jump-3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/back-jump/back-jump-4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/back-jump/back-jump-4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/back-jump/back-jump-5.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/back-jump/back-jump-5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/back-jump/back-jump-6.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/back-jump/back-jump-6.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/back-jump/back-jump-7.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/back-jump/back-jump-7.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/back-jump/back-jump-preview.gif" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/back-jump/back-jump-preview.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/climb/climb-1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/climb/climb-1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/climb/climb-2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/climb/climb-2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/climb/climb-3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/climb/climb-3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/climb/climb-4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/climb/climb-4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/climb/climb-5.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/climb/climb-5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/climb/climb-6.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/climb/climb-6.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/climb/climb-preview.gif" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/climb/climb-preview.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/crouch/crouch.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/crouch/crouch.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/hurt/hurt.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/hurt/hurt.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/idle/idle-1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/idle/idle-1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/idle/idle-2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/idle/idle-2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/idle/idle-3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/idle/idle-3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/idle/idle-4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/idle/idle-4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/idle/idle-peview.gif" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/idle/idle-peview.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/jump/jump-1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/jump/jump-1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/jump/jump-2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/jump/jump-2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/jump/jump-3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/jump/jump-3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/jump/jump-4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/jump/jump-4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/jump/jump-preview.gif" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/jump/jump-preview.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/run-shoot/run-shoot-1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/run-shoot/run-shoot-1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/run-shoot/run-shoot-2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/run-shoot/run-shoot-2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/run-shoot/run-shoot-3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/run-shoot/run-shoot-3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/run-shoot/run-shoot-4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/run-shoot/run-shoot-4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/run-shoot/run-shoot-5.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/run-shoot/run-shoot-5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/run-shoot/run-shoot-6.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/run-shoot/run-shoot-6.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/run-shoot/run-shoot-7.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/run-shoot/run-shoot-7.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/run-shoot/run-shoot-8.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/run-shoot/run-shoot-8.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/run-shoot/run-shoot-preview.gif" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/run-shoot/run-shoot-preview.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/run/run-1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/run/run-1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/run/run-2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/run/run-2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/run/run-3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/run/run-3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/run/run-4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/run/run-4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/run/run-5.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/run/run-5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/run/run-6.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/run/run-6.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/run/run-7.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/run/run-7.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/run/run-8.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/run/run-8.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/run/run-preview.gif" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/run/run-preview.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/shoot/shoot.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/shoot/shoot.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/walk/walk-1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/walk/walk-1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/walk/walk-10.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/walk/walk-10.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/walk/walk-11.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/walk/walk-11.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/walk/walk-12.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/walk/walk-12.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/walk/walk-13.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/walk/walk-13.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/walk/walk-14.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/walk/walk-14.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/walk/walk-15.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/walk/walk-15.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/walk/walk-16.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/walk/walk-16.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/walk/walk-2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/walk/walk-2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/walk/walk-3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/walk/walk-3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/walk/walk-4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/walk/walk-4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/walk/walk-5.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/walk/walk-5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/walk/walk-6.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/walk/walk-6.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/walk/walk-7.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/walk/walk-7.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/walk/walk-8.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/walk/walk-8.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/walk/walk-9.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/walk/walk-9.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/walk/walk-preview.gif" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/player/walk/walk-preview.gif" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/Actor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/Actor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/ImGui/ImGuiLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/ImGui/ImGuiLayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/Pawn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/Graphics/Sprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/Graphics/Sprite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/Graphics/SpriteSheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/Graphics/SpriteSheet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/Graphics/Texture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/Graphics/Texture.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Render/SpriteRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Render/SpriteRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/ImGui/BImGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/ImGui/BImGui.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/Viewport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/Viewport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Util/ImGuiValueManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Util/ImGuiValueManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Util/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Util/Util.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Components/MouseControls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Components/MouseControls.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/ContentDrawer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/ContentDrawer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Panel/PropertiesPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Panel/PropertiesPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Game/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Game/Camera.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ability.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/Ability.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/passive/PassiveAbility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/passive/PassiveAbility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/blocks/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/blocks/Block.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/characters/Apex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Apex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/characters/Aura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Aura.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/characters/Genesis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Genesis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/characters/Helix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Helix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/characters/PlayerCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/PlayerCharacter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/characters/Solaris.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Solaris.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/items/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/items/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/res/AssetConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/res/AssetConfig.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,8 +157,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -100,11 +209,11 @@
       <recent name="A:\Orions-Destiny\src\main\java\Orion\abilities" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="A:\Orions-Destiny\Assets\images\spritesheets\player" />
+      <recent name="A:\Orions-Destiny\Assets\images\spritesheets\player\player" />
       <recent name="A:\Orions-Destiny\Assets\images\textures" />
       <recent name="A:\Orions-Destiny\Assets\images\spritesheets\environment\blocks" />
       <recent name="A:\Orions-Destiny\Assets\images\spritesheets\enemy\wolf-runing-cycle" />
-      <recent name="A:\Orions-Destiny\Assets\images\spritesheets\enemy\Hell-Hound-Files" />
-      <recent name="A:\Orions-Destiny\Assets\images\spritesheets\enemy\Hell-Beast-Files" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
@@ -234,14 +343,7 @@
       <workItem from="1686227606156" duration="22948000" />
       <workItem from="1686258220665" duration="9488000" />
       <workItem from="1686304742078" duration="43789000" />
-      <workItem from="1686386311492" duration="23083000" />
-    </task>
-    <task id="LOCAL-00036" summary="CMD output besser">
-      <created>1685643762251</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1685643762251</updated>
+      <workItem from="1686386311492" duration="32312000" />
     </task>
     <task id="LOCAL-00037" summary="Icons update">
       <created>1685649524176</created>
@@ -579,14 +681,20 @@
       <option name="project" value="LOCAL" />
       <updated>1686402069955</updated>
     </task>
-    <option name="localTasksCounter" value="85" />
+    <task id="LOCAL-00085" summary="Multiple Actor select and change, example: Transform">
+      <created>1686419616516</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1686419616516</updated>
+    </task>
+    <option name="localTasksCounter" value="86" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed duplicate sprite Render" />
     <MESSAGE value="Added Assets" />
     <MESSAGE value="Refactor von EditorUpdate und Sprites werden angezeigt nach laden: weil dirtyFlag" />
     <MESSAGE value="ClipBoard copiert wieder farben. SpriteColor wird auch wieder angezeigt und geupdated" />
@@ -611,7 +719,8 @@
     <MESSAGE value="Save nach Texture change" />
     <MESSAGE value="Save after Texture change" />
     <MESSAGE value="MousebuttonDown negative bugfix" />
-    <option name="LAST_COMMIT_MESSAGE" value="MousebuttonDown negative bugfix" />
+    <MESSAGE value="Multiple Actor select and change, example: Transform" />
+    <option name="LAST_COMMIT_MESSAGE" value="Multiple Actor select and change, example: Transform" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -627,6 +736,10 @@
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.StackOverflowError" package="java.lang" />
           <option name="timeStamp" value="11" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalArgumentException" package="java.lang" />
+          <option name="timeStamp" value="18" />
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>

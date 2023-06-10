@@ -1,6 +1,6 @@
 package Orion.abilities;
 
-import Orion.characters.PlayerCharacter;
+import Orion.playercharacters.PlayerCharacter;
 
 public class PassiveAbility extends Ability {
 

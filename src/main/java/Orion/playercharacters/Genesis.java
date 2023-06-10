@@ -1,11 +1,10 @@
-package Orion.characters;
+package Orion.playercharacters;
 
 import Burst.Engine.Source.Core.Assets.AssetManager;
 import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Orion.res.AssetConfig;
 
 public class Genesis extends PlayerCharacter {
-    public static final transient Texture icon = AssetManager.getAssetFromType(AssetConfig.ICON_PLAYER,Texture.class);
     public Genesis() {
         super();
         this.name = "Genesis";
@@ -25,5 +24,11 @@ public class Genesis extends PlayerCharacter {
         this.STAMINA = 0;
         this.LVL = 0;
         this.EXP = 0;
+    }
+
+    @Override
+    public void imgui()
+    {
+        super.imgui();
     }
 }

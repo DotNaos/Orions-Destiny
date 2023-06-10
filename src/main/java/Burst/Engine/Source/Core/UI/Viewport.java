@@ -40,6 +40,7 @@ public class Viewport {
     }
 
     public void adjustProjection() {
+        this.clearColor = new Vector4f(1.0f, 1.0f, 1.0f, 1.0f);
         ViewportPanel viewportPanel = Window.getScene().getPanel(ViewportPanel.class);
         float width = Window.getWidth();
         float height = Window.getHeight();

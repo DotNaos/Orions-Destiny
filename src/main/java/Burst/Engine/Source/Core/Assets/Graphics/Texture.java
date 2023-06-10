@@ -2,6 +2,7 @@ package Burst.Engine.Source.Core.Assets.Graphics;
 
 import Burst.Engine.Source.Core.Assets.Asset;
 import Burst.Engine.Source.Core.UI.Window;
+import Orion.res.AssetConfig;
 import org.joml.Vector2f;
 import org.joml.Vector2i;
 import org.lwjgl.BufferUtils;

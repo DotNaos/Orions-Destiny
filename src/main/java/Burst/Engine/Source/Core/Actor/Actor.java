@@ -30,7 +30,7 @@ import java.util.Map;
  * it.
  */
 public class Actor implements ImGuiValueManager {
-  public static Texture icon = AssetManager.getAssetFromType(AssetConfig.ICON_ACTOR, Texture.class);
+  public Texture icon = AssetManager.getAssetFromType(AssetConfig.ICON_ACTOR, Texture.class);
   /**
    * The name of the actor.
    * This is set to "New Actor" by default, and is set to the name of the actor
@@ -129,7 +129,7 @@ public class Actor implements ImGuiValueManager {
         // set the size of the actor to the size of the sprite
         adjustSizeToTexture(true);
       }
-      isInitialized = true;
+
     }
 
     ignoreFields.add("initialValues");
@@ -155,6 +155,7 @@ public class Actor implements ImGuiValueManager {
     // Add actor to the physics list
     editor.getPhysics().add(this);
 
+    isInitialized = true;
   }
 
 
@@ -172,7 +173,6 @@ public class Actor implements ImGuiValueManager {
   public void update(float dt) {
     if (!isInitialized) {
       init();
-      isInitialized = true;
     }
     if (adjustSizeToTexture) {
       adjustSizeToTexture();
@@ -246,6 +246,8 @@ public class Actor implements ImGuiValueManager {
     }
     this.components.add(ac);
     ac.actor = this;
+    ac.init();
+
 
     return this;
   }
@@ -340,7 +342,7 @@ public class Actor implements ImGuiValueManager {
    * @see <a href="https://github.com/ocornut/imgui">ImGui</a>
    * @see Component#imgui()
    */
-  public void imgui() {
+  public void imgui(Object o) {
     if (ImGui.beginTable("ActorFields", 2)) {
       // The second column is max 2/3 of the size of the first column
       ImGui.tableSetupColumn("", ImGuiTableColumnFlags.WidthStretch, 0.5f);
@@ -349,7 +351,7 @@ public class Actor implements ImGuiValueManager {
       ImGui.pushStyleVar(ImGuiStyleVar.FrameBorderSize, 1.0f);
       ImGui.pushStyleVar(ImGuiStyleVar.ItemSpacing, 20f, 20f);
 
-      ImGuiShowFields(this, this.ignoreFields, this.initialValues);
+      ImGuiShowFields(o, this.ignoreFields, this.initialValues);
 
       ImGui.popStyleColor();
       ImGui.popStyleVar(2);
@@ -376,6 +378,10 @@ public class Actor implements ImGuiValueManager {
     }
 
 
+  }
+  public void imgui()
+  {
+    imgui(this);
   }
 
   //!====================================================================================================
@@ -529,5 +535,9 @@ public class Actor implements ImGuiValueManager {
 
   public void setNotAdjustToSize() {
     this.adjustSizeToTexture = false;
+  }
+
+  public Texture getIcon() {
+    return this.icon;
   }
 }

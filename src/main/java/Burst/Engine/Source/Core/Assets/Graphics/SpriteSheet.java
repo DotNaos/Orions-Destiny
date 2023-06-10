@@ -87,6 +87,9 @@ public class SpriteSheet extends Asset {
     }
 
     public Sprite getSprite(int row, int col) {
+        row = Math.max(1, row);
+        col = Math.max(1, col);
+
         int rowOfSprite = ((row - 1) * this.cols);
 
         int index = rowOfSprite + col - 1;
