@@ -84,6 +84,7 @@ public class PickingTexture extends Component {
 
         float pixels[] = new float[channels];
         glReadPixels(x, y, 1, 1, channels == 3 ? GL_RGB : GL_RGBA, GL_FLOAT, pixels);
+
         return (int) (pixels[0]) - 1;
     }
 

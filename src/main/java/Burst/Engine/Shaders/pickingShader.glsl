@@ -46,7 +46,8 @@ void main()
         texColor = fColor * texture(uTextures[id], fTexCoords);
         color = vec4(fEntityId, fEntityId, fEntityId, 1);
     }
-    if (texColor.a < 0.5) {
+    // Cant pick object if has less than 50 alpha
+    if (texColor.a < 50 / 255.0) {
         discard;
     }
 }

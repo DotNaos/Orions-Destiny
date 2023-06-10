@@ -9,10 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="NonPickable in properties">
+    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="Reset Aspect Ratio nur in Runtime">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/Actor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/Actor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Game/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Shaders/pickingShader.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Shaders/pickingShader.glsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Render/PickingTexture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Render/PickingTexture.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -233,14 +233,7 @@
       <workItem from="1686227606156" duration="22948000" />
       <workItem from="1686258220665" duration="9488000" />
       <workItem from="1686304742078" duration="43789000" />
-      <workItem from="1686386311492" duration="5264000" />
-    </task>
-    <task id="LOCAL-00029" summary="Sprites for UI, Unreal Engine Colors (Window), Fixed Object reset value">
-      <created>1684444995164</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1684444995164</updated>
+      <workItem from="1686386311492" duration="5750000" />
     </task>
     <task id="LOCAL-00030" summary="Mehr Colors und Table">
       <created>1684448399505</created>
@@ -578,14 +571,20 @@
       <option name="project" value="LOCAL" />
       <updated>1686390819410</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="Reset Aspect Ratio nur in Runtime">
+      <created>1686391703702</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1686391703702</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Components Properties" />
     <MESSAGE value="ValueManager vereinfacht und fix für ResetButton" />
     <MESSAGE value="Initialvalues mit Object Copy" />
     <MESSAGE value="Saving Level Mit Timer. Problem war rekursion in initialValues. Fix: Transient" />
@@ -610,7 +609,8 @@
     <MESSAGE value="zIndex thread safe" />
     <MESSAGE value="alpha blending geht wieder" />
     <MESSAGE value="NonPickable in properties" />
-    <option name="LAST_COMMIT_MESSAGE" value="NonPickable in properties" />
+    <MESSAGE value="Reset Aspect Ratio nur in Runtime" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reset Aspect Ratio nur in Runtime" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
