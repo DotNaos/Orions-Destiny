@@ -6,6 +6,8 @@ import Orion.res.AssetConfig;
 
 public class Apex extends PlayerCharacter {
     public Apex() {
+        super();
+        // Schatten und Dunkelheit
         this.description =
                 """
                                 Apex is a mysterious and elusive character who is feared by many.\s

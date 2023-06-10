@@ -9,6 +9,7 @@ public class Genesis extends PlayerCharacter {
         super();
         this.name = "Genesis";
         // this.sprite = new Sprite("assets/textures/characters/genesis.png");
+        // Natur
         this.description = """
                     Genesis is a wise and nurturing character, connected to the forces of nature in a profound way.\s
                     He has the ability to control and manipulate the natural world,\s

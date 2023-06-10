@@ -9,6 +9,7 @@ public class Helix extends PlayerCharacter {
         super();
         this.name = "Helix";
         // this.sprite = new Sprite("assets/textures/characters/helix.png");
+        // Zeit und Heilig
         this.description = """
                         Helix is a wise and enigmatic character, possessing a mastery over the flow of time itself.\s
                         His abilities allow him to manipulate time in various ways, such as slowing it down, speeding it up,\s
