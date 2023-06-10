@@ -9,12 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="alpha blending geht wieder">
+    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="NonPickable in properties">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/Actor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/Actor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Components/MouseControls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Components/MouseControls.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Gizmo/Gizmo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Gizmo/Gizmo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/NonPickable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Game/Game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -235,14 +233,7 @@
       <workItem from="1686227606156" duration="22948000" />
       <workItem from="1686258220665" duration="9488000" />
       <workItem from="1686304742078" duration="43789000" />
-      <workItem from="1686386311492" duration="4361000" />
-    </task>
-    <task id="LOCAL-00028" summary="All Style Variables">
-      <created>1684431159847</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1684431159847</updated>
+      <workItem from="1686386311492" duration="5264000" />
     </task>
     <task id="LOCAL-00029" summary="Sprites for UI, Unreal Engine Colors (Window), Fixed Object reset value">
       <created>1684444995164</created>
@@ -580,14 +571,20 @@
       <option name="project" value="LOCAL" />
       <updated>1686390090983</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="NonPickable in properties">
+      <created>1686390819409</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1686390819410</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Properties Panel und Actor Eigenschaften" />
     <MESSAGE value="Components Properties" />
     <MESSAGE value="ValueManager vereinfacht und fix für ResetButton" />
     <MESSAGE value="Initialvalues mit Object Copy" />
@@ -612,7 +609,8 @@
     <MESSAGE value="Speichern vor ZIndex" />
     <MESSAGE value="zIndex thread safe" />
     <MESSAGE value="alpha blending geht wieder" />
-    <option name="LAST_COMMIT_MESSAGE" value="alpha blending geht wieder" />
+    <MESSAGE value="NonPickable in properties" />
+    <option name="LAST_COMMIT_MESSAGE" value="NonPickable in properties" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

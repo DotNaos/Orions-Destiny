@@ -121,7 +121,7 @@ public class Actor implements ImGuiValueManager {
         }
 
         // set the size of the actor to the size of the sprite
-        adjustSizeToTexture();
+        adjustSizeToTexture(true);
       }
       isInitialized = true;
     }
@@ -445,7 +445,12 @@ public class Actor implements ImGuiValueManager {
     }
   }
 
-  public void adjustSizeToTexture() {
+
+  public void adjustSizeToTexture()
+  {
+    adjustSizeToTexture(false);
+  }
+  private void adjustSizeToTexture(boolean onStart) {
     Transform transform = getTransform();
     SpriteRenderer spriteRenderer = getComponent(SpriteRenderer.class);
 
@@ -459,16 +464,29 @@ public class Actor implements ImGuiValueManager {
     float width = sprite.getWidth();
     float height = sprite.getHeight();
 
-    // If aspect ratio is not 1:1, adjust the size
-    if (width != height) {
-      if (width > height) {
-        transform.size.x = width / height;
+    float spriteAspectRatio = width / height;
+    float actorAspectRatio = transform.size.x / transform.size.y;
+
+    System.out.println(onStart);
+
+    if (onStart) {
+      if (spriteAspectRatio != 1) {
+        transform.size.y = transform.size.x / spriteAspectRatio;
       } else {
-        transform.size.y = height / width;
+        transform.size.x = transform.size.y * spriteAspectRatio;
       }
-      DebugMessage.info("Adjusting size of '" + name + "' to: 'X = " + transform.size.x + "' and 'Y = " + transform.size.y + "' | Sprite resolution: 'X = " + width + "' 'Y = " + height + "'");
 
     }
+    else {
+      if (spriteAspectRatio > actorAspectRatio) {
+        transform.size.x = transform.size.y * spriteAspectRatio;
+      } else {
+        transform.size.y = transform.size.x / spriteAspectRatio;
+      }
+    }
+
+
+
 
     spriteRenderer.setDirty();
   }
