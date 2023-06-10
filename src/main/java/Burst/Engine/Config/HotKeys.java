@@ -43,6 +43,7 @@ public class HotKeys extends Component {
 
   // Modifier Keys, change the behavior of the editor controls
   public int Modifier_EditorSlow = GLFW_KEY_LEFT_SHIFT;
+  public int Modifier_EditorFast = GLFW_KEY_LEFT_CONTROL;
   public int Modifier_EditorNoSnap = GLFW_KEY_LEFT_CONTROL;
   public int Modifier_EditorDuplicate = GLFW_KEY_LEFT_ALT;
 
