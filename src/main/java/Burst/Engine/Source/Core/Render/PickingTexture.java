@@ -17,6 +17,8 @@ public class PickingTexture extends Component {
     private int depthTexture;
     private boolean showDebug = false;
 
+    private int channels = 4;
+
     public PickingTexture(int width, int height) {
         super();
         if (!init(width, height)) {
@@ -43,7 +45,7 @@ public class PickingTexture extends Component {
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA32F, width, height, 0, GL_RGBA, GL_FLOAT, 0);
+        glTexImage2D(GL_TEXTURE_2D, 0, channels == 3 ? GL_RGB32F : GL_RGBA32F, width, height, 0, channels == 3 ? GL_RGB : GL_RGBA, GL_FLOAT, 0);
         glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, this.pickingTextureId, 0);
 
         // Create the texture object for the depth buffer
@@ -80,8 +82,8 @@ public class PickingTexture extends Component {
         glBindFramebuffer(GL_READ_FRAMEBUFFER, fbo);
         glReadBuffer(GL_COLOR_ATTACHMENT0);
 
-        float pixels[] = new float[4];
-        glReadPixels(x, y, 1, 1, GL_RGBA, GL_FLOAT, pixels);
+        float pixels[] = new float[channels];
+        glReadPixels(x, y, 1, 1, channels == 3 ? GL_RGB : GL_RGBA, GL_FLOAT, pixels);
         return (int) (pixels[0]) - 1;
     }
 
@@ -91,8 +93,8 @@ public class PickingTexture extends Component {
 
         Vector2i size = new Vector2i(end).sub(start).absolute();
         int numPixels = size.x * size.y;
-        float pixels[] = new float[4 * numPixels];
-        glReadPixels(start.x, start.y, size.x, size.y, GL_RGBA, GL_FLOAT, pixels);
+        float pixels[] = new float[channels * numPixels];
+        glReadPixels(start.x, start.y, size.x, size.y, channels == 3 ? GL_RGB : GL_RGBA, GL_FLOAT, pixels);
         for (int i = 0; i < pixels.length; i++) {
             pixels[i] -= 1;
             // DebugDraw a box around every pixel with a value
@@ -128,7 +130,7 @@ public class PickingTexture extends Component {
         glReadBuffer(GL_COLOR_ATTACHMENT0);
 
         float pixels[] = new float[Window.getWidth() * Window.getHeight() * 4];
-        glReadPixels(0, 0, Window.getWidth(), Window.getHeight(), GL_RGBA, GL_FLOAT, pixels);
+        glReadPixels(0, 0, Window.getWidth(), Window.getHeight(), channels == 3 ? GL_RGB : GL_RGBA, GL_FLOAT, pixels);
         for (int i = 0; i < pixels.length; i++) {
             final int channel = i % 4 + 1;
 

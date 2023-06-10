@@ -74,7 +74,10 @@ public class ViewportRenderer extends Renderer {
     }
 
     /**
-     * Adds an actor to the renderer. This method is thread safe.
+     * <p>
+     *   This method is thread safe. It will add the actor to the renderer on the next render call.
+     *   Not calling this method could throw a ConcurrentModificationException
+     * </p>
      * @param actorToAdd Actor to add to the renderer
      */
     public void addActorLater(Actor actorToAdd) {

@@ -38,12 +38,15 @@ void main()
     if (fTexID > 0.0)
     {
         int id = int(fTexID);
-
         color = texture(uTextures[id], fTexCoord) * fColor;
     }
     else
     {
         color = fColor;
     }
+
+    if (color.a == 0) discard;
+
+
 
 }

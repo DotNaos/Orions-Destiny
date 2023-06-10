@@ -44,15 +44,9 @@ void main()
     if (fTexId > 0) {
         int id = int(fTexId);
         texColor = fColor * texture(uTextures[id], fTexCoords);
-
-
+        color = vec4(fEntityId, fEntityId, fEntityId, 1);
     }
     if (texColor.a < 0.5) {
         discard;
     }
-
-
-    color = vec4(fEntityId, fEntityId, fEntityId, fEntityId);
-
-
 }

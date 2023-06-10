@@ -9,9 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="Speichern vor ZIndex">
+    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="zIndex thread safe">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Render/RenderBatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Render/RenderBatch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Shaders/default.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Shaders/default.glsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Shaders/pickingShader.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Shaders/pickingShader.glsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Render/PickingTexture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Render/PickingTexture.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Render/ViewportRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Render/ViewportRenderer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -233,14 +235,7 @@
       <workItem from="1686227606156" duration="22948000" />
       <workItem from="1686258220665" duration="9488000" />
       <workItem from="1686304742078" duration="43789000" />
-      <workItem from="1686386311492" duration="806000" />
-    </task>
-    <task id="LOCAL-00026" summary="Editor">
-      <created>1684428878100</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1684428878100</updated>
+      <workItem from="1686386311492" duration="3684000" />
     </task>
     <task id="LOCAL-00027" summary="Editor mit Component Tabs">
       <created>1684429091364</created>
@@ -578,14 +573,20 @@
       <option name="project" value="LOCAL" />
       <updated>1686355976673</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="zIndex thread safe">
+      <created>1686387148148</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1686387148148</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Am PropertiesPanel arbeiten" />
     <MESSAGE value="InitialValues interface" />
     <MESSAGE value="Properties Panel und Actor Eigenschaften" />
     <MESSAGE value="Components Properties" />
@@ -610,7 +611,8 @@
     <MESSAGE value="Rotation flipped von Actors" />
     <MESSAGE value="Reset Values Transform dirtyFlag" />
     <MESSAGE value="Speichern vor ZIndex" />
-    <option name="LAST_COMMIT_MESSAGE" value="Speichern vor ZIndex" />
+    <MESSAGE value="zIndex thread safe" />
+    <option name="LAST_COMMIT_MESSAGE" value="zIndex thread safe" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
