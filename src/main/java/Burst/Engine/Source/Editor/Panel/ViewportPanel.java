@@ -126,6 +126,7 @@ public class ViewportPanel extends ImGuiPanel {
         if (Window.isPopupOpen()) {
             return false;
         }
+
         return windowIsHovered;
     }
 

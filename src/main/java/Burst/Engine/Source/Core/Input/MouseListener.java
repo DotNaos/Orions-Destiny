@@ -63,7 +63,6 @@ public class MouseListener {
     public static void mousePosCallback(long window, double xpos, double ypos) {
         Window.getScene().mousePositionCallback(window, xpos, ypos);
 
-
         if (get().mouseButtonDown > 0) {
             get().isDragging = true;
         }
@@ -79,12 +78,19 @@ public class MouseListener {
 
     public static void mouseButtonCallback(long window, int button, int action, int mods) {
         if (action == GLFW_PRESS) {
+            if (get().mouseButtonDown == -1) {
+                get().mouseButtonDown = 0;
+            }
             get().mouseButtonDown++;
             if (button < get().mouseButtonPressed.length) {
                 get().mouseButtonPressed[button] = true;
             }
         } else if (action == GLFW_RELEASE) {
-            get().mouseButtonDown--;
+            if (get().mouseButtonDown != 0) {
+                get().mouseButtonDown--;
+            }
+
+
 
             if (button < get().mouseButtonPressed.length) {
                 get().mouseButtonPressed[button] = false;

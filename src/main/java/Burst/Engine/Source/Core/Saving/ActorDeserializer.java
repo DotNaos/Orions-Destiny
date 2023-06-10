@@ -17,7 +17,13 @@ public class ActorDeserializer implements JsonDeserializer<Actor> {
         JsonArray components = jsonObject.getAsJsonArray("components");
 
         Actor actor = new Actor();
-        actor.setName(name);
+        // If the name is not the default name, set it.
+        // Otherwise, the name would contain an old ID.
+
+        if (!name.contains("Actor "))
+        {
+            actor.setName(name);
+        }
         for (JsonElement e : components) {
             ActorComponent ac = context.deserialize(e, ActorComponent.class);
             actor.addComponent(ac);

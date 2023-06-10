@@ -74,8 +74,15 @@ public class Actor implements ImGuiValueManager {
    */
 
   public Actor() {
-    if (this.name.equals("ACTOR")) this.name = "Actor " + (Window.getScene().getEditor().getActors().size() + 1);
     if (this.ID == -1) this.ID = Util.generateUniqueID();
+    if (this.name.equals("ACTOR")) this.name = "Actor " + this.ID;
+  }
+
+  public Actor(int id)
+  {
+    this.ID = id;
+    this.serializedActor = false;
+    this.name = "TEMPORARY ACTOR";
   }
 
   /**
@@ -500,5 +507,13 @@ public class Actor implements ImGuiValueManager {
   public Actor setPickable(boolean pickable) {
       this.pickable = pickable;
       return this;
+  }
+
+  /**
+   * IMPORTANT: Call before init()
+   * @param fieldName Ignore this field when generating the imgui interface
+   */
+  public void addIgnoreField(String fieldName) {
+    this.ignoreFields.add(fieldName);
   }
 }

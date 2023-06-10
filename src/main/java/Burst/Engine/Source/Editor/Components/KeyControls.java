@@ -159,6 +159,9 @@ public class KeyControls extends Component {
 
   public Vector2f min(List<Actor> actors)
   {
+    if (actors.size() == 0) {
+      return new Vector2f(0, 0);
+    }
     Vector2f min = new Vector2f(actors.get(0).getTransform().position.x, actors.get(0).getTransform().position.y);
     for (Actor actor : actors) {
       min.x = Math.min(min.x , actor.getTransform().position.x);
@@ -169,6 +172,9 @@ public class KeyControls extends Component {
 
     public Vector2f max(List<Actor> actors)
     {
+        if (actors.size() == 0) {
+            return new Vector2f(0, 0);
+        }
         Vector2f max = new Vector2f(actors.get(0).getTransform().position.x, actors.get(0).getTransform().position.y);
         for (Actor actor : actors) {
         max.x = Math.max(max.x , actor.getTransform().position.x);
