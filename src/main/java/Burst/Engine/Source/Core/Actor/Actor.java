@@ -167,7 +167,11 @@ public class Actor implements ImGuiValueManager {
       init();
       isInitialized = true;
     }
-    if (adjustSizeToTexture) adjustSizeToTexture();
+    if (adjustSizeToTexture) {
+      adjustSizeToTexture();
+      adjustSizeToTexture = false;
+    }
+
 
     for (Component component : components) {
       component.update(dt);
@@ -457,9 +461,9 @@ public class Actor implements ImGuiValueManager {
     // If aspect ratio is not 1:1, adjust the size
     if (width != height) {
       if (width > height) {
-        transform.size.x *= transform.size.x * sprite.getWidth() / sprite.getHeight();
+        transform.size.x = width / height;
       } else {
-        transform.size.y *= sprite.getHeight() / sprite.getWidth();
+        transform.size.y = height / width;
       }
       DebugMessage.info("Adjusting size of '" + name + "' to: 'X = " + transform.size.x + "' and 'Y = " + transform.size.y + "' | Sprite resolution: 'X = " + width + "' 'Y = " + height + "'");
 

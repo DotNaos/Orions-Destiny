@@ -111,16 +111,9 @@ public class Sprite extends Asset {
         return width;
     }
 
-    public void setWidth(float width) {
-        this.width = width;
-    }
 
     public float getHeight() {
         return height;
-    }
-
-    public void setHeight(float height) {
-        this.height = height;
     }
 
     public int getTexID() {

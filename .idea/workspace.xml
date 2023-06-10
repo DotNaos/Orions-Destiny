@@ -9,12 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="Rotation flipped von Actors">
+    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="Reset Values Transform dirtyFlag">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/Actor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/Actor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Physics/Components/Transform.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Physics/Components/Transform.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/Graphics/Sprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/Graphics/Sprite.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Render/RenderBatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Render/RenderBatch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Render/SpriteRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Render/SpriteRenderer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -233,14 +232,7 @@
       <workItem from="1686209302024" duration="599000" />
       <workItem from="1686227606156" duration="22948000" />
       <workItem from="1686258220665" duration="9488000" />
-      <workItem from="1686304742078" duration="39713000" />
-    </task>
-    <task id="LOCAL-00024" summary="Diagramme">
-      <created>1684424822077</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1684424822077</updated>
+      <workItem from="1686304742078" duration="41326000" />
     </task>
     <task id="LOCAL-00025" summary="Diagramm fertig">
       <created>1684425303776</created>
@@ -578,14 +570,20 @@
       <option name="project" value="LOCAL" />
       <updated>1686352613402</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="Reset Values Transform dirtyFlag">
+      <created>1686354603230</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1686354603230</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Picking Texture Flipped Fix (BEFORE)" />
     <MESSAGE value="PickingTexture ist jetzt ENDLICH an der Richtigen position.&#10;&#10;Preview Panel für PickingTexture: &quot;void pickingTexturePreview()&quot;" />
     <MESSAGE value="Am PropertiesPanel arbeiten" />
     <MESSAGE value="InitialValues interface" />
@@ -610,7 +608,8 @@
     <MESSAGE value="Neu rendern bei reset" />
     <MESSAGE value="Deleting Actors" />
     <MESSAGE value="Rotation flipped von Actors" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rotation flipped von Actors" />
+    <MESSAGE value="Reset Values Transform dirtyFlag" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reset Values Transform dirtyFlag" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
