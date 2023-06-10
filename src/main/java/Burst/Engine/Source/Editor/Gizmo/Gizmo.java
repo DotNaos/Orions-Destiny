@@ -7,7 +7,6 @@ import Burst.Engine.Source.Core.Input.MouseListener;
 import Burst.Engine.Source.Core.Physics.Components.Transform;
 import Burst.Engine.Source.Core.Render.SpriteRenderer;
 import Burst.Engine.Source.Core.UI.Window;
-import Burst.Engine.Source.Editor.NonPickable;
 import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
@@ -50,8 +49,8 @@ public class Gizmo extends ActorComponent {
         this.xAxisSprite = this.xAxisObject.getComponent(SpriteRenderer.class);
         this.yAxisSprite = this.yAxisObject.getComponent(SpriteRenderer.class);
 
-        this.xAxisObject.addComponent(new NonPickable());
-        this.yAxisObject.addComponent(new NonPickable());
+        this.xAxisObject.setPickable(false);
+        this.yAxisObject.setPickable(false);
 
         this.propertiesPanel = Window.getScene().getPanel(PropertiesPanel.class);
 

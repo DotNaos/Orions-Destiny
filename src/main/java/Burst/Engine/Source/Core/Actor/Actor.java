@@ -60,6 +60,7 @@ public class Actor implements ImGuiValueManager {
 
   private transient List<String> ignoreFields = new ArrayList<>();
   private transient boolean isInitialized = false;
+  private boolean pickable = true;
 
   //!====================================================================================================
   //!|=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
@@ -470,5 +471,18 @@ public class Actor implements ImGuiValueManager {
     }
 
     spriteRenderer.setDirty();
+  }
+
+  public boolean isPickable() {
+    return pickable;
+  }
+
+  public boolean isNotPickable() {
+    return !pickable;
+  }
+
+  public Actor setPickable(boolean pickable) {
+      this.pickable = pickable;
+      return this;
   }
 }

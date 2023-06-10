@@ -14,7 +14,6 @@ import Burst.Engine.Source.Core.Render.PickingTexture;
 import Burst.Engine.Source.Core.Render.SpriteRenderer;
 import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Editor.Gizmo.GizmoSystem;
-import Burst.Engine.Source.Editor.NonPickable;
 import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
 import Orion.res.AssetConfig;
 import org.joml.Vector2f;
@@ -49,7 +48,7 @@ public class MouseControls extends Component {
         }
         this.holdingActor = actor;
         this.holdingActor.getComponent(SpriteRenderer.class).setColor(new Vector4f(0.8f, 0.8f, 0.8f, 0.5f));
-        this.holdingActor.addComponent(new NonPickable());
+        this.holdingActor.setPickable(false);
         this.gizmoSystem = new GizmoSystem(gizmos, this.holdingActor);
 
         Window.getScene().getEditor().addActor(actor);
@@ -61,7 +60,7 @@ public class MouseControls extends Component {
             newObj.getComponent(StateMachine.class).refreshTextures();
         }
         newObj.getComponent(SpriteRenderer.class).setColor(new Vector4f(1, 1, 1, 1));
-        newObj.removeComponent(NonPickable.class);
+        newObj.setPickable(true);
         Window.getScene().getEditor().addActor(newObj);
     }
 
@@ -115,7 +114,7 @@ public class MouseControls extends Component {
             int actorID = pickingTexture.readPixel(x, y);
 
             Actor pickedActor = game.getActor(actorID);
-            if (pickedActor != null && pickedActor.getComponent(NonPickable.class) == null) {
+            if (pickedActor != null && pickedActor.isPickable()) {
                 propertiesPanel.setActiveActor(pickedActor);
 
             } else if (pickedActor == null && !MouseListener.isDragging()) {
@@ -181,7 +180,7 @@ public class MouseControls extends Component {
 
             for (Integer gameObjectId : uniqueGameObjectIds) {
                 Actor pickedObj = game.getActor(gameObjectId);
-                if (pickedObj != null && pickedObj.getComponent(NonPickable.class) == null) {
+                if (pickedObj != null && pickedObj.isPickable()) {
                     propertiesPanel.addActiveActor(pickedObj);
                 }
             }
@@ -203,7 +202,7 @@ public class MouseControls extends Component {
         for (int i = 0; i < gameObjectIds.length; i++) {
             if (gameObjectIds[i] >= 0) {
                 Actor pickedObj = Window.getScene().getEditor().getActor((int) gameObjectIds[i]);
-                if (pickedObj.getComponent(NonPickable.class) == null) {
+                if (pickedObj.isPickable()) {
                     return true;
                 }
             }

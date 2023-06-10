@@ -51,7 +51,6 @@ public class Game {
     timer.scheduleAtFixedRate(new java.util.TimerTask() {
       @Override
       public void run() {
-//                System.out.println("Saving level...");
         saveLevel();
       }
     }, 1000, 1000);
@@ -196,6 +195,7 @@ public class Game {
   public void saveLevel() {
     // return if a dialog is open
     if (Window.isDialogOpen()) return;
+    System.out.println("Saving level...");
 
     try {
       FileWriter writer = new FileWriter(".\\levels\\level.json");
