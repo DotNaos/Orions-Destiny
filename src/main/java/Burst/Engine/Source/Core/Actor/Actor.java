@@ -467,8 +467,6 @@ public class Actor implements ImGuiValueManager {
     float spriteAspectRatio = width / height;
     float actorAspectRatio = transform.size.x / transform.size.y;
 
-    System.out.println(onStart);
-
     if (onStart) {
       if (spriteAspectRatio != 1) {
         transform.size.y = transform.size.x / spriteAspectRatio;
