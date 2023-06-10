@@ -59,7 +59,14 @@ public class Transform extends ActorComponent {
   }
 
   @Override
+  public void updateEditor(float dt) {
+    super.updateEditor(dt);
+    update(dt);
+  }
+
+  @Override
   public void update(float dt) {
+    super.update(dt);
     scaledSize = new Vector2f(size).mul(scale);
   }
 

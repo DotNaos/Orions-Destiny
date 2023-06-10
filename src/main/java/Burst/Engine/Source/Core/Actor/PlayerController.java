@@ -29,12 +29,17 @@ public class PlayerController extends ActorComponent {
 
     @Override
     public void init() {
+        super.init();
     }
 
     @Override
-    public void update(float dt) {
-        super.update(dt);
+    public void updateEditor(float dt) {
+        super.updateEditor(dt);
+    }
 
+    @Override
+    public void update(float dt)
+    {
         if (KeyListener.isKeyPressed(HotKeys.get().PlayerMoveRight)) {
             this.actor.getTransform().size.mul(1.0f, 1.0f);
 

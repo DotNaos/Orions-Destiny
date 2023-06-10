@@ -1,6 +1,7 @@
 package Burst.Engine.Source.Editor;
 
 import Burst.Engine.Config.ImGuiStyleConfig;
+import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.Render.PickingTexture;
 import Burst.Engine.Source.Core.Scene.Scene;
@@ -100,5 +101,23 @@ public class Editor extends Game {
         ImGui.endTabBar();
       }
     ImGui.end();
+  }
+
+  @Override
+  public void update(float dt) {
+    if (!isInitialized) {
+      init();
+      isInitialized = true;
+    }
+
+    scene.getViewport().adjustProjection();
+
+    for (Actor actor : actors) {
+      actor.updateEditor(dt);
+    }
+
+    for (Component c : components) {
+      c.updateEditor(dt);
+    }
   }
 }

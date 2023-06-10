@@ -26,8 +26,8 @@ public class GizmoSystem extends ActorComponent {
     }
 
     @Override
-    public void update(float dt) {
-        super.update(dt);
+    public void updateEditor(float dt) {
+        super.updateEditor(dt);
         if (this.actor == null) return;
         if (usingGizmo == 0) {
             actor.getComponent(TranslateGizmo.class).setUsing();

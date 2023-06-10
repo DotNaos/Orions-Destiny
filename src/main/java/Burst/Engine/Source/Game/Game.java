@@ -29,7 +29,7 @@ public class Game {
   protected Physics2D physics2D = new Physics2D();
   protected Scene scene;
   private ViewportRenderer viewportRenderer = new ViewportRenderer();
-  private transient boolean isInitialized = false;
+  protected transient boolean isInitialized = false;
 
 
   // Timer for saving

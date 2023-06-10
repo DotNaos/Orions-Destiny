@@ -2,7 +2,6 @@ package Burst.Engine.Source.Core.Physics.Components;
 
 import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Actor.ActorComponent;
-import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.UI.Window;
 import org.joml.Vector2f;
 
@@ -29,21 +28,18 @@ public class PillboxCollider extends ActorComponent {
 
 
     @Override
+    public void updateEditor(float dt) {
+        super.updateEditor(dt);
+        bottomCircle.updateEditor(dt);
+        box.updateEditor(dt);
+        recalculateColliders();
+    }
+
+    @Override
     public void update(float dt) {
         super.update(dt);
-        if (resetFixtureNextFrame) {
-            resetFixture();
-        }
 
-        //*=================== In Editor ===================*//
-
-        bottomCircle.update(dt);
-        box.update(dt);
         recalculateColliders();
-
-        if (resetFixtureNextFrame) {
-            resetFixture();
-        }
     }
 
     public void setWidth(float newVal) {

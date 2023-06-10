@@ -29,8 +29,8 @@ public class ActorComponent extends Component {
   }
 
   @Override
-  public void update(float dt) {
-    super.update(dt);
+  public void updateEditor(float dt) {
+    super.updateEditor(dt);
   }
 
     @Override

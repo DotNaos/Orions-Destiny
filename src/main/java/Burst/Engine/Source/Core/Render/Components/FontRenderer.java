@@ -2,8 +2,6 @@ package Burst.Engine.Source.Core.Render.Components;
 
 import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Actor.ActorComponent;
-import Burst.Engine.Source.Core.Component;
-import Burst.Engine.Source.Core.Render.SpriteRenderer;
 
 public class FontRenderer extends ActorComponent {
 
@@ -12,7 +10,7 @@ public class FontRenderer extends ActorComponent {
     }
 
     @Override
-    public void update(float dt) {
-        super.update(dt);
+    public void updateEditor(float dt) {
+        super.updateEditor(dt);
     }
 }

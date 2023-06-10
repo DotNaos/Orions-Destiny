@@ -10,8 +10,8 @@ public class ScaleGizmo extends Gizmo {
     }
 
     @Override
-    public void update(float dt) {
-        super.update(dt);
+    public void updateEditor(float dt) {
+        super.updateEditor(dt);
         if (activeActor != null) {
             if (xAxisActive && !yAxisActive) {
                 activeActor.getTransform().scale.x += MouseListener.getWorldDx();

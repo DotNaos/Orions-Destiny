@@ -24,8 +24,8 @@ public class EditorCamera extends Component {
         this.clickOrigin = new Vector2f();
     }
 
-    public void update(float dt) {
-        super.update(dt);
+    public void updateEditor(float dt) {
+        super.updateEditor(dt);
 
         // If the user grabs in the viewport, move the viewport
         // And change the cursor to a hand

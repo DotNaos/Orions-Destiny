@@ -29,6 +29,11 @@ public class Rigidbody2D extends ActorComponent {
     }
 
     @Override
+    public void updateEditor(float dt) {
+        super.updateEditor(dt);
+    }
+
+    @Override
     public void update(float dt) {
         super.update(dt);
         if (rawBody != null) {

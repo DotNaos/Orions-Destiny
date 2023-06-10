@@ -33,13 +33,13 @@ public class Camera extends Actor {
     @Override
     protected void init() {
         super.init();
-        this.player = Window.getScene().getEditor().getActorWith(PlayerController.class);
+        this.player = Window.getScene().getGame().getActorWith(PlayerController.class);
 
     }
 
     @Override
-    public void update(float dt) {
-        super.update(dt);
+    public void updateEditor(float dt) {
+        super.updateEditor(dt);
         this.viewport.clearColor.set(backgroundColor);
         if (player == null) return;
         // viewport.position.x = player.transform.position.x;

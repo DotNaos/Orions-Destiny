@@ -13,15 +13,14 @@ import org.joml.Vector2f;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Vector;
 
 public class KeyControls extends Component {
   protected float inputDelay = 0.2f * 0.75f;
   protected transient float debounce = 0.0f;
 
 
-  public void update(float dt) {
-    super.update(dt);
+  public void updateEditor(float dt) {
+    super.updateEditor(dt);
     if (debounce > -1000.0f) {
       debounce -= dt;
     } else {
@@ -55,8 +54,8 @@ public class KeyControls extends Component {
         Actor copy = actor.copy();
         copy.getTransform().position.x += offset;
 
-        assert Window.getScene().getEditor() != null;
-        Window.getScene().getEditor().addActor(copy);
+        assert Window.getScene().getGame() != null;
+        Window.getScene().getGame().addActor(copy);
         propertiesPanel.addActiveActor(copy);
         if (copy.getComponent(StateMachine.class) != null) {
           copy.getComponent(StateMachine.class).refreshTextures();
@@ -76,7 +75,7 @@ public class KeyControls extends Component {
     if (KeyListener.isKeyPressed(HotKeys.get().EditorDelete) && activeActor != null && debounce < 0) {
       debounce = inputDelay;
       for (Actor actor : activeActors) {
-        Window.getScene().getEditor().removeActor(actor);
+        Window.getScene().getGame().removeActor(actor);
       }
       propertiesPanel.clearSelected();
       Editor editor = Window.getScene().getEditor();

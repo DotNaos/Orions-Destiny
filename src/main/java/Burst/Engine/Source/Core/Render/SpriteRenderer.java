@@ -30,6 +30,12 @@ public class SpriteRenderer extends ActorComponent {
     }
 
     @Override
+    public void updateEditor(float dt) {
+        super.updateEditor(dt);
+        update(dt);
+    }
+
+    @Override
     public void update(float dt) {
         super.update(dt);
         if (this.lastTransform == null) lastTransform = this.actor.getTransform().copy();

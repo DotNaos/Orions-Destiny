@@ -1,14 +1,11 @@
 package Burst.Engine.Source.Editor;
 
-import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
 import Burst.Engine.Source.Core.Actor.Actor;
-import Burst.Engine.Source.Core.Assets.AssetManager;
 import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
-import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheet;
 import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Burst.Engine.Source.Core.UI.ImGui.ImGuiPanel;
 import Burst.Engine.Source.Core.UI.Window;
@@ -18,7 +15,6 @@ import Burst.Engine.Source.Game.Camera;
 import Orion.blocks.Block;
 import Orion.playercharacters.*;
 import Orion.items.Item;
-import Orion.res.AssetConfig;
 import imgui.ImGui;
 import imgui.ImVec2;
 import imgui.flag.ImGuiCol;
@@ -108,7 +104,7 @@ public class ContentDrawer extends ImGuiPanel {
                     {
                         Actor newActor = (Actor) actor.getConstructor().newInstance();
                         newActor.setSprite(new Sprite().setTexture(icon));
-                        Window.getScene().getEditor().addActor(newActor);
+                        Window.getScene().getGame().addActor(newActor);
                         Window.getScene().getPanel(PropertiesPanel.class).setActiveActor(newActor);
                     }
                     ImGui.popID();

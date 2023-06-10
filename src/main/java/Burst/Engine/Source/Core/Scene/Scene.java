@@ -1,6 +1,5 @@
 package Burst.Engine.Source.Core.Scene;
 
-import Burst.Engine.Source.Core.Input.KeyListener;
 import Burst.Engine.Source.Game.Game;
 import Burst.Engine.Source.Core.Input.MouseListener;
 import Burst.Engine.Source.Core.Scene.Initializer.*;
@@ -18,8 +17,8 @@ public class Scene {
     private List<ImGuiPanel> panels = new ArrayList<>();
     private boolean isPaused = false;
     private SceneType openScene;
-    private Editor editor;
-//    private Game game;
+    private Game game;
+
     private Viewport viewport;
 
     public Scene() {
@@ -30,13 +29,15 @@ public class Scene {
         this.viewport = new Viewport();
         this.openScene = sceneType;
         switch (sceneType) {
-            case GAME, EDITOR -> {
-//                this.game = new Game(this);
-//                this.sceneInitializer = new GameInitializer(this);
-//                this.game.init();
-
-                this.editor = new Editor(this);
+            case GAME -> {
+                this.game = new Game(this);
+                this.sceneInitializer = new GameInitializer(this);
+                this.game.init();
+            }
+            case EDITOR -> {
+                this.game = new Editor(this);
                 this.sceneInitializer = new EditorInitializer(this);
+                this.game.init();
             }
 
             case SETTINGS_MENU -> {
@@ -57,7 +58,7 @@ public class Scene {
         switch (openScene) {
             case GAME, EDITOR -> {
                 if (!isPaused) {
-                    this.editor.update(dt);
+                    this.game.update(dt);
                 }
             }
         }
@@ -80,7 +81,7 @@ public class Scene {
 
         switch (openScene) {
             case GAME, EDITOR -> {
-                this.editor.imgui();
+                this.game.imgui();
             }
         }
     }
@@ -88,7 +89,7 @@ public class Scene {
     public void render() {
         switch (openScene) {
             case GAME, EDITOR -> {
-                this.editor.render();
+                this.game.render();
             }
         }
     }
@@ -107,8 +108,12 @@ public class Scene {
         return this.openScene;
     }
 
+    public Game getGame() {
+        return this.game;
+    }
+
     public Editor getEditor() {
-        return this.editor;
+        return (Editor) this.game;
     }
 
 

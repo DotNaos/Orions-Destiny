@@ -51,7 +51,7 @@ public class MouseControls extends Component {
     this.holdingActor.setPickable(false);
     this.gizmoSystem = new GizmoSystem(gizmos, this.holdingActor);
 
-    Window.getScene().getEditor().addActor(actor);
+    Window.getScene().getGame().addActor(actor);
   }
 
   public void place() {
@@ -61,15 +61,14 @@ public class MouseControls extends Component {
     }
     newObj.getComponent(SpriteRenderer.class).setColor(new Vector4f(1, 1, 1, 1));
     newObj.setPickable(true);
-    Window.getScene().getEditor().addActor(newObj);
+    Window.getScene().getGame().addActor(newObj);
   }
 
 
-  public void update(float dt) {
-    super.update(dt);
-    this.gizmoSystem.update(dt);
+  public void updateEditor(float dt) {
+    super.updateEditor(dt);
+    this.gizmoSystem.updateEditor(dt);
     debounce -= dt;
-
     handleInput();
   }
 
@@ -101,7 +100,7 @@ public class MouseControls extends Component {
 
     for (int i = 0; i < gameObjectIds.length; i++) {
       if (gameObjectIds[i] >= 0) {
-        Actor pickedObj = Window.getScene().getEditor().getActor((int) gameObjectIds[i]);
+        Actor pickedObj = Window.getScene().getGame().getActor((int) gameObjectIds[i]);
         if (pickedObj.isPickable()) {
           return true;
         }

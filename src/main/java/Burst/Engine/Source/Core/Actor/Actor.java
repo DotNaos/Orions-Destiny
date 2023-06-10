@@ -12,6 +12,7 @@ import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Core.Util.ImGuiValueManager;
 import Burst.Engine.Source.Core.Util.Util;
 import Burst.Engine.Source.Editor.Editor;
+import Burst.Engine.Source.Game.Game;
 import Orion.res.AssetConfig;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -149,12 +150,12 @@ public class Actor implements ImGuiValueManager {
       e.printStackTrace();
     }
 
-    Editor editor = Window.getScene().getEditor();
+    Game game = Window.getScene().getGame();
 
     // Add actor to the render list
-    editor.getViewportRenderer().addActor(this);
+    game.getViewportRenderer().addActor(this);
     // Add actor to the physics list
-    editor.getPhysics().add(this);
+    game.getPhysics().add(this);
 
     isInitialized = true;
   }
@@ -171,7 +172,7 @@ public class Actor implements ImGuiValueManager {
    *
    * @param dt The time elapsed since the last frame in seconds.
    */
-  public void update(float dt) {
+  public void updateEditor(float dt) {
     if (!isInitialized) {
       init();
     }
@@ -180,6 +181,16 @@ public class Actor implements ImGuiValueManager {
       adjustSizeToTexture = false;
     }
 
+    for (Component component : components) {
+      component.updateEditor(dt);
+    }
+  }
+
+  public void update(float dt)
+  {
+    if (!isInitialized) {
+      init();
+    }
 
     for (Component component : components) {
       component.update(dt);
@@ -422,7 +433,7 @@ public class Actor implements ImGuiValueManager {
   }
 
   private Actor generateName() {
-    this.name = this.getClass().getSimpleName() + " " + (Window.getScene().getEditor().getActors().size() + 1);
+    this.name = this.getClass().getSimpleName() + " " + (Window.getScene().getGame().getActors().size() + 1);
     return this;
   }
 

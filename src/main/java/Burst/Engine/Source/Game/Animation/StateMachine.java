@@ -2,7 +2,6 @@ package Burst.Engine.Source.Game.Animation;
 
 import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Actor.ActorComponent;
-import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.Render.SpriteRenderer;
 import imgui.ImGui;
 import imgui.type.ImString;
@@ -87,6 +86,12 @@ public class StateMachine extends ActorComponent {
     }
 
     @Override
+    public void updateEditor(float dt) {
+        super.updateEditor(dt);
+        update(dt);
+    }
+
+    @Override
     public void update(float dt) {
         super.update(dt);
         if (currentState != null) {
@@ -98,6 +103,7 @@ public class StateMachine extends ActorComponent {
             }
         }
     }
+
 
 
 

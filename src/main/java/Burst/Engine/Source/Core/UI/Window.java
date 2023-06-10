@@ -74,7 +74,7 @@ public class Window implements Observer {
   }
 
   public static Physics2D getPhysics() {
-    return currentScene.getEditor().getPhysics();
+    return currentScene.getGame().getPhysics();
   }
 
   public static Scene getScene() {
@@ -302,18 +302,21 @@ public class Window implements Observer {
   public void onNotify(Actor object, Event event) {
     switch (event.type) {
       case GameEngineStartPlay -> {
+        System.out.println("Start play");
         isPlaying = true;
-//                currentScene.getEditor().setPlaying(true);
+        changeScene(SceneType.GAME);
       }
       case GameEngineStopPlay -> {
+        System.out.println("Stop play");
         isPlaying = false;
+        changeScene(SceneType.EDITOR);
       }
       case LoadLevel -> {
 //                Window.changeScene(SceneType.GAME);
       }
       case SaveLevel -> {
-        assert currentScene.getEditor() != null;
-        currentScene.getEditor().saveLevel();
+        assert currentScene.getGame() != null;
+        currentScene.getGame().saveLevel();
       }
     }
   }

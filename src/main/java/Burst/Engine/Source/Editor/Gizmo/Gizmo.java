@@ -54,8 +54,8 @@ public class Gizmo extends ActorComponent {
 
         this.propertiesPanel = Window.getScene().getPanel(PropertiesPanel.class);
 
-        Window.getScene().getEditor().addActor(this.xAxisObject);
-        Window.getScene().getEditor().addActor(this.yAxisObject);
+        Window.getScene().getGame().addActor(this.xAxisObject);
+        Window.getScene().getGame().addActor(this.yAxisObject);
     }
 
     @Override
@@ -68,8 +68,8 @@ public class Gizmo extends ActorComponent {
     }
 
     @Override
-    public void update(float dt) {
-        super.update(dt);
+    public void updateEditor(float dt) {
+        super.updateEditor(dt);
         if (using) {
             this.setInactive();
         }

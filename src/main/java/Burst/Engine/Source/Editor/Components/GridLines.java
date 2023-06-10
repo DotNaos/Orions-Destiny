@@ -52,8 +52,8 @@ public class GridLines extends Component {
    * @see Vector2f
    * @see Vector2f
    */
-  public void update(float dt) {
-    super.update(dt);
+  public void updateEditor(float dt) {
+    super.updateEditor(dt);
     if (!enabled) return;
 
     // Get the viewports attributes
