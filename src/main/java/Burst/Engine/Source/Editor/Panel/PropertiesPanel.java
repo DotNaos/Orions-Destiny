@@ -85,7 +85,7 @@ public class PropertiesPanel extends ImGuiPanel {
       // Show properties of a actor
       // This actor is only for displaying the properties of the selected actors
       if (propertiesActor == null) {
-        propertiesActor = new Actor(-1).setName("Selected Actors").addComponent(new Transform());
+        propertiesActor = new Actor(0).setName("Selected Actors").addComponent(new Transform());
         propertiesActor.setSerializable();
       }
 

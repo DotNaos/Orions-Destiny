@@ -73,7 +73,6 @@ public class Actor implements ImGuiValueManager {
    */
 
   public Actor() {
-    if (this.ID == -1) this.ID = Util.generateUniqueID();
     if (this.name.equals("ACTOR")) this.name = "Actor " + this.ID;
   }
 
@@ -105,7 +104,9 @@ public class Actor implements ImGuiValueManager {
    * @see #destroy()
    */
   protected void init() {
-    // Get the transform component
+    if (this.ID == -1) this.ID = Util.generateUniqueID();
+
+//    // Get the transform component
     Transform transform = getComponent(Transform.class);
     if (transform == null) {
       // If the transform component does not exist, create it
@@ -242,6 +243,7 @@ public class Actor implements ImGuiValueManager {
 
     // Check if actor already has component
     if (hasComponent(ac.getClass())) {
+      System.err.println("Actor already has component of type " + ac.getClass().getSimpleName());
       return this;
     }
     this.components.add(ac);

@@ -3,6 +3,7 @@ package Burst.Engine.Source.Core.Saving;
 import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Actor.ActorComponent;
 import Burst.Engine.Source.Core.Component;
+import Burst.Engine.Source.Core.Physics.Components.Transform;
 import com.google.gson.*;
 
 import java.lang.reflect.Type;
@@ -26,6 +27,10 @@ public class ActorDeserializer implements JsonDeserializer<Actor> {
         }
         for (JsonElement e : components) {
             ActorComponent ac = context.deserialize(e, ActorComponent.class);
+
+            if (actor.getComponent(ac.getClass()) != null) {
+                actor.removeComponent(ac.getClass());
+            }
             actor.addComponent(ac);
         }
 

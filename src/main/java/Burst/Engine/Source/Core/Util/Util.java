@@ -13,7 +13,6 @@ public class Util {
     private static final AtomicLong idCounter = new AtomicLong();
     private static final AtomicLong tempIDCounter = new AtomicLong();
 
-
     public static long generateUniqueID() {
         return idCounter.incrementAndGet();
     }

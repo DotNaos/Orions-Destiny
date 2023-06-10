@@ -100,7 +100,8 @@ public class ContentDrawer extends ImGuiPanel {
                     ImGui.pushStyleColor(ImGuiCol.ButtonActive, 0.5f, 0.5f, 0.5f, 1f);
 
                     // Get the icon field from the actor
-                    Texture icon = ((Actor)actor.getConstructor().newInstance()).getIcon();
+                    Actor iconActor = (Actor) actor.getConstructor().newInstance();
+                    Texture icon = iconActor.getIcon();
 
                     ImGui.pushID(actor.getSimpleName());
                     if (ImGui.imageButton(icon.getTexID(), iconSize, iconSize))
