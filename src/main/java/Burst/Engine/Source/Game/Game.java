@@ -194,7 +194,10 @@ public class Game {
 
   public void saveLevel() {
     // return if a dialog is open
-    if (Window.isDialogOpen()) return;
+    if (Window.isDialogOpen()) {
+      System.out.println("Dialog open, not saving level");
+      return;
+    }
 //    System.out.println("Saving level...");
 
     try {

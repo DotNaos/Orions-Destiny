@@ -90,6 +90,10 @@ public class Sprite extends Asset {
 
 
     public Texture getTexture() {
+        if (this.texture == null) {
+            this.texture = new Texture(this.filepath);
+            this.texture.init();
+        }
         return this.texture;
     }
 

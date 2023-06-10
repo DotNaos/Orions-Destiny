@@ -144,12 +144,14 @@ public interface ImGuiValueManager {
         ImGui.image(val.getTexID(), textureSize.x * 1.5f, textureSize.y * 1.5f);
         // give the ability to change the texture
         if (ImGui.button("Change Texture")) {
+          Window.openDialog();
           String filepath = BImGui.openFile("png");
           if (filepath != null) {
             if (val.setFilepath(filepath)) {
               val.init();
             }
           }
+          Window.closeDialog();
         }
 
         ImGui.text(val.getFilepath());
@@ -188,10 +190,12 @@ public interface ImGuiValueManager {
 
         // give the ability to change the texture
         if (ImGui.button("Change Texture")) {
+          Window.openDialog();
           String filepath = BImGui.openFile("png");
           if (filepath != null) {
             val.setTexture(new Texture(filepath));
           }
+          Window.closeDialog();
         }
 
         ImGui.text(val.getTexture().getFilepath());
