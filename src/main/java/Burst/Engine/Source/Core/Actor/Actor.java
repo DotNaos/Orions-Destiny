@@ -9,7 +9,6 @@ import Burst.Engine.Source.Core.Render.SpriteRenderer;
 import Burst.Engine.Source.Core.Saving.ActorDeserializer;
 import Burst.Engine.Source.Core.Saving.ComponentDeserializer;
 import Burst.Engine.Source.Core.UI.Window;
-import Burst.Engine.Source.Core.Util.DebugMessage;
 import Burst.Engine.Source.Core.Util.ImGuiValueManager;
 import Burst.Engine.Source.Core.Util.Util;
 import Burst.Engine.Source.Editor.Editor;
@@ -235,7 +234,7 @@ public class Actor implements ImGuiValueManager {
    * @param ac the component to add to this actor's list of components
    * @throws NullPointerException if the specified component is {@code null}
    */
-  public ActorComponent addComponent(ActorComponent ac) throws NullPointerException {
+  public Actor addComponent(ActorComponent ac) throws NullPointerException {
     // Check if component is null
     if (ac == null) {
       throw new NullPointerException("Cannot add null component to actor.");
@@ -243,12 +242,12 @@ public class Actor implements ImGuiValueManager {
 
     // Check if actor already has component
     if (hasComponent(ac.getClass())) {
-      return getComponent(ac.getClass());
+      return this;
     }
     this.components.add(ac);
     ac.actor = this;
 
-    return ac;
+    return this;
   }
 
   private boolean hasComponent(Class<? extends Component> aClass) {
@@ -515,5 +514,20 @@ public class Actor implements ImGuiValueManager {
    */
   public void addIgnoreField(String fieldName) {
     this.ignoreFields.add(fieldName);
+  }
+
+  public void setSerializable(boolean b) {
+    this.serializedActor = b;
+  }
+  public void setSerializable() {
+    this.serializedActor = true;
+  }
+
+  public boolean shouldAdjustToSize() {
+    return this.adjustSizeToTexture;
+  }
+
+  public void setNotAdjustToSize() {
+    this.adjustSizeToTexture = false;
   }
 }
