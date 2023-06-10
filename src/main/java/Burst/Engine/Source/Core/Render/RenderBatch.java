@@ -140,8 +140,8 @@ public class RenderBatch implements Comparable<RenderBatch> {
 
 
       if (spr.actor.getTransform().getZIndex() != this.zIndex) {
-//        destroyIfExists(spr.actor);
-//        viewportRenderer.addActor(spr.actor);
+        destroyIfExists(spr.actor);
+        this.viewportRenderer.addActorLater(spr.actor);
         i--;
       }
     }

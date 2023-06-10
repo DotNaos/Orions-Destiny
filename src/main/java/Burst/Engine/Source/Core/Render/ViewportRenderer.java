@@ -40,6 +40,9 @@ public class ViewportRenderer extends Renderer {
         return viewportSize.y;
     }
 
+    private List<Actor> actorsToAdd = new ArrayList<>();
+
+
     public void addActor(Actor actor) {
         SpriteRenderer spr = actor.getComponent(SpriteRenderer.class);
 
@@ -49,7 +52,6 @@ public class ViewportRenderer extends Renderer {
     }
 
     private void addSpriteRenderer(SpriteRenderer sprite) {
-
         boolean added = false;
         for (RenderBatch batch : batches) {
             if (batch.hasRoom() && batch.zIndex() == sprite.actor.getTransform().getZIndex()) {
@@ -71,6 +73,14 @@ public class ViewportRenderer extends Renderer {
         }
     }
 
+    /**
+     * Adds an actor to the renderer. This method is thread safe.
+     * @param actorToAdd Actor to add to the renderer
+     */
+    public void addActorLater(Actor actorToAdd) {
+        actorsToAdd.add(actorToAdd);
+    }
+
     public void destroyActor(Actor actor) {
         if (actor.getComponent(SpriteRenderer.class) == null) return;
         for (RenderBatch batch : batches) {
@@ -82,6 +92,11 @@ public class ViewportRenderer extends Renderer {
 
     @Override
     public void render() {
+        for (Actor actor : actorsToAdd) {
+            addActor(actor);
+        }
+        actorsToAdd.clear();
+
         currentShader.use();
         for (RenderBatch batch : batches) {
             batch.render();
