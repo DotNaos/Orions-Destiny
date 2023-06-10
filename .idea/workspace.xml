@@ -9,10 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="Reduced picking requirement on alpha">
+    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="MouseControls organisiert">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/Actor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/Actor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Components/MouseControls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Components/MouseControls.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Components/KeyControls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Components/KeyControls.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -233,14 +232,7 @@
       <workItem from="1686227606156" duration="22948000" />
       <workItem from="1686258220665" duration="9488000" />
       <workItem from="1686304742078" duration="43789000" />
-      <workItem from="1686386311492" duration="6718000" />
-    </task>
-    <task id="LOCAL-00031" summary="Copy On changing color">
-      <created>1684586799033</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1684586799033</updated>
+      <workItem from="1686386311492" duration="8461000" />
     </task>
     <task id="LOCAL-00032" summary="Components angezeigt in Fenster">
       <created>1684589225141</created>
@@ -578,14 +570,20 @@
       <option name="project" value="LOCAL" />
       <updated>1686392099292</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="MouseControls organisiert">
+      <created>1686393067434</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1686393067434</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Initialvalues mit Object Copy" />
     <MESSAGE value="Saving Level Mit Timer. Problem war rekursion in initialValues. Fix: Transient" />
     <MESSAGE value="Viewport in Game und Loading" />
     <MESSAGE value="Dominik Merge" />
@@ -610,7 +608,8 @@
     <MESSAGE value="NonPickable in properties" />
     <MESSAGE value="Reset Aspect Ratio nur in Runtime" />
     <MESSAGE value="Reduced picking requirement on alpha" />
-    <option name="LAST_COMMIT_MESSAGE" value="Reduced picking requirement on alpha" />
+    <MESSAGE value="MouseControls organisiert" />
+    <option name="LAST_COMMIT_MESSAGE" value="MouseControls organisiert" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class KeyControls extends Component {
-  protected float debounceTime = 0.2f;
+  protected float inputDelay = 0.2f * 0.75f;
   protected transient float debounce = 0.0f;
 
 
@@ -33,8 +33,7 @@ public class KeyControls extends Component {
     float multiplier = KeyListener.isKeyPressed(HotKeys.get().Modifier_EditorSlow) ? 0.1f : 1.0f;
 
 
-    if (duplicateActor(propertiesPanel, activeActors, activeActor)) ;
-    else if (duplicateActors(propertiesPanel, activeActors, activeActor)) ;
+    if (duplicateActors(propertiesPanel, activeActors, activeActor)) ;
     else if (deleteActors(propertiesPanel, activeActors, activeActor)) ;
     else if (moveZIndex(propertiesPanel, activeActors, activeActor)) ;
     else if (move(propertiesPanel, activeActors, activeActor, multiplier)) ;
@@ -42,38 +41,42 @@ public class KeyControls extends Component {
   }
 
 
-  private boolean duplicateActor(PropertiesPanel propertiesPanel, List<Actor> activeActors, Actor activeActor) {
-    if (KeyListener.isKeyPressed(HotKeys.get().Shortcut_EditorDuplicate.first) && KeyListener.keyBeginPress(HotKeys.get().Shortcut_EditorDuplicate.second) && activeActor != null) {
-      Actor newActor = activeActor.copy();
-
-      if (Window.getScene().getEditor() == null) return false;
-
-      newActor.getTransform().position.add(GridLines_Config.SIZE, 0.0f);
-
-      Window.getScene().getEditor().addActor(newActor);
-      propertiesPanel.setActiveActor(newActor);
-
-      if (newActor.getComponent(StateMachine.class) != null) {
-        newActor.getComponent(StateMachine.class).refreshTextures();
-      }
-      return true;
-    }
-    return false;
-  }
-
   private boolean duplicateActors(PropertiesPanel propertiesPanel, List<Actor> activeActors, Actor activeActor) {
-    if (KeyListener.isKeyPressed(HotKeys.get().Shortcut_EditorDuplicate.first) && KeyListener.keyBeginPress(HotKeys.get().Shortcut_EditorDuplicate.second) && activeActors.size() > 1) {
+    if (KeyListener.isKeyPressed(HotKeys.get().Shortcut_EditorDuplicate.first) && KeyListener.isKeyPressed(HotKeys.get().Shortcut_EditorDuplicate.second) && activeActors.size() >= 1 && debounce < 0) {
+      debounce = inputDelay;
       List<Actor> actors = new ArrayList<>(activeActors);
       propertiesPanel.clearSelected();
 
+      // Find the most right actor and use that as the offset
+      float mostRight = actors.get(0).getTransform().position.x;
+      for (Actor actor : actors) {
+          if (actor.getTransform().position.x > mostRight) {
+            mostRight = actor.getTransform().position.x;
+          }
+      }
+
+      // Find the most left actor and use that as the offset
+      float mostLeft = actors.get(0).getTransform().position.x;
+      for (Actor actor : actors) {
+          if (actor.getTransform().position.x < mostLeft) {
+            mostLeft = actor.getTransform().position.x;
+          }
+      }
+
+      // calculate the offset
+      float offset = mostRight - mostLeft + GridLines_Config.SIZE;
+
       for (Actor actor : actors) {
         Actor copy = actor.copy();
+        copy.getTransform().position.x += offset;
+
         assert Window.getScene().getEditor() != null;
         Window.getScene().getEditor().addActor(copy);
         propertiesPanel.addActiveActor(copy);
         if (copy.getComponent(StateMachine.class) != null) {
           copy.getComponent(StateMachine.class).refreshTextures();
         }
+
       }
 
       return true;
@@ -85,7 +88,8 @@ public class KeyControls extends Component {
   }
 
   private boolean deleteActors(PropertiesPanel propertiesPanel, List<Actor> activeActors, Actor activeActor) {
-    if (KeyListener.keyBeginPress(HotKeys.get().EditorDelete) && activeActor != null) {
+    if (KeyListener.isKeyPressed(HotKeys.get().EditorDelete) && activeActor != null && debounce < 0) {
+      debounce = inputDelay;
       for (Actor actor : activeActors) {
         Window.getScene().getEditor().removeActor(actor);
       }
@@ -102,14 +106,14 @@ public class KeyControls extends Component {
 
   private boolean moveZIndex(PropertiesPanel propertiesPanel, List<Actor> activeActors, Actor activeActor) {
     if (KeyListener.isKeyPressed(HotKeys.get().EditorMoveZToBack) && debounce < 0) {
-      debounce = debounceTime;
+      debounce = inputDelay;
       for (Actor actor : activeActors) {
         actor.getTransform().zIndex = actor.getTransform().zIndex - 1;
       }
 
       return true;
     } else if (KeyListener.isKeyPressed(HotKeys.get().EditorMoveZToFront) && debounce < 0) {
-      debounce = debounceTime;
+      debounce = inputDelay;
       for (Actor actor : activeActors) {
         actor.getTransform().zIndex = actor.getTransform().zIndex + 1;
       }
@@ -120,25 +124,25 @@ public class KeyControls extends Component {
 
   private boolean move(PropertiesPanel propertiesPanel, List<Actor> activeActors, Actor activeActor, float multiplier) {
     if (KeyListener.isKeyPressed(HotKeys.get().EditorMoveUp) && debounce < 0) {
-      debounce = debounceTime;
+      debounce = inputDelay;
       for (Actor actor : activeActors) {
         actor.getTransform().position.y += GridLines_Config.SIZE * multiplier;
       }
         return true;
     } else if (KeyListener.isKeyPressed(HotKeys.get().EditorMoveLeft) && debounce < 0) {
-      debounce = debounceTime;
+      debounce = inputDelay;
       for (Actor actor : activeActors) {
         actor.getTransform().position.x -= GridLines_Config.SIZE * multiplier;
       }
         return true;
     } else if (KeyListener.isKeyPressed(HotKeys.get().EditorMoveRight) && debounce < 0) {
-      debounce = debounceTime;
+      debounce = inputDelay;
       for (Actor actor : activeActors) {
         actor.getTransform().position.x += GridLines_Config.SIZE * multiplier;
       }
         return true;
     } else if (KeyListener.isKeyPressed(HotKeys.get().EditorMoveDown) && debounce < 0) {
-      debounce = debounceTime;
+      debounce = inputDelay;
       for (Actor actor : activeActors) {
         actor.getTransform().position.y -= GridLines_Config.SIZE * multiplier;
       }
