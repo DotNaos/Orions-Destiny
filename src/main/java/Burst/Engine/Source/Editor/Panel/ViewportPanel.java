@@ -44,7 +44,7 @@ public class ViewportPanel extends ImGuiPanel {
             ImGui.setNextWindowSize(mainViewport.getWorkSizeX(), mainViewport.getWorkSizeY());
             ImGui.setNextWindowViewport(mainViewport.getID());
             windowFlags |= ImGuiWindowFlags.NoDocking;
-            ImGui.setNextWindowPos(0, 0, ImGuiCond.Always, 0.0f, 0.0f);
+            ImGui.setNextWindowPos(0, 0, ImGuiCond.None, 0.0f, 0.0f);
             title = "Orions Destiny";
         }
         ImGui.begin(title, ImGuiWindowFlags.NoTitleBar | ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoScrollWithMouse | ImGuiWindowFlags.MenuBar | windowFlags);
@@ -60,6 +60,12 @@ public class ViewportPanel extends ImGuiPanel {
                     EventSystem.notify(null, new Event(EventType.GameEngineStopPlay));
                 }
                 ImGui.endMenuBar();
+        }
+
+        // When the escape key is pressed, the game stops playing
+        if (ImGui.isKeyPressed(256)) {
+            isPlaying = false;
+            EventSystem.notify(null, new Event(EventType.GameEngineStopPlay));
         }
 
 

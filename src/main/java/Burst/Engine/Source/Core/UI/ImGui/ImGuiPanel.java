@@ -11,8 +11,7 @@ public abstract class ImGuiPanel {
     protected Vector2f size = new Vector2f((float) Window.getWidth() / 3, (float) Window.getHeight() / 3);
 
     public ImGuiPanel() {
-        ImGui.setNextWindowSize(size.x, size.y);
-        ImGui.setNextWindowPos(position.x, position.y);
+
     }
 
     public abstract void imgui();

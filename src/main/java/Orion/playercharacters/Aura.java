@@ -44,15 +44,15 @@ public class Aura extends PlayerCharacter {
     timer.scheduleAtFixedRate(new java.util.TimerTask() {
       @Override
       public void run() {
-        if (spriteIndex < idleSprites.size() - 1) {
+        if (spriteIndex < 4) {
           spriteIndex++;
         } else {
           spriteIndex = 0;
         }
 
-//        getComponent(SpriteRenderer.class).setSprite(idleSprites.getSprite(spriteIndex));
+        getComponent(SpriteRenderer.class).setSprite(idleSprites.getSprite(1, spriteIndex));
       }
-    }, 0, 1000/60);
+    }, 0, 100);
 
   }
   @Override
