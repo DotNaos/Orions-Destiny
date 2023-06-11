@@ -5,9 +5,9 @@ import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheet;
 import Orion.res.AssetConfig;
 
 public class Solaris extends PlayerCharacter {
-  public Solaris() {
-    super();
-
+  @Override
+  public void init()
+  {
     this.name = "Solaris";
     // Hellbeast
     this.description = """

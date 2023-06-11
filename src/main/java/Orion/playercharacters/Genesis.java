@@ -5,15 +5,16 @@ import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheet;
 import Orion.res.AssetConfig;
 
 public class Genesis extends PlayerCharacter {
-  public Genesis() {
-    super();
+
+  @Override
+  public void init()
+  {
     this.name = "Genesis";
     // this.sprite = new Sprite("assets/textures/characters/genesis.png");
     this.description = """
             An old whise man that lived for centuries. He controls dark magic. \s
             But don't be fooled by his age, he is still a strong fighter. \s
             """;
-    this.name = "Genesis";
     this.HP = 0;
     this.DEF = 0;
     this.ATK = 0;
@@ -28,7 +29,6 @@ public class Genesis extends PlayerCharacter {
     this.jumpSprites = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.GENESIS_JUMP, SpriteSheet.class);
     this.attackSprites =  AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.GENESIS_ATTACK, SpriteSheet.class);
   }
-
   @Override
   public void imgui() {
     super.imgui();

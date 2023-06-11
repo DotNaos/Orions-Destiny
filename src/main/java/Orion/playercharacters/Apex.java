@@ -5,8 +5,10 @@ import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheet;
 import Orion.res.AssetConfig;
 
 public class Apex extends PlayerCharacter {
-  public Apex() {
-    super();
+  @Override
+    public void init() {
+        super.init();
+
     // Stealth shadow ninja
     this.description = """ 
                 A stealthy shadow ninja that can control the shadows. \s
@@ -28,7 +30,7 @@ public class Apex extends PlayerCharacter {
     this.runSprites = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.APEX_RUN, SpriteSheet.class);
     this.jumpSprites = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.APEX_JUMP, SpriteSheet.class);
     this.attackSprites =  AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.APEX_ATTACK, SpriteSheet.class);
-  }
+    }
 
   @Override
   public void imgui() {

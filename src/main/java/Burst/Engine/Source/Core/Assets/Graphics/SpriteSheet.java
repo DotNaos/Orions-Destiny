@@ -95,6 +95,18 @@ public class SpriteSheet extends Asset {
     }
 
     public Sprite getSprite(int index) {
+        // Check if the sprite is out of bounds
+        // Too low then return the first sprite
+        // Too high then return the last sprite
+
+        if (index >= this.sprites.size()) {
+            DebugMessage.printWarning("Sprite index out of bounds: " + index);
+            index = this.sprites.size() - 1;
+        } else if (index < 0) {
+            DebugMessage.printWarning("Sprite index out of bounds: " + index);
+            index = 0;
+        }
+
         return this.sprites.get(index);
     }
 

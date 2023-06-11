@@ -6,7 +6,10 @@ import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheet;
 import Burst.Engine.Source.Core.Render.SpriteRenderer;
 import Orion.res.AssetConfig;
 
+import java.util.Timer;
+
 public class Aura extends PlayerCharacter {
+  private transient int spriteIndex = 0;
   @Override
   public void init() {
     super.init();
@@ -33,13 +36,25 @@ public class Aura extends PlayerCharacter {
     this.jumpSprites = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.AURA_JUMP, SpriteSheet.class);
     this.attackSprites =  AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.AURA_ATTACK, SpriteSheet.class);
 
-        if(getComponent(SpriteRenderer.class) == null) {
-      addComponent(new SpriteRenderer(this));
-    }
+
     getComponent(SpriteRenderer.class).setTexture(this.idleSprites.getTexture());
+    getComponent(SpriteRenderer.class).setSprite(this.idleSprites.getSprite(spriteIndex));
+
+    Timer timer = new Timer();
+    timer.scheduleAtFixedRate(new java.util.TimerTask() {
+      @Override
+      public void run() {
+        if (spriteIndex < idleSprites.size() - 1) {
+          spriteIndex++;
+        } else {
+          spriteIndex = 0;
+        }
+
+//        getComponent(SpriteRenderer.class).setSprite(idleSprites.getSprite(spriteIndex));
+      }
+    }, 0, 1000/60);
 
   }
-
   @Override
   public void imgui() {
     super.imgui(this);

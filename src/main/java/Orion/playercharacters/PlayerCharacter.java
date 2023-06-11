@@ -5,6 +5,7 @@ import Burst.Engine.Source.Core.Actor.PlayerController;
 import Burst.Engine.Source.Core.Assets.AssetManager;
 import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheet;
 import Burst.Engine.Source.Core.Assets.Graphics.Texture;
+import Burst.Engine.Source.Core.Render.SpriteRenderer;
 import Orion.res.AssetConfig;
 
 public abstract class PlayerCharacter extends Pawn {
@@ -24,10 +25,25 @@ public abstract class PlayerCharacter extends Pawn {
     protected int LVL;
     protected int EXP;
 
+    /**
+     * !Use init() to initialize values!
+     * !NO CONSTRUCTOR!
+     */
     public PlayerCharacter() {
         super();
         this.icon = AssetManager.getAssetFromType(AssetConfig.Files.Images.Icons.PLAYER,Texture.class);
-        this.addComponent(new PlayerController(this));
+    }
+
+    public void init()
+    {
+        super.init();
+        if (this.getComponent(PlayerController.class) == null)
+        {
+            this.addComponent(new PlayerController(this));
+        }
+        if(getComponent(SpriteRenderer.class) == null) {
+            addComponent(new SpriteRenderer(this));
+        }
     }
 
     public String getDescription() {
