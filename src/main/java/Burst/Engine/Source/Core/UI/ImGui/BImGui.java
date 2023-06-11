@@ -7,7 +7,9 @@ import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheet;
 import Burst.Engine.Source.Core.UI.Window;
 import Orion.res.AssetConfig;
 import imgui.ImGui;
+import imgui.ImVec2;
 import imgui.flag.ImGuiCol;
+import imgui.flag.ImGuiInputTextFlags;
 import imgui.flag.ImGuiStyleVar;
 import imgui.type.ImString;
 
@@ -317,12 +319,26 @@ public class BImGui {
         ImGui.pushID(label);
 
         ImString outString = new ImString(text, 256);
-        if (ImGui.inputText("##" + label, outString)) {
-//            ImGui.columns(1);
-            ImGui.popID();
+        // Show a scrollbar and display 5 lines of text
 
-            return outString.get();
+        // If the text is too long, it will be put into a scrollable text box
+        if (text.length() > 20) {
+            // Adds a scrollbar to the text box
+
+            if (ImGui.inputTextMultiline("##" + label, outString)) {
+                ImGui.popID();
+
+                return outString.get();
+            }
+        } else {
+            // If the text is short, it will be put into a single line text box
+            if (ImGui.inputText("##" + label, outString)) {
+                ImGui.popID();
+                return outString.get();
+            }
         }
+
+
 
         ImGui.popID();
         return text;

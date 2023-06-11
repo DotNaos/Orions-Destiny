@@ -84,9 +84,9 @@ public class Game {
 
     // Panels
     DebugMessage.header("Editor Panels");
-    scene.addPanel(new OutlinerPanel());
-    scene.addPanel(new PropertiesPanel(getComponent(PickingTexture.class)));
     scene.addPanel(new ContentDrawer());
+    scene.addPanel(new PropertiesPanel(getComponent(PickingTexture.class)));
+    scene.addPanel(new OutlinerPanel());
 
     // Level Editor Stuff
     this.components.add(new MouseControls());

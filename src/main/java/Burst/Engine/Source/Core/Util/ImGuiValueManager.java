@@ -1,7 +1,7 @@
 package Burst.Engine.Source.Core.Util;
 
-import Burst.Engine.Config.Constants.Color_Config;
 import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
+import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheet;
 import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Burst.Engine.Source.Core.UI.ImGui.BImGui;
 import Burst.Engine.Source.Core.UI.Window;
@@ -56,8 +56,7 @@ public interface ImGuiValueManager {
     Class<?> clazz = obj.getClass();
     // Also add all superclass fields from all superclasses
     Class<?> superClass = clazz.getSuperclass();
-    while (superClass.getSuperclass() != null)
-    {
+    while (superClass.getSuperclass() != null) {
       fields.addAll(List.of(superClass.getDeclaredFields()));
       superClass = superClass.getSuperclass();
     }
@@ -258,6 +257,28 @@ public interface ImGuiValueManager {
       }
 
 
+    } else if (type.equals(SpriteSheet.class)) {
+        SpriteSheet val = (SpriteSheet) value;
+        // Only show the first sprite
+      if (val == null) {
+          ImGui.text("None");
+      }
+      else {
+        if (val.getTexture() != null) {
+          ImGui.text(val.getTexture().getFilepath());
+
+          Sprite sprite = val.getSprite(0);
+          Vector2f[] texCoords = sprite.getTexCoords();
+
+          float uv0X = texCoords[1].x;
+          float uv0Y = texCoords[1].y;
+          float uv1X = texCoords[3].x;
+          float uv1Y = texCoords[3].y;
+
+          ImGui.image(val.getTexture().getTexID(), 128, 128, uv0X, uv0Y, uv1X, uv1Y);
+        }
+      }
+
     } else if (type.isEnum()) {
       String[] enumValues = getEnumValues(type);
       String enumType = ((Enum) value).name();
@@ -282,8 +303,7 @@ public interface ImGuiValueManager {
 
       // Also add all superclass fields from all superclasses
       Class<?> superClass = clazz.getSuperclass();
-      while (superClass.getSuperclass() != null)
-      {
+      while (superClass.getSuperclass() != null) {
         fields.addAll(List.of(superClass.getDeclaredFields()));
         superClass = superClass.getSuperclass();
       }
@@ -292,11 +312,8 @@ public interface ImGuiValueManager {
       for (Field field : fields) {
 
         // Do not display ignored fields
-        if (ignoreFields.contains(field.getName()) ||
-                field.getName().equals("$assertionsDisabled") ||
-                field.getName().equals("type") ||
-                field.getName().equals("icon")
-                ) continue;
+        if (ignoreFields.contains(field.getName()) || field.getName().equals("$assertionsDisabled") || field.getName().equals("type") || field.getName().equals("icon"))
+          continue;
 
         displayField(field, obj, initialValues);
       }

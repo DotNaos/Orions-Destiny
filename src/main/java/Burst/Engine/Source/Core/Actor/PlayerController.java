@@ -57,7 +57,8 @@ public class PlayerController extends ActorComponent {
         try {
 
         if (KeyListener.isKeyPressed(HotKeys.get().PlayerMoveRight)) {
-            this.actor.getTransform().size.mul(1.0f, 1.0f);
+            // When player is moving right, flip the sprite
+            this.actor.getTransform().size.x = Math.abs(this.actor.getTransform().size.x);
 
             this.acceleration.x = walkSpeed;
 
@@ -69,7 +70,7 @@ public class PlayerController extends ActorComponent {
             }
         } else if (KeyListener.isKeyPressed(HotKeys.get().PlayerMoveLeft)) {
             // When player is moving left, flip the sprite
-            this.actor.getTransform().size.mul(-1.0f, 1.0f);
+            this.actor.getTransform().size.x = -Math.abs(this.actor.getTransform().size.x);
             this.acceleration.x = -walkSpeed;
 
             if (this.velocity.x > 0) {
