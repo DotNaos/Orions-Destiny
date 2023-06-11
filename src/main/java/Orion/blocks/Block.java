@@ -16,7 +16,7 @@ public class Block extends Actor {
     public Block() {
         super();
         this.name = "new Block";
-        this.icon = AssetManager.getAssetFromType(AssetConfig.ICON_BLOCK,Texture.class);
+        this.icon = AssetManager.getAssetFromType(AssetConfig.Files.Images.Icons.BLOCK,Texture.class);
     }
 
     @Override

@@ -15,6 +15,9 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
+import static Orion.res.AssetConfig.Directories.*;
+import static Orion.res.AssetConfig.Files.Images.SpriteSheets.MAPS;
+
 public class AssetManager {
   public static final boolean showLoadingAssets = false;
   private static final List<Assets> assetsList = new ArrayList<>();
@@ -23,15 +26,15 @@ public class AssetManager {
 
     DebugMessage.info("Loading Assets");
 
-    String assetDir = AssetConfig.DIR_OF_ASSETS;
+    String assetDir = AssetConfig.Directories.ASSETS;
     List<String> foundFiles;
 
-    assetsList.add(new Assets(Texture.class, AssetConfig.DIR_OF_IMAGES, "png"));
-    assetsList.add(new Assets(SpriteSheet.class, AssetConfig.DIR_OF_SPRITESHEETS, "png"));
+    assetsList.add(new Assets(Texture.class, IMAGES, "png"));
+    assetsList.add(new Assets(SpriteSheet.class, SPRITESHEETS, "png"));
     assetsList.add(new Assets(Shader.class, Shader_Config.PATH, "glsl"));
-    assetsList.add(new Assets(Sound.class, AssetConfig.DIR_OF_SOUNDS, "ogg"));
+    assetsList.add(new Assets(Sound.class, SOUNDS, "ogg"));
     assetsList.add(new Assets(Font.class, Font_Config.PATH, "ttf"));
-    assetsList.add(new Assets(LevelMap.class, AssetConfig.DIR_OF_MAPS, "tmx"));
+    assetsList.add(new Assets(LevelMap.class, MAPS, "tmx"));
 
 
     for (Assets assets : assetsList) {

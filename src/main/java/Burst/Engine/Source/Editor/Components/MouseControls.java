@@ -28,7 +28,7 @@ import static org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT;
 
 public class MouseControls extends Component {
   private transient Actor holdingActor = null;
-  private transient SpriteSheet gizmos = AssetManager.getAssetFromType(AssetConfig.SPRITESHEET_GIZMOS, SpriteSheet.class);
+  private transient SpriteSheet gizmos = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.GIZMOS, SpriteSheet.class);
   private float debounceTime = 0.2f;
   private transient float debounce = debounceTime;
   private transient boolean boxSelectSet = false;

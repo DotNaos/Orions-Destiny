@@ -25,7 +25,7 @@ public abstract class PlayerCharacter extends Pawn {
 
     public PlayerCharacter() {
         super();
-        this.icon = AssetManager.getAssetFromType(AssetConfig.ICON_PLAYER,Texture.class);
+        this.icon = AssetManager.getAssetFromType(AssetConfig.Files.Images.Icons.PLAYER,Texture.class);
         this.addComponent(new PlayerController(this));
     }
 

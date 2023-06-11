@@ -10,7 +10,7 @@ public class Item extends Actor{
         super();
 
         this.name = "new Item";
-        this.icon = AssetManager.getAssetFromType(AssetConfig.ICON_ITEM,Texture.class);
+        this.icon = AssetManager.getAssetFromType(AssetConfig.Files.Images.Icons.ITEM,Texture.class);
 
     }
     @Override

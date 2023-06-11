@@ -8,6 +8,6 @@ public abstract class Pawn extends Actor {
     public Pawn()
     {
         super();
-        this.icon = AssetManager.getAssetFromType(AssetConfig.ICON_PAWN,Texture.class);
+        this.icon = AssetManager.getAssetFromType(AssetConfig.Files.Images.Icons.PAWN,Texture.class);
     }
 }

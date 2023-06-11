@@ -9,19 +9,36 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="Läuft wieder. Icons geupdated">
+    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="Speicher von Actor derivaten">
+      <change afterPath="$PROJECT_DIR$/Assets/images/spritesheets/item/PUT ITEM SPRITESHEETS HERE" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/Apex.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/apex.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/Aura/golem.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/Aura/aura.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/gasMask/charge.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/enemy/gasMask/charge.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/gasMask/damaged.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/enemy/gasMask/damaged.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/gasMask/death.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/enemy/gasMask/death.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/gasMask/gas_dash.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/enemy/gasMask/gas_dash.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/gasMask/gas_dash_fx.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/enemy/gasMask/gas_dash_fx.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/gasMask/idle.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/enemy/gasMask/idle.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/gasMask/move_fx.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/enemy/gasMask/move_fx.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/gasMask/move_noFx.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/enemy/gasMask/move_noFx.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/gasMask/shoot.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/enemy/gasMask/shoot.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/gasMask/shoot_noFx.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/enemy/gasMask/shoot_noFx.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/gasMask/shot_fx.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/enemy/gasMask/shot_fx.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/gasMask/wake.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/enemy/gasMask/wake.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/gasMask/walk.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/enemy/gasMask/walk.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/gasMask/walk_noFx.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/enemy/gasMask/walk_noFx.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/Actor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/Actor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Component.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Component.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Saving/ActorDeserializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Saving/ActorDeserializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Scene/Scene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/Pawn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/PlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/PlayerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/AssetManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/AssetManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/ImGui/BImGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/ImGui/BImGui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Util/ImGuiValueManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Util/ImGuiValueManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Components/KeyControls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Components/KeyControls.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Panel/PropertiesPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Panel/PropertiesPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Panel/ViewportPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Panel/ViewportPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Components/MouseControls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Components/MouseControls.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Panel/OutlinerPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Panel/OutlinerPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Game/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Game/Camera.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Game/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/PlayerCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/PlayerCharacter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/res/AssetConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/res/AssetConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/res/Assets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/res/Assets.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -246,14 +263,7 @@
       <workItem from="1686258220665" duration="9488000" />
       <workItem from="1686304742078" duration="43789000" />
       <workItem from="1686386311492" duration="38872000" />
-      <workItem from="1686463913065" duration="10794000" />
-    </task>
-    <task id="LOCAL-00042" summary="Texture flipping gefixt">
-      <created>1685983912457</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1685983912457</updated>
+      <workItem from="1686463913065" duration="16441000" />
     </task>
     <task id="LOCAL-00043" summary="Scaling adjusted to Aspect Ratio of Sprite">
       <created>1685988147029</created>
@@ -591,14 +601,20 @@
       <option name="project" value="LOCAL" />
       <updated>1686470079557</updated>
     </task>
-    <option name="localTasksCounter" value="91" />
+    <task id="LOCAL-00091" summary="Speicher von Actor derivaten">
+      <created>1686479193816</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1686479193816</updated>
+    </task>
+    <option name="localTasksCounter" value="92" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="MouseLister aus der Scene gelöscht. Jetzt funktioniert Window hovern richtig" />
     <MESSAGE value="Ok, jetzt funktioniert es" />
     <MESSAGE value="Transform ist jetzt so semi gekapselt, weil ich Java hasse und ich sonst nur oder keine Pointer habe" />
     <MESSAGE value="Neu rendern bei reset" />
@@ -623,7 +639,8 @@
     <MESSAGE value="Assets für Player und geordnet" />
     <MESSAGE value="Spieler Angepasst, an start wird jetzt gearbeitet" />
     <MESSAGE value="Läuft wieder. Icons geupdated" />
-    <option name="LAST_COMMIT_MESSAGE" value="Läuft wieder. Icons geupdated" />
+    <MESSAGE value="Speicher von Actor derivaten" />
+    <option name="LAST_COMMIT_MESSAGE" value="Speicher von Actor derivaten" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

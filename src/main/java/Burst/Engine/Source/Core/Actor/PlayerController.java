@@ -1,5 +1,6 @@
 package Burst.Engine.Source.Core.Actor;
 
+import Burst.Engine.Source.Game.Animation.AnimationState;
 import org.jbox2d.dynamics.contacts.Contact;
 import org.joml.Vector2f;
 
@@ -21,7 +22,7 @@ public class PlayerController extends ActorComponent {
     private transient StateMachine stateMachine;
     private transient Vector2f acceleration = new Vector2f();
     private transient Vector2f velocity = new Vector2f();
-    private transient boolean isDead = false;
+    private boolean isDead = false;
 
     public PlayerController(Actor actor) {
         super(actor);
@@ -30,6 +31,19 @@ public class PlayerController extends ActorComponent {
     @Override
     public void init() {
         super.init();
+        this.acceleration = new Vector2f();
+        this.velocity = new Vector2f();
+
+        if (this.actor.getComponent(Rigidbody2D.class) == null) {
+            this.actor.addComponent(new Rigidbody2D(this.actor));
+            this.rb = this.actor.getComponent(Rigidbody2D.class);
+        }
+
+        if (this.actor.getComponent(StateMachine.class) == null) {
+            this.actor.addComponent(new StateMachine(this.actor));
+            this.stateMachine = this.actor.getComponent(StateMachine.class);
+//            this.stateMachine.addState(new AnimationState());
+        }
     }
 
     @Override
@@ -40,6 +54,8 @@ public class PlayerController extends ActorComponent {
     @Override
     public void update(float dt)
     {
+        try {
+
         if (KeyListener.isKeyPressed(HotKeys.get().PlayerMoveRight)) {
             this.actor.getTransform().size.mul(1.0f, 1.0f);
 
@@ -86,6 +102,9 @@ public class PlayerController extends ActorComponent {
             stateMachine.trigger("jump");
         } else {
             stateMachine.trigger("stopJumping");
+        }
+        } catch (NullPointerException e) {
+            init();
         }
     }
 

@@ -345,9 +345,11 @@ public class Game {
   //! ====================================================================================================
 
   public void imgui() {
+
+    if (inGame()) return;
+
     // Start the tab bar
     ImGui.begin("Editor");
-
     if (ImGui.beginTabBar("EditorTabs")) {
       if (ImGui.beginTabItem("Style")) {
         if (ImGui.beginTable("EditorStyle", 2)) {

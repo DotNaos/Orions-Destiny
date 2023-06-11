@@ -27,7 +27,7 @@ public class Camera extends Actor {
         super();
         this.name = "new Camera";
         this.viewport = Window.getScene().getViewport();
-        icon = AssetManager.getAssetFromType(AssetConfig.ICON_CAMERA, Texture.class);
+        icon = AssetManager.getAssetFromType(AssetConfig.Files.Images.Icons.CAMERA, Texture.class);
     }
 
     @Override
