@@ -1,5 +1,9 @@
 package Orion.playercharacters;
 
+import Burst.Engine.Source.Core.Assets.AssetManager;
+import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheet;
+import Orion.res.AssetConfig;
+
 public class Genesis extends PlayerCharacter {
   public Genesis() {
     super();
@@ -17,6 +21,12 @@ public class Genesis extends PlayerCharacter {
     this.STAMINA = 0;
     this.LVL = 0;
     this.EXP = 0;
+
+    this.idleSprites = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.GENESIS_IDLE, SpriteSheet.class);
+    this.walkSprites = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.GENESIS_WALK, SpriteSheet.class);
+    this.runSprites = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.GENESIS_RUN, SpriteSheet.class);
+    this.jumpSprites = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.GENESIS_JUMP, SpriteSheet.class);
+    this.attackSprites =  AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.GENESIS_ATTACK, SpriteSheet.class);
   }
 
   @Override

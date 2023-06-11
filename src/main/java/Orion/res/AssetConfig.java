@@ -28,6 +28,11 @@ public class AssetConfig {
 
     public static final String ABILITIES = SPRITESHEETS + "ability/";
     public static final String PLAYERS = SPRITESHEETS + "player/";
+    public static final String AURA = PLAYERS + "Aura/";
+    public static final String APEX = PLAYERS + "Apex/";
+    public static final String GENESIS = PLAYERS + "Genesis/";
+    public static final String HELIX = PLAYERS + "Helix/";
+    public static final String SOLARIS = PLAYERS + "Solaris/";
 
 
     // Backgrounds
@@ -63,7 +68,7 @@ public class AssetConfig {
         public static final String TEXTURE_DEBUG2 = Directories.DEBUG_TEXTURES + "debug2.png";
       }
 
-      public static class SpriteSheets{
+      public static class SpriteSheets {
         //* ========================= UI ==================================
         public static final String GIZMOS = Directories.UI + "gizmos.png";
         public static final String BUTTONS = Directories.UI + "buttons.png";
@@ -82,33 +87,59 @@ public class AssetConfig {
         public static final String MAPS = "Assets/maps/";
 
 
-        public static final String AURA = Directories.PLAYERS + "Aura/" + "aura.png";
+        public static final String AURA_IDLE = Directories.AURA + "aura.png";
         //*----------------------------------------------------------------------------------------\\
+
+        public static final String AURA_WALK = Directories.AURA + "aura.png";
+        public static final String AURA_RUN = Directories.AURA + "aura.png";
+        public static final String AURA_JUMP = Directories.AURA + "aura.png";
+        public static final String AURA_FALL = Directories.AURA + "aura.png";
+        public static final String AURA_ATTACK = Directories.AURA + "aura.png";
         //*________________________________________________________________________________________\\
 
 
-        public static final String APEX = Directories.PLAYERS + "apex.png";
+        public static final String APEX_IDLE = Directories.APEX + "apex.png";
         //*----------------------------------------------------------------------------------------\\
-        //! ONLY ONE SPRITESHEET FOR APEX
-        //*________________________________________________________________________________________\\
-
-
-        public static final String GENESIS = Directories.PLAYERS + "idle.png";
-        //*----------------------------------------------------------------------------------------\\
-        public static final String GENESIS_RUN = Directories.PLAYERS + "run.png";
-        public static final String GENESIS_JUMP = Directories.PLAYERS + "jump.png";
-        public static final String GENESIS_FALL = Directories.PLAYERS + "fall.png";
-        public static final String GENESIS_ATTACK = Directories.PLAYERS + "attack_1.png";
+        public static final String APEX_WALK = Directories.APEX + "apex.png";
+        public static final String APEX_RUN = Directories.APEX + "apex.png";
+        public static final String APEX_JUMP = Directories.APEX + "apex.png";
+        public static final String APEX_FALL = Directories.APEX + "apex.png";
+        public static final String APEX_ATTACK = Directories.APEX + "apex.png";
 
         //*________________________________________________________________________________________\\
 
 
-        public static final String HELIX = Directories.PLAYERS + "helix.png";
+        public static final String GENESIS_IDLE = Directories.GENESIS + "genesis.png";
         //*----------------------------------------------------------------------------------------\\
+        public static final String GENESIS_WALK = Directories.GENESIS + "run.png";
+        public static final String GENESIS_RUN = Directories.GENESIS + "run.png";
+        public static final String GENESIS_JUMP = Directories.GENESIS + "jump.png";
+        public static final String GENESIS_FALL = Directories.GENESIS + "fall.png";
+        public static final String GENESIS_ATTACK = Directories.GENESIS + "attack_1.png";
+        public static final String GENESIS_ATTACK2 = Directories.GENESIS + "attack_2.png";
+
+
         //*________________________________________________________________________________________\\
 
-        public static final String SOLARIS = Directories.PLAYERS + "solaris.png";
+
+        public static final String HELIX_IDLE = Directories.HELIX + "helix.png";
         //*----------------------------------------------------------------------------------------\\
+        public static final String HELIX_WALK = Directories.HELIX + "helix.png";
+        public static final String HELIX_RUN = Directories.HELIX + "helix.png";
+        public static final String HELIX_JUMP = Directories.HELIX + "helix.png";
+        public static final String HELIX_FALL = Directories.HELIX + "helix.png";
+        public static final String HELIX_ATTACK = Directories.HELIX + "helix.png";
+
+        //*________________________________________________________________________________________\\
+
+        public static final String SOLARIS_IDLE = Directories.SOLARIS + "solaris.png";
+        //*----------------------------------------------------------------------------------------\\
+        public static final String SOLARIS_WALK = Directories.SOLARIS + "solaris.png";
+        public static final String SOLARIS_RUN = Directories.SOLARIS + "solaris.png";
+        public static final String SOLARIS_JUMP = Directories.SOLARIS + "solaris.png";
+        public static final String SOLARIS_FALL = Directories.SOLARIS + "solaris.png";
+        public static final String SOLARIS_ATTACK = Directories.SOLARIS + "solaris.png";
+
         //*________________________________________________________________________________________\\
       }
 
@@ -124,7 +155,11 @@ public class AssetConfig {
           new SpriteSheetConfig(Files.Images.SpriteSheets.GIZMOS, SpriteSheetUsage.UI, 24, 48, 0),
           new SpriteSheetConfig(Files.Images.SpriteSheets.BUTTONS, SpriteSheetUsage.UI, 16, 16, 0),
           new SpriteSheetConfig(Files.Images.SpriteSheets.BLOCKS, SpriteSheetUsage.BLOCK, 16, 16, 0,
-                  new int[]{16, 16, 4, 13, 10, 9, 7, 9, 14, 17, 18, 5, 21, 8, 3, 0, 7, 20, 15, 29, 32, 30, 32, 16, 16, 8, 5, 0, 0, 15, 15, 15}));
+                  new int[]{16, 16, 4, 13, 10, 9, 7, 9, 14, 17, 18, 5, 21, 8, 3, 0, 7, 20, 15, 29, 32, 30, 32, 16, 16, 8, 5, 0, 0, 15, 15, 15}),
+          new SpriteSheetConfig(Files.Images.SpriteSheets.AURA_IDLE, SpriteSheetUsage.PLAYER, 100, 100, 0)
+
+
+  );
 
 
 }

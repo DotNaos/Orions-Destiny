@@ -9,13 +9,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="Nochmal ID fix">
+    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="Outliner nicht mehr undocked jedes mal und MuliText input">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/PlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/PlayerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Physics/Physics2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Physics/Physics2D.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/ImGui/BImGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/ImGui/BImGui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/ImGui/ImGuiLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/ImGui/ImGuiLayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/Genesis/idle.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/Genesis/genesis.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/Helix/idle.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/Helix/helix.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/Solaris/idle.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/Solaris/solaris.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/apex.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/Apex/apex.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/AssetManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/AssetManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Render/SpriteRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Render/SpriteRenderer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Util/ImGuiValueManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Util/ImGuiValueManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Apex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Apex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Aura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Aura.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Genesis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Genesis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Helix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Helix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/PlayerCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/PlayerCharacter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Solaris.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Solaris.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/res/AssetConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/res/AssetConfig.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,11 +114,11 @@
       <recent name="A:\Orions-Destiny\Assets\images\spritesheets\enemy\turret" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="A:\Orions-Destiny\Assets\images\spritesheets\player\Apex" />
       <recent name="A:\Orions-Destiny\Assets\images\spritesheets\enemy" />
       <recent name="A:\Orions-Destiny\Assets\images\spritesheets\player" />
       <recent name="A:\Orions-Destiny\Assets\images\spritesheets\player\hell_beast" />
       <recent name="A:\Orions-Destiny\Assets\images\spritesheets\player\Necro" />
-      <recent name="A:\Orions-Destiny\Assets\images\spritesheets\player\player" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
@@ -240,14 +249,7 @@
       <workItem from="1686258220665" duration="9488000" />
       <workItem from="1686304742078" duration="43789000" />
       <workItem from="1686386311492" duration="38872000" />
-      <workItem from="1686463913065" duration="18292000" />
-    </task>
-    <task id="LOCAL-00045" summary="ViewToScreen">
-      <created>1686066115735</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1686066115735</updated>
+      <workItem from="1686463913065" duration="21650000" />
     </task>
     <task id="LOCAL-00046" summary="Picking funktioniert endlich">
       <created>1686068710991</created>
@@ -585,14 +587,20 @@
       <option name="project" value="LOCAL" />
       <updated>1686485817668</updated>
     </task>
-    <option name="localTasksCounter" value="94" />
+    <task id="LOCAL-00094" summary="Outliner nicht mehr undocked jedes mal und MuliText input">
+      <created>1686487312011</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1686487312011</updated>
+    </task>
+    <option name="localTasksCounter" value="95" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Neu rendern bei reset" />
     <MESSAGE value="Deleting Actors" />
     <MESSAGE value="Rotation flipped von Actors" />
     <MESSAGE value="Reset Values Transform dirtyFlag" />
@@ -617,7 +625,8 @@
     <MESSAGE value="Speicher von Actor derivaten" />
     <MESSAGE value="Assets Pfade in Klassen" />
     <MESSAGE value="Nochmal ID fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Nochmal ID fix" />
+    <MESSAGE value="Outliner nicht mehr undocked jedes mal und MuliText input" />
+    <option name="LAST_COMMIT_MESSAGE" value="Outliner nicht mehr undocked jedes mal und MuliText input" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

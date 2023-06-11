@@ -119,6 +119,10 @@ public class AssetManager {
     File file = new File(filePath);
 
     if (!file.exists()) {
+      if (filePath.equals("Generated")) {
+        DebugMessage.info("Generated " + assetType.getName());
+        return null;
+      }
       DebugMessage.notFound("Did not found Asset for filepath: " + filePath);
       return null;
     }

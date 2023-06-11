@@ -13,6 +13,7 @@ public abstract class PlayerCharacter extends Pawn {
     protected SpriteSheet walkSprites;
     protected SpriteSheet runSprites;
     protected SpriteSheet jumpSprites;
+    protected SpriteSheet attackSprites;
     protected String description;
     protected int HP;
     protected int DEF;

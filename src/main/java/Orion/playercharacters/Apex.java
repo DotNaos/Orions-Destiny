@@ -1,5 +1,9 @@
 package Orion.playercharacters;
 
+import Burst.Engine.Source.Core.Assets.AssetManager;
+import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheet;
+import Orion.res.AssetConfig;
+
 public class Apex extends PlayerCharacter {
   public Apex() {
     super();
@@ -18,6 +22,12 @@ public class Apex extends PlayerCharacter {
     this.LVL = 0;
     this.EXP = 0;
 
+    // Spritesheets
+    this.idleSprites = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.APEX_IDLE, SpriteSheet.class);
+    this.walkSprites = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.APEX_WALK, SpriteSheet.class);
+    this.runSprites = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.APEX_RUN, SpriteSheet.class);
+    this.jumpSprites = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.APEX_JUMP, SpriteSheet.class);
+    this.attackSprites =  AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.APEX_ATTACK, SpriteSheet.class);
   }
 
   @Override

@@ -267,15 +267,8 @@ public interface ImGuiValueManager {
         if (val.getTexture() != null) {
           ImGui.text(val.getTexture().getFilepath());
 
-          Sprite sprite = val.getSprite(0);
-          Vector2f[] texCoords = sprite.getTexCoords();
 
-          float uv0X = texCoords[1].x;
-          float uv0Y = texCoords[1].y;
-          float uv1X = texCoords[3].x;
-          float uv1Y = texCoords[3].y;
-
-          ImGui.image(val.getTexture().getTexID(), 128, 128, uv0X, uv0Y, uv1X, uv1Y);
+          ImGui.image(val.getTexture().getTexID(), 128, 128);
         }
       }
 

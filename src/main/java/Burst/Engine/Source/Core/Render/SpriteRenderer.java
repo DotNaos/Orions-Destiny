@@ -24,9 +24,23 @@ public class SpriteRenderer extends ActorComponent {
     @Override
     public void init() {
         super.init();
-        getSprite().setTexture(AssetManager.getAssetFromType(getSprite().getFilepath(), Texture.class));
+        Sprite freshSprite = new Sprite();
+        freshSprite.setTexture(new Texture(sprite.getFilepath()));
+
+        Vector2f[] texCoords = sprite.getTexCoords();
+        Vector2f[] freshTexCoords = {
+                new Vector2f(texCoords[0]),
+                new Vector2f(texCoords[1]),
+                new Vector2f(texCoords[2]),
+                new Vector2f(texCoords[3])
+        };
+
+        freshSprite.setTexCoords(freshTexCoords);
+
+        this.sprite = freshSprite;
 
         this.lastTransform = this.actor.getTransform().copy();
+        setDirty();
     }
 
     @Override
