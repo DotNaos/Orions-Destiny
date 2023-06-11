@@ -292,7 +292,11 @@ public interface ImGuiValueManager {
       for (Field field : fields) {
 
         // Do not display ignored fields
-        if (ignoreFields.contains(field.getName()) || field.getName().equals("$assertionsDisabled")) continue;
+        if (ignoreFields.contains(field.getName()) ||
+                field.getName().equals("$assertionsDisabled") ||
+                field.getName().equals("type") ||
+                field.getName().equals("icon")
+                ) continue;
 
         displayField(field, obj, initialValues);
       }

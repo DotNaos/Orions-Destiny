@@ -1,6 +1,7 @@
 package Orion.playercharacters;
 
 import Burst.Engine.Source.Core.Actor.Pawn;
+import Burst.Engine.Source.Core.Actor.PlayerController;
 import Burst.Engine.Source.Core.Assets.AssetManager;
 import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheet;
 import Burst.Engine.Source.Core.Assets.Graphics.Texture;
@@ -25,6 +26,7 @@ public abstract class PlayerCharacter extends Pawn {
     public PlayerCharacter() {
         super();
         this.icon = AssetManager.getAssetFromType(AssetConfig.ICON_PLAYER,Texture.class);
+        this.addComponent(new PlayerController(this));
     }
 
     public String getDescription() {

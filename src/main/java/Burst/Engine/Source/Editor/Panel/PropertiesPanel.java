@@ -44,9 +44,6 @@ public class PropertiesPanel extends ImGuiPanel {
     if (activeActors.size() == 0) {
       propertiesActor = null;
       selected.set(0);
-      ImGui.begin("Properties");
-      ImGui.textColored(1.0f, 0.3f, 0.3f, 0.8f, "No Actor Selected");
-      ImGui.end();
       return;
     }
 

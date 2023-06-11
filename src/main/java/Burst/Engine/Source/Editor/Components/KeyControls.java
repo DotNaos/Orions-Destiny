@@ -45,8 +45,6 @@ public class KeyControls extends Component {
       List<Actor> actors = new ArrayList<>(activeActors);
       propertiesPanel.clearSelected();
 
-
-
       // calculate the offset
       float offset = max(actors).x - min(actors).x + GridLines_Config.SIZE;
 

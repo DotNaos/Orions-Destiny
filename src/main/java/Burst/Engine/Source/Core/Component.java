@@ -30,6 +30,7 @@ public abstract class Component implements ImGuiValueManager {
     {
         this.ignoreFields = new ArrayList<>();
     }
+    this.ignoreFields.add("ID");
     try {
       getInitialValues(this, this.ignoreFields, this.initialValues);
     } catch (IllegalAccessException e) {

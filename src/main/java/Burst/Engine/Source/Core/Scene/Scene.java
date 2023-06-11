@@ -14,7 +14,6 @@ import java.util.List;
 public class Scene {
     private SceneInitializer sceneInitializer;
     private List<ImGuiPanel> panels = new ArrayList<>();
-    private boolean isPaused = false;
     private SceneType openScene;
 
     private Game game;
@@ -29,14 +28,14 @@ public class Scene {
         this.viewport = new Viewport();
         this.openScene = sceneType;
 
-        this.game = new Game(this);
-
         switch (sceneType) {
             case GAME -> {
+                this.game = new Game(this);
                 this.sceneInitializer = new GameInitializer(this);
                 this.game.init();
             }
             case EDITOR -> {
+                this.game = new Game(this);
                 this.sceneInitializer = new EditorInitializer(this);
                 this.game.init();
             }
@@ -51,6 +50,7 @@ public class Scene {
         }
 
         this.sceneInitializer.init();
+
     }
 
 
@@ -58,9 +58,7 @@ public class Scene {
     public void update(float dt) {
         switch (openScene) {
             case GAME -> {
-                if (!isPaused) {
-                    this.game.update(dt);
-                }
+                this.game.update(dt);
             }
             case EDITOR -> {
                 this.game.updateEditor(dt);
@@ -121,14 +119,6 @@ public class Scene {
     public void addPanel(ImGuiPanel panel) {
         DebugMessage.info("Adding panel: " + panel.getClass().getSimpleName());
         this.panels.add(panel);
-    }
-
-    public boolean isPaused() {
-        return isPaused;
-    }
-
-    public boolean isRunning() {
-        return !isPaused;
     }
 
     public void destroy() {

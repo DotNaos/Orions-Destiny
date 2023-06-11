@@ -39,6 +39,8 @@ public class Actor implements ImGuiValueManager {
    * actor in the editor.
    */
   protected String name = "ACTOR";
+
+  protected String type = this.getClass().getCanonicalName();
   /**
    * The ID of the actor.
    * This is set to -1 by default, and is set to a unique ID when the actor is
@@ -223,9 +225,9 @@ public class Actor implements ImGuiValueManager {
             .enableComplexMapKeySerialization()
             .create();
     String objAsJson = gson.toJson(this);
-    Actor copy = gson.fromJson(objAsJson, Actor.class).generateName();
+    Object copy = gson.fromJson(objAsJson, Actor.class).generateName();
 
-    return copy;
+    return (Actor) copy;
 
 
   }
@@ -550,5 +552,9 @@ public class Actor implements ImGuiValueManager {
 
   public Texture getIcon() {
     return this.icon;
+  }
+
+  public void genID() {
+    this.ID = Util.generateUniqueID();
   }
 }

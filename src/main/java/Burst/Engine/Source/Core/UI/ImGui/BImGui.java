@@ -318,7 +318,7 @@ public class BImGui {
 
         ImString outString = new ImString(text, 256);
         if (ImGui.inputText("##" + label, outString)) {
-            ImGui.columns(1);
+//            ImGui.columns(1);
             ImGui.popID();
 
             return outString.get();

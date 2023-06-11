@@ -33,26 +33,23 @@ public class ViewportPanel extends ImGuiPanel {
     @Override
     public void imgui() {
         boolean inGame = Window.getScene().getOpenScene() == SceneType.GAME;
-        int inGameFlags = 0;
+        int windowFlags = 0;
 
-
+        String title = "Viewport";
         if (inGame) {
             // The next window is displayed in the center of the screen in the viewport
             ImGuiViewport mainViewport = ImGui.getMainViewport();
             ImGui.setNextWindowPos(mainViewport.getWorkPosX() + mainViewport.getWorkSizeX() / 2, mainViewport.getWorkPosY() + mainViewport.getWorkSizeY() / 2, ImGuiCond.Always, 0.5f, 0.5f);
             ImGui.setNextWindowSize(mainViewport.getWorkSizeX(), mainViewport.getWorkSizeY());
             ImGui.setNextWindowViewport(mainViewport.getID());
-            inGameFlags |= ImGuiWindowFlags.NoTitleBar | ImGuiWindowFlags.NoResize | ImGuiWindowFlags.NoMove | ImGuiWindowFlags.NoCollapse | ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoScrollWithMouse | ImGuiWindowFlags.NoDocking;
+            windowFlags |= ImGuiWindowFlags.NoDocking;
             ImGui.setNextWindowPos(0, 0, ImGuiCond.Always, 0.0f, 0.0f);
-
+            title = "Orions Destiny";
         }
+        ImGui.begin(title, ImGuiWindowFlags.NoTitleBar | ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoScrollWithMouse | ImGuiWindowFlags.MenuBar | windowFlags);
 
-        ImGui.begin("Viewport", ImGuiWindowFlags.NoTitleBar | ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoScrollWithMouse | ImGuiWindowFlags.MenuBar | inGameFlags);
-
-        if (!inGame) {
-            if (ImGui.beginMenuBar())
-            {
-
+        if (ImGui.beginMenuBar())
+        {
                 if (ImGui.menuItem("Play", "", isPlaying, !isPlaying)) {
                     isPlaying = true;
                     EventSystem.notify(null, new Event(EventType.GameEngineStartPlay));
@@ -61,32 +58,10 @@ public class ViewportPanel extends ImGuiPanel {
                     isPlaying = false;
                     EventSystem.notify(null, new Event(EventType.GameEngineStopPlay));
                 }
-
-                // Show the current mouse position in the viewport and screen
-                // in the center of the menu bar
-                ImGui.sameLine(ImGui.getContentRegionAvailX() / 2 - 100);
-
-                // World
-                ImGui.text("World | X: " + MouseListener.getWorldX() + " Y: " + MouseListener.getWorldY() + " | " + "\t");
-
-                ImGui.sameLine();
-
-                // Screen
-                ImGui.text("Screen | X: " + (int) MouseListener.getScreenX() + " Y: " + (int) MouseListener.getScreenY() + " | ");
-
-                // Viewport
-//                ImGui.text("Viewport | X: " + MouseListener.getViewX() + " Y: " + MouseListener.getViewY() + " | ");
-
-                // ViewToWorld
-//            ImGui.text("ViewToWorld | X: " + MouseListener.viewToWorld(MouseListener.getView()).x + " Y: " + MouseListener.viewToWorld(MouseListener.getView()).y + " | ");
-
-                // ViewToScreen
-//            ImGui.text("ViewToScreen | X: " + (int) MouseListener.viewToScreen(MouseListener.getView()).x + " Y: " + (int) MouseListener.viewToScreen(MouseListener.getView()).y + " | ");
-
-
-            ImGui.endMenuBar();
-            }
+                ImGui.endMenuBar();
         }
+
+
 
 
         ImGui.setCursorPos(ImGui.getCursorPosX(), ImGui.getCursorPosY());

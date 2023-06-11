@@ -72,7 +72,10 @@ public class Game {
 
 
     DebugMessage.info("Game initialized!");
-    if (inGame()) return;
+    if (inGame()) {
+      isInitialized = true;
+      return;
+    }
 
     DebugMessage.info("Editor initializing...");
     // Variables
@@ -119,7 +122,6 @@ public class Game {
   public void update(float dt) {
     init();
 
-
     scene.getViewport().adjustProjection();
 
     this.physics2D.update(dt);
@@ -147,6 +149,7 @@ public class Game {
       c.updateEditor(dt);
     }
   }
+
 
 
   public void addActor(Actor actor) {
