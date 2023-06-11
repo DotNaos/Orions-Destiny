@@ -28,8 +28,8 @@ public class HotKeys extends Component {
 
   // Editor Camera Controls
   public int EditorDelete = GLFW_KEY_DELETE;
-  public int EditorMoveZToFront = GLFW_KEY_J;
-  public int EditorMoveZToBack = GLFW_KEY_K;
+  public int EditorMoveZToBack = GLFW_KEY_J;
+  public int EditorMoveZToFront = GLFW_KEY_K;
 
   public int EditorMoveUp = GLFW_KEY_UP;
   public int EditorMoveDown = GLFW_KEY_DOWN;

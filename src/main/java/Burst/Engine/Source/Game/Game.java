@@ -3,6 +3,7 @@ package Burst.Engine.Source.Game;
 import Burst.Engine.Config.ImGuiStyleConfig;
 import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Actor.ActorComponent;
+import Burst.Engine.Source.Core.Actor.PlayerController;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.Physics.Physics2D;
 import Burst.Engine.Source.Core.Render.PickingTexture;
@@ -133,6 +134,19 @@ public class Game {
     for (Component c : components) {
       c.update(dt);
     }
+
+    // set the viewport position to the position of the first actor with a player controller
+
+    for ( Actor actor : actors ) {
+      if (actor.getComponent(PlayerController.class) != null) {
+        scene.getViewport().position.x = actor.getTransform().position.x;
+        scene.getViewport().position.y = actor.getTransform().position.y;
+        break;
+      }
+    }
+
+
+
   }
 
   public void updateEditor(float dt) {

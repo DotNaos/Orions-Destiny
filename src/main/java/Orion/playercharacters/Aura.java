@@ -9,7 +9,7 @@ import Orion.res.AssetConfig;
 import java.util.Timer;
 
 public class Aura extends PlayerCharacter {
-  private transient int spriteIndex = 0;
+
   @Override
   public void init() {
     super.init();
@@ -44,13 +44,13 @@ public class Aura extends PlayerCharacter {
     timer.scheduleAtFixedRate(new java.util.TimerTask() {
       @Override
       public void run() {
-        if (spriteIndex < 4) {
+        if (spriteIndex < 3) {
           spriteIndex++;
         } else {
           spriteIndex = 0;
         }
 
-        getComponent(SpriteRenderer.class).setSprite(idleSprites.getSprite(1, spriteIndex));
+        getComponent(SpriteRenderer.class).setSprite(idleSprites.getSprite(spriteIndex));
       }
     }, 0, 100);
 

@@ -18,7 +18,7 @@ public class Viewport {
     public Vector4f clearColor = new Vector4f(1f);
     private Matrix4f projectionMatrix, viewMatrix, inverseProjection, inverseView;
 
-    private float zoom = 10.0f;
+    private float zoom = 5f;
 
     public Viewport() {
         this.position = new Vector2f();

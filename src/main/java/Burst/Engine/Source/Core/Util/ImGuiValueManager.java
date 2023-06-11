@@ -191,13 +191,13 @@ public interface ImGuiValueManager {
 
       // if hovered show preview of texture
       // Also show file path below
-      if (BImGui.imageButton(val.getTexture().getTexID(), spriteSize.x, spriteSize.y, uv0X, uv0Y, uv1X, uv1Y)) {
+      if (ImGui.imageButton(val.getTexture().getTexID(), spriteSize.x, spriteSize.y, uv0X, uv0Y, uv1X, uv1Y)) {
         ImGui.openPopup("Sprite Preview");
       }
       if (ImGui.beginPopup("Sprite Preview")) {
         Window.openPopup();
 
-        BImGui.image(val.getTexture().getTexID(), spriteSize.x * 1.5f, spriteSize.y * 1.5f, uv0X, uv0Y, uv1X, uv1Y);
+        ImGui.image(val.getTexture().getTexID(), spriteSize.x * 1.5f, spriteSize.y * 1.5f, uv0X, uv0Y, uv1X, uv1Y);
 
         // give the ability to change the texture
         if (ImGui.button("Change Texture")) {

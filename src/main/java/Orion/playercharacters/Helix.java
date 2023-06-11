@@ -3,11 +3,15 @@ package Orion.playercharacters;
 import Burst.Engine.Source.Core.Assets.AssetManager;
 import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheet;
 import Burst.Engine.Source.Core.Assets.Graphics.Texture;
+import Burst.Engine.Source.Core.Render.SpriteRenderer;
 import Orion.res.AssetConfig;
 
+import java.util.Timer;
+
 public class Helix extends PlayerCharacter {
-    public Helix() {
-        super();
+    @Override
+    public void init()
+    {
         this.name = "Helix";
         // this.sprite = new Sprite("assets/textures/characters/helix.png");
         // Necromancer

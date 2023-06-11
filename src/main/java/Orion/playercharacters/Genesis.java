@@ -2,7 +2,10 @@ package Orion.playercharacters;
 
 import Burst.Engine.Source.Core.Assets.AssetManager;
 import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheet;
+import Burst.Engine.Source.Core.Render.SpriteRenderer;
 import Orion.res.AssetConfig;
+
+import java.util.Timer;
 
 public class Genesis extends PlayerCharacter {
 
@@ -28,6 +31,7 @@ public class Genesis extends PlayerCharacter {
     this.runSprites = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.GENESIS_RUN, SpriteSheet.class);
     this.jumpSprites = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.GENESIS_JUMP, SpriteSheet.class);
     this.attackSprites =  AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.GENESIS_ATTACK, SpriteSheet.class);
+
   }
   @Override
   public void imgui() {

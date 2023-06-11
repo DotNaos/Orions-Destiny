@@ -111,12 +111,12 @@ public class AssetConfig {
 
         public static final String GENESIS_IDLE = Directories.GENESIS + "genesis.png";
         //*----------------------------------------------------------------------------------------\\
-        public static final String GENESIS_WALK = Directories.GENESIS + "run.png";
-        public static final String GENESIS_RUN = Directories.GENESIS + "run.png";
-        public static final String GENESIS_JUMP = Directories.GENESIS + "jump.png";
-        public static final String GENESIS_FALL = Directories.GENESIS + "fall.png";
-        public static final String GENESIS_ATTACK = Directories.GENESIS + "attack_1.png";
-        public static final String GENESIS_ATTACK2 = Directories.GENESIS + "attack_2.png";
+        public static final String GENESIS_WALK = Directories.GENESIS + "genesis.png";
+        public static final String GENESIS_RUN = Directories.GENESIS + "genesis.png";
+        public static final String GENESIS_JUMP = Directories.GENESIS + "genesis.png";
+        public static final String GENESIS_FALL = Directories.GENESIS + "genesis.png";
+        public static final String GENESIS_ATTACK = Directories.GENESIS + "genesis.png";
+        public static final String GENESIS_ATTACK2 = Directories.GENESIS + "genesis.png";
 
 
         //*________________________________________________________________________________________\\
@@ -156,9 +156,11 @@ public class AssetConfig {
           new SpriteSheetConfig(Files.Images.SpriteSheets.BUTTONS, SpriteSheetUsage.UI, 16, 16, 0),
           new SpriteSheetConfig(Files.Images.SpriteSheets.BLOCKS, SpriteSheetUsage.BLOCK, 16, 16, 0,
                   new int[]{16, 16, 4, 13, 10, 9, 7, 9, 14, 17, 18, 5, 21, 8, 3, 0, 7, 20, 15, 29, 32, 30, 32, 16, 16, 8, 5, 0, 0, 15, 15, 15}),
-          new SpriteSheetConfig(Files.Images.SpriteSheets.AURA_IDLE, SpriteSheetUsage.PLAYER, 100, 100, 0)
-
-
+          new SpriteSheetConfig(Files.Images.SpriteSheets.AURA_IDLE, SpriteSheetUsage.PLAYER, 100, 100, 0),
+          new SpriteSheetConfig(Files.Images.SpriteSheets.APEX_IDLE, SpriteSheetUsage.PLAYER, 80, 80, 0),
+          new SpriteSheetConfig(Files.Images.SpriteSheets.HELIX_IDLE, SpriteSheetUsage.PLAYER, 96, 96, 0),
+          new SpriteSheetConfig(Files.Images.SpriteSheets.GENESIS_IDLE, SpriteSheetUsage.PLAYER, 231, 190, 0),
+          new SpriteSheetConfig(Files.Images.SpriteSheets.SOLARIS_IDLE, SpriteSheetUsage.PLAYER, 55, 67, 0)
   );
 
 

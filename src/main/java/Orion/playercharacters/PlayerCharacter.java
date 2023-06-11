@@ -9,6 +9,7 @@ import Burst.Engine.Source.Core.Render.SpriteRenderer;
 import Orion.res.AssetConfig;
 
 public abstract class PlayerCharacter extends Pawn {
+    protected transient int spriteIndex = 0;
 
     protected SpriteSheet idleSprites;
     protected SpriteSheet walkSprites;

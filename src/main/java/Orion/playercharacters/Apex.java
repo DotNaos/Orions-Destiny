@@ -2,7 +2,10 @@ package Orion.playercharacters;
 
 import Burst.Engine.Source.Core.Assets.AssetManager;
 import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheet;
+import Burst.Engine.Source.Core.Render.SpriteRenderer;
 import Orion.res.AssetConfig;
+
+import java.util.Timer;
 
 public class Apex extends PlayerCharacter {
   @Override
@@ -30,6 +33,23 @@ public class Apex extends PlayerCharacter {
     this.runSprites = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.APEX_RUN, SpriteSheet.class);
     this.jumpSprites = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.APEX_JUMP, SpriteSheet.class);
     this.attackSprites =  AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.APEX_ATTACK, SpriteSheet.class);
+    getComponent(SpriteRenderer.class).setTexture(this.idleSprites.getTexture());
+    getComponent(SpriteRenderer.class).setSprite(this.idleSprites.getSprite(spriteIndex));
+
+    Timer timer = new Timer();
+    timer.scheduleAtFixedRate(new java.util.TimerTask() {
+      @Override
+      public void run() {
+        if (spriteIndex < 4) {
+          spriteIndex++;
+        } else {
+          spriteIndex = 0;
+        }
+
+        getComponent(SpriteRenderer.class).setSprite(idleSprites.getSprite(1, spriteIndex));
+      }
+    }, 0, 100);
+
     }
 
   @Override

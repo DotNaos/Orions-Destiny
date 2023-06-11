@@ -9,14 +9,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="Kleine Änderung">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Panel/EmptyPanel.java" afterDir="false" />
+    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="ImGui nicht mehr verbuggt und escape">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imgui.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/imgui.ini" beforeDir="false" afterPath="$PROJECT_DIR$/imgui.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/levels/level.json" beforeDir="false" afterPath="$PROJECT_DIR$/levels/level.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Panel/ViewportPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Panel/ViewportPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Config/HotKeys.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Config/HotKeys.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/PlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/PlayerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/Viewport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/Viewport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Util/ImGuiValueManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Util/ImGuiValueManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Game/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/blocks/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/blocks/Block.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Apex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Apex.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Aura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Aura.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Genesis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Genesis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Helix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Helix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/PlayerCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/PlayerCharacter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Solaris.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Solaris.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/res/AssetConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/res/AssetConfig.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -241,14 +250,7 @@
       <workItem from="1686258220665" duration="9488000" />
       <workItem from="1686304742078" duration="43789000" />
       <workItem from="1686386311492" duration="38872000" />
-      <workItem from="1686463913065" duration="31234000" />
-    </task>
-    <task id="LOCAL-00051" summary="InitialValues interface">
-      <created>1686121528345</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1686121528345</updated>
+      <workItem from="1686463913065" duration="35260000" />
     </task>
     <task id="LOCAL-00052" summary="Properties Panel und Actor Eigenschaften">
       <created>1686145026078</created>
@@ -586,14 +588,20 @@
       <option name="project" value="LOCAL" />
       <updated>1686499198112</updated>
     </task>
-    <option name="localTasksCounter" value="100" />
+    <task id="LOCAL-00100" summary="ImGui nicht mehr verbuggt und escape">
+      <created>1686500557370</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1686500557370</updated>
+    </task>
+    <option name="localTasksCounter" value="101" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="alpha blending geht wieder" />
     <MESSAGE value="NonPickable in properties" />
     <MESSAGE value="Reset Aspect Ratio nur in Runtime" />
     <MESSAGE value="Reduced picking requirement on alpha" />
@@ -618,7 +626,8 @@
     <MESSAGE value="Alle Spritesheets" />
     <MESSAGE value="Verkackte geflippte bilder" />
     <MESSAGE value="Kleine Änderung" />
-    <option name="LAST_COMMIT_MESSAGE" value="Kleine Änderung" />
+    <MESSAGE value="ImGui nicht mehr verbuggt und escape" />
+    <option name="LAST_COMMIT_MESSAGE" value="ImGui nicht mehr verbuggt und escape" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

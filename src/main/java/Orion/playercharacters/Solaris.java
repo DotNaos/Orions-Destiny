@@ -2,7 +2,10 @@ package Orion.playercharacters;
 
 import Burst.Engine.Source.Core.Assets.AssetManager;
 import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheet;
+import Burst.Engine.Source.Core.Render.SpriteRenderer;
 import Orion.res.AssetConfig;
+
+import java.util.Timer;
 
 public class Solaris extends PlayerCharacter {
   @Override
