@@ -9,22 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="Outliner nicht mehr undocked jedes mal und MuliText input">
+    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="SpriteSheets der Chars">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/Genesis/idle.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/Genesis/genesis.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/Helix/idle.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/Helix/helix.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/Solaris/idle.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/Solaris/solaris.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/apex.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/Apex/apex.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/AssetManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/AssetManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Render/SpriteRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Render/SpriteRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/Graphics/SpriteSheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/Graphics/SpriteSheet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/ImGui/BImGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/ImGui/BImGui.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Util/ImGuiValueManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Util/ImGuiValueManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Apex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Apex.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Aura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Aura.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Genesis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Genesis.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Helix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Helix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/PlayerCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/PlayerCharacter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Solaris.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Solaris.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/res/AssetConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/res/AssetConfig.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -249,14 +239,7 @@
       <workItem from="1686258220665" duration="9488000" />
       <workItem from="1686304742078" duration="43789000" />
       <workItem from="1686386311492" duration="38872000" />
-      <workItem from="1686463913065" duration="21650000" />
-    </task>
-    <task id="LOCAL-00046" summary="Picking funktioniert endlich">
-      <created>1686068710991</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1686068710991</updated>
+      <workItem from="1686463913065" duration="23334000" />
     </task>
     <task id="LOCAL-00047" summary="Picking Texture Debug Imgui">
       <created>1686076743420</created>
@@ -594,14 +577,20 @@
       <option name="project" value="LOCAL" />
       <updated>1686487312011</updated>
     </task>
-    <option name="localTasksCounter" value="95" />
+    <task id="LOCAL-00095" summary="SpriteSheets der Chars">
+      <created>1686490732875</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1686490732875</updated>
+    </task>
+    <option name="localTasksCounter" value="96" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Deleting Actors" />
     <MESSAGE value="Rotation flipped von Actors" />
     <MESSAGE value="Reset Values Transform dirtyFlag" />
     <MESSAGE value="Speichern vor ZIndex" />
@@ -626,7 +615,8 @@
     <MESSAGE value="Assets Pfade in Klassen" />
     <MESSAGE value="Nochmal ID fix" />
     <MESSAGE value="Outliner nicht mehr undocked jedes mal und MuliText input" />
-    <option name="LAST_COMMIT_MESSAGE" value="Outliner nicht mehr undocked jedes mal und MuliText input" />
+    <MESSAGE value="SpriteSheets der Chars" />
+    <option name="LAST_COMMIT_MESSAGE" value="SpriteSheets der Chars" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

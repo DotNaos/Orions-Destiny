@@ -316,6 +316,10 @@ public class BImGui {
     }
 
     public static String inputText(String label, String text) {
+
+        if (text == null) {
+            text = "";
+        }
         ImGui.pushID(label);
 
         ImString outString = new ImString(text, 256);

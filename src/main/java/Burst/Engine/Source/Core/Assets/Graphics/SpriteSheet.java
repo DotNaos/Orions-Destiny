@@ -32,6 +32,18 @@ public class SpriteSheet extends Asset {
         this.texture = new Texture(filepath);
     }
 
+    @Override
+    public void init()
+    {
+        super.init();
+        refresh();
+    }
+
+    public void refresh() {
+        this.texture = new Texture(this.filepath);
+//        createSprites(rows, cols);
+    }
+
     public void setConfig(SpriteSheetConfig config) {
         this.config = config;
         rows = texture.getWidth() / (config.spriteWidth + config.spacing);

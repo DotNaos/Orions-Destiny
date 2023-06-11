@@ -258,7 +258,7 @@ public interface ImGuiValueManager {
 
 
     } else if (type.equals(SpriteSheet.class)) {
-        SpriteSheet val = (SpriteSheet) value;
+      SpriteSheet val = (SpriteSheet) value;
         // Only show the first sprite
       if (val == null) {
           ImGui.text("None");
@@ -267,6 +267,11 @@ public interface ImGuiValueManager {
         if (val.getTexture() != null) {
           ImGui.text(val.getTexture().getFilepath());
 
+          if(ImGui.button("Refresh")) {
+            val.init();
+
+//            val.refresh();
+          }
 
           ImGui.image(val.getTexture().getTexID(), 128, 128);
         }
