@@ -66,7 +66,7 @@ public class StartMenuInitializer extends MenuInitializer {
 //             Texture texture = new Texture(512, 512);
 //            texture.init(Assets.TEXTURES + "testImage.png");
 //            ImGui.setCursorPosX((float) Window.getWidth() / 2);
-//            ImGui.imageButton(texture.getId(), 256, 256, 0, 1, 1, 0);
+//            BImGui.imageButton(texture.getId(), 256, 256, 0, 1, 1, 0);
 
 
         Menu buttonMenu = new Menu(2, 2, buttonSize, alignment, buttonSpacing, margin);

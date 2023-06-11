@@ -7,6 +7,7 @@ import Burst.Engine.Source.Core.EventSystem.Events.Event;
 import Burst.Engine.Source.Core.EventSystem.Events.EventType;
 import Burst.Engine.Source.Core.Render.Debug.DebugDraw;
 import Burst.Engine.Source.Core.Scene.SceneType;
+import Burst.Engine.Source.Core.UI.ImGui.BImGui;
 import Burst.Engine.Source.Core.UI.ImGui.ImGuiPanel;
 import Burst.Engine.Source.Core.UI.Window;
 import imgui.ImGui;
@@ -72,7 +73,9 @@ public class ViewportPanel extends ImGuiPanel {
         ImGui.setCursorPos(windowPos.x, windowPos.y);
 
         int textureId = Window.getFramebuffer().getTextureId();
-        ImGui.imageButton(textureId, windowSize.x, windowSize.y, 0, 1, 1, 0);
+        ImGui.imageButton(textureId, windowSize.x, windowSize.y
+                , 0, 1, 1, 0
+        );
 
 
         // If the mouse is out of the viewports bounds it's not hovered

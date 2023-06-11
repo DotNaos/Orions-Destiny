@@ -147,12 +147,12 @@ public interface ImGuiValueManager {
 
       // if hovered show preview of texture
       // Also show file path below
-      if (ImGui.imageButton(val.getTexID(), textureSize.x, textureSize.y)) {
+      if (BImGui.imageButton(val.getTexID(), textureSize.x, textureSize.y)) {
         ImGui.openPopup("Texture Preview");
       }
       if (ImGui.beginPopup("Texture Preview")) {
         Window.openPopup();
-        ImGui.image(val.getTexID(), textureSize.x * 1.5f, textureSize.y * 1.5f);
+        BImGui.image(val.getTexID(), textureSize.x * 1.5f, textureSize.y * 1.5f);
         // give the ability to change the texture
         if (ImGui.button("Change Texture")) {
           Window.openDialog();
@@ -191,13 +191,13 @@ public interface ImGuiValueManager {
 
       // if hovered show preview of texture
       // Also show file path below
-      if (ImGui.imageButton(val.getTexture().getTexID(), spriteSize.x, spriteSize.y, uv0X, uv0Y, uv1X, uv1Y)) {
+      if (BImGui.imageButton(val.getTexture().getTexID(), spriteSize.x, spriteSize.y, uv0X, uv0Y, uv1X, uv1Y)) {
         ImGui.openPopup("Sprite Preview");
       }
       if (ImGui.beginPopup("Sprite Preview")) {
         Window.openPopup();
 
-        ImGui.image(val.getTexture().getTexID(), spriteSize.x * 1.5f, spriteSize.y * 1.5f, uv0X, uv0Y, uv1X, uv1Y);
+        BImGui.image(val.getTexture().getTexID(), spriteSize.x * 1.5f, spriteSize.y * 1.5f, uv0X, uv0Y, uv1X, uv1Y);
 
         // give the ability to change the texture
         if (ImGui.button("Change Texture")) {
@@ -273,7 +273,14 @@ public interface ImGuiValueManager {
 //            val.refresh();
           }
 
-          ImGui.image(val.getTexture().getTexID(), 128, 128);
+          BImGui.image(val.getTexture().getTexID(), 128, 128);
+
+          if (ImGui.isItemHovered())
+          {
+            ImGui.beginTooltip();
+            BImGui.image(val.getTexture().getTexID(), 512, 512);
+            ImGui.endTooltip();
+          }
         }
       }
 

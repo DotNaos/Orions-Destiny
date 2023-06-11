@@ -214,6 +214,7 @@ public class ImGuiLayer {
 
         // After Dear ImGui prepared a draw data, we use it in the LWJGL3 renderer.
         // At that moment ImGui will be rendered to the current OpenGL context.
+        // Flip because imgui has flipped y coordinates
         ImGui.render();
         imGuiGl3.renderDrawData(ImGui.getDrawData());
 

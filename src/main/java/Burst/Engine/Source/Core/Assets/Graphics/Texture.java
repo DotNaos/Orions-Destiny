@@ -89,7 +89,7 @@ public class Texture extends Asset {
         IntBuffer height = BufferUtils.createIntBuffer(1);
         IntBuffer channels = BufferUtils.createIntBuffer(1);
 
-        stbi_set_flip_vertically_on_load(false);
+        stbi_set_flip_vertically_on_load(true);
         ByteBuffer image = stbi_load(filepath, width, height, channels, 0);
 
         if (image != null) {
@@ -113,6 +113,10 @@ public class Texture extends Asset {
         stbi_image_free(image);
         initialized = true;
     }
+
+
+
+
 
     public void bind() {
         glBindTexture(GL_TEXTURE_2D, texID);
@@ -192,4 +196,5 @@ public class Texture extends Asset {
         }
         return buffer;
     }
+
 }

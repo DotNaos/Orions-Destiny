@@ -7,6 +7,7 @@ import java.util.List;
 import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
 import Burst.Engine.Source.Core.Assets.Graphics.Texture;
+import Burst.Engine.Source.Core.UI.ImGui.BImGui;
 import Burst.Engine.Source.Core.UI.ImGui.ImGuiPanel;
 import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Core.Util.ClassDerivativeSearch;
@@ -100,7 +101,9 @@ public class ContentDrawer extends ImGuiPanel {
                     Texture icon = iconActor.getIcon();
 
                     ImGui.pushID(actor.getSimpleName());
-                    if (ImGui.imageButton(icon.getTexID(), iconSize, iconSize))
+                    // Flip the image
+
+                    if (BImGui.imageButton(icon.getTexID(), iconSize, iconSize))
                     {
                         Actor newActor = (Actor) actor.getConstructor().newInstance();
                         newActor.setSprite(new Sprite().setTexture(icon));
