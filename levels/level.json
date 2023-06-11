@@ -17,7 +17,7 @@
     },
     "name": "Aura",
     "type": "Orion.playercharacters.Aura",
-    "ID": 1,
+    "ID": 101,
     "components": [
       {
         "type": "Burst.Engine.Source.Core.Render.SpriteRenderer",
@@ -33,37 +33,37 @@
             "height": 100.0,
             "texCoords": [
               {
-                "x": 0.2,
+                "x": 0.1,
                 "y": 1.0
               },
               {
-                "x": 0.2,
-                "y": 0.9
-              },
-              {
                 "x": 0.1,
                 "y": 0.9
               },
               {
-                "x": 0.1,
+                "x": 0.0,
+                "y": 0.9
+              },
+              {
+                "x": 0.0,
                 "y": 1.0
               }
             ],
             "resetTexCoords": [
               {
-                "x": 0.2,
+                "x": 0.1,
                 "y": 1.0
               },
               {
-                "x": 0.2,
-                "y": 0.9
-              },
-              {
                 "x": 0.1,
                 "y": 0.9
               },
               {
-                "x": 0.1,
+                "x": 0.0,
+                "y": 0.9
+              },
+              {
+                "x": 0.0,
                 "y": 1.0
               }
             ],
@@ -73,27 +73,27 @@
           },
           "name": "SpriteRenderer",
           "ID": 385185606,
-          "isDirty": false
+          "isDirty": true
         }
       },
       {
         "type": "Burst.Engine.Source.Core.Physics.Components.Transform",
         "properties": {
           "position": {
-            "x": 0.13057488,
+            "x": 0.0,
             "y": 0.0
           },
           "scale": {
-            "x": 1.0,
-            "y": 1.0
+            "x": 1.5,
+            "y": 1.5
           },
           "size": {
             "x": 1.0,
             "y": 1.0
           },
           "scaledSize": {
-            "x": 1.0,
-            "y": 1.0
+            "x": 1.5,
+            "y": 1.5
           },
           "rotation": 0.0,
           "zIndex": 0,
@@ -124,7 +124,7 @@
         "properties": {
           "velocity": {
             "x": 0.0,
-            "y": -11.111108
+            "y": 0.0
           },
           "angularDamping": 0.8,
           "linearDamping": 0.9,
@@ -158,24 +158,18 @@
     "pickable": true
   },
   {
-    "description": "    A stealthy shadow ninja that can control the shadows.  \n    Slashing his enemies empowered with dark magic.  \n    Sometimes casting a shadow clone to confuse his enemies.  \n",
-    "HP": 0,
-    "DEF": 0,
-    "ATK": 0,
-    "SPD": 0,
-    "STAMINA": 0,
-    "LVL": 0,
-    "EXP": 0,
+    "row": 13,
+    "col": 0,
     "icon": {
       "width": 2048,
       "height": 2048,
-      "filepath": "Assets/images/textures/icons/player.png",
-      "ID": -2011724227,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
-    "name": "Apex",
-    "type": "Orion.playercharacters.Apex",
-    "ID": 2,
+    "name": "new Block",
+    "type": "Orion.blocks.Block",
+    "ID": 102,
     "components": [
       {
         "type": "Burst.Engine.Source.Core.Render.SpriteRenderer",
@@ -187,46 +181,46 @@
             "w": 1.0
           },
           "sprite": {
-            "width": 80.0,
-            "height": 80.0,
+            "width": 16.0,
+            "height": 16.0,
             "texCoords": [
               {
-                "x": 0.17391305,
-                "y": 1.0
+                "x": 0.15625,
+                "y": 0.09375
               },
               {
-                "x": 0.17391305,
-                "y": 0.8
+                "x": 0.15625,
+                "y": 0.0625
               },
               {
-                "x": 0.13043478,
-                "y": 0.8
+                "x": 0.125,
+                "y": 0.0625
               },
               {
-                "x": 0.13043478,
-                "y": 1.0
+                "x": 0.125,
+                "y": 0.09375
               }
             ],
             "resetTexCoords": [
               {
-                "x": 0.17391305,
-                "y": 1.0
+                "x": 0.15625,
+                "y": 0.09375
               },
               {
-                "x": 0.17391305,
-                "y": 0.8
+                "x": 0.15625,
+                "y": 0.0625
               },
               {
-                "x": 0.13043478,
-                "y": 0.8
+                "x": 0.125,
+                "y": 0.0625
               },
               {
-                "x": 0.13043478,
-                "y": 1.0
+                "x": 0.125,
+                "y": 0.09375
               }
             ],
-            "filepath": "Assets/images/spritesheets/player/Apex/apex.png",
-            "ID": -1827250105,
+            "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
+            "ID": 2619762,
             "isDirty": false
           },
           "name": "SpriteRenderer",
@@ -238,8 +232,8 @@
         "type": "Burst.Engine.Source.Core.Physics.Components.Transform",
         "properties": {
           "position": {
-            "x": -0.469,
-            "y": 0.0
+            "x": 0.0,
+            "y": -1.0
           },
           "scale": {
             "x": 1.0,
@@ -247,11 +241,11 @@
           },
           "size": {
             "x": 1.0,
-            "y": 0.21739131
+            "y": 1.0
           },
           "scaledSize": {
             "x": 1.0,
-            "y": 0.21739131
+            "y": 1.0
           },
           "rotation": 0.0,
           "zIndex": 0,
@@ -259,54 +253,2452 @@
           "ID": -683109387,
           "isDirty": false
         }
-      },
+      }
+    ],
+    "serializedActor": true,
+    "adjustSizeToTexture": false,
+    "pickable": true
+  },
+  {
+    "row": 13,
+    "col": 0,
+    "icon": {
+      "width": 2048,
+      "height": 2048,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
+      "isDirty": false
+    },
+    "name": "Block 3",
+    "type": "Orion.blocks.Block",
+    "ID": 103,
+    "components": [
       {
-        "type": "Burst.Engine.Source.Core.Actor.PlayerController",
+        "type": "Burst.Engine.Source.Core.Render.SpriteRenderer",
         "properties": {
-          "walkSpeed": 1.9,
-          "jumpBoost": 1.0,
-          "jumpImpulse": 3.0,
-          "slowDownForce": 0.05,
-          "terminalVelocity": {
-            "x": 2.1,
-            "y": 3.1
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
           },
-          "isDead": false,
-          "name": "PlayerController",
-          "ID": -1516388368,
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texCoords": [
+              {
+                "x": 0.15625,
+                "y": 0.09375
+              },
+              {
+                "x": 0.15625,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.09375
+              }
+            ],
+            "resetTexCoords": [
+              {
+                "x": 0.15625,
+                "y": 0.09375
+              },
+              {
+                "x": 0.15625,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.09375
+              }
+            ],
+            "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
+            "ID": 2619762,
+            "isDirty": false
+          },
+          "name": "SpriteRenderer",
+          "ID": 385185606,
           "isDirty": false
         }
       },
       {
-        "type": "Burst.Engine.Source.Core.Physics.Components.Rigidbody2D",
+        "type": "Burst.Engine.Source.Core.Physics.Components.Transform",
         "properties": {
-          "velocity": {
+          "position": {
+            "x": 1.0,
+            "y": -1.0
+          },
+          "scale": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "size": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "scaledSize": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "name": "Transform",
+          "ID": -683109387,
+          "isDirty": false
+        }
+      }
+    ],
+    "serializedActor": true,
+    "adjustSizeToTexture": false,
+    "pickable": true
+  },
+  {
+    "row": 13,
+    "col": 0,
+    "icon": {
+      "width": 2048,
+      "height": 2048,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
+      "isDirty": false
+    },
+    "name": "Block 4",
+    "type": "Orion.blocks.Block",
+    "ID": 104,
+    "components": [
+      {
+        "type": "Burst.Engine.Source.Core.Render.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texCoords": [
+              {
+                "x": 0.15625,
+                "y": 0.09375
+              },
+              {
+                "x": 0.15625,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.09375
+              }
+            ],
+            "resetTexCoords": [
+              {
+                "x": 0.15625,
+                "y": 0.09375
+              },
+              {
+                "x": 0.15625,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.09375
+              }
+            ],
+            "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
+            "ID": 2619762,
+            "isDirty": false
+          },
+          "name": "SpriteRenderer",
+          "ID": 385185606,
+          "isDirty": false
+        }
+      },
+      {
+        "type": "Burst.Engine.Source.Core.Physics.Components.Transform",
+        "properties": {
+          "position": {
+            "x": 2.0,
+            "y": -1.0
+          },
+          "scale": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "size": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "scaledSize": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "name": "Transform",
+          "ID": -683109387,
+          "isDirty": false
+        }
+      }
+    ],
+    "serializedActor": true,
+    "adjustSizeToTexture": false,
+    "pickable": true
+  },
+  {
+    "row": 13,
+    "col": 0,
+    "icon": {
+      "width": 2048,
+      "height": 2048,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
+      "isDirty": false
+    },
+    "name": "Block 5",
+    "type": "Orion.blocks.Block",
+    "ID": 105,
+    "components": [
+      {
+        "type": "Burst.Engine.Source.Core.Render.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texCoords": [
+              {
+                "x": 0.15625,
+                "y": 0.09375
+              },
+              {
+                "x": 0.15625,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.09375
+              }
+            ],
+            "resetTexCoords": [
+              {
+                "x": 0.15625,
+                "y": 0.09375
+              },
+              {
+                "x": 0.15625,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.09375
+              }
+            ],
+            "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
+            "ID": 2619762,
+            "isDirty": false
+          },
+          "name": "SpriteRenderer",
+          "ID": 385185606,
+          "isDirty": false
+        }
+      },
+      {
+        "type": "Burst.Engine.Source.Core.Physics.Components.Transform",
+        "properties": {
+          "position": {
+            "x": 3.0,
+            "y": -1.0
+          },
+          "scale": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "size": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "scaledSize": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "name": "Transform",
+          "ID": -683109387,
+          "isDirty": false
+        }
+      }
+    ],
+    "serializedActor": true,
+    "adjustSizeToTexture": false,
+    "pickable": true
+  },
+  {
+    "row": 13,
+    "col": 0,
+    "icon": {
+      "width": 2048,
+      "height": 2048,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
+      "isDirty": false
+    },
+    "name": "Block 6",
+    "type": "Orion.blocks.Block",
+    "ID": 106,
+    "components": [
+      {
+        "type": "Burst.Engine.Source.Core.Render.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texCoords": [
+              {
+                "x": 0.15625,
+                "y": 0.09375
+              },
+              {
+                "x": 0.15625,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.09375
+              }
+            ],
+            "resetTexCoords": [
+              {
+                "x": 0.15625,
+                "y": 0.09375
+              },
+              {
+                "x": 0.15625,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.09375
+              }
+            ],
+            "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
+            "ID": 2619762,
+            "isDirty": false
+          },
+          "name": "SpriteRenderer",
+          "ID": 385185606,
+          "isDirty": false
+        }
+      },
+      {
+        "type": "Burst.Engine.Source.Core.Physics.Components.Transform",
+        "properties": {
+          "position": {
+            "x": 4.0,
+            "y": -1.0
+          },
+          "scale": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "size": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "scaledSize": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "name": "Transform",
+          "ID": -683109387,
+          "isDirty": false
+        }
+      }
+    ],
+    "serializedActor": true,
+    "adjustSizeToTexture": false,
+    "pickable": true
+  },
+  {
+    "row": 13,
+    "col": 0,
+    "icon": {
+      "width": 2048,
+      "height": 2048,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
+      "isDirty": false
+    },
+    "name": "Block 7",
+    "type": "Orion.blocks.Block",
+    "ID": 107,
+    "components": [
+      {
+        "type": "Burst.Engine.Source.Core.Render.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texCoords": [
+              {
+                "x": 0.15625,
+                "y": 0.09375
+              },
+              {
+                "x": 0.15625,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.09375
+              }
+            ],
+            "resetTexCoords": [
+              {
+                "x": 0.15625,
+                "y": 0.09375
+              },
+              {
+                "x": 0.15625,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.09375
+              }
+            ],
+            "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
+            "ID": 2619762,
+            "isDirty": false
+          },
+          "name": "SpriteRenderer",
+          "ID": 385185606,
+          "isDirty": false
+        }
+      },
+      {
+        "type": "Burst.Engine.Source.Core.Physics.Components.Transform",
+        "properties": {
+          "position": {
+            "x": 5.0,
+            "y": -1.0
+          },
+          "scale": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "size": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "scaledSize": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "name": "Transform",
+          "ID": -683109387,
+          "isDirty": false
+        }
+      }
+    ],
+    "serializedActor": true,
+    "adjustSizeToTexture": false,
+    "pickable": true
+  },
+  {
+    "row": 13,
+    "col": 0,
+    "icon": {
+      "width": 2048,
+      "height": 2048,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
+      "isDirty": false
+    },
+    "name": "Block 8",
+    "type": "Orion.blocks.Block",
+    "ID": 108,
+    "components": [
+      {
+        "type": "Burst.Engine.Source.Core.Render.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texCoords": [
+              {
+                "x": 0.15625,
+                "y": 0.09375
+              },
+              {
+                "x": 0.15625,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.09375
+              }
+            ],
+            "resetTexCoords": [
+              {
+                "x": 0.15625,
+                "y": 0.09375
+              },
+              {
+                "x": 0.15625,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.09375
+              }
+            ],
+            "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
+            "ID": 2619762,
+            "isDirty": false
+          },
+          "name": "SpriteRenderer",
+          "ID": 385185606,
+          "isDirty": false
+        }
+      },
+      {
+        "type": "Burst.Engine.Source.Core.Physics.Components.Transform",
+        "properties": {
+          "position": {
+            "x": 6.0,
+            "y": -1.0
+          },
+          "scale": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "size": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "scaledSize": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "name": "Transform",
+          "ID": -683109387,
+          "isDirty": false
+        }
+      }
+    ],
+    "serializedActor": true,
+    "adjustSizeToTexture": false,
+    "pickable": true
+  },
+  {
+    "row": 13,
+    "col": 0,
+    "icon": {
+      "width": 2048,
+      "height": 2048,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
+      "isDirty": false
+    },
+    "name": "Block 9",
+    "type": "Orion.blocks.Block",
+    "ID": 109,
+    "components": [
+      {
+        "type": "Burst.Engine.Source.Core.Render.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texCoords": [
+              {
+                "x": 0.15625,
+                "y": 0.09375
+              },
+              {
+                "x": 0.15625,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.09375
+              }
+            ],
+            "resetTexCoords": [
+              {
+                "x": 0.15625,
+                "y": 0.09375
+              },
+              {
+                "x": 0.15625,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.09375
+              }
+            ],
+            "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
+            "ID": 2619762,
+            "isDirty": false
+          },
+          "name": "SpriteRenderer",
+          "ID": 385185606,
+          "isDirty": false
+        }
+      },
+      {
+        "type": "Burst.Engine.Source.Core.Physics.Components.Transform",
+        "properties": {
+          "position": {
+            "x": 7.0,
+            "y": -1.0
+          },
+          "scale": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "size": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "scaledSize": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "name": "Transform",
+          "ID": -683109387,
+          "isDirty": false
+        }
+      }
+    ],
+    "serializedActor": true,
+    "adjustSizeToTexture": false,
+    "pickable": true
+  },
+  {
+    "row": 13,
+    "col": 0,
+    "icon": {
+      "width": 2048,
+      "height": 2048,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
+      "isDirty": false
+    },
+    "name": "Block 10",
+    "type": "Orion.blocks.Block",
+    "ID": 110,
+    "components": [
+      {
+        "type": "Burst.Engine.Source.Core.Render.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texCoords": [
+              {
+                "x": 0.15625,
+                "y": 0.09375
+              },
+              {
+                "x": 0.15625,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.09375
+              }
+            ],
+            "resetTexCoords": [
+              {
+                "x": 0.15625,
+                "y": 0.09375
+              },
+              {
+                "x": 0.15625,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.09375
+              }
+            ],
+            "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
+            "ID": 2619762,
+            "isDirty": false
+          },
+          "name": "SpriteRenderer",
+          "ID": 385185606,
+          "isDirty": false
+        }
+      },
+      {
+        "type": "Burst.Engine.Source.Core.Physics.Components.Transform",
+        "properties": {
+          "position": {
+            "x": 8.0,
+            "y": -1.0
+          },
+          "scale": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "size": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "scaledSize": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "name": "Transform",
+          "ID": -683109387,
+          "isDirty": false
+        }
+      }
+    ],
+    "serializedActor": true,
+    "adjustSizeToTexture": false,
+    "pickable": true
+  },
+  {
+    "row": 13,
+    "col": 0,
+    "icon": {
+      "width": 2048,
+      "height": 2048,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
+      "isDirty": false
+    },
+    "name": "Block 11",
+    "type": "Orion.blocks.Block",
+    "ID": 111,
+    "components": [
+      {
+        "type": "Burst.Engine.Source.Core.Render.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texCoords": [
+              {
+                "x": 0.15625,
+                "y": 0.09375
+              },
+              {
+                "x": 0.15625,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.09375
+              }
+            ],
+            "resetTexCoords": [
+              {
+                "x": 0.15625,
+                "y": 0.09375
+              },
+              {
+                "x": 0.15625,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.09375
+              }
+            ],
+            "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
+            "ID": 2619762,
+            "isDirty": false
+          },
+          "name": "SpriteRenderer",
+          "ID": 385185606,
+          "isDirty": false
+        }
+      },
+      {
+        "type": "Burst.Engine.Source.Core.Physics.Components.Transform",
+        "properties": {
+          "position": {
+            "x": 9.0,
+            "y": -1.0
+          },
+          "scale": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "size": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "scaledSize": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "name": "Transform",
+          "ID": -683109387,
+          "isDirty": false
+        }
+      }
+    ],
+    "serializedActor": true,
+    "adjustSizeToTexture": false,
+    "pickable": true
+  },
+  {
+    "row": 13,
+    "col": 0,
+    "icon": {
+      "width": 2048,
+      "height": 2048,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
+      "isDirty": false
+    },
+    "name": "Block 12",
+    "type": "Orion.blocks.Block",
+    "ID": 112,
+    "components": [
+      {
+        "type": "Burst.Engine.Source.Core.Render.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texCoords": [
+              {
+                "x": 0.15625,
+                "y": 0.09375
+              },
+              {
+                "x": 0.15625,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.09375
+              }
+            ],
+            "resetTexCoords": [
+              {
+                "x": 0.15625,
+                "y": 0.09375
+              },
+              {
+                "x": 0.15625,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.09375
+              }
+            ],
+            "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
+            "ID": 2619762,
+            "isDirty": false
+          },
+          "name": "SpriteRenderer",
+          "ID": 385185606,
+          "isDirty": false
+        }
+      },
+      {
+        "type": "Burst.Engine.Source.Core.Physics.Components.Transform",
+        "properties": {
+          "position": {
+            "x": 10.0,
+            "y": -1.0
+          },
+          "scale": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "size": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "scaledSize": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "name": "Transform",
+          "ID": -683109387,
+          "isDirty": false
+        }
+      }
+    ],
+    "serializedActor": true,
+    "adjustSizeToTexture": false,
+    "pickable": true
+  },
+  {
+    "row": 13,
+    "col": 0,
+    "icon": {
+      "width": 2048,
+      "height": 2048,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
+      "isDirty": false
+    },
+    "name": "Block 13",
+    "type": "Orion.blocks.Block",
+    "ID": 113,
+    "components": [
+      {
+        "type": "Burst.Engine.Source.Core.Render.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texCoords": [
+              {
+                "x": 0.15625,
+                "y": 0.09375
+              },
+              {
+                "x": 0.15625,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.09375
+              }
+            ],
+            "resetTexCoords": [
+              {
+                "x": 0.15625,
+                "y": 0.09375
+              },
+              {
+                "x": 0.15625,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.09375
+              }
+            ],
+            "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
+            "ID": 2619762,
+            "isDirty": false
+          },
+          "name": "SpriteRenderer",
+          "ID": 385185606,
+          "isDirty": false
+        }
+      },
+      {
+        "type": "Burst.Engine.Source.Core.Physics.Components.Transform",
+        "properties": {
+          "position": {
+            "x": 11.0,
+            "y": -1.0
+          },
+          "scale": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "size": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "scaledSize": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "name": "Transform",
+          "ID": -683109387,
+          "isDirty": false
+        }
+      }
+    ],
+    "serializedActor": true,
+    "adjustSizeToTexture": false,
+    "pickable": true
+  },
+  {
+    "row": 13,
+    "col": 0,
+    "icon": {
+      "width": 2048,
+      "height": 2048,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
+      "isDirty": false
+    },
+    "name": "Block 14",
+    "type": "Orion.blocks.Block",
+    "ID": 114,
+    "components": [
+      {
+        "type": "Burst.Engine.Source.Core.Render.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texCoords": [
+              {
+                "x": 0.15625,
+                "y": 0.09375
+              },
+              {
+                "x": 0.15625,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.09375
+              }
+            ],
+            "resetTexCoords": [
+              {
+                "x": 0.15625,
+                "y": 0.09375
+              },
+              {
+                "x": 0.15625,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.09375
+              }
+            ],
+            "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
+            "ID": 2619762,
+            "isDirty": false
+          },
+          "name": "SpriteRenderer",
+          "ID": 385185606,
+          "isDirty": false
+        }
+      },
+      {
+        "type": "Burst.Engine.Source.Core.Physics.Components.Transform",
+        "properties": {
+          "position": {
+            "x": -12.0,
+            "y": -1.0
+          },
+          "scale": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "size": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "scaledSize": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "name": "Transform",
+          "ID": -683109387,
+          "isDirty": false
+        }
+      }
+    ],
+    "serializedActor": true,
+    "adjustSizeToTexture": false,
+    "pickable": true
+  },
+  {
+    "row": 13,
+    "col": 0,
+    "icon": {
+      "width": 2048,
+      "height": 2048,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
+      "isDirty": false
+    },
+    "name": "Block 15",
+    "type": "Orion.blocks.Block",
+    "ID": 115,
+    "components": [
+      {
+        "type": "Burst.Engine.Source.Core.Render.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texCoords": [
+              {
+                "x": 0.15625,
+                "y": 0.09375
+              },
+              {
+                "x": 0.15625,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.09375
+              }
+            ],
+            "resetTexCoords": [
+              {
+                "x": 0.15625,
+                "y": 0.09375
+              },
+              {
+                "x": 0.15625,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.09375
+              }
+            ],
+            "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
+            "ID": 2619762,
+            "isDirty": false
+          },
+          "name": "SpriteRenderer",
+          "ID": 385185606,
+          "isDirty": false
+        }
+      },
+      {
+        "type": "Burst.Engine.Source.Core.Physics.Components.Transform",
+        "properties": {
+          "position": {
+            "x": -11.0,
+            "y": -1.0
+          },
+          "scale": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "size": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "scaledSize": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "name": "Transform",
+          "ID": -683109387,
+          "isDirty": false
+        }
+      }
+    ],
+    "serializedActor": true,
+    "adjustSizeToTexture": false,
+    "pickable": true
+  },
+  {
+    "row": 13,
+    "col": 0,
+    "icon": {
+      "width": 2048,
+      "height": 2048,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
+      "isDirty": false
+    },
+    "name": "Block 16",
+    "type": "Orion.blocks.Block",
+    "ID": 116,
+    "components": [
+      {
+        "type": "Burst.Engine.Source.Core.Render.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texCoords": [
+              {
+                "x": 0.15625,
+                "y": 0.09375
+              },
+              {
+                "x": 0.15625,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.09375
+              }
+            ],
+            "resetTexCoords": [
+              {
+                "x": 0.15625,
+                "y": 0.09375
+              },
+              {
+                "x": 0.15625,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.09375
+              }
+            ],
+            "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
+            "ID": 2619762,
+            "isDirty": false
+          },
+          "name": "SpriteRenderer",
+          "ID": 385185606,
+          "isDirty": false
+        }
+      },
+      {
+        "type": "Burst.Engine.Source.Core.Physics.Components.Transform",
+        "properties": {
+          "position": {
+            "x": -10.0,
+            "y": -1.0
+          },
+          "scale": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "size": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "scaledSize": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "name": "Transform",
+          "ID": -683109387,
+          "isDirty": false
+        }
+      }
+    ],
+    "serializedActor": true,
+    "adjustSizeToTexture": false,
+    "pickable": true
+  },
+  {
+    "row": 13,
+    "col": 0,
+    "icon": {
+      "width": 2048,
+      "height": 2048,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
+      "isDirty": false
+    },
+    "name": "Block 17",
+    "type": "Orion.blocks.Block",
+    "ID": 117,
+    "components": [
+      {
+        "type": "Burst.Engine.Source.Core.Render.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texCoords": [
+              {
+                "x": 0.15625,
+                "y": 0.09375
+              },
+              {
+                "x": 0.15625,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.09375
+              }
+            ],
+            "resetTexCoords": [
+              {
+                "x": 0.15625,
+                "y": 0.09375
+              },
+              {
+                "x": 0.15625,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.09375
+              }
+            ],
+            "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
+            "ID": 2619762,
+            "isDirty": false
+          },
+          "name": "SpriteRenderer",
+          "ID": 385185606,
+          "isDirty": false
+        }
+      },
+      {
+        "type": "Burst.Engine.Source.Core.Physics.Components.Transform",
+        "properties": {
+          "position": {
+            "x": -9.0,
+            "y": -1.0
+          },
+          "scale": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "size": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "scaledSize": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "name": "Transform",
+          "ID": -683109387,
+          "isDirty": false
+        }
+      }
+    ],
+    "serializedActor": true,
+    "adjustSizeToTexture": false,
+    "pickable": true
+  },
+  {
+    "row": 13,
+    "col": 0,
+    "icon": {
+      "width": 2048,
+      "height": 2048,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
+      "isDirty": false
+    },
+    "name": "Block 18",
+    "type": "Orion.blocks.Block",
+    "ID": 118,
+    "components": [
+      {
+        "type": "Burst.Engine.Source.Core.Render.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texCoords": [
+              {
+                "x": 0.15625,
+                "y": 0.09375
+              },
+              {
+                "x": 0.15625,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.09375
+              }
+            ],
+            "resetTexCoords": [
+              {
+                "x": 0.15625,
+                "y": 0.09375
+              },
+              {
+                "x": 0.15625,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.09375
+              }
+            ],
+            "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
+            "ID": 2619762,
+            "isDirty": false
+          },
+          "name": "SpriteRenderer",
+          "ID": 385185606,
+          "isDirty": false
+        }
+      },
+      {
+        "type": "Burst.Engine.Source.Core.Physics.Components.Transform",
+        "properties": {
+          "position": {
+            "x": -8.0,
+            "y": -1.0
+          },
+          "scale": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "size": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "scaledSize": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "name": "Transform",
+          "ID": -683109387,
+          "isDirty": false
+        }
+      }
+    ],
+    "serializedActor": true,
+    "adjustSizeToTexture": false,
+    "pickable": true
+  },
+  {
+    "row": 13,
+    "col": 0,
+    "icon": {
+      "width": 2048,
+      "height": 2048,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
+      "isDirty": false
+    },
+    "name": "Block 19",
+    "type": "Orion.blocks.Block",
+    "ID": 119,
+    "components": [
+      {
+        "type": "Burst.Engine.Source.Core.Render.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texCoords": [
+              {
+                "x": 0.15625,
+                "y": 0.09375
+              },
+              {
+                "x": 0.15625,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.09375
+              }
+            ],
+            "resetTexCoords": [
+              {
+                "x": 0.15625,
+                "y": 0.09375
+              },
+              {
+                "x": 0.15625,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.09375
+              }
+            ],
+            "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
+            "ID": 2619762,
+            "isDirty": false
+          },
+          "name": "SpriteRenderer",
+          "ID": 385185606,
+          "isDirty": false
+        }
+      },
+      {
+        "type": "Burst.Engine.Source.Core.Physics.Components.Transform",
+        "properties": {
+          "position": {
+            "x": -7.0,
+            "y": -1.0
+          },
+          "scale": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "size": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "scaledSize": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "name": "Transform",
+          "ID": -683109387,
+          "isDirty": false
+        }
+      }
+    ],
+    "serializedActor": true,
+    "adjustSizeToTexture": false,
+    "pickable": true
+  },
+  {
+    "row": 13,
+    "col": 0,
+    "icon": {
+      "width": 2048,
+      "height": 2048,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
+      "isDirty": false
+    },
+    "name": "Block 20",
+    "type": "Orion.blocks.Block",
+    "ID": 120,
+    "components": [
+      {
+        "type": "Burst.Engine.Source.Core.Render.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texCoords": [
+              {
+                "x": 0.15625,
+                "y": 0.09375
+              },
+              {
+                "x": 0.15625,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.09375
+              }
+            ],
+            "resetTexCoords": [
+              {
+                "x": 0.15625,
+                "y": 0.09375
+              },
+              {
+                "x": 0.15625,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.09375
+              }
+            ],
+            "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
+            "ID": 2619762,
+            "isDirty": false
+          },
+          "name": "SpriteRenderer",
+          "ID": 385185606,
+          "isDirty": false
+        }
+      },
+      {
+        "type": "Burst.Engine.Source.Core.Physics.Components.Transform",
+        "properties": {
+          "position": {
+            "x": -6.0,
+            "y": -1.0
+          },
+          "scale": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "size": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "scaledSize": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "name": "Transform",
+          "ID": -683109387,
+          "isDirty": false
+        }
+      }
+    ],
+    "serializedActor": true,
+    "adjustSizeToTexture": false,
+    "pickable": true
+  },
+  {
+    "row": 13,
+    "col": 0,
+    "icon": {
+      "width": 2048,
+      "height": 2048,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
+      "isDirty": false
+    },
+    "name": "Block 21",
+    "type": "Orion.blocks.Block",
+    "ID": 121,
+    "components": [
+      {
+        "type": "Burst.Engine.Source.Core.Render.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texCoords": [
+              {
+                "x": 0.15625,
+                "y": 0.09375
+              },
+              {
+                "x": 0.15625,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.09375
+              }
+            ],
+            "resetTexCoords": [
+              {
+                "x": 0.15625,
+                "y": 0.09375
+              },
+              {
+                "x": 0.15625,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.09375
+              }
+            ],
+            "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
+            "ID": 2619762,
+            "isDirty": false
+          },
+          "name": "SpriteRenderer",
+          "ID": 385185606,
+          "isDirty": false
+        }
+      },
+      {
+        "type": "Burst.Engine.Source.Core.Physics.Components.Transform",
+        "properties": {
+          "position": {
+            "x": -5.0,
+            "y": -1.0
+          },
+          "scale": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "size": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "scaledSize": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "name": "Transform",
+          "ID": -683109387,
+          "isDirty": false
+        }
+      }
+    ],
+    "serializedActor": true,
+    "adjustSizeToTexture": false,
+    "pickable": true
+  },
+  {
+    "row": 13,
+    "col": 0,
+    "icon": {
+      "width": 2048,
+      "height": 2048,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
+      "isDirty": false
+    },
+    "name": "Block 22",
+    "type": "Orion.blocks.Block",
+    "ID": 122,
+    "components": [
+      {
+        "type": "Burst.Engine.Source.Core.Render.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texCoords": [
+              {
+                "x": 0.15625,
+                "y": 0.09375
+              },
+              {
+                "x": 0.15625,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.09375
+              }
+            ],
+            "resetTexCoords": [
+              {
+                "x": 0.15625,
+                "y": 0.09375
+              },
+              {
+                "x": 0.15625,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.09375
+              }
+            ],
+            "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
+            "ID": 2619762,
+            "isDirty": false
+          },
+          "name": "SpriteRenderer",
+          "ID": 385185606,
+          "isDirty": false
+        }
+      },
+      {
+        "type": "Burst.Engine.Source.Core.Physics.Components.Transform",
+        "properties": {
+          "position": {
+            "x": -4.0,
+            "y": -1.0
+          },
+          "scale": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "size": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "scaledSize": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "name": "Transform",
+          "ID": -683109387,
+          "isDirty": false
+        }
+      }
+    ],
+    "serializedActor": true,
+    "adjustSizeToTexture": false,
+    "pickable": true
+  },
+  {
+    "row": 13,
+    "col": 0,
+    "icon": {
+      "width": 2048,
+      "height": 2048,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
+      "isDirty": false
+    },
+    "name": "Block 23",
+    "type": "Orion.blocks.Block",
+    "ID": 123,
+    "components": [
+      {
+        "type": "Burst.Engine.Source.Core.Render.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texCoords": [
+              {
+                "x": 0.15625,
+                "y": 0.09375
+              },
+              {
+                "x": 0.15625,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.09375
+              }
+            ],
+            "resetTexCoords": [
+              {
+                "x": 0.15625,
+                "y": 0.09375
+              },
+              {
+                "x": 0.15625,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.09375
+              }
+            ],
+            "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
+            "ID": 2619762,
+            "isDirty": false
+          },
+          "name": "SpriteRenderer",
+          "ID": 385185606,
+          "isDirty": false
+        }
+      },
+      {
+        "type": "Burst.Engine.Source.Core.Physics.Components.Transform",
+        "properties": {
+          "position": {
+            "x": -3.0,
+            "y": -1.0
+          },
+          "scale": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "size": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "scaledSize": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "name": "Transform",
+          "ID": -683109387,
+          "isDirty": false
+        }
+      }
+    ],
+    "serializedActor": true,
+    "adjustSizeToTexture": false,
+    "pickable": true
+  },
+  {
+    "row": 13,
+    "col": 0,
+    "icon": {
+      "width": 2048,
+      "height": 2048,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
+      "isDirty": false
+    },
+    "name": "Block 24",
+    "type": "Orion.blocks.Block",
+    "ID": 124,
+    "components": [
+      {
+        "type": "Burst.Engine.Source.Core.Render.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texCoords": [
+              {
+                "x": 0.15625,
+                "y": 0.09375
+              },
+              {
+                "x": 0.15625,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.09375
+              }
+            ],
+            "resetTexCoords": [
+              {
+                "x": 0.15625,
+                "y": 0.09375
+              },
+              {
+                "x": 0.15625,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.09375
+              }
+            ],
+            "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
+            "ID": 2619762,
+            "isDirty": false
+          },
+          "name": "SpriteRenderer",
+          "ID": 385185606,
+          "isDirty": false
+        }
+      },
+      {
+        "type": "Burst.Engine.Source.Core.Physics.Components.Transform",
+        "properties": {
+          "position": {
+            "x": -2.0,
+            "y": -1.0
+          },
+          "scale": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "size": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "scaledSize": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "name": "Transform",
+          "ID": -683109387,
+          "isDirty": false
+        }
+      }
+    ],
+    "serializedActor": true,
+    "adjustSizeToTexture": false,
+    "pickable": true
+  },
+  {
+    "row": 13,
+    "col": 0,
+    "icon": {
+      "width": 2048,
+      "height": 2048,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
+      "isDirty": false
+    },
+    "name": "Block 25",
+    "type": "Orion.blocks.Block",
+    "ID": 125,
+    "components": [
+      {
+        "type": "Burst.Engine.Source.Core.Render.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texCoords": [
+              {
+                "x": 0.15625,
+                "y": 0.09375
+              },
+              {
+                "x": 0.15625,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.09375
+              }
+            ],
+            "resetTexCoords": [
+              {
+                "x": 0.15625,
+                "y": 0.09375
+              },
+              {
+                "x": 0.15625,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.0625
+              },
+              {
+                "x": 0.125,
+                "y": 0.09375
+              }
+            ],
+            "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
+            "ID": 2619762,
+            "isDirty": false
+          },
+          "name": "SpriteRenderer",
+          "ID": 385185606,
+          "isDirty": false
+        }
+      },
+      {
+        "type": "Burst.Engine.Source.Core.Physics.Components.Transform",
+        "properties": {
+          "position": {
+            "x": -1.0,
+            "y": -1.0
+          },
+          "scale": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "size": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "scaledSize": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "name": "Transform",
+          "ID": -683109387,
+          "isDirty": false
+        }
+      }
+    ],
+    "serializedActor": true,
+    "adjustSizeToTexture": false,
+    "pickable": true
+  },
+  {
+    "row": 0,
+    "col": 0,
+    "icon": {
+      "width": 2048,
+      "height": 2048,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
+      "isDirty": false
+    },
+    "name": "new Block",
+    "type": "Orion.blocks.Block",
+    "ID": 126,
+    "components": [
+      {
+        "type": "Burst.Engine.Source.Core.Render.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texCoords": [
+              {
+                "x": 0.03125,
+                "y": 1.0
+              },
+              {
+                "x": 0.03125,
+                "y": 0.96875
+              },
+              {
+                "x": 0.0,
+                "y": 0.96875
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              }
+            ],
+            "resetTexCoords": [
+              {
+                "x": 0.03125,
+                "y": 1.0
+              },
+              {
+                "x": 0.03125,
+                "y": 0.96875
+              },
+              {
+                "x": 0.0,
+                "y": 0.96875
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              }
+            ],
+            "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
+            "ID": 2619762,
+            "isDirty": false
+          },
+          "name": "SpriteRenderer",
+          "ID": 385185606,
+          "isDirty": false
+        }
+      },
+      {
+        "type": "Burst.Engine.Source.Core.Physics.Components.Transform",
+        "properties": {
+          "position": {
             "x": 0.0,
-            "y": -11.111108
+            "y": 2.0
           },
-          "angularDamping": 0.8,
-          "linearDamping": 0.9,
-          "mass": 0.0,
-          "bodyType": "Dynamic",
-          "friction": 0.1,
-          "angularVelocity": 0.0,
-          "gravityScale": 1.0,
-          "isSensor": false,
-          "fixedRotation": false,
-          "continuousCollision": true,
-          "name": "Rigidbody2D",
-          "ID": -1192050776,
-          "isDirty": false
-        }
-      },
-      {
-        "type": "Burst.Engine.Source.Game.Animation.StateMachine",
-        "properties": {
-          "stateTransfers": {},
-          "states": [],
-          "defaultStateTitle": "",
-          "name": "StateMachine",
-          "ID": -698501465,
+          "scale": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "size": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "scaledSize": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "name": "Transform",
+          "ID": -683109387,
           "isDirty": false
         }
       }

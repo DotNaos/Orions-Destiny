@@ -277,7 +277,7 @@ public class Game {
       System.out.println("Dialog open, not saving level");
       return;
 
-    } else if (!inEditor() ) {
+    } else if (inGame() ) {
       System.out.println("Not in editor, not saving level");
       return;
     }
