@@ -11,10 +11,10 @@ import Burst.Engine.Source.Core.Render.Debug.DebugDraw;
 import Burst.Engine.Source.Core.Render.PickingTexture;
 import Burst.Engine.Source.Core.Render.SpriteRenderer;
 import Burst.Engine.Source.Core.UI.Window;
-import Burst.Engine.Source.Editor.Editor;
 import Burst.Engine.Source.Editor.Gizmo.GizmoSystem;
 import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
 import Burst.Engine.Source.Game.Animation.StateMachine;
+import Burst.Engine.Source.Game.Game;
 import Orion.res.AssetConfig;
 import org.joml.Vector2f;
 import org.joml.Vector2i;
@@ -75,16 +75,16 @@ public class MouseControls extends Component {
   private void handleInput() {
     PropertiesPanel propertiesPanel = Window.getScene().getPanel(PropertiesPanel.class);
     PickingTexture pickingTexture = propertiesPanel.getPickingTexture();
-    Editor editor = Window.getScene().getEditor();
+    Game game = Window.getScene().getGame();
 
     // * Placing objects on release
-    if (placingActor(propertiesPanel, pickingTexture, editor)) ;
+    if (placingActor(propertiesPanel, pickingTexture, game)) ;
 
     // * Clicking on objects
-    else if (clickOnActor(propertiesPanel, pickingTexture, editor));
+    else if (clickOnActor(propertiesPanel, pickingTexture, game));
 
     // * Box select
-    else if (boxSelectActors(propertiesPanel, pickingTexture, editor)) ;
+    else if (boxSelectActors(propertiesPanel, pickingTexture, game)) ;
 
   }
 
@@ -110,7 +110,7 @@ public class MouseControls extends Component {
     return false;
   }
 
-  private boolean placingActor(PropertiesPanel propertiesPanel, PickingTexture pickingTexture, Editor editor) {
+  private boolean placingActor(PropertiesPanel propertiesPanel, PickingTexture pickingTexture, Game game) {
     if (holdingActor != null) {
       float x = MouseListener.getWorldX();
       float y = MouseListener.getWorldY();
@@ -139,13 +139,13 @@ public class MouseControls extends Component {
     return false;
   }
 
-  private boolean clickOnActor(PropertiesPanel propertiesPanel, PickingTexture pickingTexture, Editor editor) {
+  private boolean clickOnActor(PropertiesPanel propertiesPanel, PickingTexture pickingTexture, Game game) {
     if (!MouseListener.isDragging() && MouseListener.mouseButtonDown(GLFW_MOUSE_BUTTON_LEFT) && debounce < 0) {
       int x = (int) MouseListener.getViewX();
       int y = (int) MouseListener.getViewY();
       int actorID = pickingTexture.readPixel(x, y);
 
-      Actor pickedActor = editor.getActor(actorID);
+      Actor pickedActor = game.getActor(actorID);
       if (pickedActor != null && pickedActor.isPickable()) {
         propertiesPanel.setActiveActor(pickedActor);
 
@@ -158,7 +158,7 @@ public class MouseControls extends Component {
     return false;
   }
 
-  private boolean boxSelectActors(PropertiesPanel propertiesPanel, PickingTexture pickingTexture, Editor editor) {
+  private boolean boxSelectActors(PropertiesPanel propertiesPanel, PickingTexture pickingTexture, Game game) {
     // * Box select start
     if (MouseListener.isDragging() && MouseListener.mouseButtonDown(GLFW_MOUSE_BUTTON_LEFT)) {
       if (!boxSelectSet) {
@@ -205,7 +205,7 @@ public class MouseControls extends Component {
       }
 
       for (Integer gameObjectId : uniqueGameObjectIds) {
-        Actor pickedObj = editor.getActor(gameObjectId);
+        Actor pickedObj = game.getActor(gameObjectId);
         if (pickedObj != null && pickedObj.isPickable()) {
           propertiesPanel.addActiveActor(pickedObj);
         }

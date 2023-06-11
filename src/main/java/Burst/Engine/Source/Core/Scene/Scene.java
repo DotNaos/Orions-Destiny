@@ -6,7 +6,6 @@ import Burst.Engine.Source.Core.Scene.Initializer.*;
 import Burst.Engine.Source.Core.UI.ImGui.ImGuiPanel;
 import Burst.Engine.Source.Core.UI.Viewport;
 import Burst.Engine.Source.Core.Util.DebugMessage;
-import Burst.Engine.Source.Editor.Editor;
 import Burst.Engine.Source.Editor.Panel.ViewportPanel;
 
 import java.util.ArrayList;
@@ -17,6 +16,7 @@ public class Scene {
     private List<ImGuiPanel> panels = new ArrayList<>();
     private boolean isPaused = false;
     private SceneType openScene;
+
     private Game game;
 
     private Viewport viewport;
@@ -28,14 +28,15 @@ public class Scene {
     public void init(SceneType sceneType) {
         this.viewport = new Viewport();
         this.openScene = sceneType;
+
+        this.game = new Game(this);
+
         switch (sceneType) {
             case GAME -> {
-                this.game = new Game(this);
                 this.sceneInitializer = new GameInitializer(this);
                 this.game.init();
             }
             case EDITOR -> {
-                this.game = new Editor(this);
                 this.sceneInitializer = new EditorInitializer(this);
                 this.game.init();
             }
@@ -56,10 +57,13 @@ public class Scene {
 
     public void update(float dt) {
         switch (openScene) {
-            case GAME, EDITOR -> {
+            case GAME -> {
                 if (!isPaused) {
                     this.game.update(dt);
                 }
+            }
+            case EDITOR -> {
+                this.game.updateEditor(dt);
             }
         }
     }
@@ -112,9 +116,6 @@ public class Scene {
         return this.game;
     }
 
-    public Editor getEditor() {
-        return (Editor) this.game;
-    }
 
 
     public void addPanel(ImGuiPanel panel) {

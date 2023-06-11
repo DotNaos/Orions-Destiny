@@ -8,8 +8,4 @@ public class MenuInitializer extends SceneInitializer {
         super(scene);
     }
 
-    @Override
-    public void loadResources(Game scene) {
-        // TODO: Maybe need this?
-    }
 }

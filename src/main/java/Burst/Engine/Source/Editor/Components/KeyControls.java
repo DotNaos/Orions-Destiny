@@ -6,9 +6,9 @@ import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.Input.KeyListener;
 import Burst.Engine.Source.Core.UI.Window;
-import Burst.Engine.Source.Editor.Editor;
 import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
 import Burst.Engine.Source.Game.Animation.StateMachine;
+import Burst.Engine.Source.Game.Game;
 import org.joml.Vector2f;
 
 import java.util.ArrayList;
@@ -78,9 +78,9 @@ public class KeyControls extends Component {
         Window.getScene().getGame().removeActor(actor);
       }
       propertiesPanel.clearSelected();
-      Editor editor = Window.getScene().getEditor();
-      if (editor.getActors().size() > 0) {
-        propertiesPanel.addActiveActor(editor.getActors().get(editor.getActors().size() - 1));
+      Game game = Window.getScene().getGame();
+      if (game.getActors().size() > 0) {
+        propertiesPanel.addActiveActor(game.getActors().get(game.getActors().size() - 1));
       }
       return true;
     }

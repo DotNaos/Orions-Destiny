@@ -1,18 +1,32 @@
 package Burst.Engine.Source.Game;
 
+import Burst.Engine.Config.ImGuiStyleConfig;
 import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Actor.ActorComponent;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.Physics.Physics2D;
+import Burst.Engine.Source.Core.Render.PickingTexture;
 import Burst.Engine.Source.Core.Render.ViewportRenderer;
 import Burst.Engine.Source.Core.Saving.ActorDeserializer;
 import Burst.Engine.Source.Core.Saving.ComponentDeserializer;
 import Burst.Engine.Source.Core.Scene.Scene;
+import Burst.Engine.Source.Core.Scene.SceneType;
 import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Core.Util.DebugMessage;
+import Burst.Engine.Source.Editor.Components.GridLines;
+import Burst.Engine.Source.Editor.Components.KeyControls;
+import Burst.Engine.Source.Editor.Components.MouseControls;
+import Burst.Engine.Source.Editor.ContentDrawer;
+import Burst.Engine.Source.Editor.EditorCamera;
+import Burst.Engine.Source.Editor.Panel.OutlinerPanel;
+import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
 import Burst.Engine.Source.Editor.Panel.ViewportPanel;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import imgui.ImGui;
+import imgui.flag.ImGuiCol;
+import imgui.flag.ImGuiStyleVar;
+import imgui.flag.ImGuiTableColumnFlags;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -40,6 +54,7 @@ public class Game {
   }
 
   public void init() {
+    if (isInitialized) return;
     DebugMessage.info("Game initializing...");
     DebugMessage.info("Opening Scene: " + scene.getOpenScene());
 
@@ -54,7 +69,40 @@ public class Game {
         saveLevel();
       }
     }, 1000, 1000);
+
+
+    DebugMessage.info("Game initialized!");
+    if (inGame()) return;
+
+    DebugMessage.info("Editor initializing...");
+    // Variables
+    this.components.add(Window.get().getPickingTexture());
+    this.components.add(new EditorCamera(this.scene.getViewport()));
+
+    // Panels
+    DebugMessage.header("Editor Panels");
+    scene.addPanel(new OutlinerPanel());
+    scene.addPanel(new PropertiesPanel(getComponent(PickingTexture.class)));
+    scene.addPanel(new ContentDrawer());
+
+    // Level Editor Stuff
+    this.components.add(new MouseControls());
+    this.components.add(new KeyControls());
+    this.components.add(new GridLines());
+
+    DebugMessage.info("Editor initialized!");
+
+    isInitialized = true;
   }
+
+  private boolean inGame() {
+    return scene.getOpenScene() == SceneType.GAME;
+  }
+  private boolean inEditor() {
+    return scene.getOpenScene() == SceneType.EDITOR;
+  }
+
+
 
   //! ====================================================================================================
   //! |=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|
@@ -69,10 +117,8 @@ public class Game {
   }
 
   public void update(float dt) {
-    if (!isInitialized) {
-      init();
-      isInitialized = true;
-    }
+    init();
+
 
     scene.getViewport().adjustProjection();
 
@@ -84,6 +130,21 @@ public class Game {
 
     for (Component c : components) {
       c.update(dt);
+    }
+  }
+
+  public void updateEditor(float dt) {
+    init();
+
+
+    scene.getViewport().adjustProjection();
+
+    for (Actor actor : actors) {
+      actor.updateEditor(dt);
+    }
+
+    for (Component c : components) {
+      c.updateEditor(dt);
     }
   }
 
@@ -281,7 +342,60 @@ public class Game {
   //! ====================================================================================================
 
   public void imgui() {
-    // TODO: MAYBE ADD GAME IMGUI
+    // Start the tab bar
+    ImGui.begin("Editor");
+
+    if (ImGui.beginTabBar("EditorTabs")) {
+      if (ImGui.beginTabItem("Style")) {
+        if (ImGui.beginTable("EditorStyle", 2)) {
+
+          // The second column is max 2/3 of the size of the first column
+          ImGui.tableSetupColumn("", ImGuiTableColumnFlags.WidthStretch, 0.5f);
+
+          ImGui.pushStyleColor(ImGuiCol.Border, 1.0f, 1.0f, 1.0f, 0.2f);
+          ImGui.pushStyleVar(ImGuiStyleVar.FrameBorderSize, 1.0f);
+          ImGui.pushStyleVar(ImGuiStyleVar.ItemSpacing, 20f, 20f);
+
+          ImGuiStyleConfig.get().imgui();
+
+          ImGui.popStyleColor();
+          ImGui.popStyleVar(2);
+
+
+          ImGui.endTable();
+          ImGui.endTabItem();
+        }
+      }
+
+      // Components imgui
+      if (ImGui.beginTabItem("Components")) {
+
+        for (Component component : components) {
+          if (ImGui.collapsingHeader(component.getClass().getSimpleName())) {
+            if (ImGui.beginTable("EditorComponents", 2)) {
+              // The second column is max 2/3 of the size of the first column
+              ImGui.tableSetupColumn("", ImGuiTableColumnFlags.WidthStretch, 0.5f);
+
+              ImGui.pushStyleColor(ImGuiCol.Border, 1.0f, 1.0f, 1.0f, 0.2f);
+              ImGui.pushStyleVar(ImGuiStyleVar.FrameBorderSize, 1.0f);
+              ImGui.pushStyleVar(ImGuiStyleVar.ItemSpacing, 20f, 20f);
+
+              component.imgui();
+
+              ImGui.popStyleColor();
+              ImGui.popStyleVar(2);
+
+              ImGui.endTable();
+            }
+          }
+        }
+        ImGui.endTabItem();
+      }
+
+
+      ImGui.endTabBar();
+    }
+    ImGui.end();
   }
 
   public void render() {

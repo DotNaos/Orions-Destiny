@@ -11,7 +11,6 @@ import Burst.Engine.Source.Core.Saving.ComponentDeserializer;
 import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Core.Util.ImGuiValueManager;
 import Burst.Engine.Source.Core.Util.Util;
-import Burst.Engine.Source.Editor.Editor;
 import Burst.Engine.Source.Game.Game;
 import Orion.res.AssetConfig;
 import com.google.gson.Gson;
@@ -74,6 +73,7 @@ public class Actor implements ImGuiValueManager {
    */
 
   public Actor() {
+    this.ID = Util.generateUniqueID();
     if (this.name.equals("ACTOR")) this.name = "Actor " + this.ID;
   }
 
@@ -105,8 +105,6 @@ public class Actor implements ImGuiValueManager {
    * @see #destroy()
    */
   protected void init() {
-    if (this.ID == -1) this.ID = Util.generateUniqueID();
-
 //    // Get the transform component
     Transform transform = getComponent(Transform.class);
     if (transform == null) {

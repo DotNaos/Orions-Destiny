@@ -96,11 +96,6 @@ public class StartMenuInitializer extends MenuInitializer {
 
     }
 
-    @Override
-    public void loadResources(Game scene) {
-        // TODO Auto-generated method stub
-
-    }
 
 }
 
