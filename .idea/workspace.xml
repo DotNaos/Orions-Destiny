@@ -9,23 +9,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="ImGui nicht mehr verbuggt und escape">
+    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="Game Engine Letzte Version vor abgabe">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imgui.ini" beforeDir="false" afterPath="$PROJECT_DIR$/imgui.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/levels/level.json" beforeDir="false" afterPath="$PROJECT_DIR$/levels/level.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Config/HotKeys.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Config/HotKeys.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/PlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/PlayerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/Viewport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/Viewport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Util/ImGuiValueManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Util/ImGuiValueManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Abilities/AbilityHeavy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Config/Shader_Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Config/Shader_Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Shaders/debugLine2D.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shaders/debugLine2D.glsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Shaders/default.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shaders/default.glsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Shaders/pickingShader.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shaders/pickingShader.glsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/Actor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/Actor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/ContentDrawer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/ContentDrawer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Game/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/blocks/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/blocks/Block.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Apex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Apex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Aura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Aura.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Genesis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Genesis.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Helix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Helix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/FireAbilityOne.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/FireAbilityOne.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/abilities/passive/PassiveAbility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/abilities/passive/PassiveAbility.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/PlayerCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/PlayerCharacter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Solaris.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Solaris.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/res/AssetConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/res/AssetConfig.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +90,7 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "A:/Orions-Destiny/Assets/images/textures/icons",
+    "last_opened_file_path": "A:/Orions-Destiny/Assets/Shaders",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -108,11 +105,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="A:\Orions-Destiny\Assets\Shaders" />
       <recent name="A:\Orions-Destiny\Assets\images\textures\icons" />
       <recent name="A:\Orions-Destiny\Assets\images\spritesheets\player" />
       <recent name="A:\Orions-Destiny\Assets\images\spritesheets" />
       <recent name="A:\Orions-Destiny\Assets\images\spritesheets\enemy" />
-      <recent name="A:\Orions-Destiny\Assets\images\spritesheets\enemy\turret" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="A:\Orions-Destiny\Assets\images\spritesheets\player\Apex" />
@@ -250,14 +247,7 @@
       <workItem from="1686258220665" duration="9488000" />
       <workItem from="1686304742078" duration="43789000" />
       <workItem from="1686386311492" duration="38872000" />
-      <workItem from="1686463913065" duration="35260000" />
-    </task>
-    <task id="LOCAL-00052" summary="Properties Panel und Actor Eigenschaften">
-      <created>1686145026078</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1686145026078</updated>
+      <workItem from="1686463913065" duration="36929000" />
     </task>
     <task id="LOCAL-00053" summary="Components Properties">
       <created>1686183790951</created>
@@ -595,14 +585,20 @@
       <option name="project" value="LOCAL" />
       <updated>1686500557370</updated>
     </task>
-    <option name="localTasksCounter" value="101" />
+    <task id="LOCAL-00101" summary="Game Engine Letzte Version vor abgabe">
+      <created>1686504382943</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1686504382943</updated>
+    </task>
+    <option name="localTasksCounter" value="102" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="NonPickable in properties" />
     <MESSAGE value="Reset Aspect Ratio nur in Runtime" />
     <MESSAGE value="Reduced picking requirement on alpha" />
     <MESSAGE value="MouseControls organisiert" />
@@ -627,7 +623,8 @@
     <MESSAGE value="Verkackte geflippte bilder" />
     <MESSAGE value="Kleine Änderung" />
     <MESSAGE value="ImGui nicht mehr verbuggt und escape" />
-    <option name="LAST_COMMIT_MESSAGE" value="ImGui nicht mehr verbuggt und escape" />
+    <MESSAGE value="Game Engine Letzte Version vor abgabe" />
+    <option name="LAST_COMMIT_MESSAGE" value="Game Engine Letzte Version vor abgabe" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

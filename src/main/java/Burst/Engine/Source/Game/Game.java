@@ -96,6 +96,7 @@ public class Game {
 
     DebugMessage.info("Editor initialized!");
 
+
     isInitialized = true;
   }
 
@@ -274,6 +275,10 @@ public class Game {
     // return if a dialog is open
     if (Window.isDialogOpen()) {
       System.out.println("Dialog open, not saving level");
+      return;
+
+    } else if (!inEditor() ) {
+      System.out.println("Not in editor, not saving level");
       return;
     }
 //    System.out.println("Saving level...");

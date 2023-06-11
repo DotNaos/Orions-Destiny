@@ -11,11 +11,11 @@ import Orion.res.AssetConfig;
 public abstract class PlayerCharacter extends Pawn {
     protected transient int spriteIndex = 0;
 
-    protected SpriteSheet idleSprites;
-    protected SpriteSheet walkSprites;
-    protected SpriteSheet runSprites;
-    protected SpriteSheet jumpSprites;
-    protected SpriteSheet attackSprites;
+    protected transient SpriteSheet idleSprites;
+    protected transient SpriteSheet walkSprites;
+    protected transient SpriteSheet runSprites;
+    protected transient SpriteSheet jumpSprites;
+    protected transient SpriteSheet attackSprites;
     protected String description;
     protected int HP;
     protected int DEF;

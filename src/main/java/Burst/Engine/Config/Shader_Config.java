@@ -3,7 +3,7 @@ package Burst.Engine.Config;
 import static Burst.Engine.Config.ProjectConfig.EnginePath;
 
 public class Shader_Config {
-    public static final String PATH = EnginePath + "Shaders/";
+    public static final String PATH = "Assets/Shaders/";
 
     /**
      * Default Shader - Contains Fragment and Vertex Shader

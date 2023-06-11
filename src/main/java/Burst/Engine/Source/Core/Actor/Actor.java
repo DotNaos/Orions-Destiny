@@ -193,6 +193,11 @@ public class Actor implements ImGuiValueManager {
       init();
     }
 
+    if (adjustSizeToTexture) {
+      adjustSizeToTexture();
+      adjustSizeToTexture = false;
+    }
+
     for (Component component : components) {
       component.update(dt);
     }
