@@ -4,7 +4,9 @@ import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheetConfig;
 import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheetUsage;
 
 import java.util.List;
-
+/**
+ * @author Oliver Schuetz
+ */
 public class AssetConfig {
 
   //!=========================================================================

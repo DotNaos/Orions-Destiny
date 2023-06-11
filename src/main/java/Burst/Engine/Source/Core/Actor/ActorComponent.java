@@ -3,7 +3,11 @@ package Burst.Engine.Source.Core.Actor;
 import Burst.Engine.Source.Core.Component;
 import org.jbox2d.dynamics.contacts.Contact;
 import org.joml.Vector2f;
+/**
 
+ The ActorComponent class represents a component that can be attached to an Actor.
+ It provides methods for handling collisions and updating the component in an editor.
+ */
 public class ActorComponent extends Component {
   public transient Actor actor = null;
 
@@ -33,7 +37,7 @@ public class ActorComponent extends Component {
     super.updateEditor(dt);
   }
 
-    @Override
+  @Override
   public void imgui() {
     super.imgui();
   }

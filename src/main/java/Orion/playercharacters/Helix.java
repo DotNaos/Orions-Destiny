@@ -7,7 +7,9 @@ import Burst.Engine.Source.Core.Render.SpriteRenderer;
 import Orion.res.AssetConfig;
 
 import java.util.Timer;
-
+/**
+ * @author Oliver Schuetz
+ */
 public class Helix extends PlayerCharacter {
     @Override
     public void init()

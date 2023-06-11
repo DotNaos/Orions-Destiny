@@ -5,9 +5,20 @@ import Burst.Engine.Source.Core.Util.Shortcut;
 
 import static org.lwjgl.glfw.GLFW.*;
 
+/**
+ * @author Oliver Schuetz
+ * The HotKeys class represents the configuration of hotkeys used in the application.
+ * It provides key codes for various controls such as editor controls, player controls, and debug controls.
+ * The class follows the singleton pattern to ensure that only one instance of HotKeys exists.
+ */
 public class HotKeys extends Component {
   private static final HotKeys instance = new HotKeys();
 
+  /**
+   * Returns the instance of HotKeys.
+   *
+   * @return the HotKeys instance
+   */
   public static HotKeys get() {
     if (instance == null) {
       return new HotKeys();
@@ -35,10 +46,6 @@ public class HotKeys extends Component {
   public int EditorMoveDown = GLFW_KEY_DOWN;
   public int EditorMoveLeft = GLFW_KEY_LEFT;
   public int EditorMoveRight = GLFW_KEY_RIGHT;
-
-
-
-
 
 
   // Modifier Keys, change the behavior of the editor controls
@@ -77,7 +84,6 @@ public class HotKeys extends Component {
   public int DebugToggleEditor = GLFW_KEY_F8;
   public int DebugGotoNextLevel = GLFW_KEY_F9;
   public int DebugGotoPreviousLevel = GLFW_KEY_F10;
-
 
 
 }

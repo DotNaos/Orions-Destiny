@@ -1,5 +1,7 @@
 package Orion.abilities.Ultimate;
-
+/**
+ * @author Timon Kramer
+ */
 public class Fire extends UltimateAbility{
         public float actualDmg;
 

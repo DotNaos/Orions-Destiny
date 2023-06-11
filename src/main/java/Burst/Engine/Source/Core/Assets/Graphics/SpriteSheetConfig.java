@@ -1,5 +1,7 @@
 package Burst.Engine.Source.Core.Assets.Graphics;
-
+/**
+ * @author Oliver Schuetz
+ */
 public class SpriteSheetConfig {
   public int[] spritesPerRow;
   public int spriteWidth, spriteHeight, spacing;

@@ -1,10 +1,13 @@
 package Orion.res;
 
+import Burst.Engine.Source.Core.Assets.Asset;
+
 import java.util.HashMap;
 import java.util.Map;
 
-import Burst.Engine.Source.Core.Assets.Asset;
-
+/**
+ * @author Oliver Schuetz
+ */
 public class Assets {
   private String dir = AssetConfig.Directories.ROOT;
   private String fileType;
@@ -12,9 +15,10 @@ public class Assets {
 
   private Map<String, Asset> assets = new HashMap<>();
 
-    public String getDir() {
+  public String getDir() {
     return dir;
   }
+
   public String getFileType() {
     return fileType;
   }
@@ -32,8 +36,7 @@ public class Assets {
     return assetType;
   }
 
-  public Assets(Class<? extends Asset> assetType, String dir, String fileType)
-  {
+  public Assets(Class<? extends Asset> assetType, String dir, String fileType) {
     this.assetType = assetType;
     this.dir = dir;
     this.fileType = fileType;

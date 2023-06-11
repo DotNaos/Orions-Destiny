@@ -36,7 +36,9 @@ import java.nio.file.NoSuchFileException;
 import java.nio.file.Paths;
 import java.util.*;
 
-
+/**
+ * @author Oliver Schuetz
+ */
 public class Game {
   protected List<Actor> actors = new ArrayList<>();
   protected List<Actor> actorsToAdd = new ArrayList<>();
@@ -103,10 +105,10 @@ public class Game {
   private boolean inGame() {
     return scene.getOpenScene() == SceneType.GAME;
   }
+
   private boolean inEditor() {
     return scene.getOpenScene() == SceneType.EDITOR;
   }
-
 
 
   //! ====================================================================================================
@@ -138,14 +140,13 @@ public class Game {
 
     // set the viewport position to the position of the first actor with a player controller
 
-    for ( Actor actor : actors ) {
+    for (Actor actor : actors) {
       if (actor.getComponent(PlayerController.class) != null) {
         scene.getViewport().position.x = actor.getTransform().position.x;
         scene.getViewport().position.y = actor.getTransform().position.y;
         break;
       }
     }
-
 
 
   }
@@ -164,7 +165,6 @@ public class Game {
       c.updateEditor(dt);
     }
   }
-
 
 
   public void addActor(Actor actor) {
@@ -277,7 +277,7 @@ public class Game {
       System.out.println("Dialog open, not saving level");
       return;
 
-    } else if (inGame() ) {
+    } else if (inGame()) {
       System.out.println("Not in editor, not saving level");
       return;
     }
@@ -295,8 +295,8 @@ public class Game {
       writer.write(gsonBuilder().toJson(actorsToSerialize));
       writer.close();
     } catch (Exception e) {
-        DebugMessage.error("Error Saving Level");
-        e.printStackTrace();
+      DebugMessage.error("Error Saving Level");
+      e.printStackTrace();
     }
   }
 

@@ -1,5 +1,7 @@
 package Orion.abilities.Ultimate;
-
+/**
+ * @author Timon Kramer
+ */
 public class Ice extends UltimateAbility {
     public float actualDmg;
 

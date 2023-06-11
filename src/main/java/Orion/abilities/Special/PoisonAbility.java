@@ -1,7 +1,9 @@
 package Orion.abilities.Special;
 
 import Orion.abilities.Ability;
-
+/**
+ * @author Dominik Abler
+ */
 public class PoisonAbility extends Ability {
   public float animationLength;
   public int range;

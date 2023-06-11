@@ -1,17 +1,12 @@
 package Burst.Engine.Source.Editor.Panel;
 
 import Burst.Engine.Source.Core.Actor.Actor;
-import Burst.Engine.Source.Core.Assets.AssetManager;
-import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
-import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Burst.Engine.Source.Core.Physics.Components.Box2DCollider;
 import Burst.Engine.Source.Core.Physics.Components.CircleCollider;
 import Burst.Engine.Source.Core.Physics.Components.Rigidbody2D;
 import Burst.Engine.Source.Core.Physics.Components.Transform;
 import Burst.Engine.Source.Core.Render.PickingTexture;
-import Burst.Engine.Source.Core.Render.SpriteRenderer;
 import Burst.Engine.Source.Core.UI.ImGui.ImGuiPanel;
-import Orion.res.AssetConfig;
 import imgui.ImGui;
 import imgui.type.ImInt;
 import org.joml.Vector2f;
@@ -19,6 +14,9 @@ import org.joml.Vector2f;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Oliver Schuetz
+ */
 public class PropertiesPanel extends ImGuiPanel {
   private List<Actor> activeActors;
   private Actor activeActor = null;

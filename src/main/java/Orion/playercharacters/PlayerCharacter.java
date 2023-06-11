@@ -7,7 +7,9 @@ import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheet;
 import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Burst.Engine.Source.Core.Render.SpriteRenderer;
 import Orion.res.AssetConfig;
-
+/**
+ * @author Oliver Schuetz
+ */
 public abstract class PlayerCharacter extends Pawn {
     protected transient int spriteIndex = 0;
 

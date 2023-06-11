@@ -2,7 +2,9 @@ package Orion.abilities.Special;
 
 
 import Orion.abilities.Ability;
-
+/**
+ * @author Dominik Abler
+ */
 public class DarkAbility extends Ability {
     // The base class for the abilities in the game
     // draws a shadow claw that damages enemies

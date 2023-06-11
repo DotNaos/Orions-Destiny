@@ -4,7 +4,9 @@ import Orion.abilities.Ability;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
 
-
+/**
+ * @author Dominik Abler
+ */
 public class LightAbillity extends Ability {
 
   // Use vectors for the light beam

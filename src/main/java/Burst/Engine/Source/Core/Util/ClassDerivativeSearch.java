@@ -4,7 +4,9 @@ import java.util.List;
 import java.util.Objects;
 import java.io.IOException;
 import java.lang.reflect.Modifier;
-
+/**
+ * @author Oliver Schuetz
+ */
 public class ClassDerivativeSearch {
     private Class<?> baseClass;
     private List<String> packageNames;

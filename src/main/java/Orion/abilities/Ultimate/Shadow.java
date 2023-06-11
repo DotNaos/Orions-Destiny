@@ -1,7 +1,9 @@
 package Orion.abilities.Ultimate;
 
 
-
+/**
+ * @author Timon Kramer
+ */
 public class Shadow extends UltimateAbility {
 
     public float actualDmg;

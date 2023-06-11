@@ -7,7 +7,9 @@ import org.joml.Vector3f;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * @author Oliver Schuetz
+ */
 public class SpriteSheet extends Asset {
     /**
      * <p>

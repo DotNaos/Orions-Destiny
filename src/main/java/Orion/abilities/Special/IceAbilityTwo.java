@@ -1,5 +1,7 @@
 package Orion.abilities.Special;
-
+/**
+ * @author Dominik Abler
+ */
 public class IceAbilityTwo {
     private float damage;
     private float speedSlow;

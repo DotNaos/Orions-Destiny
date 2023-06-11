@@ -2,7 +2,9 @@ package Orion.abilities.Ultimate;
 
 import Orion.abilities.Ability;
 import org.joml.Vector2f;
-
+/**
+ * @author Timon Kramer
+ */
 public class UltimateAbility extends Ability {
 
     protected Vector2f castingPosition = new Vector2f();

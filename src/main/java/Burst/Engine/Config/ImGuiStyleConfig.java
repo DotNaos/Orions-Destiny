@@ -1,16 +1,20 @@
 package Burst.Engine.Config;
 
-import static Burst.Engine.Source.Core.Util.Util.hexToVec4f;
-
-import org.joml.Vector2f;
-import org.joml.Vector4f;
-
 import Burst.Engine.Source.Core.Component;
 import imgui.ImGui;
 import imgui.ImGuiStyle;
 import imgui.flag.ImGuiCol;
 import imgui.flag.ImGuiDir;
+import org.joml.Vector2f;
+import org.joml.Vector4f;
 
+import static Burst.Engine.Source.Core.Util.Util.hexToVec4f;
+
+/**
+ * @author Oliver Schuetz
+ * This class represents the configuration for the ImGui style.
+ * It extends the Component class and provides methods to set the style and colors for ImGui.
+ */
 public class ImGuiStyleConfig extends Component {
   private static transient ImGuiStyleConfig instance = new ImGuiStyleConfig();
   private transient boolean active = true;

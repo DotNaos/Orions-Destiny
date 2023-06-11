@@ -8,6 +8,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @author Oliver Schuetz
+ * <p>
+ * The base class for all components.
+ * Components are used to add functionality to entities.
+ * They are used to add functionality to entities.
+ */
 public abstract class Component implements ImGuiValueManager {
   protected String name = "Component";
   protected transient boolean isInitialized = false;
@@ -22,13 +29,11 @@ public abstract class Component implements ImGuiValueManager {
   }
 
   public void init() {
-    if (this.initialValues == null)
-    {
-        this.initialValues = new HashMap<>();
+    if (this.initialValues == null) {
+      this.initialValues = new HashMap<>();
     }
-    if (this.ignoreFields == null)
-    {
-        this.ignoreFields = new ArrayList<>();
+    if (this.ignoreFields == null) {
+      this.ignoreFields = new ArrayList<>();
     }
     this.ignoreFields.add("ID");
     try {

@@ -9,7 +9,9 @@ import static org.lwjgl.openal.AL10.*;
 import static org.lwjgl.stb.STBVorbis.stb_vorbis_decode_filename;
 import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.libc.LibCStdlib.free;
-
+/**
+ * @author GamesWithGabe
+ */
 public class Sound extends Asset {
     private int bufferId;
     private int sourceId;

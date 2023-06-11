@@ -4,7 +4,6 @@ import Burst.Engine.Config.Constants.Color_Config;
 import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Assets.Graphics.Shader;
 import Burst.Engine.Source.Core.Assets.Graphics.Texture;
-import Burst.Engine.Source.Core.Physics.Components.Transform;
 import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
 import org.joml.Matrix4f;
@@ -21,6 +20,11 @@ import static org.lwjgl.opengl.GL20C.glVertexAttribPointer;
 import static org.lwjgl.opengl.GL30.glBindVertexArray;
 import static org.lwjgl.opengl.GL30.glGenVertexArrays;
 
+/**
+ * @author GamesWithGabe
+ * A class representing a batch of sprites to be rendered.
+ * The sprites are stored in a vertex array and are rendered using OpenGL.
+ */
 public class RenderBatch implements Comparable<RenderBatch> {
   // Vertex
   //!======

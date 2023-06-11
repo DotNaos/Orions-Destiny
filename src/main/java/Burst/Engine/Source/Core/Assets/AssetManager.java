@@ -18,9 +18,13 @@ import java.util.List;
 import static Orion.res.AssetConfig.Directories.*;
 import static Orion.res.AssetConfig.Files.Images.SpriteSheets.MAPS;
 
+/**
+ * @author Oliver Schuetz
+ */
 public class AssetManager {
   public static final boolean showLoadingAssets = false;
   private static final List<Assets> assetsList = new ArrayList<>();
+
   public static void loadAllAssets() {
     DebugMessage.noDebug = false;
 
@@ -52,7 +56,6 @@ public class AssetManager {
         Asset asset = createNewAsset(assetPath, assets.getAssetType());
 
 
-
         // If the asset is a spritesheet, set the config to the matching filepath of the config
         if (asset instanceof SpriteSheet) {
           for (SpriteSheetConfig config : AssetConfig.SPRITESHEETS_CONFIG) {
@@ -60,8 +63,7 @@ public class AssetManager {
               ((SpriteSheet) asset).setConfig(config);
               asset.build();
               assets.getAssets().put(assetPath, asset);
-              if (showLoadingAssets)
-              {
+              if (showLoadingAssets) {
                 System.out.println("ADDING " + assets.getName().toUpperCase() + " : " + assetPath);
                 System.out.println("\\--------->" + " CONFIG : " + config.filePath + "\n");
               }
@@ -69,8 +71,7 @@ public class AssetManager {
           }
         } else {
 
-          if (showLoadingAssets)
-          {
+          if (showLoadingAssets) {
             System.out.println("ADDING " + assets.getName().toUpperCase() + " : " + assetPath);
           }
 

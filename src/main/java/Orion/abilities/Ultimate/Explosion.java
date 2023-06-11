@@ -1,6 +1,8 @@
 package Orion.abilities.Ultimate;
 
-
+/**
+ * @author Timon Kramer
+ */
 public class Explosion extends UltimateAbility {
 
     public float actualDmg;

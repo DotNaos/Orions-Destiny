@@ -3,6 +3,9 @@ package Orion.abilities.Special;
 import Burst.Engine.Source.Core.Input.KeyListener;
 import Orion.abilities.Ability;
 
+/**
+ * @author Dominik Abler
+ */
 public class SpecialAbility extends Ability {
 
 

@@ -5,7 +5,9 @@ import Orion.res.AssetConfig;
 import imgui.ImFont;
 import imgui.ImGui;
 
-
+/**
+ * @author Oliver Schuetz
+ */
 public class Font extends Asset {
     private ImFont imGuiFont;
     private float FontSize = 20;

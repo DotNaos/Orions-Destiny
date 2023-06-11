@@ -18,6 +18,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @author Oliver Schuetz
+ */
 public interface ImGuiValueManager {
 
   private static void revertAccess(Field field) {
@@ -259,15 +262,14 @@ public interface ImGuiValueManager {
 
     } else if (type.equals(SpriteSheet.class)) {
       SpriteSheet val = (SpriteSheet) value;
-        // Only show the first sprite
+      // Only show the first sprite
       if (val == null) {
-          ImGui.text("None");
-      }
-      else {
+        ImGui.text("None");
+      } else {
         if (val.getTexture() != null) {
           ImGui.text(val.getTexture().getFilepath());
 
-          if(ImGui.button("Refresh")) {
+          if (ImGui.button("Refresh")) {
             val.init();
 
 //            val.refresh();
@@ -275,8 +277,7 @@ public interface ImGuiValueManager {
 
           BImGui.image(val.getTexture().getTexID(), 128, 128);
 
-          if (ImGui.isItemHovered())
-          {
+          if (ImGui.isItemHovered()) {
             ImGui.beginTooltip();
             BImGui.image(val.getTexture().getTexID(), 512, 512);
             ImGui.endTooltip();

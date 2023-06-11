@@ -2,6 +2,7 @@ package Burst.Engine.Source.Core.Saving;
 
 import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Actor.ActorComponent;
+import Burst.Engine.Source.Core.Assets.AssetManager;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.Physics.Components.Transform;
 import com.google.gson.*;
@@ -10,6 +11,15 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Type;
 
 
+/**
+ * @author Oliver Schuetz
+ * The ActorDeserializer class is responsible for deserializing actors from JSON.
+ * It implements the JsonDeserializer interface and provides methods to deserialize actors.
+ * It is used by the AssetManager class to deserialize actors from JSON files.
+ * @see AssetManager
+ * @see Actor
+ * @see JsonDeserializer
+ */
 public class ActorDeserializer implements JsonDeserializer<Actor> {
     @Override
     public Actor deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {

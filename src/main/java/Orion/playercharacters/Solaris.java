@@ -2,15 +2,14 @@ package Orion.playercharacters;
 
 import Burst.Engine.Source.Core.Assets.AssetManager;
 import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheet;
-import Burst.Engine.Source.Core.Render.SpriteRenderer;
 import Orion.res.AssetConfig;
 
-import java.util.Timer;
-
+/**
+ * @author Oliver Schuetz
+ */
 public class Solaris extends PlayerCharacter {
   @Override
-  public void init()
-  {
+  public void init() {
     this.name = "Solaris";
     // Hellbeast
     this.description = """
@@ -30,7 +29,7 @@ public class Solaris extends PlayerCharacter {
     this.walkSprites = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.SOLARIS_WALK, SpriteSheet.class);
     this.runSprites = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.SOLARIS_RUN, SpriteSheet.class);
     this.jumpSprites = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.SOLARIS_JUMP, SpriteSheet.class);
-    this.attackSprites =  AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.SOLARIS_ATTACK, SpriteSheet.class);
+    this.attackSprites = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.SOLARIS_ATTACK, SpriteSheet.class);
   }
 
   @Override

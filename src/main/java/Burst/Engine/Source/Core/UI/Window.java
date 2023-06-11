@@ -33,7 +33,10 @@ import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.openal.ALC10.*;
 import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.system.MemoryUtil.NULL;
-
+/**
+ * @author GamesWithGabe
+ * Represents the main application window.
+ */
 public class Window implements Observer {
   private static boolean isDialogOpen;
   private static boolean isPopupOpen;
@@ -121,6 +124,7 @@ public class Window implements Observer {
   public static void openDialog() {
     Window.isDialogOpen = true;
   }
+
   public static void closeDialog() {
     Window.isDialogOpen = false;
   }
@@ -135,7 +139,7 @@ public class Window implements Observer {
   }
 
   public static void closePopup() {
-      Window.isPopupOpen = false;
+    Window.isPopupOpen = false;
   }
 
   public void run() {

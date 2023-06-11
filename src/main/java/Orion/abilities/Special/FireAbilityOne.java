@@ -1,5 +1,7 @@
 package Orion.abilities.Special;
-
+/**
+ * @author Dominik Abler
+ */
 public class FireAbilityOne extends SpecialAbility {
 
     private float damage;

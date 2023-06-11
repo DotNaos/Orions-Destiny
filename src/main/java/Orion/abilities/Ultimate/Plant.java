@@ -1,6 +1,8 @@
 package Orion.abilities.Ultimate;
 
-
+/**
+ * @author Timon Kramer
+ */
 public class Plant extends UltimateAbility {
   public float actualDmg;
 

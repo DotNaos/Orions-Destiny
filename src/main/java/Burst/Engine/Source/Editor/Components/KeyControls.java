@@ -14,6 +14,9 @@ import org.joml.Vector2f;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Oliver Schuetz
+ */
 public class KeyControls extends Component {
   protected float inputDelay = 0.2f * 0.75f;
   protected transient float debounce = 0.0f;
@@ -114,15 +117,9 @@ public class KeyControls extends Component {
     } else if (moveSlow) {
       multiplier = new Vector2f(0.1f, 0.1f);
     } else if (moveFast) {
-      Vector2f offset = new Vector2f(
-          max(activeActors).x - min(activeActors).x,
-          max(activeActors).y - min(activeActors).y
-      );
+      Vector2f offset = new Vector2f(max(activeActors).x - min(activeActors).x, max(activeActors).y - min(activeActors).y);
       offset.add(1.0f, 1.0f);
-        multiplier = new Vector2f(
-            offset.x,
-            offset.y
-        );
+      multiplier = new Vector2f(offset.x, offset.y);
     }
 
 
@@ -131,53 +128,51 @@ public class KeyControls extends Component {
       for (Actor actor : activeActors) {
         actor.getTransform().position.y += GridLines_Config.SIZE * multiplier.y;
       }
-        return true;
+      return true;
     } else if (KeyListener.isKeyPressed(HotKeys.get().EditorMoveLeft) && debounce < 0) {
       debounce = inputDelay;
       for (Actor actor : activeActors) {
         actor.getTransform().position.x -= GridLines_Config.SIZE * multiplier.x;
       }
-        return true;
+      return true;
     } else if (KeyListener.isKeyPressed(HotKeys.get().EditorMoveRight) && debounce < 0) {
       debounce = inputDelay;
       for (Actor actor : activeActors) {
         actor.getTransform().position.x += GridLines_Config.SIZE * multiplier.x;
       }
-        return true;
+      return true;
     } else if (KeyListener.isKeyPressed(HotKeys.get().EditorMoveDown) && debounce < 0) {
       debounce = inputDelay;
       for (Actor actor : activeActors) {
         actor.getTransform().position.y -= GridLines_Config.SIZE * multiplier.y;
       }
-        return true;
+      return true;
     }
     return false;
   }
 
-  public Vector2f min(List<Actor> actors)
-  {
+  public Vector2f min(List<Actor> actors) {
     if (actors.size() == 0) {
       return new Vector2f(0, 0);
     }
     Vector2f min = new Vector2f(actors.get(0).getTransform().position.x, actors.get(0).getTransform().position.y);
     for (Actor actor : actors) {
-      min.x = Math.min(min.x , actor.getTransform().position.x);
-      min.y = Math.min(min.y , actor.getTransform().position.y);
+      min.x = Math.min(min.x, actor.getTransform().position.x);
+      min.y = Math.min(min.y, actor.getTransform().position.y);
     }
     return min;
   }
 
-    public Vector2f max(List<Actor> actors)
-    {
-        if (actors.size() == 0) {
-            return new Vector2f(0, 0);
-        }
-        Vector2f max = new Vector2f(actors.get(0).getTransform().position.x, actors.get(0).getTransform().position.y);
-        for (Actor actor : actors) {
-        max.x = Math.max(max.x , actor.getTransform().position.x);
-        max.y = Math.max(max.y , actor.getTransform().position.y);
-        }
-        return max;
+  public Vector2f max(List<Actor> actors) {
+    if (actors.size() == 0) {
+      return new Vector2f(0, 0);
     }
+    Vector2f max = new Vector2f(actors.get(0).getTransform().position.x, actors.get(0).getTransform().position.y);
+    for (Actor actor : actors) {
+      max.x = Math.max(max.x, actor.getTransform().position.x);
+      max.y = Math.max(max.y, actor.getTransform().position.y);
+    }
+    return max;
+  }
 }
 

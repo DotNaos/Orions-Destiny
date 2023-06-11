@@ -4,7 +4,9 @@ import org.joml.Vector2f;
 
 import static org.joml.Math.sin;
 
-
+/**
+ * @author Dominik Abler
+ */
 public class FireAbility extends SpecialAbility {
   // creates a fire vortex around enemies and damages them
   // causes damage over time

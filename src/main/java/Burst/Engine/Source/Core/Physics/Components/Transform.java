@@ -4,14 +4,38 @@ import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Actor.ActorComponent;
 import org.joml.Vector2f;
 
+/**
+ * @author Oliver Schuetz
+ * The Transform class represents the transformation properties of an actor in a game world.
+ * It includes position, scale, rotation, size, and rendering order (z-index) information.
+ */
 public class Transform extends ActorComponent {
+  /**
+   * The position of the actor in 2D space.
+   */
 
   public Vector2f position = new Vector2f(0, 0);
+
+  /**
+   * The scale of the actor in 2D space.
+   */
   public Vector2f scale = new Vector2f(1.0f, 1.0f);
+  /**
+   * The size of the actor in 2D space.
+   */
 
   public Vector2f size = new Vector2f(1f, 1f);
+  /**
+   * The scaled size of the actor, calculated by multiplying the size and scale vectors.
+   */
   private Vector2f scaledSize = new Vector2f(size).mul(scale);
+  /**
+   * The rotation angle of the actor in degrees.
+   */
   public float rotation = 0;
+  /**
+   * The scaled size of the actor, calculated by multiplying the size and scale vectors.
+   */
   public int zIndex = 0;
 
   public Transform() {
@@ -70,6 +94,12 @@ public class Transform extends ActorComponent {
     scaledSize = new Vector2f(size).mul(scale);
   }
 
+  /**
+   * Creates a copy of the Transform object.
+   *
+   * @return A new Transform object with the same property values as the original.
+   */
+
   public Transform copy() {
     Transform t = new Transform(this.actor);
     t.position = new Vector2f(this.position);
@@ -81,6 +111,13 @@ public class Transform extends ActorComponent {
     return t;
   }
 
+
+  /**
+   * Copies the property values from another Transform object to this Transform object.
+   *
+   * @param from The Transform object to copy from.
+   * @return This Transform object with updated property values.
+   */
   public Transform copy(Transform from) {
     this.getPosition().set(from.getPosition());
     this.getScale().set(from.getScale());
@@ -89,23 +126,30 @@ public class Transform extends ActorComponent {
     return this;
   }
 
+  /**
+   * Creates a copy of the Transform object.
+   *
+   * @return A new Transform object with the same property values as the original.
+   */
+
   public boolean equals(Object o) {
     if (o == null) return false;
     if (!(o instanceof Transform t)) return false;
 
-    return t.position.x == this.position.x && t.position.y == this.position.y
-            && t.scale.x == this.scale.x && t.scale.y == this.scale.y
-            && t.size.x == this.size.x && t.size.y == this.size.y
-            && t.rotation == this.rotation
-            && t.zIndex == this.zIndex;
+    return t.position.x == this.position.x && t.position.y == this.position.y && t.scale.x == this.scale.x && t.scale.y == this.scale.y && t.size.x == this.size.x && t.size.y == this.size.y && t.rotation == this.rotation && t.zIndex == this.zIndex;
   }
 
-    public void set(Transform transform) {
-        this.setPosition(transform.getPosition());
-        this.setScale(transform.getScale());
-        this.setRotation(transform.getRotation());
-        this.setZIndex(transform.getZIndex());
-    }
+  /**
+   * Sets the property values of this Transform object to match the values of another Transform object.
+   *
+   * @param transform The Transform object to set the values from.
+   */
+  public void set(Transform transform) {
+    this.setPosition(transform.getPosition());
+    this.setScale(transform.getScale());
+    this.setRotation(transform.getRotation());
+    this.setZIndex(transform.getZIndex());
+  }
 
   public Vector2f getScaledSize() {
     return new Vector2f(scaledSize);
@@ -122,6 +166,7 @@ public class Transform extends ActorComponent {
   public int getZIndex() {
     return zIndex;
   }
+
   public float getRotation() {
     return rotation;
   }

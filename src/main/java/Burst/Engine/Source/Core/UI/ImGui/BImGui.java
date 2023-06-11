@@ -19,6 +19,8 @@ import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 
 /**
+ * @author Oliver Schuetz
+ * <p>
  * This class has various methods to draw ImGui controls.
  */
 public class BImGui {

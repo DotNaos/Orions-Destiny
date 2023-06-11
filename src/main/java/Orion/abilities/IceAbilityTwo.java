@@ -1,28 +1,33 @@
 package Orion.abilities;
 
+/**
+ * @author Dominik Abler
+ */
 public class IceAbilityTwo {
-    private float damage;
-    private float speedSlow;
-    private float travellingSpeed;
-    private float animationLength;
-    private boolean collision;
-    public float getDamage(float damage){
-        damage=35;
-        return damage;
-    }
+  private float damage;
+  private float speedSlow;
+  private float travellingSpeed;
+  private float animationLength;
+  private boolean collision;
 
-    public float getSpeedSlow() {
-        return this.speedSlow;
-    }
+  public float getDamage(float damage) {
+    damage = 35;
+    return damage;
+  }
 
-    public float getTravellingSpeed() {
-        return this.travellingSpeed;
-    }
-    public float getAnimationLength(){
-        return this.animationLength;
-    }
+  public float getSpeedSlow() {
+    return this.speedSlow;
+  }
 
-    public boolean isCollision() {
-        return this.collision;
-    }
+  public float getTravellingSpeed() {
+    return this.travellingSpeed;
+  }
+
+  public float getAnimationLength() {
+    return this.animationLength;
+  }
+
+  public boolean isCollision() {
+    return this.collision;
+  }
 }

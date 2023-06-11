@@ -11,7 +11,9 @@ import java.nio.file.Paths;
 
 import static org.lwjgl.opengl.GL11.GL_FALSE;
 import static org.lwjgl.opengl.GL20.*;
-
+/**
+ * @author Oliver Schuetz
+ */
 public class Shader extends Asset {
 
     private int shaderProgramID;

@@ -26,6 +26,9 @@ import java.util.Set;
 import static org.lwjgl.glfw.GLFW.GLFW_KEY_ESCAPE;
 import static org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT;
 
+/**
+ * @author Oliver Schuetz
+ */
 public class MouseControls extends Component {
   private transient Actor holdingActor = null;
   private transient SpriteSheet gizmos = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.GIZMOS, SpriteSheet.class);
@@ -80,10 +83,10 @@ public class MouseControls extends Component {
     // * Placing objects on release
     if (placingActor(propertiesPanel, pickingTexture, game)) ;
 
-    // * Clicking on objects
-    else if (clickOnActor(propertiesPanel, pickingTexture, game));
+      // * Clicking on objects
+    else if (clickOnActor(propertiesPanel, pickingTexture, game)) ;
 
-    // * Box select
+      // * Box select
     else if (boxSelectActors(propertiesPanel, pickingTexture, game)) ;
 
   }

@@ -6,7 +6,9 @@ import Orion.res.AssetConfig;
 import org.joml.Vector2f;
 
 import java.util.Arrays;
-
+/**
+ * @author Oliver Schuetz
+ */
 public class Sprite extends Asset {
     private float width, height;
 

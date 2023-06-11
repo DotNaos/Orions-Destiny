@@ -26,6 +26,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * @author Oliver Schuetz
  * Represents an object in the game world that can have Components attached to
  * it.
  */
@@ -55,12 +56,36 @@ public class Actor implements ImGuiValueManager {
    * Whether this actor is serialized when saving and loading.
    */
   private boolean serializedActor = true;
+  /**
+   * If this flag is set to true, the actors size the size will adjust to the Texture aspect ratio.
+   *
+   * @see #adjustSizeToTexture()
+   */
   private boolean adjustSizeToTexture = false;
 
+  /**
+   * Values of all fields at the time of initialization.
+   */
   private transient Map<String, Object> initialValues = new HashMap<>();
 
+
+  /**
+   * Fields not shown in imgui.
+   */
   private transient List<String> ignoreFields = new ArrayList<>();
+
+
+  /**
+   * Flag indicating whether the actor is initialized.
+   * This is set to false by default, and is set to true when the actor is
+   * initialized.
+   * This makes sure that the actor is always initialized before it is used.
+   */
   private transient boolean isInitialized = false;
+
+  /**
+   * Indicating can select the actor by clicking on it.
+   */
   private boolean pickable = true;
 
   //!====================================================================================================
@@ -79,8 +104,7 @@ public class Actor implements ImGuiValueManager {
     if (this.name.equals("ACTOR")) this.name = "Actor " + this.ID;
   }
 
-  public Actor(int id)
-  {
+  public Actor(int id) {
     this.ID = id;
     this.serializedActor = false;
     this.name = "TEMPORARY ACTOR";
@@ -146,8 +170,7 @@ public class Actor implements ImGuiValueManager {
     }
     try {
       getInitialValues(this, this.ignoreFields, this.initialValues);
-    } catch (
-            IllegalAccessException e) {
+    } catch (IllegalAccessException e) {
       e.printStackTrace();
     }
 
@@ -187,8 +210,7 @@ public class Actor implements ImGuiValueManager {
     }
   }
 
-  public void update(float dt)
-  {
+  public void update(float dt) {
     if (!isInitialized) {
       init();
     }
@@ -225,11 +247,7 @@ public class Actor implements ImGuiValueManager {
    * @return A new Actor instance that is a copy of this actor.
    */
   public Actor copy() {        // TODO: come up with cleaner solution
-    Gson gson = new GsonBuilder()
-            .registerTypeAdapter(ActorComponent.class, new ComponentDeserializer())
-            .registerTypeAdapter(Actor.class, new ActorDeserializer())
-            .enableComplexMapKeySerialization()
-            .create();
+    Gson gson = new GsonBuilder().registerTypeAdapter(ActorComponent.class, new ComponentDeserializer()).registerTypeAdapter(Actor.class, new ActorDeserializer()).enableComplexMapKeySerialization().create();
     String objAsJson = gson.toJson(this);
     Object copy = gson.fromJson(objAsJson, Actor.class).generateName();
 
@@ -271,6 +289,10 @@ public class Actor implements ImGuiValueManager {
     return this;
   }
 
+  /**
+   * @param aClass the {@link Class} object representing the type of component to
+   * @return
+   */
   private boolean hasComponent(Class<? extends Component> aClass) {
     for (Component c : components) {
       if (c.getClass().equals(aClass)) {
@@ -398,8 +420,8 @@ public class Actor implements ImGuiValueManager {
 
 
   }
-  public void imgui()
-  {
+
+  public void imgui() {
     imgui(this);
   }
 
@@ -412,6 +434,8 @@ public class Actor implements ImGuiValueManager {
   //!====================================================================================================
 
   /**
+   * If the object does not have a unique identifier, one is generated.
+   *
    * @return the unique identifier of the object.
    */
   public long getID() {
@@ -421,6 +445,11 @@ public class Actor implements ImGuiValueManager {
     return this.ID;
   }
 
+  /**
+   * If the object does not have a {@link Transform} component, one is added.
+   *
+   * @return the {@link Transform} component of the object.
+   */
   public Transform getTransform() {
     if (getComponent(Transform.class) == null) {
       addComponent(new Transform(this));
@@ -438,6 +467,11 @@ public class Actor implements ImGuiValueManager {
     return this;
   }
 
+  /**
+   * Generates a name for the object based on its class name and count of objects
+   *
+   * @return the {@link SpriteRenderer} component of the object.
+   */
   private Actor generateName() {
     this.name = this.getClass().getSimpleName() + " " + (Window.getScene().getGame().getActors().size() + 1);
     return this;
@@ -469,6 +503,14 @@ public class Actor implements ImGuiValueManager {
   }
 
 
+  /**
+   * Sets the Actor dirty.
+   * Dirty Textures are redrawn on the next frame.
+   *
+   * @implNote If the Actor has a {@link SpriteRenderer} component, its
+   * {@link SpriteRenderer#setDirty()} method is called.
+   * @see SpriteRenderer#setDirty()
+   */
   public void setDirty() {
     SpriteRenderer sr = getComponent(SpriteRenderer.class);
     if (sr != null) {
@@ -477,10 +519,13 @@ public class Actor implements ImGuiValueManager {
   }
 
 
-  public void adjustSizeToTexture()
-  {
+  /**
+   * Sets the Actor to be destroyed.
+   */
+  public void adjustSizeToTexture() {
     adjustSizeToTexture(false);
   }
+
   private void adjustSizeToTexture(boolean onStart) {
     Transform transform = getTransform();
     SpriteRenderer spriteRenderer = getComponent(SpriteRenderer.class);
@@ -505,16 +550,13 @@ public class Actor implements ImGuiValueManager {
         transform.size.x = transform.size.y * spriteAspectRatio;
       }
 
-    }
-    else {
+    } else {
       if (spriteAspectRatio > actorAspectRatio) {
         transform.size.x = transform.size.y * spriteAspectRatio;
       } else {
         transform.size.y = transform.size.x / spriteAspectRatio;
       }
     }
-
-
 
 
     spriteRenderer.setDirty();
@@ -529,12 +571,13 @@ public class Actor implements ImGuiValueManager {
   }
 
   public Actor setPickable(boolean pickable) {
-      this.pickable = pickable;
-      return this;
+    this.pickable = pickable;
+    return this;
   }
 
   /**
    * IMPORTANT: Call before init()
+   *
    * @param fieldName Ignore this field when generating the imgui interface
    */
   public void addIgnoreField(String fieldName) {
@@ -544,6 +587,7 @@ public class Actor implements ImGuiValueManager {
   public void setSerializable(boolean b) {
     this.serializedActor = b;
   }
+
   public void setSerializable() {
     this.serializedActor = true;
   }

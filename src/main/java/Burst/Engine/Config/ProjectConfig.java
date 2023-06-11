@@ -1,5 +1,6 @@
 package Burst.Engine.Config;
 /**
+ * @author Oliver Schütz
  * The {@code ProjectConfig} class contains the configuration information for the project.
  *
  * <p>
@@ -11,7 +12,6 @@ package Burst.Engine.Config;
  * This class is intended to be used as a utility class and thus does not provide a public constructor.
  * </p>
  *
- * @author Oliver Schütz
  * @version 1.0
  * @since 2023-05-08
  */

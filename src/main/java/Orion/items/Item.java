@@ -4,7 +4,9 @@ import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Assets.AssetManager;
 import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Orion.res.AssetConfig;
-
+/**
+ * @author Oliver Schuetz
+ */
 public class Item extends Actor{
     public Item() {
         super();

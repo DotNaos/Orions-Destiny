@@ -10,6 +10,7 @@ import org.joml.Vector4f;
 
 
 /**
+ * @author Oliver Schuetz
  * A class that draws grid lines on the screen.
  *
  * <p>The grid lines are drawn in the 2D plane, and are drawn in the viewport's
@@ -17,7 +18,6 @@ import org.joml.Vector4f;
  * {@link GridLines_Config#COLOR} constant.</p>
  *
  * <p>{@link GridLines_Config#SIZE} is used as size of the grid and which increases proportional to the zoom</p>
- *
  */
 public class GridLines extends Component {
 
@@ -26,12 +26,11 @@ public class GridLines extends Component {
    * The minimum Resolution of the grid lines in pixels.
    *
    * <p>
-   *   This is used to prevent the grid lines from becoming too small when zooming in.
-   *   The grid lines will be at least this many pixels wide and tall.
-   *   This value must be a power of 2.
-   *   This value must be greater than or equal to 16.
+   * This is used to prevent the grid lines from becoming too small when zooming in.
+   * The grid lines will be at least this many pixels wide and tall.
+   * This value must be a power of 2.
+   * This value must be greater than or equal to 16.
    * </p>
-   *
    */
   public int pixelsPerGrid = 1;
   public int spriteResolution = 16;
@@ -59,44 +58,43 @@ public class GridLines extends Component {
     // Get the viewports attributes
     Viewport viewport = Window.getScene().getViewport();
 
-      float zoom = viewport.getZoom();
+    float zoom = viewport.getZoom();
 
     // Scaling factor snaps to the nearest power of 2 of zoom
 
-      int nearestPowerOf2 = (int) Math.pow(2, Math.floor(Math.log(zoom) / Math.log(2) + pixelsPerGrid - 1));
-      float scaling = ((float) 1 / spriteResolution * nearestPowerOf2);
+    int nearestPowerOf2 = (int) Math.pow(2, Math.floor(Math.log(zoom) / Math.log(2) + pixelsPerGrid - 1));
+    float scaling = ((float) 1 / spriteResolution * nearestPowerOf2);
 
-      float gridSize = (GridLines_Config.SIZE * scaling);
+    float gridSize = (GridLines_Config.SIZE * scaling);
 
     // Zoom is half the width of the viewport in world units
-      float width = viewport.getWorldSize().x;
-      float height = viewport.getWorldSize().y;
+    float width = viewport.getWorldSize().x;
+    float height = viewport.getWorldSize().y;
 
-      width  = (float) Math.ceil(width) + 3;
-      height = (float) Math.ceil(height) + 3;
+    width = (float) Math.ceil(width) + 3;
+    height = (float) Math.ceil(height) + 3;
 
 
     // Start to draw at this position
-      float firstX = viewport.getPosition().x - width / 2;
-      float firstY = viewport.getPosition().y - height / 2;
+    float firstX = viewport.getPosition().x - width / 2;
+    float firstY = viewport.getPosition().y - height / 2;
 
-      // Make sure firstX and firstY are even multiples of gridSize
-        firstX = (float) Math.floor(firstX / gridSize) * gridSize;
-        firstY = (float) Math.floor(firstY / gridSize) * gridSize;
+    // Make sure firstX and firstY are even multiples of gridSize
+    firstX = (float) Math.floor(firstX / gridSize) * gridSize;
+    firstY = (float) Math.floor(firstY / gridSize) * gridSize;
 
-      // Align to the grid
-        firstX = (float) Math.ceil(firstX) ;
-        firstY = (float) Math.ceil(firstY) ;
+    // Align to the grid
+    firstX = (float) Math.ceil(firstX);
+    firstY = (float) Math.ceil(firstY);
 
-      // offset by half a sprite size in world units
-        firstX +=  1f / (spriteResolution / 8f);
-        firstY +=  1f / (spriteResolution / 8f);
+    // offset by half a sprite size in world units
+    firstX += 1f / (spriteResolution / 8f);
+    firstY += 1f / (spriteResolution / 8f);
 
 
     // Lines per axis, +2 for the lines that are at the edge
-      int numLinesX = (int) (width / gridSize) + 2;
-      int numLinesY = (int) (height / gridSize) + 2;
-
+    int numLinesX = (int) (width / gridSize) + 2;
+    int numLinesY = (int) (height / gridSize) + 2;
 
 
     // Maximum number of lines
