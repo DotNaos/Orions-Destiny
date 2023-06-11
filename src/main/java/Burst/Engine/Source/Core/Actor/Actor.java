@@ -75,7 +75,7 @@ public class Actor implements ImGuiValueManager {
    */
 
   public Actor() {
-    this.ID = Util.generateUniqueID();
+
     if (this.name.equals("ACTOR")) this.name = "Actor " + this.ID;
   }
 
@@ -107,6 +107,7 @@ public class Actor implements ImGuiValueManager {
    * @see #destroy()
    */
   protected void init() {
+    if (this.ID == -1) this.ID = Util.generateUniqueID();
 //    // Get the transform component
     Transform transform = getComponent(Transform.class);
     if (transform == null) {
