@@ -2,6 +2,7 @@ package Burst.Engine.Source.Core.Render;
 
 import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Burst.Engine.Source.Core.Component;
+import Burst.Engine.Source.Core.UI.ImGui.BImGui;
 import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Core.Util.Util;
 import imgui.ImGui;
@@ -128,7 +129,7 @@ public class PickingTexture extends Component {
     Texture texture = new Texture(pixelBuffer, Window.getWidth(), Window.getHeight());
 
     // Display the texture in ImGui
-    ImGui.image(texture.getTexID(), 600, 400);
+    BImGui.image(texture, 600, 400);
   }
 
   /**

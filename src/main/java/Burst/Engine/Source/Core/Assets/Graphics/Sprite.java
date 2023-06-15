@@ -39,7 +39,7 @@ public class Sprite extends Asset {
     {
         if (this.texture == null)
         {
-            this.texture = new Texture(this.filepath);
+            setTexture(new Texture(this.filepath));
         }
     }
 
@@ -52,6 +52,7 @@ public class Sprite extends Asset {
     public Sprite(String filePath) {
         super(filePath);
         this.texture = new Texture(filePath);
+        this.texture.init();
         this.width = texture.getWidth();
         this.height = texture.getHeight();
     }

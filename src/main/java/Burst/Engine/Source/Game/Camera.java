@@ -3,6 +3,7 @@ package Burst.Engine.Source.Game;
 import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Actor.PlayerController;
 import Burst.Engine.Source.Core.Assets.AssetManager;
+import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
 import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Burst.Engine.Source.Core.UI.Viewport;
 import Burst.Engine.Source.Core.UI.Window;
@@ -30,7 +31,7 @@ public class Camera extends Actor {
     super();
     this.name = "new Camera";
     this.viewport = Window.getScene().getViewport();
-    icon = AssetManager.getAssetFromType(AssetConfig.Files.Images.Icons.CAMERA, Texture.class);
+    icon = AssetManager.getAssetFromType(AssetConfig.Files.Images.Icons.CAMERA, Sprite.class);
   }
 
   @Override

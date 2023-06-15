@@ -74,7 +74,7 @@ public class ViewportPanel extends ImGuiPanel {
     ImGui.setCursorPos(windowPos.x, windowPos.y);
 
     int textureId = Window.getFramebuffer().getTextureId();
-    ImGui.imageButton(textureId, windowSize.x, windowSize.y, 0, 1, 1, 0);
+    ImGui.imageButton(textureId, windowSize.x, windowSize.y);
 
 
     // If the mouse is out of the viewports bounds it's not hovered

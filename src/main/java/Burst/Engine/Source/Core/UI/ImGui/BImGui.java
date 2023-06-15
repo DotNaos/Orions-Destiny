@@ -4,6 +4,7 @@ import Burst.Engine.Config.Constants.Color_Config;
 import Burst.Engine.Source.Core.Assets.AssetManager;
 import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
 import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheet;
+import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Burst.Engine.Source.Core.UI.Window;
 import Orion.res.AssetConfig;
 import imgui.ImGui;
@@ -210,7 +211,7 @@ public class BImGui {
     Sprite sprite = sprites.getSprite(row, col);
     Vector2f[] texCoords = sprite.getTexCoords();
     ImGui.pushID("ResetButton" + Color);
-    boolean reset = BImGui.imageButton(sprite.getTexID(), size.x, size.y, texCoords[2].x, texCoords[0].y, texCoords[0].x, texCoords[2].y);
+    boolean reset = BImGui.imageButton(sprite, size.x, size.y);
     ImGui.popID();
     return reset;
   }
@@ -222,7 +223,7 @@ public class BImGui {
     Vector2f[] texCoords = sprite.getTexCoords();
     ImGui.pushID("ResetButton" + Color);
     ImGui.pushStyleColor(ImGuiCol.Button, Color.x, Color.y, Color.z, Color.w);
-    boolean reset = BImGui.imageButton(sprite.getTexID(), size.x, size.y, texCoords[2].x, texCoords[0].y, texCoords[0].x, texCoords[2].y);
+    boolean reset = BImGui.imageButton(sprite, size.x, size.y);
     ImGui.popStyleColor();
     ImGui.popID();
     return reset;
@@ -356,29 +357,33 @@ public class BImGui {
     return null;
   }
 
-  public static boolean imageButton(int textureID, float sizeX, float sizeY, float uv0X, float uv0Y, float uv1X, float uv1Y) {
-    // FLip the Y values
-    uv0Y = 1 - uv0Y;
-    uv1Y = 1 - uv1Y;
+  public static boolean imageButton(Sprite sprite, float sizeX, float sizeY) {
+    Vector2f[] texCoords = sprite.getTexCoords();
+    float uv0X = texCoords[0].x;
+    float uv0Y = texCoords[0].y;
+    float uv1X = texCoords[1].x;
+    float uv1Y = texCoords[1].y;
 
-    return ImGui.imageButton(textureID, sizeX, sizeY, uv0X, uv0Y, uv1X, uv1Y);
+
+    return ImGui.imageButton(sprite.getTexID(), sizeX, sizeY, uv0X, uv0Y, uv1X, uv1Y);
   }
 
-  public static boolean imageButton(int textureID, float sizeX, float sizeY) {
-    return ImGui.imageButton(textureID, sizeX, sizeY, 0, 1, 1, 0);
-  }
-
-  public static void image(int textureID, float sizeX, float sizeY) {
-    ImGui.image(textureID, sizeX, sizeY, 0, 1, 1, 0);
-  }
-
-  public static void image(int textureID, float sizeX, float sizeY, float uv0X, float uv0Y, float uv1X, float uv1Y) {
-    // FLip the Y values
-    uv0Y = 1 - uv0Y;
-    uv1Y = 1 - uv1Y;
-
-    ImGui.image(textureID, sizeX, sizeY, uv0X, uv0Y, uv1X, uv1Y);
+  public static boolean imageButton(Texture texture, float sizeX, float sizeY) {
+    return ImGui.imageButton(texture.getTexID(), sizeX, sizeY);
   }
 
 
+  public static void image(Texture texture, float sizeX, float sizeY) {
+      ImGui.image(texture.getTexID(), sizeX, sizeY);
+  }
+
+    public static void image(Sprite sprite, float sizeX, float sizeY) {
+      Vector2f[] texCoords = sprite.getTexCoords();
+      float uv0X = texCoords[0].x;
+      float uv0Y = texCoords[0].y;
+      float uv1X = texCoords[1].x;
+      float uv1Y = texCoords[1].y;
+
+      ImGui.image(sprite.getTexID(), sizeX, sizeY, uv0X, uv0Y, uv1X, uv1Y);
+    }
 }

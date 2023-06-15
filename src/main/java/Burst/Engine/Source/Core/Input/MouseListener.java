@@ -266,7 +266,7 @@ public class MouseListener {
     ImGui.getMousePos(mousePos);
 
     // Invert Y
-//       mousePos.y = Window.getHeight() - mousePos.y;
+       mousePos.y = Window.getHeight() - mousePos.y;
 
     return new Vector2f(mousePos.x, mousePos.y);
   }
@@ -287,8 +287,6 @@ public class MouseListener {
     currentX = (currentX / get().gameViewportSize.x) * Window.getWidth();
     float currentY = (getY() - get().gameViewportPos.y);
     currentY = (1.0f - (currentY / get().gameViewportSize.y)) * Window.getHeight();
-    // Invert Y
-    currentY = 1080.0f - currentY;
     return new Vector2f(currentX, currentY);
   }
 

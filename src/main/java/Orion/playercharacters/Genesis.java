@@ -10,7 +10,10 @@ import java.util.Timer;
  * @author Oliver Schuetz
  */
 public class Genesis extends PlayerCharacter {
-
+  public Genesis() {
+    super();
+    this.icon = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.GENESIS_IDLE, SpriteSheet.class).getSprite(0);
+  }
   @Override
   public void init()
   {

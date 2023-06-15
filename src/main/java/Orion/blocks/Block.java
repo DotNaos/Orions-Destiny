@@ -2,6 +2,7 @@ package Orion.blocks;
 
 import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Assets.AssetManager;
+import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
 import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheet;
 import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Burst.Engine.Source.Core.Render.SpriteRenderer;
@@ -18,13 +19,13 @@ public class Block extends Actor {
 
   public Block() {
     super();
-    this.name = "new Block";
-    this.icon = AssetManager.getAssetFromType(AssetConfig.Files.Images.Icons.BLOCK, Texture.class);
+    this.icon = AssetManager.getAssetFromType(AssetConfig.Files.Images.Icons.BLOCK, Sprite.class);
   }
 
   @Override
   public void init() {
     super.init();
+    this.name = "new Block";
 
     getComponent(SpriteRenderer.class).setSprite(AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.BLOCKS, SpriteSheet.class).getSprite(row, col));
   }

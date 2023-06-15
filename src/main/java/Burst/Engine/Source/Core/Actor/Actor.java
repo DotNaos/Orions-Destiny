@@ -31,7 +31,8 @@ import java.util.Map;
  * it.
  */
 public class Actor implements ImGuiValueManager {
-  public Texture icon = AssetManager.getAssetFromType(AssetConfig.Files.Images.Icons.ACTOR, Texture.class);
+  public Sprite icon = AssetManager.getAssetFromType(AssetConfig.Files.Images.Icons.ACTOR, Sprite.class);
+
   /**
    * The name of the actor.
    * This is set to "New Actor" by default, and is set to the name of the actor
@@ -600,7 +601,7 @@ public class Actor implements ImGuiValueManager {
     this.adjustSizeToTexture = false;
   }
 
-  public Texture getIcon() {
+  public Sprite getIcon() {
     return this.icon;
   }
 

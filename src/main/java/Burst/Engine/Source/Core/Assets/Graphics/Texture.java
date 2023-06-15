@@ -86,7 +86,8 @@ public class Texture extends Asset {
     IntBuffer height = BufferUtils.createIntBuffer(1);
     IntBuffer channels = BufferUtils.createIntBuffer(1);
 
-    stbi_set_flip_vertically_on_load(true);
+    //! DO NOT CHANGE THIS
+    stbi_set_flip_vertically_on_load(false);
     ByteBuffer image = stbi_load(filepath, width, height, channels, 0);
 
     if (image != null) {

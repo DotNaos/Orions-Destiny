@@ -101,15 +101,16 @@ public class ContentDrawer extends ImGuiPanel {
 
                     // Get the icon field from the actor
                     Actor iconActor = (Actor) actor.getConstructor().newInstance();
-                    Texture icon = iconActor.getIcon();
+                    Sprite icon = iconActor.getIcon();
+
+
 
                     ImGui.pushID(actor.getSimpleName());
                     // Flip the image
 
-                    if (BImGui.imageButton(icon.getTexID(), iconSize, iconSize))
+                    if (BImGui.imageButton(icon, iconSize, iconSize))
                     {
                         Actor newActor = (Actor) actor.getConstructor().newInstance();
-                        newActor.setSprite(new Sprite().setTexture(icon));
                         Window.getScene().getGame().addActor(newActor);
                         Window.getScene().getPanel(PropertiesPanel.class).setActiveActor(newActor);
                     }

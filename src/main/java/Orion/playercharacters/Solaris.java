@@ -8,6 +8,10 @@ import Orion.res.AssetConfig;
  * @author Oliver Schuetz
  */
 public class Solaris extends PlayerCharacter {
+  public Solaris() {
+    super();
+    this.icon = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.SOLARIS_IDLE, SpriteSheet.class).getSprite(0);
+  }
   @Override
   public void init() {
     this.name = "Solaris";

@@ -10,6 +10,10 @@ import java.util.Timer;
  * @author Oliver Schuetz
  */
 public class Apex extends PlayerCharacter {
+  public Apex() {
+    super();
+    icon = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.APEX_IDLE, SpriteSheet.class).getSprite(0);
+  }
   @Override
     public void init() {
         super.init();

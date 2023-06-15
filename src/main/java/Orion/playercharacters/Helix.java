@@ -11,6 +11,10 @@ import java.util.Timer;
  * @author Oliver Schuetz
  */
 public class Helix extends PlayerCharacter {
+    public Helix() {
+        super();
+        this.icon = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.HELIX_IDLE, SpriteSheet.class).getSprite(0);
+    }
     @Override
     public void init()
     {
@@ -23,7 +27,6 @@ public class Helix extends PlayerCharacter {
                     Sometimes extracting the life out of his enemies. \s
                     
                 """;
-        this.name ="Helix";
         this.HP = 0;
         this.DEF = 0;
         this.ATK = 0;

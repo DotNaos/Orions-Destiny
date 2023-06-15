@@ -12,6 +12,11 @@ import java.util.Timer;
  */
 public class Aura extends PlayerCharacter {
 
+  public Aura() {
+    super();
+    this.icon = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.AURA_IDLE, SpriteSheet.class).getSprite(0);
+  }
+
   @Override
   public void init() {
     super.init();

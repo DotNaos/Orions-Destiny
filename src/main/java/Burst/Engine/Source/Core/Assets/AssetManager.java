@@ -22,10 +22,14 @@ import static Orion.res.AssetConfig.Files.Images.SpriteSheets.MAPS;
  * @author Oliver Schuetz
  */
 public class AssetManager {
+  private static boolean loaded = false;
   public static final boolean showLoadingAssets = false;
   private static final List<Assets> assetsList = new ArrayList<>();
 
   public static void loadAllAssets() {
+    if (loaded) {
+      return;
+    }
     DebugMessage.noDebug = false;
 
     DebugMessage.info("Loading Assets");
@@ -34,6 +38,7 @@ public class AssetManager {
     List<String> foundFiles;
 
     assetsList.add(new Assets(Texture.class, IMAGES, "png"));
+    assetsList.add(new Assets(Sprite.class, IMAGES, "png"));
     assetsList.add(new Assets(SpriteSheet.class, SPRITESHEETS, "png"));
     assetsList.add(new Assets(Shader.class, Shader_Config.PATH, "glsl"));
     assetsList.add(new Assets(Sound.class, SOUNDS, "ogg"));
@@ -83,11 +88,14 @@ public class AssetManager {
     }
 
     DebugMessage.noDebug = false;
+    loaded = true;
   }
 
   private static Asset createNewAsset(String assetPath, Class<? extends Asset> assetType) {
     if (assetType.isAssignableFrom(Texture.class)) {
       return new Texture(assetPath);
+    }  else if (assetType.isAssignableFrom(Sprite.class)) {
+      return new Sprite(assetPath);
     } else if (assetType.isAssignableFrom(SpriteSheet.class)) {
       return new SpriteSheet(assetPath);
     } else if (assetType.isAssignableFrom(Shader.class)) {
@@ -106,6 +114,8 @@ public class AssetManager {
   }
 
   public static List<? extends Asset> getAllAssetsFromType(Class<? extends Asset> assetType) {
+    if (!loaded) loadAllAssets();
+
     for (Assets assets : assetsList) {
       if (assets.getAssetType().equals(assetType)) {
         return new ArrayList<>(assets.getAssets().values());
@@ -117,6 +127,7 @@ public class AssetManager {
   }
 
   public static <T extends Asset> T getAssetFromType(Class<T> assetType, String filePath) {
+    if (!loaded) loadAllAssets();
     File file = new File(filePath);
 
     if (!file.exists()) {
@@ -130,7 +141,8 @@ public class AssetManager {
 
 
     for (Assets assets : assetsList) {
-      if (assets.getAssetType().equals(assetType)) {
+      if (assets.getAssetType().equals(assetType))
+      {
         return (T) assets.getAssets().get(filePath);
       }
     }
@@ -201,6 +213,7 @@ public class AssetManager {
    * @return All Spritesheets in the Map of spritesheets that match the usage
    */
   public static List<SpriteSheet> getSpriteSheets(SpriteSheetUsage usage) {
+    if (!loaded) loadAllAssets();
     List<SpriteSheet> spritesheetsWithUsage = new ArrayList<>();
     List<SpriteSheet> listOfSpriteSheets = (List<SpriteSheet>) getAllAssetsFromType(SpriteSheet.class);
     for (SpriteSheet sheet : listOfSpriteSheets) {

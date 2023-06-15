@@ -5,6 +5,7 @@ import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Actor.ActorComponent;
 import Burst.Engine.Source.Core.Actor.PlayerController;
 import Burst.Engine.Source.Core.Component;
+import Burst.Engine.Source.Core.Input.MouseListener;
 import Burst.Engine.Source.Core.Physics.Physics2D;
 import Burst.Engine.Source.Core.Render.PickingTexture;
 import Burst.Engine.Source.Core.Render.ViewportRenderer;
@@ -153,6 +154,8 @@ public class Game {
 
   public void updateEditor(float dt) {
     init();
+
+    // Debug Print all Mouse Coordinates
 
 
     scene.getViewport().adjustProjection();

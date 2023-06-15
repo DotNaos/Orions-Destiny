@@ -9,14 +9,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="Letzter Commit">
+    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="DebugDraw layers">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/imgui.ini" beforeDir="false" afterPath="$PROJECT_DIR$/imgui.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/levels/level.json" beforeDir="false" afterPath="$PROJECT_DIR$/levels/level.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/Actor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/Actor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/Pawn.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/AssetManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/AssetManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Render/Debug/DebugDraw.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Render/Debug/DebugDraw.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/Window.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Components/GridLines.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Components/GridLines.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/Graphics/Sprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/Graphics/Sprite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/Graphics/Texture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/Graphics/Texture.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Input/MouseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Input/MouseListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Render/PickingTexture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Render/PickingTexture.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/ImGui/BImGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/UI/ImGui/BImGui.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Util/ImGuiValueManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Util/ImGuiValueManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/ContentDrawer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/ContentDrawer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Panel/ViewportPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Panel/ViewportPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Game/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Game/Camera.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Game/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/blocks/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/blocks/Block.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/items/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/items/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Apex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Apex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Aura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Aura.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Genesis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Genesis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Helix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Helix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/PlayerCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/PlayerCharacter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Solaris.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Solaris.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,10 +212,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Gradle.Orions-Destiny [shadowJar]" />
         <item itemvalue="Gradle.Orions-Destiny [jar]" />
         <item itemvalue="Gradle.Orions-Destiny [dependencies]" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -242,14 +259,7 @@
       <workItem from="1686304742078" duration="43789000" />
       <workItem from="1686386311492" duration="38872000" />
       <workItem from="1686463913065" duration="51209000" />
-      <workItem from="1686835550595" duration="3889000" />
-    </task>
-    <task id="LOCAL-00056" summary="Saving Level Mit Timer. Problem war rekursion in initialValues. Fix: Transient">
-      <created>1686244602762</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1686244602762</updated>
+      <workItem from="1686835550595" duration="7765000" />
     </task>
     <task id="LOCAL-00057" summary="Viewport in Game und Loading">
       <created>1686251203117</created>
@@ -587,14 +597,20 @@
       <option name="project" value="LOCAL" />
       <updated>1686520002474</updated>
     </task>
-    <option name="localTasksCounter" value="105" />
+    <task id="LOCAL-00105" summary="DebugDraw layers">
+      <created>1686840447200</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1686840447201</updated>
+    </task>
+    <option name="localTasksCounter" value="106" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="MouseControls organisiert" />
     <MESSAGE value="Duplicate multiple with offset" />
     <MESSAGE value="Multiplier fast" />
     <MESSAGE value="Save nach Texture change" />
@@ -619,7 +635,8 @@
     <MESSAGE value="Game Engine Letzte Version vor abgabe" />
     <MESSAGE value="Maybe letzter Commit" />
     <MESSAGE value="Letzter Commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Letzter Commit" />
+    <MESSAGE value="DebugDraw layers" />
+    <option name="LAST_COMMIT_MESSAGE" value="DebugDraw layers" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -639,6 +656,10 @@
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.IllegalArgumentException" package="java.lang" />
           <option name="timeStamp" value="18" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="20" />
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
