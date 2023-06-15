@@ -108,7 +108,6 @@ public class RenderBatch implements Comparable<RenderBatch> {
   public void addSprite(SpriteRenderer spr) {
     if (spr.getTexture() == null) return;
 
-
     // Get index and add renderObject
     int index = this.numSprites;
     this.sprites[index] = spr;

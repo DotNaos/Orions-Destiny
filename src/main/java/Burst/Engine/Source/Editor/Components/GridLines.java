@@ -3,10 +3,14 @@ package Burst.Engine.Source.Editor.Components;
 import Burst.Engine.Config.Constants.GridLines_Config;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.Render.Debug.DebugDraw;
+import Burst.Engine.Source.Core.Render.Debug.Line2D;
 import Burst.Engine.Source.Core.UI.Viewport;
 import Burst.Engine.Source.Core.UI.Window;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -97,10 +101,13 @@ public class GridLines extends Component {
     int numLinesY = (int) (height / gridSize) + 2;
 
 
-    // Maximum number of lines
+    // number of lines
     int numLines = Math.max(numLinesX, numLinesY);
 
+    // Maxlines
+    int maxLines = 500;
     for (int i = 0; i < numLines; i++) {
+      if (i > maxLines) break;
       // Vertical lines
       float x = firstX + (i * gridSize);
       if (i < numLinesX)

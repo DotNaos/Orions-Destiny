@@ -1,5 +1,6 @@
 package Burst.Engine.Source.Core.UI;
 
+import Burst.Engine.Source.Core.Input.MouseListener;
 import Burst.Engine.Source.Editor.Panel.ViewportPanel;
 import org.joml.Matrix4f;
 import org.joml.Vector2f;
@@ -125,4 +126,9 @@ public class Viewport {
   }
 
 
+    public boolean isPointInViewport(Vector2f point) {
+        Vector2f start = MouseListener.viewToWorld(new Vector2f(0,0));
+        Vector2f end = MouseListener.viewToWorld(new Vector2f(Window.getWidth(), Window.getHeight()));
+        return point.x >= start.x && point.x <= end.x && point.y >= start.y && point.y <= end.y;
+    }
 }

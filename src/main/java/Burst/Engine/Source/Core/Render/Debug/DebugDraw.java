@@ -33,9 +33,11 @@ public class DebugDraw {
 
   private static List<Line2D> lines = new ArrayList<>();
 
+  public static boolean drawGridlines = false;
+
   private static final int vertexSize = 7;
   // 7 floats per vertex, 2 vertices per line
-  private static float[] vertexArray = new float[MAX_LINES * vertexSize * 2];
+  private static float[] vertexArray = new float[(MAX_LINES) * vertexSize * 2];
   private static Shader shader = (Shader) AssetManager.getAssetFromType(Shader_Config.SHADER_DEBUG, Shader.class);
 
   private static int vaoID;
@@ -70,7 +72,10 @@ public class DebugDraw {
       start();
       started = true;
     }
+    removeDeadLines();
+  }
 
+  private static void removeDeadLines() {
     // Remove dead lines
     for (int i = 0; i < lines.size(); i++) {
       if (lines.get(i).beginFrame() < 0) {
@@ -82,27 +87,28 @@ public class DebugDraw {
 
 
   public static void draw() {
-    if (lines.size() <= 0) return;
+    if(lines.size() == 0) return;
+
 
     int index = 0;
-    for (Line2D line : lines) {
-      for (int i = 0; i < 2; i++) {
-        Vector2f position = i == 0 ? line.getFrom() : line.getTo();
-        Vector4f color = new Vector4f(line.getColor().x, line.getColor().y, line.getColor().z, line.getColor().w);
+      for (Line2D line : lines) {
+        for (int i = 0; i < 2; i++) {
+          Vector2f position = i == 0 ? line.getFrom() : line.getTo();
+          Vector4f color = new Vector4f(line.getColor().x, line.getColor().y, line.getColor().z, line.getColor().w);
 
-        // Load position
-        vertexArray[index] = position.x;
-        vertexArray[index + 1] = position.y;
-        vertexArray[index + 2] = 10.0f;
+          // Load position
+          vertexArray[index] = position.x;
+          vertexArray[index + 1] = position.y;
+          vertexArray[index + 2] = 10.0f;
 
-        // Load the color
-        vertexArray[index + 3] = color.x;
-        vertexArray[index + 4] = color.y;
-        vertexArray[index + 5] = color.z;
-        vertexArray[index + 6] = color.w;
-        index += vertexSize;
+          // Load the color
+          vertexArray[index + 3] = color.x;
+          vertexArray[index + 4] = color.y;
+          vertexArray[index + 5] = color.z;
+          vertexArray[index + 6] = color.w;
+          index += vertexSize;
+        }
       }
-    }
 
     glBindBuffer(GL_ARRAY_BUFFER, vboID);
     glBufferData(GL_ARRAY_BUFFER, vertexArray, GL_DYNAMIC_DRAW);
@@ -146,22 +152,17 @@ public class DebugDraw {
   }
 
   public static void addLine(Vector2f from, Vector2f to, Vector4f color, int lifetime) {
-    Viewport viewport = Window.getScene().getViewport();
+      Viewport viewport = Window.getScene().getViewport();
 
-    // TODO: Fix Camera viewport size, not used currently
+      boolean lineInView = true;
 
-//        Vector2f cameraLeft = viewport.getPosition().sub(new Vector2f(viewport.getSize().x / 4, viewport.getSize().y / 4, 0));
-//        Vector2f cameraRight = viewport.getPosition().add(new Vector2f(viewport.getSize().x / 4, viewport.getSize().y / 4, 0));
-//
-//
-    boolean lineInView = true;
-//                ((from.x >= cameraLeft.x && from.x <= cameraRight.x) && (from.y >= cameraLeft.y && from.y <= cameraRight.y)) ||
-//                        ((to.x >= cameraLeft.x && to.x <= cameraRight.x) && (to.y >= cameraLeft.y && to.y <= cameraRight.y));
-    if (lines.size() >= MAX_LINES || !lineInView) {
-      return;
-    }
+      if (lines.size() >= MAX_LINES || !lineInView) {
+        return;
+      }
+      if (drawGridlines && lines.size() > 1000) return;
 
-    DebugDraw.lines.add(new Line2D(new Vector2f(from), new Vector2f(to), new Vector4f(color), lifetime));
+      DebugDraw.lines.add(new Line2D(new Vector2f(from), new Vector2f(to), new Vector4f(color), lifetime));
+
   }
 
   //!==================================================

@@ -64,9 +64,6 @@ public class PlayerController extends ActorComponent {
 
         this.acceleration.x = walkSpeed;
 
-        // TODO: TEMP SOLUTION FOR MOVING LEFT AND RIGHT
-        this.actor.getTransform().position.x += this.acceleration.x * dt;
-
         if (this.velocity.x < 0) {
           this.stateMachine.trigger("switchDirection");
           this.velocity.x += slowDownForce;
@@ -78,7 +75,7 @@ public class PlayerController extends ActorComponent {
         this.actor.getTransform().size.x = -Math.abs(this.actor.getTransform().size.x);
         this.acceleration.x = -walkSpeed;
 
-        this.actor.getTransform().position.x += this.acceleration.x * dt;
+
 
         if (this.velocity.x > 0) {
           this.stateMachine.trigger("switchDirection");
@@ -87,14 +84,7 @@ public class PlayerController extends ActorComponent {
           this.stateMachine.trigger("startRunning");
         }
       }
-      // Move up
-      else if (KeyListener.isKeyPressed(HotKeys.get().PlayerMoveUp)) {
-        this.acceleration.y = walkSpeed;
-        this.actor.getTransform().position.y += this.acceleration.y * dt;
-      } else if (KeyListener.isKeyPressed(HotKeys.get().PlayerMoveDown)) {
-        this.acceleration.y = -walkSpeed;
-        this.actor.getTransform().position.y += this.acceleration.y * dt;
-      } else {
+       else {
         this.acceleration.x = 0;
         if (this.velocity.x > 0) {
           this.velocity.x = Math.max(0, this.velocity.x - slowDownForce);
