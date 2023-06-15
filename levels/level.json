@@ -1,59 +1,53 @@
 [
   {
-    "description": "An ancient golem older than the world itself.  \nHe is made of pure energy and can control gravity.  \nThrowing shards at his enemies empowered with all sorts of energies.  \n",
-    "HP": 0,
-    "DEF": 0,
-    "ATK": 0,
-    "SPD": 0,
-    "STAMINA": 0,
-    "LVL": 0,
-    "EXP": 0,
+    "row": 0,
+    "col": 0,
     "icon": {
-      "width": 100.0,
-      "height": 100.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.1,
-          "y": 0.2
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.1,
-          "y": 0.1
-        },
-        {
-          "x": 0.0,
-          "y": 0.1
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.2
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.1,
-          "y": 0.2
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.1,
-          "y": 0.1
-        },
-        {
-          "x": 0.0,
-          "y": 0.1
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.2
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/player/Aura/aura.png",
-      "ID": 1945932007,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
-    "name": "Aura",
-    "type": "Orion.playercharacters.Aura",
-    "ID": 2,
+    "name": "new Block",
+    "type": "Orion.blocks.Block",
+    "ID": 1,
     "components": [
       {
         "type": "Burst.Engine.Source.Core.Physics.Components.Transform",
@@ -82,19 +76,59 @@
         }
       },
       {
-        "type": "Burst.Engine.Source.Core.Actor.PlayerController",
+        "type": "Burst.Engine.Source.Core.Render.SpriteRenderer",
         "properties": {
-          "walkSpeed": 1.9,
-          "jumpBoost": 1.0,
-          "jumpImpulse": 3.0,
-          "slowDownForce": 0.05,
-          "terminalVelocity": {
-            "x": 2.1,
-            "y": 3.1
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
           },
-          "isDead": false,
-          "name": "PlayerController",
-          "ID": -1516388368,
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texCoords": [
+              {
+                "x": 0.03125,
+                "y": 0.03125
+              },
+              {
+                "x": 0.03125,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.03125
+              }
+            ],
+            "resetTexCoords": [
+              {
+                "x": 0.03125,
+                "y": 0.03125
+              },
+              {
+                "x": 0.03125,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.03125
+              }
+            ],
+            "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
+            "ID": 2619762,
+            "isDirty": false
+          },
+          "name": "SpriteRenderer",
+          "ID": 385185606,
           "isDirty": false
         }
       },
@@ -121,71 +155,23 @@
         }
       },
       {
-        "type": "Burst.Engine.Source.Game.Animation.StateMachine",
+        "type": "Burst.Engine.Source.Core.Physics.Components.Box2DCollider",
         "properties": {
-          "stateTransfers": {},
-          "states": [],
-          "defaultStateTitle": "",
-          "name": "StateMachine",
-          "ID": -698501465,
-          "isDirty": false
-        }
-      },
-      {
-        "type": "Burst.Engine.Source.Core.Render.SpriteRenderer",
-        "properties": {
-          "color": {
+          "halfSize": {
             "x": 1.0,
-            "y": 1.0,
-            "z": 1.0,
-            "w": 1.0
+            "y": 1.0
           },
-          "sprite": {
-            "width": 100.0,
-            "height": 100.0,
-            "texCoords": [
-              {
-                "x": 1.0,
-                "y": 1.0
-              },
-              {
-                "x": 1.0,
-                "y": 0.0
-              },
-              {
-                "x": 0.0,
-                "y": 0.0
-              },
-              {
-                "x": 0.0,
-                "y": 1.0
-              }
-            ],
-            "resetTexCoords": [
-              {
-                "x": 0.3,
-                "y": 0.1
-              },
-              {
-                "x": 0.3,
-                "y": 0.0
-              },
-              {
-                "x": 0.2,
-                "y": 0.0
-              },
-              {
-                "x": 0.2,
-                "y": 0.1
-              }
-            ],
-            "filepath": "Assets/images/spritesheets/player/Aura/aura.png",
-            "ID": 1945932007,
-            "isDirty": false
+          "origin": {
+            "x": 0.0,
+            "y": 0.0
           },
-          "name": "SpriteRenderer",
-          "ID": 385185606,
-          "isDirty": true
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "name": "Box2DCollider",
+          "ID": -455456646,
+          "isDirty": false
         }
       }
     ],

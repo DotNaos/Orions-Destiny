@@ -159,6 +159,11 @@ public class Actor implements ImGuiValueManager {
       }
 
     }
+    else{
+      SpriteRenderer spr = new SpriteRenderer(this);
+      spr.setSprite(AssetManager.getAssetFromType(AssetConfig.Files.Images.Icons.ACTOR, Sprite.class));
+      addComponent(spr);
+    }
 
     ignoreFields.add("initialValues");
     ignoreFields.add("components");

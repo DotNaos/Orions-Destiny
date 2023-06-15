@@ -41,7 +41,6 @@ public class ContentDrawer extends ImGuiPanel {
 
             // Add all blocks
             actors.add(Block.class);
-            actors.add(Camera.class);
 
             // Add all players
             actors.add(Apex.class);

@@ -15,6 +15,9 @@ import org.joml.Vector4f;
  * @author Oliver Schuetz
  */
 public class Camera extends Actor {
+
+
+  // TODO: MAKE THIS A ACTOR_COMPONENT
   private final transient Viewport viewport;
 
   /**

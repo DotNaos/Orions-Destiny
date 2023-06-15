@@ -189,7 +189,7 @@ public class MouseListener {
     float currentX = getX() - get().gameViewportPos.x;
     currentX = (2.0f * (currentX / get().gameViewportSize.x)) - 1.0f;
     float currentY = (getY() - get().gameViewportPos.y);
-    currentY = (2.0f * (1.0f - (currentY / get().gameViewportSize.y))) - 1;
+    currentY = (2.0f * (currentY / get().gameViewportSize.y)) - 1.0f;
 
     Viewport viewport = Window.getScene().getViewport();
     Vector4f tmp = new Vector4f(currentX, currentY, 0, 1);
