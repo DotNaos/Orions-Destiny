@@ -203,10 +203,18 @@ public class BImGui {
       Color = 1;
     }
 
-    int col = Color % 2 == 0 ? 10 : 4;
-    int colorRow = Color % 2 == 0 ? Color / 2 : (Color + 1) / 2;
-    int row = colorRow * 3;
+    // Color 1 & 2
+    // Row = 1
+    // Color 3 & 4
+    // Row = 4
+    // Color 5 & 6
+    // Row = 7
 
+    int col = Color % 2 == 0 ? 10 : 4;
+
+    int row = (Color + 1) / 2 - 1;
+
+    row = row * 3 + 1;
 
     Sprite sprite = sprites.getSprite(row, col);
     Vector2f[] texCoords = sprite.getTexCoords();
@@ -217,36 +225,37 @@ public class BImGui {
   }
 
   public static boolean resetButton(Vector2f size, Vector4f Color) {
-    SpriteSheet sprites = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.BUTTONS, SpriteSheet.class);
-
-    Sprite sprite = sprites.getSprite(3, 10);
-    Vector2f[] texCoords = sprite.getTexCoords();
     ImGui.pushID("ResetButton" + Color);
     ImGui.pushStyleColor(ImGuiCol.Button, Color.x, Color.y, Color.z, Color.w);
-    boolean reset = BImGui.imageButton(sprite, size.x, size.y);
+    boolean reset = BImGui.resetButton(size, "BLACK");
     ImGui.popStyleColor();
     ImGui.popID();
     return reset;
   }
 
   public static boolean resetButton(Vector2f size) {
-    return resetButton(size, 2);
+    return resetButton(size, "black");
   }
 
   public static boolean resetButton(Vector2f size, String Color) {
     Color = Color.toLowerCase();
     return switch (Color) {
-      case "blue" -> resetButton(size, 1);
-      case "black" -> resetButton(size, 2);
-      case "yellow" -> resetButton(size, 3);
-      case "cyan" -> resetButton(size, 4);
-      case "red" -> resetButton(size, 5);
-      case "pink" -> resetButton(size, 6);
-      case "green" -> resetButton(size, 7);
-      case "purple" -> resetButton(size, 8);
+      case "green" -> resetButton(size, 1);
+      case "purple" -> resetButton(size, 2);
+
+
+      case "red" -> resetButton(size, 3);
+      case "pink" -> resetButton(size, 4);
+
+
+      case "yellow" -> resetButton(size, 5);
+      case "cyan" -> resetButton(size, 6);
+
+      case "blue" -> resetButton(size, 7);
+      case "black" -> resetButton(size, 8);
 
       // Defaults to black
-      default -> resetButton(size, 2);
+      default -> resetButton(size, "black");
     };
 
   }
@@ -359,10 +368,10 @@ public class BImGui {
 
   public static boolean imageButton(Sprite sprite, float sizeX, float sizeY) {
     Vector2f[] texCoords = sprite.getTexCoords();
-    float uv0X = texCoords[0].x;
-    float uv0Y = texCoords[0].y;
-    float uv1X = texCoords[1].x;
-    float uv1Y = texCoords[1].y;
+    float uv0X = texCoords[2].x;
+    float uv0Y = texCoords[2].y;
+    float uv1X = texCoords[0].x;
+    float uv1Y = texCoords[0].y;
 
 
     return ImGui.imageButton(sprite.getTexID(), sizeX, sizeY, uv0X, uv0Y, uv1X, uv1Y);
@@ -379,10 +388,10 @@ public class BImGui {
 
     public static void image(Sprite sprite, float sizeX, float sizeY) {
       Vector2f[] texCoords = sprite.getTexCoords();
-      float uv0X = texCoords[0].x;
-      float uv0Y = texCoords[0].y;
-      float uv1X = texCoords[1].x;
-      float uv1Y = texCoords[1].y;
+      float uv0X = texCoords[2].x;
+      float uv0Y = texCoords[2].y;
+      float uv1X = texCoords[0].x;
+      float uv1Y = texCoords[0].y;
 
       ImGui.image(sprite.getTexID(), sizeX, sizeY, uv0X, uv0Y, uv1X, uv1Y);
     }

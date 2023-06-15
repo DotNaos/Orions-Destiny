@@ -56,7 +56,7 @@ public class SpriteSheet extends Asset {
     private void createSprites(int rows, int cols) {
         this.sprites = new ArrayList<>();
         int currentX = 0;
-        int currentY = texture.getHeight() - config.spriteHeight;
+        int currentY = 0;
 
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
@@ -89,7 +89,7 @@ public class SpriteSheet extends Asset {
                 currentX += config.spriteWidth + config.spacing;
                 if (currentX >= texture.getWidth()) {
                     currentX = 0;
-                    currentY -= config.spriteHeight + config.spacing;
+                    currentY += config.spriteHeight + config.spacing;
                 }
                 this.spriteCount++;
             }
@@ -129,6 +129,8 @@ public class SpriteSheet extends Asset {
             DebugMessage.printWarning("Sprite index out of bounds: " + index);
             index = 0;
         }
+
+
 
         return this.sprites.get(index);
     }

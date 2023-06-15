@@ -9,594 +9,42 @@
     "LVL": 0,
     "EXP": 0,
     "icon": {
-      "width": 2048.0,
-      "height": 2048.0,
-      "texCoords": [
-        {
-          "x": 1.0,
-          "y": 1.0
-        },
-        {
-          "x": 1.0,
-          "y": 0.0
-        },
-        {
-          "x": 0.0,
-          "y": 0.0
-        },
-        {
-          "x": 0.0,
-          "y": 1.0
-        }
-      ],
-      "resetTexCoords": [
-        {
-          "x": 1.0,
-          "y": 1.0
-        },
-        {
-          "x": 1.0,
-          "y": 0.0
-        },
-        {
-          "x": 0.0,
-          "y": 0.0
-        },
-        {
-          "x": 0.0,
-          "y": 1.0
-        }
-      ],
-      "filepath": "Assets/images/textures/icons/player.png",
-      "ID": -2011724227,
-      "isDirty": false
-    },
-    "name": "Aura",
-    "type": "Orion.playercharacters.Aura",
-    "ID": 1,
-    "components": [
-      {
-        "type": "Burst.Engine.Source.Core.Render.SpriteRenderer",
-        "properties": {
-          "color": {
-            "x": 1.0,
-            "y": 1.0,
-            "z": 1.0,
-            "w": 1.0
-          },
-          "sprite": {
-            "width": 100.0,
-            "height": 100.0,
-            "texCoords": [
-              {
-                "x": 1.0,
-                "y": 1.0
-              },
-              {
-                "x": 1.0,
-                "y": 0.0
-              },
-              {
-                "x": 0.0,
-                "y": 0.0
-              },
-              {
-                "x": 0.0,
-                "y": 1.0
-              }
-            ],
-            "resetTexCoords": [
-              {
-                "x": 0.4,
-                "y": 1.0
-              },
-              {
-                "x": 0.4,
-                "y": 0.9
-              },
-              {
-                "x": 0.3,
-                "y": 0.9
-              },
-              {
-                "x": 0.3,
-                "y": 1.0
-              }
-            ],
-            "filepath": "Assets/images/spritesheets/player/Aura/aura.png",
-            "ID": 1945932007,
-            "isDirty": false
-          },
-          "name": "SpriteRenderer",
-          "ID": 385185606,
-          "isDirty": false
-        }
-      },
-      {
-        "type": "Burst.Engine.Source.Core.Physics.Components.Transform",
-        "properties": {
-          "position": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "scale": {
-            "x": 1.0,
-            "y": 1.0
-          },
-          "size": {
-            "x": 1.0,
-            "y": 1.0
-          },
-          "scaledSize": {
-            "x": 1.0,
-            "y": 1.0
-          },
-          "rotation": 0.0,
-          "zIndex": 0,
-          "name": "Transform",
-          "ID": -683109387,
-          "isDirty": false
-        }
-      },
-      {
-        "type": "Burst.Engine.Source.Core.Actor.PlayerController",
-        "properties": {
-          "walkSpeed": 1.9,
-          "jumpBoost": 1.0,
-          "jumpImpulse": 3.0,
-          "slowDownForce": 0.05,
-          "terminalVelocity": {
-            "x": 2.1,
-            "y": 3.1
-          },
-          "isDead": false,
-          "name": "PlayerController",
-          "ID": -1516388368,
-          "isDirty": false
-        }
-      },
-      {
-        "type": "Burst.Engine.Source.Core.Physics.Components.Rigidbody2D",
-        "properties": {
-          "velocity": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "angularDamping": 0.8,
-          "linearDamping": 0.9,
-          "mass": 0.0,
-          "bodyType": "Dynamic",
-          "friction": 0.1,
-          "angularVelocity": 0.0,
-          "gravityScale": 1.0,
-          "isSensor": false,
-          "fixedRotation": false,
-          "continuousCollision": true,
-          "name": "Rigidbody2D",
-          "ID": -1192050776,
-          "isDirty": false
-        }
-      },
-      {
-        "type": "Burst.Engine.Source.Game.Animation.StateMachine",
-        "properties": {
-          "stateTransfers": {},
-          "states": [],
-          "defaultStateTitle": "",
-          "name": "StateMachine",
-          "ID": -698501465,
-          "isDirty": false
-        }
-      },
-      {
-        "type": "Burst.Engine.Source.Core.Physics.Components.Box2DCollider",
-        "properties": {
-          "halfSize": {
-            "x": 1.0,
-            "y": 1.0
-          },
-          "origin": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "offset": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "name": "Box2DCollider",
-          "ID": -455456646,
-          "isDirty": false
-        }
-      }
-    ],
-    "serializedActor": true,
-    "adjustSizeToTexture": false,
-    "pickable": true
-  },
-  {
-    "description": "A beast from the depths of hell, Solaris is a powerful and fearsome creature. \nHe can shoot fireballs from his mouth, and expel flames from his body. \n",
-    "HP": 0,
-    "DEF": 0,
-    "ATK": 0,
-    "SPD": 0,
-    "STAMINA": 0,
-    "LVL": 0,
-    "EXP": 0,
-    "icon": {
-      "width": 2048.0,
-      "height": 2048.0,
-      "texCoords": [
-        {
-          "x": 1.0,
-          "y": 1.0
-        },
-        {
-          "x": 1.0,
-          "y": 0.0
-        },
-        {
-          "x": 0.0,
-          "y": 0.0
-        },
-        {
-          "x": 0.0,
-          "y": 1.0
-        }
-      ],
-      "resetTexCoords": [
-        {
-          "x": 1.0,
-          "y": 1.0
-        },
-        {
-          "x": 1.0,
-          "y": 0.0
-        },
-        {
-          "x": 0.0,
-          "y": 0.0
-        },
-        {
-          "x": 0.0,
-          "y": 1.0
-        }
-      ],
-      "filepath": "Assets/images/textures/icons/player.png",
-      "ID": -2011724227,
-      "isDirty": false
-    },
-    "name": "Solaris",
-    "type": "Orion.playercharacters.Solaris",
-    "ID": 2,
-    "components": [
-      {
-        "type": "Burst.Engine.Source.Core.Render.SpriteRenderer",
-        "properties": {
-          "color": {
-            "x": 1.0,
-            "y": 1.0,
-            "z": 1.0,
-            "w": 1.0
-          },
-          "sprite": {
-            "width": 2048.0,
-            "height": 2048.0,
-            "texCoords": [
-              {
-                "x": 1.0,
-                "y": 1.0
-              },
-              {
-                "x": 1.0,
-                "y": 0.0
-              },
-              {
-                "x": 0.0,
-                "y": 0.0
-              },
-              {
-                "x": 0.0,
-                "y": 1.0
-              }
-            ],
-            "resetTexCoords": [
-              {
-                "x": 1.0,
-                "y": 1.0
-              },
-              {
-                "x": 1.0,
-                "y": 0.0
-              },
-              {
-                "x": 0.0,
-                "y": 0.0
-              },
-              {
-                "x": 0.0,
-                "y": 1.0
-              }
-            ],
-            "filepath": "Assets/images/textures/icons/player.png",
-            "ID": -2004043409,
-            "isDirty": false
-          },
-          "name": "SpriteRenderer",
-          "ID": 385185606,
-          "isDirty": true
-        }
-      },
-      {
-        "type": "Burst.Engine.Source.Core.Physics.Components.Transform",
-        "properties": {
-          "position": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "scale": {
-            "x": 1.0,
-            "y": 1.0
-          },
-          "size": {
-            "x": 1.0,
-            "y": 1.0
-          },
-          "scaledSize": {
-            "x": 1.0,
-            "y": 1.0
-          },
-          "rotation": 0.0,
-          "zIndex": 0,
-          "name": "Transform",
-          "ID": -683109387,
-          "isDirty": false
-        }
-      }
-    ],
-    "serializedActor": true,
-    "adjustSizeToTexture": false,
-    "pickable": true
-  },
-  {
-    "description": "    A stealthy shadow ninja that can control the shadows.  \n    Slashing his enemies empowered with dark magic.  \n    Sometimes casting a shadow clone to confuse his enemies.  \n",
-    "HP": 0,
-    "DEF": 0,
-    "ATK": 0,
-    "SPD": 0,
-    "STAMINA": 0,
-    "LVL": 0,
-    "EXP": 0,
-    "icon": {
-      "width": 80.0,
-      "height": 80.0,
-      "texCoords": [
-        {
-          "x": 1.0,
-          "y": 1.0
-        },
-        {
-          "x": 1.0,
-          "y": 0.0
-        },
-        {
-          "x": 0.0,
-          "y": 0.0
-        },
-        {
-          "x": 0.0,
-          "y": 1.0
-        }
-      ],
-      "resetTexCoords": [
-        {
-          "x": 0.04347826,
-          "y": 1.0
-        },
-        {
-          "x": 0.04347826,
-          "y": 0.8
-        },
-        {
-          "x": 0.0,
-          "y": 0.8
-        },
-        {
-          "x": 0.0,
-          "y": 1.0
-        }
-      ],
-      "filepath": "Assets/images/spritesheets/player/Apex/apex.png",
-      "ID": -1827250105,
-      "isDirty": false
-    },
-    "name": "Apex",
-    "type": "Orion.playercharacters.Apex",
-    "ID": 3,
-    "components": [
-      {
-        "type": "Burst.Engine.Source.Core.Physics.Components.Transform",
-        "properties": {
-          "position": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "scale": {
-            "x": 1.0,
-            "y": 1.0
-          },
-          "size": {
-            "x": 1.0,
-            "y": 1.0
-          },
-          "scaledSize": {
-            "x": 1.0,
-            "y": 1.0
-          },
-          "rotation": 0.0,
-          "zIndex": 0,
-          "name": "Transform",
-          "ID": -683109387,
-          "isDirty": false
-        }
-      },
-      {
-        "type": "Burst.Engine.Source.Core.Actor.PlayerController",
-        "properties": {
-          "walkSpeed": 1.9,
-          "jumpBoost": 1.0,
-          "jumpImpulse": 3.0,
-          "slowDownForce": 0.05,
-          "terminalVelocity": {
-            "x": 2.1,
-            "y": 3.1
-          },
-          "isDead": false,
-          "name": "PlayerController",
-          "ID": -1516388368,
-          "isDirty": false
-        }
-      },
-      {
-        "type": "Burst.Engine.Source.Core.Physics.Components.Rigidbody2D",
-        "properties": {
-          "velocity": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "angularDamping": 0.8,
-          "linearDamping": 0.9,
-          "mass": 0.0,
-          "bodyType": "Dynamic",
-          "friction": 0.1,
-          "angularVelocity": 0.0,
-          "gravityScale": 1.0,
-          "isSensor": false,
-          "fixedRotation": false,
-          "continuousCollision": true,
-          "name": "Rigidbody2D",
-          "ID": -1192050776,
-          "isDirty": false
-        }
-      },
-      {
-        "type": "Burst.Engine.Source.Game.Animation.StateMachine",
-        "properties": {
-          "stateTransfers": {},
-          "states": [],
-          "defaultStateTitle": "",
-          "name": "StateMachine",
-          "ID": -698501465,
-          "isDirty": false
-        }
-      },
-      {
-        "type": "Burst.Engine.Source.Core.Render.SpriteRenderer",
-        "properties": {
-          "color": {
-            "x": 1.0,
-            "y": 1.0,
-            "z": 1.0,
-            "w": 1.0
-          },
-          "sprite": {
-            "width": 80.0,
-            "height": 80.0,
-            "texCoords": [
-              {
-                "x": 1.0,
-                "y": 1.0
-              },
-              {
-                "x": 1.0,
-                "y": 0.0
-              },
-              {
-                "x": 0.0,
-                "y": 0.0
-              },
-              {
-                "x": 0.0,
-                "y": 1.0
-              }
-            ],
-            "resetTexCoords": [
-              {
-                "x": 0.13043478,
-                "y": 1.0
-              },
-              {
-                "x": 0.13043478,
-                "y": 0.8
-              },
-              {
-                "x": 0.08695652,
-                "y": 0.8
-              },
-              {
-                "x": 0.08695652,
-                "y": 1.0
-              }
-            ],
-            "filepath": "Assets/images/spritesheets/player/Apex/apex.png",
-            "ID": -1827250105,
-            "isDirty": false
-          },
-          "name": "SpriteRenderer",
-          "ID": 385185606,
-          "isDirty": true
-        }
-      }
-    ],
-    "serializedActor": true,
-    "adjustSizeToTexture": false,
-    "pickable": true
-  },
-  {
-    "description": "An ancient golem older than the world itself.  \nHe is made of pure energy and can control gravity.  \nThrowing shards at his enemies empowered with all sorts of energies.  \n",
-    "HP": 0,
-    "DEF": 0,
-    "ATK": 0,
-    "SPD": 0,
-    "STAMINA": 0,
-    "LVL": 0,
-    "EXP": 0,
-    "icon": {
       "width": 100.0,
       "height": 100.0,
       "texCoords": [
         {
           "x": 0.1,
-          "y": 1.0
+          "y": 0.2
         },
         {
           "x": 0.1,
-          "y": 0.9
+          "y": 0.1
         },
         {
           "x": 0.0,
-          "y": 0.9
+          "y": 0.1
         },
         {
           "x": 0.0,
-          "y": 1.0
+          "y": 0.2
         }
       ],
       "resetTexCoords": [
         {
           "x": 0.1,
-          "y": 1.0
+          "y": 0.2
         },
         {
           "x": 0.1,
-          "y": 0.9
+          "y": 0.1
         },
         {
           "x": 0.0,
-          "y": 0.9
+          "y": 0.1
         },
         {
           "x": 0.0,
-          "y": 1.0
+          "y": 0.2
         }
       ],
       "filepath": "Assets/images/spritesheets/player/Aura/aura.png",
@@ -605,7 +53,7 @@
     },
     "name": "Aura",
     "type": "Orion.playercharacters.Aura",
-    "ID": 4,
+    "ID": 2,
     "components": [
       {
         "type": "Burst.Engine.Source.Core.Physics.Components.Transform",
@@ -697,16 +145,16 @@
             "height": 100.0,
             "texCoords": [
               {
-                "x": 0.1,
+                "x": 1.0,
                 "y": 1.0
               },
               {
-                "x": 0.1,
-                "y": 0.9
+                "x": 1.0,
+                "y": 0.0
               },
               {
                 "x": 0.0,
-                "y": 0.9
+                "y": 0.0
               },
               {
                 "x": 0.0,
@@ -715,20 +163,20 @@
             ],
             "resetTexCoords": [
               {
-                "x": 0.1,
-                "y": 1.0
+                "x": 0.3,
+                "y": 0.1
               },
               {
-                "x": 0.1,
-                "y": 0.9
+                "x": 0.3,
+                "y": 0.0
               },
               {
-                "x": 0.0,
-                "y": 0.9
+                "x": 0.2,
+                "y": 0.0
               },
               {
-                "x": 0.0,
-                "y": 1.0
+                "x": 0.2,
+                "y": 0.1
               }
             ],
             "filepath": "Assets/images/spritesheets/player/Aura/aura.png",
