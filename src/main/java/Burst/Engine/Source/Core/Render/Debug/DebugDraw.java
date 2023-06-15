@@ -26,28 +26,68 @@ import static org.lwjgl.opengl.GL30.glGenVertexArrays;
  * The class utilizes a vertex array object (VAO) and vertex buffer object (VBO) for efficient rendering.
  */
 public class DebugDraw {
+  private static List<DebugDraw> layers = new ArrayList<>();
+
   /**
    * The maximum number of lines that can be drawn.
    */
   private static final int MAX_LINES = 3000;
 
-  private static List<Line2D> lines = new ArrayList<>();
-
-  public static boolean drawGridlines = false;
+  private List<Line2D> lines = new ArrayList<>();
 
   private static final int vertexSize = 7;
   // 7 floats per vertex, 2 vertices per line
-  private static float[] vertexArray = new float[(MAX_LINES) * vertexSize * 2];
-  private static Shader shader = (Shader) AssetManager.getAssetFromType(Shader_Config.SHADER_DEBUG, Shader.class);
+  private float[] vertexArray = new float[(MAX_LINES) * vertexSize * 2];
+  private Shader shader = (Shader) AssetManager.getAssetFromType(Shader_Config.SHADER_DEBUG, Shader.class);
 
-  private static int vaoID;
-  private static int vboID;
+  private int vaoID;
+  private int vboID;
 
-  private static boolean started = false;
+  private boolean started = false;
 
   public static float lineWidth = 2f;
+  private int zIndex = 0;
 
-  public static void start() {
+  private DebugDraw(int zIndex) {
+    this.zIndex = zIndex;
+  }
+
+  public static DebugDraw getLayer(int zIndex) {
+    if (layers == null) {
+      layers = new ArrayList<>();
+    }
+
+    for (DebugDraw instance : layers) {
+      if (instance.zIndex == zIndex) {
+        return instance;
+      }
+    }
+    return null;
+  }
+
+  private static DebugDraw get() {
+    return getLayer(0);
+  }
+
+  public static void addLayer(int zIndex) {
+    if (layers == null) {
+      layers = new ArrayList<>();
+    }
+
+    // Sort the instances by their z index
+    layers.add(new DebugDraw(zIndex));
+    layers.sort((o1, o2) -> {
+      if (o1.zIndex > o2.zIndex) {
+        return 1;
+      } else if (o1.zIndex < o2.zIndex) {
+        return -1;
+      } else {
+        return 0;
+      }
+    });
+  }
+
+  private void start() {
     // Generate the vao
     vaoID = glGenVertexArrays();
     glBindVertexArray(vaoID);
@@ -68,14 +108,16 @@ public class DebugDraw {
   }
 
   public static void beginFrame() {
-    if (!started) {
-      start();
-      started = true;
+    for (DebugDraw instance : layers) {
+      if (!instance.started) {
+        instance.start();
+        instance.started = true;
+      }
+      instance.removeDeadLines();
     }
-    removeDeadLines();
   }
 
-  private static void removeDeadLines() {
+  private void removeDeadLines() {
     // Remove dead lines
     for (int i = 0; i < lines.size(); i++) {
       if (lines.get(i).beginFrame() < 0) {
@@ -85,10 +127,14 @@ public class DebugDraw {
     }
   }
 
-
   public static void draw() {
-    if(lines.size() == 0) return;
+    for (DebugDraw instance : layers) {
+      instance.drawLines();
+    }
+  }
 
+  private void drawLines() {
+    if(lines.size() == 0) return;
 
     int index = 0;
       for (Line2D line : lines) {
@@ -146,9 +192,27 @@ public class DebugDraw {
   public static void addLine(Vector2f from, Vector2f to, Vector4f color) {
     addLine(from, to, color, 2);
   }
+  public static void addGridLine(Vector2f from, Vector2f to, Vector4f color)
+  {
+    if (getLayer(-1) == null) {
+      System.out.println("GridLines layer not added");
+      return;
+    }
+
+    Viewport viewport = Window.getScene().getViewport();
+
+    boolean lineInView = true;
+
+    if (getLayer(-1).lines.size() >= MAX_LINES || !lineInView) {
+      return;
+    }
+
+    getLayer(-1).lines.add(new Line2D(new Vector2f(from), new Vector2f(to), new Vector4f(color), 2));
+  }
+
 
   public static void addLine(Vector2f from, Vector2f to, Vector3f color, int lifetime) {
-    addLine(from, to, new Vector4f(color, 1.0f), lifetime);
+    get().addLine(from, to, new Vector4f(color, 1.0f), lifetime);
   }
 
   public static void addLine(Vector2f from, Vector2f to, Vector4f color, int lifetime) {
@@ -156,13 +220,11 @@ public class DebugDraw {
 
       boolean lineInView = true;
 
-      if (lines.size() >= MAX_LINES || !lineInView) {
+      if (get().lines.size() >= MAX_LINES || !lineInView) {
         return;
       }
-      if (drawGridlines && lines.size() > 1000) return;
 
-      DebugDraw.lines.add(new Line2D(new Vector2f(from), new Vector2f(to), new Vector4f(color), lifetime));
-
+      get().lines.add(new Line2D(new Vector2f(from), new Vector2f(to), new Vector4f(color), lifetime));
   }
 
   //!==================================================
@@ -196,10 +258,10 @@ public class DebugDraw {
       }
     }
 
-    addLine(vertices[0], vertices[1], color, lifetime);
-    addLine(vertices[0], vertices[3], color, lifetime);
-    addLine(vertices[1], vertices[2], color, lifetime);
-    addLine(vertices[2], vertices[3], color, lifetime);
+    get().addLine(vertices[0], vertices[1], color, lifetime);
+    get().addLine(vertices[0], vertices[3], color, lifetime);
+    get().addLine(vertices[1], vertices[2], color, lifetime);
+    get().addLine(vertices[2], vertices[3], color, lifetime);
   }
 
   //!==================================================
@@ -225,12 +287,12 @@ public class DebugDraw {
       points[i] = new Vector2f(tmp).add(center);
 
       if (i > 0) {
-        addLine(points[i - 1], points[i], color, lifetime);
+        get().addLine(points[i - 1], points[i], color, lifetime);
       }
       currentAngle += increment;
     }
 
-    addLine(points[points.length - 1], points[0], color, lifetime);
+    get().addLine(points[points.length - 1], points[0], color, lifetime);
   }
 }
 

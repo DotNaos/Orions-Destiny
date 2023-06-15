@@ -2,6 +2,7 @@ package Burst.Engine.Source.Editor.Components;
 
 import Burst.Engine.Config.Constants.GridLines_Config;
 import Burst.Engine.Source.Core.Component;
+import Burst.Engine.Source.Core.Input.MouseListener;
 import Burst.Engine.Source.Core.Render.Debug.DebugDraw;
 import Burst.Engine.Source.Core.Render.Debug.Line2D;
 import Burst.Engine.Source.Core.UI.Viewport;
@@ -83,6 +84,7 @@ public class GridLines extends Component {
     float firstX = viewport.getPosition().x - width / 2;
     float firstY = viewport.getPosition().y - height / 2;
 
+
     // Make sure firstX and firstY are even multiples of gridSize
     firstX = (float) Math.floor(firstX / gridSize) * gridSize;
     firstY = (float) Math.floor(firstY / gridSize) * gridSize;
@@ -105,18 +107,16 @@ public class GridLines extends Component {
     int numLines = Math.max(numLinesX, numLinesY);
 
     // Maxlines
-    int maxLines = 500;
     for (int i = 0; i < numLines; i++) {
-      if (i > maxLines) break;
       // Vertical lines
       float x = firstX + (i * gridSize);
       if (i < numLinesX)
-        DebugDraw.addLine(new Vector2f(x, firstY), new Vector2f(x, firstY + height), GridLines_Config.COLOR);
+        DebugDraw.addGridLine(new Vector2f(x, firstY), new Vector2f(x, firstY + height), GridLines_Config.COLOR);
 
       // Horizontal lines
       float y = firstY + (i * gridSize);
       if (i < numLinesY)
-        DebugDraw.addLine(new Vector2f(firstX, y), new Vector2f(firstX + width, y), GridLines_Config.COLOR);
+        DebugDraw.addGridLine(new Vector2f(firstX, y), new Vector2f(firstX + width, y), GridLines_Config.COLOR);
     }
   }
 

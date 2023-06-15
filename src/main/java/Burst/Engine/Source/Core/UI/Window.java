@@ -233,6 +233,11 @@ public class Window implements Observer {
 
     AssetManager.loadAllAssets();
 
+    // GridLines
+    DebugDraw.addLayer(-1);
+    // Everything else
+    DebugDraw.addLayer(0);
+
     Window.changeScene(startScene);
   }
 

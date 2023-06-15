@@ -92,7 +92,7 @@ public class AssetManager {
       return new SpriteSheet(assetPath);
     } else if (assetType.isAssignableFrom(Shader.class)) {
       return new Shader(assetPath);
-    } else if (assetType.isAssignableFrom(Sound.class)) {
+   } else if (assetType.isAssignableFrom(Sound.class)) {
       return new Sound(assetPath);
     } else if (assetType.isAssignableFrom(Font.class)) {
       return new Font(assetPath);
