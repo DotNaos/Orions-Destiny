@@ -44,8 +44,8 @@ public class Box2DCollider extends ActorComponent {
   private Vector2f origin = new Vector2f();
   private Vector2f offset = new Vector2f();
 
-  public Box2DCollider(Actor actor) {
-    super(actor);
+  public Box2DCollider() {
+    super();
   }
 
   public Vector2f getOffset() {

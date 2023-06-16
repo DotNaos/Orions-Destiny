@@ -40,6 +40,7 @@ public class EditorCamera extends Component {
       Vector2f mousePos = new Vector2f(MouseListener.getWorldX(), MouseListener.getWorldY());
       Vector2f delta = new Vector2f(mousePos).sub(this.clickOrigin);
 
+
       viewport.position.sub(delta.mul(dt).mul(dragSensitivity));
       this.clickOrigin.lerp(mousePos, dt);
     }

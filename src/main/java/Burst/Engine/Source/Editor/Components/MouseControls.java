@@ -31,18 +31,14 @@ import static org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT;
  */
 public class MouseControls extends Component {
   private transient Actor holdingActor = null;
-  private transient SpriteSheet gizmos = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.GIZMOS, SpriteSheet.class);
   private float debounceTime = 0.2f;
   private transient float debounce = debounceTime;
   private transient boolean boxSelectSet = false;
   private Vector2f boxSelectStart = new Vector2f();
   private Vector2f boxSelectEnd = new Vector2f();
-  // Gizmos
-  private transient GizmoSystem gizmoSystem;
 
   public MouseControls() {
     super();
-    this.gizmoSystem = new GizmoSystem(gizmos, null);
   }
 
   public void pickupObject(Actor actor) {
@@ -50,27 +46,20 @@ public class MouseControls extends Component {
       this.holdingActor.destroy();
     }
     this.holdingActor = actor;
-    this.holdingActor.getComponent(SpriteRenderer.class).setColor(new Vector4f(0.8f, 0.8f, 0.8f, 0.5f));
     this.holdingActor.setPickable(false);
-    this.gizmoSystem = new GizmoSystem(gizmos, this.holdingActor);
 
     Window.getScene().getGame().addActor(actor);
   }
 
   public void place() {
-    Actor newObj = holdingActor.copy();
-    if (newObj.getComponent(StateMachine.class) != null) {
-      newObj.getComponent(StateMachine.class).refreshTextures();
-    }
-    newObj.getComponent(SpriteRenderer.class).setColor(new Vector4f(1, 1, 1, 1));
-    newObj.setPickable(true);
-    Window.getScene().getGame().addActor(newObj);
+    Actor copyActor = holdingActor.copy();
+    copyActor.setPickable(true);
+    Window.getScene().getGame().addActor(copyActor);
   }
 
 
   public void updateEditor(float dt) {
     super.updateEditor(dt);
-    this.gizmoSystem.updateEditor(dt);
     debounce -= dt;
     handleInput();
   }

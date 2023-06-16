@@ -7,6 +7,7 @@ import Burst.Engine.Source.Core.Actor.PlayerController;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.Input.MouseListener;
 import Burst.Engine.Source.Core.Physics.Physics2D;
+import Burst.Engine.Source.Core.Render.Debug.DebugDraw;
 import Burst.Engine.Source.Core.Render.PickingTexture;
 import Burst.Engine.Source.Core.Render.ViewportRenderer;
 import Burst.Engine.Source.Core.Saving.ActorDeserializer;
@@ -20,6 +21,7 @@ import Burst.Engine.Source.Editor.Components.KeyControls;
 import Burst.Engine.Source.Editor.Components.MouseControls;
 import Burst.Engine.Source.Editor.ContentDrawer;
 import Burst.Engine.Source.Editor.EditorCamera;
+import Burst.Engine.Source.Editor.Gizmo.GizmoSystem;
 import Burst.Engine.Source.Editor.Panel.OutlinerPanel;
 import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
 import Burst.Engine.Source.Editor.Panel.ViewportPanel;
@@ -29,6 +31,7 @@ import imgui.ImGui;
 import imgui.flag.ImGuiCol;
 import imgui.flag.ImGuiStyleVar;
 import imgui.flag.ImGuiTableColumnFlags;
+import org.joml.Vector2f;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -92,10 +95,11 @@ public class Game {
     scene.addPanel(new PropertiesPanel(getComponent(PickingTexture.class)));
     scene.addPanel(new OutlinerPanel());
 
-    // Level Editor Stuff
+    // Editor Components
     this.components.add(new MouseControls());
     this.components.add(new KeyControls());
     this.components.add(new GridLines());
+    this.components.add(new GizmoSystem());
 
     DebugMessage.info("Editor initialized!");
 
@@ -154,9 +158,6 @@ public class Game {
 
   public void updateEditor(float dt) {
     init();
-
-    // Debug Print all Mouse Coordinates
-
 
     scene.getViewport().adjustProjection();
 
@@ -369,6 +370,27 @@ public class Game {
   public void imgui() {
 
     if (inGame()) return;
+
+    ImGui.begin("Mouse Position");
+
+    Vector2f screen = MouseListener.getScreen();
+    Vector2f view = MouseListener.getView();
+    Vector2f world = MouseListener.getWorld();
+
+    ImGui.text("Screen");
+    ImGui.textColored( 1.0f, 0.0f, 0.0f, 1.0f,  screen.x + " ");
+    ImGui.textColored( 0.0f, 1.0f, 0.0f, 1.0f,  screen.y + "");
+
+    ImGui.text("View");
+    ImGui.textColored( 1.0f, 0.0f, 0.0f, 1.0f,  view.x + " ");
+    ImGui.textColored( 0.0f, 1.0f, 0.0f, 1.0f,  view.y + "");
+
+    ImGui.text("World");
+    ImGui.textColored( 1.0f, 0.0f, 0.0f, 1.0f,  world.x + " ");
+    ImGui.textColored( 0.0f, 1.0f, 0.0f, 1.0f,  world.y + "");
+
+    ImGui.end();
+
 
     // Start the tab bar
     ImGui.begin("Editor");

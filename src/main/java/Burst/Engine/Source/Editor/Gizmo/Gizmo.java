@@ -37,7 +37,7 @@ public class Gizmo extends ActorComponent {
 
 
   public Gizmo(Sprite arrowSprite) {
-    super(null);
+    super();
     this.xAxisObject = new Actor();
     this.xAxisObject.setSprite(arrowSprite);
     this.xAxisObject.getTransform().set(new Transform(new Vector2f(0), new Vector2f(gizmoWidth, gizmoHeight), 90));

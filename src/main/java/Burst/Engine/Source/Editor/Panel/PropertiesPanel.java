@@ -51,19 +51,19 @@ public class PropertiesPanel extends ImGuiPanel {
       if (ImGui.beginPopupContextWindow("ComponentAdder")) {
         if (ImGui.menuItem("Add Rigidbody")) {
           if (activeActor.getComponent(Rigidbody2D.class) == null) {
-            activeActor.addComponent(new Rigidbody2D(activeActor));
+            activeActor.addComponent(new Rigidbody2D());
           }
         }
 
         if (ImGui.menuItem("Add Box Collider")) {
           if (activeActor.getComponent(Box2DCollider.class) == null && activeActor.getComponent(CircleCollider.class) == null) {
-            activeActor.addComponent(new Box2DCollider(activeActor));
+            activeActor.addComponent(new Box2DCollider());
           }
         }
 
         if (ImGui.menuItem("Add Circle Collider")) {
           if (activeActor.getComponent(CircleCollider.class) == null && activeActor.getComponent(Box2DCollider.class) == null) {
-            activeActor.addComponent(new CircleCollider(activeActor));
+            activeActor.addComponent(new CircleCollider());
           }
         }
 
@@ -86,28 +86,28 @@ public class PropertiesPanel extends ImGuiPanel {
 
       if (ImGui.beginPopupContextWindow("ComponentAdder")) {
         if (ImGui.menuItem("Add Rigidbody")) {
-          propertiesActor.addComponent(new Rigidbody2D(propertiesActor));
+          propertiesActor.addComponent(new Rigidbody2D());
           for (Actor actor : activeActors) {
             if (actor.getComponent(Rigidbody2D.class) == null) {
-              actor.addComponent(new Rigidbody2D(actor));
+              actor.addComponent(new Rigidbody2D());
             }
           }
         }
 
         if (ImGui.menuItem("Add Box Collider")) {
-          propertiesActor.addComponent(new Box2DCollider(propertiesActor));
+          propertiesActor.addComponent(new Box2DCollider());
           for (Actor actor : activeActors) {
             if (actor.getComponent(Box2DCollider.class) == null && actor.getComponent(CircleCollider.class) == null) {
-              actor.addComponent(new Box2DCollider(actor));
+              actor.addComponent(new Box2DCollider());
             }
           }
         }
 
         if (ImGui.menuItem("Add Circle Collider")) {
-          propertiesActor.addComponent(new CircleCollider(propertiesActor));
+          propertiesActor.addComponent(new CircleCollider());
           for (Actor actor : activeActors) {
             if (actor.getComponent(CircleCollider.class) == null && actor.getComponent(Box2DCollider.class) == null) {
-              actor.addComponent(new CircleCollider(actor));
+              actor.addComponent(new CircleCollider());
             }
           }
         }

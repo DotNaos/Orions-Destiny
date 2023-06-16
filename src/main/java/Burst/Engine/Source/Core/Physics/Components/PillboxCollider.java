@@ -36,14 +36,14 @@ public class PillboxCollider extends ActorComponent {
   private transient Box2DCollider box;
   private transient boolean resetFixtureNextFrame = false;
 
-  public PillboxCollider(Actor actor) {
-    super(actor);
+  public PillboxCollider() {
+    super();
   }
 
   @Override
   public void init() {
-    this.bottomCircle = new CircleCollider(this.actor);
-    this.box = new Box2DCollider(this.actor);
+    this.bottomCircle = new CircleCollider();
+    this.box = new Box2DCollider();
     this.bottomCircle.actor = this.actor;
     this.box.actor = this.actor;
     recalculateColliders();

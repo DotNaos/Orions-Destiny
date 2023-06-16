@@ -64,10 +64,6 @@ public abstract class Component implements ImGuiValueManager {
     ImGuiShowFields(this, this.ignoreFields, this.initialValues);
   }
 
-  public void destroy() {
-    //TODO: Destroy component
-  }
-
   public long getID() {
     return this.ID;
   }

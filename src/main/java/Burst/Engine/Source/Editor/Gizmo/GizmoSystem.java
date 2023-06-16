@@ -2,27 +2,26 @@ package Burst.Engine.Source.Editor.Gizmo;
 
 import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Actor.ActorComponent;
+import Burst.Engine.Source.Core.Assets.AssetManager;
 import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheet;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.Input.KeyListener;
+import Orion.res.AssetConfig;
 
 import static org.lwjgl.glfw.GLFW.GLFW_KEY_E;
 import static org.lwjgl.glfw.GLFW.GLFW_KEY_R;
 /**
  * @author GamesWithGabe
  */
-public class GizmoSystem extends ActorComponent {
-  private SpriteSheet gizmos;
+public class GizmoSystem extends Component {
   private int usingGizmo = 0;
+  private transient Actor actor;
 
-
-  public GizmoSystem(SpriteSheet gizmoSprites, Actor actor) {
-    super(actor);
-    gizmos = gizmoSprites;
-  }
 
   @Override
   public void init() {
+    super.init();
+    SpriteSheet gizmos = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.GIZMOS, SpriteSheet.class);
     if (this.actor == null) return;
     actor.addComponent(new TranslateGizmo(gizmos.getSprite(1)));
     actor.addComponent(new ScaleGizmo(gizmos.getSprite(2)));

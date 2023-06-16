@@ -22,8 +22,8 @@ public class CircleCollider extends ActorComponent {
    */
   private transient boolean resetFixtureNextFrame = false;
 
-  public CircleCollider(Actor actor) {
-    super(actor);
+  public CircleCollider() {
+    super();
   }
 
   public float getRadius() {

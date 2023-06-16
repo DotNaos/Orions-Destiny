@@ -27,8 +27,8 @@ public class PlayerController extends ActorComponent {
   private transient Vector2f velocity = new Vector2f();
   private boolean isDead = false;
 
-  public PlayerController(Actor actor) {
-    super(actor);
+  public PlayerController() {
+    super();
   }
 
   @Override
@@ -38,12 +38,12 @@ public class PlayerController extends ActorComponent {
     this.velocity = new Vector2f();
 
     if (this.actor.getComponent(Rigidbody2D.class) == null) {
-      this.actor.addComponent(new Rigidbody2D(this.actor));
+      this.actor.addComponent(new Rigidbody2D());
       this.rb = this.actor.getComponent(Rigidbody2D.class);
     }
 
     if (this.actor.getComponent(StateMachine.class) == null) {
-      this.actor.addComponent(new StateMachine(this.actor));
+      this.actor.addComponent(new StateMachine());
       this.stateMachine = this.actor.getComponent(StateMachine.class);
 //            this.stateMachine.addState(new AnimationState());
     }

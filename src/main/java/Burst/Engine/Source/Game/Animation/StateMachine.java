@@ -20,8 +20,8 @@ public class StateMachine extends ActorComponent {
   private transient AnimationState currentState = null;
   private String defaultStateTitle = "";
 
-  public StateMachine(Actor actor) {
-    super(actor);
+  public StateMachine() {
+    super();
   }
 
   public void refreshTextures() {

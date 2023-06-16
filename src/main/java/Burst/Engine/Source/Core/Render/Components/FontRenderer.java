@@ -9,8 +9,8 @@ import Burst.Engine.Source.Core.Actor.ActorComponent;
  */
 public class FontRenderer extends ActorComponent {
 
-  public FontRenderer(Actor actor) {
-    super(actor);
+  public FontRenderer() {
+    super();
   }
 
   @Override

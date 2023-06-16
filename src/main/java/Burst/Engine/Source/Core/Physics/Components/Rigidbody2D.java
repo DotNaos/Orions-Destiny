@@ -29,8 +29,8 @@ public class Rigidbody2D extends ActorComponent {
 
   private transient Body rawBody = null;
 
-  public Rigidbody2D(Actor actor) {
-    super(actor);
+  public Rigidbody2D() {
+    super();
   }
 
   @Override

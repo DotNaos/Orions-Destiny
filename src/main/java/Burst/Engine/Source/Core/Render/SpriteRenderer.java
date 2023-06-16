@@ -22,8 +22,8 @@ public class SpriteRenderer extends ActorComponent {
   private Sprite sprite = new Sprite();
   private transient Transform lastTransform;
 
-  public SpriteRenderer(Actor actor) {
-    super(actor);
+  public SpriteRenderer() {
+    super();
   }
 
   @Override

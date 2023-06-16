@@ -160,7 +160,7 @@ public class Actor implements ImGuiValueManager {
 
     }
     else{
-      SpriteRenderer spr = new SpriteRenderer(this);
+      SpriteRenderer spr = new SpriteRenderer();
       spr.setSprite(AssetManager.getAssetFromType(AssetConfig.Files.Images.Icons.ACTOR, Sprite.class));
       addComponent(spr);
     }
@@ -242,9 +242,10 @@ public class Actor implements ImGuiValueManager {
    * Calls the destroy() method of all components attached to this actor.
    */
   public void destroy() {
-    for (Component component : components) {
-      component.destroy();
-    }
+    this.components = new ArrayList<>();
+    this.initialValues = new HashMap<>();
+    this.ignoreFields = new ArrayList<>();
+    this.isInitialized = false;
   }
 
   /**
@@ -258,8 +259,6 @@ public class Actor implements ImGuiValueManager {
     Object copy = gson.fromJson(objAsJson, Actor.class).generateName();
 
     return (Actor) copy;
-
-
   }
 
 
@@ -458,7 +457,7 @@ public class Actor implements ImGuiValueManager {
    */
   public Transform getTransform() {
     if (getComponent(Transform.class) == null) {
-      addComponent(new Transform(this));
+      addComponent(new Transform());
     }
     return getComponent(Transform.class);
   }
@@ -491,7 +490,7 @@ public class Actor implements ImGuiValueManager {
    */
   public Actor setSprite(Sprite sprite) {
     if (this.getComponent(SpriteRenderer.class) == null) {
-      this.addComponent(new SpriteRenderer(this));
+      this.addComponent(new SpriteRenderer());
     }
 
     this.getComponent(SpriteRenderer.class).setSprite(sprite);

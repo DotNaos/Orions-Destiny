@@ -38,45 +38,23 @@ public class Transform extends ActorComponent {
    */
   public int zIndex = 0;
 
-  public Transform() {
-    super(null);
-  }
 
+  public Transform() {
+    super();
+  }
   public Transform(Vector2f position) {
-    super(null);
+    super();
     this.setPosition(position);
   }
 
   public Transform(Vector2f position, Vector2f scale) {
-    super(null);
+    super();
     this.setPosition(position);
     this.setScale(scale);
   }
 
   public Transform(Vector2f position, Vector2f scale, float rotation) {
-    super(null);
-    this.setPosition(position);
-    this.setScale(scale);
-    this.setRotation(rotation);
-  }
-
-  public Transform(Actor actor) {
-    super(actor);
-  }
-
-  public Transform(Actor actor, Vector2f position) {
-    super(actor);
-    this.setPosition(position);
-  }
-
-  public Transform(Actor actor, Vector2f position, Vector2f scale) {
-    super(actor);
-    this.setPosition(position);
-    this.setScale(scale);
-  }
-
-  public Transform(Actor actor, Vector2f position, Vector2f scale, float rotation) {
-    super(actor);
+    super();
     this.setPosition(position);
     this.setScale(scale);
     this.setRotation(rotation);
@@ -101,7 +79,7 @@ public class Transform extends ActorComponent {
    */
 
   public Transform copy() {
-    Transform t = new Transform(this.actor);
+    Transform t = new Transform();
     t.position = new Vector2f(this.position);
     t.scale = new Vector2f(this.scale);
     t.size = new Vector2f(this.size);

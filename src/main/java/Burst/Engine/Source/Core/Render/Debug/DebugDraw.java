@@ -230,6 +230,15 @@ public class DebugDraw {
   //!==================================================
   // Add Box2D methods
   //!==================================================
+
+
+  public static void addBox(Vector2f center) {
+    addBox(center, new Vector2f(1), 0, Color_Config.GREEN, 2);
+  }
+  public static void addBox(Vector2f center, Vector2f dimensions) {
+    addBox(center, dimensions, 0, Color_Config.GREEN, 2);
+  }
+
   public static void addBox(Vector2f center, Vector2f dimensions, float rotation) {
     addBox(center, dimensions, rotation, Color_Config.GREEN, 2);
   }

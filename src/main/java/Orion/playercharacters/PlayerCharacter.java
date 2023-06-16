@@ -43,10 +43,10 @@ public abstract class PlayerCharacter extends Pawn {
         super.init();
         if (this.getComponent(PlayerController.class) == null)
         {
-            this.addComponent(new PlayerController(this));
+            this.addComponent(new PlayerController());
         }
         if(getComponent(SpriteRenderer.class) == null) {
-            addComponent(new SpriteRenderer(this));
+            addComponent(new SpriteRenderer());
         }
     }
 

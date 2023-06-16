@@ -7,6 +7,6 @@ import Burst.Engine.Source.Core.Component;
  */
 public class Ground extends ActorComponent {
     public Ground() {
-        super(null);
+        super();
     }
 }

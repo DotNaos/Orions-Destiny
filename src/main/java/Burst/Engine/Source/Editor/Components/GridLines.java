@@ -84,7 +84,6 @@ public class GridLines extends Component {
     float firstX = viewport.getPosition().x - width / 2;
     float firstY = viewport.getPosition().y - height / 2;
 
-
     // Make sure firstX and firstY are even multiples of gridSize
     firstX = (float) Math.floor(firstX / gridSize) * gridSize;
     firstY = (float) Math.floor(firstY / gridSize) * gridSize;
