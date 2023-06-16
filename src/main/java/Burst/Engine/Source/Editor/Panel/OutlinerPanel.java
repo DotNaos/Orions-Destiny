@@ -1,6 +1,7 @@
 package Burst.Engine.Source.Editor.Panel;
 
 import Burst.Engine.Source.Core.Actor.Actor;
+import Burst.Engine.Source.Core.UI.ImGui.BImGui;
 import Burst.Engine.Source.Core.UI.ImGui.ImGuiPanel;
 import Burst.Engine.Source.Core.UI.Window;
 import imgui.ImGui;
@@ -48,19 +49,19 @@ public class OutlinerPanel extends ImGuiPanel {
 
   private boolean doTreeNode(Actor actor, int index) {
     ImGui.pushID(index);
-    boolean treeNodeOpen = ImGui.treeNodeEx(actor.getName(), ImGuiTreeNodeFlags.DefaultOpen | ImGuiTreeNodeFlags.FramePadding | ImGuiTreeNodeFlags.OpenOnArrow | ImGuiTreeNodeFlags.SpanAvailWidth, actor.getName());
+    boolean treeNodeOpen = ImGui.treeNodeEx(actor.getName(),
+            ImGuiTreeNodeFlags.DefaultOpen | ImGuiTreeNodeFlags.FramePadding | ImGuiTreeNodeFlags.OpenOnArrow | ImGuiTreeNodeFlags.SpanAvailWidth, actor.getName());
     ImGui.popID();
 
     if (ImGui.beginDragDropSource()) {
-      ImGui.setDragDropPayloadObject(payloadDragDropType, actor);
       // Icon of the actor type
-
+      ImGui.setDragDropPayload(payloadDragDropType, actor);
       ImGui.text(actor.getName());
       ImGui.endDragDropSource();
     }
 
     if (ImGui.beginDragDropTarget()) {
-      Object payloadObj = ImGui.acceptDragDropPayloadObject(payloadDragDropType);
+      Object payloadObj = ImGui.acceptDragDropPayload(payloadDragDropType);
       if (payloadObj != null) {
         if (payloadObj.getClass().isAssignableFrom(Actor.class)) {
           Actor playerActor = (Actor) payloadObj;

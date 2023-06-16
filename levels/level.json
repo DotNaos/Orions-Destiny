@@ -60,7 +60,7 @@
         "properties": {
           "position": {
             "x": 0.0,
-            "y": -2.0
+            "y": 0.0
           },
           "scale": {
             "x": 1.0,
@@ -95,37 +95,37 @@
             "height": 100.0,
             "texCoords": [
               {
-                "x": 0.3,
+                "x": 0.4,
                 "y": 0.1
               },
               {
+                "x": 0.4,
+                "y": 0.0
+              },
+              {
                 "x": 0.3,
                 "y": 0.0
               },
               {
-                "x": 0.2,
-                "y": 0.0
-              },
-              {
-                "x": 0.2,
+                "x": 0.3,
                 "y": 0.1
               }
             ],
             "resetTexCoords": [
               {
-                "x": 0.3,
+                "x": 0.4,
                 "y": 0.1
               },
               {
+                "x": 0.4,
+                "y": 0.0
+              },
+              {
                 "x": 0.3,
                 "y": 0.0
               },
               {
-                "x": 0.2,
-                "y": 0.0
-              },
-              {
-                "x": 0.2,
+                "x": 0.3,
                 "y": 0.1
               }
             ],
@@ -135,7 +135,7 @@
           },
           "name": "SpriteRenderer",
           "ID": 385185606,
-          "isDirty": false
+          "isDirty": true
         }
       },
       {
@@ -187,26 +187,6 @@
           "ID": -698501465,
           "isDirty": false
         }
-      },
-      {
-        "type": "Burst.Engine.Source.Core.Physics.Components.Box2DCollider",
-        "properties": {
-          "halfSize": {
-            "x": 1.0,
-            "y": 1.0
-          },
-          "origin": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "offset": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "name": "Box2DCollider",
-          "ID": -455456646,
-          "isDirty": false
-        }
       }
     ],
     "serializedActor": true,
@@ -214,18 +194,24 @@
     "pickable": true
   },
   {
-    "row": 0,
-    "col": 0,
+    "description": "    The bringer of death, Helix is a powerful necromancer.  \n    He can summon the dead to fight for him.  \n    Sometimes extracting the life out of his enemies.  \n\n",
+    "HP": 0,
+    "DEF": 0,
+    "ATK": 0,
+    "SPD": 0,
+    "STAMINA": 0,
+    "LVL": 0,
+    "EXP": 0,
     "icon": {
-      "width": 2048.0,
-      "height": 2048.0,
+      "width": 96.0,
+      "height": 96.0,
       "texCoords": [
         {
-          "x": 1.0,
+          "x": 0.02,
           "y": 1.0
         },
         {
-          "x": 1.0,
+          "x": 0.02,
           "y": 0.0
         },
         {
@@ -239,11 +225,11 @@
       ],
       "resetTexCoords": [
         {
-          "x": 1.0,
+          "x": 0.02,
           "y": 1.0
         },
         {
-          "x": 1.0,
+          "x": 0.02,
           "y": 0.0
         },
         {
@@ -255,118 +241,14 @@
           "y": 1.0
         }
       ],
-      "filepath": "Assets/images/textures/icons/block.png",
-      "ID": 1847234695,
+      "filepath": "Assets/images/spritesheets/player/Helix/helix.png",
+      "ID": 9865157,
       "isDirty": false
     },
-    "name": "new Block",
-    "type": "Orion.blocks.Block",
+    "name": "Helix",
+    "type": "Orion.playercharacters.Helix",
     "ID": 2,
-    "components": [
-      {
-        "type": "Burst.Engine.Source.Core.Physics.Components.Transform",
-        "properties": {
-          "position": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "scale": {
-            "x": 1.0,
-            "y": 1.0
-          },
-          "size": {
-            "x": 1.0,
-            "y": 1.0
-          },
-          "scaledSize": {
-            "x": 1.0,
-            "y": 1.0
-          },
-          "rotation": 0.0,
-          "zIndex": 0,
-          "name": "Transform",
-          "ID": -683109387,
-          "isDirty": false
-        }
-      },
-      {
-        "type": "Burst.Engine.Source.Core.Render.SpriteRenderer",
-        "properties": {
-          "color": {
-            "x": 1.0,
-            "y": 1.0,
-            "z": 1.0,
-            "w": 1.0
-          },
-          "sprite": {
-            "width": 16.0,
-            "height": 16.0,
-            "texCoords": [
-              {
-                "x": 0.03125,
-                "y": 0.03125
-              },
-              {
-                "x": 0.03125,
-                "y": 0.0
-              },
-              {
-                "x": 0.0,
-                "y": 0.0
-              },
-              {
-                "x": 0.0,
-                "y": 0.03125
-              }
-            ],
-            "resetTexCoords": [
-              {
-                "x": 0.03125,
-                "y": 0.03125
-              },
-              {
-                "x": 0.03125,
-                "y": 0.0
-              },
-              {
-                "x": 0.0,
-                "y": 0.0
-              },
-              {
-                "x": 0.0,
-                "y": 0.03125
-              }
-            ],
-            "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-            "ID": 2619762,
-            "isDirty": false
-          },
-          "name": "SpriteRenderer",
-          "ID": 385185606,
-          "isDirty": false
-        }
-      },
-      {
-        "type": "Burst.Engine.Source.Core.Physics.Components.Box2DCollider",
-        "properties": {
-          "halfSize": {
-            "x": 1.0,
-            "y": 1.0
-          },
-          "origin": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "offset": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "name": "Box2DCollider",
-          "ID": -455456646,
-          "isDirty": false
-        }
-      }
-    ],
+    "components": [],
     "serializedActor": true,
     "adjustSizeToTexture": false,
     "pickable": true

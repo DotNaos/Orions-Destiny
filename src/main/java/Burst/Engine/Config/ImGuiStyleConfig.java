@@ -200,7 +200,7 @@ public class ImGuiStyleConfig extends Component {
     style.setCellPadding(this.cellPadding.x, this.cellPadding.y);
     style.setChildBorderSize(this.childBorderSize);
     style.setChildRounding(this.childRounding);
-    style.setCircleSegmentMaxError(this.circleSegmentMaxError);
+//    style.setCircleSegmentMaxError(this.circleSegmentMaxError);
     style.setColorButtonPosition(this.colorButtonPosition);
     style.setColumnsMinSpacing(this.columnsMinSpacing);
     style.setCurveTessellationTol(this.curveTessellationTol);

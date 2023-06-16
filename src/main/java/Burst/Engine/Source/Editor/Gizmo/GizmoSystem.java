@@ -3,6 +3,7 @@ package Burst.Engine.Source.Editor.Gizmo;
 import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Actor.ActorComponent;
 import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheet;
+import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.Input.KeyListener;
 
 import static org.lwjgl.glfw.GLFW.GLFW_KEY_E;
