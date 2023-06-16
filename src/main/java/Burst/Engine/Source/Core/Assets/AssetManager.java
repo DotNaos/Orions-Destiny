@@ -39,7 +39,7 @@ public class AssetManager {
 
     assetsList.add(new Assets(Texture.class, IMAGES, "png"));
     assetsList.add(new Assets(Sprite.class, IMAGES, "png"));
-    assetsList.add(new Assets(SpriteSheet.class, SPRITESHEETS, "png"));
+//    assetsList.add(new Assets(SpriteSheet.class, SPRITESHEETS, "png"));
     assetsList.add(new Assets(Shader.class, Shader_Config.PATH, "glsl"));
     assetsList.add(new Assets(Sound.class, SOUNDS, "ogg"));
     assetsList.add(new Assets(Font.class, Font_Config.PATH, "ttf"));

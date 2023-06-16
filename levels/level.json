@@ -53,7 +53,7 @@
     },
     "name": "Aura",
     "type": "Orion.playercharacters.Aura",
-    "ID": 1,
+    "ID": 6,
     "components": [
       {
         "type": "Burst.Engine.Source.Core.Physics.Components.Transform",
@@ -95,37 +95,37 @@
             "height": 100.0,
             "texCoords": [
               {
-                "x": 0.4,
+                "x": 0.3,
                 "y": 0.1
               },
               {
-                "x": 0.4,
-                "y": 0.0
-              },
-              {
                 "x": 0.3,
                 "y": 0.0
               },
               {
-                "x": 0.3,
+                "x": 0.2,
+                "y": 0.0
+              },
+              {
+                "x": 0.2,
                 "y": 0.1
               }
             ],
             "resetTexCoords": [
               {
-                "x": 0.4,
+                "x": 0.3,
                 "y": 0.1
               },
               {
-                "x": 0.4,
-                "y": 0.0
-              },
-              {
                 "x": 0.3,
                 "y": 0.0
               },
               {
-                "x": 0.3,
+                "x": 0.2,
+                "y": 0.0
+              },
+              {
+                "x": 0.2,
                 "y": 0.1
               }
             ],
@@ -135,7 +135,7 @@
           },
           "name": "SpriteRenderer",
           "ID": 385185606,
-          "isDirty": true
+          "isDirty": false
         }
       },
       {
@@ -247,7 +247,67 @@
     },
     "name": "Helix",
     "type": "Orion.playercharacters.Helix",
-    "ID": 2,
+    "ID": 7,
+    "components": [],
+    "serializedActor": true,
+    "adjustSizeToTexture": false,
+    "pickable": true
+  },
+  {
+    "description": "    The bringer of death, Helix is a powerful necromancer.  \n    He can summon the dead to fight for him.  \n    Sometimes extracting the life out of his enemies.  \n\n",
+    "HP": 0,
+    "DEF": 0,
+    "ATK": 0,
+    "SPD": 0,
+    "STAMINA": 0,
+    "LVL": 0,
+    "EXP": 0,
+    "icon": {
+      "width": 96.0,
+      "height": 96.0,
+      "texCoords": [
+        {
+          "x": 0.02,
+          "y": 1.0
+        },
+        {
+          "x": 0.02,
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
+        }
+      ],
+      "resetTexCoords": [
+        {
+          "x": 0.02,
+          "y": 1.0
+        },
+        {
+          "x": 0.02,
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
+        }
+      ],
+      "filepath": "Assets/images/spritesheets/player/Helix/helix.png",
+      "ID": 9865157,
+      "isDirty": false
+    },
+    "name": "Helix",
+    "type": "Orion.playercharacters.Helix",
+    "ID": 8,
     "components": [],
     "serializedActor": true,
     "adjustSizeToTexture": false,

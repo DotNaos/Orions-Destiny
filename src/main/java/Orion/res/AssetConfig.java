@@ -38,7 +38,7 @@ public class AssetConfig {
 
 
     // Backgrounds
-    public static final String BACKGROUNDS = IMAGES + "background/";
+    public static final String BACKGROUNDS = TEXTURES + "background/";
 
     // Audio
     public static final String SOUNDS = "Assets/sounds/";
@@ -145,6 +145,12 @@ public class AssetConfig {
         //*________________________________________________________________________________________\\
       }
 
+      public static class Backgrounds{
+        public static final String MOUNTAINS = Directories.BACKGROUNDS + "background_1.png";
+        public static final String DESERT = Directories.BACKGROUNDS + "background_2.png";
+        public static final String FOREST = Directories.BACKGROUNDS + "background_3.png";
+        public static final String SWAMP = Directories.BACKGROUNDS + "background_4.png";
+      }
     }
 
 

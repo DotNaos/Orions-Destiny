@@ -1,9 +1,13 @@
 package Burst.Engine.Source.Core.Scene.Initializer;
 
+import Burst.Engine.Source.Core.Assets.AssetManager;
+import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Burst.Engine.Source.Core.Scene.Scene;
 import Burst.Engine.Source.Core.Scene.SceneType;
+import Burst.Engine.Source.Core.UI.ImGui.BImGui;
 import Burst.Engine.Source.Core.UI.ImGui.Menu;
 import Burst.Engine.Source.Core.UI.Window;
+import Orion.res.AssetConfig;
 import imgui.ImGui;
 import imgui.ImGuiViewport;
 import imgui.flag.ImGuiCol;
@@ -62,12 +66,7 @@ public class StartMenuInitializer extends MenuInitializer {
 
     Vector2f margin = new Vector2f(0, 200);
 
-
-//             Texture texture = new Texture(512, 512);
-//            texture.init(Assets.TEXTURES + "testImage.png");
-//            ImGui.setCursorPosX((float) Window.getWidth() / 2);
-//            BImGui.imageButton(texture.getId(), 256, 256, 0, 1, 1, 0);
-
+    BImGui.image(AssetManager.getAssetFromType(AssetConfig.Files.Images.Backgrounds.MOUNTAINS, Texture.class), Window.getWidth(), Window.getHeight());
 
     Menu buttonMenu = new Menu(2, 2, buttonSize, alignment, buttonSpacing, margin);
     if (ImGui.button("Editor", buttonSize.x, buttonSize.y)) {
