@@ -9,13 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="Button Spritesheet gefixt">
+    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="Gridlines">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imgui.ini" beforeDir="false" afterPath="$PROJECT_DIR$/imgui.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/levels/level.json" beforeDir="false" afterPath="$PROJECT_DIR$/levels/level.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/Actor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/Actor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Input/MouseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Input/MouseListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/ContentDrawer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/ContentDrawer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Game/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Game/Camera.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Render/Debug/DebugDraw.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Render/Debug/DebugDraw.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Render/RenderBatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Render/RenderBatch.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +91,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15179856&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;AtomSettingsConfigurable&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -194,10 +193,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="Gradle.Orions-Destiny [shadowJar]" />
         <item itemvalue="Gradle.Orions-Destiny [jar]" />
         <item itemvalue="Gradle.Orions-Destiny [dependencies]" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -240,8 +239,32 @@
       <workItem from="1686258220665" duration="9488000" />
       <workItem from="1686304742078" duration="43789000" />
       <workItem from="1686386311492" duration="38872000" />
-      <workItem from="1686463913065" duration="51209000" />
-      <workItem from="1686835550595" duration="11390000" />
+      <workItem from="1686463913065" duration="47604000" />
+      <workItem from="1686551789656" duration="732000" />
+      <workItem from="1686724082858" duration="13212000" />
+      <workItem from="1686833852767" duration="668000" />
+      <workItem from="1686901176850" duration="1610000" />
+    </task>
+    <task id="LOCAL-00056" summary="Saving Level Mit Timer. Problem war rekursion in initialValues. Fix: Transient">
+      <created>1686244602762</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1686244602762</updated>
+    </task>
+    <task id="LOCAL-00057" summary="Viewport in Game und Loading">
+      <created>1686251203117</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1686251203117</updated>
+    </task>
+    <task id="LOCAL-00058" summary="Dominik Merge">
+      <created>1686253286499</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1686253286499</updated>
     </task>
     <task id="LOCAL-00059" summary="Error Fix nach Merge">
       <created>1686257139821</created>
@@ -558,41 +581,23 @@
       <option name="project" value="LOCAL" />
       <updated>1686506904901</updated>
     </task>
-    <task id="LOCAL-00104" summary="Letzter Commit">
-      <created>1686520002474</created>
+    <task id="LOCAL-00104" summary="Gridlines">
+      <created>1686835507536</created>
       <option name="number" value="00104" />
       <option name="presentableId" value="LOCAL-00104" />
       <option name="project" value="LOCAL" />
-      <updated>1686520002474</updated>
+      <updated>1686835507537</updated>
     </task>
-    <task id="LOCAL-00105" summary="DebugDraw layers">
-      <created>1686840447200</created>
-      <option name="number" value="00105" />
-      <option name="presentableId" value="LOCAL-00105" />
-      <option name="project" value="LOCAL" />
-      <updated>1686840447201</updated>
-    </task>
-    <task id="LOCAL-00106" summary="Images wieder flipped, Mouselistener angepasst">
-      <created>1686843652319</created>
-      <option name="number" value="00106" />
-      <option name="presentableId" value="LOCAL-00106" />
-      <option name="project" value="LOCAL" />
-      <updated>1686843652319</updated>
-    </task>
-    <task id="LOCAL-00107" summary="Button Spritesheet gefixt">
-      <created>1686846287005</created>
-      <option name="number" value="00107" />
-      <option name="presentableId" value="LOCAL-00107" />
-      <option name="project" value="LOCAL" />
-      <updated>1686846287005</updated>
-    </task>
-    <option name="localTasksCounter" value="108" />
+    <option name="localTasksCounter" value="105" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="MouseControls organisiert" />
+    <MESSAGE value="Duplicate multiple with offset" />
+    <MESSAGE value="Multiplier fast" />
     <MESSAGE value="Save nach Texture change" />
     <MESSAGE value="Save after Texture change" />
     <MESSAGE value="MousebuttonDown negative bugfix" />
@@ -614,11 +619,8 @@
     <MESSAGE value="ImGui nicht mehr verbuggt und escape" />
     <MESSAGE value="Game Engine Letzte Version vor abgabe" />
     <MESSAGE value="Maybe letzter Commit" />
-    <MESSAGE value="Letzter Commit" />
-    <MESSAGE value="DebugDraw layers" />
-    <MESSAGE value="Images wieder flipped, Mouselistener angepasst" />
-    <MESSAGE value="Button Spritesheet gefixt" />
-    <option name="LAST_COMMIT_MESSAGE" value="Button Spritesheet gefixt" />
+    <MESSAGE value="Gridlines" />
+    <option name="LAST_COMMIT_MESSAGE" value="Gridlines" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -638,10 +640,6 @@
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.IllegalArgumentException" package="java.lang" />
           <option name="timeStamp" value="18" />
-        </breakpoint>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.NullPointerException" package="java.lang" />
-          <option name="timeStamp" value="20" />
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
