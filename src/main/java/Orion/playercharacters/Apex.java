@@ -39,14 +39,14 @@ public class Apex extends PlayerCharacter {
     this.runSprites = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.APEX_RUN, SpriteSheet.class);
     this.jumpSprites = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.APEX_JUMP, SpriteSheet.class);
     this.attackSprites =  AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.APEX_ATTACK, SpriteSheet.class);
-    getComponent(SpriteRenderer.class).setTexture(this.idleSprites.getTexture());
+
     getComponent(SpriteRenderer.class).setSprite(this.idleSprites.getSprite(spriteIndex));
 
     Timer timer = new Timer();
     timer.scheduleAtFixedRate(new java.util.TimerTask() {
       @Override
       public void run() {
-        if (spriteIndex < 4) {
+        if (spriteIndex < 9) {
           spriteIndex++;
         } else {
           spriteIndex = 0;

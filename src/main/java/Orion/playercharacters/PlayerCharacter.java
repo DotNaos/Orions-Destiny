@@ -7,6 +7,7 @@ import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
 import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheet;
 import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Burst.Engine.Source.Core.Render.SpriteRenderer;
+import Burst.Engine.Source.Game.Animation.StateMachine;
 import Orion.res.AssetConfig;
 /**
  * @author Oliver Schuetz
@@ -41,12 +42,12 @@ public abstract class PlayerCharacter extends Pawn {
     public void init()
     {
         super.init();
-        if (this.getComponent(PlayerController.class) == null)
+        if(!this.hasComponent(PlayerController.class))
         {
             this.addComponent(new PlayerController());
         }
-        if(getComponent(SpriteRenderer.class) == null) {
-            addComponent(new SpriteRenderer());
+        if (!this.hasComponent(StateMachine.class)) {
+            this.addComponent(new StateMachine());
         }
     }
 

@@ -49,6 +49,10 @@ public abstract class Component implements ImGuiValueManager {
   }
 
   public void update(float dt) {
+    if (!isInitialized) {
+      isInitialized = true;
+      init();
+    }
   }
 
   public void imgui() {

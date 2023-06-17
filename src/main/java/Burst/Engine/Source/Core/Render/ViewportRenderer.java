@@ -7,6 +7,7 @@ import org.joml.Vector2i;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.ConcurrentModificationException;
 import java.util.List;
 
 /**
@@ -109,8 +110,14 @@ public class ViewportRenderer extends Renderer {
     actorsToAdd.clear();
 
     currentShader.use();
-    for (RenderBatch batch : batches) {
-      batch.render();
+    try {
+      for (RenderBatch batch : batches) {
+        batch.render();
+      }
+    } catch (ConcurrentModificationException e) {
+      // TODO: FIX CONCURRENT MODIFICATION EXCEPTION
+//      e.printStackTrace();
     }
+
   }
 }

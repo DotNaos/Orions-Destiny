@@ -178,11 +178,6 @@ public interface ImGuiValueManager {
       Sprite val = (Sprite) value;
       Vector2f[] texCoords = val.getTexCoords();
 
-      float uv0X = texCoords[1].x;
-      float uv0Y = texCoords[1].y;
-      float uv1X = texCoords[3].x;
-      float uv1Y = texCoords[3].y;
-
       int defaultSpriteWidth = 256;
 
       float spriteWidth = val.getWidth();

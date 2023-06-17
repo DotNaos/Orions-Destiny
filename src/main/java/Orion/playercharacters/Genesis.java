@@ -38,6 +38,21 @@ public class Genesis extends PlayerCharacter {
     this.jumpSprites = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.GENESIS_JUMP, SpriteSheet.class);
     this.attackSprites =  AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.GENESIS_ATTACK, SpriteSheet.class);
 
+    getComponent(SpriteRenderer.class).setSprite(this.idleSprites.getSprite(spriteIndex));
+
+    Timer timer = new Timer();
+    timer.scheduleAtFixedRate(new java.util.TimerTask() {
+      @Override
+      public void run() {
+        if (spriteIndex < 6) {
+          spriteIndex++;
+        } else {
+          spriteIndex = 0;
+        }
+
+        getComponent(SpriteRenderer.class).setSprite(idleSprites.getSprite(1, spriteIndex));
+      }
+    }, 0, 100);
   }
   @Override
   public void imgui() {

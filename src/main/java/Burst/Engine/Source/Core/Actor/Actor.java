@@ -134,7 +134,7 @@ public class Actor implements ImGuiValueManager {
 
     if (!hasComponent(Transform.class)) addComponent(new Transform());
 
-    if (!hasComponent(Transform.class)) addComponent(new SpriteRenderer().setSprite(this.icon));
+    if (!hasComponent(SpriteRenderer.class)) addComponent(new SpriteRenderer().setSprite(this.icon));
 
     if (this.initialValues == null) this.initialValues = new HashMap<>();
     this.ignoreFields = new ArrayList<>();
@@ -148,6 +148,7 @@ public class Actor implements ImGuiValueManager {
 
     // Add actor to the render list
     game.getViewportRenderer().addActor(this);
+
     // Add actor to the physics list
     game.getPhysics().add(this);
 
@@ -262,7 +263,7 @@ public class Actor implements ImGuiValueManager {
    * @param aClass the {@link Class} object representing the type of component to
    * @return
    */
-  private boolean hasComponent(Class<? extends Component> aClass) {
+  public boolean hasComponent(Class<? extends Component> aClass) {
     for (Component c : components) {
       if (c.getClass().equals(aClass)) {
         return true;
