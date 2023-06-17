@@ -5,9 +5,12 @@ import Burst.Engine.Config.Config.HotKeys;
 import Burst.Engine.Source.Core.Input.KeyListener;
 import Burst.Engine.Source.Core.Physics.Components.Rigidbody2D;
 import Burst.Engine.Source.Game.Animation.StateMachine;
+import Orion.blocks.Block;
 import Orion.blocks.Ground;
 import org.jbox2d.dynamics.contacts.Contact;
 import org.joml.Vector2f;
+
+import java.util.List;
 
 /**
  * @author GamesWithGabe
@@ -55,48 +58,19 @@ public class PlayerController extends ActorComponent {
 
   @Override
   public void update(float dt) {
-
-
+    super.update(dt);
     try {
-      if (KeyListener.isKeyPressed(Config.get(HotKeys.class).PlayerMoveRight)) {
-        // When player is moving right, flip the sprite
-        this.actor.getTransform().size.x = Math.abs(this.actor.getTransform().size.x);
-
-        this.acceleration.x = walkSpeed;
-
-        if (this.velocity.x < 0) {
-//          this.stateMachine.trigger("switchDirection");
-          this.velocity.x += slowDownForce;
-        } else {
-          this.stateMachine.trigger("run");
-        }
-      } else if (KeyListener.isKeyPressed(Config.get(HotKeys.class).PlayerMoveLeft)) {
-        // When player is moving left, flip the sprite
-        this.actor.getTransform().size.x = -Math.abs(this.actor.getTransform().size.x);
-        this.acceleration.x = -walkSpeed;
-
-        this.stateMachine.trigger("run");
-
-        if (this.velocity.x > 0) {
-//          this.stateMachine.trigger("switchDirection");
-          this.velocity.x -= slowDownForce;
-        } else {
-//          this.stateMachine.trigger("startRunning");
-        }
+      List<Integer> pressedKeys = KeyListener.getPressedKeys();
+      if (pressedKeys.contains(Config.get(HotKeys.class).PlayerJump)) {
+          if (onGround) {
+          this.velocity.y = jumpImpulse;
+          this.acceleration.y = jumpBoost;
+          }
+        System.out.println("Jumping");
       }
-       else {
-        this.acceleration.x = 0;
-        if (this.velocity.x > 0) {
-          this.velocity.x = Math.max(0, this.velocity.x - slowDownForce);
-        } else if (this.velocity.x < 0) {
-          this.velocity.x = Math.min(0, this.velocity.x + slowDownForce);
-        }
-
-        if (this.velocity.x == 0) {
-//          this.stateMachine.trigger("stopRunning");
-        }
-      }
-
+      if (moveRight());
+      else if (moveLeft());
+      else idle();
 
       this.velocity.x += this.acceleration.x * dt;
       this.velocity.y += this.acceleration.y * dt;
@@ -115,6 +89,62 @@ public class PlayerController extends ActorComponent {
     }
   }
 
+  private boolean moveRight() {
+    if (KeyListener.isKeyPressed(Config.get(HotKeys.class).PlayerMoveRight)) {
+      // When player is moving right, flip the sprite
+      this.actor.getTransform().size.x = Math.abs(this.actor.getTransform().size.x);
+      this.acceleration.x = walkSpeed;
+
+      this.stateMachine.trigger("run");
+
+      if (this.velocity.x < 0) {
+        this.velocity.x += slowDownForce;
+      }
+
+      return true;
+    }
+    return false;
+  }
+
+  private boolean moveLeft()
+  {
+    if (KeyListener.isKeyPressed(Config.get(HotKeys.class).PlayerMoveLeft)) {
+      // When player is moving left, flip the sprite
+      this.actor.getTransform().size.x = -Math.abs(this.actor.getTransform().size.x);
+      this.acceleration.x = -walkSpeed;
+
+      this.stateMachine.trigger("run");
+
+      if (this.velocity.x > 0) {
+//          this.stateMachine.trigger("switchDirection");
+        this.velocity.x -= slowDownForce;
+      }
+        return true;
+    }
+    return false;
+  }
+
+  private void idle()
+  {
+    this.acceleration.x = 0;
+    if (this.velocity.x > 0) {
+      this.velocity.x = Math.max(0, this.velocity.x - slowDownForce);
+    } else if (this.velocity.x < 0) {
+      this.velocity.x = Math.min(0, this.velocity.x + slowDownForce);
+    }
+
+    if (this.velocity.x == 0) {
+      this.stateMachine.trigger("idle");
+    }
+  }
+
+  public void jump() {
+      if (onGround) {
+      this.velocity.y = jumpImpulse;
+      this.acceleration.y = -jumpBoost;
+      }
+  }
+
   public void move(Vector2f amount) {
     this.actor.getTransform().getPosition().add(amount);
     this.rb.setPosition(this.actor.getTransform().getPosition());
@@ -130,7 +160,7 @@ public class PlayerController extends ActorComponent {
   public void beginCollision(Actor collidinactorbject, Contact contact, Vector2f contactNormal) {
     if (isDead) return;
 
-    if (collidinactorbject.getComponent(Ground.class) != null) {
+    if (collidinactorbject instanceof Block) {
       if (Math.abs(contactNormal.x) > 0.8f) {
         this.velocity.x = 0;
       } else if (contactNormal.y > 0.8f) {

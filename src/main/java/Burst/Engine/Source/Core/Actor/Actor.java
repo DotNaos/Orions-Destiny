@@ -206,6 +206,10 @@ public class Actor implements ImGuiValueManager {
    * Calls the destroy() method of all components attached to this actor.
    */
   public void destroy() {
+    Window.getScene().getGame().removeActor(this);
+    for (Component component : components) {
+      component.destroy();
+    }
     this.components = new ArrayList<>();
     this.initialValues = new HashMap<>();
     this.ignoreFields = new ArrayList<>();

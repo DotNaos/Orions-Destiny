@@ -105,7 +105,9 @@ public class ViewportRenderer extends Renderer {
   @Override
   public void render() {
     for (Actor actor : actorsToAdd) {
-      addActor(actor);
+      if (actor.isPickable()) {
+        addActor(actor);
+      }
     }
     actorsToAdd.clear();
 

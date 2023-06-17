@@ -73,25 +73,34 @@ public class MouseControls extends Component {
 
   }
 
-  private boolean blockInSquare(float x, float y) {
+  private boolean blockInSquare(Vector2f pos, Vector2f size) {
     PropertiesPanel propertiesPanel = Window.getScene().getPanel(PropertiesPanel.class);
-    Vector2f start = new Vector2f(x, y);
-    Vector2f end = new Vector2f(start).add(new Vector2f(Gridlines.SIZE, Gridlines.SIZE));
+
+    float halfWidth = size.x / 2.0f;
+    float halfHeight = size.y / 2.0f;
+
+    Vector2f start = new Vector2f(pos.x - halfWidth, pos.y - halfHeight);
+    Vector2f end = new Vector2f(pos.x + halfWidth, pos.y + halfHeight);
+
+    DebugDraw.addBox(new Vector2f(end).sub(start).mul(0.5f).add(start));
+
     Vector2f startScreenf = MouseListener.worldToScreen(start);
     Vector2f endScreenf = MouseListener.worldToScreen(end);
     Vector2i startScreen = new Vector2i((int) startScreenf.x + 2, (int) startScreenf.y + 2);
     Vector2i endScreen = new Vector2i((int) endScreenf.x - 2, (int) endScreenf.y - 2);
     float[] gameObjectIds = propertiesPanel.getPickingTexture().getPickingActorBuffer(startScreen, endScreen);
 
+
     for (int i = 0; i < gameObjectIds.length; i++) {
-      if (gameObjectIds[i] >= 0) {
-        Actor pickedObj = Window.getScene().getGame().getActor((int) gameObjectIds[i]);
-        if (pickedObj.isPickable()) {
+      if (gameObjectIds[i] > 0) {
+        Actor actor = Window.getScene().getGame().getActor((int) gameObjectIds[i]);
+        if (actor != null && actor.isPickable()) {
           return true;
         }
       }
     }
 
+    System.out.println("No block in square");
     return false;
   }
 
@@ -100,17 +109,15 @@ public class MouseControls extends Component {
       float x = MouseListener.getWorldX();
       float y = MouseListener.getWorldY();
 
-      holdingActor.getTransform().getPosition().x = ((int) Math.floor(x / Gridlines.SIZE) * Gridlines.SIZE) + Gridlines.SIZE / 2.0f;
-      holdingActor.getTransform().getPosition().y = ((int) Math.floor(y / Gridlines.SIZE) * Gridlines.SIZE) + Gridlines.SIZE / 2.0f;
+      holdingActor.getTransform().position.x = ((int) Math.floor(x / Gridlines.SIZE) * Gridlines.SIZE) + Gridlines.SIZE / 2.0f;
+      holdingActor.getTransform().position.y = ((int) Math.floor(y / Gridlines.SIZE) * Gridlines.SIZE) + Gridlines.SIZE / 2.0f;
 
       if (MouseListener.mouseButtonDown(GLFW_MOUSE_BUTTON_LEFT)) {
-        float halfWidth = Gridlines.SIZE / 2.0f;
-        float halfHeight = Gridlines.SIZE / 2.0f;
-        if (MouseListener.isDragging() && !blockInSquare(holdingActor.getTransform().getPosition().x - halfWidth, holdingActor.getTransform().getPosition().y - halfHeight)) {
+        if (MouseListener.isDragging() &&  !blockInSquare(holdingActor.getTransform().getPosition(), holdingActor.getTransform().getScaledSize()) && debounce < 0
+        ) {
           place();
         } else if (!MouseListener.isDragging() && debounce < 0) {
-          place();
-          debounce = debounceTime;
+          debounce = debounceTime  * 2;
         }
       }
 

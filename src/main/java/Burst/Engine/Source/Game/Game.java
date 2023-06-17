@@ -294,7 +294,8 @@ public class Game {
     try {
       FileWriter writer = new FileWriter(".\\levels\\level.json");
       List<Actor> actorsToSerialize = new ArrayList<>();
-      for (Actor actor : this.actors) {
+      List<Actor> allActors = new ArrayList<>(this.actors);
+      for (Actor actor : allActors) {
         if (actor.isSerializedActor()) {
           actorsToSerialize.add(actor);
 //                    System.out.println("Added actor to serialize " + actor.getName());
@@ -491,13 +492,6 @@ public class Game {
           ImGui.tableNextColumn();
           ImGui.textColored( 1.0f, 0.0f, 0.0f, 1.0f,  viewToWorld.x + " ");
           ImGui.textColored( 0.0f, 1.0f, 0.0f, 1.0f,  viewToWorld.y + "");
-
-
-
-
-
-
-
 
           ImGui.endTable();
         }

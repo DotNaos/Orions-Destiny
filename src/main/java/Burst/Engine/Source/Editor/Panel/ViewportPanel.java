@@ -67,10 +67,9 @@ public class ViewportPanel extends ImGuiPanel {
     }
 
     // When the escape key is pressed, the game stops playing
-    if (ImGui.isKeyPressed(256)) {
+    if (ImGui.isKeyPressed(256) && Window.getScene().inGame()) {
       EventSystem.notify(null, new Event(EventType.GameEngineStopPlay));
     }
-
 
     ImGui.setCursorPos(ImGui.getCursorPosX(), ImGui.getCursorPosY());
     ImVec2 windowSize = getLargestSizeForViewport();

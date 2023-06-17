@@ -111,4 +111,5 @@ public class SpriteRenderer extends ActorComponent {
     this.isDirty = true;
     return this;
   }
+
 }

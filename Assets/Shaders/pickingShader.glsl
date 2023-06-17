@@ -50,4 +50,7 @@ void main()
     if (texColor.a < 50 / 255.0) {
         discard;
     }
+    if (fEntityId < 0) {
+        discard;
+    }
 }

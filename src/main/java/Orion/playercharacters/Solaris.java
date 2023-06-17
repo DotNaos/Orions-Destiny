@@ -2,12 +2,9 @@ package Orion.playercharacters;
 
 import Burst.Engine.Source.Core.Assets.AssetManager;
 import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheet;
-import Burst.Engine.Source.Core.Render.SpriteRenderer;
 import Burst.Engine.Source.Game.Animation.AnimationState;
 import Burst.Engine.Source.Game.Animation.StateMachine;
 import Orion.res.AssetConfig;
-
-import java.util.Timer;
 
 /**
  * @author Oliver Schuetz
@@ -15,7 +12,7 @@ import java.util.Timer;
 public class Solaris extends PlayerCharacter {
   public Solaris() {
     super();
-    this.icon = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.SOLARIS_IDLE, SpriteSheet.class).getSprite(0);
+    this.icon = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.SOLARIS, SpriteSheet.class).getSprite(0);
   }
   @Override
   public void init() {
@@ -34,28 +31,26 @@ public class Solaris extends PlayerCharacter {
     this.LVL = 0;
     this.EXP = 0;
 
-    this.idleSprites = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.SOLARIS_IDLE, SpriteSheet.class);
-    this.runSprites = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.SOLARIS_RUN, SpriteSheet.class);
-    this.jumpSprites = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.SOLARIS_JUMP, SpriteSheet.class);
+    this.idleSprites = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.SOLARIS, SpriteSheet.class);
     this.attackSprites = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.SOLARIS_ATTACK, SpriteSheet.class);
 
     StateMachine stateMachine = getComponent(StateMachine.class);
     stateMachine.addState(
             new AnimationState("idle", idleSprites)
                     .setRow(1)
-                    .setFrameCount(4)
+                    .setFrameCount(6)
                     .setLooping()
     );
     stateMachine.addState(
-            new AnimationState("run", runSprites)
+            new AnimationState("run", idleSprites)
                     .setRow(1)
-                    .setFrameCount(4)
+                    .setFrameCount(6)
                     .setLooping()
     );
     stateMachine.addState(
-            new AnimationState("jump", jumpSprites)
+            new AnimationState("jump", idleSprites)
                     .setRow(1)
-                    .setFrameCount(4)
+                    .setFrameCount(6)
                     .setLooping()
     );
     stateMachine.addState(

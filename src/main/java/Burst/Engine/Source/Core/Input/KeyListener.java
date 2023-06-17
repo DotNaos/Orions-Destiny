@@ -1,6 +1,10 @@
 package Burst.Engine.Source.Core.Input;
 
+import imgui.ImGui;
+
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import static org.lwjgl.glfw.GLFW.GLFW_PRESS;
 import static org.lwjgl.glfw.GLFW.GLFW_RELEASE;
@@ -87,6 +91,17 @@ public class KeyListener {
    */
   public static boolean isKeyPressed(int keyCode) {
     return get().keyPressed[keyCode];
+  }
+
+  public static List<Integer> getPressedKeys() {
+    List<Integer> pressedKeys = new ArrayList<>();
+    for (int i = 0; i < get().keyPressed.length; i++) {
+      if (get().keyPressed[i]) {
+        pressedKeys.add(i);
+      }
+    }
+
+    return pressedKeys;
   }
 
   /**

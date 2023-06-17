@@ -11,6 +11,7 @@ import Burst.Engine.Source.Core.UI.ImGui.BImGui;
 import Burst.Engine.Source.Core.UI.ImGui.ImGuiPanel;
 import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Core.Util.ClassDerivativeSearch;
+import Burst.Engine.Source.Editor.Components.MouseControls;
 import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
 import Burst.Engine.Source.Game.Camera;
 import Orion.blocks.Block;
@@ -110,8 +111,9 @@ public class ContentDrawer extends ImGuiPanel {
                     if (BImGui.imageButton(icon, iconSize, iconSize))
                     {
                         Actor newActor = (Actor) actor.getConstructor().newInstance();
-                        Window.getScene().getGame().addActor(newActor);
-                        Window.getScene().getPanel(PropertiesPanel.class).setActiveActor(newActor);
+                        Window.getScene().getGame().getComponent(MouseControls.class).pickupObject(newActor);
+//                        Window.getScene().getGame().addActor(newActor);
+//                        Window.getScene().getPanel(PropertiesPanel.class).setActiveActor(newActor);
                     }
                     ImGui.popID();
 

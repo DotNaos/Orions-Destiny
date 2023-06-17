@@ -249,6 +249,10 @@ public class RenderBatch implements Comparable<RenderBatch> {
       Vector4f currentPos = new Vector4f(sprite.actor.getTransform().getPosition().x + (xAdd * sprite.actor.getTransform().getScaledSize().x), sprite.actor.getTransform().getPosition().y + (yAdd * sprite.actor.getTransform().getScaledSize().y), 0, 1);
       currentPos = new Vector4f(xAdd, yAdd, 0, 1).mul(transformMatrix);
 
+      long entityId = sprite.actor.getID() + 1;
+      if (sprite.actor.isNotPickable()) {
+        entityId = -1;
+      }
 
       // Load position
       vertices[offset] = currentPos.x;
@@ -268,7 +272,8 @@ public class RenderBatch implements Comparable<RenderBatch> {
       vertices[offset + 8] = texId;
 
       // Load entity id
-      vertices[offset + 9] = sprite.actor.getID() + 1;
+      vertices[offset + 9] = entityId;
+
 
       offset += VERTEX_SIZE;
     }

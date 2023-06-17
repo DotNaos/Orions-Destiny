@@ -83,4 +83,7 @@ public abstract class Component implements ImGuiValueManager {
   public void setClean() {
     this.isDirty = false;
   }
+
+  public void destroy() {
+  }
 }

@@ -131,12 +131,10 @@ public class AssetConfig {
 
         //*________________________________________________________________________________________\\
 
-        public static final String SOLARIS_IDLE = Directories.SOLARIS + "solaris.png";
+        public static final String SOLARIS = Directories.SOLARIS + "solaris.png";
         //*----------------------------------------------------------------------------------------\\
-        public static final String SOLARIS_RUN = Directories.SOLARIS + "solaris.png";
-        public static final String SOLARIS_JUMP = Directories.SOLARIS + "solaris.png";
-        public static final String SOLARIS_FALL = Directories.SOLARIS + "solaris.png";
-        public static final String SOLARIS_ATTACK = Directories.SOLARIS + "solaris.png";
+        public static final String SOLARIS_ATTACK = Directories.SOLARIS + "breath.png";
+        public static final String SOLARIS_ATTACK2 = Directories.SOLARIS + "burn.png";
 
         //*________________________________________________________________________________________\\
       }
@@ -163,8 +161,10 @@ public class AssetConfig {
           new SpriteSheetConfig(Files.Images.SpriteSheets.AURA, SpriteSheetUsage.PLAYER, 100, 100, 0),
           new SpriteSheetConfig(Files.Images.SpriteSheets.APEX, SpriteSheetUsage.PLAYER, 80, 80, 0),
           new SpriteSheetConfig(Files.Images.SpriteSheets.HELIX_IDLE, SpriteSheetUsage.PLAYER, 96, 96, 0),
+          new SpriteSheetConfig(Files.Images.SpriteSheets.HELIX_RUN, SpriteSheetUsage.PLAYER, 96, 96, 0),
           new SpriteSheetConfig(Files.Images.SpriteSheets.GENESIS_IDLE, SpriteSheetUsage.PLAYER, 231, 190, 0),
-          new SpriteSheetConfig(Files.Images.SpriteSheets.SOLARIS_IDLE, SpriteSheetUsage.PLAYER, 55, 67, 0)
+          new SpriteSheetConfig(Files.Images.SpriteSheets.GENESIS_RUN, SpriteSheetUsage.PLAYER, 231, 190, 0),
+          new SpriteSheetConfig(Files.Images.SpriteSheets.SOLARIS, SpriteSheetUsage.PLAYER, 55, 67, 0)
   );
 
 
