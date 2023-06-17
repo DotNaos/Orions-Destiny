@@ -288,7 +288,7 @@ public class MouseListener {
 
     // offset by the viewport position
     currentX += get().gameViewportPos.x;
-    currentY += get().gameViewportPos.y + 23;
+    currentY += get().gameViewportPos.y + 24;
 
     currentY = Window.getHeight() - currentY;
 
@@ -310,7 +310,7 @@ public class MouseListener {
     return windowSpace;
   }
 
-  private static Vector2f worldToView(Vector2f worldCoords) {
+  public static Vector2f worldToView(Vector2f worldCoords) {
     Vector2f worldCoordsCopy = new Vector2f(worldCoords);
 
     // World to View
@@ -322,6 +322,8 @@ public class MouseListener {
     Vector2f windowSpace = new Vector2f(ndcSpacePos.x, ndcSpacePos.y).mul(1.0f / ndcSpacePos.w);
     windowSpace.add(new Vector2f(1.0f, 1.0f)).mul(0.5f);
     windowSpace.mul(new Vector2f(Window.getWidth(), Window.getHeight()));
+    windowSpace.y = Window.getHeight() - windowSpace.y;
+
     return windowSpace;
   }
 

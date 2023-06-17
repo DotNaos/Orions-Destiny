@@ -434,6 +434,8 @@ public class Game {
 
         Vector2f viewToScreen = MouseListener.viewToScreen(new Vector2f(view));
         Vector2f worldToScreen = MouseListener.worldToScreen(new Vector2f(world));
+        Vector2f worldToView = MouseListener.worldToView(new Vector2f(world));
+        Vector2f viewToWorld = MouseListener.viewToWorld(new Vector2f(view));
 
         if (ImGui.beginTable("Mouse Position", 2, ImGuiTableFlags.None))
         {
@@ -443,6 +445,21 @@ public class Game {
           ImGui.tableNextColumn();
           ImGui.textColored( 1.0f, 0.0f, 0.0f, 1.0f,  screen.x + " ");
           ImGui.textColored( 0.0f, 1.0f, 0.0f, 1.0f,  screen.y + "");
+
+          ImGui.tableNextRow();
+          ImGui.tableNextColumn();
+          ImGui.text("View to Screen");
+          ImGui.tableNextColumn();
+          ImGui.textColored( 1.0f, 0.0f, 0.0f, 1.0f,  viewToScreen.x + " ");
+          ImGui.textColored( 0.0f, 1.0f, 0.0f, 1.0f,  viewToScreen.y + "");
+
+          ImGui.tableNextRow();
+          ImGui.tableNextColumn();
+          ImGui.text("World to Screen");
+          ImGui.tableNextColumn();
+          ImGui.textColored( 1.0f, 0.0f, 0.0f, 1.0f,  worldToScreen.x + " ");
+          ImGui.textColored( 0.0f, 1.0f, 0.0f, 1.0f,  worldToScreen.y + "");
+
 
 
           ImGui.tableNextRow();
@@ -454,29 +471,32 @@ public class Game {
 
           ImGui.tableNextRow();
           ImGui.tableNextColumn();
+          ImGui.text("World to View");
+          ImGui.tableNextColumn();
+          ImGui.textColored( 1.0f, 0.0f, 0.0f, 1.0f,  worldToView.x + " ");
+          ImGui.textColored( 0.0f, 1.0f, 0.0f, 1.0f,  worldToView.y + "");
+
+          ImGui.tableNextRow();
+          ImGui.tableNextColumn();
           ImGui.text("World");
           ImGui.tableNextColumn();
           ImGui.textColored( 1.0f, 0.0f, 0.0f, 1.0f,  world.x + " ");
           ImGui.textColored( 0.0f, 1.0f, 0.0f, 1.0f,  world.y + "");
 
-          ImGui.separator();
 
-          BImGui.showMatrix4f("View to Screen", Window.getScene().getViewport().getViewMatrix());
-          BImGui.showMatrix4f("World to Screen", Window.getScene().getViewport().getProjectionMatrix());
+          ImGui.tableNextRow();
+          ImGui.tableNextColumn();
+          ImGui.text("View to World");
+          ImGui.tableNextColumn();
+          ImGui.textColored( 1.0f, 0.0f, 0.0f, 1.0f,  viewToWorld.x + " ");
+          ImGui.textColored( 0.0f, 1.0f, 0.0f, 1.0f,  viewToWorld.y + "");
 
-//          ImGui.tableNextRow();
-//          ImGui.tableNextColumn();
-//          ImGui.text("View to Screen");
-//          ImGui.tableNextColumn();
-//          ImGui.textColored( 1.0f, 0.0f, 0.0f, 1.0f,  viewToScreen.x + " ");
-//          ImGui.textColored( 0.0f, 1.0f, 0.0f, 1.0f,  viewToScreen.y + "");
-//
-//          ImGui.tableNextRow();
-//          ImGui.tableNextColumn();
-//          ImGui.text("World to Screen");
-//          ImGui.tableNextColumn();
-//          ImGui.textColored( 1.0f, 0.0f, 0.0f, 1.0f,  worldToScreen.x + " ");
-//          ImGui.textColored( 0.0f, 1.0f, 0.0f, 1.0f,  worldToScreen.y + "");
+
+
+
+
+
+
 
           ImGui.endTable();
         }
