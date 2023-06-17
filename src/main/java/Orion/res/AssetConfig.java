@@ -74,6 +74,15 @@ public class AssetConfig {
         //* ========================= UI ==================================
         public static final String GIZMOS = Directories.UI + "gizmos.png";
         public static final String BUTTONS = Directories.UI + "buttons.png";
+        public static final String ICONS = Directories.UI + "icons.png";
+        public static final String SELECT = Directories.UI + "select.png";
+        public static final String SELECT_ROUND = Directories.UI + "select_round.png";
+        public static final String FLAT_BUTTONS = Directories.UI + "flat_buttons.png";
+        public static final String FLAT_BUTTONS_ROUND = Directories.UI + "flat_buttons_round.png";
+
+        public static final String UI = Directories.UI + "ui.png";
+
+
 
         //* ======================= Blocks ================================
         public static final String BLOCKS = Directories.TILES + "blocks.png";

@@ -132,9 +132,9 @@ public class Actor implements ImGuiValueManager {
   protected void init() {
     if (this.ID == -1) this.ID = Util.generateUniqueID();
 
-    addComponent(new Transform());
+    if (!hasComponent(Transform.class)) addComponent(new Transform());
 
-    addComponent(new SpriteRenderer().setSprite(this.icon));
+    if (!hasComponent(Transform.class)) addComponent(new SpriteRenderer().setSprite(this.icon));
 
     if (this.initialValues == null) this.initialValues = new HashMap<>();
     this.ignoreFields = new ArrayList<>();

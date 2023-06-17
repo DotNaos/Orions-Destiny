@@ -1,7 +1,8 @@
 package Burst.Engine.Source.Editor.Components;
 
-import Burst.Engine.Config.Constants.GridLines_Config;
-import Burst.Engine.Config.HotKeys;
+import Burst.Engine.Config.Config;
+import Burst.Engine.Config.Config.Gridlines;
+import Burst.Engine.Config.Config.HotKeys;
 import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.Input.KeyListener;
@@ -43,13 +44,13 @@ public class KeyControls extends Component {
 
 
   private boolean duplicateActors(PropertiesPanel propertiesPanel, List<Actor> activeActors, Actor activeActor) {
-    if (KeyListener.isKeyPressed(HotKeys.get().Shortcut_EditorDuplicate.first) && KeyListener.isKeyPressed(HotKeys.get().Shortcut_EditorDuplicate.second) && activeActors.size() >= 1 && debounce < 0) {
+    if (KeyListener.isKeyPressed(Config.get(HotKeys.class).Shortcut_EditorDuplicate.first) && KeyListener.isKeyPressed(Config.get(HotKeys.class).Shortcut_EditorDuplicate.second) && activeActors.size() >= 1 && debounce < 0) {
       debounce = inputDelay;
       List<Actor> actors = new ArrayList<>(activeActors);
       propertiesPanel.clearSelected();
 
       // calculate the offset
-      float offset = max(actors).x - min(actors).x + GridLines_Config.SIZE;
+      float offset = max(actors).x - min(actors).x + Gridlines.SIZE;
 
       for (Actor actor : actors) {
         Actor copy = actor.copy();
@@ -73,7 +74,7 @@ public class KeyControls extends Component {
   }
 
   private boolean deleteActors(PropertiesPanel propertiesPanel, List<Actor> activeActors, Actor activeActor) {
-    if (KeyListener.isKeyPressed(HotKeys.get().EditorDelete) && activeActor != null && debounce < 0) {
+    if (KeyListener.isKeyPressed(Config.get(HotKeys.class).EditorDelete) && activeActor != null && debounce < 0) {
       debounce = inputDelay;
       for (Actor actor : activeActors) {
         Window.getScene().getGame().removeActor(actor);
@@ -90,14 +91,14 @@ public class KeyControls extends Component {
   }
 
   private boolean moveZIndex(PropertiesPanel propertiesPanel, List<Actor> activeActors, Actor activeActor) {
-    if (KeyListener.isKeyPressed(HotKeys.get().EditorMoveZToBack) && debounce < 0) {
+    if (KeyListener.isKeyPressed(Config.get(HotKeys.class).EditorMoveZToBack) && debounce < 0) {
       debounce = inputDelay;
       for (Actor actor : activeActors) {
         actor.getTransform().zIndex = actor.getTransform().zIndex - 1;
       }
 
       return true;
-    } else if (KeyListener.isKeyPressed(HotKeys.get().EditorMoveZToFront) && debounce < 0) {
+    } else if (KeyListener.isKeyPressed(Config.get(HotKeys.class).EditorMoveZToFront) && debounce < 0) {
       debounce = inputDelay;
       for (Actor actor : activeActors) {
         actor.getTransform().zIndex = actor.getTransform().zIndex + 1;
@@ -109,8 +110,8 @@ public class KeyControls extends Component {
 
   private boolean move(PropertiesPanel propertiesPanel, List<Actor> activeActors, Actor activeActor) {
     Vector2f multiplier = new Vector2f(1.0f, 1.0f);
-    boolean moveSlow = KeyListener.isKeyPressed(HotKeys.get().Modifier_EditorSlow);
-    boolean moveFast = KeyListener.isKeyPressed(HotKeys.get().Modifier_EditorFast);
+    boolean moveSlow = KeyListener.isKeyPressed(Config.get(HotKeys.class).Modifier_EditorSlow);
+    boolean moveFast = KeyListener.isKeyPressed(Config.get(HotKeys.class).Modifier_EditorFast);
 
     if (moveSlow && moveFast) {
       multiplier = new Vector2f(0.5f, 0.5f);
@@ -123,28 +124,28 @@ public class KeyControls extends Component {
     }
 
 
-    if (KeyListener.isKeyPressed(HotKeys.get().EditorMoveUp) && debounce < 0) {
+    if (KeyListener.isKeyPressed(Config.get(HotKeys.class).EditorMoveUp) && debounce < 0) {
       debounce = inputDelay;
       for (Actor actor : activeActors) {
-        actor.getTransform().position.y += GridLines_Config.SIZE * multiplier.y;
+        actor.getTransform().position.y += Gridlines.SIZE * multiplier.y;
       }
       return true;
-    } else if (KeyListener.isKeyPressed(HotKeys.get().EditorMoveLeft) && debounce < 0) {
+    } else if (KeyListener.isKeyPressed(Config.get(HotKeys.class).EditorMoveLeft) && debounce < 0) {
       debounce = inputDelay;
       for (Actor actor : activeActors) {
-        actor.getTransform().position.x -= GridLines_Config.SIZE * multiplier.x;
+        actor.getTransform().position.x -= Gridlines.SIZE * multiplier.x;
       }
       return true;
-    } else if (KeyListener.isKeyPressed(HotKeys.get().EditorMoveRight) && debounce < 0) {
+    } else if (KeyListener.isKeyPressed(Config.get(HotKeys.class).EditorMoveRight) && debounce < 0) {
       debounce = inputDelay;
       for (Actor actor : activeActors) {
-        actor.getTransform().position.x += GridLines_Config.SIZE * multiplier.x;
+        actor.getTransform().position.x += Gridlines.SIZE * multiplier.x;
       }
       return true;
-    } else if (KeyListener.isKeyPressed(HotKeys.get().EditorMoveDown) && debounce < 0) {
+    } else if (KeyListener.isKeyPressed(Config.get(HotKeys.class).EditorMoveDown) && debounce < 0) {
       debounce = inputDelay;
       for (Actor actor : activeActors) {
-        actor.getTransform().position.y -= GridLines_Config.SIZE * multiplier.y;
+        actor.getTransform().position.y -= Gridlines.SIZE * multiplier.y;
       }
       return true;
     }

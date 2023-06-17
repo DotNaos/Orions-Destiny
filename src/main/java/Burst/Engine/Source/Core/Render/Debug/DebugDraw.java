@@ -1,9 +1,8 @@
 package Burst.Engine.Source.Core.Render.Debug;
 
-import Burst.Engine.Config.Constants.Color_Config;
-import Burst.Engine.Config.Shader_Config;
+import Burst.Engine.Config.Config.Colors;
+import Burst.Engine.Config.Config.Shader;
 import Burst.Engine.Source.Core.Assets.AssetManager;
-import Burst.Engine.Source.Core.Assets.Graphics.Shader;
 import Burst.Engine.Source.Core.UI.Viewport;
 import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Core.Util.BMath;
@@ -38,7 +37,7 @@ public class DebugDraw {
   private static final int vertexSize = 7;
   // 7 floats per vertex, 2 vertices per line
   private float[] vertexArray = new float[(MAX_LINES) * vertexSize * 2];
-  private Shader shader = (Shader) AssetManager.getAssetFromType(Shader_Config.SHADER_DEBUG, Shader.class);
+  private Burst.Engine.Source.Core.Assets.Graphics.Shader shader = (Burst.Engine.Source.Core.Assets.Graphics.Shader) AssetManager.getAssetFromType(Shader.SHADER_DEBUG, Burst.Engine.Source.Core.Assets.Graphics.Shader.class);
 
   private int vaoID;
   private int vboID;
@@ -186,7 +185,7 @@ public class DebugDraw {
   //! Add line2D methods
   //!==================================================
   public static void addLine(Vector2f from, Vector2f to) {
-    addLine(from, to, new Vector4f(Color_Config.GREEN));
+    addLine(from, to, new Vector4f(Colors.GREEN));
   }
 
   public static void addLine(Vector2f from, Vector2f to, Vector4f color) {
@@ -233,14 +232,14 @@ public class DebugDraw {
 
 
   public static void addBox(Vector2f center) {
-    addBox(center, new Vector2f(1), 0, Color_Config.GREEN, 2);
+    addBox(center, new Vector2f(1), 0, Colors.GREEN, 2);
   }
   public static void addBox(Vector2f center, Vector2f dimensions) {
-    addBox(center, dimensions, 0, Color_Config.GREEN, 2);
+    addBox(center, dimensions, 0, Colors.GREEN, 2);
   }
 
   public static void addBox(Vector2f center, Vector2f dimensions, float rotation) {
-    addBox(center, dimensions, rotation, Color_Config.GREEN, 2);
+    addBox(center, dimensions, rotation, Colors.GREEN, 2);
   }
 
   public static void addBox(Vector2f center, Vector2f dimensions, float rotation, Vector3f color) {
@@ -278,7 +277,7 @@ public class DebugDraw {
   //!==================================================
   public static void addCircle(Vector2f center, float radius) {
 
-    addCircle(center, radius, Color_Config.GREEN, 2);
+    addCircle(center, radius, Colors.GREEN, 2);
   }
 
   public static void addCircle(Vector2f center, float radius, Vector3f color) {

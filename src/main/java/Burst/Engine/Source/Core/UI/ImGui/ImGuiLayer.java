@@ -1,7 +1,8 @@
 package Burst.Engine.Source.Core.UI.ImGui;
 
-import Burst.Engine.Config.Constants.Font_Config;
-import Burst.Engine.Config.ImGuiStyleConfig;
+import Burst.Engine.Config.Config;
+import Burst.Engine.Config.Config.Fonts;
+import Burst.Engine.Config.Config.ImGuiStyle;
 import Burst.Engine.Source.Core.Input.KeyListener;
 import Burst.Engine.Source.Core.Input.MouseListener;
 import Burst.Engine.Source.Core.Scene.Scene;
@@ -139,7 +140,7 @@ public class ImGuiLayer {
     // Read: https://raw.githubusercontent.com/ocornut/imgui/master/docs/FONTS.txt
 
 
-    if (new File(Font_Config.UI).isFile()) {
+    if (new File(Fonts.UI).isFile()) {
       final ImFontAtlas fontAtlas = io.getFonts();
       final ImFontConfig fontConfig = new ImFontConfig(); // Natively allocated object, should be explicitly destroyed
 
@@ -148,7 +149,7 @@ public class ImGuiLayer {
 
       // Fonts merge example
       fontConfig.setPixelSnapH(true);
-      fontAtlas.addFontFromFileTTF(Font_Config.UI, 18, fontConfig);
+      fontAtlas.addFontFromFileTTF(Fonts.UI, 18, fontConfig);
       fontConfig.destroy(); // After all fonts were added we don't need this config more
     } else if (new File("C:/Windows/Fonts/seactoreui.ttf").isFile()) {
       final ImFontAtlas fontAtlas = io.getFonts();
@@ -190,11 +191,11 @@ public class ImGuiLayer {
    */
   public void update(float dt, Scene currentScene) {
     startFrame();
-    ImGuiStyleConfig.get().style();
+    Config.get(ImGuiStyle.class).style();
     setupDockspace();
     currentScene.imgui();
 
-        ImGui.showDemoWindow();
+//        ImGui.showDemoWindow();
 
 
     DebugPanel.imgui();

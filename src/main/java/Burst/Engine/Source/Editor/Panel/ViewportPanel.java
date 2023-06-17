@@ -1,17 +1,23 @@
 package Burst.Engine.Source.Editor.Panel;
 
-import Burst.Engine.Config.ImGuiStyleConfig;
+import Burst.Engine.Config.Config;
+import Burst.Engine.Config.Config.ImGuiStyle;
+import Burst.Engine.Source.Core.Assets.AssetManager;
+import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheet;
 import Burst.Engine.Source.Core.EventSystem.EventSystem;
 import Burst.Engine.Source.Core.EventSystem.Events.Event;
 import Burst.Engine.Source.Core.EventSystem.Events.EventType;
 import Burst.Engine.Source.Core.Input.MouseListener;
 import Burst.Engine.Source.Core.Scene.SceneType;
+import Burst.Engine.Source.Core.UI.ImGui.BImGui;
 import Burst.Engine.Source.Core.UI.ImGui.ImGuiPanel;
 import Burst.Engine.Source.Core.UI.Window;
+import Orion.res.AssetConfig;
 import imgui.ImGui;
 import imgui.ImGuiViewport;
 import imgui.ImVec2;
 import imgui.flag.ImGuiCond;
+import imgui.flag.ImGuiKey;
 import imgui.flag.ImGuiWindowFlags;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
@@ -20,8 +26,6 @@ import org.joml.Vector3f;
  * @author Oliver Schuetz
  */
 public class ViewportPanel extends ImGuiPanel {
-
-  private boolean isPlaying = false;
   private boolean windowIsHovered;
   private Vector3f viewportSize = new Vector3f();
 
@@ -48,20 +52,22 @@ public class ViewportPanel extends ImGuiPanel {
     ImGui.begin(title, ImGuiWindowFlags.NoTitleBar | ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoScrollWithMouse | ImGuiWindowFlags.MenuBar | windowFlags);
 
     if (ImGui.beginMenuBar()) {
-      if (ImGui.menuItem("Play", "", isPlaying, !isPlaying)) {
-        isPlaying = true;
-        EventSystem.notify(null, new Event(EventType.GameEngineStartPlay));
+      if (BImGui.imageButton(AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.BUTTONS, SpriteSheet.class).getSprite(1), 24, 24))
+      {
+        if (Window.getScene().inEditor())
+          EventSystem.notify(null, new Event(EventType.GameEngineStartPlay));
       }
-      if (ImGui.menuItem("Stop", "", !isPlaying, isPlaying)) {
-        isPlaying = false;
-        EventSystem.notify(null, new Event(EventType.GameEngineStopPlay));
+      if (BImGui.imageButton(AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.BUTTONS, SpriteSheet.class).getSprite(6, 3), 24, 24))
+      {
+        if (Window.getScene().inGame())
+          EventSystem.notify(null, new Event(EventType.GameEngineStopPlay));
       }
+
       ImGui.endMenuBar();
     }
 
     // When the escape key is pressed, the game stops playing
     if (ImGui.isKeyPressed(256)) {
-      isPlaying = false;
       EventSystem.notify(null, new Event(EventType.GameEngineStopPlay));
     }
 
@@ -85,9 +91,9 @@ public class ViewportPanel extends ImGuiPanel {
                     (MouseListener.getViewX() < 0 || MouseListener.getViewY() < 0));
 
     // Update the position of the Panel
-    this.position.x = ImGui.getWindowPosX() + ImGuiStyleConfig.get().getWindowPadding().x;
+    this.position.x = ImGui.getWindowPosX() + Config.get(ImGuiStyle.class).getWindowPadding().x;
     // + 2x padding because of the menu bar
-    this.position.y = ImGui.getWindowPosY() + ImGuiStyleConfig.get().getWindowPadding().y * (ImGui.isWindowDocked() ? 5 : 2);
+    this.position.y = ImGui.getWindowPosY() + Config.get(ImGuiStyle.class).getWindowPadding().y * (ImGui.isWindowDocked() ? 5 : 2);
 
     MouseListener.setGameViewportPos(new Vector2f(this.position.x, this.position.y));
 

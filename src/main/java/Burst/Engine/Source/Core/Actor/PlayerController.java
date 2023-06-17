@@ -1,6 +1,7 @@
 package Burst.Engine.Source.Core.Actor;
 
-import Burst.Engine.Config.HotKeys;
+import Burst.Engine.Config.Config;
+import Burst.Engine.Config.Config.HotKeys;
 import Burst.Engine.Source.Core.Input.KeyListener;
 import Burst.Engine.Source.Core.Physics.Components.Rigidbody2D;
 import Burst.Engine.Source.Game.Animation.StateMachine;
@@ -58,7 +59,7 @@ public class PlayerController extends ActorComponent {
   public void update(float dt) {
     try {
 
-      if (KeyListener.isKeyPressed(HotKeys.get().PlayerMoveRight)) {
+      if (KeyListener.isKeyPressed(Config.get(HotKeys.class).PlayerMoveRight)) {
         // When player is moving right, flip the sprite
         this.actor.getTransform().size.x = Math.abs(this.actor.getTransform().size.x);
 
@@ -70,7 +71,7 @@ public class PlayerController extends ActorComponent {
         } else {
           this.stateMachine.trigger("startRunning");
         }
-      } else if (KeyListener.isKeyPressed(HotKeys.get().PlayerMoveLeft)) {
+      } else if (KeyListener.isKeyPressed(Config.get(HotKeys.class).PlayerMoveLeft)) {
         // When player is moving left, flip the sprite
         this.actor.getTransform().size.x = -Math.abs(this.actor.getTransform().size.x);
         this.acceleration.x = -walkSpeed;

@@ -1,17 +1,12 @@
 package Burst.Engine.Source.Editor.Components;
 
-import Burst.Engine.Config.Constants.GridLines_Config;
+import Burst.Engine.Config.Config.Gridlines;
 import Burst.Engine.Source.Core.Component;
-import Burst.Engine.Source.Core.Input.MouseListener;
 import Burst.Engine.Source.Core.Render.Debug.DebugDraw;
-import Burst.Engine.Source.Core.Render.Debug.Line2D;
 import Burst.Engine.Source.Core.UI.Viewport;
 import Burst.Engine.Source.Core.UI.Window;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 /**
@@ -20,9 +15,9 @@ import java.util.List;
  *
  * <p>The grid lines are drawn in the 2D plane, and are drawn in the viewport's
  * coordinate system. The grid lines are drawn in the color specified by the
- * {@link GridLines_Config#COLOR} constant.</p>
+ * {@link Gridlines#COLOR} constant.</p>
  *
- * <p>{@link GridLines_Config#SIZE} is used as size of the grid and which increases proportional to the zoom</p>
+ * <p>{@link Gridlines#SIZE} is used as size of the grid and which increases proportional to the zoom</p>
  */
 public class GridLines extends Component {
 
@@ -50,8 +45,8 @@ public class GridLines extends Component {
    * @see Window#getScene()
    * @see Viewport#getSize()
    * @see DebugDraw#addLine(Vector2f, Vector2f, Vector4f)
-   * @see GridLines_Config#SIZE
-   * @see GridLines_Config#SIZE
+   * @see Gridlines#SIZE
+   * @see Gridlines#SIZE
    * @see Math#floor(double)
    * @see Vector2f
    * @see Vector2f
@@ -70,7 +65,7 @@ public class GridLines extends Component {
     int nearestPowerOf2 = (int) Math.pow(2, Math.floor(Math.log(zoom) / Math.log(2) + pixelsPerGrid - 1));
     float scaling = ((float) 1 / spriteResolution * nearestPowerOf2);
 
-    float gridSize = (GridLines_Config.SIZE * scaling);
+    float gridSize = (Gridlines.SIZE * scaling);
 
     // Zoom is half the width of the viewport in world units
     float width = viewport.getWorldSize().x;
@@ -110,12 +105,12 @@ public class GridLines extends Component {
       // Vertical lines
       float x = firstX + (i * gridSize);
       if (i < numLinesX)
-        DebugDraw.addGridLine(new Vector2f(x, firstY), new Vector2f(x, firstY + height), GridLines_Config.COLOR);
+        DebugDraw.addGridLine(new Vector2f(x, firstY), new Vector2f(x, firstY + height), Gridlines.COLOR);
 
       // Horizontal lines
       float y = firstY + (i * gridSize);
       if (i < numLinesY)
-        DebugDraw.addGridLine(new Vector2f(firstX, y), new Vector2f(firstX + width, y), GridLines_Config.COLOR);
+        DebugDraw.addGridLine(new Vector2f(firstX, y), new Vector2f(firstX + width, y), Gridlines.COLOR);
     }
   }
 

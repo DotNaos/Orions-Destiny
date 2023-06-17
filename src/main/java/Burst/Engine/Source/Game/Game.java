@@ -1,20 +1,19 @@
 package Burst.Engine.Source.Game;
 
-import Burst.Engine.Config.ImGuiStyleConfig;
+import Burst.Engine.Config.Config;
+import Burst.Engine.Config.Config.ImGuiStyle;
 import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Actor.ActorComponent;
 import Burst.Engine.Source.Core.Actor.PlayerController;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.Input.MouseListener;
 import Burst.Engine.Source.Core.Physics.Physics2D;
-import Burst.Engine.Source.Core.Render.Debug.DebugDraw;
 import Burst.Engine.Source.Core.Render.PickingTexture;
 import Burst.Engine.Source.Core.Render.ViewportRenderer;
 import Burst.Engine.Source.Core.Saving.ActorDeserializer;
 import Burst.Engine.Source.Core.Saving.ComponentDeserializer;
 import Burst.Engine.Source.Core.Scene.Scene;
 import Burst.Engine.Source.Core.Scene.SceneType;
-import Burst.Engine.Source.Core.UI.ImGui.BImGui;
 import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Core.Util.DebugMessage;
 import Burst.Engine.Source.Editor.Components.GridLines;
@@ -26,7 +25,6 @@ import Burst.Engine.Source.Editor.Gizmo.GizmoSystem;
 import Burst.Engine.Source.Editor.Panel.OutlinerPanel;
 import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
 import Burst.Engine.Source.Editor.Panel.ViewportPanel;
-import Orion.res.AssetConfig;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import imgui.ImGui;
@@ -73,12 +71,6 @@ public class Game {
 
     loadLevel();
 
-    timer.scheduleAtFixedRate(new java.util.TimerTask() {
-      @Override
-      public void run() {
-        saveLevel();
-      }
-    }, 1000, 1000);
 
 
     DebugMessage.info("Game initialized!");
@@ -87,10 +79,18 @@ public class Game {
       return;
     }
 
+    timer.scheduleAtFixedRate(new java.util.TimerTask() {
+      @Override
+      public void run() {
+        saveLevel();
+      }
+    }, 1000, 1000);
+
     DebugMessage.info("Editor initializing...");
     // Variables
     this.components.add(Window.get().getPickingTexture());
     this.components.add(new EditorCamera(this.scene.getViewport()));
+
 
     // Panels
     DebugMessage.header("Editor Panels");
@@ -111,7 +111,7 @@ public class Game {
   }
 
   private boolean inGame() {
-    return scene.getOpenScene() == SceneType.GAME;
+    return Window.getScene().getOpenScene() == SceneType.GAME;
   }
 
   private boolean inEditor() {
@@ -284,9 +284,10 @@ public class Game {
       System.out.println("Dialog open, not saving level");
       return;
 
-    } else if (scene.getOpenScene() == SceneType.GAME) {
-      System.out.println("Not in editor, not saving level");
-      return;
+    } else if (inGame()) {
+      DebugMessage.info("Not in editor, not saving level");
+      timer.cancel();
+        return;
     }
 //    System.out.println("Saving level...");
 
@@ -390,7 +391,7 @@ public class Game {
           ImGui.pushStyleVar(ImGuiStyleVar.FrameBorderSize, 1.0f);
           ImGui.pushStyleVar(ImGuiStyleVar.ItemSpacing, 20f, 20f);
 
-          ImGuiStyleConfig.get().imgui();
+          Config.get(ImGuiStyle.class).imgui();
 
           ImGui.popStyleColor();
           ImGui.popStyleVar(2);

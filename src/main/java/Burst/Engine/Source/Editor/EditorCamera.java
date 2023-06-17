@@ -1,6 +1,7 @@
 package Burst.Engine.Source.Editor;
 
-import Burst.Engine.Config.HotKeys;
+import Burst.Engine.Config.Config;
+import Burst.Engine.Config.Config.HotKeys;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.Input.KeyListener;
 import Burst.Engine.Source.Core.Input.MouseListener;
@@ -92,7 +93,7 @@ public class EditorCamera extends Component {
     boolean moveCamera = false;
 
     // Move the camera if the user is holding the move camera hotkey
-    if (MouseListener.mouseButtonDown(HotKeys.get().EditorMoveCamera)) {
+    if (MouseListener.mouseButtonDown(Config.get(HotKeys.class).EditorMoveCamera)) {
       moveCamera = true;
     }
     // Or if the user is holding the move camera hotkey and the move camera modifier

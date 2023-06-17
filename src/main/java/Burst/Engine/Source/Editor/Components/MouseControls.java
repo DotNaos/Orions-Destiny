@@ -1,24 +1,17 @@
 package Burst.Engine.Source.Editor.Components;
 
-import Burst.Engine.Config.Constants.GridLines_Config;
+import Burst.Engine.Config.Config.Gridlines;
 import Burst.Engine.Source.Core.Actor.Actor;
-import Burst.Engine.Source.Core.Assets.AssetManager;
-import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheet;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.Input.KeyListener;
 import Burst.Engine.Source.Core.Input.MouseListener;
 import Burst.Engine.Source.Core.Render.Debug.DebugDraw;
 import Burst.Engine.Source.Core.Render.PickingTexture;
-import Burst.Engine.Source.Core.Render.SpriteRenderer;
 import Burst.Engine.Source.Core.UI.Window;
-import Burst.Engine.Source.Editor.Gizmo.GizmoSystem;
 import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
-import Burst.Engine.Source.Game.Animation.StateMachine;
 import Burst.Engine.Source.Game.Game;
-import Orion.res.AssetConfig;
 import org.joml.Vector2f;
 import org.joml.Vector2i;
-import org.joml.Vector4f;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -83,7 +76,7 @@ public class MouseControls extends Component {
   private boolean blockInSquare(float x, float y) {
     PropertiesPanel propertiesPanel = Window.getScene().getPanel(PropertiesPanel.class);
     Vector2f start = new Vector2f(x, y);
-    Vector2f end = new Vector2f(start).add(new Vector2f(GridLines_Config.SIZE, GridLines_Config.SIZE));
+    Vector2f end = new Vector2f(start).add(new Vector2f(Gridlines.SIZE, Gridlines.SIZE));
     Vector2f startScreenf = MouseListener.worldToScreen(start);
     Vector2f endScreenf = MouseListener.worldToScreen(end);
     Vector2i startScreen = new Vector2i((int) startScreenf.x + 2, (int) startScreenf.y + 2);
@@ -107,12 +100,12 @@ public class MouseControls extends Component {
       float x = MouseListener.getWorldX();
       float y = MouseListener.getWorldY();
 
-      holdingActor.getTransform().getPosition().x = ((int) Math.floor(x / GridLines_Config.SIZE) * GridLines_Config.SIZE) + GridLines_Config.SIZE / 2.0f;
-      holdingActor.getTransform().getPosition().y = ((int) Math.floor(y / GridLines_Config.SIZE) * GridLines_Config.SIZE) + GridLines_Config.SIZE / 2.0f;
+      holdingActor.getTransform().getPosition().x = ((int) Math.floor(x / Gridlines.SIZE) * Gridlines.SIZE) + Gridlines.SIZE / 2.0f;
+      holdingActor.getTransform().getPosition().y = ((int) Math.floor(y / Gridlines.SIZE) * Gridlines.SIZE) + Gridlines.SIZE / 2.0f;
 
       if (MouseListener.mouseButtonDown(GLFW_MOUSE_BUTTON_LEFT)) {
-        float halfWidth = GridLines_Config.SIZE / 2.0f;
-        float halfHeight = GridLines_Config.SIZE / 2.0f;
+        float halfWidth = Gridlines.SIZE / 2.0f;
+        float halfHeight = Gridlines.SIZE / 2.0f;
         if (MouseListener.isDragging() && !blockInSquare(holdingActor.getTransform().getPosition().x - halfWidth, holdingActor.getTransform().getPosition().y - halfHeight)) {
           place();
         } else if (!MouseListener.isDragging() && debounce < 0) {

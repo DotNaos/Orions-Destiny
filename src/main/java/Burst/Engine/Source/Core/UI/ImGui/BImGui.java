@@ -1,6 +1,6 @@
 package Burst.Engine.Source.Core.UI.ImGui;
 
-import Burst.Engine.Config.Constants.Color_Config;
+import Burst.Engine.Config.Config.Colors;
 import Burst.Engine.Source.Core.Assets.AssetManager;
 import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
 import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheet;
@@ -281,7 +281,7 @@ public class BImGui {
     ImGui.sameLine();
 
     ImGui.pushID(label + "BLACK");
-    if (resetButton(defaultButtonSize, Color_Config.BLACK)) {
+    if (resetButton(defaultButtonSize, Colors.BLACK)) {
       color.set(0, 0, 0, 1);
     }
     ImGui.popID();
@@ -289,7 +289,7 @@ public class BImGui {
     ImGui.sameLine();
 
     ImGui.pushID(label + "WHITE");
-    if (resetButton(defaultButtonSize, Color_Config.WHITE)) {
+    if (resetButton(defaultButtonSize, Colors.WHITE)) {
       color.set(1, 1, 1, 1);
     }
     ImGui.popID();
@@ -374,17 +374,24 @@ public class BImGui {
     float uv1X = texCoords[0].x;
     float uv1Y = texCoords[0].y;
 
-
-    return ImGui.imageButton(sprite.getTexID(), sizeX, sizeY, uv0X, uv0Y, uv1X, uv1Y);
+    ImGui.pushID(sprite.toString());
+    boolean res = ImGui.imageButton(sprite.getTexID(), sizeX, sizeY, uv0X, uv0Y, uv1X, uv1Y);
+    ImGui.popID();
+    return res;
   }
 
   public static boolean imageButton(Texture texture, float sizeX, float sizeY) {
-    return ImGui.imageButton(texture.getTexID(), sizeX, sizeY);
+    ImGui.pushID(texture.toString());
+    boolean res = ImGui.imageButton(texture.getTexID(), sizeX, sizeY);
+    ImGui.popID();
+    return res;
   }
 
 
   public static void image(Texture texture, float sizeX, float sizeY) {
+      ImGui.pushID(texture.toString());
       ImGui.image(texture.getTexID(), sizeX, sizeY);
+      ImGui.popID();
   }
 
     public static void image(Sprite sprite, float sizeX, float sizeY) {
@@ -394,8 +401,10 @@ public class BImGui {
       float uv1X = texCoords[0].x;
       float uv1Y = texCoords[0].y;
 
+      ImGui.pushID(sprite.toString());
       ImGui.image(sprite.getTexID(), sizeX, sizeY, uv0X, uv0Y, uv1X, uv1Y);
-    }
+      ImGui.popID();
+  }
 
   public static void showMatrix4f(String name, Matrix4f matrix4f) {
     float[] matrix = new float[16];

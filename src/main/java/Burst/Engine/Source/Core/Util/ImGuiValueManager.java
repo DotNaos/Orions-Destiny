@@ -45,7 +45,8 @@ public interface ImGuiValueManager {
     boolean isPrivate = Modifier.isPrivate(field.getModifiers());
     boolean isProtected = Modifier.isProtected(field.getModifiers());
     boolean isStatic = Modifier.isStatic(field.getModifiers());
-    if (isPrivate || isProtected || isStatic) {
+    boolean isFinal = Modifier.isFinal(field.getModifiers());
+    if (isPrivate || isProtected || isStatic || isFinal) {
       field.setAccessible(true);
     }
 

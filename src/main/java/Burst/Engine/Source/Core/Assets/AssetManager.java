@@ -1,7 +1,7 @@
 package Burst.Engine.Source.Core.Assets;
 
-import Burst.Engine.Config.Constants.Font_Config;
-import Burst.Engine.Config.Shader_Config;
+import Burst.Engine.Config.Config.Fonts;
+import Burst.Engine.Config.Config.Shader;
 import Burst.Engine.Source.Core.Assets.Audio.Sound;
 import Burst.Engine.Source.Core.Assets.Graphics.*;
 import Burst.Engine.Source.Core.Component;
@@ -40,9 +40,9 @@ public class AssetManager {
     assetsList.add(new Assets(Texture.class, IMAGES, "png"));
     assetsList.add(new Assets(Sprite.class, IMAGES, "png"));
     assetsList.add(new Assets(SpriteSheet.class, SPRITESHEETS, "png"));
-    assetsList.add(new Assets(Shader.class, Shader_Config.PATH, "glsl"));
+    assetsList.add(new Assets(Burst.Engine.Source.Core.Assets.Graphics.Shader.class, Shader.PATH, "glsl"));
     assetsList.add(new Assets(Sound.class, SOUNDS, "ogg"));
-    assetsList.add(new Assets(Font.class, Font_Config.PATH, "ttf"));
+    assetsList.add(new Assets(Font.class, Fonts.PATH, "ttf"));
     assetsList.add(new Assets(LevelMap.class, MAPS, "tmx"));
 
 
@@ -98,8 +98,8 @@ public class AssetManager {
       return new Sprite(assetPath);
     } else if (assetType.isAssignableFrom(SpriteSheet.class)) {
       return new SpriteSheet(assetPath);
-    } else if (assetType.isAssignableFrom(Shader.class)) {
-      return new Shader(assetPath);
+    } else if (assetType.isAssignableFrom(Burst.Engine.Source.Core.Assets.Graphics.Shader.class)) {
+      return new Burst.Engine.Source.Core.Assets.Graphics.Shader(assetPath);
    } else if (assetType.isAssignableFrom(Sound.class)) {
       return new Sound(assetPath);
     } else if (assetType.isAssignableFrom(Font.class)) {

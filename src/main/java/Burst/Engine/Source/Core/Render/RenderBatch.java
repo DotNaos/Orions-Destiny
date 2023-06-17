@@ -1,6 +1,6 @@
 package Burst.Engine.Source.Core.Render;
 
-import Burst.Engine.Config.Constants.Color_Config;
+import Burst.Engine.Config.Config.Colors;
 import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Assets.Graphics.Shader;
 import Burst.Engine.Source.Core.Assets.Graphics.Texture;
@@ -207,7 +207,7 @@ public class RenderBatch implements Comparable<RenderBatch> {
 
     if (propertiesPanel != null) {
       if (propertiesPanel.isActiveActor(sprite.actor)) {
-        actorColor = new Vector4f(Color_Config.ACTIVE_ACTOR);
+        actorColor = new Vector4f(Colors.ACTIVE_ACTOR);
       }
     }
 

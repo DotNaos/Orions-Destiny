@@ -15,17 +15,17 @@ public class DebugMessage {
 
   public static void notFound(String message) {
     leftChar = '?';
-    DebugPrint(message);
+    DebugPrint(message, true);
   }
 
   public static void error(String message) {
     leftChar = '!';
-    DebugPrint(message);
+    DebugPrint(message, true);
   }
 
   public static void printWarning(String message) {
     leftChar = '~';
-    DebugPrint(message);
+    DebugPrint(message, true);
   }
 
   public static void loadSuccess(String message) {
@@ -49,7 +49,11 @@ public class DebugMessage {
     System.out.println(tempSeperator);
   }
 
-  public static void DebugPrint(String message) {
+  private static void DebugPrint(String message) {
+    DebugPrint(message, false);
+  }
+
+  private static void DebugPrint(String message, boolean isErrorMessage) {
     if (noDebug) return;
     rightChar = leftChar == '#' ? '#' : leftChar;
 
@@ -61,7 +65,11 @@ public class DebugMessage {
     tempLeft.append(Character.toString(leftChar).repeat(4));
     tempRight.append(Character.toString(rightChar).repeat(4));
 
-    System.out.println("\n\\" + tempTopBottom + "/" + "\n\\" + tempLeft + " " + message + " " + tempRight + "/" + "\n\\" + tempTopBottom + "/" + "\n");
+    if (isErrorMessage)
+      System.err.println("\n\\" + tempTopBottom + "/" + "\n\\" + tempLeft + " " + message + " " + tempRight + "/" + "\n\\" + tempTopBottom + "/" + "\n");
+    else
+      System.out.println("\n\\" + tempTopBottom + "/" + "\n\\" + tempLeft + " " + message + " " + tempRight + "/" + "\n\\" + tempTopBottom + "/" + "\n");
+
     reset();
   }
 

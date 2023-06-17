@@ -164,4 +164,11 @@ public class Scene {
     // TODO: Implement char callback
   }
 
+  public boolean inEditor() {
+    return this.openScene == SceneType.EDITOR;
+  }
+
+  public boolean inGame() {
+    return this.openScene == SceneType.GAME;
+  }
 }
