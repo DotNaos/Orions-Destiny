@@ -25,12 +25,14 @@ import Burst.Engine.Source.Editor.Gizmo.GizmoSystem;
 import Burst.Engine.Source.Editor.Panel.OutlinerPanel;
 import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
 import Burst.Engine.Source.Editor.Panel.ViewportPanel;
+import Orion.res.AssetConfig;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import imgui.ImGui;
 import imgui.flag.ImGuiCol;
 import imgui.flag.ImGuiStyleVar;
 import imgui.flag.ImGuiTableColumnFlags;
+import imgui.flag.ImGuiTableFlags;
 import org.joml.Vector2f;
 
 import java.io.FileWriter;
@@ -377,17 +379,53 @@ public class Game {
     Vector2f view = MouseListener.getView();
     Vector2f world = MouseListener.getWorld();
 
-    ImGui.text("Screen");
-    ImGui.textColored( 1.0f, 0.0f, 0.0f, 1.0f,  screen.x + " ");
-    ImGui.textColored( 0.0f, 1.0f, 0.0f, 1.0f,  screen.y + "");
+    Vector2f viewToScreen = MouseListener.viewToScreen(new Vector2f(view));
+    Vector2f worldToScreen = MouseListener.worldToScreen(new Vector2f(world));
 
-    ImGui.text("View");
-    ImGui.textColored( 1.0f, 0.0f, 0.0f, 1.0f,  view.x + " ");
-    ImGui.textColored( 0.0f, 1.0f, 0.0f, 1.0f,  view.y + "");
+    if (ImGui.beginTable("Mouse Position", 2, ImGuiTableFlags.None))
+    {
+      ImGui.tableNextRow();
+      ImGui.tableNextColumn();
+      ImGui.text("Screen");
+      ImGui.tableNextColumn();
+      ImGui.textColored( 1.0f, 0.0f, 0.0f, 1.0f,  screen.x + " ");
+      ImGui.textColored( 0.0f, 1.0f, 0.0f, 1.0f,  screen.y + "");
 
-    ImGui.text("World");
-    ImGui.textColored( 1.0f, 0.0f, 0.0f, 1.0f,  world.x + " ");
-    ImGui.textColored( 0.0f, 1.0f, 0.0f, 1.0f,  world.y + "");
+
+      ImGui.tableNextRow();
+      ImGui.tableNextColumn();
+      ImGui.text("View");
+      ImGui.tableNextColumn();
+      ImGui.textColored( 1.0f, 0.0f, 0.0f, 1.0f,  view.x + " ");
+      ImGui.textColored( 0.0f, 1.0f, 0.0f, 1.0f,  view.y + "");
+
+      ImGui.tableNextRow();
+      ImGui.tableNextColumn();
+      ImGui.text("World");
+      ImGui.tableNextColumn();
+      ImGui.textColored( 1.0f, 0.0f, 0.0f, 1.0f,  world.x + " ");
+      ImGui.textColored( 0.0f, 1.0f, 0.0f, 1.0f,  world.y + "");
+
+      ImGui.separator();
+
+      ImGui.tableNextRow();
+      ImGui.tableNextColumn();
+      ImGui.text("View to Screen");
+      ImGui.tableNextColumn();
+      ImGui.textColored( 1.0f, 0.0f, 0.0f, 1.0f,  viewToScreen.x + " ");
+      ImGui.textColored( 0.0f, 1.0f, 0.0f, 1.0f,  viewToScreen.y + "");
+
+      ImGui.tableNextRow();
+      ImGui.tableNextColumn();
+      ImGui.text("World to Screen");
+      ImGui.tableNextColumn();
+      ImGui.textColored( 1.0f, 0.0f, 0.0f, 1.0f,  worldToScreen.x + " ");
+      ImGui.textColored( 0.0f, 1.0f, 0.0f, 1.0f,  worldToScreen.y + "");
+
+      ImGui.endTable();
+    }
+
+
 
     ImGui.end();
 

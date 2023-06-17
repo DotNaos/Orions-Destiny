@@ -224,16 +224,17 @@ public class MouseListener {
    * @return converted view coordinates
    */
   private static Vector2f screenToView(Vector2f screenCoords) {
+    Vector2f screenCoordsCopy = new Vector2f(screenCoords);
 
-    screenCoords.y = Window.getHeight() - screenCoords.y;
+    screenCoordsCopy.y = Window.getHeight() - screenCoordsCopy.y;
 
     // offset by the viewport position
-    float currentX = screenCoords.x - get().gameViewportPos.x;
-    float currentY = screenCoords.y - get().gameViewportPos.y - 24;
+    float currentX = screenCoordsCopy.x - get().gameViewportPos.x;
+    float currentY = screenCoordsCopy.y - get().gameViewportPos.y - 24;
 
     // calculate the percentage position in the viewport
-    currentX = currentX / get().gameViewportSize.x;
-    currentY = currentY / get().gameViewportSize.y;
+    currentX /= get().gameViewportSize.x;
+    currentY /= get().gameViewportSize.y;
 
     currentX *= Window.getWidth();
     currentY *= Window.getHeight();
@@ -248,10 +249,15 @@ public class MouseListener {
    * @return The current mouse position in world coordinates.
    */
   public static Vector2f screenToWorld(Vector2f screenCoords) {
-    float currentX = screenCoords.x - get().gameViewportPos.x;
+    Vector2f screenCoordsCopy = new Vector2f(screenCoords);
+
+    float currentX = screenCoordsCopy.x - get().gameViewportPos.x;
     currentX = (2.0f * (currentX / get().gameViewportSize.x)) - 1.0f;
-    float currentY = (screenCoords.y - get().gameViewportPos.y - 24);
-    currentY = (2.0f * (currentY / get().gameViewportSize.y)) - 1.0f;
+
+    screenCoordsCopy.y = Window.getHeight() - screenCoordsCopy.y;
+
+    float currentY = screenCoordsCopy.y - get().gameViewportPos.y - 24;
+    currentY = (2.0f * (1.0f - currentY / get().gameViewportSize.y)) - 1.0f;
 
     Viewport viewport = Window.getScene().getViewport();
     Vector4f tmp = new Vector4f(currentX, currentY, 0, 1);
@@ -262,28 +268,31 @@ public class MouseListener {
     return new Vector2f(tmp.x, tmp.y);
   }
 
-
   /**
    * @param viewCoords The view coordinates to convert to screen coordinates.
    * @return The current mouse position in screen coordinates.
    */
   public static Vector2f viewToScreen(Vector2f viewCoords) {
-    float currentX = viewCoords.x;
-    float currentY = viewCoords.y;
-
-
-    // calculate the percentage position in the viewport
-    currentX = currentX / Window.getWidth();
-    currentY = currentY / Window.getHeight();
-
-
-    // calculate the position in the viewport
-    currentX = (currentX * get().gameViewportSize.x);
-    currentY = (currentY * get().gameViewportSize.y);
+    Vector2f viewCoordsCopy = new Vector2f(viewCoords);
 
     // offset by the viewport position
-    currentX = currentX + get().gameViewportPos.x;
-    currentY = (currentY + get().gameViewportPos.y) + 23;
+    float currentX = viewCoordsCopy.x;
+    float currentY = Window.getHeight() - viewCoordsCopy.y;
+
+    // calculate the percentage position in the viewport
+    currentX /= Window.getWidth();
+    currentY /= Window.getHeight();
+
+    // calculate the position in the viewport
+    currentX *= get().gameViewportSize.x;
+    currentY *= get().gameViewportSize.y;
+
+    // offset by the viewport position
+    currentX += get().gameViewportPos.x;
+    currentY += get().gameViewportPos.y + 23;
+
+    currentY = Window.getHeight() - currentY;
+
 
     return new Vector2f(currentX, currentY);
   }
@@ -293,15 +302,27 @@ public class MouseListener {
    * @return The current mouse position in screen coordinates.
    */
   public static Vector2f worldToScreen(Vector2f worldCoords) {
+
+    Vector2f windowSpace = worldToView(worldCoords);
+
+    // View to Screen
+    windowSpace = viewToScreen(windowSpace);
+
+    return windowSpace;
+  }
+
+  private static Vector2f worldToView(Vector2f worldCoords) {
+    Vector2f worldCoordsCopy = new Vector2f(worldCoords);
+
+    // World to View
     Viewport viewport = Window.getScene().getViewport();
-    Vector4f ndcSpacePos = new Vector4f(worldCoords.x, worldCoords.y, 0, 1);
+    Vector4f ndcSpacePos = new Vector4f(worldCoordsCopy.x, worldCoordsCopy.y, 0, 1);
     Matrix4f view = new Matrix4f(viewport.getViewMatrix());
     Matrix4f projection = new Matrix4f(viewport.getProjectionMatrix());
     ndcSpacePos.mul(projection.mul(view));
     Vector2f windowSpace = new Vector2f(ndcSpacePos.x, ndcSpacePos.y).mul(1.0f / ndcSpacePos.w);
     windowSpace.add(new Vector2f(1.0f, 1.0f)).mul(0.5f);
     windowSpace.mul(new Vector2f(Window.getWidth(), Window.getHeight()));
-
     return windowSpace;
   }
 

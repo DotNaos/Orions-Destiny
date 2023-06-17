@@ -176,6 +176,9 @@ public class Window implements Observer {
     glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
     glfwWindowHint(GLFW_MAXIMIZED, GLFW_TRUE);
 
+    // Borderless window
+    glfwWindowHint(GLFW_DECORATED, GLFW_FALSE);
+
     // Create the window
     glfwWindow = glfwCreateWindow(this.width, this.height, this.title, NULL, NULL);
     if (glfwWindow == NULL) {
