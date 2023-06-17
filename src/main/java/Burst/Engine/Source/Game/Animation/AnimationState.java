@@ -1,61 +1,110 @@
 package Burst.Engine.Source.Game.Animation;
 
-import Burst.Engine.Source.Core.Assets.AssetManager;
 import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
-import Burst.Engine.Source.Core.Assets.Graphics.Texture;
+import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheet;
+import Burst.Engine.Source.Core.Util.DebugMessage;
 
-import java.util.ArrayList;
-import java.util.List;
-
-/**
- * @author GamesWithGabe
- */
 public class AnimationState {
+  private String name = "NEW ANIMATION STATE";
+  private SpriteSheet sprites;
+  private Sprite currentSprite;
+  private int currentFrame = 1;
+  private int row  = 1;
+  private boolean isLooping = false;
 
-  private static Sprite defaultSprite = new Sprite();
-  public String title;
-  public List<Frame> animationFrames = new ArrayList<>();
-  private float time = 0.0f;
-  private transient int currentSprite = 0;
-  private boolean doesLoop = false;
+  float time = 0;
 
-  public void refreshTextures() {
-    for (Frame frame : animationFrames) {
-      frame.sprite.setTexture(AssetManager.getAssetFromType(frame.sprite.getTexture().getFilepath(), Texture.class));
-    }
+  public StateMachine stateMachine;
+
+  /**
+   * Frames per second
+   */
+  private float frameDuration = 0.2f;
+  private int frameCount = 1;
+
+  public AnimationState(String name, SpriteSheet sprites) {
+    this.name = name;
+    this.sprites = sprites;
   }
 
-  public void addFrame(Sprite sprite, float frameTime) {
-    animationFrames.add(new Frame(sprite, frameTime));
+  public AnimationState setFrameCount(int frameCount) {
+    this.frameCount = frameCount;
+    return this;
   }
 
-  public void addFrames(List<Sprite> sprites, float frameTime) {
-    for (Sprite sprite : sprites) {
-      this.animationFrames.add(new Frame(sprite, frameTime));
-    }
+  public AnimationState setRow(int row) {
+      this.row = row;
+      return this;
   }
 
-  public void setLoop(boolean doesLoop) {
-    this.doesLoop = doesLoop;
+  public AnimationState setLooping() {
+      this.isLooping = true;
+      return this;
+  }
+
+  public AnimationState setFrameDuration(float frameDuration) {
+      this.frameDuration = frameDuration;
+      return this;
   }
 
   public void update(float dt) {
-    if (currentSprite < animationFrames.size()) {
-      time -= dt;
-      if (time <= 0) {
-        if (!(currentSprite == animationFrames.size() - 1 && !doesLoop)) {
-          currentSprite = (currentSprite + 1) % animationFrames.size();
-        }
-        time = animationFrames.get(currentSprite).frameTime;
+    if (this.sprites == null) {
+      return;
+    }
+    showFrame();
+    nextFrame(dt);
+  }
+
+  private void showFrame()
+  {
+    this.currentSprite = this.sprites.getSprite(this.row, this.currentFrame);
+    if (this.currentSprite == null) {
+      this.currentSprite = this.sprites.getSprite(1, 1);
+      DebugMessage.error("To many frames in animation state: " + this.name);
+    }
+  }
+
+  private void nextFrame(float dt)
+  {
+    if (this.frameDuration == 0) {
+      return;
+    }
+    if (this.currentFrame >= this.frameCount) {
+      reset();
+      if (!this.isLooping) {
+        stateMachine.toEntry();
+        return;
       }
     }
-  }
 
-  public Sprite getCurrentSprite() {
-    if (currentSprite < animationFrames.size()) {
-      return animationFrames.get(currentSprite).sprite;
+    time += dt;
+//    System.out.println(dt);
+    if (time < this.frameDuration) {
+      return;
     }
 
-    return defaultSprite;
+    this.currentFrame++;
+    time = 0;
   }
+
+  public String getName() {
+    return name;
+  }
+
+  public Sprite getFrame() {
+    return this.currentSprite;
+  }
+
+  public Sprite getFrame(int frame) {
+    return this.sprites.getSprite(this.row, frame);
+  }
+
+  public void reset() {
+    this.time = 0;
+    this.currentFrame = 1;
+    this.currentSprite = this.sprites.getSprite(this.row, this.currentFrame);
+  }
+
+
+
 }

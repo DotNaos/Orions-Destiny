@@ -66,10 +66,10 @@ public class PlayerController extends ActorComponent {
         this.acceleration.x = walkSpeed;
 
         if (this.velocity.x < 0) {
-          this.stateMachine.trigger("switchDirection");
+//          this.stateMachine.trigger("switchDirection");
           this.velocity.x += slowDownForce;
         } else {
-          this.stateMachine.trigger("startRunning");
+//          this.stateMachine.trigger("startRunning");
         }
       } else if (KeyListener.isKeyPressed(Config.get(HotKeys.class).PlayerMoveLeft)) {
         // When player is moving left, flip the sprite
@@ -79,10 +79,10 @@ public class PlayerController extends ActorComponent {
 
 
         if (this.velocity.x > 0) {
-          this.stateMachine.trigger("switchDirection");
+//          this.stateMachine.trigger("switchDirection");
           this.velocity.x -= slowDownForce;
         } else {
-          this.stateMachine.trigger("startRunning");
+//          this.stateMachine.trigger("startRunning");
         }
       }
        else {
@@ -94,7 +94,7 @@ public class PlayerController extends ActorComponent {
         }
 
         if (this.velocity.x == 0) {
-          this.stateMachine.trigger("stopRunning");
+//          this.stateMachine.trigger("stopRunning");
         }
       }
 
@@ -107,9 +107,9 @@ public class PlayerController extends ActorComponent {
       this.rb.setAngularVelocity(0);
 
       if (!onGround) {
-        stateMachine.trigger("jump");
+//        stateMachine.trigger("jump");
       } else {
-        stateMachine.trigger("stopJumping");
+//        stateMachine.trigger("stopJumping");
       }
     } catch (NullPointerException e) {
       init();

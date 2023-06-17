@@ -60,7 +60,7 @@ public class KeyControls extends Component {
         Window.getScene().getGame().addActor(copy);
         propertiesPanel.addActiveActor(copy);
         if (copy.getComponent(StateMachine.class) != null) {
-          copy.getComponent(StateMachine.class).refreshTextures();
+//          copy.getComponent(StateMachine.class).refreshTextures();
         }
 
       }

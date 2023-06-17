@@ -4,6 +4,8 @@ import Burst.Engine.Source.Core.Assets.AssetManager;
 import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
 import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheet;
 import Burst.Engine.Source.Core.Render.SpriteRenderer;
+import Burst.Engine.Source.Game.Animation.AnimationState;
+import Burst.Engine.Source.Game.Animation.StateMachine;
 import Orion.res.AssetConfig;
 
 import java.util.Timer;
@@ -43,21 +45,13 @@ public class Aura extends PlayerCharacter {
     this.jumpSprites = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.AURA_JUMP, SpriteSheet.class);
     this.attackSprites =  AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.AURA_ATTACK, SpriteSheet.class);
 
-    getComponent(SpriteRenderer.class).setSprite(this.idleSprites.getSprite(spriteIndex));
-
-    Timer timer = new Timer();
-    timer.scheduleAtFixedRate(new java.util.TimerTask() {
-      @Override
-      public void run() {
-        if (spriteIndex < 4) {
-          spriteIndex++;
-        } else {
-          spriteIndex = 0;
-        }
-
-        getComponent(SpriteRenderer.class).setSprite(idleSprites.getSprite(1, spriteIndex));
-      }
-    }, 0, 100);
+    StateMachine stateMachine = getComponent(StateMachine.class);
+    stateMachine.addState(
+            new AnimationState("idle", idleSprites)
+                    .setRow(1)
+                    .setFrameCount(4)
+                    .setLooping()
+    );
 
   }
   @Override

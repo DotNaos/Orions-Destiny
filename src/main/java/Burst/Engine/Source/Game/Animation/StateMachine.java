@@ -1,154 +1,124 @@
 package Burst.Engine.Source.Game.Animation;
 
-import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Actor.ActorComponent;
+import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
 import Burst.Engine.Source.Core.Render.SpriteRenderer;
-import imgui.ImGui;
-import imgui.type.ImString;
+import Burst.Engine.Source.Core.Util.DebugMessage;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 /**
  * @author GamesWithGabe
  */
 public class StateMachine extends ActorComponent {
-  public HashMap<StateTrigger, String> stateTransfers = new HashMap<>();
-  private List<AnimationState> states = new ArrayList<>();
-  private transient AnimationState currentState = null;
-  private String defaultStateTitle = "";
+  private transient Map<String, AnimationState> states;
+  private transient AnimationState currentState;
+  private transient AnimationState entryState;
 
   public StateMachine() {
     super();
   }
 
-  public void refreshTextures() {
-    for (AnimationState state : states) {
-      state.refreshTextures();
-    }
-  }
-
-  public void setDefaultState(String animationTitle) {
-    for (AnimationState state : states) {
-      if (state.title.equals(animationTitle)) {
-        defaultStateTitle = animationTitle;
-        if (currentState == null) {
-          currentState = state;
-        }
-        return;
-      }
-    }
-
-    System.out.println("Unable to find default state '" + animationTitle + "'");
-  }
-
-  public void addState(String from, String to, String onTrigger) {
-    this.stateTransfers.put(new StateTrigger(from, onTrigger), to);
-  }
-
-  public void addState(AnimationState state) {
-    this.states.add(state);
-  }
-
-  public void trigger(String trigger) {
-    for (StateTrigger state : stateTransfers.keySet()) {
-      if (state.state.equals(currentState.title) && state.trigger.equals(trigger)) {
-        if (stateTransfers.get(state) != null) {
-          int newStateIndex = stateIndexOf(stateTransfers.get(state));
-          if (newStateIndex > -1) {
-            currentState = states.get(newStateIndex);
-          }
-        }
-        return;
-      }
-    }
-  }
-
-  private int stateIndexOf(String stateTitle) {
-    int index = 0;
-    for (AnimationState state : states) {
-      if (state.title.equals(stateTitle)) {
-        return index;
-      }
-      index++;
-    }
-
-    return -1;
-  }
-
   @Override
-  public void init() {
-    for (AnimationState state : states) {
-      if (state.title.equals(defaultStateTitle)) {
-        currentState = state;
-        break;
-      }
-    }
+  public void init()
+  {
+    super.init();
   }
 
-  @Override
-  public void updateEditor(float dt) {
-    super.updateEditor(dt);
-    update(dt);
+  public StateMachine addState(AnimationState state) {
+    return addState(state, false);
+  }
+
+  public StateMachine addState(AnimationState state, boolean isEntry) {
+    if (this.states == null) {
+      this.states = new HashMap<>();
+    }
+    if (isEntry || this.entryState == null) {
+      this.entryState = state;
+    }
+    state.stateMachine = this;
+    this.states.put(state.getName(), state);
+    return this;
   }
 
   @Override
   public void update(float dt) {
-    super.update(dt);
-    if (currentState != null) {
-      currentState.update(dt);
-      SpriteRenderer sprite = actor.getComponent(SpriteRenderer.class);
-      if (sprite != null) {
-        sprite.setSprite(currentState.getCurrentSprite());
-        sprite.setTexture(currentState.getCurrentSprite().getTexture());
+      super.update(dt);
+      if (this.states == null || this.states.isEmpty()) {
+        DebugMessage.info("No states in state machine");
+        return;
       }
-    }
-  }
+      if (this.entryState == null) {
+        this.entryState = this.states.values().stream().toList().get(0);
+      }
+      if (this.currentState == null) {
+        this.currentState = this.entryState;
+      }
 
+      this.currentState.update(dt);
+      this.render();
+  }
 
   @Override
-  public void imgui() {
-    super.imgui();
-    for (AnimationState state : states) {
-      ImString title = new ImString(state.title);
-      ImGui.inputText("State: ", title);
-      state.title = title.get();
-
-      int index = 0;
-      for (Frame frame : state.animationFrames) {
-        float[] tmp = new float[1];
-        tmp[0] = frame.frameTime;
-        ImGui.dragFloat("Frame(" + index + ") Time: ", tmp, 0.01f);
-        frame.frameTime = tmp[0];
-        index++;
-      }
-    }
+  public void updateEditor(float dt)
+  {
+    super.updateEditor(dt);
+    this.update(dt);
   }
 
-  private class StateTrigger {
-    public String state;
-    public String trigger;
-
-    public StateTrigger() {
+  public void trigger(String state)
+  {
+    if (this.states == null || this.states.isEmpty()) {
+      DebugMessage.info("No states in state machine");
+      return;
     }
 
-    public StateTrigger(String state, String trigger) {
-      this.state = state;
-      this.trigger = trigger;
+    if (this.states.containsKey(state)) {
+      if (this.currentState != null) {
+        this.currentState.reset();
+      }
+      this.currentState = this.states.get(state);
+    } else {
+      DebugMessage.error("State does not exist: " + state);
     }
 
-    @Override
-    public boolean equals(Object o) {
-      if (o.getClass() != StateTrigger.class) return false;
-      StateTrigger t2 = (StateTrigger) o;
-      return t2.trigger.equals(this.trigger) && t2.state.equals(this.state);
+  }
+
+  public void toEntry()
+  {
+    if (this.states == null || this.states.isEmpty()) {
+      DebugMessage.info("No states in state machine");
+      return;
     }
 
-    @Override
-    public int hashCode() {
-      return Objects.hash(state, trigger);
+    this.currentState = this.entryState;
+  }
+
+  public void render()
+  {
+    // get the SpriteRenderer of the actor
+    SpriteRenderer spriteRenderer = this.actor.getComponent(SpriteRenderer.class);
+    if (spriteRenderer == null) {
+      DebugMessage.error("No SpriteRenderer attached to actor");
+      return;
     }
+
+    // get the current Frame
+    Sprite currentAnimation = this.currentState.getFrame();
+
+    // set the SpriteRenderer's sprite to the current frame
+    spriteRenderer.setSprite(currentAnimation);
+  }
+
+  public void refreshSprite()
+  {
+    // Set the SpriteRenderer's sprite to the entry state's current frame
+    SpriteRenderer spriteRenderer = this.actor.getComponent(SpriteRenderer.class);
+    if (spriteRenderer == null) {
+      DebugMessage.error("No SpriteRenderer attached to actor");
+      return;
+    }
+
+    spriteRenderer.setSprite(this.entryState.getFrame(1));
   }
 }

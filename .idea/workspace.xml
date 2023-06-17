@@ -9,18 +9,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="Config updated und Start und Stop button">
+    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="Character Sprites sind drin">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/imgui.ini" beforeDir="false" afterPath="$PROJECT_DIR$/imgui.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/Actor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/Actor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Component.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Component.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Render/ViewportRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Render/ViewportRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Util/ImGuiValueManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Util/ImGuiValueManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/PlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/PlayerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Components/KeyControls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Components/KeyControls.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Game/Animation/AnimationState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Game/Animation/AnimationState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Game/Animation/Frame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Game/Animation/StateMachine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Game/Animation/StateMachine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Apex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Apex.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Aura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Aura.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Genesis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Genesis.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Helix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Helix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/PlayerCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/PlayerCharacter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Solaris.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Solaris.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -103,6 +103,9 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="Burst.Engine.Source.Game.Animation" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="A:\Orions-Destiny\Assets\Shaders" />
       <recent name="A:\Orions-Destiny\Assets\images\textures\icons" />
@@ -251,14 +254,7 @@
       <workItem from="1686917013711" duration="13470000" />
       <workItem from="1686980923756" duration="13922000" />
       <workItem from="1686997679976" duration="605000" />
-      <workItem from="1687001448017" duration="10754000" />
-    </task>
-    <task id="LOCAL-00065" summary="ClipBoard copiert wieder farben. SpriteColor wird auch wieder angezeigt und geupdated + Reset. &#10;&#10;TexCoords können bearbeitet werden.">
-      <created>1686327736998</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1686327736999</updated>
+      <workItem from="1687001448017" duration="15535000" />
     </task>
     <task id="LOCAL-00066" summary="Maus auch registriert wenn Viewport nicht fokussiert">
       <created>1686331742895</created>
@@ -596,14 +592,20 @@
       <option name="project" value="LOCAL" />
       <updated>1687009140025</updated>
     </task>
-    <option name="localTasksCounter" value="114" />
+    <task id="LOCAL-00114" summary="Character Sprites sind drin">
+      <created>1687013160843</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
+      <option name="project" value="LOCAL" />
+      <updated>1687013160843</updated>
+    </task>
+    <option name="localTasksCounter" value="115" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Assets für Player und geordnet" />
     <MESSAGE value="Spieler Angepasst, an start wird jetzt gearbeitet" />
     <MESSAGE value="Läuft wieder. Icons geupdated" />
     <MESSAGE value="Speicher von Actor derivaten" />
@@ -628,7 +630,8 @@
     <MESSAGE value="World cords keine Ahnung" />
     <MESSAGE value="Was ein Müll das ist. Position ist jetzt wieder richtig. Viewport und Mouse und Sprites" />
     <MESSAGE value="Config updated und Start und Stop button" />
-    <option name="LAST_COMMIT_MESSAGE" value="Config updated und Start und Stop button" />
+    <MESSAGE value="Character Sprites sind drin" />
+    <option name="LAST_COMMIT_MESSAGE" value="Character Sprites sind drin" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
