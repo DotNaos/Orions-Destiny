@@ -52,7 +52,7 @@ public interface ImGuiValueManager {
     return true;
   }
 
-  default void getInitialValues(Object obj, List<String> ignoreFields, Map<String, Object> initialValues) throws IllegalAccessException {
+  default void getInitialValues(Object obj, List<String> ignoreFields, Map<String, Object> initialValues) {
     initialValues.clear();
 
     List<Field> fields = new ArrayList<>();
@@ -67,10 +67,9 @@ public interface ImGuiValueManager {
     fields.addAll(List.of(clazz.getDeclaredFields()));
 
     for (Field field : fields) {
-
-      if (!shouldAccess(field)) continue;
-
       try {
+        if (!shouldAccess(field)) continue;
+
         Object value = field.get(obj);
 
         // Make a copy of the value

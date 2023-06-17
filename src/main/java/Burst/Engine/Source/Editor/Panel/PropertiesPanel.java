@@ -169,7 +169,7 @@ public class PropertiesPanel extends ImGuiPanel {
           actor.setSerializable(propertiesActor.isSerializedActor());
 
           if (propertiesActor.shouldAdjustToSize()) {
-            actor.adjustSizeToTexture();
+            actor.adjustSizeToSprite();
           }
 
           actor.setPickable(propertiesActor.isPickable());

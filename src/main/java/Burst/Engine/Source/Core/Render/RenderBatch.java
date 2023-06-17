@@ -229,9 +229,9 @@ public class RenderBatch implements Comparable<RenderBatch> {
 
     Matrix4f transformMatrix = new Matrix4f().identity();
 
-    transformMatrix.translate(sprite.actor.getTransform().getPosition().x, -sprite.actor.getTransform().getPosition().y, 0f);
+    transformMatrix.translate(sprite.actor.getTransform().getPosition().x, sprite.actor.getTransform().getPosition().y, 0f);
     transformMatrix.rotate((float) Math.toRadians(sprite.actor.getTransform().getRotation()), 0, 0, 1);
-    transformMatrix.scale(sprite.actor.getTransform().getScaledSize().x, sprite.actor.getTransform().getScaledSize().y, 1);
+    transformMatrix.scale(sprite.actor.getTransform().getScaledSize().x, -sprite.actor.getTransform().getScaledSize().y, 1);
 
 
     // Add vertices with the appropriate properties

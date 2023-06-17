@@ -7,6 +7,7 @@ import imgui.ImVec2;
 import org.joml.Matrix4f;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
+import org.joml.Vector4fc;
 
 import java.util.Arrays;
 
@@ -214,7 +215,7 @@ public class MouseListener {
    * @return The current mouse position in world coordinates.
    */
   public static Vector2f getWorld() {
-    return screenToWorld(getScreen());
+    return new Vector2f(screenToWorld(new Vector2f(getScreen())));
   }
 
 
@@ -249,15 +250,13 @@ public class MouseListener {
    * @return The current mouse position in world coordinates.
    */
   public static Vector2f screenToWorld(Vector2f screenCoords) {
-    Vector2f screenCoordsCopy = new Vector2f(screenCoords);
-
-    float currentX = screenCoordsCopy.x - get().gameViewportPos.x;
-    currentX = (2.0f * (currentX / get().gameViewportSize.x)) - 1.0f;
+    Vector2f screenCoordsCopy = screenToView(new Vector2f(screenCoords));
 
     screenCoordsCopy.y = Window.getHeight() - screenCoordsCopy.y;
 
-    float currentY = screenCoordsCopy.y - get().gameViewportPos.y - 24;
-    currentY = (2.0f * (1.0f - currentY / get().gameViewportSize.y)) - 1.0f;
+    float currentX = screenCoordsCopy.x / Window.getWidth() * 2 - 1;
+    float currentY = screenCoordsCopy.y / Window.getHeight() * 2 - 1;
+
 
     Viewport viewport = Window.getScene().getViewport();
     Vector4f tmp = new Vector4f(currentX, currentY, 0, 1);
@@ -334,10 +333,10 @@ public class MouseListener {
    */
   public static Vector2f viewToWorld(Vector2f viewCoords) {
     // first convert to screen coords
-    Vector2f screenCoords = new Vector2f(viewToScreen(viewCoords));
+    Vector2f screenCoords = viewToScreen(viewCoords);
 
     // then convert to world coords
-    return new Vector2f(screenToWorld(screenCoords));
+    return screenToWorld(screenCoords);
   }
 
 

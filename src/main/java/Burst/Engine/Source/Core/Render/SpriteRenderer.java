@@ -96,7 +96,7 @@ public class SpriteRenderer extends ActorComponent {
     return sprite;
   }
 
-  public ActorComponent setTexture(Texture texture) {
+  public SpriteRenderer setTexture(Texture texture) {
     this.sprite.setTexture(texture);
     this.isDirty = true;
     return this;

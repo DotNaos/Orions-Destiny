@@ -17,6 +17,7 @@ public class Genesis extends PlayerCharacter {
   @Override
   public void init()
   {
+    super.init();
     this.name = "Genesis";
     // this.sprite = new Sprite("assets/textures/characters/genesis.png");
     this.description = """

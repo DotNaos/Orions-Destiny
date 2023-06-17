@@ -29,18 +29,14 @@ public abstract class Component implements ImGuiValueManager {
   }
 
   public void init() {
-    if (this.initialValues == null) {
-      this.initialValues = new HashMap<>();
-    }
-    if (this.ignoreFields == null) {
-      this.ignoreFields = new ArrayList<>();
-    }
+    if (this.initialValues == null) this.initialValues = new HashMap<>();
+
+    this.ignoreFields = new ArrayList<>();
+
     this.ignoreFields.add("ID");
-    try {
-      getInitialValues(this, this.ignoreFields, this.initialValues);
-    } catch (IllegalAccessException e) {
-      e.printStackTrace();
-    }
+
+    getInitialValues(this, this.ignoreFields, this.initialValues);
+
     isInitialized = true;
   }
 

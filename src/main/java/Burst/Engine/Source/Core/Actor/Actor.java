@@ -2,7 +2,6 @@ package Burst.Engine.Source.Core.Actor;
 
 import Burst.Engine.Source.Core.Assets.AssetManager;
 import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
-import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Burst.Engine.Source.Core.Component;
 import Burst.Engine.Source.Core.Physics.Components.Transform;
 import Burst.Engine.Source.Core.Render.SpriteRenderer;
@@ -60,7 +59,7 @@ public class Actor implements ImGuiValueManager {
   /**
    * If this flag is set to true, the actors size the size will adjust to the Texture aspect ratio.
    *
-   * @see #adjustSizeToTexture()
+   * @see #adjustSizeToSprite()
    */
   private boolean adjustSizeToTexture = false;
 
@@ -101,7 +100,6 @@ public class Actor implements ImGuiValueManager {
    */
 
   public Actor() {
-
     if (this.name.equals("ACTOR")) this.name = "Actor " + this.ID;
   }
 
@@ -133,52 +131,18 @@ public class Actor implements ImGuiValueManager {
    */
   protected void init() {
     if (this.ID == -1) this.ID = Util.generateUniqueID();
-//    // Get the transform component
-    Transform transform = getComponent(Transform.class);
-    if (transform == null) {
-      // If the transform component does not exist, create it
-      transform = new Transform();
-      addComponent(transform);
-    }
 
+    addComponent(new Transform());
 
-    // Adjust the actors size to match the sprite size
-    SpriteRenderer spriteRenderer = getComponent(SpriteRenderer.class);
-    if (spriteRenderer != null) {
-      Sprite sprite = spriteRenderer.getSprite();
-      if (sprite != null) {
+    addComponent(new SpriteRenderer().setSprite(this.icon));
 
-        // set the Texture to the sprite
-        if (sprite.getTexture() == null) {
-          Texture texture = AssetManager.getAssetFromType(sprite.getFilepath(), Texture.class);
-          sprite.setTexture(texture);
-        }
-
-        // set the size of the actor to the size of the sprite
-        adjustSizeToTexture(true);
-      }
-
-    }
-    else{
-      SpriteRenderer spr = new SpriteRenderer();
-      spr.setSprite(AssetManager.getAssetFromType(AssetConfig.Files.Images.Icons.ACTOR, Sprite.class));
-      addComponent(spr);
-    }
+    if (this.initialValues == null) this.initialValues = new HashMap<>();
+    this.ignoreFields = new ArrayList<>();
 
     ignoreFields.add("initialValues");
     ignoreFields.add("components");
 
-    if (this.initialValues == null) {
-      this.initialValues = new HashMap<>();
-    }
-    if (this.ignoreFields == null) {
-      this.ignoreFields = new ArrayList<>();
-    }
-    try {
-      getInitialValues(this, this.ignoreFields, this.initialValues);
-    } catch (IllegalAccessException e) {
-      e.printStackTrace();
-    }
+    getInitialValues(this, this.ignoreFields, this.initialValues);
 
     Game game = Window.getScene().getGame();
 
@@ -207,8 +171,7 @@ public class Actor implements ImGuiValueManager {
       init();
     }
     if (adjustSizeToTexture) {
-      adjustSizeToTexture();
-      adjustSizeToTexture = false;
+      adjustSizeToSprite();
     }
 
     for (Component component : components) {
@@ -222,8 +185,8 @@ public class Actor implements ImGuiValueManager {
     }
 
     if (adjustSizeToTexture) {
-      adjustSizeToTexture();
-      adjustSizeToTexture = false;
+      adjustSizeToSprite();
+
     }
 
     for (Component component : components) {
@@ -286,6 +249,7 @@ public class Actor implements ImGuiValueManager {
       System.err.println("Actor already has component of type " + ac.getClass().getSimpleName());
       return this;
     }
+
     this.components.add(ac);
     ac.actor = this;
     ac.init();
@@ -524,14 +488,12 @@ public class Actor implements ImGuiValueManager {
   }
 
 
-  /**
-   * Sets the Actor to be destroyed.
-   */
-  public void adjustSizeToTexture() {
-    adjustSizeToTexture(false);
+
+  public void adjustSizeToSprite() {
+    adjustSizeToSprite(false);
   }
 
-  private void adjustSizeToTexture(boolean onStart) {
+  private void adjustSizeToSprite(boolean onStart) {
     Transform transform = getTransform();
     SpriteRenderer spriteRenderer = getComponent(SpriteRenderer.class);
 
@@ -565,6 +527,7 @@ public class Actor implements ImGuiValueManager {
 
 
     spriteRenderer.setDirty();
+    adjustSizeToTexture = false;
   }
 
   public boolean isPickable() {

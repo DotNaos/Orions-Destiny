@@ -57,8 +57,8 @@ public class Viewport {
 
     float left = -1 / 2.0f * zoom * (width / height);
     float right = 1 / 2.0f * zoom * (width / height);
-    float bottom = -1 / 2.0f * zoom;
-    float top = 1 / 2.0f * zoom;
+    float top = -1 / 2.0f * zoom;
+    float bottom = 1 / 2.0f * zoom;
     projectionMatrix.identity();
     projectionMatrix.ortho(left, right, bottom, top, 0.0f, 100.0f);
     inverseProjection = new Matrix4f(projectionMatrix).invert();
@@ -66,7 +66,7 @@ public class Viewport {
 
 
   public Matrix4f getViewMatrix() {
-    Vector3f cameraFront = new Vector3f(0.0f, 0.0f, -1.0f);
+    Vector3f cameraFront = new Vector3f(0.0f, 0.0f, 1.0f);
     Vector3f cameraUp = new Vector3f(0.0f, 1.0f, 0.0f);
 
     viewMatrix.identity();

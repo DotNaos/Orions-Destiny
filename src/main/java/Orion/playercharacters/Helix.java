@@ -18,6 +18,7 @@ public class Helix extends PlayerCharacter {
     @Override
     public void init()
     {
+        super.init();
         this.name = "Helix";
         // this.sprite = new Sprite("assets/textures/characters/helix.png");
         // Necromancer

@@ -11,6 +11,7 @@ import imgui.ImGui;
 import imgui.flag.ImGuiCol;
 import imgui.flag.ImGuiStyleVar;
 import imgui.type.ImString;
+import org.joml.Matrix4f;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
 import org.joml.Vector4f;
@@ -395,4 +396,26 @@ public class BImGui {
 
       ImGui.image(sprite.getTexID(), sizeX, sizeY, uv0X, uv0Y, uv1X, uv1Y);
     }
+
+  public static void showMatrix4f(String name, Matrix4f matrix4f) {
+    float[] matrix = new float[16];
+    matrix4f.get(matrix);
+    ImGui.text(name);
+    ImGui.columns(4, name, false);
+    ImGui.separator();
+    ImGui.text("X");
+    ImGui.nextColumn();
+    ImGui.text("Y");
+    ImGui.nextColumn();
+    ImGui.text("Z");
+    ImGui.nextColumn();
+    ImGui.text("W");
+    ImGui.nextColumn();
+    ImGui.separator();
+    for (int i = 0; i < 16; i++) {
+      ImGui.text(String.valueOf(matrix[i]));
+      ImGui.nextColumn();
+    }
+    ImGui.columns(1);
+  }
 }

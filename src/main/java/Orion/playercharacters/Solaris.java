@@ -14,13 +14,13 @@ public class Solaris extends PlayerCharacter {
   }
   @Override
   public void init() {
+    super.init();
     this.name = "Solaris";
     // Hellbeast
     this.description = """
             A beast from the depths of hell, Solaris is a powerful and fearsome creature.\s
             He can shoot fireballs from his mouth, and expel flames from his body.\s
             """;
-    this.name = "Solaris";
     this.HP = 0;
     this.DEF = 0;
     this.ATK = 0;
