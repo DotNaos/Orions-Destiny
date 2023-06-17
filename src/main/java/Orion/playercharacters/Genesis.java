@@ -35,7 +35,6 @@ public class Genesis extends PlayerCharacter {
     this.EXP = 0;
 
     this.idleSprites = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.GENESIS_IDLE, SpriteSheet.class);
-    this.walkSprites = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.GENESIS_WALK, SpriteSheet.class);
     this.runSprites = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.GENESIS_RUN, SpriteSheet.class);
     this.jumpSprites = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.GENESIS_JUMP, SpriteSheet.class);
     this.attackSprites =  AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.GENESIS_ATTACK, SpriteSheet.class);
@@ -44,8 +43,25 @@ public class Genesis extends PlayerCharacter {
     stateMachine.addState(
             new AnimationState("idle", idleSprites)
                     .setRow(1)
-                    .setFrameCount(4)
+                    .setFrameCount(6)
                     .setLooping()
+    );
+    stateMachine.addState(
+            new AnimationState("run", runSprites)
+                    .setRow(1)
+                    .setFrameCount(8)
+                    .setLooping()
+    );
+    stateMachine.addState(
+            new AnimationState("jump", jumpSprites)
+                    .setRow(1)
+                    .setFrameCount(2)
+                    .setLooping()
+    );
+    stateMachine.addState(
+            new AnimationState("attack", attackSprites)
+                    .setRow(1)
+                    .setFrameCount(8)
     );
   }
   @Override

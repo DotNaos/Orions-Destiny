@@ -39,17 +39,34 @@ public class Helix extends PlayerCharacter {
         this.EXP = 0;
 
         this.idleSprites = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.HELIX_IDLE, SpriteSheet.class);
-        this.walkSprites = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.HELIX_WALK, SpriteSheet.class);
         this.runSprites = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.HELIX_RUN, SpriteSheet.class);
         this.jumpSprites = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.HELIX_JUMP, SpriteSheet.class);
         this.attackSprites =  AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.HELIX_ATTACK, SpriteSheet.class);
 
         StateMachine stateMachine = getComponent(StateMachine.class);
+
         stateMachine.addState(
                 new AnimationState("idle", idleSprites)
                         .setRow(1)
-                        .setFrameCount(4)
+                        .setFrameCount(50)
                         .setLooping()
+        );
+        stateMachine.addState(
+                new AnimationState("run", runSprites)
+                        .setRow(1)
+                        .setFrameCount(10)
+                        .setLooping()
+        );
+        stateMachine.addState(
+                new AnimationState("jump", jumpSprites)
+                        .setRow(1)
+                        .setFrameCount(12)
+                        .setLooping()
+        );
+        stateMachine.addState(
+                new AnimationState("attack", attackSprites)
+                        .setRow(1)
+                        .setFrameCount(47)
         );
     }
 

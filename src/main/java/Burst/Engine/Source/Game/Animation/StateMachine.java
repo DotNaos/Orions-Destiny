@@ -74,7 +74,7 @@ public class StateMachine extends ActorComponent {
     }
 
     if (this.states.containsKey(state)) {
-      if (this.currentState != null) {
+      if (this.currentState != null && this.currentState != this.states.get(state)) {
         this.currentState.reset();
       }
       this.currentState = this.states.get(state);

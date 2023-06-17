@@ -19,7 +19,7 @@ public class AnimationState {
   /**
    * Frames per second
    */
-  private float frameDuration = 0.2f;
+  private float frameDuration = 0.15f;
   private int frameCount = 1;
 
   public AnimationState(String name, SpriteSheet sprites) {

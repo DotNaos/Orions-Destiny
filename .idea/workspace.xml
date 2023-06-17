@@ -9,19 +9,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="Character Sprites sind drin">
+    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="Statemachine mit Animationen. First Try">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imgui.ini" beforeDir="false" afterPath="$PROJECT_DIR$/imgui.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/player/Helix/walk.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/player/Helix/run.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/PlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/PlayerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Components/KeyControls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Components/KeyControls.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/Graphics/SpriteSheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/Graphics/SpriteSheet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Game/Animation/AnimationState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Game/Animation/AnimationState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Game/Animation/Frame.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Game/Animation/StateMachine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Game/Animation/StateMachine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Apex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Apex.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Aura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Aura.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Genesis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Genesis.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Helix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Helix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/PlayerCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/PlayerCharacter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Solaris.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/playercharacters/Solaris.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/res/AssetConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/res/AssetConfig.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -254,14 +255,7 @@
       <workItem from="1686917013711" duration="13470000" />
       <workItem from="1686980923756" duration="13922000" />
       <workItem from="1686997679976" duration="605000" />
-      <workItem from="1687001448017" duration="15535000" />
-    </task>
-    <task id="LOCAL-00066" summary="Maus auch registriert wenn Viewport nicht fokussiert">
-      <created>1686331742895</created>
-      <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL-00066" />
-      <option name="project" value="LOCAL" />
-      <updated>1686331742895</updated>
+      <workItem from="1687001448017" duration="19200000" />
     </task>
     <task id="LOCAL-00067" summary="MouseLister aus der Scene gelöscht. Jetzt funktioniert Window hovern richtig">
       <created>1686333097050</created>
@@ -599,14 +593,20 @@
       <option name="project" value="LOCAL" />
       <updated>1687013160843</updated>
     </task>
-    <option name="localTasksCounter" value="115" />
+    <task id="LOCAL-00115" summary="Statemachine mit Animationen. First Try">
+      <created>1687018128793</created>
+      <option name="number" value="00115" />
+      <option name="presentableId" value="LOCAL-00115" />
+      <option name="project" value="LOCAL" />
+      <updated>1687018128793</updated>
+    </task>
+    <option name="localTasksCounter" value="116" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Spieler Angepasst, an start wird jetzt gearbeitet" />
     <MESSAGE value="Läuft wieder. Icons geupdated" />
     <MESSAGE value="Speicher von Actor derivaten" />
     <MESSAGE value="Assets Pfade in Klassen" />
@@ -631,7 +631,8 @@
     <MESSAGE value="Was ein Müll das ist. Position ist jetzt wieder richtig. Viewport und Mouse und Sprites" />
     <MESSAGE value="Config updated und Start und Stop button" />
     <MESSAGE value="Character Sprites sind drin" />
-    <option name="LAST_COMMIT_MESSAGE" value="Character Sprites sind drin" />
+    <MESSAGE value="Statemachine mit Animationen. First Try" />
+    <option name="LAST_COMMIT_MESSAGE" value="Statemachine mit Animationen. First Try" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -664,6 +665,7 @@
         <watch expression="actors.get(0).ignoreFields" language="JAVA" />
         <watch expression="batches.get(0)" language="JAVA" />
         <watch expression="((SpriteRenderer[])((RenderBatch)((ArrayList)((ViewportRenderer)this).batches).get(0)).sprites)[0].name" custom="Burst.Engine.Source.Core.Render.ViewportRenderer,Burst.Engine.Source.Core.Render.RenderBatch,Burst.Engine.Source.Core.Render.SpriteRenderer[],java.util.ArrayList" />
+        <watch expression="this" />
       </configuration>
     </watches-manager>
   </component>

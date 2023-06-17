@@ -43,10 +43,8 @@ public class PlayerController extends ActorComponent {
       this.rb = this.actor.getComponent(Rigidbody2D.class);
     }
 
-    if (this.actor.getComponent(StateMachine.class) == null) {
-      this.actor.addComponent(new StateMachine());
+    if (this.actor.getComponent(StateMachine.class) != null) {
       this.stateMachine = this.actor.getComponent(StateMachine.class);
-//            this.stateMachine.addState(new AnimationState());
     }
   }
 
@@ -57,8 +55,9 @@ public class PlayerController extends ActorComponent {
 
   @Override
   public void update(float dt) {
-    try {
 
+
+    try {
       if (KeyListener.isKeyPressed(Config.get(HotKeys.class).PlayerMoveRight)) {
         // When player is moving right, flip the sprite
         this.actor.getTransform().size.x = Math.abs(this.actor.getTransform().size.x);
@@ -69,14 +68,14 @@ public class PlayerController extends ActorComponent {
 //          this.stateMachine.trigger("switchDirection");
           this.velocity.x += slowDownForce;
         } else {
-//          this.stateMachine.trigger("startRunning");
+          this.stateMachine.trigger("run");
         }
       } else if (KeyListener.isKeyPressed(Config.get(HotKeys.class).PlayerMoveLeft)) {
         // When player is moving left, flip the sprite
         this.actor.getTransform().size.x = -Math.abs(this.actor.getTransform().size.x);
         this.acceleration.x = -walkSpeed;
 
-
+        this.stateMachine.trigger("run");
 
         if (this.velocity.x > 0) {
 //          this.stateMachine.trigger("switchDirection");
@@ -107,7 +106,7 @@ public class PlayerController extends ActorComponent {
       this.rb.setAngularVelocity(0);
 
       if (!onGround) {
-//        stateMachine.trigger("jump");
+        stateMachine.trigger("jump");
       } else {
 //        stateMachine.trigger("stopJumping");
       }

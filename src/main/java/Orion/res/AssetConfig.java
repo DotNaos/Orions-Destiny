@@ -98,36 +98,25 @@ public class AssetConfig {
         public static final String MAPS = "Assets/maps/";
 
 
-        public static final String AURA_IDLE = Directories.AURA + "aura.png";
+        public static final String AURA = Directories.AURA + "aura.png";
         //*----------------------------------------------------------------------------------------\\
 
-        public static final String AURA_WALK = Directories.AURA + "aura.png";
-        public static final String AURA_RUN = Directories.AURA + "aura.png";
-        public static final String AURA_JUMP = Directories.AURA + "aura.png";
-        public static final String AURA_FALL = Directories.AURA + "aura.png";
-        public static final String AURA_ATTACK = Directories.AURA + "aura.png";
         //*________________________________________________________________________________________\\
 
 
-        public static final String APEX_IDLE = Directories.APEX + "apex.png";
+        public static final String APEX = Directories.APEX + "apex.png";
         //*----------------------------------------------------------------------------------------\\
-        public static final String APEX_WALK = Directories.APEX + "apex.png";
-        public static final String APEX_RUN = Directories.APEX + "apex.png";
-        public static final String APEX_JUMP = Directories.APEX + "apex.png";
-        public static final String APEX_FALL = Directories.APEX + "apex.png";
-        public static final String APEX_ATTACK = Directories.APEX + "apex.png";
 
         //*________________________________________________________________________________________\\
 
 
         public static final String GENESIS_IDLE = Directories.GENESIS + "genesis.png";
         //*----------------------------------------------------------------------------------------\\
-        public static final String GENESIS_WALK = Directories.GENESIS + "genesis.png";
-        public static final String GENESIS_RUN = Directories.GENESIS + "genesis.png";
-        public static final String GENESIS_JUMP = Directories.GENESIS + "genesis.png";
+        public static final String GENESIS_RUN = Directories.GENESIS + "run.png";
+        public static final String GENESIS_JUMP = Directories.GENESIS + "jump.png";
         public static final String GENESIS_FALL = Directories.GENESIS + "genesis.png";
-        public static final String GENESIS_ATTACK = Directories.GENESIS + "genesis.png";
-        public static final String GENESIS_ATTACK2 = Directories.GENESIS + "genesis.png";
+        public static final String GENESIS_ATTACK = Directories.GENESIS + "attack_1.png";
+        public static final String GENESIS_ATTACK2 = Directories.GENESIS + "attack_2.png";
 
 
         //*________________________________________________________________________________________\\
@@ -135,17 +124,15 @@ public class AssetConfig {
 
         public static final String HELIX_IDLE = Directories.HELIX + "helix.png";
         //*----------------------------------------------------------------------------------------\\
-        public static final String HELIX_WALK = Directories.HELIX + "helix.png";
-        public static final String HELIX_RUN = Directories.HELIX + "helix.png";
-        public static final String HELIX_JUMP = Directories.HELIX + "helix.png";
+        public static final String HELIX_RUN = Directories.HELIX + "run.png";
+        public static final String HELIX_JUMP = Directories.HELIX + "jump.png";
         public static final String HELIX_FALL = Directories.HELIX + "helix.png";
-        public static final String HELIX_ATTACK = Directories.HELIX + "helix.png";
+        public static final String HELIX_ATTACK = Directories.HELIX + "attack.png";
 
         //*________________________________________________________________________________________\\
 
         public static final String SOLARIS_IDLE = Directories.SOLARIS + "solaris.png";
         //*----------------------------------------------------------------------------------------\\
-        public static final String SOLARIS_WALK = Directories.SOLARIS + "solaris.png";
         public static final String SOLARIS_RUN = Directories.SOLARIS + "solaris.png";
         public static final String SOLARIS_JUMP = Directories.SOLARIS + "solaris.png";
         public static final String SOLARIS_FALL = Directories.SOLARIS + "solaris.png";
@@ -173,8 +160,8 @@ public class AssetConfig {
           new SpriteSheetConfig(Files.Images.SpriteSheets.BUTTONS, SpriteSheetUsage.UI, 16, 16, 0),
           new SpriteSheetConfig(Files.Images.SpriteSheets.BLOCKS, SpriteSheetUsage.BLOCK, 16, 16, 0,
                   new int[]{16, 16, 4, 13, 10, 9, 7, 9, 14, 17, 18, 5, 21, 8, 3, 0, 7, 20, 15, 29, 32, 30, 32, 16, 16, 8, 5, 0, 0, 15, 15, 15}),
-          new SpriteSheetConfig(Files.Images.SpriteSheets.AURA_IDLE, SpriteSheetUsage.PLAYER, 100, 100, 0),
-          new SpriteSheetConfig(Files.Images.SpriteSheets.APEX_IDLE, SpriteSheetUsage.PLAYER, 80, 80, 0),
+          new SpriteSheetConfig(Files.Images.SpriteSheets.AURA, SpriteSheetUsage.PLAYER, 100, 100, 0),
+          new SpriteSheetConfig(Files.Images.SpriteSheets.APEX, SpriteSheetUsage.PLAYER, 80, 80, 0),
           new SpriteSheetConfig(Files.Images.SpriteSheets.HELIX_IDLE, SpriteSheetUsage.PLAYER, 96, 96, 0),
           new SpriteSheetConfig(Files.Images.SpriteSheets.GENESIS_IDLE, SpriteSheetUsage.PLAYER, 231, 190, 0),
           new SpriteSheetConfig(Files.Images.SpriteSheets.SOLARIS_IDLE, SpriteSheetUsage.PLAYER, 55, 67, 0)

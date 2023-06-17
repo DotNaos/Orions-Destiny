@@ -48,8 +48,8 @@ public class SpriteSheet extends Asset {
 
     public void setConfig(SpriteSheetConfig config) {
         this.config = config;
-        rows = texture.getWidth() / (config.spriteWidth + config.spacing);
-        cols = texture.getHeight() / (config.spriteHeight + config.spacing);
+        cols = texture.getWidth() / (config.spriteWidth + config.spacing);
+        rows = texture.getHeight() / (config.spriteHeight + config.spacing);
         createSprites(rows, cols);
     }
 

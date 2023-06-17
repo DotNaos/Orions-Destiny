@@ -16,7 +16,7 @@ public class Aura extends PlayerCharacter {
 
   public Aura() {
     super();
-    this.icon = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.AURA_IDLE, SpriteSheet.class).getSprite(2,1);
+    this.icon = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.AURA, SpriteSheet.class).getSprite(2,1);
   }
 
   @Override
@@ -39,18 +39,49 @@ public class Aura extends PlayerCharacter {
     this.EXP = 0;
 
 
-    this.idleSprites = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.AURA_IDLE, SpriteSheet.class);
-    this.walkSprites = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.AURA_WALK, SpriteSheet.class);
-    this.runSprites = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.AURA_RUN, SpriteSheet.class);
-    this.jumpSprites = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.AURA_JUMP, SpriteSheet.class);
-    this.attackSprites =  AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.AURA_ATTACK, SpriteSheet.class);
+    this.sprites = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.AURA, SpriteSheet.class);
+
 
     StateMachine stateMachine = getComponent(StateMachine.class);
     stateMachine.addState(
-            new AnimationState("idle", idleSprites)
+            new AnimationState("idle", sprites)
                     .setRow(1)
                     .setFrameCount(4)
                     .setLooping()
+    );
+    stateMachine.addState(
+            new AnimationState("run", sprites)
+                    .setRow(1)
+                    .setFrameCount(4)
+                    .setLooping()
+    );
+    stateMachine.addState(
+            new AnimationState("jump", sprites)
+                    .setRow(1)
+                    .setFrameCount(4)
+                    .setLooping()
+    );
+    stateMachine.addState(
+            new AnimationState("attack", sprites)
+                    .setRow(3)
+                    .setFrameCount(9)
+                    .setFrameDuration(0.1f)
+
+    );
+    stateMachine.addState(
+            new AnimationState("damage", sprites)
+                    .setRow(7)
+                    .setFrameCount(10)
+    );
+    stateMachine.addState(
+            new AnimationState("death", sprites)
+                    .setRow(8)
+                    .setFrameCount(10)
+    );
+    stateMachine.addState(
+            new AnimationState("dead", sprites)
+                    .setRow(9)
+                    .setFrameCount(4)
     );
 
   }

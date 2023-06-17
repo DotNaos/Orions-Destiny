@@ -14,9 +14,8 @@ import Orion.res.AssetConfig;
  */
 public abstract class PlayerCharacter extends Pawn {
     protected transient int spriteIndex = 0;
-
+    protected transient SpriteSheet sprites;
     protected transient SpriteSheet idleSprites;
-    protected transient SpriteSheet walkSprites;
     protected transient SpriteSheet runSprites;
     protected transient SpriteSheet jumpSprites;
     protected transient SpriteSheet attackSprites;
@@ -42,12 +41,12 @@ public abstract class PlayerCharacter extends Pawn {
     public void init()
     {
         super.init();
+        if (!this.hasComponent(StateMachine.class)) {
+            this.addComponent(new StateMachine());
+        }
         if(!this.hasComponent(PlayerController.class))
         {
             this.addComponent(new PlayerController());
-        }
-        if (!this.hasComponent(StateMachine.class)) {
-            this.addComponent(new StateMachine());
         }
     }
 

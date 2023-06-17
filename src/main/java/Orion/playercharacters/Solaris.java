@@ -35,7 +35,6 @@ public class Solaris extends PlayerCharacter {
     this.EXP = 0;
 
     this.idleSprites = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.SOLARIS_IDLE, SpriteSheet.class);
-    this.walkSprites = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.SOLARIS_WALK, SpriteSheet.class);
     this.runSprites = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.SOLARIS_RUN, SpriteSheet.class);
     this.jumpSprites = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.SOLARIS_JUMP, SpriteSheet.class);
     this.attackSprites = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.SOLARIS_ATTACK, SpriteSheet.class);
@@ -46,6 +45,23 @@ public class Solaris extends PlayerCharacter {
                     .setRow(1)
                     .setFrameCount(4)
                     .setLooping()
+    );
+    stateMachine.addState(
+            new AnimationState("run", runSprites)
+                    .setRow(1)
+                    .setFrameCount(4)
+                    .setLooping()
+    );
+    stateMachine.addState(
+            new AnimationState("jump", jumpSprites)
+                    .setRow(1)
+                    .setFrameCount(4)
+                    .setLooping()
+    );
+    stateMachine.addState(
+            new AnimationState("attack", attackSprites)
+                    .setRow(1)
+                    .setFrameCount(4)
     );
   }
 
