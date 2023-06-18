@@ -12,6 +12,8 @@ import Burst.Engine.Source.Editor.Panel.PropertiesPanel;
 import Burst.Engine.Source.Game.Game;
 import org.joml.Vector2f;
 import org.joml.Vector2i;
+import org.joml.Vector3f;
+import org.joml.Vector4f;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -45,6 +47,9 @@ public class MouseControls extends Component {
   }
 
   public void place() {
+    if (this.holdingActor == null) return;
+    if (blockInSquare(holdingActor.getTransform().getPosition(), holdingActor.getTransform().getScaledSize())) return;
+
     Actor copyActor = holdingActor.copy();
     copyActor.setPickable(true);
     Window.getScene().getGame().addActor(copyActor);
@@ -84,23 +89,21 @@ public class MouseControls extends Component {
 
     DebugDraw.addBox(new Vector2f(end).sub(start).mul(0.5f).add(start));
 
-    Vector2f startScreenf = MouseListener.worldToScreen(start);
-    Vector2f endScreenf = MouseListener.worldToScreen(end);
-    Vector2i startScreen = new Vector2i((int) startScreenf.x + 2, (int) startScreenf.y + 2);
-    Vector2i endScreen = new Vector2i((int) endScreenf.x - 2, (int) endScreenf.y - 2);
-    float[] gameObjectIds = propertiesPanel.getPickingTexture().getPickingActorBuffer(startScreen, endScreen);
+    Vector2f startViewFloat = MouseListener.worldToView(start);
+    Vector2f endViewFloat = MouseListener.worldToView(end);
+    Vector2i startView = new Vector2i((int) startViewFloat.x + 2, (int) startViewFloat.y + 2);
+    Vector2i endView = new Vector2i((int) endViewFloat.x - 2, (int) endViewFloat.y - 2);
 
+    DebugDraw.addBox(MouseListener.viewToWorld(new Vector2f(startView)), new Vector2f(0.5f), 0, new Vector4f(1, 0, 0, 1));
+
+    float[] gameObjectIds = propertiesPanel.getPickingTexture().getPickingActorBuffer(startView, endView);
 
     for (int i = 0; i < gameObjectIds.length; i++) {
       if (gameObjectIds[i] > 0) {
-        Actor actor = Window.getScene().getGame().getActor((int) gameObjectIds[i]);
-        if (actor != null && actor.isPickable()) {
-          return true;
-        }
+        return true;
       }
     }
 
-    System.out.println("No block in square");
     return false;
   }
 
@@ -113,22 +116,29 @@ public class MouseControls extends Component {
       holdingActor.getTransform().position.y = ((int) Math.floor(y / Gridlines.SIZE) * Gridlines.SIZE) + Gridlines.SIZE / 2.0f;
 
       if (MouseListener.mouseButtonDown(GLFW_MOUSE_BUTTON_LEFT)) {
-        if (MouseListener.isDragging() &&  !blockInSquare(holdingActor.getTransform().getPosition(), holdingActor.getTransform().getScaledSize()) && debounce < 0
-        ) {
-          place();
-        } else if (!MouseListener.isDragging() && debounce < 0) {
-          debounce = debounceTime  * 2;
+          if (MouseListener.isDragging() && debounce < 0)
+          {
+              place();
+              debounce = 0.1f;
+          }
+          else if (!MouseListener.isDragging() && debounce < 0)
+          {
+              place();
+              debounce = 0.1f;
+          }
         }
+
+        if (KeyListener.isKeyPressed(GLFW_KEY_ESCAPE)) {
+          holdingActor.destroy();
+          holdingActor = null;
+        }
+
+        return true;
       }
 
-      if (KeyListener.isKeyPressed(GLFW_KEY_ESCAPE)) {
-        holdingActor.destroy();
-        holdingActor = null;
-      }
 
-      return true;
-    }
-    return false;
+
+      return false;
   }
 
   private boolean clickOnActor(PropertiesPanel propertiesPanel, PickingTexture pickingTexture, Game game) {
