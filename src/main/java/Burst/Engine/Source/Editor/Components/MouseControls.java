@@ -53,6 +53,8 @@ public class MouseControls extends Component {
     Actor copyActor = holdingActor.copy();
     copyActor.setPickable(true);
     Window.getScene().getGame().addActor(copyActor);
+
+    DebugDraw.addBox(copyActor.getTransform().getPosition(), copyActor.getTransform().getScaledSize(), 0, new Vector4f(1f, 0.5f, 0f, 1f), 10);
   }
 
 
@@ -87,14 +89,10 @@ public class MouseControls extends Component {
     Vector2f start = new Vector2f(pos.x - halfWidth, pos.y - halfHeight);
     Vector2f end = new Vector2f(pos.x + halfWidth, pos.y + halfHeight);
 
-    DebugDraw.addBox(new Vector2f(end).sub(start).mul(0.5f).add(start));
-
     Vector2f startViewFloat = MouseListener.worldToView(start);
     Vector2f endViewFloat = MouseListener.worldToView(end);
     Vector2i startView = new Vector2i((int) startViewFloat.x + 2, (int) startViewFloat.y + 2);
     Vector2i endView = new Vector2i((int) endViewFloat.x - 2, (int) endViewFloat.y - 2);
-
-    DebugDraw.addBox(MouseListener.viewToWorld(new Vector2f(startView)), new Vector2f(0.5f), 0, new Vector4f(1, 0, 0, 1));
 
     float[] gameObjectIds = propertiesPanel.getPickingTexture().getPickingActorBuffer(startView, endView);
 

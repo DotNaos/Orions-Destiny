@@ -63,6 +63,7 @@ public class AssetConfig {
         public static final String BLOCK = Directories.ICONS + "block.png";
         public static final String PLAYER = Directories.ICONS + "player.png";
         public static final String CAMERA = Directories.ICONS + "camera.png";
+        public static final String FOLDER = Directories.ICONS + "folder.png";
       }
 
       public static class Debug {
@@ -156,6 +157,7 @@ public class AssetConfig {
   public static final List<SpriteSheetConfig> SPRITESHEETS_CONFIG = List.of(
           new SpriteSheetConfig(Files.Images.SpriteSheets.GIZMOS, SpriteSheetUsage.UI, 24, 48, 0),
           new SpriteSheetConfig(Files.Images.SpriteSheets.BUTTONS, SpriteSheetUsage.UI, 16, 16, 0),
+          new SpriteSheetConfig(Files.Images.SpriteSheets.ICONS, SpriteSheetUsage.UI, 16, 16, 16),
           new SpriteSheetConfig(Files.Images.SpriteSheets.BLOCKS, SpriteSheetUsage.BLOCK, 16, 16, 0,
                   new int[]{16, 16, 4, 13, 10, 9, 7, 9, 14, 17, 18, 5, 21, 8, 3, 0, 7, 20, 15, 29, 32, 30, 32, 16, 16, 8, 5, 0, 0, 15, 15, 15}),
           new SpriteSheetConfig(Files.Images.SpriteSheets.AURA, SpriteSheetUsage.PLAYER, 100, 100, 0),

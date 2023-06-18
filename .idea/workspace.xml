@@ -9,10 +9,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="Placing Actors">
+    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="Dragging for placing actors">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Folder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/images/spritesheets/ui/Icons.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/images/spritesheets/ui/icons.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/imgui.ini" beforeDir="false" afterPath="$PROJECT_DIR$/imgui.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/Graphics/SpriteSheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/Graphics/SpriteSheet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Components/MouseControls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Components/MouseControls.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/ContentDrawer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/ContentDrawer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/res/AssetConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/res/AssetConfig.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -246,14 +251,8 @@
       <workItem from="1686980923756" duration="13922000" />
       <workItem from="1686997679976" duration="605000" />
       <workItem from="1687001448017" duration="26752000" />
-      <workItem from="1687069185818" duration="3125000" />
-    </task>
-    <task id="LOCAL-00069" summary="Transform ist jetzt so semi gekapselt, weil ich Java hasse und ich sonst nur oder keine Pointer habe">
-      <created>1686339799584</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1686339799584</updated>
+      <workItem from="1687069185818" duration="14790000" />
+      <workItem from="1687102565665" duration="622000" />
     </task>
     <task id="LOCAL-00070" summary="Neu rendern bei reset">
       <created>1686345231728</created>
@@ -591,14 +590,20 @@
       <option name="project" value="LOCAL" />
       <updated>1687030536085</updated>
     </task>
-    <option name="localTasksCounter" value="118" />
+    <task id="LOCAL-00118" summary="Dragging for placing actors">
+      <created>1687072507736</created>
+      <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL-00118" />
+      <option name="project" value="LOCAL" />
+      <updated>1687072507736</updated>
+    </task>
+    <option name="localTasksCounter" value="119" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Assets Pfade in Klassen" />
     <MESSAGE value="Nochmal ID fix" />
     <MESSAGE value="Outliner nicht mehr undocked jedes mal und MuliText input" />
     <MESSAGE value="SpriteSheets der Chars" />
@@ -623,7 +628,8 @@
     <MESSAGE value="Statemachine mit Animationen. First Try" />
     <MESSAGE value="Statemachine mit trigger. SpriteSheet row und col fix" />
     <MESSAGE value="Placing Actors" />
-    <option name="LAST_COMMIT_MESSAGE" value="Placing Actors" />
+    <MESSAGE value="Dragging for placing actors" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dragging for placing actors" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

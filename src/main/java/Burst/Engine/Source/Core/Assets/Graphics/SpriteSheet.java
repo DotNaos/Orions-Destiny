@@ -48,15 +48,15 @@ public class SpriteSheet extends Asset {
 
     public void setConfig(SpriteSheetConfig config) {
         this.config = config;
-        cols = texture.getWidth() / (config.spriteWidth + config.spacing);
+        cols = (texture.getWidth() / (config.spriteWidth + config.spacing));
         rows = texture.getHeight() / (config.spriteHeight + config.spacing);
         createSprites(rows, cols);
     }
 
     private void createSprites(int rows, int cols) {
         this.sprites = new ArrayList<>();
-        int currentX = 0;
-        int currentY = 0;
+        int currentX = this.config.spacing;
+        int currentY = this.config.spacing;
 
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
@@ -87,8 +87,8 @@ public class SpriteSheet extends Asset {
                 }
 
                 currentX += config.spriteWidth + config.spacing;
-                if (currentX >= texture.getWidth()) {
-                    currentX = 0;
+                if (currentX >= texture.getWidth() - config.spacing) {
+                    currentX = config.spacing;
                     currentY += config.spriteHeight + config.spacing;
                 }
                 this.spriteCount++;
