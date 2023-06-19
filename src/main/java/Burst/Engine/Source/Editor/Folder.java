@@ -295,4 +295,7 @@ public class Folder {
     }
   }
 
+  public void setIcon(Sprite icon) {
+    this.icon = icon;
+  }
 }

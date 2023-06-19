@@ -3,46 +3,46 @@
     "row": 6,
     "col": 3,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -141,46 +141,46 @@
     "row": 6,
     "col": 3,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -279,46 +279,46 @@
     "row": 6,
     "col": 3,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -417,46 +417,46 @@
     "row": 6,
     "col": 3,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -555,46 +555,46 @@
     "row": 6,
     "col": 3,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -693,46 +693,46 @@
     "row": 6,
     "col": 3,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -831,46 +831,46 @@
     "row": 6,
     "col": 3,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -969,46 +969,46 @@
     "row": 6,
     "col": 3,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -1107,46 +1107,46 @@
     "row": 6,
     "col": 3,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -1245,46 +1245,46 @@
     "row": 6,
     "col": 3,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -1383,46 +1383,46 @@
     "row": 6,
     "col": 3,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -1521,46 +1521,46 @@
     "row": 6,
     "col": 3,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -1659,46 +1659,46 @@
     "row": 6,
     "col": 3,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -1797,46 +1797,46 @@
     "row": 6,
     "col": 3,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -1935,46 +1935,46 @@
     "row": 6,
     "col": 3,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -2073,46 +2073,46 @@
     "row": 6,
     "col": 3,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -2211,46 +2211,46 @@
     "row": 6,
     "col": 3,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -2349,46 +2349,46 @@
     "row": 6,
     "col": 3,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -2487,46 +2487,46 @@
     "row": 6,
     "col": 3,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -2625,46 +2625,46 @@
     "row": 6,
     "col": 3,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -2763,46 +2763,46 @@
     "row": 6,
     "col": 3,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -2901,46 +2901,46 @@
     "row": 6,
     "col": 3,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -3039,46 +3039,46 @@
     "row": 6,
     "col": 3,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -3177,46 +3177,46 @@
     "row": 6,
     "col": 3,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -3315,46 +3315,46 @@
     "row": 6,
     "col": 3,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -3453,46 +3453,46 @@
     "row": 6,
     "col": 3,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -3591,46 +3591,46 @@
     "row": 6,
     "col": 3,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -3729,46 +3729,46 @@
     "row": 6,
     "col": 3,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -3867,46 +3867,46 @@
     "row": 6,
     "col": 3,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -4005,46 +4005,46 @@
     "row": 6,
     "col": 3,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -4143,46 +4143,46 @@
     "row": 6,
     "col": 3,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -4281,46 +4281,46 @@
     "row": 6,
     "col": 3,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -4419,46 +4419,46 @@
     "row": 6,
     "col": 3,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -4557,46 +4557,46 @@
     "row": 6,
     "col": 3,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -4695,46 +4695,46 @@
     "row": 6,
     "col": 3,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -4833,46 +4833,46 @@
     "row": 6,
     "col": 3,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -4971,46 +4971,46 @@
     "row": 6,
     "col": 3,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -5109,46 +5109,46 @@
     "row": 6,
     "col": 3,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -5247,46 +5247,46 @@
     "row": 6,
     "col": 3,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -5385,46 +5385,46 @@
     "row": 6,
     "col": 3,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -5523,46 +5523,46 @@
     "row": 6,
     "col": 3,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -5661,46 +5661,46 @@
     "row": 6,
     "col": 3,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -5799,46 +5799,46 @@
     "row": 6,
     "col": 3,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -5937,46 +5937,46 @@
     "row": 6,
     "col": 3,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -6075,46 +6075,46 @@
     "row": 6,
     "col": 3,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -6213,46 +6213,46 @@
     "row": 6,
     "col": 3,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -6351,46 +6351,46 @@
     "row": 6,
     "col": 3,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -6489,46 +6489,46 @@
     "row": 6,
     "col": 3,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -6627,46 +6627,46 @@
     "row": 6,
     "col": 3,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -6765,46 +6765,46 @@
     "row": 6,
     "col": 3,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -6903,46 +6903,46 @@
     "row": 6,
     "col": 3,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -7041,46 +7041,46 @@
     "row": 6,
     "col": 3,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.09375,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.09375,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.0625,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -7179,46 +7179,46 @@
     "row": 6,
     "col": 5,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.15625,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.15625,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.125,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.125,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.15625,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.15625,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.125,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.125,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -7317,46 +7317,46 @@
     "row": 6,
     "col": 9,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.28125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.28125,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.25,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.25,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.28125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.28125,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.25,
-          "y": 0.15625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.25,
-          "y": 0.1875
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -7455,46 +7455,46 @@
     "row": 6,
     "col": 1,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -7593,46 +7593,46 @@
     "row": 6,
     "col": 1,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -7731,46 +7731,46 @@
     "row": 6,
     "col": 1,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -7869,46 +7869,46 @@
     "row": 6,
     "col": 1,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -8007,46 +8007,46 @@
     "row": 6,
     "col": 1,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -8145,46 +8145,46 @@
     "row": 6,
     "col": 1,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -8283,46 +8283,46 @@
     "row": 6,
     "col": 1,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -8421,46 +8421,46 @@
     "row": 6,
     "col": 1,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -8559,46 +8559,46 @@
     "row": 6,
     "col": 1,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -8697,46 +8697,46 @@
     "row": 6,
     "col": 1,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -8835,46 +8835,46 @@
     "row": 6,
     "col": 1,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -8973,46 +8973,46 @@
     "row": 6,
     "col": 1,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -9111,46 +9111,46 @@
     "row": 6,
     "col": 1,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -9249,46 +9249,46 @@
     "row": 6,
     "col": 1,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -9387,46 +9387,46 @@
     "row": 6,
     "col": 1,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -9525,46 +9525,46 @@
     "row": 6,
     "col": 1,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -9663,46 +9663,46 @@
     "row": 6,
     "col": 1,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -9801,46 +9801,46 @@
     "row": 6,
     "col": 1,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -9939,46 +9939,46 @@
     "row": 6,
     "col": 1,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -10077,46 +10077,46 @@
     "row": 6,
     "col": 1,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -10215,46 +10215,46 @@
     "row": 6,
     "col": 1,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -10353,46 +10353,46 @@
     "row": 6,
     "col": 1,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -10491,46 +10491,46 @@
     "row": 6,
     "col": 1,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -10629,46 +10629,46 @@
     "row": 6,
     "col": 1,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -10767,46 +10767,46 @@
     "row": 6,
     "col": 1,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -10905,46 +10905,46 @@
     "row": 6,
     "col": 1,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -11043,46 +11043,46 @@
     "row": 6,
     "col": 1,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -11181,46 +11181,46 @@
     "row": 6,
     "col": 1,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -11319,46 +11319,46 @@
     "row": 6,
     "col": 1,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -11457,46 +11457,46 @@
     "row": 6,
     "col": 1,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -11595,46 +11595,46 @@
     "row": 6,
     "col": 1,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -11733,46 +11733,46 @@
     "row": 6,
     "col": 1,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -11871,46 +11871,46 @@
     "row": 6,
     "col": 1,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -12009,46 +12009,46 @@
     "row": 6,
     "col": 1,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -12147,46 +12147,46 @@
     "row": 6,
     "col": 1,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -12285,46 +12285,46 @@
     "row": 6,
     "col": 1,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -12423,46 +12423,46 @@
     "row": 6,
     "col": 1,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -12561,46 +12561,46 @@
     "row": 6,
     "col": 1,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -12699,46 +12699,46 @@
     "row": 6,
     "col": 1,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -12837,46 +12837,46 @@
     "row": 6,
     "col": 1,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -12975,46 +12975,46 @@
     "row": 6,
     "col": 1,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -13113,46 +13113,46 @@
     "row": 6,
     "col": 1,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -13251,46 +13251,46 @@
     "row": 6,
     "col": 1,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -13389,46 +13389,46 @@
     "row": 6,
     "col": 1,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -13527,46 +13527,46 @@
     "row": 6,
     "col": 1,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -13665,46 +13665,46 @@
     "row": 6,
     "col": 1,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -13803,46 +13803,46 @@
     "row": 6,
     "col": 1,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -13941,46 +13941,46 @@
     "row": 6,
     "col": 1,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -14079,46 +14079,46 @@
     "row": 6,
     "col": 1,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -14217,46 +14217,46 @@
     "row": 30,
     "col": 4,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.125,
-          "y": 0.9375
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.125,
-          "y": 0.90625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.90625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.9375
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.125,
-          "y": 0.9375
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.125,
-          "y": 0.90625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.90625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.9375
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -14355,46 +14355,46 @@
     "row": 30,
     "col": 4,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.125,
-          "y": 0.9375
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.125,
-          "y": 0.90625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.90625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.9375
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.125,
-          "y": 0.9375
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.125,
-          "y": 0.90625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.90625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.9375
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -14493,46 +14493,46 @@
     "row": 30,
     "col": 4,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.125,
-          "y": 0.9375
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.125,
-          "y": 0.90625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.90625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.9375
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.125,
-          "y": 0.9375
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.125,
-          "y": 0.90625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.90625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.9375
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -14631,46 +14631,46 @@
     "row": 30,
     "col": 4,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.125,
-          "y": 0.9375
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.125,
-          "y": 0.90625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.90625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.9375
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.125,
-          "y": 0.9375
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.125,
-          "y": 0.90625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.90625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.9375
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -14769,46 +14769,46 @@
     "row": 30,
     "col": 4,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.125,
-          "y": 0.9375
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.125,
-          "y": 0.90625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.90625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.9375
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.125,
-          "y": 0.9375
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.125,
-          "y": 0.90625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.90625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.9375
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -14907,46 +14907,46 @@
     "row": 30,
     "col": 4,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.125,
-          "y": 0.9375
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.125,
-          "y": 0.90625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.90625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.9375
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.125,
-          "y": 0.9375
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.125,
-          "y": 0.90625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.90625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.9375
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -15045,46 +15045,46 @@
     "row": 30,
     "col": 4,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.125,
-          "y": 0.9375
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.125,
-          "y": 0.90625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.90625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.9375
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.125,
-          "y": 0.9375
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.125,
-          "y": 0.90625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.90625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.9375
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -15183,46 +15183,46 @@
     "row": 30,
     "col": 4,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.125,
-          "y": 0.9375
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.125,
-          "y": 0.90625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.90625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.9375
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.125,
-          "y": 0.9375
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.125,
-          "y": 0.90625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.90625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.9375
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -15321,46 +15321,46 @@
     "row": 30,
     "col": 4,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.125,
-          "y": 0.9375
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.125,
-          "y": 0.90625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.90625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.9375
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.125,
-          "y": 0.9375
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.125,
-          "y": 0.90625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.90625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.9375
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -15459,46 +15459,46 @@
     "row": 30,
     "col": 4,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.125,
-          "y": 0.9375
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.125,
-          "y": 0.90625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.90625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.9375
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.125,
-          "y": 0.9375
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.125,
-          "y": 0.90625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.90625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.9375
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -15597,46 +15597,46 @@
     "row": 30,
     "col": 4,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.125,
-          "y": 0.9375
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.125,
-          "y": 0.90625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.90625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.9375
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.125,
-          "y": 0.9375
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.125,
-          "y": 0.90625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.90625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.9375
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -15735,46 +15735,46 @@
     "row": 30,
     "col": 4,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.125,
-          "y": 0.9375
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.125,
-          "y": 0.90625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.90625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.9375
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.125,
-          "y": 0.9375
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.125,
-          "y": 0.90625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.90625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.9375
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -15873,46 +15873,46 @@
     "row": 30,
     "col": 4,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.125,
-          "y": 0.9375
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.125,
-          "y": 0.90625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.90625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.9375
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.125,
-          "y": 0.9375
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.125,
-          "y": 0.90625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.90625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.9375
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -16011,46 +16011,46 @@
     "row": 30,
     "col": 4,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.125,
-          "y": 0.9375
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.125,
-          "y": 0.90625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.90625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.9375
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.125,
-          "y": 0.9375
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.125,
-          "y": 0.90625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.90625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.9375
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -16149,46 +16149,46 @@
     "row": 30,
     "col": 4,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.125,
-          "y": 0.9375
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.125,
-          "y": 0.90625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.90625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.9375
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.125,
-          "y": 0.9375
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.125,
-          "y": 0.90625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.90625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.9375
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -16287,46 +16287,46 @@
     "row": 30,
     "col": 4,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.125,
-          "y": 0.9375
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.125,
-          "y": 0.90625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.90625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.9375
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.125,
-          "y": 0.9375
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.125,
-          "y": 0.90625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.90625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.9375
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -16425,46 +16425,46 @@
     "row": 30,
     "col": 4,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.125,
-          "y": 0.9375
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.125,
-          "y": 0.90625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.90625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.9375
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.125,
-          "y": 0.9375
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.125,
-          "y": 0.90625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.90625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.9375
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -16563,46 +16563,46 @@
     "row": 30,
     "col": 4,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.125,
-          "y": 0.9375
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.125,
-          "y": 0.90625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.90625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.9375
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.125,
-          "y": 0.9375
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.125,
-          "y": 0.90625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.90625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.9375
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -16701,46 +16701,46 @@
     "row": 30,
     "col": 4,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.125,
-          "y": 0.9375
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.125,
-          "y": 0.90625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.90625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.9375
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.125,
-          "y": 0.9375
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.125,
-          "y": 0.90625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.90625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.9375
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -16839,46 +16839,46 @@
     "row": 30,
     "col": 4,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.125,
-          "y": 0.9375
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.125,
-          "y": 0.90625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.90625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.9375
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.125,
-          "y": 0.9375
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.125,
-          "y": 0.90625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.90625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.9375
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -16977,46 +16977,46 @@
     "row": 30,
     "col": 4,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.125,
-          "y": 0.9375
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.125,
-          "y": 0.90625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.90625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.9375
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.125,
-          "y": 0.9375
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.125,
-          "y": 0.90625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.90625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.9375
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -17115,46 +17115,46 @@
     "row": 30,
     "col": 4,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.125,
-          "y": 0.9375
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.125,
-          "y": 0.90625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.90625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.9375
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.125,
-          "y": 0.9375
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.125,
-          "y": 0.90625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.90625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.9375
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -17253,46 +17253,46 @@
     "row": 30,
     "col": 4,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.125,
-          "y": 0.9375
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.125,
-          "y": 0.90625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.90625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.9375
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.125,
-          "y": 0.9375
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.125,
-          "y": 0.90625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.90625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.9375
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -17391,46 +17391,46 @@
     "row": 30,
     "col": 4,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.125,
-          "y": 0.9375
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.125,
-          "y": 0.90625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.90625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.9375
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.125,
-          "y": 0.9375
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.125,
-          "y": 0.90625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.90625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.9375
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -17529,46 +17529,46 @@
     "row": 30,
     "col": 4,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.125,
-          "y": 0.9375
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.125,
-          "y": 0.90625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.90625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.9375
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.125,
-          "y": 0.9375
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.125,
-          "y": 0.90625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.90625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.9375
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -17667,46 +17667,46 @@
     "row": 30,
     "col": 4,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.125,
-          "y": 0.9375
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.125,
-          "y": 0.90625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.90625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.9375
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.125,
-          "y": 0.9375
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.125,
-          "y": 0.90625
+          "x": 1.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.90625
+          "x": 0.0,
+          "y": 0.0
         },
         {
-          "x": 0.09375,
-          "y": 0.9375
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",
@@ -17897,37 +17897,37 @@
             "height": 190.0,
             "texCoords": [
               {
-                "x": 0.6666667,
+                "x": 0.8333333,
                 "y": 1.0
               },
               {
+                "x": 0.8333333,
+                "y": 0.0
+              },
+              {
                 "x": 0.6666667,
                 "y": 0.0
               },
               {
-                "x": 0.5,
-                "y": 0.0
-              },
-              {
-                "x": 0.5,
+                "x": 0.6666667,
                 "y": 1.0
               }
             ],
             "resetTexCoords": [
               {
-                "x": 0.6666667,
+                "x": 0.8333333,
                 "y": 1.0
               },
               {
+                "x": 0.8333333,
+                "y": 0.0
+              },
+              {
                 "x": 0.6666667,
                 "y": 0.0
               },
               {
-                "x": 0.5,
-                "y": 0.0
-              },
-              {
-                "x": 0.5,
+                "x": 0.6666667,
                 "y": 1.0
               }
             ],
@@ -17996,46 +17996,46 @@
     "row": 6,
     "col": 1,
     "icon": {
-      "width": 16.0,
-      "height": 16.0,
+      "width": 2048.0,
+      "height": 2048.0,
       "texCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
       "resetTexCoords": [
         {
-          "x": 0.03125,
-          "y": 0.1875
+          "x": 1.0,
+          "y": 1.0
         },
         {
-          "x": 0.03125,
-          "y": 0.15625
-        },
-        {
-          "x": 0.0,
-          "y": 0.15625
+          "x": 1.0,
+          "y": 0.0
         },
         {
           "x": 0.0,
-          "y": 0.1875
+          "y": 0.0
+        },
+        {
+          "x": 0.0,
+          "y": 1.0
         }
       ],
-      "filepath": "Assets/images/spritesheets/environment/tiles/blocks.png",
-      "ID": 2619762,
+      "filepath": "Assets/images/textures/icons/block.png",
+      "ID": 1847234695,
       "isDirty": false
     },
     "name": "new Block",

@@ -9,16 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="FilePath">
+    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="ContentBrowser soweit Fertig. Blocks hinzugefügt und Spritesheet fix transparent">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/levels/level.json" beforeDir="false" afterPath="$PROJECT_DIR$/levels/level.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/Actor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Actor/Actor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/Graphics/Sprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/Graphics/Sprite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/Graphics/SpriteSheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Core/Assets/Graphics/SpriteSheet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/ContentBrowser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/ContentBrowser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Folder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Folder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/blocks/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/blocks/Block.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Orion/res/AssetConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Orion/res/AssetConfig.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -254,21 +249,8 @@
       <workItem from="1687001448017" duration="26752000" />
       <workItem from="1687069185818" duration="14790000" />
       <workItem from="1687102565665" duration="1891000" />
-      <workItem from="1687177342208" duration="12326000" />
-    </task>
-    <task id="LOCAL-00073" summary="Reset Values Transform dirtyFlag">
-      <created>1686354603230</created>
-      <option name="number" value="00073" />
-      <option name="presentableId" value="LOCAL-00073" />
-      <option name="project" value="LOCAL" />
-      <updated>1686354603230</updated>
-    </task>
-    <task id="LOCAL-00074" summary="Speichern vor ZIndex">
-      <created>1686355976673</created>
-      <option name="number" value="00074" />
-      <option name="presentableId" value="LOCAL-00074" />
-      <option name="project" value="LOCAL" />
-      <updated>1686355976673</updated>
+      <workItem from="1687177342208" duration="13172000" />
+      <workItem from="1687206788057" duration="827000" />
     </task>
     <task id="LOCAL-00075" summary="zIndex thread safe">
       <created>1686387148148</created>
@@ -599,14 +581,27 @@
       <option name="project" value="LOCAL" />
       <updated>1687184443383</updated>
     </task>
-    <option name="localTasksCounter" value="122" />
+    <task id="LOCAL-00122" summary="ContentBrowser soweit Fertig. Blocks hinzugefügt und Spritesheet fix transparent">
+      <created>1687189891569</created>
+      <option name="number" value="00122" />
+      <option name="presentableId" value="LOCAL-00122" />
+      <option name="project" value="LOCAL" />
+      <updated>1687189891569</updated>
+    </task>
+    <task id="LOCAL-00123" summary="ContentBrowser soweit Fertig. Blocks hinzugefügt und Spritesheet fix transparent">
+      <created>1687189906079</created>
+      <option name="number" value="00123" />
+      <option name="presentableId" value="LOCAL-00123" />
+      <option name="project" value="LOCAL" />
+      <updated>1687189906079</updated>
+    </task>
+    <option name="localTasksCounter" value="124" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Sprite lädt bei start wieder richtig" />
     <MESSAGE value="Alle Spritesheets" />
     <MESSAGE value="Verkackte geflippte bilder" />
     <MESSAGE value="Kleine Änderung" />
@@ -631,7 +626,8 @@
     <MESSAGE value="content Browser" />
     <MESSAGE value="content Browser, Items Funktionieren gut" />
     <MESSAGE value="FilePath" />
-    <option name="LAST_COMMIT_MESSAGE" value="FilePath" />
+    <MESSAGE value="ContentBrowser soweit Fertig. Blocks hinzugefügt und Spritesheet fix transparent" />
+    <option name="LAST_COMMIT_MESSAGE" value="ContentBrowser soweit Fertig. Blocks hinzugefügt und Spritesheet fix transparent" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

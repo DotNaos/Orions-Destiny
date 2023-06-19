@@ -14,9 +14,11 @@ import Orion.items.Item;
 import Orion.playercharacters.*;
 import Orion.res.AssetConfig;
 import imgui.ImGui;
-import imgui.flag.*;
+import imgui.flag.ImGuiCol;
+import imgui.flag.ImGuiStyleVar;
+import imgui.flag.ImGuiTableFlags;
+import imgui.flag.ImGuiWindowFlags;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,6 +33,7 @@ public class ContentBrowser extends ImGuiPanel {
   public ContentBrowser() {
     super();
     Folder actorFolder = new Folder("Actors", this);
+    actorFolder.setIcon(AssetManager.getAssetFromType(Sprite.class, AssetConfig.Files.Images.Icons.ACTOR));
 
     if (searchForActors) {
       List<Class<?>> actors = new ArrayList<>();
@@ -42,44 +45,45 @@ public class ContentBrowser extends ImGuiPanel {
 
     // Blocks
     {
-    Folder blockFolder = new Folder("Blocks", this){
-      @Override
-      protected void displayAllItems(float iconSize)
-      {
-        // Display all Blocks
-        for (int i = 0; i < Block.getSpriteSheet().size(); i++)
-        {
-          // Display the Block
-          try {
+      Folder blockFolder = new Folder("Blocks", this) {
+        @Override
+        protected void displayAllItems(float iconSize) {
+          // Display all Blocks
+          for (int i = 0; i < Block.getSpriteSheet().size(); i++) {
+            // Display the Block
+            try {
 
 
-            Sprite sprite = Block.getSpriteSheet().getSprite(i);
+              Sprite sprite = Block.getSpriteSheet().getSprite(i);
 
-            if(sprite.isTransparent()) continue;
-            ImGui.pushID(Block.class.getSimpleName() + " " + i);
-            if (BImGui.imageButton(sprite, iconSize, iconSize)) {
-              Block block = Block.class.getConstructor().newInstance();
-              block.setIcon(sprite);
-              // Set row and column of the Block
-              block.setPos(sprite.getPos());
+              if (sprite.isTransparent()) continue;
+              ImGui.pushID(Block.class.getSimpleName() + " " + i);
+              if (BImGui.imageButton(sprite, iconSize, iconSize)) {
+                Block block = Block.class.getConstructor().newInstance();
+                block.setIcon(sprite);
+                // Set row and column of the Block
+                block.setPos(sprite.getPos());
 
-              Window.getScene().getGame().getComponent(MouseControls.class).pickupObject(block);
+                Window.getScene().getGame().getComponent(MouseControls.class).pickupObject(block);
+              }
+              ImGui.popID();
+              ImGui.nextColumn();
+            } catch (Exception e) {
+              e.printStackTrace();
             }
-            ImGui.popID();
-            ImGui.nextColumn();
-          } catch (Exception e)
-          {
-            e.printStackTrace();
           }
         }
-      }
-    };
-    blockFolder.addItems(Block.class);
-    actorFolder.addFolder(blockFolder);
+      };
+      blockFolder.addItems(Block.class);
+      blockFolder.setIcon(AssetManager.getAssetFromType(Sprite.class, AssetConfig.Files.Images.Icons.BLOCK));
+      actorFolder.addFolder(blockFolder);
     }
 
-    Folder itemFolder = new Folder("Items", this).addItems(Item.class);
-    actorFolder.addFolder(itemFolder);
+    {
+      Folder itemFolder = new Folder("Items", this).addItems(Item.class);
+      itemFolder.setIcon(AssetManager.getAssetFromType(Sprite.class, AssetConfig.Files.Images.Icons.ITEM));
+      actorFolder.addFolder(itemFolder);
+    }
 
     // Player Characters
     {
@@ -92,6 +96,7 @@ public class ContentBrowser extends ImGuiPanel {
       playerCharacters.add(Solaris.class);
 
       Folder playerCharacterFolder = new Folder("Player Characters", this).addItems(playerCharacters);
+      playerCharacterFolder.setIcon(AssetManager.getAssetFromType(Sprite.class, AssetConfig.Files.Images.Icons.PLAYER));
       actorFolder.addFolder(playerCharacterFolder);
     }
 
@@ -135,7 +140,6 @@ public class ContentBrowser extends ImGuiPanel {
         ImGui.pushStyleColor(ImGuiCol.ButtonHovered, 1, 1, 1, 0.25f);
 
 
-
         BImGui.image(icons.getSprite(1, 9), 20, 20);
         ImGui.pushStyleVar(ImGuiStyleVar.ItemSpacing, 10, 0);
         if (ImGui.button("Add")) {
@@ -167,7 +171,7 @@ public class ContentBrowser extends ImGuiPanel {
 
       if (ImGui.beginTable("Content Browser", 2, contentBrowserFlags)) {
         ImGui.tableNextColumn();
-            rootFolder.imGuiTree();
+        rootFolder.imGuiTree();
 
         ImGui.tableNextColumn();
 
