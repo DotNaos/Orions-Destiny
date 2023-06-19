@@ -91,7 +91,6 @@ public class Game {
     this.components.add(Window.get().getPickingTexture());
     this.components.add(new EditorCamera(this.scene.getViewport()));
 
-
     // Panels
     DebugMessage.header("Editor Panels");
     scene.addPanel(new ContentBrowser());
@@ -376,7 +375,23 @@ public class Game {
 
     if (inGame()) return;
 
+    // Main Menu Bar
+    // TODO: Add a file menu with save and load
+    if (ImGui.beginMainMenuBar())
+    {
+      if (ImGui.beginMenu("File"))
+      {
+        if (ImGui.menuItem("Save")) {
+          saveLevel();
+        }
+        if (ImGui.menuItem("Load")) {
+          loadLevel();
+        }
+        ImGui.endMenu();
+      }
 
+      ImGui.endMainMenuBar();
+    }
 
 
     // Start the tab bar

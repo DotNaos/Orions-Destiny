@@ -11,16 +11,19 @@ import imgui.ImGui;
 import imgui.ImVec2;
 import imgui.flag.ImGuiCol;
 import imgui.flag.ImGuiStyleVar;
+import imgui.flag.ImGuiWindowFlags;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Folder {
   public ContentBrowser contentBrowser;
+  public Folder parentFolder = null;
   public String name = "New Folder";
   private Sprite icon = AssetManager.getAssetFromType(Sprite.class, AssetConfig.Files.Images.Icons.FOLDER);
-  private List<Folder> folders = new ArrayList<>();
+  private List<Folder> childFolders = new ArrayList<>();
   private List<Class<?>> items = new ArrayList<>();
 
   private boolean isExpanded = false;
@@ -29,8 +32,8 @@ public class Folder {
     this.name = name;
   }
 
-  public Folder(List<Folder> folders) {
-    this.folders = folders;
+  public Folder(List<Folder> childFolders) {
+    this.childFolders = childFolders;
   }
 
   public Folder addItems(List<Class<?>> items) {
@@ -48,22 +51,26 @@ public class Folder {
   }
 
   public Folder addFolders(List<Folder> folders) {
-    if (this.folders == null) this.folders = new ArrayList<>();
-    this.folders.addAll(folders);
+    if (this.childFolders == null) this.childFolders = new ArrayList<>();
+    this.childFolders.addAll(folders);
+    for (Folder folder : folders) {
+      folder.parentFolder = this;
+    }
 
     return this;
   }
 
   public Folder addFolder(Folder folder) {
-    if (this.folders == null) this.folders = new ArrayList<>();
-    this.folders.add(folder);
+    if (this.childFolders == null) this.childFolders = new ArrayList<>();
+    this.childFolders.add(folder);
+    folder.parentFolder = this;
 
     return this;
   }
 
   public List<Folder> getSubFolders() {
-    if (folders == null) folders = new ArrayList<>();
-    return folders;
+    if (childFolders == null) childFolders = new ArrayList<>();
+    return childFolders;
   }
 
   public List<Class<?>> getItems() {
@@ -72,8 +79,8 @@ public class Folder {
   }
 
   public Folder removeFolder(Folder folder) {
-    if (this.folders == null) return this;
-    this.folders.remove(folder);
+    if (this.childFolders == null) return this;
+    this.childFolders.remove(folder);
 
     return this;
   }
@@ -94,7 +101,7 @@ public class Folder {
     ImGui.sameLine();
     if (ImGui.treeNode(name)) {
       if (ImGui.isItemActivated()) contentBrowser.currentFolder = this;
-      for (Folder folder : folders) {
+      for (Folder folder : childFolders) {
         folder.imGuiTree();
       }
       for (Class<?> item : items) {
@@ -119,37 +126,55 @@ public class Folder {
   }
 
   public void imgui() {
-    float windowWidth = ImGui.getWindowWidth();
-    float windowHeight = ImGui.getWindowHeight();
-    float iconSize = Math.max(128, Math.min(windowWidth / 4, windowHeight / 4));
+    // Add a bar to display the current path
 
-    // Add a border around the window
-    ImGui.pushStyleColor(ImGuiCol.Border, 0.3f, 0.3f, 0.3f, 0.5f);
-    // Add a padding between the border and the content
-    int columns = Math.max((int)(ImGui.getContentRegionAvailX() / iconSize) -1 , 1);
-    columns = Math.min(columns, items.size() + folders.size());
-    ImGui.pushStyleVar(ImGuiStyleVar.ItemSpacing, 10, 20);
-
-    ImGui.columns(columns, "", false);
-
-    for (Folder subFolder : folders) {
-      displayFolder(subFolder, iconSize);
-      ImGui.nextColumn();
+    if (ImGui.beginChild("Path", 0, 40, true, ImGuiWindowFlags.NoScrollWithMouse | ImGuiWindowFlags.NoScrollbar))
+    {
+      showPath();
+      ImGui.endChild();
     }
 
-
-    for (Class<?> item : items) {
-      try{
-        displayItem(item, iconSize);
-        ImGui.nextColumn();
-      } catch (Exception e) {
-        e.printStackTrace();
-      }
-    }
-
+    ImGui.pushStyleColor(ImGuiCol.Separator, 0.5f, 0.5f, 0.5f, 0.3f);
+    ImGui.separator();
     ImGui.popStyleColor();
-    ImGui.popStyleVar();
 
+
+
+    if (ImGui.beginChild("Content", 0, 0, true))
+    {
+      ImGui.pushStyleVar(ImGuiStyleVar.ItemSpacing, 10, 20);
+      float windowWidth = ImGui.getWindowWidth();
+      float windowHeight = ImGui.getWindowHeight();
+      float iconSize = Math.max(128, Math.min(windowWidth / 4, windowHeight / 4));
+
+      // Add a border around the window
+      ImGui.pushStyleColor(ImGuiCol.Border, 0.3f, 0.3f, 0.3f, 0.5f);
+      // Add a padding between the border and the content
+      int columns = Math.max((int) (ImGui.getContentRegionAvailX() / iconSize) - 1, 1);
+      columns = Math.min(columns, items.size() + childFolders.size());
+
+      ImGui.columns(columns, "", false);
+
+      for (Folder subFolder : childFolders) {
+        displayFolder(subFolder, iconSize);
+        ImGui.nextColumn();
+      }
+
+
+      for (Class<?> item : items) {
+        try {
+          displayItem(item, iconSize);
+          ImGui.nextColumn();
+        } catch (Exception e) {
+          e.printStackTrace();
+        }
+      }
+
+      ImGui.popStyleColor();
+      ImGui.popStyleVar();
+
+      ImGui.endChild();
+    }
   }
 
 
@@ -185,30 +210,81 @@ public class Folder {
   }
 
   private void displayItem(Class<?> item, float iconSize) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
-        // Button colors
-        ImGui.pushStyleColor(ImGuiCol.Button, 0.5f, 0.5f, 0.5f, 0.3f);
-        ImGui.pushStyleColor(ImGuiCol.ButtonHovered, 0.5f, 0.5f, 0.5f, 0.5f);
-        ImGui.pushStyleColor(ImGuiCol.ButtonActive, 0.5f, 0.5f, 0.5f, 1f);
+    // Button colors
+    ImGui.pushStyleColor(ImGuiCol.Button, 0.5f, 0.5f, 0.5f, 0.3f);
+    ImGui.pushStyleColor(ImGuiCol.ButtonHovered, 0.5f, 0.5f, 0.5f, 0.5f);
+    ImGui.pushStyleColor(ImGuiCol.ButtonActive, 0.5f, 0.5f, 0.5f, 1f);
 
-        // Get the icon field from the actor
-        Actor iconActor = (Actor) item.getConstructor().newInstance();
-        Sprite actorIcon = iconActor.getIcon();
+    // Get the icon field from the actor
+    Actor iconActor = (Actor) item.getConstructor().newInstance();
+    Sprite actorIcon = iconActor.getIcon();
 
 
-        ImGui.pushID(item.getSimpleName());
-        if (BImGui.imageButton(actorIcon, iconSize, iconSize)) {
-          Window.getScene().getGame().getComponent(MouseControls.class).pickupObject(iconActor);
-        }
-        ImGui.popID();
+    ImGui.pushID(item.getSimpleName());
+    if (BImGui.imageButton(actorIcon, iconSize, iconSize)) {
+      Window.getScene().getGame().getComponent(MouseControls.class).pickupObject(iconActor);
+    }
+    ImGui.popID();
 
-        ImGui.popStyleColor(3);
+    ImGui.popStyleColor(3);
 
-        // Center the text below the image
-        ImVec2 textSize = new ImVec2();
-        ImGui.calcTextSize(textSize, item.getSimpleName());
-        ImGui.setCursorPosX(ImGui.getCursorPosX() + (iconSize - textSize.x) / 2);
+    // Center the text below the image
+    ImVec2 textSize = new ImVec2();
+    ImGui.calcTextSize(textSize, item.getSimpleName());
+    ImGui.setCursorPosX(ImGui.getCursorPosX() + (iconSize - textSize.x) / 2);
 
-        // Shows a text below the image
-        ImGui.text(item.getSimpleName());
+    // Shows a text below the image
+    ImGui.text(item.getSimpleName());
+  }
+
+  public String getPath() {
+    Folder tempFolder = parentFolder;
+    String path = name;
+    while (tempFolder != null) {
+      path = tempFolder.name + "/" + path;
+      tempFolder = tempFolder.parentFolder;
+    }
+    return path;
+  }
+
+  public List<Folder> getParents() {
+    List<Folder> parents = new ArrayList<>();
+    Folder tempFolder = parentFolder;
+    while (tempFolder != null) {
+      parents.add(tempFolder);
+      tempFolder = tempFolder.parentFolder;
+    }
+    return parents;
+  }
+
+  public void showPath() {
+    List<Folder> parents = getParents();
+    Collections.reverse(parents);
+    for (Folder parent : parents) {
+      ImGui.sameLine();
+      if (parent.parentFolder != null) {
+          ImGui.text(">");
+          ImGui.sameLine();
+      }
+
+      if (ImGui.button(parent.name)) {
+        contentBrowser.currentFolder = parent;
+      }
+      if (ImGui.isItemHovered()) {
+        ImGui.setTooltip(parent.getPath());
+      }
+    }
+
+    if (this.parentFolder != null) {
+      ImGui.sameLine();
+      ImGui.text(">");
+    }
+
+    ImGui.sameLine();
+    ImGui.button(name);
+
+    if (ImGui.isItemHovered()) {
+      ImGui.setTooltip(this.getPath());
+    }
   }
 }

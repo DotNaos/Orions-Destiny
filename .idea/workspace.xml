@@ -9,13 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="content Browser">
+    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="content Browser, Items Funktionieren gut">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imgui.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/levels/level.json" beforeDir="false" afterPath="$PROJECT_DIR$/levels/level.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Config/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Config/Config.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/ContentBrowser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/ContentBrowser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Folder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Folder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Game/Game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -251,14 +249,7 @@
       <workItem from="1687001448017" duration="26752000" />
       <workItem from="1687069185818" duration="14790000" />
       <workItem from="1687102565665" duration="1891000" />
-      <workItem from="1687177342208" duration="2378000" />
-    </task>
-    <task id="LOCAL-00071" summary="Deleting Actors">
-      <created>1686345759728</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1686345759728</updated>
+      <workItem from="1687177342208" duration="6790000" />
     </task>
     <task id="LOCAL-00072" summary="Rotation flipped von Actors">
       <created>1686352613402</created>
@@ -596,14 +587,20 @@
       <option name="project" value="LOCAL" />
       <updated>1687113580624</updated>
     </task>
-    <option name="localTasksCounter" value="120" />
+    <task id="LOCAL-00120" summary="content Browser, Items Funktionieren gut">
+      <created>1687179837185</created>
+      <option name="number" value="00120" />
+      <option name="presentableId" value="LOCAL-00120" />
+      <option name="project" value="LOCAL" />
+      <updated>1687179837185</updated>
+    </task>
+    <option name="localTasksCounter" value="121" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Outliner nicht mehr undocked jedes mal und MuliText input" />
     <MESSAGE value="SpriteSheets der Chars" />
     <MESSAGE value="Sprite lädt bei start wieder richtig" />
     <MESSAGE value="Alle Spritesheets" />
@@ -628,7 +625,8 @@
     <MESSAGE value="Placing Actors" />
     <MESSAGE value="Dragging for placing actors" />
     <MESSAGE value="content Browser" />
-    <option name="LAST_COMMIT_MESSAGE" value="content Browser" />
+    <MESSAGE value="content Browser, Items Funktionieren gut" />
+    <option name="LAST_COMMIT_MESSAGE" value="content Browser, Items Funktionieren gut" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
