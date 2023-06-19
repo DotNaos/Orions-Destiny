@@ -19,7 +19,7 @@ import Burst.Engine.Source.Core.Util.DebugMessage;
 import Burst.Engine.Source.Editor.Components.GridLines;
 import Burst.Engine.Source.Editor.Components.KeyControls;
 import Burst.Engine.Source.Editor.Components.MouseControls;
-import Burst.Engine.Source.Editor.ContentDrawer;
+import Burst.Engine.Source.Editor.ContentBrowser;
 import Burst.Engine.Source.Editor.EditorCamera;
 import Burst.Engine.Source.Editor.Gizmo.GizmoSystem;
 import Burst.Engine.Source.Editor.Panel.OutlinerPanel;
@@ -94,7 +94,7 @@ public class Game {
 
     // Panels
     DebugMessage.header("Editor Panels");
-    scene.addPanel(new ContentDrawer());
+    scene.addPanel(new ContentBrowser());
     scene.addPanel(new PropertiesPanel(getComponent(PickingTexture.class)));
     scene.addPanel(new OutlinerPanel());
 
