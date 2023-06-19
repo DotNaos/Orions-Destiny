@@ -446,11 +446,11 @@ public class Config {
     /**
      * Table outer and header borders (prefer using Alpha= hexToVec4f(1.0 here)
      */
-    private Vector4f TableBorderStrong = hexToVec4f(0x00002dff);
+    private Vector4f TableBorderStrong = hexToVec4f(0xFFFFFF1E);
     /**
      * Table inner borders (prefer using Alpha= hexToVec4f(1.0 here)
      */
-    private Vector4f TableBorderLight = hexToVec4f(0x00002eff);
+    private Vector4f TableBorderLight = hexToVec4f(0xFFFFFF1E);
     /**
      * Table row background (even rows)
      */

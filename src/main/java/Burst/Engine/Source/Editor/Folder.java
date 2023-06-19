@@ -12,6 +12,7 @@ import imgui.ImVec2;
 import imgui.flag.ImGuiCol;
 import imgui.flag.ImGuiStyleVar;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -97,7 +98,6 @@ public class Folder {
         folder.imGuiTree();
       }
       for (Class<?> item : items) {
-        ImGui.text(item.getSimpleName());
         try {
           Actor iconActor = (Actor) item.getConstructor().newInstance();
           BImGui.image(iconActor.icon, 24, 24);
@@ -110,10 +110,8 @@ public class Folder {
           e.printStackTrace();
         }
       }
+      ImGui.treePop();
     }
-
-    ImGui.treePop();
-
   }
 
   public boolean isExpanded() {
@@ -128,15 +126,25 @@ public class Folder {
     // Add a border around the window
     ImGui.pushStyleColor(ImGuiCol.Border, 0.3f, 0.3f, 0.3f, 0.5f);
     // Add a padding between the border and the content
-    ImGui.pushStyleVar(ImGuiStyleVar.ItemSpacing, 10, 10);
-//        ImGui.columns(Math.max((int)(ImGui.getContentRegionAvailX() / iconSize) -1 , 1), "", false);
+    int columns = Math.max((int)(ImGui.getContentRegionAvailX() / iconSize) -1 , 1);
+    columns = Math.min(columns, items.size() + folders.size());
+    ImGui.pushStyleVar(ImGuiStyleVar.ItemSpacing, 10, 20);
+
+    ImGui.columns(columns, "", false);
 
     for (Folder subFolder : folders) {
       displayFolder(subFolder, iconSize);
+      ImGui.nextColumn();
     }
 
+
     for (Class<?> item : items) {
-      displayItem(item, iconSize);
+      try{
+        displayItem(item, iconSize);
+        ImGui.nextColumn();
+      } catch (Exception e) {
+        e.printStackTrace();
+      }
     }
 
     ImGui.popStyleColor();
@@ -176,49 +184,31 @@ public class Folder {
     ImGui.popStyleColor(3);
   }
 
-  private void displayItem(Class<?> item, float iconSize) {
-    // Button colors
-    ImGui.pushStyleColor(ImGuiCol.Button, 0.5f, 0.5f, 0.5f, 0.3f);
-    ImGui.pushStyleColor(ImGuiCol.ButtonHovered, 0.5f, 0.5f, 0.5f, 0.5f);
-    ImGui.pushStyleColor(ImGuiCol.ButtonActive, 0.5f, 0.5f, 0.5f, 1f);
+  private void displayItem(Class<?> item, float iconSize) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
+        // Button colors
+        ImGui.pushStyleColor(ImGuiCol.Button, 0.5f, 0.5f, 0.5f, 0.3f);
+        ImGui.pushStyleColor(ImGuiCol.ButtonHovered, 0.5f, 0.5f, 0.5f, 0.5f);
+        ImGui.pushStyleColor(ImGuiCol.ButtonActive, 0.5f, 0.5f, 0.5f, 1f);
 
-
-    Sprite icon = null;
-    String name = "!ERROR!";
-    try {
-      if (item.isAssignableFrom(Actor.class)) {
         // Get the icon field from the actor
         Actor iconActor = (Actor) item.getConstructor().newInstance();
-        icon = iconActor.getIcon();
-        name = item.getSimpleName();
-      }
-    } catch (Exception e) {
-      e.printStackTrace();
-    }
+        Sprite actorIcon = iconActor.getIcon();
 
-    if (icon != null) {
-      ImGui.pushID(item.getSimpleName());
-      if (BImGui.imageButton(icon, iconSize, iconSize)) {
-        try {
-            Actor newActor = (Actor) item.getConstructor().newInstance();
-            Window.getScene().getGame().getComponent(MouseControls.class).pickupObject(newActor);
-        } catch (Exception e) {
-          e.printStackTrace();
+
+        ImGui.pushID(item.getSimpleName());
+        if (BImGui.imageButton(actorIcon, iconSize, iconSize)) {
+          Window.getScene().getGame().getComponent(MouseControls.class).pickupObject(iconActor);
         }
-      }
+        ImGui.popID();
 
-      // Center the text below the image
-      ImVec2 textSize = new ImVec2();
-      ImGui.calcTextSize(textSize, name);
-      ImGui.setCursorPosX(ImGui.getCursorPosX() + (iconSize - textSize.x) / 2);
+        ImGui.popStyleColor(3);
 
-      // Shows a text below the image
-      ImGui.text(name);
-      ImGui.popID();
-    }
+        // Center the text below the image
+        ImVec2 textSize = new ImVec2();
+        ImGui.calcTextSize(textSize, item.getSimpleName());
+        ImGui.setCursorPosX(ImGui.getCursorPosX() + (iconSize - textSize.x) / 2);
 
-
-    // Stop using the button colorss
-    ImGui.popStyleColor(3);
+        // Shows a text below the image
+        ImGui.text(item.getSimpleName());
   }
 }

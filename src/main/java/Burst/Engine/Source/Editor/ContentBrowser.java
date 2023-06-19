@@ -23,6 +23,7 @@ import imgui.ImGui;
 import imgui.ImVec2;
 import imgui.flag.ImGuiCol;
 import imgui.flag.ImGuiStyleVar;
+import imgui.flag.ImGuiTableFlags;
 import imgui.flag.ImGuiWindowFlags;
 
 
@@ -90,6 +91,7 @@ public class ContentBrowser extends ImGuiPanel {
         ImGui.pushStyleColor(ImGuiCol.ChildBg, 0.125f, 0.125f,0.125f, 0.75f);
         int windowFlags = 0;
         windowFlags |= ImGuiWindowFlags.MenuBar;
+        windowFlags |= ImGuiWindowFlags.NoScrollbar;
 
         ImGui.begin("Content Browser", windowFlags);
 
@@ -113,29 +115,31 @@ public class ContentBrowser extends ImGuiPanel {
             ImGui.popStyleColor(3);
         }
 
-        // Show two columns
-        // The first column is for the folders
-        // The second column is for the content
-        // The columns are separated by a vertical line and can be resized
 
         ImGui.pushStyleColor(ImGuiCol.Separator, 0.5f, 0.5f, 0.5f, 1f);
 
-        ImGui.columns(2);
+        int contentBrowserFlags = 0;
+        contentBrowserFlags |= ImGuiTableFlags.Resizable;
 
-        // All Folders in a tree
-        rootFolder.imGuiTree();
+        if (ImGui.beginTable("Content Browser", 2, contentBrowserFlags))
+        {
+            ImGui.tableNextColumn();
+            ImGui.text("Folder Hierachy");
+//            rootFolder.imGuiTree();
 
-        ImGui.pushStyleVar(ImGuiStyleVar.ItemSpacing, 20, 20);
+            ImGui.tableNextColumn();
+
+            ImGui.pushStyleVar(ImGuiStyleVar.ItemSpacing, 20, 20);
+            ImGui.beginChild("Content", 0, 0, true);
+            currentFolder.imgui();
+            ImGui.endChild();
+            ImGui.popStyleVar();
 
 
-        // Show the content
-        ImGui.nextColumn();
+            ImGui.endTable();
+        }
 
-        currentFolder.imgui();
-
-        ImGui.popStyleVar();
         ImGui.popStyleColor();
-
 
         ImGui.end();
         ImGui.popStyleColor();
