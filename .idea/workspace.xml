@@ -9,12 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="ContentBrowser soweit Fertig. Blocks hinzugefügt und Spritesheet fix transparent">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/levels/level.json" beforeDir="false" afterPath="$PROJECT_DIR$/levels/level.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/ContentBrowser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/ContentBrowser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Folder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Burst/Engine/Source/Editor/Folder.java" afterDir="false" />
-    </list>
+    <list default="true" id="457dfb49-fabd-4528-a8c6-3775910d23e6" name="Changes" comment="Icons der Actors als Ordner" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -250,14 +245,7 @@
       <workItem from="1687069185818" duration="14790000" />
       <workItem from="1687102565665" duration="1891000" />
       <workItem from="1687177342208" duration="13172000" />
-      <workItem from="1687206788057" duration="827000" />
-    </task>
-    <task id="LOCAL-00075" summary="zIndex thread safe">
-      <created>1686387148148</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL-00075" />
-      <option name="project" value="LOCAL" />
-      <updated>1686387148148</updated>
+      <workItem from="1687206788057" duration="907000" />
     </task>
     <task id="LOCAL-00076" summary="alpha blending geht wieder">
       <created>1686390090982</created>
@@ -595,14 +583,20 @@
       <option name="project" value="LOCAL" />
       <updated>1687189906079</updated>
     </task>
-    <option name="localTasksCounter" value="124" />
+    <task id="LOCAL-00124" summary="Icons der Actors als Ordner">
+      <created>1687207685378</created>
+      <option name="number" value="00124" />
+      <option name="presentableId" value="LOCAL-00124" />
+      <option name="project" value="LOCAL" />
+      <updated>1687207685379</updated>
+    </task>
+    <option name="localTasksCounter" value="125" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Alle Spritesheets" />
     <MESSAGE value="Verkackte geflippte bilder" />
     <MESSAGE value="Kleine Änderung" />
     <MESSAGE value="ImGui nicht mehr verbuggt und escape" />
@@ -627,7 +621,8 @@
     <MESSAGE value="content Browser, Items Funktionieren gut" />
     <MESSAGE value="FilePath" />
     <MESSAGE value="ContentBrowser soweit Fertig. Blocks hinzugefügt und Spritesheet fix transparent" />
-    <option name="LAST_COMMIT_MESSAGE" value="ContentBrowser soweit Fertig. Blocks hinzugefügt und Spritesheet fix transparent" />
+    <MESSAGE value="Icons der Actors als Ordner" />
+    <option name="LAST_COMMIT_MESSAGE" value="Icons der Actors als Ordner" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

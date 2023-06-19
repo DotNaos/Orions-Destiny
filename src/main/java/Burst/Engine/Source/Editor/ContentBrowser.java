@@ -9,6 +9,7 @@ import Burst.Engine.Source.Core.UI.ImGui.ImGuiPanel;
 import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Core.Util.ClassDerivativeSearch;
 import Burst.Engine.Source.Editor.Components.MouseControls;
+import Burst.Engine.Source.Game.Camera;
 import Orion.blocks.Block;
 import Orion.items.Item;
 import Orion.playercharacters.*;
@@ -34,7 +35,6 @@ public class ContentBrowser extends ImGuiPanel {
     super();
     Folder actorFolder = new Folder("Actors", this);
     actorFolder.setIcon(AssetManager.getAssetFromType(Sprite.class, AssetConfig.Files.Images.Icons.ACTOR));
-
     if (searchForActors) {
       List<Class<?>> actors = new ArrayList<>();
       searchForActors(actors);
@@ -98,6 +98,11 @@ public class ContentBrowser extends ImGuiPanel {
       Folder playerCharacterFolder = new Folder("Player Characters", this).addItems(playerCharacters);
       playerCharacterFolder.setIcon(AssetManager.getAssetFromType(Sprite.class, AssetConfig.Files.Images.Icons.PLAYER));
       actorFolder.addFolder(playerCharacterFolder);
+    }
+
+    // Camera
+    {
+      actorFolder.addItems(Camera.class);
     }
 
   }
