@@ -27,7 +27,7 @@ public class SpriteSheet extends Asset {
     private int rows, cols = -1;
 
 
-    private SpriteSheetConfig config;
+    private transient SpriteSheetConfig config;
 
     public SpriteSheet(String filepath) {
         super(filepath);
@@ -76,20 +76,23 @@ public class SpriteSheet extends Asset {
                         new Vector2f(leftX, bottomY),
                         new Vector2f(leftX, topY)
                 };
-                Sprite sprite = new Sprite(this.texture, texCoords, this.config.spriteWidth, this.config.spriteHeight);
+                Sprite sprite = new Sprite(this.texture, texCoords, this.config.spriteWidth, this.config.spriteHeight, row + 1, col + 1);
 
-                if (config.spritesPerRow == null)
+                if (this.config.spritesPerRow == null)
                 {
                     this.sprites.add(sprite);
                 }
                 else if (!(col >= this.config.spritesPerRow[row])) {
                     this.sprites.add(sprite);
                 }
+                else {
+                    this.sprites.add(new Sprite());
+                }
 
-                currentX += config.spriteWidth + config.spacing;
-                if (currentX >= texture.getWidth() - config.spacing) {
-                    currentX = config.spacing;
-                    currentY += config.spriteHeight + config.spacing;
+                currentX += this.config.spriteWidth + this.config.spacing;
+                if (currentX >= texture.getWidth() - this.config.spacing) {
+                    currentX = this.config.spacing;
+                    currentY += this.config.spriteHeight + this.config.spacing;
                 }
                 this.spriteCount++;
             }

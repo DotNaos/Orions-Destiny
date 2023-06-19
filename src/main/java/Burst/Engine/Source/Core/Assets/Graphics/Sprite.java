@@ -4,6 +4,7 @@ import Burst.Engine.Source.Core.Assets.Asset;
 import Burst.Engine.Source.Core.Util.DebugMessage;
 import Orion.res.AssetConfig;
 import org.joml.Vector2f;
+import org.joml.Vector2i;
 
 import java.util.Arrays;
 /**
@@ -11,8 +12,10 @@ import java.util.Arrays;
  */
 public class Sprite extends Asset {
     private float width, height;
+    private transient int row, col;
 
     private transient Texture texture = null;
+    private transient boolean isTransparent = false;
     /**
      * The texture coordinates of the sprite
      * <p>
@@ -47,6 +50,7 @@ public class Sprite extends Asset {
         super("Generated");
         this.width = 0;
         this.height = 0;
+        this.isTransparent = true;
     }
 
     public Sprite(String filePath) {
@@ -57,13 +61,15 @@ public class Sprite extends Asset {
         this.height = texture.getHeight();
     }
 
-    public Sprite(Texture texture, Vector2f[] texCoords, int spriteWidth, int spriteHeight) {
+    public Sprite(Texture texture, Vector2f[] texCoords, int spriteWidth, int spriteHeight, int row, int col) {
         super(texture.getFilepath());
         this.texture = texture;
         this.texCoords = texCoords;
         this.resetTexCoords = copyTexCoords(texCoords);
         this.width = spriteWidth;
         this.height = spriteHeight;
+        this.row = row;
+        this.col = col;
     }
 
     /**
@@ -166,5 +172,12 @@ public class Sprite extends Asset {
   }
 
 
+  public Vector2i getPos() {
+    return new Vector2i(row, col);
+  }
+
+    public boolean isTransparent() {
+        return this.isTransparent;
+    }
 }
       

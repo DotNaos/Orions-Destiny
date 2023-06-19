@@ -2,70 +2,109 @@ package Burst.Engine.Source.Editor;
 
 import Burst.Engine.Source.Core.Actor.Actor;
 import Burst.Engine.Source.Core.Assets.AssetManager;
+import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
 import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheet;
 import Burst.Engine.Source.Core.UI.ImGui.BImGui;
 import Burst.Engine.Source.Core.UI.ImGui.ImGuiPanel;
+import Burst.Engine.Source.Core.UI.Window;
 import Burst.Engine.Source.Core.Util.ClassDerivativeSearch;
+import Burst.Engine.Source.Editor.Components.MouseControls;
 import Orion.blocks.Block;
 import Orion.items.Item;
 import Orion.playercharacters.*;
 import Orion.res.AssetConfig;
 import imgui.ImGui;
 import imgui.flag.*;
-import imgui.type.ImString;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class ContentBrowser extends ImGuiPanel {
-  private List<Class<?>> actors = new ArrayList<>();
 
-  private Folder rootFolder = new Folder("Content");
+  private Folder rootFolder = new Folder("Content", this);
   public Folder currentFolder = rootFolder;
 
   private boolean searchForActors = false;
 
   public ContentBrowser() {
     super();
+    Folder actorFolder = new Folder("Actors", this);
 
     if (searchForActors) {
-      searchForActors();
-    } else {
-      // Add all actors
-      actors.add(Actor.class);
-
-      // Add all blocks
-      actors.add(Block.class);
-
-      // Add all players
-      actors.add(Apex.class);
-      actors.add(Aura.class);
-      actors.add(Genesis.class);
-      actors.add(Helix.class);
-      actors.add(Solaris.class);
-
-      // Add all enemies
-//            actors.add(Enemy.class);
-
-      // Add all items
-      actors.add(Item.class);
+      List<Class<?>> actors = new ArrayList<>();
+      searchForActors(actors);
+      actorFolder.addItems(actors);
     }
-    Folder actorFolder = new Folder("Actors").addItems(actors);
-    rootFolder.addFolder(actorFolder);
-    rootFolder.contentBrowser = this;
-    actorFolder.contentBrowser = this;
 
+    rootFolder.addFolder(actorFolder);
+
+    // Blocks
+    {
+    Folder blockFolder = new Folder("Blocks", this){
+      @Override
+      protected void displayAllItems(float iconSize)
+      {
+        // Display all Blocks
+        for (int i = 0; i < Block.getSpriteSheet().size(); i++)
+        {
+          // Display the Block
+          try {
+
+
+            Sprite sprite = Block.getSpriteSheet().getSprite(i);
+
+            if(sprite.isTransparent()) continue;
+            ImGui.pushID(Block.class.getSimpleName() + " " + i);
+            if (BImGui.imageButton(sprite, iconSize, iconSize)) {
+              Block block = Block.class.getConstructor().newInstance();
+              block.setIcon(sprite);
+              // Set row and column of the Block
+              block.setPos(sprite.getPos());
+
+              Window.getScene().getGame().getComponent(MouseControls.class).pickupObject(block);
+            }
+            ImGui.popID();
+            ImGui.nextColumn();
+          } catch (Exception e)
+          {
+            e.printStackTrace();
+          }
+        }
+      }
+    };
+    blockFolder.addItems(Block.class);
+    actorFolder.addFolder(blockFolder);
+    }
+
+    Folder itemFolder = new Folder("Items", this).addItems(Item.class);
+    actorFolder.addFolder(itemFolder);
+
+    // Player Characters
+    {
+      List<Class<?>> playerCharacters = new ArrayList<>();
+
+      playerCharacters.add(Apex.class);
+      playerCharacters.add(Aura.class);
+      playerCharacters.add(Genesis.class);
+      playerCharacters.add(Helix.class);
+      playerCharacters.add(Solaris.class);
+
+      Folder playerCharacterFolder = new Folder("Player Characters", this).addItems(playerCharacters);
+      actorFolder.addFolder(playerCharacterFolder);
+    }
 
   }
 
-  private void searchForActors() {
+
+  private void searchForActors(List<Class<?>> actors) {
     // Searching for all Actors in the Burst and Orion packages
     ClassDerivativeSearch actorSearcher = new ClassDerivativeSearch(Actor.class);
     actorSearcher.addPackage("Burst");
     actorSearcher.addPackage("Orion");
 
-    this.actors.addAll(actorSearcher.search());
+    actors.addAll(actorSearcher.search());
     // Print all found actors
     for (Class<?> actor : actors) {
       System.out.println(actor.getSimpleName());
@@ -128,8 +167,7 @@ public class ContentBrowser extends ImGuiPanel {
 
       if (ImGui.beginTable("Content Browser", 2, contentBrowserFlags)) {
         ImGui.tableNextColumn();
-        ImGui.text("Folder Hierachy");
-//            rootFolder.imGuiTree();
+            rootFolder.imGuiTree();
 
         ImGui.tableNextColumn();
 

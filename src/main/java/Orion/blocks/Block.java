@@ -7,15 +7,17 @@ import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheet;
 import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Burst.Engine.Source.Core.Render.SpriteRenderer;
 import Orion.res.AssetConfig;
+import org.joml.Vector2i;
 
 /**
  * @author Oliver Schuetz
  */
 public class Block extends Actor {
-  private int row = 0;
+  private int row, col = 0;
   private transient int prevRow = 0;
-  private int col = 0;
+
   private transient int prevCol = 0;
+  protected static transient SpriteSheet spriteSheet = AssetManager.getAssetFromType(AssetConfig.Files.Images.SpriteSheets.BLOCKS, SpriteSheet.class);
 
   public Block() {
     super();
@@ -45,4 +47,18 @@ public class Block extends Actor {
     super.imgui(this);
   }
 
+  public static SpriteSheet getSpriteSheet() {
+    return spriteSheet;
+  }
+
+  public void setPos(Vector2i pos)
+    {
+        this.row = pos.x;
+        this.col = pos.y;
+    }
+  public void setPos(int row, int col)
+  {
+      this.row = row;
+      this.col = col;
+  }
 }

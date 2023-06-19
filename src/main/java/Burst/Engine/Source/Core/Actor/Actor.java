@@ -458,6 +458,7 @@ public class Actor implements ImGuiValueManager {
    * @param sprite the sprite to set
    */
   public Actor setSprite(Sprite sprite) {
+    if (sprite == null) return this;
     if (this.getComponent(SpriteRenderer.class) == null) {
       this.addComponent(new SpriteRenderer());
     }
@@ -575,6 +576,10 @@ public class Actor implements ImGuiValueManager {
 
   public Sprite getIcon() {
     return this.icon;
+  }
+  public void setIcon(Sprite sprite) {
+    if (sprite == null) return;
+    this.icon = sprite;
   }
 
   public void genID() {

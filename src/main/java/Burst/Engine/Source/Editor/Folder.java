@@ -9,9 +9,7 @@ import Burst.Engine.Source.Editor.Components.MouseControls;
 import Orion.res.AssetConfig;
 import imgui.ImGui;
 import imgui.ImVec2;
-import imgui.flag.ImGuiCol;
-import imgui.flag.ImGuiStyleVar;
-import imgui.flag.ImGuiWindowFlags;
+import imgui.flag.*;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
@@ -28,12 +26,12 @@ public class Folder {
 
   private boolean isExpanded = false;
 
-  public Folder(String name) {
+  public Folder(String name, ContentBrowser contentBrowser) {
     this.name = name;
+    this.contentBrowser = contentBrowser;
   }
-
-  public Folder(List<Folder> childFolders) {
-    this.childFolders = childFolders;
+  public Folder(ContentBrowser contentBrowser) {
+    this.contentBrowser = contentBrowser;
   }
 
   public Folder addItems(List<Class<?>> items) {
@@ -43,7 +41,14 @@ public class Folder {
     return this;
   }
 
-  public Folder addItem(Class item) {
+  public Folder addItems(Class<?> item) {
+    if (this.items == null) this.items = new ArrayList<>();
+    this.items.add(item);
+
+    return this;
+  }
+
+  public Folder addItem(Class<?> item) {
     if (this.items == null) this.items = new ArrayList<>();
     this.items.add(item);
 
@@ -85,7 +90,7 @@ public class Folder {
     return this;
   }
 
-  public Folder removeItem(Class item) {
+  public Folder removeItem(Class<?> item) {
     if (this.items == null) return this;
     this.items.remove(item);
 
@@ -99,8 +104,9 @@ public class Folder {
   public void imGuiTree() {
     BImGui.image(icon, 24, 24);
     ImGui.sameLine();
-    if (ImGui.treeNode(name)) {
-      if (ImGui.isItemActivated()) contentBrowser.currentFolder = this;
+    if (ImGui.treeNodeEx(name, ImGuiTreeNodeFlags.OpenOnArrow | ImGuiTreeNodeFlags.OpenOnDoubleClick | ImGuiTreeNodeFlags.DefaultOpen)) {
+      if (ImGui.isItemClicked())
+        contentBrowser.currentFolder = this;
       for (Folder folder : childFolders) {
         folder.imGuiTree();
       }
@@ -119,6 +125,7 @@ public class Folder {
       }
       ImGui.treePop();
     }
+
   }
 
   public boolean isExpanded() {
@@ -151,9 +158,16 @@ public class Folder {
       ImGui.pushStyleColor(ImGuiCol.Border, 0.3f, 0.3f, 0.3f, 0.5f);
       // Add a padding between the border and the content
       int columns = Math.max((int) (ImGui.getContentRegionAvailX() / iconSize) - 1, 1);
-      columns = Math.min(columns, items.size() + childFolders.size());
+      if (items.size() + childFolders.size() > 1)
+      {
+        columns = Math.min(columns, items.size() + childFolders.size());
+      }
 
       ImGui.columns(columns, "", false);
+      // Button colors
+      ImGui.pushStyleColor(ImGuiCol.Button, 0.5f, 0.5f, 0.5f, 0.3f);
+      ImGui.pushStyleColor(ImGuiCol.ButtonHovered, 0.5f, 0.5f, 0.5f, 0.5f);
+      ImGui.pushStyleColor(ImGuiCol.ButtonActive, 0.5f, 0.5f, 0.5f, 1f);
 
       for (Folder subFolder : childFolders) {
         displayFolder(subFolder, iconSize);
@@ -161,14 +175,9 @@ public class Folder {
       }
 
 
-      for (Class<?> item : items) {
-        try {
-          displayItem(item, iconSize);
-          ImGui.nextColumn();
-        } catch (Exception e) {
-          e.printStackTrace();
-        }
-      }
+      displayAllItems(iconSize);
+
+      ImGui.popStyleColor(3);
 
       ImGui.popStyleColor();
       ImGui.popStyleVar();
@@ -177,22 +186,31 @@ public class Folder {
     }
   }
 
+  protected void displayAllItems(float iconSize) {
+    for (Class<?> item : items) {
+      try {
+        displayItem(item, iconSize);
+        ImGui.nextColumn();
+      } catch (Exception e) {
+        e.printStackTrace();
+      }
+    }
+  }
+
 
   private void displayFolder(Folder folder, float iconSize) {
-    // Button colors
-    ImGui.pushStyleColor(ImGuiCol.Button, 0.5f, 0.5f, 0.5f, 0.3f);
-    ImGui.pushStyleColor(ImGuiCol.ButtonHovered, 0.5f, 0.5f, 0.5f, 0.5f);
-    ImGui.pushStyleColor(ImGuiCol.ButtonActive, 0.5f, 0.5f, 0.5f, 1f);
 
     Sprite icon = folder.getIcon();
     String name = folder.name;
 
     if (icon != null) {
-      ImGui.pushID(folder.getClass().getSimpleName());
+
+      ImGui.pushID(name);
 
       if (BImGui.imageButton(icon, iconSize, iconSize)) {
         contentBrowser.currentFolder = folder;
       }
+      ImGui.popID();
 
       // Center the text below the image
       ImVec2 textSize = new ImVec2();
@@ -201,32 +219,21 @@ public class Folder {
 
       // Shows a text below the image
       ImGui.text(name);
-      ImGui.popID();
+
     }
-
-
-    // Stop using the button colorss
-    ImGui.popStyleColor(3);
   }
 
-  private void displayItem(Class<?> item, float iconSize) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
-    // Button colors
-    ImGui.pushStyleColor(ImGuiCol.Button, 0.5f, 0.5f, 0.5f, 0.3f);
-    ImGui.pushStyleColor(ImGuiCol.ButtonHovered, 0.5f, 0.5f, 0.5f, 0.5f);
-    ImGui.pushStyleColor(ImGuiCol.ButtonActive, 0.5f, 0.5f, 0.5f, 1f);
+  protected void displayItem(Class<?> item, float iconSize) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
 
     // Get the icon field from the actor
     Actor iconActor = (Actor) item.getConstructor().newInstance();
     Sprite actorIcon = iconActor.getIcon();
-
 
     ImGui.pushID(item.getSimpleName());
     if (BImGui.imageButton(actorIcon, iconSize, iconSize)) {
       Window.getScene().getGame().getComponent(MouseControls.class).pickupObject(iconActor);
     }
     ImGui.popID();
-
-    ImGui.popStyleColor(3);
 
     // Center the text below the image
     ImVec2 textSize = new ImVec2();
@@ -287,4 +294,5 @@ public class Folder {
       ImGui.setTooltip(this.getPath());
     }
   }
+
 }
