@@ -44,7 +44,7 @@ public class Window implements Observer {
   private static Window window = null;
   private static Scene currentScene;
 
-  private static SceneType startScene = SceneType.EDITOR;
+  private static SceneType startScene = SceneType.START_MENU;
   private final String title;
   private int width, height;
   private long glfwWindow;

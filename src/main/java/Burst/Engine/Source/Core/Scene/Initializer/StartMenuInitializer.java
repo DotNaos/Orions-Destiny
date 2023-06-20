@@ -1,6 +1,8 @@
 package Burst.Engine.Source.Core.Scene.Initializer;
 
 import Burst.Engine.Source.Core.Assets.AssetManager;
+import Burst.Engine.Source.Core.Assets.Graphics.Sprite;
+import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheet;
 import Burst.Engine.Source.Core.Assets.Graphics.Texture;
 import Burst.Engine.Source.Core.Scene.Scene;
 import Burst.Engine.Source.Core.Scene.SceneType;
@@ -27,6 +29,16 @@ public class StartMenuInitializer extends MenuInitializer {
 
   private final int BUTTON_ACTIVE_COLOR = 0x60;
 
+
+    private Sprite spriteGame = AssetManager.getAssetFromType(SpriteSheet.class, AssetConfig.Files.Images.SpriteSheets.FLAT_BUTTONS_GAME).getSprite(7, 1);
+    private Sprite spriteGameHovered = AssetManager.getAssetFromType(SpriteSheet.class, AssetConfig.Files.Images.SpriteSheets.FLAT_BUTTONS_GAME).getSprite(9, 1);
+    private Sprite spriteGameCurrent = spriteGame;
+    private Sprite spriteEditor = AssetManager.getAssetFromType(SpriteSheet.class, AssetConfig.Files.Images.SpriteSheets.FLAT_BUTTONS_EDITOR).getSprite(7, 1);
+    private Sprite spriteEditorHovered = AssetManager.getAssetFromType(SpriteSheet.class, AssetConfig.Files.Images.SpriteSheets.FLAT_BUTTONS_EDITOR).getSprite(9, 1);
+    private Sprite spriteEditorCurrent = spriteEditor;
+    private Sprite spriteSettings = AssetManager.getAssetFromType(SpriteSheet.class, AssetConfig.Files.Images.SpriteSheets.FLAT_BUTTONS_SETTINGS).getSprite(7, 1);
+    private Sprite spriteSettingsHovered = AssetManager.getAssetFromType(SpriteSheet.class, AssetConfig.Files.Images.SpriteSheets.FLAT_BUTTONS_SETTINGS).getSprite(9, 1);
+    private Sprite spriteSettingsCurrent = spriteSettings;
   public StartMenuInitializer(Scene scene) {
     super(scene);
   }
@@ -69,24 +81,40 @@ public class StartMenuInitializer extends MenuInitializer {
     BImGui.image(AssetManager.getAssetFromType(AssetConfig.Files.Images.Backgrounds.MOUNTAINS, Texture.class), Window.getWidth(), Window.getHeight());
 
     Menu buttonMenu = new Menu(2, 2, buttonSize, alignment, buttonSpacing, margin);
-    if (ImGui.button("Editor", buttonSize.x, buttonSize.y)) {
-      System.out.println("Editor");
+
+
+    // Display Text in the middle of the button
+    if (BImGui.imageButton(spriteEditorCurrent, buttonSize.x, buttonSize.y)) {
       Window.changeScene(SceneType.EDITOR);
     }
-
+    if (ImGui.isItemHovered()) {
+        spriteEditorCurrent = spriteEditorHovered;
+    } else {
+        spriteEditorCurrent = spriteEditor;
+    }
 
     buttonMenu.nextColumn();
-    if (ImGui.button("Play", buttonSize.x, buttonSize.y)) {
-      System.out.println("Play");
+
+    if (BImGui.imageButton(spriteGameCurrent, buttonSize.x, buttonSize.y)) {
       Window.changeScene(SceneType.GAME);
     }
-
+    if (ImGui.isItemHovered()) {
+        spriteGameCurrent = spriteGameHovered;
+    } else {
+        spriteGameCurrent = spriteGame;
+    }
 
     buttonMenu.nextRow();
-    if (ImGui.button("Settings", buttonSize.x, buttonSize.y)) {
-      System.out.println("Settings");
+
+    if (BImGui.imageButton(spriteSettingsCurrent, buttonSize.x, buttonSize.y)) {
       Window.changeScene(SceneType.SETTINGS_MENU);
     }
+    if (ImGui.isItemHovered()) {
+        spriteSettingsCurrent = spriteSettingsHovered;
+    } else {
+        spriteSettingsCurrent = spriteSettings;
+    }
+
 
 
     ImGui.popStyleColor(3);

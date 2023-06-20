@@ -4,6 +4,7 @@ import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheetConfig;
 import Burst.Engine.Source.Core.Assets.Graphics.SpriteSheetUsage;
 
 import java.util.List;
+
 /**
  * @author Oliver Schuetz
  */
@@ -79,10 +80,12 @@ public class AssetConfig {
         public static final String SELECT = Directories.UI + "select.png";
         public static final String SELECT_ROUND = Directories.UI + "select_round.png";
         public static final String FLAT_BUTTONS = Directories.UI + "flat_buttons.png";
+        public static final String FLAT_BUTTONS_EDITOR = Directories.UI + "flat_buttons_editor.png";
+        public static final String FLAT_BUTTONS_GAME = Directories.UI + "flat_buttons_game.png";
+        public static final String FLAT_BUTTONS_SETTINGS = Directories.UI + "flat_buttons_settings.png";
         public static final String FLAT_BUTTONS_ROUND = Directories.UI + "flat_buttons_round.png";
 
         public static final String UI = Directories.UI + "ui.png";
-
 
 
         //* ======================= Blocks ================================
@@ -140,7 +143,7 @@ public class AssetConfig {
         //*________________________________________________________________________________________\\
       }
 
-      public static class Backgrounds{
+      public static class Backgrounds {
         public static final String MOUNTAINS = Directories.BACKGROUNDS + "background_1.png";
         public static final String DESERT = Directories.BACKGROUNDS + "background_2.png";
         public static final String FOREST = Directories.BACKGROUNDS + "background_3.png";
@@ -155,27 +158,46 @@ public class AssetConfig {
   //!========================  SpriteSheet Configs  =========================
   //!========================================================================
   public static final List<SpriteSheetConfig> SPRITESHEETS_CONFIG = List.of(
+          // Gizmos
           new SpriteSheetConfig(Files.Images.SpriteSheets.GIZMOS, SpriteSheetUsage.UI, 24, 48, 0),
+
+          // UI
+          // Reset Buttons ...
           new SpriteSheetConfig(Files.Images.SpriteSheets.BUTTONS, SpriteSheetUsage.UI, 16, 16, 0),
+          // Flat Buttons ...
+          new SpriteSheetConfig(Files.Images.SpriteSheets.FLAT_BUTTONS, SpriteSheetUsage.UI, 96, 32, 0),
+          new SpriteSheetConfig(Files.Images.SpriteSheets.FLAT_BUTTONS_EDITOR, SpriteSheetUsage.UI, 96, 32, 0),
+          new SpriteSheetConfig(Files.Images.SpriteSheets.FLAT_BUTTONS_GAME, SpriteSheetUsage.UI, 96, 32, 0),
+            new SpriteSheetConfig(Files.Images.SpriteSheets.FLAT_BUTTONS_SETTINGS, SpriteSheetUsage.UI, 96, 32, 0),
+          // Flat Buttons Round ...
+          new SpriteSheetConfig(Files.Images.SpriteSheets.FLAT_BUTTONS_ROUND, SpriteSheetUsage.UI, 96, 32, 0),
+
+          // Select ...
+          new SpriteSheetConfig(Files.Images.SpriteSheets.SELECT, SpriteSheetUsage.UI, 32, 32, 0),
+          // Select Round ...
+          new SpriteSheetConfig(Files.Images.SpriteSheets.SELECT_ROUND, SpriteSheetUsage.UI, 32, 32, 0),
+
+          // Icons
           new SpriteSheetConfig(Files.Images.SpriteSheets.ICONS, SpriteSheetUsage.UI, 16, 16, 16),
+
+
+
+          // Blocks
           new SpriteSheetConfig(Files.Images.SpriteSheets.BLOCKS, SpriteSheetUsage.BLOCK, 16, 16, 0,
-                  new int[]{16, 16, 4, 13, 10, 9, 7, 9, 14, 17, 18, 5, 21, 8, 3, 20
+                  new int[]{16, 16, 4, 13, 10, 9, 7, 9, 14, 17, 18, 5, 21, 8, 3, 20, 7, 20, 14, 27, 30, 28, 30, 17, 17, 8, 5, 0, 0, 14, 14, 14}),
 
-                          , 7, 20, 14,
-                          27, 30, 28, 30,
-                          17, 17,
-                          8, 5,
 
-                          0, 0,
-                          14, 14, 14}),
+
+          // Aura
           new SpriteSheetConfig(Files.Images.SpriteSheets.AURA, SpriteSheetUsage.PLAYER, 100, 100, 0),
+          // Apex
           new SpriteSheetConfig(Files.Images.SpriteSheets.APEX, SpriteSheetUsage.PLAYER, 80, 80, 0),
+          // Helix
           new SpriteSheetConfig(Files.Images.SpriteSheets.HELIX_IDLE, SpriteSheetUsage.PLAYER, 96, 96, 0),
           new SpriteSheetConfig(Files.Images.SpriteSheets.HELIX_RUN, SpriteSheetUsage.PLAYER, 96, 96, 0),
+          // Genesis
           new SpriteSheetConfig(Files.Images.SpriteSheets.GENESIS_IDLE, SpriteSheetUsage.PLAYER, 231, 190, 0),
           new SpriteSheetConfig(Files.Images.SpriteSheets.GENESIS_RUN, SpriteSheetUsage.PLAYER, 231, 190, 0),
-          new SpriteSheetConfig(Files.Images.SpriteSheets.SOLARIS, SpriteSheetUsage.PLAYER, 55, 67, 0)
-  );
-
-
+          // Solaris
+          new SpriteSheetConfig(Files.Images.SpriteSheets.SOLARIS, SpriteSheetUsage.PLAYER, 55, 67, 0));
 }
